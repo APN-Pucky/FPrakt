@@ -1,0 +1,4 @@
+1 cent:
+Eisen mit Kupfer Mantel
+94,35% 	Fe
+5,65% 	Cu
