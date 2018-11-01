@@ -178,6 +178,7 @@
 	
 	\begin{table}[H]
 		\centering
+		\resizebox{\textwidth}{!}{
 		\begin{tabular}{ c | c || c | c | c }
 			Probe (Angabe)&Energie $E_\text{Mess}$ in \SI{}{keV} & Element & char. Übergang &  Energie $E_\text{NIST}$ in \SI{}{keV} \\ \hline \hline
 			
@@ -216,6 +217,7 @@
 			\hline
 			
 		\end{tabular}
+		}
 		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
 		\label{tb_peaks_known} 
 	\end{table}
@@ -282,6 +284,7 @@
 	\subsubsection{Bestimmung der Zusammensetzung}
 	\begin{table}[H]
 		\centering
+		\resizebox{\textwidth}{!}{
 		\begin{tabular}{ c | c || c | c | c }
 			Probe (Angabe)&Energie $E$ in \SI{}{keV} & vermt. Element & char. Übergang &  Energie $E$ in \SI{}{keV} \\ \hline \hline					
 			
@@ -326,42 +329,44 @@
 			& \SI{14.7821+-0.364269}{} &Pb &L$_\beta$&  \SI{  14 .7915(52)    }{} \\
 			\hline
 			
-			13 & \SI{8.00052+-0.25263}{} &Zn &  \SI{}{} \\
-			& \SI{14.8774+-0.26906}{} &Zn &  \SI{}{} \\
-			& \SI{4.7454+-0.480512}{} &Zn &  \SI{}{} \\
-			& \SI{8.88531+-0.246938}{} &Zn &  \SI{}{} \\
-			& \SI{16.7011+-0.297662}{} &Zn &  \SI{}{} \\ \hline
+			13 & \SI{8.00052+-0.25263}{} & Cu & $\text{K}_\alpha$ &  \SI{8,0278416(26)}{}\\
+			& \SI{14.8774+-0.26906}{} & Y & $\text{K}_\alpha$ & \SI{14,88294(26)}{} \\
+			& \SI{4.7454+-0.480512}{} & I & $\text{L}_\beta$ & \SI{4,66608(23)}{} \\
+			& \SI{8.88531+-0.246938}{} & Cu &  $\text{K}_\beta$ & \SI{8,905413(38)}{}\\
+			& \SI{16.7011+-0.297662}{} & Y & $\text{K}_\beta$ &  \SI{16,6447(12)}{} \\ \hline
 			
-			14 & \SI{3.07729+-0.327119}{} &Zn &  \SI{}{} \\
-			& \SI{7.7277+-0.526665}{} &Zn &  \SI{}{} \\
-			& \SI{11.8938+-0.476134}{} &Zn &  \SI{}{} \\
-			& \SI{15.0918+-0.63684}{} &Zn &  \SI{}{} \\
-			& \SI{18.1496+-0.886139}{} &Zn &  \SI{}{} \\
-			& \SI{22.0709+-0.283243}{} &Zn &  \SI{}{} \\
-			& \SI{24.9643+-0.334121}{} &Zn &  \SI{}{} \\ \hline
+			14 & \SI{3.07729+-0.327119}{} &Ag &  $\text{L}_\alpha$ &  \SI{3,150974(36) }{} \\
+			& \SI{7.7277+-0.526665}{} & Co & $\text{K}_\beta$ &  \SI{7,70598(21)}{} \\
+			& \SI{11.8938+-0.476134}{} & Au & $\text{L}_\beta $ & \SI{11,8287(14) }{} \\
+			& \SI{15.0918+-0.63684}{} & Pb & $\text{L}_\beta $ &  \SI{15,1014(54)}{} \\
+			& \SI{18.1496+-0.886139}{} & Zr & $\text{L}_\gamma $ &  \SI{17,9943(19)}{} \\
+			& \SI{22.0709+-0.283243}{} &Ag & $\text{K}_\alpha$ &  \SI{21,99030(10)}{} \\
+			& \SI{24.9643+-0.334121}{} &Ag & $\text{K}_\beta$ &  \SI{24,94242(30)}{} \\ \hline
 			
-			15 & \SI{7.99436+-0.251832}{} &Zn &  \SI{}{} \\
-			& \SI{8.88485+-0.218074}{} &Zn &  \SI{}{} \\ \hline
+			15 & \SI{7.99436+-0.251832}{} & Cu & $\text{K}_\alpha$ &  \SI{8,0278416(26)}{} \\
+			& \SI{8.88485+-0.218074}{} &  Cu &  $\text{K}_\beta$ & \SI{8,905413(38)}{} \\ \hline
 			
-			16 (1-Cent)& \SI{7.98818+-0.234997}{} &Zn &  \SI{}{} \\
-			& \SI{8.8637+-0.214616}{} &Zn &  \SI{}{} \\ \hline
+			16 (1-Cent)& \SI{7.98818+-0.234997}{} & Cu & $\text{K}_\alpha$ &  \SI{8,0278416(26)}{} \\
+			& \SI{8.8637+-0.214616}{} & Cu &  $\text{K}_\beta$ & \SI{8,905413(38)}{} \\ \hline
 			
-			17 & \SI{7.98377+-0.225856}{} &Zn &  \SI{}{} \\
-			& \SI{8.85058+-0.213236}{} &Zn &  \SI{}{} \\ \hline
+			17 & \SI{7.98377+-0.225856}{} & Cu & $\text{K}_\alpha$ & \SI{8,0278416(26)}{} \\
+			& \SI{8.85058+-0.213236}{} & Cu & $\text{K}_\beta$ & \SI{8,905413(38)}{} \\ \hline
 			
-			18 & \SI{7.41993+-0.228314}{} &Zn &  \SI{}{} \\
-			& \SI{8.21747+-0.205213}{} &Zn &  \SI{}{} \\ \hline
+			18 & \SI{7.41993+-0.228314}{} & Ni & $\text{K}_\alpha$ & \SI{7,4610343(45)}{} \\
+			& \SI{8.21747+-0.205213}{} & Ni & $\text{K}_\beta$ &   \SI{8,264775(17)}{} \\ \hline
 			
-			19 & \SI{5.40493+-0.248856}{} &Zn &  \SI{}{} \\
-			& \SI{6.33056+-0.227739}{} &Zn &  \SI{}{} \\
-			& \SI{7.05903+-0.435629}{} &Zn &  \SI{}{} \\ \hline
+			19 & \SI{5.40493+-0.248856}{} & Cr & $\text{K}_\alpha$ & \SI{5,4055384(71)}{} \\
+			& \SI{6.33056+-0.227739}{} & Fe & $\text{K}_\alpha$ & \SI{ 6,3910264(99)}{} \\
+			& \SI{7.05903+-0.435629}{} & Fe &  $\text{K}_\beta $ & \SI{7,058175(16)}{} \\ \hline
 			
-			20 (Kronkorken) & \SI{4.52319+-0.305646}{} &Zn &  \SI{}{} \\
-			& \SI{6.35883+-0.22392}{} &Zn &  \SI{}{} \\
-			& \SI{7.03423+-0.206604}{} &Zn &  \SI{}{} \\ \hline
+			20 (Kronkorken) & \SI{4.52319+-0.305646}{} & Sn & $\text{L}_\beta $ &  \SI{4,37683(46)}{} \\ %Ti wäre näher dran
+			& \SI{6.35883+-0.22392}{} & Fe & $\text{K}_\alpha $ &  \SI{6,3910264(99)}{} \\
+			& \SI{7.03423+-0.206604}{} & Fe & $\text{K}_\beta $ &  \SI{7,058175(16)}{} \\ \hline
 		\end{tabular}
+		}
 		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
-		\label{tb_peaks_unknown} 
+		\label{tb_peaks_unknown}
+		
 	\end{table}
 	
 	\subsection{Diskussion}
@@ -371,6 +376,8 @@
 	
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
+	
+	%TODO Kritik: Häufig nicht eindeutig und nur mit Annahmen zuordnebar
 	
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
