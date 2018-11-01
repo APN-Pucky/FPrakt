@@ -1,5 +1,5 @@
 Es soll bestimmt werden,  aus welchem Material die 
 einzelnen Proben bestehen, und welche 
 quantitative Zusammensetzung sie haben. Weiter soll
- das Moseleysche Gestz bestätigt und die 
-Abschirmkonstante bestimmt werden. 
+ das **Moseleysche Gestz** bestätigt und die 
+**Abschirmkonstante** bestimmt werden. 
