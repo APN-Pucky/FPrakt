@@ -164,19 +164,49 @@
 	
 	\begin{table}[H]
 		\centering
+		\begin{tabular}{ c | c || c | c | c }
+			Probe (Angabe)&Energie $E$ in \SI{}{keV} & Element & char. Übergang &  Energie $E$ in \SI{}{keV} \\ \hline \hline
+			
+			1 (Zn)& \SI{6.38034+-0.278836}{} & - &  -&- \\
+			& \SI{8.58804+-0.233242}{} &Zn &K$\alpha$&  \SI{8.615823(73)}{} \\
+			& \SI{9.53296+-0.221475}{} &Zn &K$\beta$ &  \SI{9.57203(22)}{} \\ \hline
+			
+			2 (Fe)& \SI{3.44288+-0.335591}{} &- &  -& - \\
+			& \SI{6.39075+-0.235386}{} &Fe& K$\alpha$ &  \SI{6.3910264(99)}{} \\
+			& \SI{7.08998+-0.190662}{} &Fe& K$\beta$&  \SI{7.058175(99)}{} \\
+			 \hline
+			
+			3 (Cu)& \SI{8.00053+-0.233583}{} &Cu& K$\alpha$ &  \SI{8.0278416(26)}{} \\
+			& \SI{8.87574+-0.209472}{} &Cu& K$\beta$ &  \SI{8.905413(38) }{}  \\ \hline		
+			
+			7 (Ti)
+			& \SI{1.39218+-0.0951656}{} &-& -&  -\SI{}{} \\ 
+			& \SI{2.54705+-0.562162}{} &-& -&  -\SI{}{} \\
+			& \SI{4.54007+-0.270266}{} &Ti& K$\alpha$ &  \SI{4. 5108991(94)}{} \\
+			& \SI{6.40999+-0.297794}{} &-&- &  -\SI{}{} \\
+			\hline
+			
+			8 (Mo)
+			& \SI{7.79212+-0.572622}{} &-& -&  -\SI{}{} \\
+			& \SI{11.1937+-0.586733}{} &-&- &  -\SI{}{} \\ 
+			& \SI{17.3891+-0.263783}{} &Mo&K$\alpha$&  \SI{17. 37429(29) }{} \\
+			& \SI{19.5816+-0.291623}{} &Mo&K$\beta$ &  \SI{19. 59025(41) }{} \\
+			\hline
+			
+			21 (Ag) 
+			& \SI{3.05354+-0.315386}{} &Ag&L$\alpha$ &  \SI{3 .150974(36) }{} \\
+			& \SI{22.0666+-0.247465}{} &Ag&K$\alpha$ &  \SI{21. 99030(10)}{} \\
+			& \SI{24.9605+-0.264321}{} &Ag&K$\beta$ &  \SI{24. 94242(30)   }{} \\ 
+			\hline
+			
+		\end{tabular}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
+		\label{tb_peaks_known} 
+	\end{table}
+	\begin{table}[H]
+		\centering
 		\begin{tabular}{ c | c || c | c }
-			Probe (Angabe)&Energie $E$ in \SI{}{keV} & Element (char. Übergang) &  Energie $E$ in \SI{}{keV} \\ \hline \hline
-			
-			1 (Zn)& \SI{8.58804+-0.233242}{} &Zn (K$\alpha_2$)&  \SI{8.61622(50)}{} \\
-			& \SI{9.53296+-0.221475}{} &Zn (K$\beta_1$) &  \SI{9.5227(14)}{} \\
-			& \SI{6.38034+-0.278836}{} & - &  - \\ \hline
-			
-			2 (Fe)& \SI{6.39075+-0.235386}{} &Fe (K$\alpha$) &  \SI{6.4030}{} \\
-			& \SI{7.08998+-0.190662}{} &Fe &  \SI{7.0570}{} \\
-			& \SI{3.44288+-0.335591}{} &- &  - \\ \hline
-			
-			3 (Cu)& \SI{8.00053+-0.233583}{} &Cu (K$\alpha_2$) &  \SI{8.04811(45)}{} \\
-			& \SI{8.87574+-0.209472}{} &Cu (K$\beta_2$) &  \SI{8.9040(11) }{}  \\ \hline
+			Probe (Angabe)&Energie $E$ in \SI{}{keV} & vermt. Element (char. Übergang) &  Energie $E$ in \SI{}{keV} \\ \hline \hline					
 			
 			4 (20 Cent)& \SI{7.98262+-0.224069}{} &Zn &  \SI{}{} \\
 			& \SI{8.7734+-0.247708}{} &Zn &  \SI{}{} \\ \hline
@@ -189,24 +219,6 @@
 			& \SI{7.07128+-0.203035}{} &Zn &  \SI{}{} \\
 			& \SI{3.39677+-0.379146}{} &Zn &  \SI{}{} \\ \hline
 			
-			7 (Ti)& \SI{4.54007+-0.270266}{} &Zn &  \SI{}{} \\
-			& \SI{6.40999+-0.297794}{} &Zn &  \SI{}{} \\
-			& \SI{2.54705+-0.562162}{} &Zn &  \SI{}{} \\
-			& \SI{1.39218+-0.0951656}{} &Zn &  \SI{}{} \\ \hline
-			
-			8 (Mo)& \SI{17.3891+-0.263783}{} &Zn &  \SI{}{} \\
-			& \SI{19.5816+-0.291623}{} &Zn &  \SI{}{} \\
-			& \SI{7.79212+-0.572622}{} &Zn &  \SI{}{} \\
-			& \SI{11.1937+-0.586733}{} &Zn &  \SI{}{} \\ \hline
-			
-		\end{tabular}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die Vergleichsenergien wurden dem Periodensystem des Programms Phywe Measure 4 entnommen.}
-		\label{tb_peaks_known} 
-	\end{table}
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{ c | c || c | c }
-			Probe (Angabe)&Energie $E$ in \SI{}{keV} & vermt. Element (char. Übergang) &  Energie $E$ in \SI{}{keV} \\ \hline \hline		
 			9 & \SI{6.36714+-0.297413}{} &Zn &  \SI{}{} \\
 			& \SI{9.52768+-0.218296}{} &Zn &  \SI{}{} \\
 			& \SI{8.57041+-0.24602}{} &Zn &  \SI{}{} \\ \hline
@@ -256,12 +268,8 @@
 			20 (Kronkorken) & \SI{4.52319+-0.305646}{} &Zn &  \SI{}{} \\
 			& \SI{6.35883+-0.22392}{} &Zn &  \SI{}{} \\
 			& \SI{7.03423+-0.206604}{} &Zn &  \SI{}{} \\ \hline
-			
-			21 (Ag) & \SI{3.05354+-0.315386}{} &Zn &  \SI{}{} \\
-			& \SI{22.0666+-0.247465}{} &Zn &  \SI{}{} \\
-			& \SI{24.9605+-0.264321}{} &Zn &  \SI{}{} \\ \hline
 		\end{tabular}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die Vergleichsenergien wurden dem Periodensystem des Programms Phywe Measure 4 entnommen.}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
 		\label{tb_peaks_unknown} 
 	\end{table}
 	
