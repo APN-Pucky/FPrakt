@@ -65,7 +65,7 @@
 	locale=DE,
 	separate-uncertainty
 }
-%\bibliography{BA-C-04_EDX_22-10-2018_References}
+\bibliography{BA-C-04_EDX_22-10-2018_References}
 
 
 \begin{document}
@@ -85,7 +85,7 @@
 		
 		durchgeführt am 22.10.2018\par
 		betreut von\par
-		{\large Johann Preuß} %TODO Johann Adrian Preuß? Irrelephant?!?
+		{\large Johann Preuß} %TODO Johann Adrian Preuß? Irrelephant?!? Neeeee!
 		
 		\vfill
 		
@@ -106,12 +106,41 @@
 	
 	
 	\section{Methoden}
-	%TODO Bilder von der Website klauen
-	%TODO einer will Präsens
+	Für die Versuchsdurchführung wird ein Röntgengerät, ein Vielkanalanalysator und verschiedene Proben größtenteils unbekannter Natur verwendet. %X-ray unit, 35 kV, basic unit
+	Das Röntgengerät und die Proben sind in \cref{fig_aufbau} dargestellt.
+	Röntgenphotonen können durch eine Blende in die Versuchskammer eintreten, in der sich ein Probenhalter und eine PIN-Diode.
+	Die Diode ist mit dem Vielkanalanalysator verbunden.
+	Hier wird ausgenutzt, dass die Anzahl der in der Detektordiode erzeugten Elektron-Loch-Paare als proportional zur Energie des eingetretenen Röntgenphotons angenommen werden kann.
+	Zunächst wird der Probenhalter in einen Winkel von \SI{45}{\degree} und der Detektor in einen Winkel von \SI{90}{\degree} zum Röntgenstrahl gebracht.
+	Diese Winkel werden mit dem Auge abgeschätzt, da die Verwendung des eingebauten Goniometers zu einer Stellung führt, die nach Augenmaß nicht dem gewünschten Winkel entspricht.
+	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert. %TODO welche Elemente zum Kali? Eisen und (Zink?)?
+	Dann werden die Spektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
+	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
+	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben bestimmt beziehungsweise überprüft werden. %bzw. oder beziehungsweise?
+	Außerdem werden die Massenanteile der Elemente bestimmt und das Moseleysche Gesetz überprüft.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{images/aufbau}
+			\label{fig_aufb_geraet}
+			\caption{Röntgengerät \cite{Anleitung}}
+		\end{subfigure}%
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{images/proben}
+			\label{fig_aufb_proben}
+			\caption{Proben}
+		\end{subfigure}
+		\caption{
+			\label{fig_aufbau}
+			Verwendetes Röntgengerät und Proben. Die Probe mit der Nummer Vier ist nicht im Bild, da sie zum Zeitpunkt der Aufnahme gerade gemessen wurde.}%TODO Ist das wichtig zu erwähnen?
+		\centering
+		
+	\end{figure}
 	
 	%TODO erwähnen max energie 35kev strahlugn
-	%TODO so klaibrier gelümps
-	
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 	
@@ -244,5 +273,5 @@
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
 	%TODO Tabelle + Bilder mit Beschriftung
-	%\printbibliography
+	\printbibliography
 \end{document}
