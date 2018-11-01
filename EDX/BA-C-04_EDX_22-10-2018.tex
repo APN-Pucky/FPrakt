@@ -46,6 +46,7 @@
 \MakeOuterQuote{"}
 % Zitieren, Bibliografie
 \usepackage[sorting=none]{biblatex}
+\usepackage{csvsimple}
 
 
 % Zur Darstellung von Webadressen
@@ -84,7 +85,7 @@
 		
 		durchgeführt am 22.10.2018\par
 		betreut von\par
-		{\large Johann Preuß} %TODO Johann Adrian Preuß?
+		{\large Johann Preuß} %TODO Johann Adrian Preuß? Irrelephant?!?
 		
 		\vfill
 		
@@ -108,6 +109,8 @@
 	%TODO Bilder von der Website klauen
 	%TODO einer will Präsens
 	
+	%TODO erwähnen max energie 35kev strahlugn
+	
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 	
@@ -117,6 +120,114 @@
 	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
 	\subsection{Datenanalyse}
 	%TODO Berechung nach Aufgabenstellung
+	Aus den gemessenen Energiespektren wurden die Energien der Peaks mittels eines Gauß-Fit bestimmt.
+	Die Standardabweichung ergibt sich dabei aus der FWHM:
+	\begin{equation}
+		\sigma = \frac{\text{FWHM}}{2\sqrt{\ln 2}}
+	\end{equation}
+	Die Ergebnisse sind in \cref{tb_peaks_known} und \cref{tb_peaks_unknown} aufgeführt.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c || c | c }
+			Probe (Angabe)&Energie $E$ in \SI{}{keV} & Element (char. Übergang) &  Energie $E$ in \SI{}{keV} \\ \hline \hline
+			
+			1 (Zn)& \SI{8.58804+-0.233242}{} &Zn &  \SI{}{} \\
+			& \SI{9.53296+-0.221475}{} &Zn &  \SI{}{} \\
+			& \SI{6.38034+-0.278836}{} &Zn &  \SI{}{} \\ \hline
+			
+			2 (Fe)& \SI{6.39075+-0.235386}{} &Zn &  \SI{}{} \\
+			& \SI{7.08998+-0.190662}{} &Zn &  \SI{}{} \\
+			& \SI{3.44288+-0.335591}{} &Zn &  \SI{}{} \\ \hline
+			
+			3 (Cu)& \SI{8.00053+-0.233583}{} &Zn &  \SI{}{} \\
+			& \SI{8.87574+-0.209472}{} &Zn &  \SI{}{} \\ \hline
+			
+			4 (20 Cent)& \SI{7.98262+-0.224069}{} &Zn &  \SI{}{} \\
+			& \SI{8.7734+-0.247708}{} &Zn &  \SI{}{} \\ \hline
+			
+			5 (Zn-Edelstahl)& \SI{8.5778+-0.252635}{} &Zn &  \SI{}{} \\
+			& \SI{9.53652+-0.22887}{} &Zn &  \SI{}{} \\
+			& \SI{6.41683+-0.35613}{} &Zn &  \SI{}{} \\ \hline
+			
+			6 (Edelstahl)& \SI{6.36975+-0.246009}{} &Zn &  \SI{}{} \\
+			& \SI{7.07128+-0.203035}{} &Zn &  \SI{}{} \\
+			& \SI{3.39677+-0.379146}{} &Zn &  \SI{}{} \\ \hline
+			
+			7 (Ti)& \SI{4.54007+-0.270266}{} &Zn &  \SI{}{} \\
+			& \SI{6.40999+-0.297794}{} &Zn &  \SI{}{} \\
+			& \SI{2.54705+-0.562162}{} &Zn &  \SI{}{} \\
+			& \SI{1.39218+-0.0951656}{} &Zn &  \SI{}{} \\ \hline
+			
+			8 (Mo)& \SI{17.3891+-0.263783}{} &Zn &  \SI{}{} \\
+			& \SI{19.5816+-0.291623}{} &Zn &  \SI{}{} \\
+			& \SI{7.79212+-0.572622}{} &Zn &  \SI{}{} \\
+			& \SI{11.1937+-0.586733}{} &Zn &  \SI{}{} \\ \hline
+			
+		\end{tabular}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die Vergleichsenergien wurden dem Periodensystem des Programms Phywe Measure 4 entnommen.}
+		\label{tb_peaks_known} 
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c || c | c }
+			Probe (Angabe)&Energie $E$ in \SI{}{keV} & vermt. Element (char. Übergang) &  Energie $E$ in \SI{}{keV} \\ \hline \hline		
+			9 & \SI{6.36714+-0.297413}{} &Zn &  \SI{}{} \\
+			& \SI{9.52768+-0.218296}{} &Zn &  \SI{}{} \\
+			& \SI{8.57041+-0.24602}{} &Zn &  \SI{}{} \\ \hline
+			
+			10 & \SI{7.4251+-0.243006}{} &Zn &  \SI{}{} \\
+			& \SI{8.23717+-0.212733}{} &Zn &  \SI{}{} \\ \hline
+			
+			11 & \SI{7.79736+-0.404885}{} &Zn &  \SI{}{} \\
+			& \SI{9.00316+-0.164444}{} &Zn &  \SI{}{} \\
+			& \SI{5.92928+-0.455814}{} &Zn &  \SI{}{} \\ \hline
+			
+			12 & \SI{10.5011+-0.261044}{} &Zn &  \SI{}{} \\
+			& \SI{12.562+-0.289138}{} &Zn &  \SI{}{} \\
+			& \SI{14.7821+-0.364269}{} &Zn &  \SI{}{} \\
+			& \SI{9.11464+-0.376278}{} &Zn &  \SI{}{} \\ \hline
+			
+			13 & \SI{8.00052+-0.25263}{} &Zn &  \SI{}{} \\
+			& \SI{14.8774+-0.26906}{} &Zn &  \SI{}{} \\
+			& \SI{4.7454+-0.480512}{} &Zn &  \SI{}{} \\
+			& \SI{8.88531+-0.246938}{} &Zn &  \SI{}{} \\
+			& \SI{16.7011+-0.297662}{} &Zn &  \SI{}{} \\ \hline
+			
+			14 & \SI{3.07729+-0.327119}{} &Zn &  \SI{}{} \\
+			& \SI{7.7277+-0.526665}{} &Zn &  \SI{}{} \\
+			& \SI{11.8938+-0.476134}{} &Zn &  \SI{}{} \\
+			& \SI{15.0918+-0.63684}{} &Zn &  \SI{}{} \\
+			& \SI{18.1496+-0.886139}{} &Zn &  \SI{}{} \\
+			& \SI{22.0709+-0.283243}{} &Zn &  \SI{}{} \\
+			& \SI{24.9643+-0.334121}{} &Zn &  \SI{}{} \\ \hline
+			
+			15 & \SI{7.99436+-0.251832}{} &Zn &  \SI{}{} \\
+			& \SI{8.88485+-0.218074}{} &Zn &  \SI{}{} \\ \hline
+			
+			16 (1-Cent)& \SI{7.98818+-0.234997}{} &Zn &  \SI{}{} \\
+			& \SI{8.8637+-0.214616}{} &Zn &  \SI{}{} \\ \hline
+			
+			17 & \SI{7.98377+-0.225856}{} &Zn &  \SI{}{} \\
+			& \SI{8.85058+-0.213236}{} &Zn &  \SI{}{} \\ \hline
+			
+			18 & \SI{7.41993+-0.228314}{} &Zn &  \SI{}{} \\
+			& \SI{8.21747+-0.205213}{} &Zn &  \SI{}{} \\ \hline
+			
+			19 & \SI{5.40493+-0.248856}{} &Zn &  \SI{}{} \\
+			& \SI{6.33056+-0.227739}{} &Zn &  \SI{}{} \\
+			& \SI{7.05903+-0.435629}{} &Zn &  \SI{}{} \\ \hline
+			
+			20 (Kronkorken) & \SI{4.52319+-0.305646}{} &Zn &  \SI{}{} \\
+			& \SI{6.35883+-0.22392}{} &Zn &  \SI{}{} \\
+			& \SI{7.03423+-0.206604}{} &Zn &  \SI{}{} \\ \hline
+			
+			21 (Ag) & \SI{3.05354+-0.315386}{} &Zn &  \SI{}{} \\
+			& \SI{22.0666+-0.247465}{} &Zn &  \SI{}{} \\
+			& \SI{24.9605+-0.264321}{} &Zn &  \SI{}{} \\ \hline
+		\end{tabular}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die Vergleichsenergien wurden dem Periodensystem des Programms Phywe Measure 4 entnommen.}
+		\label{tb_peaks_unknown} 
+	\end{table}
 	
 	\subsection{Diskussion}
 	%TODO Bezug/Nutzen oder sonst was
