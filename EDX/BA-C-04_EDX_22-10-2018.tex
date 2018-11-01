@@ -100,22 +100,27 @@
 	%TODO Hypothese	und deren Ergebnis, wenn Hypothese ist, dass nur Theorie erfüllt, sagen: Erwartung: Theorie aus einführung (mit reflink) erfüllt
 	%TODO Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	%TODO Was wurde gemacht
+	Die Energiedispersive Röntgenspektroskopie ist ein Verfahren, welches es den Materialwissenschaften erlaubt mithilfe des von einer Probe, die von einem Röntgenstrahl mit kontinuierlichem Spektrum beschossen wird, ausgesandten Röntgenfluoreszenzspektrums die Zusammensetzung der Probe zu bestimmen.
+	Es sollen mithilfe eines Röntgengeräts und einigen bekannten Proben Röntgenfluoreszenzspektren verschiedener unbekannter Proben aufgezeichnet werden.%sollen kann man denke ich so benutzen...
+	Auf Basis dieser Spektren wird die elementare Zusammensetzung der unbekannten Proben untersucht, wobei nicht nur die Art der vorkommenden Elemente, sondern auch ihr prozentualer Anteil an der Gesamtprobe bestimmt wird. %TODO ist das zweite Komma richtig?
+	Zusätzlich kann das Moseleysche Gesetz bestätigt werden. %TODO hoffentlich...
 	
 	%\section{Einführung} %optional
 	
 	
 	\section{Methoden}
 	Für die Versuchsdurchführung wird ein Röntgengerät, ein Vielkanalanalysator und verschiedene Proben größtenteils unbekannter Natur verwendet. %X-ray unit, 35 kV, basic unit
-	Das Röntgengerät und die Proben sind in \cref{fig_aufbau} dargestellt.
+	Das Röntgengerät, welches mit einer Eisen-Anode arbeitet, und die Proben sind in \cref{fig_aufbau} dargestellt.
 	Röntgenphotonen können durch eine Blende in die Versuchskammer eintreten, in der sich ein Probenhalter und eine PIN-Diode.
 	Die Diode ist mit dem Vielkanalanalysator verbunden.
 	Hier wird ausgenutzt, dass die Anzahl der in der Detektordiode erzeugten Elektron-Loch-Paare als proportional zur Energie des eingetretenen Röntgenphotons angenommen werden kann.
 	Das Röntgengerät wird mit einer Spannung von \SI{35}{\kilo \electronvolt} betrieben, weshalb dies die maximal erwartbare messbare Energie ist.
 	Zunächst wird der Probenhalter in einen Winkel von \SI{45}{\degree} und der Detektor in einen Winkel von \SI{90}{\degree} zum Röntgenstrahl gebracht.
 	Diese Winkel werden mit dem Auge abgeschätzt, da die Verwendung des eingebauten Goniometers zu einer Stellung führt, die nach Augenmaß nicht dem gewünschten Winkel entspricht.
+	
 	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
 	Zur Kalibrierung wird Eisen und Molybdän verwendet.
-	Dann werden die Spektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
+	Dann werden die Röntgenfluoreszenzspektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
 	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
 	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben bestimmt beziehungsweise überprüft werden. %bzw. oder beziehungsweise?
 	Außerdem werden die Massenanteile der Elemente bestimmt und das Moseleysche Gesetz überprüft.
@@ -128,7 +133,7 @@
 			\centering
 			\includegraphics[width=1\textwidth]{images/aufbau}
 			\label{fig_aufb_geraet}
-			\caption{Röntgengerät \cite{Anleitung}}
+			\caption{Röntgengerät}
 		\end{subfigure}%
 		\begin{subfigure}[t]{0.5\textwidth}
 			\centering
@@ -143,13 +148,21 @@
 		
 	\end{figure}
 	
-	%TODO erwähnen max energie 35kev strahlugn
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 	
 
 	\subsection{Beobachtung}
 	%TODO Einflüsse von veränderten Parametern auf Messung
+	
+	\begin{figure}[H]
+		\includegraphics[width=0.9\textwidth]{images/Silbermuenze}
+		\centering
+		\caption{Röntgenfluoreszenzspektrum einer Silbermünze. Die Peaks der $\text{L}_\alpha$, $\text{K}_\alpha$ und $\text{K}_\beta$ Linien sind deutlich zu erkennen. Abseits dieser Peaks sind mehrere weitere signifikante Abweichungen von Null zu erkennen.} %TODO Das muss man vermutlich erklären, wenn man es erwähnt.
+		\label{fig_ag_plot}
+		\centering
+	\end{figure}
+	
 	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
 	\subsection{Datenanalyse}
 	\subsubsection{Bestimmung der Abschirmkonstanten}
