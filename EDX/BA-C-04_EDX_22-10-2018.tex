@@ -100,7 +100,6 @@
 	%TODO Hypothese	und deren Ergebnis, wenn Hypothese ist, dass nur Theorie erfüllt, sagen: Erwartung: Theorie aus einführung (mit reflink) erfüllt
 	%TODO Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	%TODO Was wurde gemacht
-	%TODO manche leute wollen Passiv oder "man", manche nicht
 	
 	%\section{Einführung} %optional
 	
@@ -111,13 +110,17 @@
 	Röntgenphotonen können durch eine Blende in die Versuchskammer eintreten, in der sich ein Probenhalter und eine PIN-Diode.
 	Die Diode ist mit dem Vielkanalanalysator verbunden.
 	Hier wird ausgenutzt, dass die Anzahl der in der Detektordiode erzeugten Elektron-Loch-Paare als proportional zur Energie des eingetretenen Röntgenphotons angenommen werden kann.
+	Das Röntgengerät wird mit einer Spannung von \SI{35}{\kilo \electronvolt} betrieben, weshalb dies die maximal erwartbare messbare Energie ist.
 	Zunächst wird der Probenhalter in einen Winkel von \SI{45}{\degree} und der Detektor in einen Winkel von \SI{90}{\degree} zum Röntgenstrahl gebracht.
 	Diese Winkel werden mit dem Auge abgeschätzt, da die Verwendung des eingebauten Goniometers zu einer Stellung führt, die nach Augenmaß nicht dem gewünschten Winkel entspricht.
-	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert. %TODO welche Elemente zum Kali? Eisen und (Zink?)?
+	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
+	Zur Kalibrierung wird Eisen und Molybdän verwendet.
 	Dann werden die Spektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
 	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
 	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben bestimmt beziehungsweise überprüft werden. %bzw. oder beziehungsweise?
 	Außerdem werden die Massenanteile der Elemente bestimmt und das Moseleysche Gesetz überprüft.
+	
+	
 	
 	\begin{figure}[H]
 		\centering
