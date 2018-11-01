@@ -16,6 +16,7 @@
 % Reihenfolge) als Erstes und hyperref und cleveref (Reihenfolge auch hier
 % beachten) als Letztes geladen werden!
 
+%Malen
 \usepackage{tikz}
 \usetikzlibrary{calc,patterns,angles,quotes} % loads some tikz extensions\usepackage{tikz}
 \usetikzlibrary{babel}
@@ -46,7 +47,6 @@
 \MakeOuterQuote{"}
 % Zitieren, Bibliografie
 \usepackage[sorting=none]{biblatex}
-\usepackage{csvsimple}
 
 
 % Zur Darstellung von Webadressen
@@ -166,11 +166,13 @@
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c || c | c | c }
-			Probe (Angabe)&Energie $E$ in \SI{}{keV} & Element & char. Übergang &  Energie $E$ in \SI{}{keV} \\ \hline \hline
+			Probe (Angabe)&Energie $E_\text{Mess}$ in \SI{}{keV} & Element & char. Übergang &  Energie $E_\text{NIST}$ in \SI{}{keV} \\ \hline \hline
 			
-			1 (Zn)& \SI{6.38034+-0.278836}{} & - &  -&- \\ %TODO Fe?
+			1 (Zn)
+			& \SI{6.38034+-0.278836}{} & - &  -&- \\ %TODO Fe?
 			& \SI{8.58804+-0.233242}{} &Zn &$\text{K}_\alpha$&  \SI{8.615823(73)}{} \\
-			& \SI{9.53296+-0.221475}{} &Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{} \\ \hline
+			& \SI{9.53296+-0.221475}{} &Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{} \\ 
+			\hline
 			
 			2 (Fe)& \SI{3.44288+-0.335591}{} &- &  -& - \\ %TODO Ag?
 			& \SI{6.39075+-0.235386}{} &Fe& $\text{K}_\alpha$ &  \SI{6.3910264(99)}{} \\
@@ -270,32 +272,46 @@
 		\begin{tabular}{ c | c || c | c | c }
 			Probe (Angabe)&Energie $E$ in \SI{}{keV} & vermt. Element & char. Übergang &  Energie $E$ in \SI{}{keV} \\ \hline \hline					
 			
-			4 (20 Cent)& \SI{7.98262+-0.224069}{} &Cu &$\text{K}_\alpha$&   \SI{8. 0278416(26) }{} \\
-			& \SI{8.7734+-0.247708}{} &Cu &$\text{K}_\beta$&  \SI{8 .905413(38) }{} \\ \hline
+			4 (20 Cent)
+			& \SI{7.98262+-0.224069}{} &Cu &$\text{K}_\alpha$&   \SI{8. 0278416(26) }{} \\
+			& \SI{8.7734+-0.247708}{} &Cu &$\text{K}_\beta$&  \SI{8 .905413(38) }{} \\ 
+			\hline
 			
-			5 (Zn-Edelstahl)& \SI{8.5778+-0.252635}{} &Zn &  \SI{}{} \\
-			& \SI{9.53652+-0.22887}{} &Zn &  \SI{}{} \\
-			& \SI{6.41683+-0.35613}{} &Zn &  \SI{}{} \\ \hline
+			5 (Zn-Edelstahl)
+			& \SI{6.41683+-0.35613}{} &Fe&K$_\alpha$&\SI{ 6 .4040062(99)    }{} \\ 
+			& \SI{8.5778+-0.252635}{} &Zn &$\text{K}_\alpha$&  \SI{8.615823(73)}{} \\
+			& \SI{9.53652+-0.22887}{} &Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{}  \\
+			\hline
 			
-			6 (Edelstahl)& \SI{6.36975+-0.246009}{} &Zn &  \SI{}{} \\
-			& \SI{7.07128+-0.203035}{} &Zn &  \SI{}{} \\
-			& \SI{3.39677+-0.379146}{} &Zn &  \SI{}{} \\ \hline
+			6 (Edelstahl)
+			& \SI{3.39677+-0.379146}{} &Cd& L$_\alpha$  &  \SI{3. 40148(12)    }{} \\ 
+			& \SI{6.36975+-0.246009}{} & Fe & $\text{K}_\alpha$ &  \SI{6.3910264(99)}{}  \\
+			& \SI{7.07128+-0.203035}{} &Fe& $\text{K}_\beta$&  \SI{7.058175(99)}{} \\
+			\hline
 			
-			9 & \SI{6.36714+-0.297413}{} &Zn &  \SI{}{} \\
-			& \SI{9.52768+-0.218296}{} &Zn &  \SI{}{} \\
-			& \SI{8.57041+-0.24602}{} &Zn &  \SI{}{} \\ \hline
+			9 
+			& \SI{6.36714+-0.297413}{} &Fe&K$_\alpha$&\SI{ 6 .4040062(99)    }{} \\
+			& \SI{8.57041+-0.24602}{} &Zn &$\text{K}_\alpha$&  \SI{8.615823(73)}{}  \\ 
+			& \SI{9.52768+-0.218296}{} &Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{} \\
+			\hline
 			
-			10 & \SI{7.4251+-0.243006}{} &Zn &  \SI{}{} \\
-			& \SI{8.23717+-0.212733}{} &Zn &  \SI{}{} \\ \hline
+			10 
+			& \SI{7.4251+-0.243006}{} &Ni & K$_\alpha$&  \SI{ 7. 4610343(45)     	}{} \\
+			& \SI{8.23717+-0.212733}{} &Ni &K$_\beta$&  \SI{ 8. 264775(17)    }{} \\ 
+			\hline
 			
-			11 & \SI{7.79736+-0.404885}{} &Zn &  \SI{}{} \\
-			& \SI{9.00316+-0.164444}{} &Zn &  \SI{}{} \\
-			& \SI{5.92928+-0.455814}{} &Zn &  \SI{}{} \\ \hline
+			11 
+			& \SI{5.92928+-0.455814}{} &Ho & L$_\alpha$&  \SI{ 5. 939963(71)}{} \\ 
+			& \SI{7.79736+-0.404885}{} &Ho & L$_\beta$& \SI{7 .76352(49) }{} \\
+			& \SI{9.00316+-0.164444}{} &Ho & L$_\beta$& \SI{9 .0511(20) }{} \\
+			\hline
 			
-			12 & \SI{10.5011+-0.261044}{} &Zn &  \SI{}{} \\
-			& \SI{12.562+-0.289138}{} &Zn &  \SI{}{} \\
-			& \SI{14.7821+-0.364269}{} &Zn &  \SI{}{} \\
-			& \SI{9.11464+-0.376278}{} &Zn &  \SI{}{} \\ \hline
+			12 
+			& \SI{9.11464+-0.376278}{} &Pb &L$_\alpha$&  \SI{9 .18456(70)    }{} \\ 
+			& \SI{10.5011+-0.261044}{} &Pb &L$_\alpha$&  \SI{10. 55160(27)     }{} \\
+			& \SI{12.562+-0.289138}{} &Pb &L$_\beta$&  \SI{ 12 .6012(13)     }{} \\
+			& \SI{14.7821+-0.364269}{} &Pb &L$_\beta$&  \SI{  14 .7915(52)    }{} \\
+			\hline
 			
 			13 & \SI{8.00052+-0.25263}{} &Zn &  \SI{}{} \\
 			& \SI{14.8774+-0.26906}{} &Zn &  \SI{}{} \\
