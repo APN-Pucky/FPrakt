@@ -121,10 +121,9 @@
 	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren und Energie des Röntgenphotons zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
 	Zur Kalibrierung wird Eisen und Molybdän verwendet.
 	Dann werden die Röntgenfluoreszenzspektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
+	Es wird jeweils über einen Zeitraum von \SI{10}{\minute} gemessen.
 	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
 	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben untersucht bzw. überprüft werden.
-	%TODO wie langegemessen erwähnen 10 Minuten
-	%TODO Eisen Kathode erwähnen?
 	
 	\begin{figure}[H]
 		\centering
@@ -391,6 +390,10 @@
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	\subsubsection{Bestimmung der Abschirmkonstanten}
+	Die gemessenen Energien in \cref{tb_peaks_known} können zum größten Teil charakteristischen Übergängen in den jeweiligen Elementen zugeordnet werden.
+	Obwohl die Proben jedoch nicht als Legierung gekennzeichnet sind, treten jedoch im Fall von Probe 1, 2, 7 und 8 Peaks auf, bei denen dies nicht möglich ist.
+	Hier steht zu vermuten, dass in geringen Mengen andere Elemente beigemischt wurden, von denen aber jeweils nur der häufigste Übergang messbar ist, weshalb sie nicht eindeutig identifiziert werden können.
+	
 	Das Moseleysche Gesetz kann insofern bestätigt werden, als dass die Steigung in \crefrange{fig_Ka}{fig_Kb} gemäß der vorgenommenen Näherung nahe an \num{1} liegt.
 	Die Abweichung nach oben hängt vermutlich mit der Tatsache zusammen, dass die mittlere Abschirmkonstante mit der Kernladungszahl abnimmt.
 	Dies spiegelt sich auch in \cref{tb_abschirm} wieder, wobei hier die große Unsicherheit eine präzisere Aussage unmöglich macht.
@@ -424,9 +427,17 @@
 	
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
+	Es konnten verschiedene Untersuchungen mithilfe von Röntgenspektroskopie gemacht werden.
+	Zunächst wurden charakteristische Übergangsenergien von sechs Elementen gemessen und zugeordnet.
+	Auf Basis dessen konnte für den größten Teil der anderen Proben mit hoher Sicherheit die Anteile bestimmt werden, die in ausreichender Menge vorhanden sind, damit ihre Peaks im Spektrum sichtbar sind.
+	Es wurde jedoch auch offensichtlich, dass die Methode der energiedispersiven Röntgenspektroskopie mit dem verwendeten Röntgengerät keine adäquate Technik ist, um Proben zu analysieren, die entweder aus vielen verschiedenen Elementen bestehen oder um Elementbestandteile zu finden, deren Anteil unter etwa 5\% liegt. % 5% ist bissl willkürlich, aber präziser als so ein Ausdruck wie zu gering
+	Außerdem können für eine Probe die Massenbestandteile bestimmt werden.
+	Hierbei wurde deutlich, dass die Effektivität dieser Methode massiv mit den vorhandenen Referenzmessungen reiner Proben skaliert, da einige Proben aus Mangel einer solchen Messung nicht auf Massenanteile untersucht werden konnten.
+	
+	Das Programm, das zur Erfassung der Messdaten des Röntgendetektors verwendet wurde, hat die Messung zusätzlich erschwert, da es insgesamt sieben mal nach abgeschlossener Messung abgestürzt ist, was das Wiederholen der Messung erzwang. %TODO Bin mir unsicher, ob ich das so haben will.
 	
 	%TODO Kritik: Häufig nicht eindeutig und nur mit Annahmen zuordnebar
-	%TODO Ausfälle des Programms
+	
 	
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
