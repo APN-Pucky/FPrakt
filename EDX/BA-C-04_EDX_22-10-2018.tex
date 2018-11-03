@@ -161,7 +161,6 @@
 		\centering
 	\end{figure} %TODO noch eins für Legierung
 	
-	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
 	\subsection{Datenanalyse}
 	\subsubsection{Bestimmung der Abschirmkonstanten}
 	%TODO Berechung nach Aufgabenstellung
@@ -287,7 +286,7 @@
 		\centering
 		\resizebox{\textwidth}{!}{
 		\begin{tabular}{ c | c | c || c | c | c }
-			Probe (Angabe)&Energie $E$ in \SI{}{keV} & rel. Höhe&  vermt. Element & char. Übergang &  Energie $E$ in \SI{}{keV} \\ \hline \hline					
+			Probe (Angabe)&Energie $E_\text{Mess}$ in \SI{}{keV} & rel. Höhe&  vermt. Element & char. Übergang &  Energie $E_\text{NIST}$ in \SI{}{keV} \\ \hline \hline					
 			
 			4 (20 Cent)
 			& \SI{7.98262+-0.224069}{} &\SI{84}{\%}&Cu &$\text{K}_\alpha$&   \SI{8. 0278416(26) }{} \\
@@ -381,7 +380,7 @@
 			\hline
 		\end{tabular}
 		}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}. Diese sind Messwerte aus \cref{tb_peaks_known}.} %TODO auch hier die E_index wie oben?
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
 		\label{tb_peaks_unknown}
 		
 	\end{table}
@@ -394,7 +393,8 @@
 		C_j = \frac{\rho_i \cdot \frac{H_j}{H_{0j}}}{\sum_{i} \rho_i \cdot \frac{H_i}{H_{0i}}}
 	\end{equation}
 	
-	Die Unsicherheiten der Dichten $\rho_\text{Fe}=\SI{7.874}{g/cm^3}$ und $\rho_\text{Ti}=\SI{4.540}{g/cm^3}$ verschwinden gegenüber den der Peakhöhen, welcher mit 5\% abgeschätzt wird.
+	Die Unsicherheiten der Dichten $\rho_\text{Fe}=\SI{7.874}{g/cm^3}$ und $\rho_\text{Ti}=\SI{4.540}{g/cm^3}$ verschwinden gegenüber den der Peakhöhen, welche mit 5\% abgeschätzt werden. \cite{density}
+	In \cref{tb_peaks} sind die für zum Berechnen benötigen Messwerte aufgeführt.
 	
 	\begin{table}[H]
 		\centering
@@ -405,7 +405,7 @@
 			$H_{0 , \text{Ti}}$ & \SI{1136.09+-56.80}{} \\	
 			$H_{\text{Ti}}$ & \SI{82.82+-4.14}{} \\	
 		\end{tabular}
-		\caption{Höhen verschiedener Peaks.} %TODO mehr
+		\caption{Höhen der Referenz- und Probenpeaks von Eisen und Titan.} %TODO mehr
 		\label{tb_peaks} 
 	\end{table}	
 
