@@ -121,10 +121,9 @@
 	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren und Energie des Röntgenphotons zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
 	Zur Kalibrierung wird Eisen und Molybdän verwendet.
 	Dann werden die Röntgenfluoreszenzspektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
+	Es wird jeweils über einen Zeitraum von \SI{10}{\minute} gemessen.
 	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
 	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben untersucht bzw. überprüft werden.
-	
-	%TODO Eisen Kathode erwähnen?
 	
 	\begin{figure}[H]
 		\centering
@@ -422,10 +421,15 @@
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	\subsubsection{Bestimmung der Abschirmkonstanten}
+	Die gemessenen Energien in \cref{tb_peaks_known} können zum größten Teil charakteristischen Übergängen in den jeweiligen Elementen zugeordnet werden.
+	Obwohl die Proben jedoch nicht als Legierung gekennzeichnet sind, treten jedoch im Fall von Probe 1, 2, 7 und 8 Peaks auf, bei denen dies nicht möglich ist.
+	Hier steht zu vermuten, dass in geringen Mengen andere Elemente beigemischt wurden, von denen aber jeweils nur der häufigste Übergang messbar ist, weshalb sie nicht eindeutig identifiziert werden können.
+	
 	Das Moseleysche Gesetz kann insofern bestätigt werden, als dass die Steigung in \crefrange{fig_Ka}{fig_Kb} gemäß der vorgenommenen Näherung nahe an \num{1} liegt.
 	Die Abweichung nach oben hängt vermutlich mit der Tatsache zusammen, dass die mittlere Abschirmkonstante mit der Kernladungszahl abnimmt.
 	Dies spiegelt sich auch in \cref{tb_abschirm} wieder, wobei hier die große Unsicherheit eine präzisere Aussage unmöglich macht.
 	%TODO sollte ich hierzu mehr sagen?
+	%TODO soll ich noch was zu den bezeichneten Proben sagen?
 	
 	\subsubsection{Bestimmung der Zusammensetzung}
 	Die Bestimmung der Zusammensetzung der unbekannten Proben ist teilweise mit großer Sicherheit möglich, teilweise jedoch dadurch erschwert, dass mehrere Elemente in Frage kommen und die Unsicherheit der Messwerte sehr groß ist.
@@ -436,26 +440,35 @@
 	
 	\begin{enumerate} %TODO massenanteile
 		\item[Probe 4] Hier kann recht eindeutig Kupfer als Hauptbestandteil identifiziert werden. Dies stimmt mit den Erwartungen überein, da 20-Cent-Münzen aus nordischem Gold bestehen (vgl. \cite{muenzen}), welches zu 89\% aus Kupfer besteht. Die anderen Anteile (5\% Zink, 5\% Aluminium. 1\% Zinn) konnten nicht identifiziert werden. Dies ist eine wichtige Feststellung für die Limitierungen dieses Verfahrens. %TODO letzter Satz wichtig?
-		\item[Probe 5] 
-		\item[Probe 6]
-		\item[Probe 9]
-		\item[Probe 10]
-		\item[Probe 11]
-		\item[Probe 12]
-		\item[Probe 13]
-		\item[Probe 14]
-		\item[Probe 15]
-		\item[Probe 16]
-		\item[Probe 17]
-		\item[Probe 18]
-		\item[Probe 19]
-		\item[Probe 20]
+		\item[Probe 5] Hier kann Zink als Hauptbestandteil festgestellt werden. Es fällt allerdings auf, dass zusätzlich ein Peak mit 7\% relativer Höhe auftritt, der keinem Übergang im Zink-Atom zugeordnet werden kann. Die Energie des Peaks entspricht dem $\text{K}_\alpha$-Übergang in Eisen. Dies war allerdings bereits bei Probe 1 der Fall, obwohl diese als (reines) Zink gekennzeichnet ist. Das lässt die Schlussfolgerung zu, dass entweder in beiden Fällen Eisen beigemischt ist oder im Zink ein zusätzlicher Übergang dieser Energie stattfindet. Ersteres würde die Angabe zu Probe 5 bestätigen, da diese sie als Zn-Edelstahl bezeichnet hat. %TODO Massenanteil -> wenig Eisen
+		\item[Probe 6] Probe 6 sollte laut Angabe Edelstahl sein. Dies kann bestätigt werden, da die gleichen Übergänge wie in Probe 2 (Fe) auftreten. In beiden Fällen tritt jedoch zusätzlich zu den in Eisen charakteristischen Übergängen ein weiterer auf. Hier kann wie zuvor nur vermutete werden, dass entweder in beiden Fällen ein anderes Element beigemischt war oder ein Übergang unerwarteter Energie auftritt.
+		\item[Probe 9] Es wurden die gleichen Übergänge wie bei Probe 1 und 5 gemessen. Hauptbestandteil ist Zink. Ansonsten gelten dieselben Überlegungen wie bei Probe 5.
+		\item[Probe 10] Probe 10 kann auf Basis der Angaben von \cite{XRAYDB} als Nickel identifiziert werden.
+		\item[Probe 11] Probe 11 kann auf Basis der Angaben von \cite{XRAYDB} als Holmium identifiziert werden. %TODO subject to change... warten bis bessere Infos, Holmium ist komisch
+		\item[Probe 12] Probe 12 kann auf Basis der Angaben von \cite{XRAYDB} als Blei identifiziert werden.
+		\item[Probe 13] Je zwei Übergänge können Kupfer und Yttrium zugeordnet werden. Der fünfte Übergang ist schwieriger zuzuordnen. Die Wahrscheinlichkeit, dass es sich tatsächlich um den $\text{L}_\beta$-Übergang im Iod handelt, ist eher gering, da dann auch andere Übergange des Iods im Spektrum zu erwarten wären.
+		\item[Probe 14] Das Spektrum lässt nur ein eindeutiges Identifizieren von Silber zu. Die vier anderen gemessenen Peaks sind nicht einem oder zwei Elementen zuordenbar. Es werden deswegen Elemente gewählt, die passende Übergänge bei diesen Energien haben, auf der Erde vorkommen und stabile Isotope haben. Das Ergebnis lautet Zirconium, Blei, Gold und Cobalt. Dieses Ergebnis ist nicht sehr aussagekräftig, da bei diesen Elementen zu erwarten wäre, dass auch andere Übergänge im Spektrum zu sehen sind. Hier tritt allerdings ein weiteres Problem dieser Methode zutage, da, wenn zwei Übergänge in der Probe energetisch hinreichend nah zusammen fallen, sie nicht mehr im Spektrum unterscheidbar sind.
+		\item[Probe 15] Hier kann recht eindeutig Kupfer als einziger messbarer Bestandteil identifiziert werden.
+		\item[Probe 16] Hier kann recht eindeutig Kupfer als einziger messbarer Bestandteil identifiziert werden.
+		\item[Probe 17] Hier kann recht eindeutig Kupfer als einziger messbarer Bestandteil identifiziert werden.
+		\item[Probe 18] Hier kann recht eindeutig Nickel als einziger messbarer Bestandteil identifiziert werden.
+		\item[Probe 19] Hier kann recht eindeutig Eisen identifiziert werden. Zusätzlich tritt ein Peak bei einer Energie auf, die dem $\text{K}_\alpha$-Übergang im Chrom entspricht.
+		\item[Probe 20] Hier kann recht eindeutig Eisen identifiziert werden. Zusätzlich tritt ein Peak bei einer Energie auf, die dem $\text{K}_\alpha$-Übergang im Titan entspricht. Dies ist kein Element, dass in Kronkorken zu erwarten wäre. %zu befürchten, dass der sagt, dass da ne Quelle hingehört..., sondern verzinntes der verchromtes Blech
 	\end{enumerate}
 	
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
+	Es konnten verschiedene Untersuchungen mithilfe von Röntgenspektroskopie gemacht werden.
+	Zunächst wurden charakteristische Übergangsenergien von sechs Elementen gemessen und zugeordnet.
+	Auf Basis dessen konnte für den größten Teil der anderen Proben mit hoher Sicherheit die Anteile bestimmt werden, die in ausreichender Menge vorhanden sind, damit ihre Peaks im Spektrum sichtbar sind.
+	Es wurde jedoch auch offensichtlich, dass die Methode der energiedispersiven Röntgenspektroskopie mit dem verwendeten Röntgengerät keine adäquate Technik ist, um Proben zu analysieren, die entweder aus vielen verschiedenen Elementen bestehen oder um Elementbestandteile zu finden, deren Anteil unter etwa 5\% liegt. % 5% ist bissl willkürlich, aber präziser als so ein Ausdruck wie zu gering
+	Außerdem können für eine Probe die Massenbestandteile bestimmt werden.
+	Hierbei wurde deutlich, dass die Effektivität dieser Methode massiv mit den vorhandenen Referenzmessungen reiner Proben skaliert, da einige Proben aus Mangel einer solchen Messung nicht auf Massenanteile untersucht werden konnten.
+	
+	Das Programm, das zur Erfassung der Messdaten des Röntgendetektors verwendet wurde, hat die Messung zusätzlich erschwert, da es insgesamt sieben mal nach abgeschlossener Messung abgestürzt ist, was das Wiederholen der Messung erzwang. %TODO Bin mir unsicher, ob ich das so haben will.
 	
 	%TODO Kritik: Häufig nicht eindeutig und nur mit Annahmen zuordnebar
+	
 	
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
