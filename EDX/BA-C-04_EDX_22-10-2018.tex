@@ -283,6 +283,7 @@
 	\end{table}	
 
 	\subsubsection{Bestimmung der Zusammensetzung}
+	Die Daten zu den aufgenommenen Peaks sind in \cref{tb_peaks_unknown} mit Vergleichsenergien aufgelistet.
 	\begin{table}[H]
 		\centering
 		\resizebox{\textwidth}{!}{
@@ -375,16 +376,46 @@
 			\hline
 			
 			20 (Kronkorken) 
-			& \SI{4.52319+-0.305646}{} &\SI{4}{\%}& Sn & $\text{L}_\beta $ &  \SI{4,37683(46)}{} \\ %Ti wäre näher dran
+			& \SI{4.52319+-0.305646}{} &\SI{4}{\%}& Ti & $\text{K}_\alpha $ &  \SI{4. 5108991(94)}{} \\ 
 			& \SI{6.35883+-0.22392}{} &\SI{83}{\%}& Fe & $\text{K}_\alpha $ &  \SI{6,3910264(99)}{} \\
 			& \SI{7.03423+-0.206604}{} &\SI{13}{\%}& Fe & $\text{K}_\beta $ &  \SI{7,058175(16)}{} \\ 
 			\hline
 		\end{tabular}
 		}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}, außer die mit einem * gekennzeichneten. Diese sind Messwerte aus \cref{tb_peaks_known}.} %TODO auch hier die E_index wie oben?
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}. Diese sind Messwerte aus \cref{tb_peaks_known}.} %TODO auch hier die E_index wie oben?
 		\label{tb_peaks_unknown}
 		
 	\end{table}
+
+	Um mit \cref{eq_anteil} die Massenteile $C_i$ eines Elements in der Probe bestimmen zu können ist es notwendig, dass alle Peaks einem Referenz-Spektrum ($H_{0i}$) zugeordnet werden können.
+	Bei den Proben aus \cref{tb_peaks_unknown} mit \cref{tb_peaks_known} als Referenz-Spektrum ist dies lediglich für Probe 20, den Kronkorken, möglich.
+	
+	\begin{equation}
+		\label{eq_anteil}
+		C_j = \frac{\rho_i \cdot \frac{H_j}{H_{0j}}}{\sum_{i} \rho_i \cdot \frac{H_i}{H_{0i}}}
+	\end{equation}
+	
+	Die Unsicherheiten der Dichten $\rho_\text{Fe}=\SI{7.874}{g/cm^3}$ und $\rho_\text{Ti}=\SI{4.540}{g/cm^3}$ verschwinden gegenüber den der Peakhöhen, welcher mit 5\% abgeschätzt wird.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c }
+			 & Höhe in a.u.\\ \hline \hline
+			$H_{0 , \text{Fe}}$ & \SI{2737.86+-136.89}{} \\	
+			$H_{\text{Fe}}$ & \SI{1899.26+-84.96}{} \\	
+			$H_{0 , \text{Ti}}$ & \SI{1136.09+-56.80}{} \\	
+			$H_{\text{Ti}}$ & \SI{82.82+-4.14}{} \\	
+		\end{tabular}
+		\caption{Höhen verschiedener Peaks.} %TODO mehr
+		\label{tb_peaks} 
+	\end{table}	
+
+	\begin{equation}
+		\label{eq_anteil_calc}
+		1-C_\text{Ti}= C_\text{Fe} = \frac{1}{1+ \frac{\rho_\text{Ti} H_\text{Ti} H_{0,\text{Fe}}}{\rho_\text{Fe} H_\text{Fe} H_{0,\text{Ti}}}}
+	\end{equation}
+	
+	Einsetzen in \cref{eq_anteil_calc} ergibt $C_\text{Fe}=\SI{94.3+-0.5}{\%}$ und $C_\text{Ti}=\SI{5.7+-0.5}{\%}$.
 	
 	\subsection{Diskussion}
 	%TODO Bezug/Nutzen oder sonst was
