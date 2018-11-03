@@ -103,27 +103,26 @@
 	Die Energiedispersive Röntgenspektroskopie ist ein Verfahren, welches es den Materialwissenschaften erlaubt mithilfe des von einer Probe, die von einem Röntgenstrahl mit kontinuierlichem Spektrum beschossen wird, ausgesandten Röntgenfluoreszenzspektrums die Zusammensetzung der Probe zu bestimmen.
 	Es sollen mithilfe eines Röntgengeräts und einigen bekannten Proben Röntgenfluoreszenzspektren verschiedener unbekannter Proben aufgezeichnet werden.%sollen kann man denke ich so benutzen...
 	Auf Basis dieser Spektren wird die elementare Zusammensetzung der unbekannten Proben untersucht, wobei nicht nur die Art der vorkommenden Elemente, sondern auch ihr prozentualer Anteil an der Gesamtprobe bestimmt wird. %TODO ist das zweite Komma richtig?
-	Zusätzlich kann das Moseleysche Gesetz bestätigt werden. %TODO hoffentlich...
+	Zusätzlich kann das Moseleysche Gesetz bestätigt werden und die Abschirmkonstanten von sechs Elementen werden bestimmt. %TODO hoffentlich...
 	
 	%\section{Einführung} %optional
 	
 	
 	\section{Methoden}
-	Für die Versuchsdurchführung wird ein Röntgengerät, ein Vielkanalanalysator und verschiedene Proben größtenteils unbekannter Natur verwendet. %X-ray unit, 35 kV, basic unit
+	Für die Versuchsdurchführung werden ein Röntgengerät, ein Vielkanalanalysator und verschiedene Proben größtenteils unbekannter Natur verwendet. %X-ray unit, 35 kV, basic unit
 	Das Röntgengerät, welches mit einer Eisen-Anode arbeitet, und die Proben sind in \cref{fig_aufbau} dargestellt.
-	Röntgenphotonen können durch eine Blende in die Versuchskammer eintreten, in der sich ein Probenhalter und eine PIN-Diode.
+	Röntgenphotonen können durch eine Blende in die Versuchskammer eintreten, in der sich ein Probenhalter und eine PIN-Diode befinden.
 	Die Diode ist mit dem Vielkanalanalysator verbunden.
-	Hier wird ausgenutzt, dass die Anzahl der in der Detektordiode erzeugten Elektron-Loch-Paare als proportional zur Energie des eingetretenen Röntgenphotons angenommen werden kann.
+	Hier wird ausgenutzt, dass die Anzahl der in der Detektordiode erzeugten Elektron-Loch-Paare als proportional zur Energie des eingetretenen Röntgenphotons angenommen werden kann. %TODO das ist doch richtig wiedergegeben, oder?
 	Das Röntgengerät wird mit einer Spannung von \SI{35}{\kilo \electronvolt} betrieben, weshalb dies die maximal erwartbare messbare Energie ist.
 	Zunächst wird der Probenhalter in einen Winkel von \SI{45}{\degree} und der Detektor in einen Winkel von \SI{90}{\degree} zum Röntgenstrahl gebracht.
 	Diese Winkel werden mit dem Auge abgeschätzt, da die Verwendung des eingebauten Goniometers zu einer Stellung führt, die nach Augenmaß nicht dem gewünschten Winkel entspricht.
 	
-	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
+	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren und Energie des Röntgenphotons zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
 	Zur Kalibrierung wird Eisen und Molybdän verwendet.
 	Dann werden die Röntgenfluoreszenzspektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
 	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
-	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben bestimmt beziehungsweise überprüft werden. %bzw. oder beziehungsweise?
-	Außerdem werden die Massenanteile der Elemente bestimmt und das Moseleysche Gesetz überprüft.
+	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben untersucht bzw. überprüft werden.
 	
 	%TODO Eisen Kathode erwähnen?
 	
@@ -155,20 +154,20 @@
 	\subsection{Beobachtung}
 	%TODO Einflüsse von veränderten Parametern auf Messung
 	
-	\begin{figure}[H]
+	\begin{figure}[H] %TODO von Logik: das hier woanders hin. 
 		\includegraphics[width=0.9\textwidth]{images/Silbermuenze}
 		\centering
 		\caption{Röntgenfluoreszenzspektrum einer Silbermünze. Die Peaks der $\text{L}_\alpha$, $\text{K}_\alpha$ und $\text{K}_\beta$ Linien sind deutlich zu erkennen. Abseits dieser Peaks sind mehrere weitere signifikante Abweichungen von Null zu erkennen.} %TODO Das muss man vermutlich erklären, wenn man es erwähnt.
 		\label{fig_ag_plot}
 		\centering
-	\end{figure}
+	\end{figure} %TODO noch eins für Legierung
 	
 	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
 	\subsection{Datenanalyse}
 	\subsubsection{Bestimmung der Abschirmkonstanten}
 	%TODO Berechung nach Aufgabenstellung
-	Aus den gemessenen Energiespektren wurden die Energien der Peaks mittels eines Gauß-Fit bestimmt.
-	Die Standardabweichung ergibt sich dabei aus der FWHM:
+	Aus den gemessenen Energiespektren wurden die Energien der Peaks mittels eines Gauß-Fits bestimmt.
+	Die Standardabweichung ergibt sich dabei aus der FWHM: %TODO ich denke, man sollte einmal schreiben wofür das steht.
 	\begin{equation}
 		\sigma = \frac{\text{FWHM}}{2\sqrt{\ln 2}}
 	\end{equation}
@@ -224,7 +223,7 @@
 		\label{tb_peaks_known} 
 	\end{table}
 
-	Die in \cref{tb_peaks_known} identifizierten $\text{K}_\alpha$ ($\text{K}_\beta$) Übergangsenergien sind wurden gemäß \cref{eq_f} umgeformt und in \cref{fig_Ka} (\cref{fig_Kb}) gegen die Kernladung $Z$ aufgetragen.
+	Die in \cref{tb_peaks_known} identifizierten $\text{K}_\alpha$ ($\text{K}_\beta$) Übergangsenergien wurden gemäß \cref{eq_f} umgeformt und in \cref{fig_Ka} (\cref{fig_Kb}) gegen die Kernladung $Z$ aufgetragen. %fraglich, ob das mit den Klammern schön ist. Und ja ist Imperfekt, aber geht nicht besser.
 	Das Moseleysche Gesetz
 	\begin{equation}
 		\label{eq_moseley}
@@ -245,7 +244,7 @@
 		u(f) = \sqrt{\frac{1}{4 E R_y (\frac{1}{n_1^2}-\frac{1}{n_2^2})}} u(E)
 	\end{equation}
 	
-	Unter der Annahme, dass sich $\sigma_{n21}$ nicht wesentlich bei Kernladungszahlen $Z$ von 20 bis 50 unterscheidet erwartet man einen linearen Abhängigkeit von $f$zu $Z$ mit einer Steigung $b\approx1$. 
+	Unter der Annahme, dass sich $\sigma_{n21}$ nicht wesentlich bei Kernladungszahlen $Z$ von 20 bis 50 unterscheidet erwartet man einen linearen Abhängigkeit von $f$ zu $Z$ mit einer Steigung $b\approx1$. 
 	Diese Annahme ist gerechtfertigt, da sich die Anzahl der Elektronen lediglich in der N- und O- Schale ändert, welche einen relativ geringen Einfluss auf Übergange von K- nach L- bzw. M- Schale haben.
 	
 	\begin{figure}[H]
@@ -382,7 +381,7 @@
 			\hline
 		\end{tabular}
 		}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}, außer die mit einem * gekennzeichneten. Diese sind Messwerte aus \cref{tb_peaks_known}.}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}, außer die mit einem * gekennzeichneten. Diese sind Messwerte aus \cref{tb_peaks_known}.} %TODO auch hier die E_index wie oben?
 		\label{tb_peaks_unknown}
 		
 	\end{table}
@@ -391,6 +390,7 @@
 	%TODO Bezug/Nutzen oder sonst was
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	
 	
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
