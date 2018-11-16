@@ -1,0 +1,5 @@
+PWD D:/de.neuwirthinformatik.Alexander/Development/git/FPrakt/AFM
+INPUT c:/texlive/2018/texmf.cnf
+INPUT c:/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT c:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT BA-C-04_AFM_05-11-2018.tex
