@@ -64,7 +64,7 @@
 	locale=DE,
 	separate-uncertainty
 }
-%\bibliography{Raster-Kraft-Mikroskopie_References}
+%\bibliography{BA-C-04_AFM_05-11-2018_References}
 
 \begin{document}
 
@@ -99,13 +99,44 @@
 	%TODO Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	%TODO Was wurde gemacht
 	%TODO manche leute wollen Passiv oder "man", manche nicht
+	Die Raster-Kraft-Mikroskopie (AFM von engl. atomic force microscopy) ist ein Verfahren, welches es erlaubt mit optisch nicht erreichbarer Auflösung Oberflächenprofile zu erstellen sowie Adhäsionskräfte der Oberfläche zu bestimmen. %TODO Adhäsion oder Adhäsion und Repulsion (kp, obn das so heißt)?
 
 	\section{Theorie}
+	\label{sec_theorie}
+	%TODO noch allgemeiner zu aufbau des Spektrometers
+	\subsection{Statischer Modus (Kontaktmodus)}
+	Im Kontaktmodus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
+	Dann wird die Spitze in einem Raster über die Probe gefahren, wofür sie durch Piezokristalle bewegt wird.
+	Diese haben ein von der an sie angelegten Spannung abhängige Ausdehnung.
+	Dieser Zusammenhang ist nicht bekannt und muss wie in \cref{sec_methoden} durch eine Kalibrierprobe bestimmt werden.
+	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
+	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist.%hier steht viel "Verbiegung des Cantilevers"...
+	Die Verbiegung des Cantilevers wird durch einen PID-Regler konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder?
+	
+	\subsection{Dynamischer Modus}
 
 	\section{Methoden}
+	\label{sec_methoden}
 	%TODO Bilder von der Website klauen
 	%TODO einer will Präsens
+	Es sind drei Proben gegeben, die Teil einer CD, DVD und Blu-ray Disc waren.
+	Um zu bestimmen, welche Probe von welchem optischen Speichermedium stammt, wird die Raster-Kraft-Mikroskopie verwendet.
+	Außerdem soll aus Kraft-Distanz-Kurven die Adhäsion der verschiedenen Oberflächen bestimmt werden und zuletzt der Radius einer Cantilever-Spitze untersucht werden. %TODO Radius sollte man in Theorie erklärt haben
+	
+	Zunächst wird die Oberflächenstruktur einer Kalibrierprobe im Kontaktmodus untersucht, um den korrekten Zusammenhang zwischen Spannung an den Piezokristallen und Position der Cantilever-Spitze festzustellen.
+	Der tatsächliche Wert dieses Zusammenhangs wird hier nicht bestimmt, da das Programm zur Ansteuerung des Raster-Kraft-Mikroskop bereits einen Zusammenhang annimmt und dieser durch die Kalibrierung lediglich korrigiert wird.
+	Die Kalibrierprobe besteht dabei aus einer glatten Oberfläche, auf der Quader mit bekannter Höhe und quadratischer Grundfläche bekannter Seitenlänge aufgebracht sind.
+	Die Kalibrierung wird in x-,y- und z-Richtung getrennt durchgeführt.
+	
+	Dann werden fünf Kraft-Distanz-Kurven an verschiedenen Stellen der Oberfläche der Quader aufgenommen.
+	Diese erlaube wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden. %TODO machen
+	
+	Danach werden AFM-Aufnahmen der drei zuzuordnenden Proben gemacht, aus denen gemäß der Kalibrierung Pit-Länge, -Breite und -Tiefe bestimmt werden.
+	Aus der Bestimmung des Spurabstands lassen sich die Proben dann mithilfe von Referenzwerten den drei optischen Speichertechnologien zuordnen.
 
+	Zuletzt wird im dynamischen Modus eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
+	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen. %TODO vlt. bissl ausführlicher hier.
+	
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 
