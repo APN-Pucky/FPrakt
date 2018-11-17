@@ -112,7 +112,7 @@
 	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
 	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist.%hier steht viel "Verbiegung des Cantilevers"...
 	Die Verbiegung des Cantilevers wird durch einen PID-Regler konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder?
-	
+
 	\subsection{Dynamischer Modus}
 
 	\section{Methoden}
@@ -122,21 +122,21 @@
 	Es sind drei Proben gegeben, die Teil einer CD, DVD und Blu-ray Disc waren.
 	Um zu bestimmen, welche Probe von welchem optischen Speichermedium stammt, wird die Raster-Kraft-Mikroskopie verwendet.
 	Außerdem soll aus Kraft-Distanz-Kurven die Adhäsion der verschiedenen Oberflächen bestimmt werden und zuletzt der Radius einer Cantilever-Spitze untersucht werden. %TODO Radius sollte man in Theorie erklärt haben
-	
+
 	Zunächst wird die Oberflächenstruktur einer Kalibrierprobe im Kontaktmodus untersucht, um den korrekten Zusammenhang zwischen Spannung an den Piezokristallen und Position der Cantilever-Spitze festzustellen.
 	Der tatsächliche Wert dieses Zusammenhangs wird hier nicht bestimmt, da das Programm zur Ansteuerung des Raster-Kraft-Mikroskop bereits einen Zusammenhang annimmt und dieser durch die Kalibrierung lediglich korrigiert wird.
 	Die Kalibrierprobe besteht dabei aus einer glatten Oberfläche, auf der Quader mit bekannter Höhe und quadratischer Grundfläche bekannter Seitenlänge aufgebracht sind.
 	Die Kalibrierung wird in x-,y- und z-Richtung getrennt durchgeführt.
-	
+
 	Dann werden fünf Kraft-Distanz-Kurven an verschiedenen Stellen der Oberfläche der Quader aufgenommen.
 	Diese erlaube wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden. %TODO machen
-	
+
 	Danach werden AFM-Aufnahmen der drei zuzuordnenden Proben gemacht, aus denen gemäß der Kalibrierung Pit-Länge, -Breite und -Tiefe bestimmt werden.
 	Aus der Bestimmung des Spurabstands lassen sich die Proben dann mithilfe von Referenzwerten den drei optischen Speichertechnologien zuordnen.
 
 	Zuletzt wird im dynamischen Modus eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
 	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen. %TODO vlt. bissl ausführlicher hier.
-	
+
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 
@@ -229,7 +229,6 @@
 	%TODO Tabelle + Bilder mit Beschriftung
 	%\printbibliography
 	\section{Anhang}
- %TODO jeweils snap-off angeben?
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
@@ -315,6 +314,27 @@
 			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
 			\label{fig_br_ds}
 \end{figure}
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht
+			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top}}
+			\subcaptionbox{3D-Sicht
+			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D}}
+			\subcaptionbox{Profil 1
+			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil}}
+			\caption{TGT1 Probe.}
+\end{figure}
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht
+			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top_zoom}}
+			\subcaptionbox{3D-Sicht
+			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom}}
+			\subcaptionbox{Profil 1. Fit ist ein Kreis mit dem Radius r= \SI{1.2037 +-0.016}{\mu m}
+			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil_zoom}}
+			\caption{TGT1 Probe.}
+\end{figure}
+
 %TODO Check Picture quality
 
 \end{document}
