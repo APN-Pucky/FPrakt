@@ -12,6 +12,8 @@
 *.swp
 *.tmp
 *.bak
+*.fls
+*.fdb_latexmk
 *~
 **/doc/*
 *2018.pdf
