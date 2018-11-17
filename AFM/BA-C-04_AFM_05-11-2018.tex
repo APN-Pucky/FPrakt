@@ -115,22 +115,29 @@
 	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
 	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
 	\begin{description}
-		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m}
+		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m} % 0.395+-0.375
 		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m}
 	\end{description}
 	Alle weiteren Unsicherheiten verschwinden gegenüber der Unsichheit der Federkonstante.
 	\subsection{Datenanalyse}
 	%TODO Berechung nach Aufgabenstellung
 	\subsubsection{Kalibrierungsprobe}
+	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 24.1
 	Die Adhäsionskräft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off s und der Federkonstante bestimmen:
 	\begin{equation}
 			F_\text{adh} = \Delta s \cdot c
 	\end{equation}
-	Es folgt $F_\text{adh}=\SI{10.8+-11.4}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
+	Es folgt $F_\text{adh}=\SI{9.5+-9.0}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
 	\subsubsection{CD/DVD/BR}
 	\subsubsection*{DVD}
+	% snap-offs 39.84, 44.20, 42.44, 49.95, 46.16 => 44.5
+	Aus den Messungen \crefrange{fig_dvd_ds1}{fig_dvd_ds5} folgt eine Adhäsionskraft von $F_\text{adh}=\SI{17.6+-16.7}{nN}$
 	\subsubsection*{CD}
+	% snap-offs 47.84, 53.66, 53.48, 50.21, 47.75 => 50.6
+	Aus den Messungen \crefrange{fig_cd_ds1}{fig_cd_ds5} folgt eine Adhäsionskraft von $F_\text{adh}=\SI{20.0+-19.0}{nN}$
 	\subsubsection*{BR}
+	% snap-offs 33.33, 35.63, 35.27, 35.67, 36.36 => 35.3
+	Aus den Messungen \crefrange{fig_br_ds1}{fig_br_ds5} folgt eine Adhäsionskraft von $F_\text{adh}=\SI{14.0+-13.3}{nN}$
 	% 1) DVD
 	% 2) CD
 	% 3) BR
@@ -146,7 +153,7 @@
 		\centering
 		\begin{tabular}{ c | c }
 			 & Kalibrierungsprobe\\ \hline
-			$F_\text{adh}$ & \SI{10.8+-11.4}{nN} \\ %26.287, 28, 25.557, 35.1, 29.6
+			$F_\text{adh}$ & \SI{10.8+-11.4}{nN} \\
 		\end{tabular}
 		\caption{Adhäsionskräfte die auf die Spitze des Cantilevers wirken bei Kraft-Abstand-Spektroskopie.} %TODO mehr
 		\label{tb_ds}
@@ -163,7 +170,7 @@
 	%TODO Tabelle + Bilder mit Beschriftung
 	%\printbibliography
 	\section{Anhang}
-
+ %TODO jeweils snap-off angeben?
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
@@ -242,7 +249,7 @@
 			\subcaptionbox{ \label{fig_br_ds4}}{\includegraphics[width=.49\linewidth]{images/BR/DS4}}
 			\subcaptionbox{
 			\label{fig_br_ds5}}{\includegraphics[width=.49\linewidth]{images/BR/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 3. auf einem der Maxima} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 3. in einem der Minima} % Pit oder Peak?
 \end{figure}
 %TODO Check Picture quality
 
