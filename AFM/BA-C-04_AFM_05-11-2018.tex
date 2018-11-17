@@ -113,13 +113,35 @@
 	\subsection{Beobachtung}
 	%TODO Einflüsse von veränderten Parametern auf Messung
 	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
+	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
+	\begin{description}
+		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m}
+		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m}
+	\end{description}
+	Alle weiteren Unsicherheiten verschwinden gegenüber der Unsichheit der Federkonstante.
 	\subsection{Datenanalyse}
 	%TODO Berechung nach Aufgabenstellung
 
-	\subsection{Diskussion}
+	Die Adhäsionskräft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off s und der Federkonstante bestimmen:
+	\begin{equation}
+			F_\text{adh} = \Delta s \cdot c
+	\end{equation}
+	Es folgt $F_\text{adh}=\SI{10.8+-11.4}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
+		\subsection{Diskussion}
 	%TODO Bezug/Nutzen oder sonst was
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+
+\begin{table}[H]
+	%TODO tabelle für zusammen vergleichen der Adhäsionskräfte?
+		\centering
+		\begin{tabular}{ c | c }
+			 & Kalibrierungsprobe\\ \hline
+			$F_\text{adh}$ & \SI{10.8+-11.4}{nN} \\ %26.287, 28, 25.557, 35.1, 29.6
+		\end{tabular}
+		\caption{Adhäsionskräfte die auf die Spitze des Cantilevers wirken bei Kraft-Abstand-Spektroskopie.} %TODO mehr
+		\label{tb_ds}
+	\end{table}
 
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
@@ -129,10 +151,25 @@
 	%TODO Tabelle + Bilder mit Beschriftung
 	%\printbibliography
 	\section{Anhang}
-		\begin{figure}[H]
+
+\begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
 			\subcaptionbox{Profil 1 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
-			\caption{Kalibrierungsprobe}
+			\caption{Kalibrierungsprobe.}
 		\end{figure}
+
+\begin{figure}[H]
+			\centering
+			\subcaptionbox{ \label{fig_kali_ds1}}{\includegraphics[width=.49\linewidth]{images/Kali/DS1}}
+			\subcaptionbox{ \label{fig_kali_ds2}}{\includegraphics[width=.49\linewidth]{images/Kali/DS2}}
+			\subcaptionbox{ \label{fig_kali_ds3}}{\includegraphics[width=.49\linewidth]{images/Kali/DS3}}
+			\subcaptionbox{ \label{fig_kali_ds4}}{\includegraphics[width=.49\linewidth]{images/Kali/DS4}}
+			\subcaptionbox{
+			\label{fig_kali_ds5}}{\includegraphics[width=.49\linewidth]{images/Kali/DS5}}
+			\caption{Kraft-Abstands-Spektroskopie der Kalibrierungsprobe.}
+\end{figure}
+
+
+
 \end{document}
