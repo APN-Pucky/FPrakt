@@ -105,6 +105,7 @@
 	\label{sec_theorie}
 
 	\subsection{Allgemeines}
+	%TODO hier iwo schreiben wie wir adhäsion bestimmen aus snap-off mit Graphik
 	%TODO noch allgemeiner
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
 	Dabei ist zwischen statischem und dynamischen Modus zu unterscheiden.
@@ -157,6 +158,8 @@
 	Dafür wird zunächst ein Resonanzprofil des Cantilevers aufgenommen und ein Wert auf der linken Flanke als Anregungsfrequenz verwendet.
 	Dies maximiert die Empfindlichkeit, während Entfernung und Annäherung der Resonanzfrequenz unterscheidbar bleiben.
 
+	%TODO PID erwähnen
+
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 
@@ -168,6 +171,7 @@
 	%TODO Streifen nach Maximum
 	%TODO Rotation schwer vollständig zu beheben
 	%TODO Gradient wurde mit Gwyddion entfernt, Streifen fragemente auch Tiefste Messung auf Null gesetzt.
+  %TODO häufig verschmutzngen/unschön => trial and error.
 
 \subsubsection{Kalibrierungsprobe}
 \begin{figure}[H]
@@ -177,9 +181,15 @@
 			\caption{Kalibrierungsprobe.}
 \end{figure}
 
+\begin {figure}[H]
+\includegraphics[width=.7\linewidth]{images/Kali/DS1}
+\caption{Kraft-Abstand-Spektroskopie Kurve der Kalibrierungsprobe auf einem der Maxima.}
+\end{figure}
+
 
 \subsubsection{Datenträgerproben}
 %TODO 1x Pit nach unten 2x nach oben
+%TODO Probe 3 (BR) war schwer Pits zu finden.
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
@@ -301,8 +311,10 @@
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
  %TODO vegleich literatur Box+ Nanosurf spitzen radius
- %TODO neuer => weniger adhäsion??
+ %TODO neuer => weniger Adhäsion??
  %TODO DVD am tiefsten/höchsten ?? ggf weil des des einzige andersrum ist.
+ %TODO Spitze sehr viel größer (möglicherweise Abnutzung, aber die war ja ziemlich neu)
+ %TODO Verschmutzungs effekte z.B. Wasser in der Luft
 \begin{table}[H]
 	%TODO tabelle für zusammen vergleichen der Adhäsionskräfte?
 		\centering
@@ -375,6 +387,6 @@
 			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
 			\label{fig_br_ds}
 \end{figure}
-%TODO Check Picture quality
+%TODO Check Picture quality: Skalierung Achsen, Farben, Winkel etc
 
 \end{document}
