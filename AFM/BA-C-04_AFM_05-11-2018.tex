@@ -64,7 +64,7 @@
 	locale=DE,
 	separate-uncertainty
 }
-%\bibliography{BA-C-04_AFM_05-11-2018_References}
+\bibliography{BA-C-04_AFM_05-11-2018_References}
 
 \begin{document}
 
@@ -92,7 +92,7 @@
 	\tableofcontents
 	\newpage
 
-	%TODO mehr TODO in Default
+	%TODO Raster-Kraft-Mikroskop bzw. Rasterkraftmikroskop: sollte  maybe einheitlich sein, ich stimme für ohne Bindestriche, weil das sagt Wikipedia und die Anleitung, aber der Titel ist halt mit Bindestrichen
 
 	\section{Kurzfassung}
 	%TODO Hypothese	und deren Ergebnis, wenn Hypothese ist, dass nur Theorie erfüllt, sagen: Erwartung: Theorie aus einführung (mit reflink) erfüllt
@@ -103,8 +103,14 @@
 
 	\section{Theorie}
 	\label{sec_theorie}
-	%TODO noch allgemeiner zu aufbau des Spektrometers
-	\subsection{Statischer Modus (Kontaktmodus)}
+
+	\subsection{Allgemeines}
+	%TODO noch allgemeiner
+	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
+	Dabei ist zwischen statischem und dynamischen Modus zu unterscheiden.
+
+
+	%\subsection{Statischer Modus (Kontaktmodus)}
 	Im Kontaktmodus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
 	Dann wird die Spitze in einem Raster über die Probe gefahren, wofür sie durch Piezokristalle bewegt wird.
 	Diese haben ein von der an sie angelegten Spannung abhängige Ausdehnung.
@@ -113,7 +119,19 @@
 	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist.%hier steht viel "Verbiegung des Cantilevers"...
 	Die Verbiegung des Cantilevers wird durch einen PID-Regler konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder?
 
-	\subsection{Dynamischer Modus}
+	\begin{figure}[H]
+		\includegraphics[width=0.7\textwidth]{images/sonstiges/Aufbau}
+		\centering
+		\caption{Schematischer Aufbau eines Raster-Kraft-Mikroskops. \cite{Anleitung}}
+		\label{fig_Aufbau}
+		\centering
+	\end{figure}
+	%\subsection{Dynamischer Modus}
+	Im dynamischen Modus befindet sich die Messspitze nicht in Kontakt mit der Probe, sondern schwingt über der Probenoberfläche.
+	Dabei wird eine Anregungsfrequenz verwendet, die nahe an, aber nicht auf der Resonanzfrequenz liegt. %TODO diesen Abschnitt besonders checken, weil der halt aus meinem Verständnis wiedergegeben ist.
+	Da die Adhäsionskräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand.
+	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr.
+	Die Messung der Amplitude der Schwingung erlaubt somit den Rückschluss auf das Oberflächenprofil, ohne dabei Spitze oder Probe abzunutzen.
 
 	\section{Methoden}
 	\label{sec_methoden}
@@ -136,6 +154,8 @@
 
 	Zuletzt wird im dynamischen Modus eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
 	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen. %TODO vlt. bissl ausführlicher hier.
+	Dafür wird zunächst ein Resonanzprofil des Cantilevers aufgenommen und ein Wert auf der linken Flanke als Anregungsfrequenz verwendet.
+	Dies maximiert die Empfindlichkeit, während Entfernung und Annäherung der Resonanzfrequenz unterscheidbar bleiben.
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
@@ -300,11 +320,15 @@
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
 
+	%TODO in vakuum, wasser
+
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
 	%TODO Tabelle + Bilder mit Beschriftung
-	%\printbibliography
-	\section{Anhang}
+	\printbibliography
+
+
+	\section{Anhang} %TODO sicher, dass der nach Lit soll? IMO je
 
 \begin{figure}[H]
 			\centering
