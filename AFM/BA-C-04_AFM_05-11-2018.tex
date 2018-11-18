@@ -105,22 +105,18 @@
 	\label{sec_theorie}
 
 	\subsection{Allgemeines}
-	%TODO vlt bissl gliedern, aber ist halt allgemeines in Spezifischem, deshalb auskommentiert
-	%TODO hier iwo schreiben wie wir adhäsion bestimmen aus snap-off mit Graphik
-	%TODO noch allgemeiner
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
-	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert und sie soll im Folgenden erläutert werden.
+	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert, welche im Folgenden erläutert werden soll.
 	Es ist zwischen statischem und dynamischen Modus zu unterscheiden.
 
-
-	%\subsection{Statischer Modus (Kontaktmodus)}
+	\subsection{Statischer Modus (Kontaktmodus)}
 	Im statischem Modus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
 	Dann wird die Spitze in einem Raster über die Probe gefahren, wofür sie durch Piezokristalle bewegt wird.
 	Diese haben eine von der an sie angelegten Spannung abhängige Ausdehnung.
 	Dieser Zusammenhang ist nicht bekannt und muss wie in \cref{sec_methoden} durch eine Kalibrierprobe bestimmt werden.
-	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht. %TODO worauf bezieht sich 'Hierbei', KDS?
+	Es wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
 	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist. %hier steht viel "Verbiegung des Cantilevers"... % 'seine'=Laser, aber kann halt vieles sein
-	Die Verbiegung des Cantilevers wird durch einen PID-Regler möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder? %TODO Nein, weil es schwingt ja nix (theoretisch könnte man sagen es ist nur P-Regler aber macht glaub net Sinn)
+	Die Verbiegung des Cantilevers wird durch eine Regelung möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist.
 
 	\begin{figure}[H]
 		\includegraphics[width=0.7\textwidth]{images/sonstiges/Aufbau}
@@ -130,18 +126,37 @@
 		\centering
 	\end{figure}
 
-	%TODO Kraft-Distanz-Spktro
-	%\subsection{Dynamischer Modus}
+	\subsection{Kraft-Abstands-Spektroskopie}
+	Bei der Kraft-Abstands-Spektroskopie wird die Spitze langsam an die Probe angenähert.
+	Die Rückstellkraft des Cantilevers wirkt hierbei den Anziehungskräften zwischen Probe und Spitze entgegen.
+	In \cref{fig_KDS} ist der Verlauf der Kraft-Distanz-Kurve idealisiert dargestellt.
+	An dem Abstand, an dem die Anziehungskräfte größer als die Rückstellkraft sind, springt die Spitze in Kontakt mit der Probe.
+	Dieser Vorgang wird als \enquote{snap-in} bezeichnet.
+	Eine weitere Annäherung führt zu einer Verbiegung des Cantilevers gemäß des Hookeschen Gesetzes.
+	
+	Bei Rückziehen der Spitze kommt es in analoger Art und Weise zu einem Punkt, an dem die Adhäsion genauso groß wie die Rückstellkraft des Cantilevers ist und es kommt zu einem \enquote{snap-off}.
+	Demnach lässt sich aus dem Minimum der Kurve beim Zurückziehen die Adhäsionskraft zwischen Probe und Spitze bestimmen.
+	
+	\begin{figure}[H]
+		\includegraphics[width=0.7\textwidth]{images/sonstiges/KDS}
+		\centering
+		\caption{Schematischer Verlauf einer typischen Kraft-Distanz-Kurve im Kontakt-Modus. Die rote Kurve stellt den Verlauf bei der Annäherung, die blaue Kurve den Verlauf beim Zurückziehen der Spitze dar. Die auf der senkrechten Achse angegebene Federkraft wird bei den Messungen in diesem Versuchsprotokoll durch Auslenkung ersetzt, da das verwendete Programm dies gemäß des Hookeschen Gesetzes umrechnet. \cite{Anleitung}}
+		\label{fig_KDS}
+		\centering
+	\end{figure}
+	
+	\subsection{Dynamischer Modus}
 	Im dynamischen Modus befindet sich die Messspitze nicht in Kontakt mit der Probe, sondern schwingt über der Probenoberfläche.
-	Dabei wird eine Anregungsfrequenz verwendet, die nahe an, aber nicht auf der Resonanzfrequenz liegt. %TODO diesen Abschnitt besonders checken, weil der halt aus meinem Verständnis wiedergegeben ist.
-	Da die Adhäsionskräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand. %TODO Adhäsion wiederspricht Non-COntact mode. Wechselwikung mit Probenoberfläche (ohne Kontakt) reduziert REsonanzfrequenz (wenn Kraft attraktiv)
-	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr. %TODO  +Die Amplitude ändert sich weil Anregung entsprechend effektiver
+	Dabei wird eine Anregungsfrequenz verwendet, die nahe an, aber nicht auf der Resonanzfrequenz liegt.
+	Da die Kräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand (bei anziehenden Kräften wird sie reduziert).
+	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr.
+	Eine Vergrößerung der Differenzfrequenz sorgt für eine verringerte Amplitude und eine Verringerung für eine vergrößerte.
 	Die Messung der Amplitude der Schwingung erlaubt somit den Rückschluss auf das Oberflächenprofil, ohne dabei Spitze oder Probe abzunutzen.
 
 	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
 	Wenn der Spitzenradius gegenüber den betrachteten Strukturen klein ist, kann man die Oberflächenstruktur der Proben messen.
 	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen. %TODO vlt. mehr erklären, was mit Spitzenradius gemeint ist
-	%TODO Kraft-Abstand
+	
 	\section{Methoden}
 	\label{sec_methoden}
 	%TODO Bilder von der Website klauen
@@ -156,9 +171,10 @@
 	Die Kalibrierung wird in x-,y- und z-Richtung getrennt durchgeführt.
 
 	Dann werden fünf Kraft-Distanz-Kurven an verschiedenen Stellen der Oberfläche der Quader aufgenommen.
-	Diese erlaube wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden. %TODO machen
+	Diese erlaube wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden.
 
 	Danach werden AFM-Aufnahmen der drei zuzuordnenden Proben gemacht, aus denen gemäß der Kalibrierung Pit-Länge, -Breite und -Tiefe bestimmt werden.
+	Es ist anzumerken, dass zwei der Proben 
 	Aus der Bestimmung des Spurabstands lassen sich die Proben dann mithilfe von Referenzwerten den drei optischen Speichertechnologien zuordnen.
 
 	Zuletzt wird der dynamische Modus gewählt.
@@ -166,9 +182,8 @@
 	Dies maximiert die Empfindlichkeit, während Entfernung und Annäherung der Resonanzfrequenz unterscheidbar bleiben.
 	Es wird eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
 	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen.
+	Dafür wurden zunächst P-,I- und D-Anteil des PID-Reglers, der den Abstand zwischen Probe und Spitze konstant hält, auf ein möglichst störungsfreies, gleichmäßiges Bild optimiert.
 
-
-	%TODO PID optimize erwähnen?
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
@@ -336,20 +351,43 @@ Die Skalierungsfaktoren der Achsen, wurden so gewählt, dass die Messung der Kal
 	%TODO Bezug/Nutzen oder sonst was
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-
- %TODO vegleich literatur Box+ Nanosurf spitzen radius
+	\subsubsection{Zuordnung der Datenträger}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c}
+			&CD \cite{CD}&DVD \cite{DVD}&Blu-ray \cite{blu}\\ \hline
+			Literaturwerte & \SI{1600}{\nano \meter} & \SI{740}{\nano \meter}& \SI{320}{\nano \meter}\\
+			Probennummer & 2 & 1 & 3\\
+			Messwert & \SI{1510+-75,5}{\nano \meter} & \SI{690 +-34,5}{\nano \meter} & \SI{330 +- 16,5}{\nano \meter}\\
+		\end{tabular}
+		\caption{Spurabstände von CD, DVD, und Blu-ray Disc gemäß Literaturwerten und zugeordnete Proben.}
+		\label{tb_lit_Spurabstände}
+	\end{table}
+	In \cref{tb_lit_Spurabstände} wurden die Proben anhand von Literaturwerten den verschiedenen optischen Speichermedien zugeordnet.
+	Dies gelingt für die Blu-ray Disc innerhalb der Unsicherheit und für CD und DVD innerhalb der doppelten Unsicherheit.
+	Demnach lässt sich festhalten, dass die Raster-Kraft-Mikroskopie im Kontaktmodus für Strukturen in der Größenordnung von einigen hundert Nanometern ein geeignetes Verfahren ist.
+	
+	\subsubsection{Spitzenradius}
+	Die Bestimmung des Spitzenradius führte zu einem Wert von \SI{1,204 +- 0,016}{\micro \meter}.
+	Dies steht im deutlichen Widerspruch zu den Angaben des Herstellers von \SI{7}{\nano \meter} aus dem Programm zur Bedienung des Mikroskops \enquote{Nanosurf Easyscan 2}.
+	Dies muss darauf zurückgeführt werden, dass entweder die Cantilever-Spitze oder die Probenspitzen einen deutlich größeren Radius haben, als der Hersteller angibt.
+	
+	\subsubsection{Adhäsion}
+	
+	
+ %TODO vegleich literatur cantileverbox+ Nanosurf spitzen radius
  %TODO neuer => weniger Adhäsion??
  %TODO DVD am tiefsten/höchsten ?? ggf weil des des einzige andersrum ist.
  %TODO Spitze sehr viel größer (möglicherweise Abnutzung, aber die war ja ziemlich neu)
  %TODO Verschmutzungs effekte z.B. Wasser in der Luft
-\begin{table}[H]
+	\begin{table}[H]
 	%TODO tabelle für zusammen vergleichen der Adhäsionskräfte?
 		\centering
 		\begin{tabular}{ c | c }
 			 & Kalibrierungsprobe\\ \hline
-			$F_\text{adh}$ & \SI{10.8+-11.4}{nN} \\
+			$F_\text{adh}$ & \SI{11.4+-10.8}{nN} \\
 		\end{tabular}
-		\caption{Adhäsionskräfte die auf die Spitze des Cantilevers wirken bei Kraft-Abstand-Spektroskopie.} %TODO mehr
+		\caption{Adhäsionskräfte, die auf die Spitze des Cantilevers wirken, bei Kraft-Abstands-Spektroskopie.} %TODO mehr
 		\label{tb_ds}
 	\end{table}
 
@@ -360,6 +398,7 @@ Die Skalierungsfaktoren der Achsen, wurden so gewählt, dass die Messung der Kal
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
 
 	%TODO in vakuum, wasser
+	%TODO KDS mit unterschiedlichen Spitzen und in unterschiedlichen Umgebungen würde erlauben Kräfte zu splitten
 
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
