@@ -103,12 +103,12 @@
 
 	\section{Theorie}
 	\label{sec_theorie}
-	
+
 	\subsection{Allgemeines}
 	%TODO noch allgemeiner
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
 	Dabei ist zwischen statischem und dynamischen Modus zu unterscheiden.
-	
+
 
 	%\subsection{Statischer Modus (Kontaktmodus)}
 	Im Kontaktmodus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
@@ -118,7 +118,7 @@
 	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
 	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist.%hier steht viel "Verbiegung des Cantilevers"...
 	Die Verbiegung des Cantilevers wird durch einen PID-Regler konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder?
-	
+
 	\begin{figure}[H]
 		\includegraphics[width=0.7\textwidth]{images/sonstiges/Aufbau}
 		\centering
@@ -164,6 +164,79 @@
 
 	\subsection{Beobachtung}
 	%TODO Einflüsse von veränderten Parametern auf Messung
+	%TODO Texte
+
+	%TODO Streifen nach Maximum
+	%TODO Rotation schwer vollständig zu beheben
+	%TODO Gradient wurde mit Gwyddion entfernt, Streifen fragemente auch Tiefste Messung auf Null gesetzt.
+
+\subsubsection{Kalibrierungsprobe}
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
+			\subcaptionbox{Profil 1 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
+			\caption{Kalibrierungsprobe.}
+\end{figure}
+
+
+\subsubsection{Datenträgerproben}
+%TODO 1x Pit nach unten 2x nach oben
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
+			\subcaptionbox{Vergrößerte Draufsicht \label{fig_dvd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/Top_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
+			\subcaptionbox{Profil 1.  Der gemessene Abstand beträgt \SI{5.48}{\mu m}.
+			 \label{fig_dvd_profil}}{\includegraphics[width=.7\linewidth]{images/DVD/Profil}}
+			\caption{Probe 1.}
+\end{figure}
+
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_cd_top}}{\includegraphics[width=.49\linewidth]{images/CD/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_cd_3d}}{\includegraphics[width=.49\linewidth]{images/CD/3D}}
+			\subcaptionbox{Vergrößerte Draufsicht \label{fig_cd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/Top_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_cd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/3D_zoom}}
+			\subcaptionbox{Profil 1. Der gemessene Abstand beträgt \SI{4.535}{\mu m}. % Die Tiefe des Minimums bei $x\approx\SI{5.3}{\mu m}$ beträgt \SI{58.5}{nm}.
+			 \label{fig_cd_profil}}{\includegraphics[width=.7\linewidth]{images/CD/Profil}}
+			\caption{Probe 2.}
+\end{figure}
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_br_top}}{\includegraphics[width=.49\linewidth]{images/BR/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D}}
+			\subcaptionbox{Vergrößerte Draufsicht \label{fig_br_top_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/Top_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom}}
+			\subcaptionbox{Profil 1. Der gemessene Abstand zwischen den zwei Horizontalen beträgt \SI{1.64}{\mu m}. %Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
+			\label{fig_br_profil}}{\includegraphics[width=.7\linewidth]{images/BR/Profil}}
+			\caption{Probe 3.}
+\end{figure}
+
+\subsubsection{TGT1-Probe}
+
+%TODO dynamische Modus
+%TODO optimiert sodass minimal unschön
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht
+			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top}}
+			\subcaptionbox{3D-Sicht
+			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D}}
+			\subcaptionbox{Profil 1
+			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil}}
+			\caption{TGT1 Probe.}
+\end{figure}
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht
+			 \label{fig_tgt_top_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/Top_zoom}}
+			\subcaptionbox{3D-Sicht
+			\label{fig_tgt_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom}}
+			\subcaptionbox{Profil 1. Fit ist ein Kreis mit dem Radius $r= \SI{1.204 +-0.016}{\mu m}$
+			\label{fig_tgt_profil_zoom}}{\includegraphics[width=.6\linewidth]{images/TGT/Profil_zoom}}
+			\caption{TGT1 Probe.}
+\end{figure}
+
 	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
 	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
 	\begin{description}
@@ -182,7 +255,7 @@
 	\end{equation}
 	Es folgt $F_\text{adh}=\SI{11.4+-10.8}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
 
-	\subsubsection{CD/DVD/BR}
+	\subsubsection{Datenträgerproben} %CD/DVD/BR}
 	Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie Kurven (\cref{fig_dvd_ds},\cref{fig_cd_ds} und \cref{fig_br_ds}) die Adhäsionskräfte der Datenträger bestimmen.
 	Die resultierenden Adhäsionskräfte sind in \cref{tb_adh} aufgeführt.
 
@@ -194,7 +267,7 @@
 		\end{tabular}
 		\caption{Adhäsionskräfte die auf die Spitze des Cantilevers wirken bei Kraft-Abstand-Spektroskopie.}
 		\label{tb_adh}
-	\end{table}
+\end{table}
 
 	Die Spurbreite $b_\text{Spur}$ des jeweiligen Datenträgers ergibt sich gemittelt aus den in \cref{fig_dvd_profil},\cref{fig_cd_profil} bzw. \cref{fig_br_profil} gemessenen Abständen mehrer Spuren.
 	Der Abstand wird trivialerweise durch die Anzahl der Spuren dividiert.
@@ -221,9 +294,9 @@
 	% 3) BR
 	\subsubsection{TGT1 Probe} %TODO Name
 	Aus dem Profil einer gemessenen Spitze \cref{fig_tgt_profil_zoom} lässt sich mittels einer Anpassung an einen Kreis der Radius der Spitze des Cantilevers bestimmen.
-	Es ergibt sich eine Radius $r=\SI{1.204 +-0.016}{\mu m}$.
+	Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 
-		\subsection{Diskussion}
+	\subsection{Diskussion}
 	%TODO Bezug/Nutzen oder sonst was
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
@@ -254,15 +327,9 @@
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
 	%TODO Tabelle + Bilder mit Beschriftung
 	\printbibliography
-	
-	
-	\section{Anhang} %TODO sicher, dass der nach Lit soll?
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
-			\subcaptionbox{Profil 1 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
-			\caption{Kalibrierungsprobe.}
-\end{figure}
+
+
+	\section{Anhang} %TODO sicher, dass der nach Lit soll? IMO je
 
 \begin{figure}[H]
 			\centering
@@ -276,17 +343,6 @@
 \end{figure}
 
 \begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
-			\subcaptionbox{Vergrößerte Draufsicht \label{fig_dvd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
-			\subcaptionbox{Profil 1.  Der gemessene Abstand beträgt \SI{5.48}{\mu m}.
-			 \label{fig_dvd_profil}}{\includegraphics[width=.7\linewidth]{images/DVD/Profil}}
-			\caption{Probe 1.}
-\end{figure}
-
-
-\begin{figure}[H]
 			\centering
 			\subcaptionbox{snap-off $s=\SI{46.2}{nm}$  \label{fig_dvd_ds1}}{\includegraphics[width=.49\linewidth]{images/DVD/DS1}}
 			\subcaptionbox{snap-off $s=\SI{50.0}{nm}$  \label{fig_dvd_ds2}}{\includegraphics[width=.49\linewidth]{images/DVD/DS2}}
@@ -297,17 +353,6 @@
 			\caption{Kraft-Abstands-Spektroskopie der Probe 1 auf einem der Maxima. Gemittelter snap-off $s=\SI{44.5}{nm}$.} % Pit oder Peak?
 			\label{fig_dvd_ds}
 \end{figure}
-
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_cd_top}}{\includegraphics[width=.49\linewidth]{images/CD/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_cd_3d}}{\includegraphics[width=.49\linewidth]{images/CD/3D}}
-			\subcaptionbox{Vergrößerte Draufsicht \label{fig_cd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_cd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/3D_zoom}}
-			\subcaptionbox{Profil 1. Der gemessene Abstand beträgt \SI{4.535}{\mu m}. % Die Tiefe des Minimums bei $x\approx\SI{5.3}{\mu m}$ beträgt \SI{58.5}{nm}.
-			 \label{fig_cd_profil}}{\includegraphics[width=.7\linewidth]{images/CD/Profil}}
-			\caption{Probe 2.}
-\end{figure}
-
 \begin{figure}[H]
 			\centering
 			\subcaptionbox{ snap-off $s=\SI{46.2}{nm}$\label{fig_cd_ds1}}{\includegraphics[width=.49\linewidth]{images/CD/DS1}}
@@ -321,17 +366,6 @@
 \end{figure}
 
 \begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_br_top}}{\includegraphics[width=.49\linewidth]{images/BR/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D}}
-			\subcaptionbox{Vergrößerte Draufsicht \label{fig_br_top_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom}}
-			\subcaptionbox{Profil 1. Der gemessene Abstand zwischen den zwei Horizontalen beträgt \SI{1.64}{\mu m}. %Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
-			\label{fig_br_profil}}{\includegraphics[width=.7\linewidth]{images/BR/Profil}}
-			\caption{Probe 3.}
-\end{figure}
-
-
-\begin{figure}[H]
 			\centering
 			\subcaptionbox{ snap-off $s=\SI{33.3}{nm}$\label{fig_br_ds1}}{\includegraphics[width=.49\linewidth]{images/BR/DS1}}
 			\subcaptionbox{ snap-off $s=\SI{35.6}{nm}$\label{fig_br_ds2}}{\includegraphics[width=.49\linewidth]{images/BR/DS2}}
@@ -342,27 +376,6 @@
 			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
 			\label{fig_br_ds}
 \end{figure}
-
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht
-			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top}}
-			\subcaptionbox{3D-Sicht
-			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D}}
-			\subcaptionbox{Profil 1
-			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil}}
-			\caption{TGT1 Probe.}
-\end{figure}
-
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht
-			 \label{fig_tgt_top_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/Top_zoom}}
-			\subcaptionbox{3D-Sicht
-			\label{fig_tgt_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom}}
-			\subcaptionbox{Profil 1. Fit ist ein Kreis mit dem Radius $r= \SI{1.204 +-0.016}{\mu m}$
-			\label{fig_tgt_profil_zoom}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil_zoom}}
-			\caption{TGT1 Probe.}
-\end{figure}
-
 %TODO Check Picture quality
 
 \end{document}
