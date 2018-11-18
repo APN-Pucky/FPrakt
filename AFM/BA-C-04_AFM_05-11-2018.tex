@@ -174,28 +174,55 @@
 	%TODO Unsicherheiten
 
 
-	\subsection{Beobachtung}
+	\subsection{Beobachtung und Datenanlyse}
 	%TODO Einflüsse von veränderten Parametern auf Messung
 	%TODO Texte
 
-	%TODO Streifen nach Maximum
-	%TODO Rotation schwer vollständig zu beheben
-	%TODO Gradient wurde mit Gwyddion entfernt, Streifen fragemente auch Tiefste Messung auf Null gesetzt.
-  %TODO häufig verschmutzngen/unschön => trial and error.
+	Zunächst wird mit der Kamera eine Poition geringer Verunreinigung auf dem Material gesucht.
+	Wenn dennoch Unreinheiten gemessen werden, wird eine anderen Stelle untersucht.
+	Die gemessen Topografien weißen einen Gradienten auf und häufig fällt die gemessene Höhe nach einem Maximum nicht mehr auf Null zurück. %TODO Ist das Verständlich oder eher Streifen/Schlieren schrieben
+	Diese systematischen Fehler können mit dem Programm "Gwyddion" behoben werden (Vgl. \cref{fig_kali_raw} mit \cref{fig_kali_top}).
+	Außerdem werden die Messpunkt so verschoben, dass das globale Minimum auf Null liegt.
 
-\subsubsection{Kalibrierungsprobe}
+	\begin{figure}[H]
+			\includegraphics[width=.6\linewidth]{images/Kali/raw}
+			\caption{Unverarbeitete Topografie der Kalibrierprobe.}
+			\label{fig_kali_raw}
+	\end{figure}
+
+\subsubsection{Unsicherheiten}
+	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
+	\begin{description}
+		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m} % 0.395+-0.375
+		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m} %TODO hab ich net benützt, notwendig?
+	\end{description}
+	Alle weiteren Unsicherheiten bei der Kraft-Distanz-Spektroskopie werden als verschwinden gegenüber der Unsicherheit der Federkonstante angenommen.
+\subsubsection{Kalibrierungsprobe}\label{sss_kali} %TODO Kalibrierungsprobe to Kalibrierprobe
+%TODO Rotation
+Die Skalierungsfaktoren der Achsen, wurden so gewählt, dass die Messung der Kalibrierprobe den Angaben aus \cite{Anleitung} entsprechen.
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_kali_top}.
 			 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
-			\caption{Kalibrierungsprobe.} %TODO erklären, dass das Profil unten jeweils dem z-Profil entlang der Gerade entspricht, die "1" reicht mMn nicht, schreib halt statt "Profil 1" einfach "Profil entlang der Gerade 1 in Bild a)", gilt für alle Bildcluster
+			\caption{Kalibrierungsprobe.}
 \end{figure}
+	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 28.9
+	Die Adhäsionskraft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off $s$ und der Federkonstante mit \cref{eq_adh} bestimmen.
+	In \cref{fig_kali_expl} ist exemplarisch eine gemessen Kraft-Abstands-Kurve dargestellt.
+	Der Snap-off ist deutlich in einem Abstand von ca. \SI{150}{nm} im Verlauf der blauen Kurve erkenntlich.
+		Es folgt $F_\text{adh}=\SI{11.4+-10.8}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
+
+\begin{equation}
+			\label{eq_adh}
+			F_\text{adh} = s \cdot c
+	\end{equation}
 %TODO Verweise
 
 \begin {figure}[H]
 \includegraphics[width=.7\linewidth]{images/Kali/DS1}
-\caption{Kraft-Abstand-Spektroskopie Kurve der Kalibrierungsprobe auf einem der Maxima.}
+\caption{Kraft-Abstands-Kurve der Kalibrierungsprobe auf einem der Maxima.}
+\label{fig_kali_expl}
 \end{figure}
 
 \subsubsection{Datenträgerproben}
@@ -208,7 +235,7 @@
 			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_dvd_top}.
 			  Der gemessene Abstand zwischen den zwei Senkrechten beträgt \SI{5.48}{\mu m}.
-			 \label{fig_dvd_profil}}{\includegraphics[width=.9\linewidth]{images/DVD/Profil}}
+			 \label{fig_dvd_profil}}{\includegraphics[width=.8\linewidth]{images/DVD/Profil}}
 			\caption{Probe 1.}
 \end{figure}
 
@@ -261,25 +288,9 @@
 			\caption{TGT1 Probe.}
 \end{figure}
 
-	\subsubsection{Unsicherheiten}
-	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
-	\begin{description}
-		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m} % 0.395+-0.375
-		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m} %TODO hab ich net benützt, notwendig?
-	\end{description}
-	Alle weiteren Unsicherheiten bei der Kraft-Distanz-Spektroskopie werden als verschwinden gegenüber der Unsicherheit der Federkonstante angenommen.
-	\subsection{Datenanalyse}
+		\subsection{Datenanalyse}
 	%TODO Berechung nach Aufgabenstellung
-	\subsubsection{Kalibrierungsprobe} \label{sss_kali}
-	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 28.9
-	Die Adhäsionskräft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off $s$ und der Federkonstante bestimmen:
-	\begin{equation}
-			\label{eq_adh}
-			F_\text{adh} = s \cdot c
-	\end{equation}
-	Es folgt $F_\text{adh}=\SI{11.4+-10.8}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
-
-	\subsubsection{Datenträgerproben}
+	\subsubsection{Kalibrierungsprobe}	\subsubsection{Datenträgerproben}
 	Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven (\cref{fig_dvd_ds},\cref{fig_cd_ds} und \cref{fig_br_ds}) die Adhäsionskräfte der Datenträger bestimmen.
 	Die resultierenden Adhäsionskräfte sind in \cref{tb_adh} aufgeführt.
 
@@ -377,7 +388,7 @@
 			\subcaptionbox{snap-off $s=\SI{44.2}{nm}$  \label{fig_dvd_ds4}}{\includegraphics[width=.49\linewidth]{images/DVD/DS4}}
 			\subcaptionbox{snap-off $s=\SI{39.8}{nm}$
 			\label{fig_dvd_ds5}}{\includegraphics[width=.49\linewidth]{images/DVD/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 1 auf einem der Maxima. Gemittelter snap-off $s=\SI{44.5}{nm}$.} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 1 auf einem der Maxima von \cref{fig_dvd_top}. Gemittelter snap-off $s=\SI{44.5}{nm}$.} % Pit oder Peak?
 			\label{fig_dvd_ds}
 \end{figure}
 \begin{figure}[H]
@@ -388,7 +399,7 @@
 			\subcaptionbox{ snap-off $s=\SI{53.7}{nm}$\label{fig_cd_ds4}}{\includegraphics[width=.49\linewidth]{images/CD/DS4}}
 			\subcaptionbox{ snap-off $s=\SI{47.8}{nm}$
 			\label{fig_cd_ds5}}{\includegraphics[width=.49\linewidth]{images/CD/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 2 auf einem der Maxima. Gemittelter snap-off $s=\SI{50.6}{nm}$.} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 2 auf einem der Maxima von \cref{fig_cd_top}. Gemittelter snap-off $s=\SI{50.6}{nm}$.} % Pit oder Peak?
 			\label{fig_cd_ds}
 \end{figure}
 
@@ -400,7 +411,7 @@
 			\subcaptionbox{ snap-off $s=\SI{35.7}{nm}$\label{fig_br_ds4}}{\includegraphics[width=.49\linewidth]{images/BR/DS4}}
 			\subcaptionbox{ snap-off $s=\SI{36.4}{nm}$
 			\label{fig_br_ds5}}{\includegraphics[width=.49\linewidth]{images/BR/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima von \cref{fig_br_top}. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
 			\label{fig_br_ds}
 \end{figure}
 %TODO Check Picture quality: Skalierung Achsen, Farben, Winkel etc
