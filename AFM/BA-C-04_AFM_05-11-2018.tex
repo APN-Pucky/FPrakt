@@ -112,13 +112,13 @@
 
 
 	%\subsection{Statischer Modus (Kontaktmodus)}
-	Im Kontaktmodus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
+	Im statischem Modus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
 	Dann wird die Spitze in einem Raster über die Probe gefahren, wofür sie durch Piezokristalle bewegt wird.
-	Diese haben ein von der an sie angelegten Spannung abhängige Ausdehnung.
+	Diese haben eine von der an sie angelegten Spannung abhängige Ausdehnung.
 	Dieser Zusammenhang ist nicht bekannt und muss wie in \cref{sec_methoden} durch eine Kalibrierprobe bestimmt werden.
-	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
-	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist.%hier steht viel "Verbiegung des Cantilevers"...
-	Die Verbiegung des Cantilevers wird durch einen PID-Regler konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder?
+	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht. %TODO worauf bezieht sich 'Hierbei', KDS?
+	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist. %hier steht viel "Verbiegung des Cantilevers"... % 'seine'=Laser, aber kann halt vieles sein
+	Die Verbiegung des Cantilevers wird durch einen PID-Regler möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder? %TODO Nein, weil es schwingt ja nix (theoretisch könnte man sagen es ist nur P-Regler aber macht glaub net Sinn)
 
 	\begin{figure}[H]
 		\includegraphics[width=0.7\textwidth]{images/sonstiges/Aufbau}
@@ -127,11 +127,13 @@
 		\label{fig_Aufbau}
 		\centering
 	\end{figure}
+
+	%TODO Kraft-Distanz-Spktro
 	%\subsection{Dynamischer Modus}
 	Im dynamischen Modus befindet sich die Messspitze nicht in Kontakt mit der Probe, sondern schwingt über der Probenoberfläche.
 	Dabei wird eine Anregungsfrequenz verwendet, die nahe an, aber nicht auf der Resonanzfrequenz liegt. %TODO diesen Abschnitt besonders checken, weil der halt aus meinem Verständnis wiedergegeben ist.
-	Da die Adhäsionskräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand.
-	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr.
+	Da die Adhäsionskräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand. %TODO Adhäsion wiederspricht Non-COntact mode. Wechselwikung mit Probenoberfläche (ohne Kontakt) reduziert REsonanzfrequenz (wenn Kraft attraktiv)
+	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr. %TODO  +Die Amplitude ändert sich weil Anregung entsprechend effektiver
 	Die Messung der Amplitude der Schwingung erlaubt somit den Rückschluss auf das Oberflächenprofil, ohne dabei Spitze oder Probe abzunutzen.
 
 	\section{Methoden}
@@ -158,7 +160,7 @@
 	Dafür wird zunächst ein Resonanzprofil des Cantilevers aufgenommen und ein Wert auf der linken Flanke als Anregungsfrequenz verwendet.
 	Dies maximiert die Empfindlichkeit, während Entfernung und Annäherung der Resonanzfrequenz unterscheidbar bleiben.
 
-	%TODO PID erwähnen
+	%TODO PID optimize erwähnen?
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
