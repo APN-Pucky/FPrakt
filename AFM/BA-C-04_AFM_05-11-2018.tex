@@ -232,12 +232,12 @@ Die Skalierungsfaktoren der Achsen, wurden so gewählt, dass die Messung der Kal
 In alle Raumrichtungen wurde mit einem Faktor von $2/3$ multipliziert.
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
+			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D_fix}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_kali_top}.
 			 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
 			\caption{Kalibrierprobe.}
 \end{figure}
-	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 28.9
+	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 =>   28.9
 	Die Adhäsionskraft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off $s$ und der Federkonstante mit \cref{eq_adh} bestimmen.
 	In \cref{fig_kali_expl} ist exemplarisch eine gemessen Kraft-Abstands-Kurve dargestellt.
 	Der Snap-off ist deutlich in einem Abstand von ca. \SI{150}{nm} im Verlauf der blauen Kurve erkenntlich.
@@ -303,7 +303,7 @@ Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven
 	%TODO die 3Seiten Graphik fliegen hier noch bisschen wasted rum
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
+			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_fix}}
 			\subcaptionbox{Vergrößerte Draufsicht \label{fig_dvd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/Top_zoom}}
 			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_dvd_top}.
@@ -316,9 +316,9 @@ Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven
 
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_cd_top}}{\includegraphics[width=.49\linewidth]{images/CD/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_cd_3d}}{\includegraphics[width=.49\linewidth]{images/CD/3D}}
+			\subcaptionbox{3D-Sicht \label{fig_cd_3d}}{\includegraphics[width=.49\linewidth]{images/CD/3D_fix}}
 			\subcaptionbox{Vergrößerte Draufsicht \label{fig_cd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_cd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/3D_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_cd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/3D_zoom_fix}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_cd_top}. Der gemessene Abstand zwischen den zwei Senkrechten beträgt \SI{4.535}{\mu m}. % Die Tiefe des Minimums bei $x\approx\SI{5.3}{\mu m}$ beträgt \SI{58.5}{nm}.
 			 \label{fig_cd_profil}}{\includegraphics[width=.95\linewidth]{images/CD/Profil}}
 			\caption{Probe 2.}
@@ -327,9 +327,9 @@ Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven
 
 \begin{figure}[H] %Hier finde ich die Vergrößerte Sicht sehr merkwürdig (und eigentlich auch die nicht-vergrößerte)
 			\subcaptionbox{Draufsicht \label{fig_br_top}}{\includegraphics[width=.49\linewidth]{images/BR/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D}}
+			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D_fix}}
 			\subcaptionbox{Vergrößerte Draufsicht \label{fig_br_top_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom_fix}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_br_top}.
 			Der gemessene Abstand zwischen den zwei Senkrechten beträgt \SI{1.64}{\mu m}.
 				%Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
@@ -347,7 +347,7 @@ Erst nach Optimierung der Parameter für den PID-Regler lassen sich Strukturen e
 			\subcaptionbox{Draufsicht
 			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top}}
 			\subcaptionbox{3D-Sicht
-			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D}}
+			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_fix}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_tgt_top}.
 			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil}}
 			\caption{TGT1 Probe.}
@@ -361,7 +361,7 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 			\subcaptionbox{Draufsicht
 			 \label{fig_tgt_top_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/Top_zoom}}
 			\subcaptionbox{3D-Sicht
-			\label{fig_tgt_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom}}
+			\label{fig_tgt_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom_fix}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_tgt_top_zoom}.
 			Die rote Funktion ist ein Kreis mit dem Radius $r= \SI{1.204 +-0.016}{\mu m}$
 			\label{fig_tgt_profil_zoom}}{\includegraphics[width=.6\linewidth]{images/TGT/Profil_zoom}}
