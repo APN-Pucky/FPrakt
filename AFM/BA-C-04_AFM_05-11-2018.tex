@@ -105,10 +105,12 @@
 	\label{sec_theorie}
 
 	\subsection{Allgemeines}
+	%TODO vlt bissl gliedern, aber ist halt allgemeines in Spezifischem, deshalb auskommentiert
 	%TODO hier iwo schreiben wie wir adhäsion bestimmen aus snap-off mit Graphik
 	%TODO noch allgemeiner
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
-	Dabei ist zwischen statischem und dynamischen Modus zu unterscheiden.
+	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert und sie soll im Folgenden erläutert werden.
+	Es ist zwischen statischem und dynamischen Modus zu unterscheiden.
 
 
 	%\subsection{Statischer Modus (Kontaktmodus)}
@@ -136,13 +138,17 @@
 	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr. %TODO  +Die Amplitude ändert sich weil Anregung entsprechend effektiver
 	Die Messung der Amplitude der Schwingung erlaubt somit den Rückschluss auf das Oberflächenprofil, ohne dabei Spitze oder Probe abzunutzen.
 
+	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
+	Wenn der Spitzenradius gegenüber den betrachteten Strukturen klein ist, kann man die Oberflächenstruktur der Proben messen.
+	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen. %TODO vlt. mehr erklären, was mit Spitzenradius gemeint ist
+	%TODO Kraft-Abstand
 	\section{Methoden}
 	\label{sec_methoden}
 	%TODO Bilder von der Website klauen
 	%TODO einer will Präsens
 	Es sind drei Proben gegeben, die Teil einer CD, DVD und Blu-ray Disc waren.
 	Um zu bestimmen, welche Probe von welchem optischen Speichermedium stammt, wird die Raster-Kraft-Mikroskopie verwendet.
-	Außerdem soll aus Kraft-Distanz-Kurven die Adhäsion der verschiedenen Oberflächen bestimmt werden und zuletzt der Radius einer Cantilever-Spitze untersucht werden. %TODO Radius sollte man in Theorie erklärt haben
+	Außerdem soll aus Kraft-Distanz-Kurven die Adhäsion der verschiedenen Oberflächen bestimmt werden und zuletzt der Radius einer Cantilever-Spitze untersucht werden.
 
 	Zunächst wird die Oberflächenstruktur einer Kalibrierprobe im Kontaktmodus untersucht, um den korrekten Zusammenhang zwischen Spannung an den Piezokristallen und Position der Cantilever-Spitze festzustellen.
 	Der tatsächliche Wert dieses Zusammenhangs wird hier nicht bestimmt, da das Programm zur Ansteuerung des Raster-Kraft-Mikroskop bereits einen Zusammenhang annimmt und dieser durch die Kalibrierung lediglich korrigiert wird.
@@ -155,10 +161,12 @@
 	Danach werden AFM-Aufnahmen der drei zuzuordnenden Proben gemacht, aus denen gemäß der Kalibrierung Pit-Länge, -Breite und -Tiefe bestimmt werden.
 	Aus der Bestimmung des Spurabstands lassen sich die Proben dann mithilfe von Referenzwerten den drei optischen Speichertechnologien zuordnen.
 
-	Zuletzt wird im dynamischen Modus eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
-	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen. %TODO vlt. bissl ausführlicher hier.
-	Dafür wird zunächst ein Resonanzprofil des Cantilevers aufgenommen und ein Wert auf der linken Flanke als Anregungsfrequenz verwendet.
+	Zuletzt wird der dynamische Modus gewählt.
+	Hierbei wird zunächst ein Resonanzprofil des Cantilevers aufgenommen und ein Wert auf der linken Flanke als Anregungsfrequenz verwendet.
 	Dies maximiert die Empfindlichkeit, während Entfernung und Annäherung der Resonanzfrequenz unterscheidbar bleiben.
+	Es wird eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
+	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen.
+
 
 	%TODO PID optimize erwähnen?
 
@@ -180,14 +188,14 @@
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
 			\subcaptionbox{Profil 1 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
-			\caption{Kalibrierungsprobe.}
+			\caption{Kalibrierungsprobe.} %TODO erklären, dass das Profil unten jeweils dem z-Profil entlang der Gerade entspricht, die "1" reicht mMn nicht, schreib halt statt "Profil 1" einfach "Profil entlang der Gerade 1 in Bild a)", gilt für alle Bildcluster
 \end{figure}
+%TODO Verweise
 
 \begin {figure}[H]
 \includegraphics[width=.7\linewidth]{images/Kali/DS1}
 \caption{Kraft-Abstand-Spektroskopie Kurve der Kalibrierungsprobe auf einem der Maxima.}
 \end{figure}
-
 
 \subsubsection{Datenträgerproben}
 %TODO 1x Pit nach unten 2x nach oben
@@ -197,7 +205,7 @@
 			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
 			\subcaptionbox{Vergrößerte Draufsicht \label{fig_dvd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/Top_zoom}}
 			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
-			\subcaptionbox{Profil 1.  Der gemessene Abstand beträgt \SI{5.48}{\mu m}.
+			\subcaptionbox{Profil 1.  Der gemessene Abstand beträgt \SI{5.48}{\mu m}. %TODO von der aktuellen Reihenfolge weiß man hier noch nicht, was "der gemessene Abstand" ist.
 			 \label{fig_dvd_profil}}{\includegraphics[width=.7\linewidth]{images/DVD/Profil}}
 			\caption{Probe 1.}
 \end{figure}
@@ -213,12 +221,13 @@
 			\caption{Probe 2.}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[H] %Hier finde ich die Vergrößerte Sicht sehr merkwürdig (und eigentlich auch die nicht-vergrößerte)
 			\subcaptionbox{Draufsicht \label{fig_br_top}}{\includegraphics[width=.49\linewidth]{images/BR/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D}}
 			\subcaptionbox{Vergrößerte Draufsicht \label{fig_br_top_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/Top_zoom}}
 			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom}}
-			\subcaptionbox{Profil 1. Der gemessene Abstand zwischen den zwei Horizontalen beträgt \SI{1.64}{\mu m}. %Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
+			\subcaptionbox{Profil 1. Der gemessene Abstand zwischen den zwei Horizontalen beträgt \SI{1.64}{\mu m}. %TODO Das sind keine Horizontalen, du Depp
+				%Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
 			\label{fig_br_profil}}{\includegraphics[width=.7\linewidth]{images/BR/Profil}}
 			\caption{Probe 3.}
 \end{figure}
@@ -254,12 +263,12 @@
 		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m} % 0.395+-0.375
 		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m} %TODO hab ich net benützt, notwendig?
 	\end{description}
-	Alle weiteren Unsicherheiten bei der Kraft-Distanz-Spektroskopie verschwinden gegenüber der Unsichheit der Federkonstante.
+	Alle weiteren Unsicherheiten bei der Kraft-Distanz-Spektroskopie werden als verschwinden gegenüber der Unsicherheit der Federkonstante angenommen.
 	\subsection{Datenanalyse}
 	%TODO Berechung nach Aufgabenstellung
 	\subsubsection{Kalibrierungsprobe} \label{sss_kali}
 	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 28.9
-	Die Adhäsionskräft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off s und der Federkonstante bestimmen:
+	Die Adhäsionskräft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off s und der Federkonstante bestimmen: %TODO s zu $s$ ?
 	\begin{equation}
 			\label{eq_adh}
 			F_\text{adh} = s \cdot c
@@ -267,7 +276,7 @@
 	Es folgt $F_\text{adh}=\SI{11.4+-10.8}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
 
 	\subsubsection{Datenträgerproben} %CD/DVD/BR}
-	Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie Kurven (\cref{fig_dvd_ds},\cref{fig_cd_ds} und \cref{fig_br_ds}) die Adhäsionskräfte der Datenträger bestimmen.
+	Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven (\cref{fig_dvd_ds},\cref{fig_cd_ds} und \cref{fig_br_ds}) die Adhäsionskräfte der Datenträger bestimmen.
 	Die resultierenden Adhäsionskräfte sind in \cref{tb_adh} aufgeführt.
 
 \begin{table}[H]
@@ -276,7 +285,7 @@
 			 & Probe 1 & Probe 2 & Probe 3\\ \hline
 			$F_\text{adh}$ & \SI{17.6+-16.7}{nN} & \SI{20.0+-19.0}{nN} &\SI{14.0+-13.3}{nN} \\
 		\end{tabular}
-		\caption{Adhäsionskräfte die auf die Spitze des Cantilevers wirken bei Kraft-Abstand-Spektroskopie.}
+		\caption{Adhäsionskräfte, die auf die Spitze des Cantilevers wirken, bei Kraft-Abstand-Spektroskopie.}
 		\label{tb_adh}
 \end{table}
 
@@ -296,7 +305,7 @@
 			$t_\text{Pit}$ & \SI{63}{nm} & \SI{48}{nm} &\SI{41}{nm} \\
 		\end{tabular}
 		\caption{Spurbreite $b_\text{Spur}$, Pit-Länge $l_\text{Pit}$, Pit-Breite $b_\text{Pit}$, Pit-Tiefe $t_\text{Pit}$ der jeweiligen Datenträger 1-3.
-		Die Unsicherheiten sind mit \SI{5}{\%} abgeschätzt.}
+		Die Unsicherheiten sind mit \SI{5}{\%} abgeschätzt.} %TODO ist das nicht zu faul? Bei dem Mittelwert müsste sie geringer sein. Außerdem sind hier keine.
 		\label{tb_spur}
 	\end{table}
 
@@ -304,7 +313,7 @@
 	% 2) CD
 	% 3) BR
 	\subsubsection{TGT1 Probe} %TODO Name
-	Aus dem Profil einer gemessenen Spitze \cref{fig_tgt_profil_zoom} lässt sich mittels einer Anpassung an einen Kreis der Radius der Spitze des Cantilevers bestimmen.
+	Aus dem Profil einer gemessenen Spitze in \cref{fig_tgt_profil_zoom} lässt sich mittels einer Anpassung an einen Kreis der Radius der Spitze des Cantilevers bestimmen. %TODO da könnte man sagen, dass der Fit eindeutig kein Kreis ist. Ich weiß, dass du das nicht meinst, aber das steht da. Ich hab allerdings auch nicht ganz verstande, was die Parabel mit nem Kreis zu tun hat.
 	Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 
 	\subsection{Diskussion}
