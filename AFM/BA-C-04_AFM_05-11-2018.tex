@@ -141,10 +141,10 @@
 	An dem Abstand, an dem die Anziehungskräfte größer als die Rückstellkraft sind, springt die Spitze in Kontakt mit der Probe.
 	Dieser Vorgang wird als \enquote{snap-in} bezeichnet.
 	Eine weitere Annäherung führt zu einer Verbiegung des Cantilevers gemäß des Hookeschen Gesetzes.
-	
+
 	Bei Rückziehen der Spitze kommt es in analoger Art und Weise zu einem Punkt, an dem die Adhäsion genauso groß wie die Rückstellkraft des Cantilevers ist und es kommt zu einem \enquote{snap-off}.
 	Demnach lässt sich aus dem Minimum der Kurve beim Zurückziehen die Adhäsionskraft zwischen Probe und Spitze bestimmen.
-	
+
 	\begin{figure}[H]
 		\includegraphics[width=0.7\textwidth]{images/sonstiges/KDS}
 		\centering
@@ -152,7 +152,7 @@
 		\label{fig_KDS}
 		\centering
 	\end{figure}
-	
+
 	\subsection{Dynamischer Modus}
 	Im dynamischen Modus befindet sich die Messspitze nicht in Kontakt mit der Probe, sondern schwingt über der Probenoberfläche.
 	Dabei wird eine Anregungsfrequenz verwendet, die nahe an, aber nicht auf der Resonanzfrequenz liegt.
@@ -164,7 +164,7 @@
 	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
 	Wenn der Spitzenradius gegenüber den betrachteten Strukturen klein ist, kann man die Oberflächenstruktur der Proben messen.
 	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen. %TODO vlt. mehr erklären, was mit Spitzenradius gemeint ist
-	
+
 	\section{Methoden}
 	\label{sec_methoden}
 	%TODO Bilder von der Website klauen
@@ -197,109 +197,63 @@
 	%TODO Unsicherheiten
 
 
-	\subsection{Beobachtung}
+	\subsection{Beobachtung und Datenanlyse}
 	%TODO Einflüsse von veränderten Parametern auf Messung
 	%TODO Texte
 
-	%TODO Streifen nach Maximum
-	%TODO Rotation schwer vollständig zu beheben
-	%TODO Gradient wurde mit Gwyddion entfernt, Streifen fragemente auch Tiefste Messung auf Null gesetzt.
-  %TODO häufig verschmutzngen/unschön => trial and error.
+	Zunächst wird mit der Kamera eine Poition geringer Verunreinigung auf dem Material gesucht.
+	Wenn dennoch Unreinheiten gemessen werden, wird eine anderen Stelle untersucht.
+	Die gemessen Topografien weißen einen Gradienten auf und häufig fällt die gemessene Höhe nach einem Maximum nicht mehr auf Null zurück. %TODO Ist das Verständlich oder eher Streifen/Schlieren schrieben
+	Diese systematischen Fehler können mit dem Programm "Gwyddion" behoben werden (Vgl. \cref{fig_kali_raw} mit \cref{fig_kali_top}).
+	Außerdem werden die Messpunkt so verschoben, dass das globale Minimum auf Null liegt.
 
-\subsubsection{Kalibrierungsprobe}
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
-			\subcaptionbox{Profil 1 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
-			\caption{Kalibrierungsprobe.} %TODO erklären, dass das Profil unten jeweils dem z-Profil entlang der Gerade entspricht, die "1" reicht mMn nicht, schreib halt statt "Profil 1" einfach "Profil entlang der Gerade 1 in Bild a)", gilt für alle Bildcluster
-\end{figure}
-%TODO Verweise
+	\begin{figure}[H]
+			\includegraphics[width=.6\linewidth]{images/Kali/raw}
+			\caption{Unverarbeitete Topografie der Kalibrierprobe.}
+			\label{fig_kali_raw}
+	\end{figure}
 
-\begin {figure}[H]
-\includegraphics[width=.7\linewidth]{images/Kali/DS1}
-\caption{Kraft-Abstand-Spektroskopie Kurve der Kalibrierungsprobe auf einem der Maxima.}
-\end{figure}
-
-\subsubsection{Datenträgerproben}
-%TODO 1x Pit nach unten 2x nach oben
-%TODO Probe 3 (BR) war schwer Pits zu finden.
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
-			\subcaptionbox{Vergrößerte Draufsicht \label{fig_dvd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
-			\subcaptionbox{Profil 1.  Der gemessene Abstand beträgt \SI{5.48}{\mu m}. %TODO von der aktuellen Reihenfolge weiß man hier noch nicht, was "der gemessene Abstand" ist.
-			 \label{fig_dvd_profil}}{\includegraphics[width=.7\linewidth]{images/DVD/Profil}}
-			\caption{Probe 1.}
-\end{figure}
-
-
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht \label{fig_cd_top}}{\includegraphics[width=.49\linewidth]{images/CD/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_cd_3d}}{\includegraphics[width=.49\linewidth]{images/CD/3D}}
-			\subcaptionbox{Vergrößerte Draufsicht \label{fig_cd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_cd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/3D_zoom}}
-			\subcaptionbox{Profil 1. Der gemessene Abstand beträgt \SI{4.535}{\mu m}. % Die Tiefe des Minimums bei $x\approx\SI{5.3}{\mu m}$ beträgt \SI{58.5}{nm}.
-			 \label{fig_cd_profil}}{\includegraphics[width=.7\linewidth]{images/CD/Profil}}
-			\caption{Probe 2.}
-\end{figure}
-
-\begin{figure}[H] %Hier finde ich die Vergrößerte Sicht sehr merkwürdig (und eigentlich auch die nicht-vergrößerte)
-			\subcaptionbox{Draufsicht \label{fig_br_top}}{\includegraphics[width=.49\linewidth]{images/BR/Top}}
-			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D}}
-			\subcaptionbox{Vergrößerte Draufsicht \label{fig_br_top_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/Top_zoom}}
-			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom}}
-			\subcaptionbox{Profil 1. Der gemessene Abstand zwischen den zwei Horizontalen beträgt \SI{1.64}{\mu m}. %TODO Das sind keine Horizontalen, du Depp
-				%Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
-			\label{fig_br_profil}}{\includegraphics[width=.7\linewidth]{images/BR/Profil}}
-			\caption{Probe 3.}
-\end{figure}
-
-\subsubsection{TGT1-Probe}
-
-%TODO dynamische Modus
-%TODO optimiert sodass minimal unschön
-
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht
-			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top}}
-			\subcaptionbox{3D-Sicht
-			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D}}
-			\subcaptionbox{Profil 1
-			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil}}
-			\caption{TGT1 Probe.}
-\end{figure}
-
-\begin{figure}[H]
-			\subcaptionbox{Draufsicht
-			 \label{fig_tgt_top_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/Top_zoom}}
-			\subcaptionbox{3D-Sicht
-			\label{fig_tgt_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom}}
-			\subcaptionbox{Profil 1. Fit ist ein Kreis mit dem Radius $r= \SI{1.204 +-0.016}{\mu m}$
-			\label{fig_tgt_profil_zoom}}{\includegraphics[width=.6\linewidth]{images/TGT/Profil_zoom}}
-			\caption{TGT1 Probe.}
-\end{figure}
-
-	\subsubsection{Unsicherheiten} %TODO GGF IN DATENANYLSY
+\subsubsection{Unsicherheiten}
 	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
 	\begin{description}
 		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m} % 0.395+-0.375
 		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m} %TODO hab ich net benützt, notwendig?
 	\end{description}
 	Alle weiteren Unsicherheiten bei der Kraft-Distanz-Spektroskopie werden als verschwinden gegenüber der Unsicherheit der Federkonstante angenommen.
-	\subsection{Datenanalyse}
-	%TODO Berechung nach Aufgabenstellung
-	\subsubsection{Kalibrierungsprobe} \label{sss_kali}
+\subsubsection{Kalibrierungsprobe}\label{sss_kali} %TODO Kalibrierungsprobe to Kalibrierprobe
+%TODO Rotation
+Die Skalierungsfaktoren der Achsen, wurden so gewählt, dass die Messung der Kalibrierprobe den Angaben aus \cite{Anleitung} entsprechen.
+In alle Raumrichtungen wurde mit einem Fator von $2/3$ multipliziert.
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
+			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_kali_top}.
+			 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
+			\caption{Kalibrierungsprobe.}
+\end{figure}
 	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 28.9
-	Die Adhäsionskräft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off s und der Federkonstante bestimmen: %TODO s zu $s$ ?
-	\begin{equation}
+	Die Adhäsionskraft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off $s$ und der Federkonstante mit \cref{eq_adh} bestimmen.
+	In \cref{fig_kali_expl} ist exemplarisch eine gemessen Kraft-Abstands-Kurve dargestellt.
+	Der Snap-off ist deutlich in einem Abstand von ca. \SI{150}{nm} im Verlauf der blauen Kurve erkenntlich.
+		Es folgt $F_\text{adh}=\SI{11.4+-10.8}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
+
+\begin{equation}
 			\label{eq_adh}
 			F_\text{adh} = s \cdot c
 	\end{equation}
-	Es folgt $F_\text{adh}=\SI{11.4+-10.8}{nN}$, wobei über die fünf gemessenen Hysteresen (\crefrange{fig_kali_ds1}{fig_kali_ds5}) gemittelt wird.
+%TODO Verweise
 
-	\subsubsection{Datenträgerproben} %CD/DVD/BR}
-	Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven (\cref{fig_dvd_ds},\cref{fig_cd_ds} und \cref{fig_br_ds}) die Adhäsionskräfte der Datenträger bestimmen.
+\begin {figure}[H]
+\includegraphics[width=.7\linewidth]{images/Kali/DS1}
+\caption{Kraft-Abstands-Kurve der Kalibrierungsprobe auf einem der Maxima.}
+\label{fig_kali_expl}
+\end{figure}
+
+\subsubsection{Datenträgerproben}
+%TODO 1x Pit nach unten 2x nach oben
+%TODO Probe 3 (BR) war schwer Pits zu finden.
+
+Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven (\cref{fig_dvd_ds}, \cref{fig_cd_ds} und \cref{fig_br_ds}) die Adhäsionskräfte der Datenträger bestimmen.
 	Die resultierenden Adhäsionskräfte sind in \cref{tb_adh} aufgeführt.
 
 \begin{table}[H]
@@ -312,7 +266,7 @@
 		\label{tb_adh}
 \end{table}
 
-	Die Spurbreite $b_\text{Spur}$ des jeweiligen Datenträgers ergibt sich gemittelt aus den in \cref{fig_dvd_profil},\cref{fig_cd_profil} bzw. \cref{fig_br_profil} gemessenen Abständen mehrer Spuren.
+	Die Spurbreite $b_\text{Spur}$ des jeweiligen Datenträgers ergibt sich gemittelt aus den in \cref{fig_dvd_profil}, \cref{fig_cd_profil} bzw. \cref{fig_br_profil} gemessenen Abständen mehrer Spuren.
 	Der Abstand wird trivialerweise durch die Anzahl der Spuren dividiert.
 	Es folgen die Spurbreiten in \cref{tb_spur}.
 	Analog lassen sich Pit-Länge $l_\text{Pit}$ , Pit-Breite $b_\text{Pit}$ und Pit-Tiefe $t_\text{Pit}$ bestimmen.
@@ -328,21 +282,91 @@
 			$t_\text{Pit}$ & \SI{63}{nm} & \SI{48}{nm} &\SI{41}{nm} \\
 		\end{tabular}
 		\caption{Spurbreite $b_\text{Spur}$, Pit-Länge $l_\text{Pit}$, Pit-Breite $b_\text{Pit}$, Pit-Tiefe $t_\text{Pit}$ der jeweiligen Datenträger 1-3.
-		Die Unsicherheiten sind mit \SI{5}{\%} abgeschätzt.} %TODO ist das nicht zu faul? Bei dem Mittelwert müsste sie geringer sein. Außerdem sind hier keine.
+		Die Unsicherheiten werden jeweils mit \SI{5}{\%} abgeschätzt.
+		Da nicht ausgeschlossen werden kann dass ein Großteil dieses Fehlers systematisch ist, wird für die Mittelwerte kein veringerter Fehler angenommen.}
 		\label{tb_spur}
 	\end{table}
 
 	% 1) DVD
 	% 2) CD
 	% 3) BR
-	\subsubsection{TGT1 Probe} %TODO Name
-	Aus dem Profil einer gemessenen Spitze in \cref{fig_tgt_profil_zoom} lässt sich mittels einer Anpassung an einen Kreis der Radius der Spitze des Cantilevers bestimmen. %TODO da könnte man sagen, dass der Fit eindeutig kein Kreis ist. Ich weiß, dass du das nicht meinst, aber das steht da. Ich hab allerdings auch nicht ganz verstande, was die Parabel mit nem Kreis zu tun hat.
-	Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 
-	\subsection{Diskussion}
+	%TODO die 3Seiten Graphik fliegen hier noch bisschen wasted rum
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
+			\subcaptionbox{Vergrößerte Draufsicht \label{fig_dvd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/Top_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_dvd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/DVD/3D_zoom}}
+			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_dvd_top}.
+			  Der gemessene Abstand zwischen den zwei Senkrechten beträgt \SI{5.48}{\mu m}.
+			 \label{fig_dvd_profil}}{\includegraphics[width=.8\linewidth]{images/DVD/Profil}}
+			\caption{Probe 1.}
+			\label{fig_dvd}
+\end{figure}
+
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht \label{fig_cd_top}}{\includegraphics[width=.49\linewidth]{images/CD/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_cd_3d}}{\includegraphics[width=.49\linewidth]{images/CD/3D}}
+			\subcaptionbox{Vergrößerte Draufsicht \label{fig_cd_top_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/Top_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_cd_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/CD/3D_zoom}}
+			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_cd_top}. Der gemessene Abstand zwischen den zwei Senkrechten beträgt \SI{4.535}{\mu m}. % Die Tiefe des Minimums bei $x\approx\SI{5.3}{\mu m}$ beträgt \SI{58.5}{nm}.
+			 \label{fig_cd_profil}}{\includegraphics[width=.9\linewidth]{images/CD/Profil}}
+			\caption{Probe 2.}
+			\label{fig_cd}
+\end{figure}
+
+\begin{figure}[H] %Hier finde ich die Vergrößerte Sicht sehr merkwürdig (und eigentlich auch die nicht-vergrößerte)
+			\subcaptionbox{Draufsicht \label{fig_br_top}}{\includegraphics[width=.49\linewidth]{images/BR/Top}}
+			\subcaptionbox{3D-Sicht \label{fig_br_3d}}{\includegraphics[width=.49\linewidth]{images/BR/3D}}
+			\subcaptionbox{Vergrößerte Draufsicht \label{fig_br_top_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/Top_zoom}}
+			\subcaptionbox{Vergrößerte 3D-Sicht \label{fig_br_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/BR/3D_zoom}}
+			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_br_top}.
+			Der gemessene Abstand zwischen den zwei Senkrechten beträgt \SI{1.64}{\mu m}.
+				%Die Tiefe des Minimums bei $x\approx\SI{1}{\mu m}$ beträgt \SI{39.3}{nm}.
+			\label{fig_br_profil}}{\includegraphics[width=.9\linewidth]{images/BR/Profil}}
+			\caption{Probe 3.}
+			\label{fig_br}
+\end{figure}
+
+\subsubsection{TGT1-Probe}
+
+%TODO dynamische Modus
+%TODO optimiert sodass minimal unschön
+Im dynamischen Modus ist in der Topografie zunächst kein periodisches Spitzenmuster erkennbar.
+Erst nach Optimierung der Parameter für den PID-Regler lassen sich Strukturen erkennen (\cref{fig_tgt}).
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht
+			 \label{fig_tgt_top}}{\includegraphics[width=.49\linewidth]{images/TGT/Top}}
+			\subcaptionbox{3D-Sicht
+			\label{fig_tgt_3d}}{\includegraphics[width=.49\linewidth]{images/TGT/3D}}
+			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_tgt_top}.
+			\label{fig_tgt_profil}}{\includegraphics[width=.99\linewidth]{images/TGT/Profil}}
+			\caption{TGT1 Probe.}
+			\label{fig_tgt}
+\end{figure}
+
+Aus dem Profil einer gemessenen Spitze in \cref{fig_tgt_profil_zoom} lässt sich mittels einer Anpassung an einen Kreis der Radius der Spitze des Cantilevers bestimmen.
+Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
+
+\begin{figure}[H]
+			\subcaptionbox{Draufsicht
+			 \label{fig_tgt_top_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/Top_zoom}}
+			\subcaptionbox{3D-Sicht
+			\label{fig_tgt_3d_zoom}}{\includegraphics[width=.49\linewidth]{images/TGT/3D_zoom}}
+			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_tgt_top_zoom}.
+			Die rote Funktion ist ein Kreis mit dem Radius $r= \SI{1.204 +-0.016}{\mu m}$
+			\label{fig_tgt_profil_zoom}}{\includegraphics[width=.6\linewidth]{images/TGT/Profil_zoom}}
+			\caption{TGT1 Probe.}
+			\label{fig_tgt_zoom}
+\end{figure}
+
+		\subsection{Diskussion}
 	%TODO Bezug/Nutzen oder sonst was
 	%TODO auch hier die Hypothese wiederholen
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	%TODO Dreieck form von TGT1 disksus?
 	\subsubsection{Zuordnung der Datenträger}
 	\begin{table}[H]
 		\centering
@@ -363,12 +387,11 @@
 	\subsubsection{Spitzenradius}
 	Die Bestimmung des Spitzenradius führte zu einem Wert von \SI{1,204 +- 0,016}{\micro \meter}.
 	Dies steht im deutlichen Widerspruch zu den Angaben des Herstellers von \SI{7}{\nano \meter} aus dem Programm zur Bedienung des Mikroskops \enquote{Nanosurf Easyscan 2}.
-	Dies muss darauf zurückgeführt werden, dass entweder die Cantilever-Spitze oder die Probenspitzen einen deutlich größeren Radius haben, als der Hersteller angibt.
-	Dies kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein.
-	
+	Diese Feststellung muss darauf zurückgeführt werden, dass entweder die Cantilever-Spitze oder die Probenspitzen einen deutlich größeren Radius haben, als der Hersteller angibt.
+	Letzteres kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein.
 	\subsubsection{Adhäsion}
-	
-	
+
+
  %TODO vegleich literatur cantileverbox+ Nanosurf spitzen radius
  %TODO neuer => weniger Adhäsion??
  %TODO DVD am tiefsten/höchsten ?? ggf weil des des einzige andersrum ist.
@@ -439,7 +462,7 @@
 			\subcaptionbox{snap-off $s=\SI{44.2}{nm}$  \label{fig_dvd_ds4}}{\includegraphics[width=.49\linewidth]{images/DVD/DS4}}
 			\subcaptionbox{snap-off $s=\SI{39.8}{nm}$
 			\label{fig_dvd_ds5}}{\includegraphics[width=.49\linewidth]{images/DVD/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 1 auf einem der Maxima. Gemittelter snap-off $s=\SI{44.5}{nm}$.} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 1 auf einem der Maxima von \cref{fig_dvd_top}. Gemittelter snap-off $s=\SI{44.5}{nm}$.} % Pit oder Peak?
 			\label{fig_dvd_ds}
 \end{figure}
 \begin{figure}[H]
@@ -450,7 +473,7 @@
 			\subcaptionbox{ snap-off $s=\SI{53.7}{nm}$\label{fig_cd_ds4}}{\includegraphics[width=.49\linewidth]{images/CD/DS4}}
 			\subcaptionbox{ snap-off $s=\SI{47.8}{nm}$
 			\label{fig_cd_ds5}}{\includegraphics[width=.49\linewidth]{images/CD/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 2 auf einem der Maxima. Gemittelter snap-off $s=\SI{50.6}{nm}$.} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 2 auf einem der Maxima von \cref{fig_cd_top}. Gemittelter snap-off $s=\SI{50.6}{nm}$.} % Pit oder Peak?
 			\label{fig_cd_ds}
 \end{figure}
 
@@ -462,7 +485,7 @@
 			\subcaptionbox{ snap-off $s=\SI{35.7}{nm}$\label{fig_br_ds4}}{\includegraphics[width=.49\linewidth]{images/BR/DS4}}
 			\subcaptionbox{ snap-off $s=\SI{36.4}{nm}$
 			\label{fig_br_ds5}}{\includegraphics[width=.49\linewidth]{images/BR/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
+			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima von \cref{fig_br_top}. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
 			\label{fig_br_ds}
 \end{figure}
 %TODO Check Picture quality: Skalierung Achsen, Farben, Winkel etc
