@@ -106,8 +106,16 @@
 
 	\subsection{Allgemeines}
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
-	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert, welche im Folgenden erläutert werden soll.
+	In \cref{fig_Foto} ist das verwendete Mikroskop abgebildet un \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert, welche im Folgenden erläutert werden soll.
 	Es ist zwischen statischem und dynamischen Modus zu unterscheiden.
+	
+	\begin{figure}[H]
+		\includegraphics[width=0.5\textwidth]{images/photo_2018-11-15_21-01-21}
+		\centering
+		\caption{Fotografie des verwendeten Raster-Kraft-Mikroskops.}
+		\label{fig_Foto}
+		\centering
+	\end{figure}
 
 	\subsection{Statischer Modus (Kontaktmodus)}
 	Im statischem Modus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
@@ -119,7 +127,7 @@
 	Die Verbiegung des Cantilevers wird durch eine Regelung möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist.
 
 	\begin{figure}[H]
-		\includegraphics[width=0.7\textwidth]{images/sonstiges/Aufbau}
+		\includegraphics[width=0.5\textwidth]{images/sonstiges/Aufbau}
 		\centering
 		\caption{Schematischer Aufbau eines Raster-Kraft-Mikroskops. \cite{Anleitung}}
 		\label{fig_Aufbau}
@@ -174,7 +182,7 @@
 	Diese erlaube wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden.
 
 	Danach werden AFM-Aufnahmen der drei zuzuordnenden Proben gemacht, aus denen gemäß der Kalibrierung Pit-Länge, -Breite und -Tiefe bestimmt werden.
-	Es ist anzumerken, dass zwei der Proben 
+	Es ist anzumerken, dass zwei der Proben die Grundfläche des Speichermediums darstellen, sodass bei ihnen Pits Täler sind, während eine Probe die Schutzbeschichtung darstellt, weshalb hier die Pits als Berge auftreten.
 	Aus der Bestimmung des Spurabstands lassen sich die Proben dann mithilfe von Referenzwerten den drei optischen Speichertechnologien zuordnen.
 
 	Zuletzt wird der dynamische Modus gewählt.
@@ -350,11 +358,13 @@
 	In \cref{tb_lit_Spurabstände} wurden die Proben anhand von Literaturwerten den verschiedenen optischen Speichermedien zugeordnet.
 	Dies gelingt für die Blu-ray Disc innerhalb der Unsicherheit und für CD und DVD innerhalb der doppelten Unsicherheit.
 	Demnach lässt sich festhalten, dass die Raster-Kraft-Mikroskopie im Kontaktmodus für Strukturen in der Größenordnung von einigen hundert Nanometern ein geeignetes Verfahren ist.
+	Es ist außerdem festzustellen, dass die Probe, bei der die Probe die Beschichtung war, die DVD ist, da dies die einzige ist, bei der die Pits als Berge auftreten (vgl. \cref{fig_dvd_top}).
 	
 	\subsubsection{Spitzenradius}
 	Die Bestimmung des Spitzenradius führte zu einem Wert von \SI{1,204 +- 0,016}{\micro \meter}.
 	Dies steht im deutlichen Widerspruch zu den Angaben des Herstellers von \SI{7}{\nano \meter} aus dem Programm zur Bedienung des Mikroskops \enquote{Nanosurf Easyscan 2}.
 	Dies muss darauf zurückgeführt werden, dass entweder die Cantilever-Spitze oder die Probenspitzen einen deutlich größeren Radius haben, als der Hersteller angibt.
+	Dies kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein.
 	
 	\subsubsection{Adhäsion}
 	
@@ -367,29 +377,47 @@
 	\begin{table}[H]
 	%TODO tabelle für zusammen vergleichen der Adhäsionskräfte?
 		\centering
-		\begin{tabular}{ c | c }
-			 & Kalibrierungsprobe\\ \hline
-			$F_\text{adh}$ & \SI{11.4+-10.8}{nN} \\
+		\begin{tabular}{ c | c | c| c | c }
+			 & Kalibrierungsprobe & CD & DVD & Blu-ray\\ \hline
+			$F_\text{adh}$ & \SI{11.4+-10.8}{nN} & \SI{20,0+-19,0}{\nano \newton}& \SI{17,6 +- 16,7}{\nano \newton}& \SI{14,0+-13,3}{\nano \newton} \\
 		\end{tabular}
-		\caption{Adhäsionskräfte, die auf die Spitze des Cantilevers wirken, bei Kraft-Abstands-Spektroskopie.} %TODO mehr
-		\label{tb_ds}
+		\caption{Adhäsionskräfte, die auf die Spitze des Cantilevers wirken, bei Kraft-Abstands-Spektroskopie der Kalibrierprobe sowie den optischen Speichermedien.} %TODO mehr
+		\label{tb_diskus_adhaesion}
 	\end{table}
 
+	In \cref{tb_diskus_adhaesion} sind die gemessenen Adhäsionskräfte den optischen Speichermedien zugeordnet dargestellt.
+	Man kann feststellen, dass die Adhäsionskraft mit abnehmendem Pit-Abstand bzw, neuerer Technologie abnimmt.
+	Dies ist jedoch nicht sehr aussagekräftig, da im Fall der DVD die Beschichtung gemessen wurde.
+	Diese Beobachtung ist also eher als Zufall anzunehmen, auch weil die Unsicherheiten sehr groß sind.
+	Hierbei ist jedoch anzumerken, dass die Unsicherheit auf die hohe Unsicherheit der Federkonstante des Cantilevers nach Herstellerangaben zurückzuführen ist.
+	Da bei den optischen Speichermedien immer derselbe Cantilever verwendet wurde, ist dieser Fehler jedoch ein systematischer, weshalb die Messwerte der PRoben untereinander vergleichbar bleiben.
+
 	%TODO CD/DVD https://www.nickles.de/c/s/Klein-rund-und-duenn-was-steckt-in-der-DVD-267-1.html sonst findet man auch mit spurbreite googlei für BR
-	%TODO Alles bsichen zu klein => Skalierung nicht optimal
+	%TODO Alles bsichen zu klein => Skalierung nicht optimal -< nö, spurabstand ist net kleiner
 
 	\section{Schlussfolgerung}
 	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
 
 	%TODO in vakuum, wasser
 	%TODO KDS mit unterschiedlichen Spitzen und in unterschiedlichen Umgebungen würde erlauben Kräfte zu splitten
+	Insgesamt gesehen lässt sich sagen, dass die Ziele der Untersuchungen fast vollständig erfüllt werden konnten.
+	Die Datenträgerproben konnten mit hoher Sicherheit den optischen Speichertechnologien anhand des gemessenen Spurrillenabstands zugeordnet werden.
+	Daraus wurde geschlossen, dass die Raster-Kraft-Spektroskopie im Kontaktmodus ein geeignetes Verfahren darstellt, um Strukturen in der Größenordnung von einigen hundert Nanometern zu untersuchen.
+	Des Weiteren wurde der Spitzenradius einer Spitze im dynamischen Modus untersucht.
+	Der sich hier ergebende Wert konnte jedoch nicht in Einklang mit den Angaben des Herstellers gebracht werden.
+	
+	Zuletzt wurden die Adhäsionskräfte der verschiedenen Proben gemessen und verglichen.
+	Da wenig über die Zusammensetzung der Proben bekannt war, ließen sich hieraus jedoch keine Regelmäßigkeiten ableiten.
+	Außerdem kann mit dem verwendeten Verfahren lediglich ein Gemisch der auftretenden Kräfte messen.
+	Eine Messung im Vakuum (nach Befreiung von Oberflächenwasser durch Erhitzen) würde ermöglichen die Kapillarkraft zu eliminieren, weshalb diese aus der Differenz der Messung im Vakuum und an der Luft bestimmt werden könnte.
+	Ähnliches wäre durch die Verwendung von unterschiedlichen Spitzen- und Probenmaterialien für die anderen auftretenden Kräfte möglich.
 
 	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
 	%TODO Verweise auf das Laborbuch (sind erlaubt)
 	%TODO Tabelle + Bilder mit Beschriftung
 	\printbibliography
 
-
+%TODO leere Seite?
 	\section{Anhang} %TODO sicher, dass der nach Lit soll? IMO je
 
 \begin{figure}[H]
