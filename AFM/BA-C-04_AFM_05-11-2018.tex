@@ -99,19 +99,26 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
-	Die Raster-Kraft-Mikroskopie (AFM von engl. atomic force microscopy) ist ein Verfahren, welches es erlaubt mit optisch nicht erreichbarer Auflösung Oberflächenprofile zu erstellen sowie Adhäsionskräfte der Oberfläche zu bestimmen. %TODO Adhäsion oder Adhäsion und Repulsion (kp, obn das so heißt)?
+	Die Raster-Kraft-Mikroskopie (AFM von engl. atomic force microscopy) ist ein Verfahren, welches es erlaubt mit optisch nicht erreichbarer Auflösung Oberflächenprofile zu erstellen sowie Adhäsionskräfte der Oberfläche zu bestimmen. %TODO Adhäsion oder Adhäsion und Repulsion (kp, obn das so heißt)? maybe: unteranderem Adhäsionskräfte
 	Es werden im Wesentlichen drei Untersuchungen durchgeführt.
-	Zunächst wird im Kontaktmodus die Oberflächenstruktur von drei Proben bestimmt, anhand derer dieses den optischen Speichertechnologien CD, DVD und Blu-ray Disc zugeordnet werden.
+	Zunächst wird im Kontaktmodus die Oberflächenstruktur von drei Proben bestimmt, anhand derer diese den optischen Speichertechnologien CD, DVD und Blu-ray Disc zugeordnet werden.
 	Dann wird mithilfe von Kraft-Distanz-Spektroskopie die Adhäsion als Gemisch der auftretenden Kräfte zwischen Spitze und den Proben untersucht.
 	Zuletzt wird mithilfe einer Probe aus sehr dünnen Spitzen die Topografie der Cantilever-Spitze untersucht.
-	Das Ergebnis dessen kann nicht mit den Herstellerangaben in Einklang gebracht werden.
+	Das Ergebnis dessen kann nicht mit den Herstellerangaben in Einklang gebracht werden. %TODO 2x mithilfe
 	Es werden außerdem Möglichkeiten der erweiterten Untersuchung diskutiert.
+	%TODO Messwerte?????????????????????????????????????????????????????
+	%TODO Wir waren erfolgreich beim identifizierein (explizit)
 
 	\section{Theorie}
 	\label{sec_theorie}
 
 	\subsection{Allgemeines}
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
+
+	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
+	Wenn der Spitzenradius gegenüber den betrachteten Strukturen klein ist, kann man die Oberflächenstruktur der Proben messen.
+	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen. %TODO vlt. mehr erklären, was mit Spitzenradius gemeint ist
+
 	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert, welche im Folgenden erläutert werden soll.
 	Es ist zwischen statischem und dynamischen Modus zu unterscheiden.
 
@@ -124,7 +131,7 @@
 	Dieser Zusammenhang ist nicht bekannt und muss wie in \cref{sec_methoden} durch eine Kalibrierprobe bestimmt werden.
 	Es wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
 	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist. %hier steht viel "Verbiegung des Cantilevers"... % 'seine'=Laser, aber kann halt vieles sein
-	Die Verbiegung des Cantilevers wird durch eine Regelung möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist.
+	Die Verbiegung des Cantilevers wird durch eine Regelung möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %TODO von ... von ..., maybe von .. und ..
 
 	\begin{figure}[H]
 		\includegraphics[width=0.5\textwidth]{images/sonstiges/Aufbau}
@@ -161,10 +168,6 @@
 	Eine Vergrößerung der Differenzfrequenz sorgt für eine verringerte Amplitude und eine Verringerung für eine vergrößerte.
 	Die Messung der Amplitude der Schwingung erlaubt somit den Rückschluss auf das Oberflächenprofil, ohne dabei Spitze oder Probe abzunutzen.
 
-	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
-	Wenn der Spitzenradius gegenüber den betrachteten Strukturen klein ist, kann man die Oberflächenstruktur der Proben messen.
-	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen. %TODO vlt. mehr erklären, was mit Spitzenradius gemeint ist
-
 	\section{Methoden}
 	\label{sec_methoden}
 	%TODO Bilder von der Website klauen
@@ -188,7 +191,7 @@
 	Die Kalibrierung wird in x-,y- und z-Richtung getrennt durchgeführt.
 
 	Dann werden fünf Kraft-Distanz-Kurven an verschiedenen Stellen der Oberfläche der Quader aufgenommen.
-	Diese erlaube wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden.
+	Diese erlauben wie in \cref{sec_theorie} beschrieben ein Maß für die Adhäsion der Oberfläche zu finden.
 
 	Danach werden AFM-Aufnahmen der drei zuzuordnenden Proben gemacht, aus denen gemäß der Kalibrierung Pit-Länge, -Breite und -Tiefe bestimmt werden.
 	Es ist anzumerken, dass zwei der Proben die Grundfläche des Speichermediums darstellen, sodass bei ihnen Pits Täler sind, während eine Probe die Schutzbeschichtung darstellt, weshalb hier die Pits als Berge auftreten.
@@ -210,9 +213,9 @@
 	%TODO Einflüsse von veränderten Parametern auf Messung
 	%TODO Texte
 
-	Zunächst wird mit der Kamera eine Poition geringer Verunreinigung auf dem Material gesucht.
+	Zunächst wird mit der Kamera eine Position geringer Verunreinigung auf dem Material gesucht.
 	Wenn dennoch Unreinheiten gemessen werden, wird eine anderen Stelle untersucht.
-	Die gemessen Topografien weißen einen Gradienten auf und häufig fällt die gemessene Höhe nach einem Maximum nicht mehr auf Null zurück. %TODO Ist das Verständlich oder eher Streifen/Schlieren schrieben?
+	Die gemessen Topografien weisen einen Gradienten auf und häufig fällt die gemessene Höhe nach einem Maximum nicht mehr auf Null zurück. %TODO Ist das Verständlich oder eher Streifen/Schlieren schrieben?
 	Diese systematischen Fehler können mit dem Programm "Gwyddion" behoben werden (Vgl. \cref{fig_kali_raw} mit \cref{fig_kali_top}).
 	Außerdem werden die Messpunkt so verschoben, dass das globale Minimum auf Null liegt.
 
@@ -385,7 +388,7 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 			Probennummer & 2 & 1 & 3\\
 			Messwert & \SI{1510+-75,5}{\nano \meter} & \SI{690 +-34,5}{\nano \meter} & \SI{330 +- 16,5}{\nano \meter}\\
 		\end{tabular}
-		\caption{Spurabstände von CD, DVD, und Blu-ray Disc gemäß Literaturwerten und zugeordnete Proben.}
+		\caption{Spurabstände von CD, DVD, und Blu-ray Disc gemäß Literaturwerten und zugeordneten Proben.}
 		\label{tb_lit_Spurabstände}
 	\end{table}
 	In \cref{tb_lit_Spurabstände} wurden die Proben anhand von Literaturwerten den verschiedenen optischen Speichermedien zugeordnet.
@@ -397,7 +400,7 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 	Die Bestimmung des Spitzenradius führte zu einem Wert von \SI{1,204 +- 0,016}{\micro \meter}.
 	Dies steht im deutlichen Widerspruch zu den Angaben des Herstellers von \SI{7}{\nano \meter} aus dem Programm zur Bedienung des Mikroskops \enquote{Nanosurf Easyscan 2}.
 	Diese Feststellung muss darauf zurückgeführt werden, dass entweder die Cantilever-Spitze oder die Probenspitzen einen deutlich größeren Radius haben, als der Hersteller angibt.
-	Letzteres kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein.
+	Letzteres kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein. %TODO oder wir sind kacke
 	\subsubsection{Adhäsion}
 
 
@@ -422,7 +425,7 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 	Dies ist jedoch nicht sehr aussagekräftig, da im Fall der DVD die Beschichtung gemessen wurde.
 	Diese Beobachtung ist also eher als Zufall anzunehmen, auch weil die Unsicherheiten sehr groß sind.
 	Hierbei ist jedoch anzumerken, dass die Unsicherheit auf die hohe Unsicherheit der Federkonstante des Cantilevers nach Herstellerangaben zurückzuführen ist.
-	Da bei den optischen Speichermedien immer derselbe Cantilever verwendet wurde, ist dieser Fehler jedoch ein systematischer, weshalb die Messwerte der PRoben untereinander vergleichbar bleiben.
+	Da bei den optischen Speichermedien immer derselbe Cantilever verwendet wurde, ist dieser Fehler jedoch ein systematischer, weshalb die Messwerte der Proben untereinander vergleichbar bleiben. %TODO ja, aber jetzt haste deinen previous Satz geript
 
 	%TODO CD/DVD https://www.nickles.de/c/s/Klein-rund-und-duenn-was-steckt-in-der-DVD-267-1.html sonst findet man auch mit spurbreite googlei für BR
 	%TODO Alles bsichen zu klein => Skalierung nicht optimal -< nö, spurabstand ist net kleiner
@@ -432,10 +435,10 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 
 	%TODO in vakuum, wasser
 	%TODO KDS mit unterschiedlichen Spitzen und in unterschiedlichen Umgebungen würde erlauben Kräfte zu splitten
-	Insgesamt gesehen lässt sich sagen, dass die Ziele der Untersuchungen fast vollständig erfüllt werden konnten.
-	Die Datenträgerproben konnten mit hoher Sicherheit den optischen Speichertechnologien anhand des gemessenen Spurrillenabstands zugeordnet werden.
-	Daraus wurde geschlossen, dass die Raster-Kraft-Spektroskopie im Kontaktmodus ein geeignetes Verfahren darstellt, um Strukturen in der Größenordnung von einigen hundert Nanometern zu untersuchen.
-	Des Weiteren wurde der Spitzenradius einer Spitze im dynamischen Modus untersucht.
+	Insgesamt gesehen lässt sich sagen, dass die Ziele der Untersuchungen fast vollständig erfüllt werden konnten. %TODO Insgesamt gesehen, lel; erfüllt vs erreicht
+	Die Datenträgerproben konnten mit hoher Sicherheit den optischen Speichertechnologien anhand des gemessenen Spurrillenabstands zugeordnet werden. %TODO Sicherheit vs Gewissheit
+	Daraus wurde geschlossen, dass die Raster-Kraft-Spektroskopie im Kontaktmodus ein geeignetes Verfahren darstellt, um Strukturen in der Größenordnung von einigen hundert Nanometern zu untersuchen. %TODO nur 100 nm???
+	Des Weiteren wurde der Spitzenradius einer Spitze im dynamischen Modus untersucht. %TODO -einer Spitze?
 	Der sich hier ergebende Wert konnte jedoch nicht in Einklang mit den Angaben des Herstellers gebracht werden.
 
 	Zuletzt wurden die Adhäsionskräfte der verschiedenen Proben gemessen und verglichen.
