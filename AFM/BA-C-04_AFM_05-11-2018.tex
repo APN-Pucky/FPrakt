@@ -106,19 +106,21 @@
 
 	\subsection{Allgemeines}
 	%TODO vlt bissl gliedern, aber ist halt allgemeines in Spezifischem, deshalb auskommentiert
+	%TODO hier iwo schreiben wie wir adhäsion bestimmen aus snap-off mit Graphik
+	%TODO noch allgemeiner
 	Ein Raster-Kraft-Mikroskop fährt eine Spitze an einem flexiblen Balken (Cantilever) über die Probenoberfläche, um ein Oberflächenprofil zu erstellen.
 	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert und sie soll im Folgenden erläutert werden.
 	Es ist zwischen statischem und dynamischen Modus zu unterscheiden.
 
 
 	%\subsection{Statischer Modus (Kontaktmodus)}
-	Im Kontaktmodus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
+	Im statischem Modus wird die Spitze des Cantilevers in Kontakt mit der Probe gebracht.
 	Dann wird die Spitze in einem Raster über die Probe gefahren, wofür sie durch Piezokristalle bewegt wird.
-	Diese haben ein von der an sie angelegten Spannung abhängige Ausdehnung.
+	Diese haben eine von der an sie angelegten Spannung abhängige Ausdehnung.
 	Dieser Zusammenhang ist nicht bekannt und muss wie in \cref{sec_methoden} durch eine Kalibrierprobe bestimmt werden.
-	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
-	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist.%hier steht viel "Verbiegung des Cantilevers"...
-	Die Verbiegung des Cantilevers wird durch einen PID-Regler konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder?
+	Hierbei wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht. %TODO worauf bezieht sich 'Hierbei', KDS?
+	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist. %hier steht viel "Verbiegung des Cantilevers"... % 'seine'=Laser, aber kann halt vieles sein
+	Die Verbiegung des Cantilevers wird durch einen PID-Regler möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %das war doch hier auch schon PID, oder? %TODO Nein, weil es schwingt ja nix (theoretisch könnte man sagen es ist nur P-Regler aber macht glaub net Sinn)
 
 	\begin{figure}[H]
 		\includegraphics[width=0.7\textwidth]{images/sonstiges/Aufbau}
@@ -127,11 +129,13 @@
 		\label{fig_Aufbau}
 		\centering
 	\end{figure}
+
+	%TODO Kraft-Distanz-Spktro
 	%\subsection{Dynamischer Modus}
 	Im dynamischen Modus befindet sich die Messspitze nicht in Kontakt mit der Probe, sondern schwingt über der Probenoberfläche.
 	Dabei wird eine Anregungsfrequenz verwendet, die nahe an, aber nicht auf der Resonanzfrequenz liegt. %TODO diesen Abschnitt besonders checken, weil der halt aus meinem Verständnis wiedergegeben ist.
-	Da die Adhäsionskräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand.
-	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr.
+	Da die Adhäsionskräfte zwischen Probe und Cantilever die effektive Rückstellkraft des Cantilevers verändern, ändert sich die Resonanzfrequenz in Abhängigkeit vom Probe-Spitze-Abstand. %TODO Adhäsion wiederspricht Non-COntact mode. Wechselwikung mit Probenoberfläche (ohne Kontakt) reduziert REsonanzfrequenz (wenn Kraft attraktiv)
+	Abhängig davon, ob dieser Abstand steigt oder sinkt, nähert sich die Resonanzfrequenz also der Anregungsfrequenz an oder entfernt sich von ihr. %TODO  +Die Amplitude ändert sich weil Anregung entsprechend effektiver
 	Die Messung der Amplitude der Schwingung erlaubt somit den Rückschluss auf das Oberflächenprofil, ohne dabei Spitze oder Probe abzunutzen.
 	
 	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
@@ -164,6 +168,8 @@
 	Dies erlaubt es den Radius der verwendeten Cantilever-Spitze abzuschätzen.
 	
 
+	%TODO PID optimize erwähnen?
+
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 
@@ -175,6 +181,7 @@
 	%TODO Streifen nach Maximum
 	%TODO Rotation schwer vollständig zu beheben
 	%TODO Gradient wurde mit Gwyddion entfernt, Streifen fragemente auch Tiefste Messung auf Null gesetzt.
+  %TODO häufig verschmutzngen/unschön => trial and error.
 
 \subsubsection{Kalibrierungsprobe}
 \begin{figure}[H]
@@ -185,8 +192,14 @@
 \end{figure}
 %TODO Verweise
 
+\begin {figure}[H]
+\includegraphics[width=.7\linewidth]{images/Kali/DS1}
+\caption{Kraft-Abstand-Spektroskopie Kurve der Kalibrierungsprobe auf einem der Maxima.}
+\end{figure}
+
 \subsubsection{Datenträgerproben}
 %TODO 1x Pit nach unten 2x nach oben
+%TODO Probe 3 (BR) war schwer Pits zu finden.
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_dvd_top}}{\includegraphics[width=.49\linewidth]{images/DVD/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_dvd_3d}}{\includegraphics[width=.49\linewidth]{images/DVD/3D}}
@@ -309,8 +322,10 @@
 	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
  %TODO vegleich literatur Box+ Nanosurf spitzen radius
- %TODO neuer => weniger adhäsion??
+ %TODO neuer => weniger Adhäsion??
  %TODO DVD am tiefsten/höchsten ?? ggf weil des des einzige andersrum ist.
+ %TODO Spitze sehr viel größer (möglicherweise Abnutzung, aber die war ja ziemlich neu)
+ %TODO Verschmutzungs effekte z.B. Wasser in der Luft
 \begin{table}[H]
 	%TODO tabelle für zusammen vergleichen der Adhäsionskräfte?
 		\centering
@@ -383,6 +398,6 @@
 			\caption{Kraft-Abstands-Spektroskopie der Probe 3 in einem der Minima. Gemittelter snap-off $s=\SI{35.3}{nm}$.} % Pit oder Peak?
 			\label{fig_br_ds}
 \end{figure}
-%TODO Check Picture quality
+%TODO Check Picture quality: Skalierung Achsen, Farben, Winkel etc
 
 \end{document}
