@@ -99,15 +99,14 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
-	Die Raster-Kraft-Mikroskopie (AFM von engl. atomic force microscopy) ist ein Verfahren, welches es erlaubt mit optisch nicht erreichbarer Auflösung Oberflächenprofile zu erstellen sowie Adhäsionskräfte der Oberfläche zu bestimmen. %TODO Adhäsion oder Adhäsion und Repulsion (kp, obn das so heißt)? maybe: unteranderem Adhäsionskräfte
+	Die Raster-Kraft-Mikroskopie (AFM von engl. atomic force microscopy) ist ein Verfahren, welches es erlaubt mit optisch nicht erreichbarer Auflösung Oberflächenprofile zu erstellen sowie Kräfte zwischen Oberfläche und Probe zu bestimmen.
 	Es werden im Wesentlichen drei Untersuchungen durchgeführt.
 	Zunächst wird im Kontaktmodus die Oberflächenstruktur von drei Proben bestimmt, anhand derer diese den optischen Speichertechnologien CD, DVD und Blu-ray Disc zugeordnet werden.
-	Dann wird mithilfe von Kraft-Distanz-Spektroskopie die Adhäsion als Gemisch der auftretenden Kräfte zwischen Spitze und den Proben untersucht.
+	Diese Zuordnung kann mit hoher Gewissheit vorgenommen werden.
+	Dann wird durch Kraft-Distanz-Spektroskopie die Adhäsion als Gemisch der auftretenden Kräfte zwischen Spitze und den Proben untersucht.
 	Zuletzt wird mithilfe einer Probe aus sehr dünnen Spitzen die Topografie der Cantilever-Spitze untersucht.
-	Das Ergebnis dessen kann nicht mit den Herstellerangaben in Einklang gebracht werden. %TODO 2x mithilfe
+	Das Ergebnis dessen kann nicht mit den Herstellerangaben in Einklang gebracht werden.
 	Es werden außerdem Möglichkeiten der erweiterten Untersuchung diskutiert.
-	%TODO Messwerte?????????????????????????????????????????????????????
-	%TODO Wir waren erfolgreich beim identifizierein (explizit)
 
 	\section{Theorie}
 	\label{sec_theorie}
@@ -117,7 +116,7 @@
 
 	Das gemessene Profil ist nicht nur von der Topografie der Probe, sondern auch der der Spitze abhängig.
 	Wenn der Spitzenradius gegenüber den betrachteten Strukturen klein ist, kann man die Oberflächenstruktur der Proben messen.
-	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen. %TODO vlt. mehr erklären, was mit Spitzenradius gemeint ist
+	Ist es jedoch umgekehrt, dominiert die Spitzentopografie die Messung, was genutzt werden kann, um den Spitzenradius zu bestimmen.
 
 	In \cref{fig_Aufbau} ist die Funktionsweise des AFMs skizziert, welche im Folgenden erläutert werden soll.
 	Es ist zwischen statischem und dynamischen Modus zu unterscheiden.
@@ -131,7 +130,7 @@
 	Dieser Zusammenhang ist nicht bekannt und muss wie in \cref{sec_methoden} durch eine Kalibrierprobe bestimmt werden.
 	Es wird die Spitze mit einer bestimmten Kraft (Normalkraft) auf die Probe gedrückt, die nach dem Hookeschen Gesetz einer bestimmten Verbiegung des Cantilevers entspricht.
 	Letztere wird durch einen Laser gemessen, der vom Cantilever  reflektiert wird, weshalb seine Position auf einer Photodiode abhängig von der Verbiegung des Cantilevers ist. %hier steht viel "Verbiegung des Cantilevers"... % 'seine'=Laser, aber kann halt vieles sein
-	Die Verbiegung des Cantilevers wird durch eine Regelung möglichst konstant gehalten, sodass die Abweichung der auf den Cantilever ausgewirkten Kraft von der Normalkraft abhängig von der z-Position der Spitze ist. %TODO von ... von ..., maybe von .. und ..
+	Die Verbiegung des Cantilevers wird durch eine Regelung möglichst konstant gehalten, sodass die Abweichung zwischen auf den Cantilever ausgewirkten Kraft und der Normalkraft abhängig von der z-Position der Spitze ist.
 
 	\begin{figure}[H]
 		\includegraphics[width=0.5\textwidth]{images/sonstiges/Aufbau}
@@ -184,7 +183,7 @@
 	Um zu bestimmen, welche Probe von welchem optischen Speichermedium stammt, wird die Raster-Kraft-Mikroskopie verwendet.
 	Außerdem soll aus Kraft-Distanz-Kurven die Adhäsion der verschiedenen Oberflächen bestimmt werden und zuletzt der Radius einer Cantilever-Spitze untersucht werden.
 
-	Zunächst wird die Oberflächenstruktur einer Kalibrierprobe im Kontaktmodus untersucht, um den korrekten Zusammenhang zwischen Spannung an den Piezokristallen und Position der Cantilever-Spitze festzustellen.
+	Zunächst wird die Oberflächenstruktur einer Kalibrierprobe im Kontaktmodus (Spitze: PPP-CONTR-50) untersucht, um den korrekten Zusammenhang zwischen Spannung an den Piezokristallen und Position der Cantilever-Spitze festzustellen.
 	Der tatsächliche Wert dieses Zusammenhangs wird hier nicht bestimmt, da das Programm zur Ansteuerung des Raster-Kraft-Mikroskop bereits einen Zusammenhang annimmt und dieser durch die Kalibrierung lediglich korrigiert wird.
 	Die Kalibrierprobe besteht dabei aus einer glatten Oberfläche, auf der Quader mit bekannter Höhe und quadratischer Grundfläche bekannter Seitenlänge aufgebracht sind.
 	Die Kalibrierung wird in x-,y- und z-Richtung getrennt durchgeführt.
@@ -196,7 +195,7 @@
 	Es ist anzumerken, dass zwei der Proben die Grundfläche des Speichermediums darstellen, sodass bei ihnen Pits Täler sind, während eine Probe die Schutzbeschichtung darstellt, weshalb hier die Pits als Berge auftreten.
 	Aus der Bestimmung des Spurabstands lassen sich die Proben dann mithilfe von Referenzwerten den drei optischen Speichertechnologien zuordnen.
 
-	Zuletzt wird der dynamische Modus gewählt.
+	Zuletzt wird der dynamische Modus (Spitze: PPP-NCLR-50) gewählt.
 	Hierbei wird zunächst ein Resonanzprofil des Cantilevers aufgenommen und ein Wert auf der linken Flanke als Anregungsfrequenz verwendet.
 	Dies maximiert die Empfindlichkeit, während Entfernung und Annäherung der Resonanzfrequenz unterscheidbar bleiben.
 	Es wird eine Probe untersucht, deren Oberfläche aus Spitzen besteht, die als deutlich dünner als die Cantilever-Spitze angenommen werden.
@@ -205,18 +204,15 @@
 
 
 	\section{Ergebnisse und Diskussion}
-	%TODO Unsicherheiten
 
 
 	\subsection{Beobachtung und Datenanlyse}
-	%TODO Einflüsse von veränderten Parametern auf Messung
-	%TODO Texte
 
 	Zunächst wird mit der Kamera eine Position geringer Verunreinigung auf dem Material gesucht.
 	Wenn dennoch Unreinheiten gemessen werden, wird eine anderen Stelle untersucht.
-	Die gemessen Topografien weisen einen Gradienten auf und häufig fällt die gemessene Höhe nach einem Maximum nicht mehr auf Null zurück. %TODO Ist das Verständlich oder eher Streifen/Schlieren schrieben?
+	Die gemessen Topografien weisen einen Höhengradienten auf und häufig fällt die gemessene Höhe nach einem Maximum nicht mehr auf Null zurück.
 	Diese systematischen Fehler können mit dem Programm "Gwyddion" behoben werden (Vgl. \cref{fig_kali_raw} mit \cref{fig_kali_top}).
-	Außerdem werden die Messpunkt so verschoben, dass das globale Minimum auf Null liegt.
+	Außerdem wird die z-Achse so verschoben, dass das globale Minimum auf Null liegt.
 
 	\begin{figure}[H]
 			\includegraphics[width=.6\linewidth]{images/Kali/raw}
@@ -228,19 +224,18 @@
 	Folgende Unsichheiten waren auf den Behältern der Cantilevers für die Federkonstante $c$ angegeben:
 	\begin{description}
 		\item[statischer Modus:] \SI{0.02}{N/m} - \SI{0.77}{N/m} % 0.395+-0.375
-		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m} %TODO hab ich net benützt, notwendig?
+		\item[dynamischer Modus:] \SI{21}{N/m} - \SI{98}{N/m}
 	\end{description}
 	Alle weiteren Unsicherheiten bei der Kraft-Distanz-Spektroskopie werden als verschwinden gegenüber der Unsicherheit der Federkonstante angenommen.
-\subsubsection{Kalibrierungsprobe}\label{sss_kali} %TODO Kalibrierungsprobe to Kalibrierprobe
-%TODO Rotation
+\subsubsection{Kalibrierprobe}\label{sss_kali}
 Die Skalierungsfaktoren der Achsen, wurden so gewählt, dass die Messung der Kalibrierprobe den Angaben aus \cite{Anleitung} entsprechen.
-In alle Raumrichtungen wurde mit einem Fator von $2/3$ multipliziert.
+In alle Raumrichtungen wurde mit einem Faktor von $2/3$ multipliziert.
 \begin{figure}[H]
 			\subcaptionbox{Draufsicht \label{fig_kali_top}}{\includegraphics[width=.49\linewidth]{images/Kali/Top}}
 			\subcaptionbox{3D-Sicht \label{fig_kali_3d}}{\includegraphics[width=.49\linewidth]{images/Kali/3D}}
 			\subcaptionbox{Profil entlang der Geraden 1 in \cref{fig_kali_top}.
 			 \label{fig_kali_profil}}{\includegraphics[width=.7\linewidth]{images/Kali/Profil}}
-			\caption{Kalibrierungsprobe.}
+			\caption{Kalibrierprobe.}
 \end{figure}
 	% snap-offs 26.287, 28, 25.557, 35.1, 29.6 => 28.9
 	Die Adhäsionskraft, welche an einem Punkt auf den Cantilever wirkt, während dieser sich von dem Material wegbewegt, lässt sich direkt aus dem Snap-off $s$ und der Federkonstante mit \cref{eq_adh} bestimmen.
@@ -256,12 +251,11 @@ In alle Raumrichtungen wurde mit einem Fator von $2/3$ multipliziert.
 
 \begin {figure}[H]
 \includegraphics[width=.7\linewidth]{images/Kali/DS1}
-\caption{Kraft-Abstands-Kurve der Kalibrierungsprobe auf einem der Maxima.}
+\caption{Kraft-Abstands-Kurve der Kalibrierprobe auf einem der Maxima.}
 \label{fig_kali_expl}
 \end{figure}
 
 \subsubsection{Datenträgerproben}
-%TODO 1x Pit nach unten 2x nach oben
 %TODO Probe 3 (BR) war schwer Pits zu finden.
 In den \cref{fig_dvd}, \cref{fig_cd} und \cref{fig_br} sind die gemessenen Topografie in Draufsicht und dreidimensionaler Sicht abgebildet.
 Außerdem ist jeweils das Profil von einer Geraden in der nicht vergrößerten Darstellung abgebildet.
@@ -346,8 +340,6 @@ Analog zu \cref{sss_kali} lassen sich aus den Kraft-Abstand-Spektroskopie-Kurven
 
 \subsubsection{TGT1-Probe}
 
-%TODO dynamische Modus
-%TODO optimiert sodass minimal unschön
 Im dynamischen Modus ist in der Topografie zunächst kein periodisches Spitzenmuster erkennbar.
 Erst nach Optimierung der Parameter für den PID-Regler lassen sich Strukturen erkennen (\cref{fig_tgt}).
 
@@ -378,9 +370,6 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 \end{figure}
 
 		\subsection{Diskussion}
-	%TODO Bezug/Nutzen oder sonst was
-	%TODO auch hier die Hypothese wiederholen
-	%TODO keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	%TODO Dreieck form von TGT1 disksus?
 	\subsubsection{Zuordnung der Datenträger}
 	\begin{table}[H]
@@ -397,29 +386,25 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 	In \cref{tb_lit_Spurabstände} wurden die Proben anhand von Literaturwerten den verschiedenen optischen Speichermedien zugeordnet.
 	Dies gelingt für die Blu-ray Disc innerhalb der Unsicherheit und für CD und DVD innerhalb der doppelten Unsicherheit.
 	Demnach lässt sich festhalten, dass die Raster-Kraft-Mikroskopie im Kontaktmodus für Strukturen in der Größenordnung von einigen hundert Nanometern ein geeignetes Verfahren ist.
+	Da die z-Achse hier jedoch im Bereich von einigen zehn Nanometern liegt, lässt sich jedoch feststellen, dass das Verfahren auch noch kleinere Strukturen auflöst, allerdings kann hier aufgrund der Probentopografie nicht festgestellt werden, ob Strukturen dieser Größe auch in x- und y-Richtung aufgelöst werden können.
 	Es ist außerdem festzustellen, dass die Probe, bei der die Probe die Beschichtung war, die DVD ist, da dies die einzige ist, bei der die Pits als Berge auftreten (vgl. \cref{fig_dvd_top}).
 
 	\subsubsection{Spitzenradius}
 	Die Bestimmung des Spitzenradius führte zu einem Wert von \SI{1,204 +- 0,016}{\micro \meter}.
 	Dies steht im deutlichen Widerspruch zu den Angaben des Herstellers von \SI{7}{\nano \meter} aus dem Programm zur Bedienung des Mikroskops \enquote{Nanosurf Easyscan 2}.
 	Diese Feststellung muss darauf zurückgeführt werden, dass entweder die Cantilever-Spitze oder die Probenspitzen einen deutlich größeren Radius haben, als der Hersteller angibt.
-	Letzteres kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein. %TODO oder wir sind kacke
+	Letzteres kann sowohl herstellungsbedingt sein als auch durch Beschädigung zustande gekommen sein.
+	Außerdem fällt in \cref{fig_tgt_top_zoom} auf, die Spitzen eine dreieckige Form haben und in \cref{fig_tgt_3d_zoom} nicht sonderlich spitz zulaufen, aber selten im Profil einen Kreis bilden.
+	Es ist allerdings eine Regelmäßigkeit zu erkennen, woraus geschlossen werden kann, dass die Cantilever-Spitze entweder tatsächlich diese unregelmäßige Form hat, oder eine Verzerrung durch den PID-Regler stattfindet.
 	\subsubsection{Adhäsion}
 
-
- %TODO vegleich literatur cantileverbox+ Nanosurf spitzen radius
- %TODO neuer => weniger Adhäsion??
- %TODO DVD am tiefsten/höchsten ?? ggf weil des des einzige andersrum ist.
- %TODO Spitze sehr viel größer (möglicherweise Abnutzung, aber die war ja ziemlich neu)
- %TODO Verschmutzungs effekte z.B. Wasser in der Luft
 	\begin{table}[H]
-	%TODO tabelle für zusammen vergleichen der Adhäsionskräfte?
 		\centering
 		\begin{tabular}{ c | c | c| c | c }
-			 & Kalibrierungsprobe & CD & DVD & Blu-ray\\ \hline
+			 & Kalibrierprobe & CD & DVD & Blu-ray\\ \hline
 			$F_\text{adh}$ & \SI{11.4+-10.8}{nN} & \SI{20,0+-19,0}{\nano \newton}& \SI{17,6 +- 16,7}{\nano \newton}& \SI{14,0+-13,3}{\nano \newton} \\
 		\end{tabular}
-		\caption{Adhäsionskräfte, die auf die Spitze des Cantilevers wirken, bei Kraft-Abstands-Spektroskopie der Kalibrierprobe sowie den optischen Speichermedien.} %TODO mehr
+		\caption{Adhäsionskräfte, die auf die Spitze des Cantilevers wirken, bei Kraft-Abstands-Spektroskopie der Kalibrierprobe sowie den optischen Speichermedien.}
 		\label{tb_diskus_adhaesion}
 	\end{table}
 
@@ -428,33 +413,23 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 	Dies ist jedoch nicht sehr aussagekräftig, da im Fall der DVD die Beschichtung gemessen wurde.
 	Diese Beobachtung ist also eher als Zufall anzunehmen, auch weil die Unsicherheiten sehr groß sind.
 	Hierbei ist jedoch anzumerken, dass die Unsicherheit auf die hohe Unsicherheit der Federkonstante des Cantilevers nach Herstellerangaben zurückzuführen ist.
-	Da bei den optischen Speichermedien immer derselbe Cantilever verwendet wurde, ist dieser Fehler jedoch ein systematischer, weshalb die Messwerte der Proben untereinander vergleichbar bleiben. %TODO ja, aber jetzt haste deinen previous Satz geript
-
-	%TODO CD/DVD https://www.nickles.de/c/s/Klein-rund-und-duenn-was-steckt-in-der-DVD-267-1.html sonst findet man auch mit spurbreite googlei für BR
-	%TODO Alles bsichen zu klein => Skalierung nicht optimal -< nö, spurabstand ist net kleiner
+	Da bei den optischen Speichermedien immer derselbe Cantilever verwendet wurde, ist dieser Fehler jedoch ein systematischer, weshalb die Messwerte der Proben untereinander vergleichbar bleiben.
 
 	\section{Schlussfolgerung}
-	%TODO Rückgriff auf Hypothese und drittes Nennen dieser
-
-	%TODO in vakuum, wasser
-	%TODO KDS mit unterschiedlichen Spitzen und in unterschiedlichen Umgebungen würde erlauben Kräfte zu splitten
-	Insgesamt gesehen lässt sich sagen, dass die Ziele der Untersuchungen fast vollständig erfüllt werden konnten. %TODO Insgesamt gesehen, lel; erfüllt vs erreicht
-	Die Datenträgerproben konnten mit hoher Sicherheit den optischen Speichertechnologien anhand des gemessenen Spurrillenabstands zugeordnet werden. %TODO Sicherheit vs Gewissheit
-	Daraus wurde geschlossen, dass die Raster-Kraft-Spektroskopie im Kontaktmodus ein geeignetes Verfahren darstellt, um Strukturen in der Größenordnung von einigen hundert Nanometern zu untersuchen. %TODO nur 100 nm???
-	Des Weiteren wurde der Spitzenradius einer Spitze im dynamischen Modus untersucht. %TODO -einer Spitze?
+	Zusammengefasst gesehen lässt sich sagen, dass die Ziele der Untersuchungen fast vollständig erreicht werden konnten.
+	Die Datenträgerproben konnten mit hoher Gewissheit den optischen Speichertechnologien anhand des gemessenen Spurrillenabstands zugeordnet werden.
+	Daraus wurde geschlossen, dass die Raster-Kraft-Spektroskopie im Kontaktmodus ein geeignetes Verfahren darstellt, um Strukturen in der Größenordnung von einigen hundert Nanometern zu untersuchen.
+	Wesentlich kleinere Strukturen wurden nicht untersucht.
+	Des Weiteren wurde der Spitzenradius einer konkreten Spitze im dynamischen Modus untersucht.
 	Der sich hier ergebende Wert konnte jedoch nicht in Einklang mit den Angaben des Herstellers gebracht werden.
 
 	Zuletzt wurden die Adhäsionskräfte der verschiedenen Proben gemessen und verglichen.
 	Da wenig über die Zusammensetzung der Proben bekannt war, ließen sich hieraus jedoch keine Regelmäßigkeiten ableiten.
 	Außerdem kann mit dem verwendeten Verfahren lediglich ein Gemisch der auftretenden Kräfte messen.
-	Eine Messung im Vakuum (nach Befreiung von Oberflächenwasser durch Erhitzen) würde ermöglichen die Kapillarkraft zu eliminieren, weshalb diese aus der Differenz der Messung im Vakuum und an der Luft bestimmt werden könnte.
+	Eine Messung im Vakuum (nach Befreiung von Oberflächenwasser durch Erhitzen) oder in Wasser würde ermöglichen die Kapillarkraft zu eliminieren, weshalb diese aus der Differenz der Messung im Vakuum und an der Luft bestimmt werden könnte.
 	Ähnliches wäre durch die Verwendung von unterschiedlichen Spitzen- und Probenmaterialien für die anderen auftretenden Kräfte möglich.
-	%TODO Quellen zitieren, Websiten mit Zugriffsdatum
-	%TODO Verweise auf das Laborbuch (sind erlaubt)
-	%TODO Tabelle + Bilder mit Beschriftung
 	\printbibliography
 	%TODO leere Seite?
-	%TODO sicher, dass der nach Lit soll? IMO je
 	\subsection*{Anhang}
 \begin{figure}[H]
 			\centering
@@ -464,7 +439,7 @@ Es ergibt sich ein Radius $r=\SI{1.204 +-0.016}{\mu m}$.
 			\subcaptionbox{snap-off $s=\SI{26.3}{nm}$  \label{fig_kali_ds4}}{\includegraphics[width=.49\linewidth]{images/Kali/DS4}}
 			\subcaptionbox{snap-off $s=\SI{28.0}{nm}$
 			\label{fig_kali_ds5}}{\includegraphics[width=.49\linewidth]{images/Kali/DS5}}
-			\caption{Kraft-Abstands-Spektroskopie der Kalibrierungsprobe. Gemittelter snap-off $s=\SI{24.1}{nm}$.}
+			\caption{Kraft-Abstands-Spektroskopie der Kalibrierprobe. Gemittelter snap-off $s=\SI{24.1}{nm}$.}
 \end{figure}
 \begin{figure}[H]
 			\centering
