@@ -112,17 +112,21 @@ for name in names:
     ydata = unp.uarray(data[:,1],unc_p)
 
     nname =os.path.basename(name)
+    print(nname)
+    ndata = np.loadtxt(name.split(".")[0]+ ".peaks", converters={0: lambda s: float(0),1:lambda s : float(0), 2: lambda s: float(0),3 : lambda s: float(0),8 : lambda s: float(0),9 : lambda s: float(0)},skiprows = 2, delimiter = " ")
 
     print(data[:,1])
     print((data.shape[1]))
 
     fig=plt.figure(figsize=fig_size)
     #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
-    plt.plot(unv(xdata), unv(ydata), label='Messung',linewidth='5')
+    plt.plot(unv(xdata), unv(ydata), label='Messung',linewidth='3')
     for k in range(4,data.shape[1]-1,1):
         if(nname == "2-Fe.dat" and k==6): #Hot fix für Fe
             continue
-        plt.plot(unv(xdata), data[:,k], label='Gauß-Fit')
+        center = ndata[k-4,4]
+        width  = ndata[k-4,7]
+        plt.plot(unv(xdata), data[:,k], label="Gauß-Fit($\\mu$=" + str(center) +",FWHM="+str(width) +")")
     plt.legend(prop={'size':fig_legendsize})
     plt.grid()
     plt.tick_params(labelsize=fig_labelsize)
