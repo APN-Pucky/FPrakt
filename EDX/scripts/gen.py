@@ -134,7 +134,7 @@ for name in names:
 
     plt.xlabel('Energie (keV)')
     plt.ylabel('Ereignisse')
-    plt.savefig("EDX/images/" + nname + ".pdf")
+    plt.savefig("EDX/images/" + nname.split('.')[0] + ".pdf")
     plt.show()
 
 #end
