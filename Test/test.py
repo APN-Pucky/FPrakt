@@ -97,20 +97,31 @@ K = 273.15 # kelvin
 g = 9.81 # m/s^2
 rad = 360 / 2 / math.pi
 grad = 1/rad
+# Unsicherheiten
 
+unc_n = 0
+unc_p = 3
+# import der messwerte
+gase = ["Luft", "CO2"]
+vorgaenge = ["Rein","Raus"]
+for gas in gase:
+    for vorgang in vorgaenge:
+        data = np.loadtxt("MI/data/%s_%s.csv"%(gas,vorgang), skiprows = 0, delimiter = ",")
 
-x = [1,2,3,5,6,7,89]
-y = [4,5,7,8,8,9,0]
+        xdata = unp.uarray(data[:,0],unc_n)
+        ydata = unp.uarray(data[:,1],unc_p)
 
+        #print(data[:,1])
 
-fig =plt.figure(figsize=fig_size)
-plt.plot(x, y, label='noice')
-plt.legend(prop={'size':fig_legendsize})
-plt.grid()
-plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('x')
-plt.ylabel('y')
-#plt.savefig('data/rng.pdf')
-plt.show()
+        fig=plt.figure(figsize=fig_size)
+        plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
+        #plt.plot(x, y, label='noice')
+        plt.legend(prop={'size':fig_legendsize})
+        plt.grid()
+        plt.tick_params(labelsize=fig_labelsize)
+        plt.xlabel('N')
+        plt.ylabel('p')
+        #plt.savefig('data/rng.pdf')
+        plt.show()
 
 #end
