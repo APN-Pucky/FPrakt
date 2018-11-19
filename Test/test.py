@@ -110,7 +110,7 @@ plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('x')
 plt.ylabel('y')
-plt.savefig('data/rng.pdf')
+#plt.savefig('data/rng.pdf')
 plt.show()
 
 #end
