@@ -140,6 +140,6 @@ plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('N')
 plt.ylabel('p')
-plt.savefig("MI/images/%s_%s.pdf"%(gas,vorgang))
+plt.savefig("MI/images/Glas.pdf")
 plt.show()
 #end
