@@ -123,5 +123,23 @@ for gas in gase:
         plt.ylabel('p')
         plt.savefig("MI/images/%s_%s.pdf"%(gas,vorgang))
         plt.show()
+        
+        
+data = np.loadtxt("MI/data/Glas.csv", skiprows = 0, delimiter = ",")
 
+xdata = unp.uarray(data[:,0],unc_n)
+ydata = unp.uarray(data[:,1],unc_p)
+
+#print(data[:,1])
+
+fig=plt.figure(figsize=fig_size)
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
+#plt.plot(x, y, label='noice')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('N')
+plt.ylabel('p')
+plt.savefig("MI/images/%s_%s.pdf"%(gas,vorgang))
+plt.show()
 #end
