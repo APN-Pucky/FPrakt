@@ -120,8 +120,8 @@ for gas in gase:
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()
         plt.tick_params(labelsize=fig_labelsize)
-        plt.xlabel('N')
-        plt.ylabel('p')
+        plt.xlabel('Anzahl der Ringe N')
+        plt.ylabel('Druck p (in mbar)')
         plt.savefig("MI/images/%s_%s.pdf"%(gas,vorgang))
         plt.show()
 
@@ -139,8 +139,8 @@ plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,li
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('N')
-plt.ylabel('p')
+plt.xlabel('Anzahl der Ringe N')
+plt.ylabel('Winkel (°)')
 plt.savefig("MI/images/Glas.pdf")
 plt.show()
 #end
