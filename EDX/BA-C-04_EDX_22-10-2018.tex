@@ -157,13 +157,14 @@
 	\section{Ergebnisse und Diskussion}
 
 
-	\subsection{Beobachtung} %TODO alle Spektren mit Fits drin.
+	\subsection{Beobachtung}
 	\cref{fig_ag_plot} stellt das Röntgenfluoreszenzspektrum von Probe 21, einer Silbermünze, dar.
 	Es ist exemplarisch für die 20 anderen Spektren.
 	Alle Spektren haben ein oder zwei dominante und einige weniger ausgeprägte Peaks.
 	An den Stellen ohne Peaks wird ein Rauschen von geringer Intensität gemessen.
+	Im Anhang befinden sich die gemessenen Spektren, sowie die gefitteten Gauß-Kurven.
 	\begin{figure}[H]
-		\includegraphics[width=0.8\textwidth]{images/Silbermuenze}
+		\includegraphics[width=1.0\textwidth]{images/21-Ag}
 		\centering
 		\caption{Röntgenfluoreszenzspektrum einer Silbermünze. Die Peaks der $\text{L}_\alpha$ (\SI{3,05}{\kilo \electronvolt}), $\text{K}_\alpha$ (\SI{22,07}{\kilo \electronvolt}) und $\text{K}_\beta$ (\SI{25,0}{\kilo \electronvolt}) Linien sind deutlich zu erkennen. Abseits dieser Peaks sind mehrere weitere signifikante Abweichungen von Null zu erkennen, in die aber kein Gauß-Fit gelegt werden kann.}
 		\label{fig_ag_plot}
@@ -187,13 +188,13 @@
 			Probe (Angabe)&Energie $E_\text{Mess}$ in \SI{}{keV} & rel. Höhe & Element & char. Übergang &  Energie $E_\text{NIST}$ in \SI{}{keV} \\ \hline \hline
 
 			1 (Zn)
-			& \SI{6.38034+-0.139418}{} &\SI{8}{\%}& - &  -&- \\ %TODO Fe?
+			& \SI{6.38034+-0.139418}{} &\SI{8}{\%}& (Fe) &  K$_\alpha$&\SI{6.3910264(99)}{}\\
 			& \SI{8.58804+-0.116621}{} &\SI{79}{\%}&Zn &$\text{K}_\alpha$&  \SI{8.615823(73)}{} \\
 			& \SI{9.53296+-0.110738}{} &\SI{13}{\%}&Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{} \\
 			\hline
 
 			2 (Fe)
-			& \SI{3.44288+-0.167796}{} &\SI{1}{\%}&- &  -& - \\ %TODO Ag?
+			& \SI{3.44288+-0.167796}{} &\SI{1}{\%}&(Sn) &  L$_\alpha$& \SI{3 .437356(56) }{} \\
 			& \SI{6.39075+-0.117693}{} &\SI{86}{\%}&Fe& $\text{K}_\alpha$ &  \SI{6.3910264(99)}{} \\
 			& \SI{7.08998+-0.0953308}{} &\SI{13}{\%}&Fe& $\text{K}_\beta$&  \SI{7.058175(99)}{} \\
 			 \hline
@@ -204,14 +205,16 @@
 
 			7 (Ti)
 			& \SI{1.39218+-0.0475828}{} &\SI{2}{\%}&-& -&  -\SI{}{} \\ %TODO ist unphysikalisch
-			& \SI{2.54705+-0.281081}{} &\SI{3}{\%}&-& -&  -\SI{}{} \\ %TODO vlt. Mo+Zr
+			& \SI{2.54705+-0.281081}{} &\SI{3}{\%}&(Mo)& L$_\alpha$&  \SI{2. 47307(22)    }{} \\ %TODO vlt. Mo+Zr
+			&&&(Zr)&L$_\beta$& \SI{ 2. 50287(22) }{} \\
 			& \SI{4.54007+-0.135133}{} &\SI{95}{\%}&Ti& $\text{K}_\alpha$ &  \SI{4. 5108991(94)}{} \\
-			& \SI{6.40999+-0.148897}{} &\SI{1}{\%}&-&- &  -\SI{}{} \\ %TODO Fe?
+			& \SI{6.40999+-0.148897}{} &\SI{1}{\%}&(Fe)&K$_\alpha$ & \SI{6.3910264(99)}{} \\ %TODO Fe?
 			\hline
 
 			8 (Mo)
-			& \SI{7.79212+-0.286311}{} &\SI{3}{\%}&-& -&  -\SI{}{} \\ %TODO vlt. Ni+Cu
-			& \SI{11.1937+-0.293367}{} &\SI{3}{\%}&-&- &  -\SI{}{} \\ %TODO Se?
+			& \SI{7.79212+-0.286311}{} &\SI{3}{\%}&(Ni)& K$_\alpha$& \SI{ 7 .4782521(45)  }{} \\ %TODO vlt. Ni+Cu
+			&&&(Cu)& K$_\alpha$ & \SI{8 .0278416(26)}{} \\
+			& \SI{11.1937+-0.293367}{} &\SI{3}{\%}&(Se)&K$_\alpha$ &  \SI{11 .18153(31) }{} \\ %TODO Se?
 			& \SI{17.3891+-0.131891}{} &\SI{82}{\%}&Mo&$\text{K}_\alpha$&  \SI{17. 37429(29) }{} \\
 			& \SI{19.5816+-0.145811}{} &\SI{12}{\%}&Mo&$\text{K}_\beta$ &  \SI{19. 59025(41) }{} \\
 			\hline
@@ -224,7 +227,8 @@
 
 		\end{tabular}
 		}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.
+		Die eingeklammerten Werte sind vermutlich Verunreinigungen, trotz erwarteter Reinheit der Stoffe.}
 		\label{tb_peaks_known}
 	\end{table}
 
@@ -274,16 +278,16 @@
 
 	\begin{table}[H] %TODO "Vgl. mit Literaturwerten bietet sich an."
 		\centering
-		\begin{tabular}{ c | c | c}
-			Element & $\sigma_{n21}$ ($\text{K}_\alpha$) &  $\sigma_{n21}$  ($\text{K}_\beta$)\\ \hline \hline %TODO angeblicher Rechteschreibfehler
-			Ti & \SI{0,90249+-0,31398}{} & - \\
-			Fe & \SI{0,96914+-0,23049}{} & \SI{1,7825+-0,16282}{} \\
-			Cu & \SI{0,99347+-0,20442}{} & \SI{1,90376+-0,15987}{} \\
-			Zn & \SI{0.98337+-0.19702}{} & \SI{1.91847+-0.1631}{} \\
-			Mo & \SI{0,71061+-0,15659}{} & \SI{1,75324+-0,14985}{} \\
-			Ag & \SI{0,48772+-0,13041}{} & \SI{1,56051+-0,12030}{} \\
+		\begin{tabular}{ c | c | c | c | c}
+			Element & $\sigma_{n21}$ ($\text{K}_\alpha$) &  $\sigma_{n21}$  ($\text{K}_\beta$) & $\sigma_{n21,\text{Lit}}$($\text{K}_\alpha$)  & $\sigma_{n21,\text{Lit}}$($\text{K}_\beta$) \\ \hline \hline %TODO angeblicher Rechteschreibfehler
+			Ti & \SI{0,90249+-0,31398}{} & - & \SI{0.97039+-0.00003}{}&-\\
+			Fe & \SI{0,96914+-0,23049}{} & \SI{1,7825+-0,16282}{} &\SI{0.96860+-0,00002}{}&\SI{1.8369+-0,0002}{}\\
+			Cu & \SI{0,99347+-0,20442}{} & \SI{1,90376+-0,15987}{}&\SI{0,945708+-0,000005}{}&\SI{1.85850+-0,00006}{} \\
+			Zn & \SI{0.98337+-0.19702}{} & \SI{1.91847+-0.1631}{}&\SI{0,9365+-0,0001}{}&\SI{1.8610+-0,0003}{} \\
+			Mo & \SI{0,71061+-0,15659}{} & \SI{1,75324+-0,14985}{} &\SI{0,7282+-0,0003}{}&\SI{1.7444+-0.0004}{}\\
+			Ag & \SI{0,48772+-0,13041}{} & \SI{1,56051+-0,12030}{} &\SI{0.5682+-0.0001}{}&\SI{1.5770+-0.0003}{} \\ %TODO text zu Lit in Diskussion
 		\end{tabular}
-	\caption{Die nach dem Moseleyschen Gesetz bestimmten Abschirmkonstanten der gemessenen $\text{K}_\alpha$ bzw. $\text{K}_\beta$ Übergänge.}
+	\caption{Die nach dem Moseleyschen Gesetz bestimmten Abschirmkonstanten der gemessenen $\text{K}_\alpha$ bzw. $\text{K}_\beta$ Übergänge. Die Literaturwerte berechnen sich trivial aus \cref{eq_f} und $E_\text{NIST}$.}
 	\label{tb_abschirm}
 	\end{table}
 
@@ -303,19 +307,19 @@
 			\hline
 
 			5 (Zn-Edelstahl)
-			& \SI{6.41683+-0.178065}{} &\SI{7}{\%}&-&-&- \\ %TODO Fe?
+			& \SI{6.41683+-0.178065}{} &\SI{7}{\%}&Fe&K$_\alpha$& \SI{6.3910264(99)}{} \\
 			& \SI{8.5778+-0.126318}{} &\SI{80}{\%}&Zn &$\text{K}_\alpha$&  \SI{8.615823(73)}{} \\
 			& \SI{9.53652+-0.114435}{} &\SI{12}{\%}&Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{}  \\
 			\hline
 
 			6 (Edelstahl)
-			& \SI{3.39677+-0.189573}{} &\SI{1}{\%}&-& -  &  - \\ %TODO Sn?
+			& \SI{3.39677+-0.189573}{} &\SI{1}{\%}&Sn& L$_\alpha$  &  \SI{3 .437356(56) }{} \\
 			& \SI{6.36975+-0.123004}{} &\SI{86}{\%}& Fe & $\text{K}_\alpha$ &  \SI{6.3910264(99)}{}  \\
 			& \SI{7.07128+-0.101517}{} &\SI{13}{\%}&Fe& $\text{K}_\beta$&  \SI{7.058175(99)}{} \\
 			\hline
 
 			9
-			& \SI{6.36714+-0.148707}{} &\SI{6}{\%}&-&-&- \\ %TODO Fe?
+			& \SI{6.36714+-0.148707}{} &\SI{6}{\%}&Fe&K$_\alpha$& \SI{6.3910264(99)}{} \\
 			& \SI{8.57041+-0.12301}{} &\SI{80}{\%}&Zn &$\text{K}_\alpha$&  \SI{8.615823(73)}{}  \\
 			& \SI{9.52768+-0.109148}{} &\SI{13}{\%}&Zn &$\text{K}_\beta$ &  \SI{9.57203(22)}{} \\
 			\hline
@@ -389,7 +393,8 @@
 			\hline
 		\end{tabular}
 		}
-		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.}
+		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.
+		Es gibt bei Probe 11 und 12 mehrfach gleichnamige Übergänge, da verschiedene Orbitale gleicher Schale unterschiedliche Energieniveaus haben.}
 		\label{tb_peaks_unknown}
 
 	\end{table}
