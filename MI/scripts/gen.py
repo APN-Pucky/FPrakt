@@ -101,6 +101,7 @@ grad = 1/rad
 
 unc_n = 0
 unc_p = 3
+unc_w = 2
 # import der messwerte
 gase = ["Luft", "CO2"]
 vorgaenge = ["Rein","Raus"]
@@ -123,17 +124,17 @@ for gas in gase:
         plt.ylabel('p')
         plt.savefig("MI/images/%s_%s.pdf"%(gas,vorgang))
         plt.show()
-        
-        
-data = np.loadtxt("MI/data/Glas.csv", skiprows = 0, delimiter = ",")
+
+
+data = np.loadtxt("MI/data/Glas.csv", skiprows = 0, delimiter = "\t")
 
 xdata = unp.uarray(data[:,0],unc_n)
-ydata = unp.uarray(data[:,1],unc_p)
+ydata = unp.uarray(data[:,1],unc_w)
 
 #print(data[:,1])
 
 fig=plt.figure(figsize=fig_size)
-plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Winkel')
 #plt.plot(x, y, label='noice')
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
