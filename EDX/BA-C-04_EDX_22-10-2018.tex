@@ -109,17 +109,31 @@
 	\section{Methoden}
 	Für die Versuchsdurchführung werden ein Röntgengerät, ein Vielkanalanalysator und 21 verschiedene Proben größtenteils unbekannter Natur verwendet.
 	Das Röntgengerät, welches mit einer Eisen-Anode arbeitet, und die Proben sind in \cref{fig_aufbau} dargestellt.
+	In der Röntgenröhre werden Elektronen beschleunigt.
+	Wenn diese auf die Anode treffen, entsteht einerseits Bremsstrahlung, da sie gebremst werden und beschleunigte Ladung elektromagnetische Wellen aussendet. %fine?
+	Zum anderen entsteht charakteristische Strahlung dadurch, dass die einfallenden Elektronen Anodenatome ionisieren, indem sie Elektronen niedriger Schalen aus dem Atom herausschlagen.
+	Wenn dann Elektronen höherer Schalen in die freigewordene Position herunterfallen, wird charakteristische Strahlung frei.
 
 	Die Röntgenphotonen der charakteristischen Strahlung und Bremsstrahlung können durch eine Blende in die Versuchskammer eintreten, in der sich ein Probenhalter und eine PIN-Diode befinden.
+
+	Das gleiche Prinzip kann durch die Röntgenstrahlung selbst ausgelöst werden.
+	Hierbei wird das Atom nicht durch ein Elektron, sondern durch ein Röntgenphoton ionisiert.
+	Die hier auftretende charakterische Strahlung wird in diesem Versuch durch die Detektordiode detektiert.
+
 	Die Diode ist mit dem Vielkanalanalysator verbunden.
+	In der Diode werden durch die einfallende Strahlung Elektron-Loch-Paare erzeugt.
+	Diese werden im elektrischen Feld der angelegten Spannung getrennt und laden einen Rückkopplungskondensator auf, weshalb am Ausgang eines Vorverstärkers eine Spannung in Abhängigkeit von der Anzahl der entstandenen Elektron-Loch-Paare gemessen wird.
+	Die verstärkte Spannung wird dann durch einen A/D-Wandler in einen digitalen Wert umgewandelt.
 	Hier wird ausgenutzt, dass die Anzahl der in der Detektordiode erzeugten Elektron-Loch-Paare als proportional zur Energie des eingetretenen Röntgenphotons angenommen werden kann.
+	Der Vielkanalanalysator generiert hieraus ein Pulshöhenspektrum, indem er die Anzahl der Signale einer bestimmten Spannung summiert, sodass dann Anzahl der Impulse gegen die Impulshöhe aufgetragen werden kann.
+
 	Das Röntgengerät wird mit einer Spannung von \SI{35}{\kilo \electronvolt} betrieben, weshalb dies die erwartete maximal messbare Energie eines Röntgenphotons ist.
 	Zusätzlich ist zu beachten, dass der verwendete Röntgenergiedetektor einen Messbereich von \SIrange{2}{58}{keV} hat.
 
 	Zunächst wird der Probenhalter in einen Winkel von \SI{45}{\degree} und der Detektor in einen Winkel von \SI{90}{\degree} zum Röntgenstrahl gebracht.
 	Diese Winkel werden mit dem Goniometer eingestellt, obwohl die Verwendung dessen zu einer Stellung führt, die nach Augenmaß nicht exakt den gewünschten Winkeln entspricht, da dies die größere Zählrate zur Folge hatte.
 
-	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen entstandenen Elektron-Loch-Paaren und Energie des Röntgenphotons zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
+	Um dem verwendeten Messprogramm zu erlauben, den Proportionalitätsfaktor zwischen Pulshöhe und Energie des Röntgenphotons zu bestimmen, wird mit zwei Proben, von denen bekannt ist, aus welchen Elementen sie bestehen, kalibriert.
 	Zur Kalibrierung wird Eisen und Molybdän verwendet (Dreipunktkalibrierung).
 
 	Dann werden die Röntgenfluoreszenzspektren aller Proben aufgezeichnet und jeweils Gauß-Fits über die Peaks durchgeführt.
@@ -127,13 +141,7 @@
 	Die Fitparameter werden verwendet, um Energie, Standardunsicherheit und Höhe des Peaks zu bestimmen.
 	Nun können mithilfe dieser Werte und bekannten Übergangsenergien in verschiedenen Elementen die Zusammensetzungen der Proben untersucht bzw. überprüft werden.
 
-%TODO kurz Erklären:
-\iffalse
--Erzeugung primärer Röntgenstrahlung
--Fluoreszenz
--Was passiert mit den erzeugten Elektron-Loch-Paaren?
--Was macht der Vielkanalanalysator und was wird genau kalibriert?
-\fi
+
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}[t]{0.5\textwidth}
