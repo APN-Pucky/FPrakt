@@ -171,7 +171,7 @@
 	Es ist exemplarisch für die 20 anderen Spektren.
 	Alle Spektren haben ein oder zwei dominante und einige weniger ausgeprägte Peaks.
 	An den Stellen ohne Peaks wird ein Rauschen von geringer Intensität gemessen.
-	Im Anhang befinden sich die gemessenen Spektren, sowie die gefitteten Gauß-Kurven.
+	Im Anhang befinden sich alle gemessenen Spektren sowie die gefitteten Gauß-Kurven.
 	\begin{figure}[H]
 		\includegraphics[width=1.0\textwidth]{images/21-Ag}
 		\centering
@@ -237,7 +237,7 @@
 		\end{tabular}
 		}
 		\caption{Gemessene Röntgenfluoreszenzmaxima. Die charakteristischen Übergangsenergien sind die experimentellen Werte aus \cite{XRAYDB}.
-		Die eingeklammerten Werte sind vermutlich Verunreinigungen, trotz erwarteter Reinheit der Stoffe.}
+		Die eingeklammerten Werte sind trotz erwarteter Reinheit der Stoffe vermutlich Verunreinigungen.}
 		\label{tb_peaks_known}
 	\end{table}
 
@@ -285,7 +285,7 @@
 	Anstelle derer bietet es sich an $\sigma_{n21}$ einzeln zu berechnen, da sie sich mit der Kernladungszahl $Z$ ändert.
 	Die Ergebnisse von $\sigma_{n21}=Z-f$ sind in \cref{tb_abschirm} aufgeführt.
 
-	\begin{table}[H] %TODO "Vgl. mit Literaturwerten bietet sich an."
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c | c | c}
 			Element & $\sigma_{n21}$ ($\text{K}_\alpha$) &  $\sigma_{n21}$  ($\text{K}_\beta$) & $\sigma_{n21,\text{Lit}}$($\text{K}_\alpha$)  & $\sigma_{n21,\text{Lit}}$($\text{K}_\beta$) \\ \hline \hline     %TODO angeblicher Rechteschreibfehler
@@ -351,7 +351,7 @@
 			& \SI{14.7821+-0.182134}{} &\SI{4}{\%}&Pb &L$_\beta$&  \SI{  14 .7915(52)    }{} \\
 			\hline
 
-			13 %TODO Kupfer+Yttrium+Barium ergibt nen Supraleiter, der bekannt ist => Diskussion?!
+			13
 			& \SI{4.7454+-0.240256}{} &\SI{10}{\%}& Ba & $\text{L}_\alpha$ & \SI{4. 82758(14)}{} \\
 			& \SI{8.00052+-0.126315}{} &\SI{52}{\%}& Cu & $\text{K}_\alpha$ &  \SI{8,0278416(26)}{}\\
 			& \SI{8.88531+-0.123469}{} &\SI{9}{\%}& Cu &  $\text{K}_\beta$ & \SI{8,905413(38)}{}\\
@@ -430,7 +430,7 @@
 			$H_{0 , \text{Ti}}$ & \SI{1136.09+-56.80}{} \\
 			$H_{\text{Ti}}$ & \SI{82.82+-4.14}{} \\
 		\end{tabular}
-		\caption{Höhen der Referenz- und Probenpeaks von Eisen und Titan.} %TODO mehr
+		\caption{Höhen der Referenz- und Probenpeaks von Eisen und Titan.}
 		\label{tb_peaks}
 	\end{table}
 
@@ -450,9 +450,9 @@
 	Das Moseleysche Gesetz kann insofern bestätigt werden, als dass die Steigungen in \crefrange{fig_Ka}{fig_Kb} gemäß der vorgenommenen Näherung nahe an \num{1} liegt.
 	Die Abweichung nach oben hängt vermutlich mit der Tatsache zusammen, dass die mittlere Abschirmkonstante mit der Kernladungszahl abnimmt.
 	Dies spiegelt sich auch in \cref{tb_abschirm} wieder, wobei hier die große Unsicherheit eine präzisere Aussage unmöglich macht.
-	%TODO Abweichung vom Fit diskutieren: 1,5 im Vergleich zu <1 (sigma_n21 ist wohl gemeint). Sigma ist nicht konstant -> nimmt mit hohem Z ab <=> geringes Z (~0, Fit y-Achsenschnitt) hohes sigma, da linearer Fit
+	% Abweichung vom Fit diskutieren: 1,5 im Vergleich zu <1 (sigma_n21 ist wohl gemeint). Sigma ist nicht konstant -> nimmt mit hohem Z ab <=> geringes Z (~0, Fit y-Achsenschnitt) hohes sigma, da linearer Fit => habe ich ja gesagt...
 	Der Vergleich mit den berechneten Abschirmkonstanten lässt feststellen, dass die gemessenen Werte immer leicht unter den jenen liegen, aber die berechneten Abschirmkonstanten immer innerhalb der Unsicherheit der Messwerte liegen.
-	%TODO ich schätze, ich sollte hier noch was sagen, warum das so ist, aber kp, was das sein könnte. Kalibrierung ist immmer möglich.
+	Dies deutet auf mit eine Abweichung aufgrund der Kalibrierung hin.
 
 	\subsubsection{Bestimmung der Zusammensetzung}
 	Zunächst ist bei den Proben eigentlich bekannter Zusammensetzung (\cref{tb_peaks_known}) festzustellen, dass offenbar teilweise verunreinigte Proben vorliegen.
@@ -479,12 +479,12 @@
 		\item[Probe 6] Probe 6 sollte laut Angabe Edelstahl sein. Dies kann bestätigt werden, da die gleichen Übergänge wie in Probe 2 (Fe) auftreten. In beiden Fällen tritt jedoch zusätzlich zu den in Eisen charakteristischen Übergängen ein weiterer auf. Hier kann wie zuvor nur vermutete werden, dass entweder in beiden Fällen ein anderes Element beigemischt war oder ein Übergang unerwarteter Energie auftritt.
 		\item[Probe 9] Es wurden die gleichen Übergänge wie bei Probe 1 und 5 gemessen. Hauptbestandteil ist Zink. Ansonsten gelten dieselben Überlegungen wie bei Probe 5.
 		\item[Probe 10] kann auf Basis der Angaben von \cite{XRAYDB} als Nickel identifiziert werden.
-		\item[Probe 11] kann auf Basis der Angaben von \cite{XRAYDB} als Holmium identifiziert werden.
+		\item[Probe 11] würde auf Basis der Angaben von \cite{XRAYDB} sogar mit recht hoher Gewissheit (aufgrund drei  gut übereinstimmender Peaks) als Holmium identifiziert werden. Da Holmium jedoch zu den seltenen Erden zählt, kann es als recht unwahrscheinlich angesehen werden, dass eine Probe aus Holmium bereitgestellt wurde, was zeigt, dass die Methode der Röntgenspektroskopie hier versagt hat.
 		\item[Probe 12] kann auf Basis der Angaben von \cite{XRAYDB} als Blei identifiziert werden.
-		\item[Probe 13] Je zwei Übergänge können Kupfer und Yttrium zugeordnet werden. Der fünfte Übergang ist schwieriger zuzuordnen. Da jedoch Yttrium-Barium-Kupferoxid ein wichtiger Hochtemperatursupraleiter ist, wird angenommen, dass er Barium zugeordnet. %TODO Grund, warum kein sauerstoff gemessen. Es gab doch die Grenze der Ordungszahl, welche messbar sind (Energie Rane oder so)
+		\item[Probe 13] Je zwei Übergänge können Kupfer und Yttrium zugeordnet werden. Der fünfte Übergang ist schwieriger zuzuordnen. Da jedoch Yttrium-Barium-Kupferoxid ein wichtiger Hochtemperatursupraleiter ist, wird angenommen, dass er Barium zugeordnet. Peaks von Sauerstoff wurden nicht gefunden, was wohl damit zusammenhängt, weil die energiedispersive Röntgenspektroskopie für geringe Ordnungszahlen ungeeignet ist, da die Übergänge im Sauerstoff außerhalb des Messbereichs liegen.
 		\item[Probe 14] Das Spektrum lässt nur ein eindeutiges Identifizieren von Silber zu. Die vier anderen gemessenen Peaks sind nicht nur einem oder zwei Elementen zuordenbar. Es werden deswegen Elemente gewählt, die passende Übergänge bei diesen Energien haben, auf der Erde vorkommen und stabile Isotope haben. Das Ergebnis lautet Zirconium, Blei, Gold und Cobalt. Dieses Ergebnis ist nicht sehr aussagekräftig, da bei diesen Elementen zu erwarten wäre, dass auch andere Übergänge im Spektrum zu sehen sind. Hier tritt allerdings ein weiteres Problem dieser Methode zutage, da, wenn zwei Übergänge in der Probe energetisch hinreichend nah zusammen fallen, sie nicht mehr im Spektrum unterscheidbar sind.
 		\item[Probe 15] kann auf Basis der Messungen in \cref{tb_peaks_known} als Kupfer identifiziert werden.
-		\item[Probe 16] kann auf Basis der Messungen in \cref{tb_peaks_known} als Kupfer identifiziert werden. Dies stimmt mit der Erwartung für 1-Cent-Münzen überein, da diese aus mit Kupfer ummanteltem Eisen bestehen. Die Röntgenphotonen dringen offenbar nicht zum Eisen durch bzw. die vom Eisen emittierten Fluoreszenzphotonen dringen nicht durch die Ummantelung zum Detektor vor.%, weshalb  für die Eindringtiefe der Röntgenphotonen in Kupfer gefunden wurde. %TODO kann leider net sagen, was die ist, weil finde ich nicht . (=> Discord)
+		\item[Probe 16] kann auf Basis der Messungen in \cref{tb_peaks_known} als Kupfer identifiziert werden. Dies stimmt mit der Erwartung für 1-Cent-Münzen überein, da diese aus mit Kupfer ummanteltem Eisen bestehen. Die Röntgenphotonen dringen offenbar nicht zum Eisen durch bzw. die vom Eisen emittierten Fluoreszenzphotonen dringen nicht durch die Ummantelung zum Detektor vor.
 		\item[Probe 17] kann auf Basis der Messungen in \cref{tb_peaks_known} als Kupfer identifiziert werden.
 		\item[Probe 18] kann auf Basis der Angaben von \cite{XRAYDB} als Nickel identifiziert werden.
 		\item[Probe 19] Hier kann recht eindeutig Eisen identifiziert werden. Zusätzlich tritt ein Peak bei einer Energie auf, die dem $\text{K}_\alpha$-Übergang im Chrom entspricht.
@@ -505,12 +505,9 @@
 	Zusätzlich würde eine Röntgenröhre, die mit höherer Spannung betrieben werden kann, es ermöglichen Übergänge größerer Energie zu messen.
 
 
-	%TODO Längere messung für mehr Präzession für kleine Peaks, bessere Kannone => mehr Photonen?
-
 	\printbibliography
 
 	\section{Anhang}
-	%TODO check ob das mit der Tabelle passt ://
 
 	\begin{figure}[H]
 		\includegraphics[width=0.95\textwidth]{images/1-Zn.pdf}
