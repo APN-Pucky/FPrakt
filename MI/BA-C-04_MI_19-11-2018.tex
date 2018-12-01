@@ -230,7 +230,7 @@
 	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Breite der Glasplatte.
 	Die Unsicherheit beim Einstellen des Winkels beträgt \SI{0.011}{\degree}.
 	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt.
-	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10}{nm}.
+	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}.
 
 \begin{figure}[H]
 		\includegraphics[width=\textwidth]{images/Glas.pdf}
@@ -252,8 +252,9 @@
 	\begin{equation}
 			\frac{\Delta n}{\Delta p} = \frac{\Delta m}{\Delta p} \frac{\lambda}{2l}
 	\end{equation}
-	Wobei $l=\SI{3.5+-0.3}{cm}$ die Länge der Küvette im Strahlengang ist, welche abgeschätzt werden musste, da Innenlänge des Behälters nicht bekannt ist.
-	Die Unsicherheit des Präzisions-Digital-Grobvakuummeters beträgt \SI{0.3}{mbar}.
+
+	Wobei $l=\SI{3.5+-0.3}{cm}$ die Länge der Küvette im Strahlengang ist, welche abgeschätzt werden musste, da die Innenlänge des Behälters nicht bekannt ist.
+	Die Unsicherheit des Präzisions-Digital-Grobvakuummeters beträgt \SI{0.3}{mbar} und die Wellenlänge des Lasers beträgt nach wie vor \SI{650.4+-10.8}{nm}.
 
 	In \crefrange{fig_luft_raus}{fig_co2_rein} ist der Druck $p$ gegen die Anzahl der Interferenzringe $m$ aufgetragen und es wurden lineare Fits durchgeführt, um $\Delta p / \Delta m$ und somit den Kehrwert $\Delta m / \Delta p$ zu ermitteln.
 
@@ -284,7 +285,7 @@
 	\end{figure}
 
 	In \cref{tb_gase} sind die aus den Fitparameter resultierenden Brechungsindizes der Gase aufgelistet.
-	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in andere Richtung verschieben.
+	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in die umgekehrte Richtung verschieben.
 
 
 	\begin{table}[H]
@@ -292,10 +293,10 @@
 		\begin{tabular}{| c | c | c |}
 			\hline
 			  Gas &  $\Delta p/\Delta m$ & $n(p=\SI{1013}{mbar})$\\ \hline
-				Luft& \SI{28.81+-0.1}{mbar} & \SI{654.3+-7.3}{nm}\\
-				&\SI{28.46+-0.11}{mbar}&\\
-				CO$^2$ & \SI{19.11+-0.18}{mbar} & \SI{632.4+-11.6}{nm}\\
-				&\SI{18.28+-0.04}{mbar}&\\
+				Luft& \SI{28.81+-0.1}{mbar} & \SI{1.000327+-0.000029}{}\\
+				&\SI{28.46+-0.11}{mbar}&\SI{1.000331+-0.000029}{}\\
+				CO$^2$ & \SI{19.11+-0.18}{mbar} & \SI{1.000493+-0.000043}{}\\
+				&\SI{18.28+-0.04}{mbar}&\SI{1.000514+-0.000045}{}\\
 				\hline
 		\end{tabular}
 		\caption{}
