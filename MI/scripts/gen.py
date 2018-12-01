@@ -61,6 +61,14 @@ def gauss(x, x0, A, d, y0):
 def exponential(x, c, y0):
     return np.exp(c * x) * y0
 
+def custom(x,n):
+    m = x
+    l = 630*10**-9#unc.ufloat(630,10)*10**-9
+    #l =unp.uarray([630],[10])*10**-9
+    #t = unp.uarray([5],[0.1])*10**-3
+    t = 5*10**-3#unc.ufloat(5,0.1)*10**-3
+    return (n*m*l+m*m*l*l/(4*t))/(m*l+2*t*(n-1))
+
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
@@ -116,6 +124,11 @@ for gas in gase:
 
         fig=plt.figure(figsize=fig_size)
         plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
+
+        pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+        pp = unp.uarray(pfit, perr)
+        xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
+        plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*N+b\na=%s mbar\nb=%s mbar'%tuple(pp))
         #plt.plot(x, y, label='noice')
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()
@@ -130,17 +143,23 @@ data = np.loadtxt("MI/data/Glas.csv", skiprows = 0, delimiter = "\t")
 
 xdata = unp.uarray(data[:,0],unc_n)
 ydata = unp.uarray(data[:,1],unc_w)
-
-#print(data[:,1])
+ydata = 1- unp.cos(ydata*grad*0.0376)
 
 fig=plt.figure(figsize=fig_size)
 plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Winkel')
 #plt.plot(x, y, label='noice')
+ppfit,pperr =  fit_curvefit(unv(xdata), unv(ydata), custom, yerr = usd(ydata), p0 = [1.7])
+print(ppfit)
+pp = unp.uarray(ppfit, pperr)
+xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
+plt.plot(xdata,unv(custom(xdata,*ppfit)), label='Fit n=%s'%(tuple(pp)))
+
+
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('Anzahl der Ringe N')
-plt.ylabel('Winkel (°)')
+plt.ylabel('Winkel (1-cos($\\phi$))')
 plt.savefig("MI/images/Glas.pdf")
 plt.show()
 #end
