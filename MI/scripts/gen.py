@@ -108,8 +108,8 @@ grad = 1/rad
 # Unsicherheiten
 # TODO
 unc_n = 0
-unc_p = 3
-unc_w = 0.35
+unc_p = 0.3
+unc_w = 0.3
 # import der messwerte
 gase = ["Luft", "CO2"]
 vorgaenge = ["Rein","Raus"]
@@ -128,12 +128,12 @@ for gas in gase:
         pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
         pp = unp.uarray(pfit, perr)
         xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
-        plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*N+b\na=%s mbar\nb=%s mbar'%tuple(pp))
+        plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*m+b\na=%s mbar\nb=%s mbar'%tuple(pp))
         #plt.plot(x, y, label='noice')
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()
         plt.tick_params(labelsize=fig_labelsize)
-        plt.xlabel('Anzahl der Ringe N')
+        plt.xlabel('Anzahl der Interferenzringe m')
         plt.ylabel('Druck p (in mbar)')
         plt.savefig("MI/images/%s_%s.pdf"%(gas,vorgang))
         plt.show()
@@ -158,7 +158,7 @@ plt.plot(xdata,unv(custom(xdata,*ppfit)), label='Fit n=%s'%(tuple(pp)))
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('Anzahl der Ringe m')
+plt.xlabel('Anzahl der Interferenzringe m')
 plt.ylabel('Winkel (1-cos$\\phi$)')
 plt.savefig("MI/images/Glas.pdf")
 plt.show()

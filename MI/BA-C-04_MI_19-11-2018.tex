@@ -108,7 +108,7 @@
 
 
 	\section{Theorie}
-
+	%TODO allgemeines Theorie Zeugs
 	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation} %TODO Titel besser
 	In \cref{fig_glass_rotation} ist der Strahlengang für einen Einfallswinkel von $\alpha=0$ und $\alpha>0$ skizziert.
 	Anhand derer soll nun die Formel aus der Einführung hergeleitet werden. %TODO cref und ist der Satz notwendig?
@@ -209,7 +209,7 @@
 		(1-\cos{\phi}) = \frac{nm\lambda+\frac{m^2\lambda^2}{4t}}{m\lambda+2t(n-1)}
 	\end{equation}
 	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Breite der Glasplatte.
-	Die Unsicherheit beim Einstellen des Winkels beträgt \SI{0.013}{\degree}.
+	Die Unsicherheit beim Einstellen des Winkels beträgt \SI{0.011}{\degree}.
 	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt.
 	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10}{nm}.
 
@@ -221,6 +221,65 @@
 	\end{figure}
 
 	\subsubsection{Bestimmung der Brechungsindizes von Gasen}
+	Der Brechungsindex des jeweiligen Gases ist druckabhängig:
+	\begin{equation}
+		n(p) = n(p=0) + \frac{\Delta n}{\Delta p}p
+	\end{equation}
+	Der Brechungsindex im Vakuum $n(p=0)$ beträgt für beide Gase 1.
+	Aus der Einführung ist folgender Zusammenhang bekannt: %TODO in Theorie für Ref?
+	\begin{equation}
+			\frac{\Delta n}{\Delta p} = \frac{\Delta m}{\Delta p} \frac{\lambda}{2l}
+	\end{equation}
+	Wobei $l=\SI{3.5+-0.3}{cm}$ die Länge der Küvette im Strahlengang ist, welche abgeschätzt werden musste, da die Breite des Behälters nicht bekannt ist. %TODO gucci? Breite vs Länge?
+	Die Unsicherheit des Präzisions-Digital-Grobvakuummeters beträgt \SI{0.3}{mbar}.
+
+	In \crefrange{fig_luft_raus}{fig_co2_rein} ist der Druck $p$ gegen die Anzahl der Interferenzringe $m$ aufgetragen und es wurden lineare Fits durchgeführt, um $\Delta p / \Delta m$ und somit den Kehrwert $\Delta m / \Delta p$ zu ermitteln.
+
+
+\begin{figure}[H]
+		\includegraphics[width=0.9\textwidth]{images/Luft_Raus.pdf}
+		\centering
+		\caption{In der Küvette befindet sich Luft. Der Druck wird kontinuierlich reduziert. Die gelbe Funktion ist ein linearer Fit.}
+		\label{fig_luft_raus}
+	\end{figure}
+\begin{figure}[H]
+		\includegraphics[width=0.9\textwidth]{images/Luft_Rein.pdf}
+		\centering
+		\caption{In der Küvette befindet sich Luft. Der Druck wird kontinuierlich erhöht. Die gelbe Funktion ist ein linearer Fit.}
+		\label{fig_luft_rein}
+	\end{figure}
+\begin{figure}[H]
+		\includegraphics[width=0.9\textwidth]{images/CO2_Raus.pdf}
+		\centering
+		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird kontinuierlich reduziert. Die gelbe Funktion ist ein linearer Fit.}
+		\label{fig_co2_raus}
+	\end{figure}
+\begin{figure}[H]
+		\includegraphics[width=0.9\textwidth]{images/CO2_Rein.pdf}
+		\centering
+		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird kontinuierlich erhöht. Die gelbe Funktion ist ein linearer Fit.}
+		\label{fig_co2_rein}
+	\end{figure}
+
+	In \cref{tb_gase} sind die aus den Fitparameter resultierenden Brechungsindizes der Gase aufgelistet.
+	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in andere Richtung verschieben.
+
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{| c | c | c |}
+			\hline
+			  Gas &  $\Delta p/\Delta m$ & $n(p=\SI{1013}{mbar})$\\ \hline
+				Luft& \SI{28.81+-0.1}{mbar} & \SI{654.3+-7.3}{nm}\\
+				&\SI{28.46+-0.11}{mbar}&\\
+				CO$^2$ & \SI{19.11+-0.18}{mbar} & \SI{632.4+-11.6}{nm}\\
+				&\SI{18.28+-0.04}{mbar}&\\
+				\hline
+		\end{tabular}
+		\caption{}
+		\label{tb_gase}
+	\end{table}
+
 	\subsubsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
@@ -228,6 +287,7 @@
 	%TODO siehe Kurzfassung
 
 	%TODO geringe Schwankungen bei kontinuierlichem Messen sind ziemlich ahnbar
+	%TODO rein ca. gleich wie raus erwartbar
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
