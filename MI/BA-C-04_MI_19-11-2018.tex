@@ -149,27 +149,68 @@
 	Mit $\alpha=\Phi$, und $D=t$ lässt sich dies in die Formel aus der Einführung umstellen:
 	\begin{equation}
 		n= \frac{(2t-m\lambda)(1-\cos{\Phi})+ \frac{m^2\lambda^2}{4t}}{2t(1-\cos{\Phi})-m\lambda}
+		\label{eq_brechindex}
 	\end{equation}
 
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
 	%TODO Glas Nullwinkel per Auge
+	%TODO Glas Umrechnungsfaktor für Winkel
 
 	\section{Ergebnisse und Diskussion}
-	%TODO Unsicherheiten
 
 
 	\subsection{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-	\subsubsection{Unsicherheiten}
-	% Berechung nach Aufgabenstellung
 
-	\subsection{Diskussion}
+	% Berechung nach Aufgabenstellung
+	\subsubsection{Bestimmung der Wellenlänge}
+	Zur Bestimmung der Wellenlänge des Lasers wird der Spiegel an einem Arm des Michelson-Interferometers verschoben.
+	In \cref{tb_lambda} ist die Anzahl der verschobenen Maxima und die zugehörige Verschiebung des Spiegels angegeben. %TODO besseres wording aus Methode
+	Die Unsicherheit von $\Delta s$ setzt sich aus der der Mikrometerschraube $u_M=\SI{11}{nm}$ und der Genauigkeit mit welcher ein Interferenzmaximum lokalisiert wird, also dessen Breite $u_B=\SI{108}{nm}$. %TODO der Satz ist nicht verständlich %TODO schreiben was delta s ist
+	Des Weiteren wird davon ausgegangen, dass man sich einmal verzählen kann.
+	Es ergibt sich eine über die Messungen gemittelte Wellenlänge von \SI{650.4+-10.8}{nm}.
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{| c | c | c |}
+			\hline
+			  $N$ &  $\Delta s$ & $\lambda=2 \Delta s/N$\\ \hline
+				25$\pm$0.3 & \SI{7905+-109}{nm} & \SI{632.4+-11.6}{nm}\\
+				40$\pm$0.3& \SI{13085.1+-109}{nm} & \SI{654.3+-7.3}{nm}\\
+				40$\pm$0.3& \SI{13289.7+-109}{nm} & \SI{664.5+-7.4}{nm}\\
+				\hline
+		\end{tabular}
+		\caption{Änderung der Interferenzmaxima $N$ in Abhängigkeit von $\Delta s$ der Verschiebung des Spiegels an einem Michelson-Interferometer Arm. $\lambda$ ist die gemäß der angegeben Formel berechnete Wellenlänge. } %TODO -arm? %TODO cref für formel in theorie
+		\label{tb_lambda}
+	\end{table}
+
+	\subsubsection{Bestimmung des Brechungsindex der Glasplatte}
+	Zur Bestimmung des Brechungsindex der Glasplatte lässt sich \cref{eq_brechindex} umformen:
+	\begin{equation}
+		(1-\cos{\phi}) = \frac{nm\lambda+\frac{m^2\lambda^2}{4t}}{m\lambda+2t(n-1)}
+	\end{equation}
+	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Breite der Glasplatte.
+	Die Unsicherheit beim Einstellen des Winkels beträgt \SI{0.013}{\degree}.
+	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt.
+	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10}{nm}.
+
+\begin{figure}[H]
+		\includegraphics[width=\textwidth]{images/Glas.pdf}
+		\centering
+		\caption{Der Winkel der Glasplatte ist gegen die Änderung der Interferenzringe auf getragen. Die gelbe Funktion ist ein Fit gemäß den theoretischen Erwartungen.}
+		\label{fig_glas}
+	\end{figure}
+
+	\subsubsection{Bestimmung der Brechungsindizes von Gasen}
+	\subsubsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+
+	%TODO geringe Schwankungen bei kontinuierlichem Messen sind ziemlich ahnbar
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser

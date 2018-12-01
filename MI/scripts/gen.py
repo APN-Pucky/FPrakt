@@ -63,10 +63,10 @@ def exponential(x, c, y0):
 
 def custom(x,n):
     m = x
-    l = 630*10**-9#unc.ufloat(630,10)*10**-9
+    l = 650.4*10**-9#unc.ufloat(630,10)*10**-9
     #l =unp.uarray([630],[10])*10**-9
     #t = unp.uarray([5],[0.1])*10**-3
-    t = 5*10**-3#unc.ufloat(5,0.1)*10**-3
+    t = 5.05*10**-3#unc.ufloat(5,0.1)*10**-3
     return (n*m*l+m*m*l*l/(4*t))/(m*l+2*t*(n-1))
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
@@ -106,10 +106,10 @@ g = 9.81 # m/s^2
 rad = 360 / 2 / math.pi
 grad = 1/rad
 # Unsicherheiten
-
+# TODO
 unc_n = 0
 unc_p = 3
-unc_w = 2
+unc_w = 0.35
 # import der messwerte
 gase = ["Luft", "CO2"]
 vorgaenge = ["Rein","Raus"]
@@ -149,7 +149,7 @@ fig=plt.figure(figsize=fig_size)
 plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Winkel')
 #plt.plot(x, y, label='noice')
 ppfit,pperr =  fit_curvefit(unv(xdata), unv(ydata), custom, yerr = usd(ydata), p0 = [1.7])
-print(ppfit)
+#print(ppfit)
 pp = unp.uarray(ppfit, pperr)
 xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
 plt.plot(xdata,unv(custom(xdata,*ppfit)), label='Fit n=%s'%(tuple(pp)))
@@ -158,8 +158,8 @@ plt.plot(xdata,unv(custom(xdata,*ppfit)), label='Fit n=%s'%(tuple(pp)))
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('Anzahl der Ringe N')
-plt.ylabel('Winkel (1-cos($\\phi$))')
+plt.xlabel('Anzahl der Ringe m')
+plt.ylabel('Winkel (1-cos$\\phi$)')
 plt.savefig("MI/images/Glas.pdf")
 plt.show()
 #end
