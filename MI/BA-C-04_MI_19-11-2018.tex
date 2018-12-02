@@ -101,22 +101,16 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	Das Michelson-Interferometer stellt ein mächtiges Werkzeug zur Untersuchung von Material- und Lichteigenschaften dar.
 	In diesem Versuch wird es einerseits verwendet, um die Wellenlänge eines Lasers zu überprüfen, wobei die Annahme aufgrund des verwendeten Laser-Typs bestätigt werden kann.
-	Andererseits wird der Brechungsindex einer Glasplatte bestimmt, indem sie in einen Interferometerarm gebracht und rotiert wird.
+	Andererseits wird der Brechungsindex einer Glasplatte bei dieser Wellenlänge bestimmt, indem sie in einen Interferometerarm gebracht und rotiert wird.
 	Dies ergibt einen Messwert von \SI{650,4+-10,8}{nm}, was der Annahme, dass es sich um Glas handelt, nicht widerspricht. %TODO letzter teil kann weg, wenn dus net magst...
-	Zuletzt wird die Druckabhängigkeit des Brechungsindexes von Luft und Kohlenstoffdioxid bestimmt.
+	Zuletzt wird die Druckabhängigkeit des Brechungsindexes von Luft und Kohlenstoffdioxid bei der zuvor gemessenen Wellenlänge bestimmt.
+	Hierbei wird ein %TODO vergleich der Werte co2 vs. luft
 	Der Wert bei Atmosphärendruck kann hierbei aufgrund von Literaturwerten bestätigt werden.
 %TODO zu kurz...
 
 	\section{Theorie}
-	%TODO allgemeines Theorie Zeugs
-	%TODO > so allgemeines Interferenz->Ringe
-	%TODO Erwähnen dass Brechungsindex Wellenlängen abhängig ist
-	%TODO Polarisation ist für interferenz notwendig
-	%TODO Kohärenz ist notwendig (räumlich+zeitlich)
-	%TODO wollen wir Disperion erwähnen?
-	%TODO Gas Zustandsgleichungen relevant?
 	\subsection{Interferenz im Michelson-Interferometer}
-	Das Michelson-Interferometer basiert darauf, dass der hinreichend kohärente Laserstrahl an einem Strahlteiler in zwei Strahlen aufgeteilt wird und nachdem er in den beiden Armen reflektiert wurde wieder vereinigt wird und auf einen Schirm trifft.
+	Das Michelson-Interferometer basiert darauf, dass der hinreichend räumlich und zeitlich kohärente (und gleichmäßig polarisierte) Laserstrahl an einem Strahlteiler in zwei Strahlen aufgeteilt wird und nachdem er in den beiden Armen reflektiert wurde wieder vereinigt wird und auf einen Schirm trifft.
 	Wenn der Laserstrahl nun in beiden Armen die gleiche optische Weglänge zurückgelegt hat oder die Weglängendifferenz ein Vielfaches der Wellenlänge ist, kommt es in der Mitte des Schirms zu konstruktiver Interferenz.
 	Da jedoch bei Entfernung von der Mitte des Schirms im aufgeweiteten Strahl sich die zurückgelegte Strecke mit dem Abstand zur Mitte ändert, kommt es radial abwechselnd zu konstruktiver und destruktiver Interferenz.
 	Dies äußert sich dann in Interferenzringen.
@@ -130,13 +124,13 @@
 
 	Ähnlich dazu ändert sich die optische Weglänge, wenn ein Material eines anderen Brechungsindexes in einen der Arme gebracht wird, was bei der Untersuchung der Gase und der Glasplatte ausgenutzt wird.
 
-	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation} %TODO Titel besser
+	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation}
 	In \cref{fig_glass_rotation} ist der Strahlengang für einen Einfallswinkel von $\alpha=0$ und $\alpha>0$ skizziert.
 	Anhand derer soll nun die Formel aus der Einführung hergeleitet werden. %TODO cref und ist der Satz notwendig?
 	\begin{figure}[H]
 		\includegraphics[width=1.0\textwidth]{images/Formula}
 		\centering
-		\caption{Skizze des Glas in zwei Zuständen: Einfallswinkel $\alpha= 0$ (gestrichelter Quader) und $\alpha>0$ (ausgefüllter Quader).\cite{GlasFormula}} %TODO gestrichelt fine? Quader/Quadrat %TODO cite right?
+		\caption{Skizze der Glasplatte in zwei Zuständen: Einfallswinkel $\alpha= 0$ (gestrichelter Quader) und $\alpha>0$ (ausgefüllter Quader).\cite{GlasFormula}} %TODO gestrichelt fine? Quader/Quadrat %TODO cite right?
 		\label{fig_glass_rotation}
 		\centering
 	\end{figure}
@@ -221,12 +215,12 @@
 		\label{fig_aufbau}
 	\end{figure}
 
-	Zunächst wird die Wellenlänge bestimmt, indem die Anzahl der durchlaufenden Interferenzringe $m$ auf dem Schirm in Abhängigkeit von der Verschiebung $\Delta s$ des fein verschiebbaren Spiegels gemessen wird. %TODO Laufende Ringe in Theorie
+	Zunächst wird die Wellenlänge bestimmt, indem die Anzahl der durchlaufenden Interferenzringe $m$ auf dem Schirm in Abhängigkeit von der Verschiebung $\Delta s$ des fein verschiebbaren Spiegels gemessen wird.
 	Die Verschiebung wird mit einer Mikrometerschraube eingestellt und gemessen.
 	Die Wellenlänge ergibt sich dann gemäß \cref{eq_wellenlaenge}.
 
 
-	Dann wird in einen der Arme des Interferometers eine Glasplatte gebracht, die sich mit einer Mikrometerschraube kippen lässt. %TODO kp, ob Arm definiert ist als das, das zweimal durchlaufen wird.
+	Dann wird in einen der Arme des Interferometers eine Glasplatte gebracht, die sich mit einer Mikrometerschraube kippen lässt.
 	Hierbei wird zunächst die senkrechte Position gesucht, indem die Platte so lange gekippt wird, bis sich die Laufrichtung der Interferenzringe ändern.
 	Mithilfe der Winkelskala an der Einfassung der Glasplatte wird dann das Verhältnis von Verstellung der Mikrometerschraube und Kippwinkel der Glasplatte bestimmt, indem die Schraube eine bestimmte Strecke herausgedreht wird und die Winkeländerung gemessen wird.
 	Mithilfe von \cref{eq_brechindex} kann dann der Brechungsindex der Glasplatte bestimmt werden.
@@ -248,7 +242,7 @@
 	\subsubsection{Beobachtung und Datenanalyse}
 	Zur Bestimmung der Wellenlänge des Lasers wird der Spiegel an einem Arm des Michelson-Interferometers verschoben.
 	In \cref{tb_lambda} ist die Anzahl der durchlaufenden Interferenzringe unter Verschiebung des Spiegels $\Delta s$ angegeben.
-	Die Unsicherheit von $\Delta s$ setzt sich aus der der Mikrometerschraube $u_M=\SI{11}{nm}$ und der Genauigkeit mit welcher ein Interferenzmaximum lokalisiert wird, also dessen Breite $u_B=\SI{108}{nm}$. %TODO der Satz ist nicht verständlich %TODO schreiben was delta s ist
+	Die Unsicherheit von $\Delta s$ setzt sich aus der der Mikrometerschraube $u_M=\SI{11}{nm}$ und der Genauigkeit mit welcher ein Interferenzmaximum lokalisiert wird, also dessen Breite $u_B=\SI{108}{nm}$.
 	Des Weiteren wird davon ausgegangen, dass man sich einmal verzählen kann.
 	Es ergibt sich eine über die Messungen gemittelte Wellenlänge von \SI{650.4+-10.8}{nm}.
 
@@ -267,7 +261,6 @@
 	\end{table}
 
 	\subsubsection{Diskussion}
-	%TODO erstaunlich hohe schwankung imo
 
 	Da ein Helium-Neon-Laser verwendet wird, ist zu erwarten, dass mit dem Michelson-Interferometer dessen charakteristische Wellenlänge von \SI{633}{nm} gemessen werden kann.
 	Innerhalb der dopplten Unsicherheit kann dies mit dem gemessenen Mittelwert von \SI{650,4\pm 10,8}{nm} bestätigt werden.
@@ -319,7 +312,7 @@
 	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in die umgekehrte Richtung verschieben, die Quotienten haben also immer das gleiche Vorzeichen.
 	In \cref{tb_gase} sind die aus den Fitparameter resultierenden Brechungsindizes der Gase aufgelistet.
 
-\begin{figure}[H] %TODO ist imo noch nicht ANhang worthy
+\begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/Luft_Raus.pdf}
 		\centering
 		\caption{In der Küvette befindet sich Luft. Der Druck wird kontinuierlich reduziert. Die gelbe Funktion ist ein linearer Fit.}
@@ -357,7 +350,7 @@
 				&\SI{18.28+-0.04}{mbar}&\SI{1.000514+-0.000045}{}\\
 				\hline
 		\end{tabular}
-		\caption{Die Brechungsindizes bei Normaldruck werden aus den durchlaufenden Interferenzringen pro Druckänderung mit \cref{eq_brech_p} bestimmt.} %TODO in tabelle welches steigt und welches abfällt? %TODO besserer Text
+		\caption{Ergebnisse von $\Delta p/\Delta m$ aus den Fits in \crefrange{fig_luft_raus}{fig_co2_rein}. Die Brechungsindizes bei Normaldruck wurden aus den durchlaufenden Interferenzringen pro Druckänderung mit \cref{eq_brech_p} bestimmt.} %TODO in tabelle welches steigt und welches abfällt?
 		\label{tb_gase}
 	\end{table}
 
@@ -365,11 +358,7 @@
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-	%TODO siehe Kurzfassung
 	%TODO Temperatur hat Einfluss, thermo dyn. Prozesse relevant? (adiabatisch o.ä.?)
-	%TODO geringe Schwankungen bei kontinuierlichem Messen sind ziemlich ahnbar
-	%TODO rein ca. gleich wie raus erwartbar
-	%TODO qualitativ passt es und quantitativ vmtl. auch
 	Zunächst lässt sich sagen, dass anhand von \crefrange{fig_luft_raus}{fig_co2_rein} der lineare Zusammenhang aus \cref{eq_brech_p} bestätigen lässt.
 	Die Abweichungen vom Fit liegen im Wesentlichen innerhalb der doppelten Unsicherheit und sind darauf zurückzuführen, dass die Gaszuführ bzw. Evakuierung nicht nach jedem durchgelaufenen Interferenzring an der selben Position der Ringe gestoppt werden kann.
 	Außerdem kann anhand von \cref{tb_gase} festgestellt werden, dass die Messung von $\Delta p/\Delta m$ bei Werte Zufuhr bzw. Abfuhr des Gases ähnliche Messwerte ergeben, deren doppelten Unsicherheitsintervalle allerdings nur im Fall von Luft überschneiden.
