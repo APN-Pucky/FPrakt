@@ -105,24 +105,25 @@
 	Dies ergibt einen Messwert von \SI{650,4+-10,8}{nm}, was der Annahme, dass es sich um Glas handelt, nicht widerspricht. %TODO letzter teil kann weg, wenn dus net magst...
 	Zuletzt wird die Druckabhängigkeit des Brechungsindexes von Luft und Kohlenstoffdioxid bei der zuvor gemessenen Wellenlänge bestimmt.
 	Hierbei wird ein %TODO vergleich der Werte co2 vs. luft
-	Der Wert bei Atmosphärendruck kann hierbei aufgrund von Literaturwerten bestätigt werden.
+	Der Wert bei Atmosphärendruck kann hierbei auf Basis von Literaturwerten bestätigt werden.
 %TODO zu kurz...
 
 	\section{Theorie}
 	\subsection{Interferenz im Michelson-Interferometer}
 	Das Michelson-Interferometer basiert darauf, dass der hinreichend räumlich und zeitlich kohärente (und gleichmäßig polarisierte) Laserstrahl an einem Strahlteiler in zwei Strahlen aufgeteilt wird und nachdem er in den beiden Armen reflektiert wurde wieder vereinigt wird und auf einen Schirm trifft.
-	Wenn der Laserstrahl nun in beiden Armen die gleiche optische Weglänge zurückgelegt hat oder die Weglängendifferenz ein Vielfaches der Wellenlänge ist, kommt es in der Mitte des Schirms zu konstruktiver Interferenz.
+	Wenn der Laserstrahl nun in beiden Armen die gleiche optische Weglänge zurückgelegt hat oder die optische Weglängendifferenz ein Vielfaches der Wellenlänge ist, kommt es in der Mitte des Schirms zu konstruktiver Interferenz.
 	Da jedoch bei Entfernung von der Mitte des Schirms im aufgeweiteten Strahl sich die zurückgelegte Strecke mit dem Abstand zur Mitte ändert, kommt es radial abwechselnd zu konstruktiver und destruktiver Interferenz.
 	Dies äußert sich dann in Interferenzringen.
 	Die Position dieser ändern sich, wenn die Länge eines Arms verändert wird, da die zurückgelegte optische Weglänge dieses Strahls geändert wird.
 	Hier ist anzumerken, dass die Änderung der Armlänge um einen bestimmten Wert die doppelte Änderung der Weglänge zurfolge hat, da das Licht zweimal durch den Arm läuft (hin und zurück).
-	Es ergibt sich ein Zusammenhang zwischen Wellenlänge $\lambda$, Änderung der Länge des Arms $\Delta s$ und Zahl der durchlaufenden Interferenzringe von %TODO Ich hab jetzt keine knackigere Erklärung, warum die Gleichung genau so ist. ist halt anschaulich klar, aber kp, ob das genug erläutert ist.
+	Es ergibt sich ein Zusammenhang zwischen Wellenlänge $\lambda$, Änderung der Länge des Arms $\Delta s$ und Zahl der durchlaufenden Interferenzringe $m$ von %TODO Ich hab jetzt keine knackigere Erklärung, warum die Gleichung genau so ist. ist halt anschaulich klar, aber kp, ob das genug erläutert ist.
 	\begin{equation}
 		\lambda = \frac{2 \Delta s}{m}.
 		\label{eq_wellenlaenge}
 	\end{equation}
 
 	Ähnlich dazu ändert sich die optische Weglänge, wenn ein Material eines anderen Brechungsindexes in einen der Arme gebracht wird, was bei der Untersuchung der Gase und der Glasplatte ausgenutzt wird.
+	Bei den Gasen folgt der Zusammenhang einfach aus der Definition der optischen Weglänge über das Produkt aus Strecke im Material und Brechungsindex des Materials.
 
 	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation}
 	In \cref{fig_glass_rotation} ist der Strahlengang für einen Einfallswinkel von $\alpha=0$ und $\alpha>0$ skizziert.
@@ -136,22 +137,22 @@
 	\end{figure}
 
 	Da sich das Glas in einem Arm des Michelson-Interferometers befindet, durchlaufen Strahlen dieses doppelt.
-	Außerdem muss der Gangunterschied $\Delta$ ein vielfaches der Wellenlänge sein. Der Gangunterschied ist die Differenz der optischen Weglängen:
+	Außerdem muss der Gangunterschied $\Delta$ ein Vielfaches der Wellenlänge sein. Der Gangunterschied ist die Differenz der optischen Weglängen:
 	\begin{equation}
 		\Delta = m\lambda = 2 \cdot \left(\int_{\text{Weg} A \rightarrow F} \! n(s) \, \mathrm{d}s - \int_{\text{Weg} A \rightarrow C} \! n(s) \, \mathrm{d}s \right)
 	\end{equation}
-	Aus der Geometrie und den konstanten Brechungsindizes folgt
+	Aus der Geometrie und den räumlich in Glas bzw. Luft konstanten Brechungsindizes folgt
 	\begin{equation}
 		m\lambda = 2(n\cdot \overline{AE} + \overline{EF} - n \cdot \overline{AB} - \overline{BC}),
 		\label{eq_glas_2}
 	\end{equation}
-	wobei $n$ der Brechungsindex des Glas ist und $n_\text{Luft}=1$ angenommen wird.
+	wobei $n$ der Brechungsindex des Glases ist und $n_\text{Luft}=1$ angenommen wird.
 
 	Unmittelbar aus \cref{fig_glass_rotation} zu entnehmen sind
 		$\overline{AB} = D$,
 		$\overline{AE} = \frac{D}{\cos{\beta}}$,
 		$\overline{AC} = \frac{D}{\cos{\alpha}}$,
-		$\overline{BC} = \overline{AC} -D = \frac{D}{\cos{\alpha}}-D$,
+		$\overline{BC} = \overline{AC} -D = \frac{D}{\cos{\alpha}}-D$ und
 		$\overline{EF} = \overline{CE} \cdot \sin{\alpha} = D\cdot (\tan{\alpha}-\tan{\beta})\cdot \sin{\alpha}$.
 	Ersetzt man die Strecken und dividiert durch $2D$ in \cref{eq_glas_2} folgt:
 	\begin{equation}
@@ -175,7 +176,7 @@
 		\label{eq_brechindex}
 	\end{equation}
 
-	\subsection{Bestimmung des Brechungsindex eines Gases durch Druckänderung}
+	\subsection{Bestimmung des Brechungsindexes eines Gases durch Druckänderung}
 	Die Bedingung für Interferenz lautet:
 	\begin{equation}
 		m\lambda = n_1 l - n_2 l
@@ -216,9 +217,9 @@
 	\end{figure}
 
 	Zunächst wird die Wellenlänge bestimmt, indem die Anzahl der durchlaufenden Interferenzringe $m$ auf dem Schirm in Abhängigkeit von der Verschiebung $\Delta s$ des fein verschiebbaren Spiegels gemessen wird.
+	Der Fein verstellbare Spiegel wird dabei über eine Übersetzungsmechanik verstellt, die es erlaubt eine eine Verstellung einer Mikrometerschraub um \SI{1}{mm} in eine Verstellung des Spiegels von \SI{930}{nm} zu übersetzen.
 	Die Verschiebung wird mit einer Mikrometerschraube eingestellt und gemessen.
 	Die Wellenlänge ergibt sich dann gemäß \cref{eq_wellenlaenge}.
-
 
 	Dann wird in einen der Arme des Interferometers eine Glasplatte gebracht, die sich mit einer Mikrometerschraube kippen lässt.
 	Hierbei wird zunächst die senkrechte Position gesucht, indem die Platte so lange gekippt wird, bis sich die Laufrichtung der Interferenzringe ändern.
@@ -227,9 +228,9 @@
 	Die Dicke der Glasplatte wird mit einer Schieblehre gemessen.
 
 	Zuletzt wird die Glasplatte durch eine Küvette ersetzt, die nach Wahl evakuiert oder mit Luft oder Kohlenstoffdioxid gefüllt werden kann und deren Innendruck gemessen werden kann.
-	Dieses Vorgehen basiert darauf, dass das Licht, dass durch den Küvettenarm läuft eine andere optische Weglänge zurücklegt, als das, welches durch den anderen Arm läuft.
+	Dieses Vorgehen basiert darauf, dass das Licht, das durch den Küvettenarm läuft eine andere optische Weglänge zurücklegt, als das, welches durch den anderen Arm läuft.
 	Es werden mehrere Messungen durchgeführt, bei denen die Küvette schrittweise evakuiert wird oder mit dem Gas gefüllt wird.
-	Es wird nach jedem durchgelaufenen Interferenzring der aktuelle Druck in der Küvette gemessen, damit dann die Abhängigkeit des Brechungsindex vom Druck bestimmt werden kann.
+	Es wird nach jedem durchgelaufenen Interferenzring der aktuelle Druck in der Küvette gemessen, damit dann die Abhängigkeit des Brechungsindexes vom Druck bestimmt werden kann.
 	Die Länge der Küvette wird gemessen.
 
 	\section{Ergebnisse und Diskussion}
@@ -241,7 +242,7 @@
 	\subsection{Bestimmung der Wellenlänge}
 	\subsubsection{Beobachtung und Datenanalyse}
 	Zur Bestimmung der Wellenlänge des Lasers wird der Spiegel an einem Arm des Michelson-Interferometers verschoben.
-	In \cref{tb_lambda} ist die Anzahl der durchlaufenden Interferenzringe unter Verschiebung des Spiegels $\Delta s$ angegeben.
+	In \cref{tb_lambda} ist die Anzahl der durchlaufenden Interferenzringe unter Verschiebung des Spiegels um $\Delta s$ angegeben.
 	Die Unsicherheit von $\Delta s$ setzt sich aus der der Mikrometerschraube $u_M=\SI{11}{nm}$ und der Genauigkeit mit welcher ein Interferenzmaximum lokalisiert wird, also dessen Breite $u_B=\SI{108}{nm}$.
 	Des Weiteren wird davon ausgegangen, dass man sich einmal verzählen kann.
 	Es ergibt sich eine über die Messungen gemittelte Wellenlänge von \SI{650.4+-10.8}{nm}.
@@ -266,30 +267,30 @@
 	Innerhalb der dopplten Unsicherheit kann dies mit dem gemessenen Mittelwert von \SI{650,4\pm 10,8}{nm} bestätigt werden.
 	Bei Betrachtung von \cref{tb_lambda} ist festzustellen, dass die Messung von mehr durchlaufenden Interferenzringen eine Abweichung nach oben zur Folge hat, weshalb die Abweichung auf ein Übersehen eines Interferenzringes durch Zuweitdrehen der Mikrometerschraube zurückgeführt werden kann.
 
-	\subsection{Bestimmung des Brechungsindex der Glasplatte}
+	\subsection{Bestimmung des Brechungsindexes der Glasplatte}
 	\subsubsection{Beobachtung und Datenanalyse}
-	Zur Bestimmung des Brechungsindex der Glasplatte lässt sich \cref{eq_brechindex} umformen:
+	Zur Bestimmung des Brechungsindexes der Glasplatte lässt sich \cref{eq_brechindex} umformen:
 	\begin{equation}
 		(1-\cos{\phi}) = \frac{nm\lambda+\frac{m^2\lambda^2}{4t}}{m\lambda+2t(n-1)}
 		\label{eq_winkel_theo}
 	\end{equation}
 	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Dicke der Glasplatte.
-	Die Messung dieser ist aufgrund ihere Einfassung erschwert, weshalb die Dicke der Einfassung gemessen wird und dann auf beiden Seiten die Differenz zwischen Glas und Einfassung subtrahiert wird.
+	Die Messung dieser ist aufgrund ihrer Einfassung erschwert, weshalb die Dicke der Einfassung gemessen wird und dann auf beiden Seiten die Differenz zwischen Glas und Einfassung subtrahiert wird.
 	Die Unsicherheit beim Einstellen des Winkels über die Mikrometerschraube beträgt \SI{0.011}{\degree}.
 	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt. %TODO "Messpunkte von 1-cos phi" ? Nochmal sagen, dass phi die Kippung ist?
-	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}. %TODO Fit gemäß gleichung bla? steht halt nur in der caption
+	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte bei der verwendeten Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}. %TODO Fit gemäß gleichung bla? steht halt nur in der caption
 
 \begin{figure}[H]
 		\includegraphics[width=\textwidth]{images/Glas.pdf}
 		\centering
 		\caption{Der Winkel der Glasplatte ist gegen die Änderung der Interferenzringe auf getragen.
-		Die gelbe Funktion ist ein Fit gemäß den theoretischen erwarteten \cref{eq_winkel_theo}.}
+		Die gelbe Funktion ist ein Fit gemäß der theoretisch erwarteten \cref{eq_winkel_theo}.}
 		\label{fig_glas}
 	\end{figure}
 
 	\subsubsection{Diskussion}
 	Da nicht bekannt ist, um welches Glas es sich bei der untersuchten Platte hält, ist es nicht möglich den Messwert anhand eines Literaturwertes zu prüfen.
-	Es lässt sich allerdings sagen, dass der Messwert von \SI{1.707+-0.013}{nm} inerhalb des Bereichs von Brechungsindizes üblicher Gläser liegt.
+	Es lässt sich allerdings sagen, dass der Messwert von \SI{1.707+-0.013}{nm} inerhalb des Bereichs von Brechungsindizes bekannter Gläser liegt.
 	So hat zum Beispiel N-BAF10-Glas einen Brechungsindex von \SI{1,6661}{} bei einer Wellenlänge von \SI{650}{nm}.\cite{Brechungsindizes}
 
 	\subsection{Bestimmung der Brechungsindizes von Gasen}
@@ -315,25 +316,25 @@
 \begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/Luft_Raus.pdf}
 		\centering
-		\caption{In der Küvette befindet sich Luft. Der Druck wird kontinuierlich reduziert. Die gelbe Funktion ist ein linearer Fit.}
+		\caption{In der Küvette befindet sich Luft. Der Druck wird schrittweise reduziert. Die gelbe Funktion ist ein linearer Fit.}
 		\label{fig_luft_raus}
 	\end{figure}
 \begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/Luft_Rein.pdf}
 		\centering
-		\caption{In der Küvette befindet sich Luft. Der Druck wird kontinuierlich erhöht. Die gelbe Funktion ist ein linearer Fit.}
+		\caption{In der Küvette befindet sich Luft. Der Druck wird schrittweise erhöht. Die gelbe Funktion ist ein linearer Fit.}
 		\label{fig_luft_rein}
 	\end{figure}
 \begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/CO2_Raus.pdf}
 		\centering
-		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird kontinuierlich reduziert. Die gelbe Funktion ist ein linearer Fit.}
+		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird schrittweise reduziert. Die gelbe Funktion ist ein linearer Fit.}
 		\label{fig_co2_raus}
 	\end{figure}
 \begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/CO2_Rein.pdf}
 		\centering
-		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird kontinuierlich erhöht. Die gelbe Funktion ist ein linearer Fit.}
+		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird schrittweise erhöht. Die gelbe Funktion ist ein linearer Fit.}
 		\label{fig_co2_rein}
 	\end{figure}
 
@@ -361,12 +362,12 @@
 	%TODO Temperatur hat Einfluss, thermo dyn. Prozesse relevant? (adiabatisch o.ä.?)
 	Zunächst lässt sich sagen, dass anhand von \crefrange{fig_luft_raus}{fig_co2_rein} der lineare Zusammenhang aus \cref{eq_brech_p} bestätigen lässt.
 	Die Abweichungen vom Fit liegen im Wesentlichen innerhalb der doppelten Unsicherheit und sind darauf zurückzuführen, dass die Gaszuführ bzw. Evakuierung nicht nach jedem durchgelaufenen Interferenzring an der selben Position der Ringe gestoppt werden kann.
-	Außerdem kann anhand von \cref{tb_gase} festgestellt werden, dass die Messung von $\Delta p/\Delta m$ bei Werte Zufuhr bzw. Abfuhr des Gases ähnliche Messwerte ergeben, deren doppelten Unsicherheitsintervalle allerdings nur im Fall von Luft überschneiden.
+	Außerdem kann anhand von \cref{tb_gase} festgestellt werden, dass die Messung von $\Delta p/\Delta m$ bei Zufuhr bzw. Abfuhr des Gases ähnliche Messwerte ergeben, deren doppelten Unsicherheitsintervalle allerdings nur im Fall von Luft überschneiden.
 	Der Grund für die Abweichung bei CO$_2$ liegt vermutlich im Übersehen eines Interferenzrings bei zu schneller Gaszufuhr bzw. Evakuierung.
 
 	Der Messwert bei Atmosphärendruck lässt sich einfach mit Literaturwerten bei einer Wellenlänge von \SI{650}{nm} vergleichen.
 	Für Luft ist hier ein Wert von \SI{1.00027632}{} zu erwarten (vgl. \cite{Brechungsindizes}).
-	Die liegt erwartungsgemäß innerhalb der doppelten Unsicherheit der Messwerte aus \cref{tb_gase}.
+	Dieser liegt erwartungsgemäß innerhalb der doppelten Unsicherheit der Messwerte aus \cref{tb_gase}.
 
 	Für Kohlenstoffdioxid wird gemäß \cite{GlasFormula} ein Wert von \SI{1.00044727}{} erwartet und auch dies liegt innerhalb der doppelten Unsicherheit der Messwerte.
 
