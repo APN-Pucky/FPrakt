@@ -108,10 +108,13 @@
 %TODO zu kurz...
 
 	\section{Theorie}
-	%TODO allgemeines Theorie Zeugso
+	%TODO allgemeines Theorie Zeugs
 	%TODO > so allgemeines Interferenz->Ringe
 	%TODO Erwähnen dass Brechungsindex Wellenlängen abhängig ist
 	%TODO Polarisation ist für interferenz notwendig
+	%TODO Kohärenz ist notwendig (räumlich+zeitlich)
+	%TODO wollen wir Disperion erwähnen?
+	%TODO Gas Zustandsgleichungen relevant?
 	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation} %TODO Titel besser
 	In \cref{fig_glass_rotation} ist der Strahlengang für einen Einfallswinkel von $\alpha=0$ und $\alpha>0$ skizziert.
 	Anhand derer soll nun die Formel aus der Einführung hergeleitet werden. %TODO cref und ist der Satz notwendig?
@@ -124,7 +127,7 @@
 	\end{figure}
 
 	Da sich das Glas in einem Arm des Michelson-Interferometers befindet, durchlaufen Strahlen dieses doppelt.
-	Außerdem muss der Gangunterscheid $\Delta$ ein vielfaches der Wellenlänge sein. Der Gangunterschied ist die Differenz der optischen Weglängen:
+	Außerdem muss der Gangunterschied $\Delta$ ein vielfaches der Wellenlänge sein. Der Gangunterschied ist die Differenz der optischen Weglängen:
 	\begin{equation}
 		\Delta = m\lambda = 2 \cdot \left(\int_{\text{Weg} A \rightarrow F} \! n(s) \, \mathrm{d}s - \int_{\text{Weg} A \rightarrow C} \! n(s) \, \mathrm{d}s \right)
 	\end{equation}
@@ -162,6 +165,33 @@
 		n= \frac{(2t-m\lambda)(1-\cos{\Phi})+ \frac{m^2\lambda^2}{4t}}{2t(1-\cos{\Phi})-m\lambda}
 		\label{eq_brechindex}
 	\end{equation}
+
+	\subsection{Bestimmung des Brechungsindex eines Gases durch Druckänderung}
+	Die Bedingung für Interferenz lautet:
+	\begin{equation}
+		m\lambda = n_1 l - n_2 l
+		\label{eq_tmp_1}
+	\end{equation}
+	Verändert man den Druck des Gases ändert sich auch der Brechungsindex $n_1$ und es folgt ein neuer Gangunterschied:
+	\begin{equation}
+		m'\lambda = n_1' l - n_2 l
+		\label{eq_tmp_2}
+	\end{equation}
+	Dividiert man die Differenz von \cref{eq_tmp_1} und \cref{eq_tmp_2} durch $\Delta p$ ergibt sich:
+	\begin{equation}
+		\frac{\Delta n}{\Delta p} = \frac{\Delta m}{\Delta p} \cdot \frac{\lambda}{l}
+		\label{eq_brech_druck}
+	\end{equation}
+	Der Brechungsindex $n$ hängt linear vom Druck $p$ ab:
+	\begin{equation}
+		n(p) = n(p=0) + \frac{\Delta n}{\Delta p} p
+	\end{equation}
+	Dieser Zusammenhang wird aus der Näherungsformel
+	\begin{equation}
+		\frac{n-1}{\rho} = r_G = \text{const}
+	\end{equation}
+	klar. Da sich $n = 1+ r_G \cdot \rho$ ergibt und unter Annahme eines idealen Gases, also $\rho \propto p$, folgt die Linearität.
+
 
 	\section{Methoden}
 	% Bilder von der Website klauen
@@ -259,13 +289,13 @@
 
 	\subsection{Bestimmung der Brechungsindizes von Gasen}
 	\subsubsection{Beobachtung und Datenanalyse}
-	Der Brechungsindex des jeweiligen Gases ist druckabhängig:
+	Der Brechungsindex des jeweiligen Gases ist linear druckabhängig:
 	\begin{equation}
 		n(p) = n(p=0) + \frac{\Delta n}{\Delta p}p
 		\label{eq_brech_p}
 	\end{equation}
 	Der Brechungsindex im Vakuum $n(p=0)$ beträgt 1.
-	Aus der Einführung ist folgender Zusammenhang bekannt: %TODO in Theorie für Ref?
+	Die Abhängigkeit des Brechungsindexes vom Druck wird durch \cref{eq_brech_druck} beschrieben, hierbei ist zu beachten, dass die Küvette zweimal von dem Strahl durchlaufen wird:
 	\begin{equation}
 			\frac{\Delta n}{\Delta p} = \frac{\Delta m}{\Delta p} \frac{\lambda}{2l}
 	\end{equation}
@@ -324,7 +354,7 @@
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	%TODO siehe Kurzfassung
-
+	%TODO Temperatur hat Einfluss, thermo dyn. Prozesse relevant? (adiabatisch o.ä.?)
 	%TODO geringe Schwankungen bei kontinuierlichem Messen sind ziemlich ahnbar
 	%TODO rein ca. gleich wie raus erwartbar
 	%TODO qualitativ passt es und quantitativ vmtl. auch
