@@ -108,7 +108,9 @@
 
 
 	\section{Theorie}
-	%TODO allgemeines Theorie Zeugs
+	%TODO allgemeines Theorie Zeugso
+	%TODO Erwähnen dass Brechungsindex Wellenlängen abhängig ist
+	%TODO Polarisation ist für interferenz notwendig
 	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation} %TODO Titel besser
 	In \cref{fig_glass_rotation} ist der Strahlengang für einen Einfallswinkel von $\alpha=0$ und $\alpha>0$ skizziert.
 	Anhand derer soll nun die Formel aus der Einführung hergeleitet werden. %TODO cref und ist der Satz notwendig?
@@ -173,21 +175,22 @@
 		\label{fig_aufbau}
 	\end{figure}
 
-	Zunächst wird die Wellenlänge bestimmt, indem die Anzahl der durchlaufenden Interferenzringe $N$ auf dem Schirm in Abhängigkeit von der Verschiebung $\Delta s$ des fein verschiebbaren Spiegels gemessen wird.
+	Zunächst wird die Wellenlänge bestimmt, indem die Anzahl der durchlaufenden Interferenzringe $m$ auf dem Schirm in Abhängigkeit von der Verschiebung $\Delta s$ des fein verschiebbaren Spiegels gemessen wird. %TODO Laufende Ringe in Theorie
 	Die Verschiebung wird mit einer Mikrometerschraube eingestellt und gemessen.
 	Die Wellenlänge ergibt sich dann gemäß
 	\begin{equation}
-		\lambda = \frac{2 \Delta s}{N}.
+		\lambda = \frac{2 \Delta s}{m}. %TODO könnte der Mensch argumentieren, das ist Theorie?
+		\label{eq_wellenlaenge}
 	\end{equation}
 
-	Dann wird in einen der Arme des Interferometers eine Glasplatte gebracht, die sich mit einer Mikrometerschraube kippen lässt.
+	Dann wird in einen der Arme des Interferometers eine Glasplatte gebracht, die sich mit einer Mikrometerschraube kippen lässt. %TODO kp, ob Arm definiert ist als das, das zweimal durchlaufen wird.
 	Hierbei wird zunächst die senkrechte Position gesucht, indem die Platte so lange gekippt wird, bis sich die Laufrichtung der Interferenzringe ändern.
 	Mithilfe der Winkelskala an der Einfassung der Glasplatte wird dann das Verhältnis von Verstellung der Mikrometerschraube und Kippwinkel der Glasplatte bestimmt, indem die Schraube eine bestimmte Strecke herausgedreht wird und die Winkeländerung gemessen wird.
 	Mithilfe von \cref{eq_brechindex} kann dann der Brechungsindex der Glasplatte bestimmt werden.
 
 	Zuletzt wird die Glasplatte durch eine Küvette ersetzt, die nach Wahl evakuiert oder mit Luft oder Kohlenstoffdioxid gefüllt werden kann und deren Innendruck gemessen werden kann.
 	Dieses Vorgehen basiert darauf, dass das Licht, dass durch den Küvettenarm läuft eine andere optische Weglänge zurücklegt, als das, welches durch den anderen Arm läuft.
-	Es werden mehrere Messungen durchgeführt, bei denen die Küvette schrittweise wahlweise evakuiert wird oder mit dem Gas gefüllt wird.
+	Es werden mehrere Messungen durchgeführt, bei denen die Küvette schrittweise evakuiert wird oder mit dem Gas gefüllt wird.
 	Es wird nach jedem durchgelaufenen Interferenzring der aktuelle Druck in der Küvette gemessen, damit dann die Abhängigkeit des Brechungsindex vom Druck bestimmt werden kann.
 
 	\section{Ergebnisse und Diskussion}
@@ -199,7 +202,7 @@
 	\subsection{Bestimmung der Wellenlänge}
 	\subsubsection{Beobachtung und Datenanalyse}
 	Zur Bestimmung der Wellenlänge des Lasers wird der Spiegel an einem Arm des Michelson-Interferometers verschoben.
-	In \cref{tb_lambda} ist die Anzahl der verschobenen Maxima und die zugehörige Verschiebung des Spiegels angegeben. %TODO besseres wording aus Methode
+	In \cref{tb_lambda} ist die Anzahl der durchlaufenden Interferenzringe unter Verschiebung des Spiegels $\Delta s$ angegeben.
 	Die Unsicherheit von $\Delta s$ setzt sich aus der der Mikrometerschraube $u_M=\SI{11}{nm}$ und der Genauigkeit mit welcher ein Interferenzmaximum lokalisiert wird, also dessen Breite $u_B=\SI{108}{nm}$. %TODO der Satz ist nicht verständlich %TODO schreiben was delta s ist
 	Des Weiteren wird davon ausgegangen, dass man sich einmal verzählen kann.
 	Es ergibt sich eine über die Messungen gemittelte Wellenlänge von \SI{650.4+-10.8}{nm}.
@@ -208,13 +211,13 @@
 		\centering
 		\begin{tabular}{| c | c | c |}
 			\hline
-			  $N$ &  $\Delta s$ & $\lambda=2 \Delta s/N$\\ \hline
+			  $m$ &  $\Delta s$ & $\lambda=2 \Delta s/m$\\ \hline
 				25$\pm$0.3 & \SI{7905+-109}{nm} & \SI{632.4+-11.6}{nm}\\
 				40$\pm$0.3& \SI{13085.1+-109}{nm} & \SI{654.3+-7.3}{nm}\\
 				40$\pm$0.3& \SI{13289.7+-109}{nm} & \SI{664.5+-7.4}{nm}\\
 				\hline
 		\end{tabular}
-		\caption{Änderung der Interferenzmaxima $N$ in Abhängigkeit von $\Delta s$ der Verschiebung des Spiegels an einem Michelson-Interferometer Arm. $\lambda$ ist die gemäß der angegeben Formel berechnete Wellenlänge. } %TODO -arm? %TODO cref für formel in theorie
+		\caption{Die Anzahl der durchlaufenden Interferenzringe $m$ in Abhängigkeit von der Verschiebung des Spiegels $\Delta s$ an einem Michelson-Interferometer Arm liefert die Wellenlänge $\lambda$ des Lasers gemäß \cref{eq_wellenlaenge}. } %TODO -arm?
 		\label{tb_lambda}
 	\end{table}
 
@@ -226,16 +229,18 @@
 	Zur Bestimmung des Brechungsindex der Glasplatte lässt sich \cref{eq_brechindex} umformen:
 	\begin{equation}
 		(1-\cos{\phi}) = \frac{nm\lambda+\frac{m^2\lambda^2}{4t}}{m\lambda+2t(n-1)}
+		\label{eq_winkel_theo}
 	\end{equation}
 	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Breite der Glasplatte.
-	Die Unsicherheit beim Einstellen des Winkels beträgt \SI{0.011}{\degree}.
+	Die Unsicherheit beim Einstellen des Winkels über die Mikrometerschraube beträgt \SI{0.011}{\degree}.
 	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt.
 	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}.
 
 \begin{figure}[H]
 		\includegraphics[width=\textwidth]{images/Glas.pdf}
 		\centering
-		\caption{Der Winkel der Glasplatte ist gegen die Änderung der Interferenzringe auf getragen. Die gelbe Funktion ist ein Fit gemäß den theoretischen Erwartungen.}
+		\caption{Der Winkel der Glasplatte ist gegen die Änderung der Interferenzringe auf getragen.
+		Die gelbe Funktion ist ein Fit gemäß den theoretischen erwarteten \cref{eq_winkel_theo}.}
 		\label{fig_glas}
 	\end{figure}
 
@@ -258,9 +263,10 @@
 	Die Unsicherheit des Präzisions-Digital-Grobvakuummeters beträgt \SI{0.3}{mbar} und die Wellenlänge des Lasers beträgt nach wie vor \SI{650.4+-10.8}{nm}.
 
 	In \crefrange{fig_luft_raus}{fig_co2_rein} ist der Druck $p$ gegen die Anzahl der Interferenzringe $m$ aufgetragen und es wurden lineare Fits durchgeführt, um $\Delta p / \Delta m$ und somit den Kehrwert $\Delta m / \Delta p$ zu ermitteln.
+	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in die umgekehrte Richtung verschieben, die Quotienten haben also immer das gleiche Vorzeichen.
+	In \cref{tb_gase} sind die aus den Fitparameter resultierenden Brechungsindizes der Gase aufgelistet.
 
-
-\begin{figure}[H]
+\begin{figure}[H] %TODO ist imo noch nicht ANhang worthy
 		\includegraphics[width=0.9\textwidth]{images/Luft_Raus.pdf}
 		\centering
 		\caption{In der Küvette befindet sich Luft. Der Druck wird kontinuierlich reduziert. Die gelbe Funktion ist ein linearer Fit.}
@@ -285,8 +291,6 @@
 		\label{fig_co2_rein}
 	\end{figure}
 
-	In \cref{tb_gase} sind die aus den Fitparameter resultierenden Brechungsindizes der Gase aufgelistet.
-	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in die umgekehrte Richtung verschieben.
 
 
 	\begin{table}[H]
@@ -300,7 +304,7 @@
 				&\SI{18.28+-0.04}{mbar}&\SI{1.000514+-0.000045}{}\\
 				\hline
 		\end{tabular}
-		\caption{Die Brechungsindizes bei Normaldruck wurden mit \cref{eq_brech_p} bestimmtet.} %TODO in tabelle welches steigt und welches abfällt? %TODO besserer Text
+		\caption{Die Brechungsindizes bei Normaldruck werden aus den durchlaufenden Interferenzringen pro Druckänderung mit \cref{eq_brech_p} bestimmt.} %TODO in tabelle welches steigt und welches abfällt? %TODO besserer Text
 		\label{tb_gase}
 	\end{table}
 
