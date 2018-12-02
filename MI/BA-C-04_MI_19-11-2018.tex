@@ -163,8 +163,6 @@
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
-	%TODO Glas Nullwinkel per Auge
-	%TODO Glas Umrechnungsfaktor für Winkel
 	Es soll mit dem Michelson-Interferometer die Wellenlänge eines Helium-Neon-Lasers und die Brechungsindizes von Luft, Kohlenstoffdioxid und einer Glasplatte bestimmt werden.
 	Dazu wird der Aufbau in \cref{fig_aufbau} verwendet.
 
@@ -174,9 +172,25 @@
 		\caption{Aufbau des Michelson-Interferometers. \cite{Anleitung}}
 		\label{fig_aufbau}
 	\end{figure}
+
+	Zunächst wird die Wellenlänge bestimmt, indem die Anzahl der durchlaufenden Interferenzringe $N$ auf dem Schirm in Abhängigkeit von der Verschiebung $\Delta s$ des fein verschiebbaren Spiegels gemessen wird.
+	Die Verschiebung wird mit einer Mikrometerschraube eingestellt und gemessen.
+	Die Wellenlänge ergibt sich dann gemäß
+	\begin{equation}
+		\lambda = \frac{2 \Delta s}{N}.
+	\end{equation}
+
+	Dann wird in einen der Arme des Interferometers eine Glasplatte gebracht, die sich mit einer Mikrometerschraube kippen lässt.
+	Hierbei wird zunächst die senkrechte Position gesucht, indem die Platte so lange gekippt wird, bis sich die Laufrichtung der Interferenzringe ändern.
+	Mithilfe der Winkelskala an der Einfassung der Glasplatte wird dann das Verhältnis von Verstellung der Mikrometerschraube und Kippwinkel der Glasplatte bestimmt, indem die Schraube eine bestimmte Strecke herausgedreht wird und die Winkeländerung gemessen wird.
+	Mithilfe von \cref{eq_brechindex} kann dann der Brechungsindex der Glasplatte bestimmt werden.
+
+	Zuletzt wird die Glasplatte durch eine Küvette ersetzt, die nach Wahl evakuiert oder mit Luft oder Kohlenstoffdioxid gefüllt werden kann und deren Innendruck gemessen werden kann.
+	Dieses Vorgehen basiert darauf, dass das Licht, dass durch den Küvettenarm läuft eine andere optische Weglänge zurücklegt, als das, welches durch den anderen Arm läuft.
+	Es werden mehrere Messungen durchgeführt, bei denen die Küvette schrittweise wahlweise evakuiert wird oder mit dem Gas gefüllt wird.
+	Es wird nach jedem durchgelaufenen Interferenzring der aktuelle Druck in der Küvette gemessen, damit dann die Abhängigkeit des Brechungsindex vom Druck bestimmt werden kann.
+
 	\section{Ergebnisse und Diskussion}
-
-
 
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
@@ -234,12 +248,13 @@
 		n(p) = n(p=0) + \frac{\Delta n}{\Delta p}p
 		\label{eq_brech_p}
 	\end{equation}
-	Der Brechungsindex im Vakuum $n(p=0)$ beträgt für beide Gase 1.
+	Der Brechungsindex im Vakuum $n(p=0)$ beträgt 1.
 	Aus der Einführung ist folgender Zusammenhang bekannt: %TODO in Theorie für Ref?
 	\begin{equation}
 			\frac{\Delta n}{\Delta p} = \frac{\Delta m}{\Delta p} \frac{\lambda}{2l}
 	\end{equation}
-	Wobei $l=\SI{3.5+-0.3}{cm}$ die Länge der Küvette im Strahlengang ist, welche abgeschätzt werden musste, da die Breite des Behälters nicht bekannt ist. %TODO gucci? Breite vs Länge?
+
+	Wobei $l=\SI{3.5+-0.3}{cm}$ die Länge der Küvette im Strahlengang ist, welche abgeschätzt werden musste, da die Innenlänge des Behälters nicht bekannt ist.
 	Die Unsicherheit des Präzisions-Digital-Grobvakuummeters beträgt \SI{0.3}{mbar} und die Wellenlänge des Lasers beträgt nach wie vor \SI{650.4+-10.8}{nm}.
 
 	In \crefrange{fig_luft_raus}{fig_co2_rein} ist der Druck $p$ gegen die Anzahl der Interferenzringe $m$ aufgetragen und es wurden lineare Fits durchgeführt, um $\Delta p / \Delta m$ und somit den Kehrwert $\Delta m / \Delta p$ zu ermitteln.
