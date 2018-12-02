@@ -100,15 +100,16 @@
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
 	Das Michelson-Interferometer stellt ein mächtiges Werkzeug zur Untersuchung von Material- und Lichteigenschaften dar.
-	In diesem Versuch wird es einerseits verwendet, um die Wellenlänge eines Lasers zu überprüfen, wobei festgestellt wird %TODO Vergleich Angabe gegen Messung
+	In diesem Versuch wird es einerseits verwendet, um die Wellenlänge eines Lasers zu überprüfen, wobei die Annahme aufgrund des verwendeten Laser-Typs bestätigt werden kann.
 	Andererseits wird der Brechungsindex einer Glasplatte bestimmt, indem sie in einen Interferometerarm gebracht und rotiert wird.
-	Dies ergibt einen Messwert von , was %TODO Messwert, vergleich zu Lit. Quarzglas
+	Dies ergibt einen Messwert von \SI{650,4+-10,8}{nm}, was der Annahme, dass es sich um Glas handelt, nicht widerspricht. %TODO letzter teil kann weg, wenn dus net magst...
 	Zuletzt wird die Druckabhängigkeit des Brechungsindexes von Luft und Kohlenstoffdioxid bestimmt.
-	%TODO maybe Vergleich des Werts bei Atmosphärendruck
-
+	Der Wert bei Atmosphärendruck kann hierbei aufgrund von Literaturwerten bestätigt werden.
+%TODO zu kurz...
 
 	\section{Theorie}
 	%TODO allgemeines Theorie Zeugso
+	%TODO > so allgemeines Interferenz->Ringe
 	%TODO Erwähnen dass Brechungsindex Wellenlängen abhängig ist
 	%TODO Polarisation ist für interferenz notwendig
 	\subsection{Bestimmung des Brechungsindexes von Glas durch Rotation} %TODO Titel besser
@@ -219,12 +220,14 @@
 				40$\pm$0.3& \SI{13289.7+-109}{nm} & \SI{664.5+-7.4}{nm}\\
 				\hline
 		\end{tabular}
-		\caption{Die Anzahl der durchlaufenden Interferenzringe $m$ in Abhängigkeit von der Verschiebung des Spiegels $\Delta s$ an einem Michelson-Interferometer Arm liefert die Wellenlänge $\lambda$ des Lasers gemäß \cref{eq_wellenlaenge}. } %TODO -arm?
+		\caption{Die Anzahl der durchlaufenden Interferenzringe $m$ in Abhängigkeit von der Verschiebung des Spiegels $\Delta s$ an einem Michelson-Interferometer-Arm liefert die Wellenlänge $\lambda$ des Lasers gemäß \cref{eq_wellenlaenge}. }
 		\label{tb_lambda}
 	\end{table}
 
 	\subsubsection{Diskussion}
-
+	Da ein Helium-Neon-Laser verwendet wird, ist zu erwarten, dass mit dem Michelson-Interferometer dessen charakteristische Wellenlänge von \SI{633}{nm} gemessen werden kann.
+	Innerhalb der dopplten Unsicherheit kann dies mit dem gemessenen Mittelwert von \SI{650,4\pm 10,8}{nm} bestätigt werden.
+	Bei Betrachtung von \cref{tb_lambda} ist festzustellen, dass die Messung von mehr durchlaufenden Interferenzringen eine Abweichung nach oben zur Folge hat, weshalb die Abweichung auf ein Übersehen eines Interferenzringes durch Zuweitdrehen der Mikrometerschraube zurückgeführt werden kann.
 
 	\subsection{Bestimmung des Brechungsindex der Glasplatte}
 	\subsubsection{Beobachtung und Datenanalyse}
@@ -236,8 +239,8 @@
 	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Dicke der Glasplatte.
 	Die Messung dieser ist aufgrund ihere Einfassung erschwert, weshalb die Dicke der Einfassung gemessen wird und dann auf beiden Seiten die Differenz zwischen Glas und Einfassung subtrahiert wird.
 	Die Unsicherheit beim Einstellen des Winkels über die Mikrometerschraube beträgt \SI{0.011}{\degree}.
-	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt.
-	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}.
+	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt. %TODO "Messpunkte von 1-cos phi" ? Nochmal sagen, dass phi die Kippung ist?
+	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte für eine Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}. %TODO Fit gemäß gleichung bla? steht halt nur in der caption
 
 \begin{figure}[H]
 		\includegraphics[width=\textwidth]{images/Glas.pdf}
@@ -248,6 +251,9 @@
 	\end{figure}
 
 	\subsubsection{Diskussion}
+	Da nicht bekannt ist, um welches Glas es sich bei der untersuchten Platte hält, ist es nicht möglich den Messwert anhand eines Literaturwertes zu prüfen.
+	Es lässt sich allerdings sagen, dass der Messwert von \SI{1.707+-0.013}{nm} inerhalb des Bereichs von Brechungsindizes üblicher Gläser liegt.
+	So hat zum Beispiel N-BAF10-Glas einen Brechungsindex von \SI{1,6661}{} bei einer Wellenlänge von \SI{650}{nm}.\cite{Brechungsindizes}
 
 	\subsection{Bestimmung der Brechungsindizes von Gasen}
 	\subsubsection{Beobachtung und Datenanalyse}
@@ -303,7 +309,7 @@
 			  Gas &  $\Delta p/\Delta m$ & $n(p=\SI{1013}{mbar})$\\ \hline
 				Luft& \SI{28.81+-0.1}{mbar} & \SI{1.000327+-0.000029}{}\\
 				&\SI{28.46+-0.11}{mbar}&\SI{1.000331+-0.000029}{}\\
-				CO$^2$ & \SI{19.11+-0.18}{mbar} & \SI{1.000493+-0.000043}{}\\
+				CO$_2$ & \SI{19.11+-0.18}{mbar} & \SI{1.000493+-0.000043}{}\\
 				&\SI{18.28+-0.04}{mbar}&\SI{1.000514+-0.000045}{}\\
 				\hline
 		\end{tabular}
@@ -317,11 +323,24 @@
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	%TODO siehe Kurzfassung
 
-	%TODO geringe Schwankungen bei kontinuierlichem Messen sind ziemlich ahnbar
-	%TODO rein ca. gleich wie raus erwartbar
+	Zunächst lässt sich sagen, dass anhand von \crefrange{fig_luft_raus}{fig_co2_rein} der lineare Zusammenhang aus \cref{eq_brech_p} bestätigen lässt.
+	Die Abweichungen vom Fit liegen im Wesentlichen innerhalb der doppelten Unsicherheit und sind darauf zurückzuführen, dass die Gaszuführ bzw. Evakuierung nicht nach jedem durchgelaufenen Interferenzring an der selben Position der Ringe gestoppt werden kann.
+	Außerdem kann anhand von \cref{tb_gase} festgestellt werden, dass die Messung von $\Delta p/\Delta m$ bei Werte Zufuhr bzw. Abfuhr des Gases ähnliche Messwerte ergeben, deren doppelten Unsicherheitsintervalle allerdings nur im Fall von Luft überschneiden.
+	Der Grund für die Abweichung bei CO$_2$ liegt vermutlich im Übersehen eines Interferenzrings bei zu schneller Gaszufuhr bzw. Evakuierung.
+
+	Der Messwert bei Atmosphärendruck lässt sich einfach mit Literaturwerten bei einer Wellenlänge von \SI{650}{nm} vergleichen.
+	Für Luft ist hier ein Wert von \SI{1.00027632}{} zu erwarten (vgl. \cite{Brechungsindizes}).
+	Die liegt erwartungsgemäß innerhalb der doppelten Unsicherheit der Messwerte aus \cref{tb_gase}.
+
+	Für Kohlenstoffdioxid wird gemäß \cite{GlasFormula} ein Wert von \SI{1.00044727}{} erwartet und auch dies liegt innerhalb der doppelten Unsicherheit der Messwerte.
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+	Insgesamt lässt sich sagen, dass die zu untersuchenden Material- bzw. Lasereigenschaften gemessen werden konnten, ohne dabei den Erwartungen zu widersprechen.
+	Zunächst wurde die Wellenlänge des Lasers bestimmt, was Übereinstimmung mit der Tatsache, dass es sich um einen Helium-Neon-Laser handelte, ergab.
+	Dann wurde der Brechungsindex einer Glasscheibe durch schrittweises Kippen dieser bestimmt.
+	Zuletzt wurde die Druckabhängigkeit der Brechungsindizes von Luft und Kohlenstoffdioxid bestimmt, wobei die angenommene Linearität bestätig werden kann.
+	Es lässt sich also feststellen, dass das Michelson-Interferometer tatsächlich ein valides Mittel für diese Untersuchungen ist. %TODO zu cheesy?
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
