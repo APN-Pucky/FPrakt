@@ -261,6 +261,7 @@
 		\label{tb_lambda}
 	\end{table}
 
+
 	\subsubsection{Diskussion}
 
 	Da ein Helium-Neon-Laser verwendet wird, ist zu erwarten, dass mit dem Michelson-Interferometer dessen charakteristische Wellenlänge von \SI{633}{nm} gemessen werden kann.
@@ -275,10 +276,10 @@
 		\label{eq_winkel_theo}
 	\end{equation}
 	Dabei ist $t= \SI{5.05+-0.05}{mm}$ die Dicke der Glasplatte.
-	Die Messung dieser ist aufgrund ihrer Einfassung erschwert, weshalb die Dicke der Einfassung gemessen wird und dann auf beiden Seiten die Differenz zwischen Glas und Einfassung subtrahiert wird.
-	Die Unsicherheit beim Einstellen des Winkels über die Mikrometerschraube beträgt \SI{0.011}{\degree}.
-	In \cref{fig_glas} sind die Messpunkte sowie ein Fit dargestellt. %TODO "Messpunkte von 1-cos phi" ? Nochmal sagen, dass phi die Kippung ist?
-	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte bei der verwendeten Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}. %TODO Fit gemäß gleichung bla? steht halt nur in der caption
+	Die Messung dieser ist aufgrund ihere Einfassung erschwert, weshalb die Dicke der Einfassung gemessen wird und dann auf beiden Seiten die Differenz zwischen Glas und Einfassung subtrahiert wird.
+	Die Unsicherheit beim Einstellen des Kippwinkels $\Phi$ über die Mikrometerschraube beträgt \SI{0.011}{\degree}.
+	In \cref{fig_glas} sind die mit $(1-\cos{\Phi})$ transformierten Messpunkte sowie ein Fit gemäß \cref{eq_winkel_theo} dargestellt.
+	Der Fit liefert einen Brechungsindex von \SI{1.707+-0.013}{} für die Glasplatte bei der verwendeten Wellenlänge $\lambda$ von \SI{650.4+-10.8}{nm}.
 
 \begin{figure}[H]
 		\includegraphics[width=\textwidth]{images/Glas.pdf}
@@ -310,7 +311,7 @@
 	Die Unsicherheit des Präzisions-Digital-Grobvakuummeters beträgt \SI{0.3}{mbar} und die Wellenlänge des Lasers beträgt nach wie vor \SI{650.4+-10.8}{nm}.
 
 	In \crefrange{fig_luft_raus}{fig_co2_rein} ist der Druck $p$ gegen die Anzahl der Interferenzringe $m$ aufgetragen und es wurden lineare Fits durchgeführt, um $\Delta p / \Delta m$ und somit den Kehrwert $\Delta m / \Delta p$ zu ermitteln.
-	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in die umgekehrte Richtung verschieben, die Quotienten haben also immer das gleiche Vorzeichen.
+	Dabei ist zu beachten, dass sich bei inverser Druckänderung auch die Interferenzringe in die umgekehrte Richtung verschieben, die Quotienten haben folglich immer das gleiche Vorzeichen.
 	In \cref{tb_gase} sind die aus den Fitparameter resultierenden Brechungsindizes der Gase aufgelistet.
 
 \begin{figure}[H]
@@ -328,13 +329,13 @@
 \begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/CO2_Raus.pdf}
 		\centering
-		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird schrittweise reduziert. Die gelbe Funktion ist ein linearer Fit.}
+		\caption{In der Küvette befindet sich CO$_2$. Der Druck wird schrittweise reduziert. Die gelbe Funktion ist ein linearer Fit.}
 		\label{fig_co2_raus}
 	\end{figure}
 \begin{figure}[H]
 		\includegraphics[width=0.9\textwidth]{images/CO2_Rein.pdf}
 		\centering
-		\caption{In der Küvette befindet sich CO$^2$. Der Druck wird schrittweise erhöht. Die gelbe Funktion ist ein linearer Fit.}
+		\caption{In der Küvette befindet sich CO$_2$. Der Druck wird schrittweise erhöht. Die gelbe Funktion ist ein linearer Fit.}
 		\label{fig_co2_rein}
 	\end{figure}
 
@@ -355,6 +356,15 @@
 		\label{tb_gase}
 	\end{table}
 
+
+	Für die Brechungsindizes ergeben sich mit gemittelten Steigungen abhängig vom Druck $p$:
+
+	\begin{equation}
+		n_\text{Luft}(p) = 1+p \cdot \SI{3.24+-0.28e-7}{mbar^{-1}}
+	\end{equation}
+	\begin{equation}
+		n_\text{CO$_2$}(p) = 1+ p \cdot \SI{4.97+-0.44e-7}{mbar^{-1}}
+	\end{equation}
 	\subsubsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
