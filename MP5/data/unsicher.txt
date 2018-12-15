@@ -1,1 +1,5 @@
-...
+tabelle spalte == rechteck oder sonstige Breite
+industry V,V == +-0.002,+-0.005
+selfmade V,V == +-0.002,+-0.005
+laser °C,cm == +-0.05(Display), +-3mm(Wackelei+Strahlbreite)
+
