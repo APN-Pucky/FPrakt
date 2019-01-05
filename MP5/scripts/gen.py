@@ -125,18 +125,28 @@ for t in typ:
    xdata = unp.uarray(data[:,0],unc_x)
    ydata = unp.uarray(data[:,1],unc_y)
 
+   fig=plt.figure(figsize=fig_size)
    # Normalize
    ydata = normalize(ydata)*100.0
    #
    top = find_nearest_index(ydata,90.0);
    bot = find_nearest_index(ydata,10.0);
+   print(ydata[top])
+   print(ydata[bot])
    for i in range(top,bot):
        ydata[i] = unc.ufloat(unv(ydata[i]),usd(ydata[i])*2)
+   second = False
+   if(t=="industry"):
+       i=31
+   else:
+       i=0
+   plt.plot((unv(xdata[i]),unv(xdata[i])),(0,100),'k-',color='black', label="$U_{th}=%s$ V"%(xdata[i]))
+
        #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
-   fig=plt.figure(figsize=fig_size)
    plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label='Messpunkte')
-   plt.plot((unv(xdata[top]),unv(xdata[top])),(0,100),'k-',color='red', label="$U_{90}=%s$ V"%(unv(xdata[top])))
-   plt.plot((unv(xdata[bot]),unv(xdata[bot])),(0,100),'k-',color='green', label="$U_{10}=%s$ V"%(unv(xdata[bot])))
+   plt.plot((unv(xdata[top]),unv(xdata[top])),(0,100),'k-',color='red', label="$U_{90}=%s$ V"%(xdata[top]))
+   plt.plot((unv(xdata[bot]),unv(xdata[bot])),(0,100),'k-',color='green', label="$U_{10}=%s$ V"%(xdata[bot]))
+   print("dU%s"%(xdata[bot]-xdata[top]))
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
    #pp = unp.uarray(pfit, perr)
    #xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))

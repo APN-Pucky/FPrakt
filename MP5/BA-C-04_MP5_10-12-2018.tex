@@ -121,6 +121,7 @@ flüssigen Kristallen \par}
 	abgeschätzt, wohingegen die Displayunsicherheiten verschwinden.
 	Da die Schwankungen der Diodenspannung deutlich größer im Bereich von 10\% bis 90\% Transmission ist, wird hierfür die doppelte Unsicherheit verwendet.
 	\subsubsection{Beobachtung und Datenanalyse}
+	%TODO Allg Beob
 	Um von der gemessenen Spannung an der Photodiode auf auf die relative Transmission zu schließen wird. %TODO erklären wie Diode Licht intensität messen tut?
 	\begin{equation}
 			T = \frac{U-U_{max}}{U_{max}-U_{min}}
@@ -136,17 +137,39 @@ flüssigen Kristallen \par}
 			u(U)=\alpha u(U_{max})=\alpha u(U_{min})
 	\end{equation*}
 	ergibt.
+	In \cref{fig_industry} und \cref{fig_selfmade} sind die gemessenen Kennlinien abgebildet.
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/industry.pdf}
-			\caption{Industrie.}
+			\caption{Kennlinie des industriell hergestellten LC-Displays.
+			Die schwarze Senkrechte beschreibt die Schwellspannung, welche mindestens am Display anliegen muss um eine Veränderung messen zu können.
+			Die rote(grüne) bespreibt dagegen eine Transmission von 90\%(10\%) durch das Diplay.  %TODO meh deutsch
+			}
 			\label{fig_industry}
 	\end{figure}
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/selfmade.pdf}
-			\caption{Gebaut.}
+			\caption{Kennlinie des selbstgebauten LC-Displays.
+			Die schwarze Senkrechte beschreibt die Schwellspannung, welche mindestens am Display anliegen muss um eine Veränderung messen zu können.
+			Die rote(grüne) bespreibt dagegen eine Transmission von 90\%(10\%) durch das Diplay.  %TODO meh deutsch
+			}
 			\label{fig_selfmade}
 	\end{figure}
+	Aus den Kennlinien lassen sich die Kenngrößen aus \cref{tb_kenngroessen} bestimmen.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c }
+			 & industriell & selbstgebaut \\ \hline
+			$\Delta U=U_{10}-U_{90}$&\SI{2.0009+-0.0016}{V}&\SI{1.8348+-0.0016}{V} \\
+			$U_{th}$ & \SI{3.211+-0.0012}{V} & \SI{0.0016+-0.0012}{V} \\ \hline
+		\end{tabular}
+		\caption{Kenngrößen des selbstgebauten und industriell gefertigten Displays.}
+		\label{tb_kenngroessen}
+\end{table}
+
 	\subsubsection{Diskussion}
+	%TODO Schwellspannung Unterschied U_th Grund?Nutzen?
+	%TODO U_th hängt von Anisotropie Delta epsilon ab (vgl. -> Einleitung)
+	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung)
 	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls}
 	\subsubsection{Unsicherheiten}
 	\subsubsection{Beobachtung und Datenanalyse}
