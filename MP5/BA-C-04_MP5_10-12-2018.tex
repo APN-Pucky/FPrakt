@@ -101,8 +101,10 @@ flüssigen Kristallen \par}
 	% manche leute wollen Passiv oder "man", manche nicht
 
 	\section{Theorie}
+	%TODO v
 	% wdh. Texte
 	% wdh. Besprechung
+	% FRagen aus Einleitung
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
@@ -122,7 +124,10 @@ flüssigen Kristallen \par}
 	Da die Schwankungen der Diodenspannung deutlich größer im Bereich von 10\% bis 90\% Transmission ist, wird hierfür die doppelte Unsicherheit verwendet.
 	\subsubsection{Beobachtung und Datenanalyse}
 	%TODO Allg Beob
-	Um von der gemessenen Spannung an der Photodiode auf auf die relative Transmission zu schließen wird. %TODO erklären wie Diode Licht intensität messen tut?
+	Beim Betrieb des selbstgebauten und industriellen Displays lässt sich feststellen, dass sie dunkler, bzw. weniger lichtdurchlässig, werden, wenn man die Spannung erhöht.
+	Das selbstgebaute Display flimmert und ist nicht so dunkel wie das Industrie-Display.
+
+	Um von der an der Photodiode gemessenen Spannung auf auf die relative Transmission zu schließen wird %TODO erklären wie Diode Licht intensität messen tut? %TODO von der an der...
 	\begin{equation}
 			T = \frac{U-U_{max}}{U_{max}-U_{min}}
 	\end{equation}
@@ -137,7 +142,19 @@ flüssigen Kristallen \par}
 			u(U)=\alpha u(U_{max})=\alpha u(U_{min})
 	\end{equation*}
 	ergibt.
-	In \cref{fig_industry} und \cref{fig_selfmade} sind die gemessenen Kennlinien abgebildet.
+	Mittels der Werte aus \cref{tb_maxmin} lassen sich die Messpunkte in die Kennlinien in \cref{fig_industry} und \cref{fig_selfmade} transformieren.
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c }
+			 & industriell & selbstgebaut \\ \hline
+			$U_{max}$ & \SI{2.414+-0.003}{V} & \SI{1.866+-0.003}{V} \\
+			$U_{min}$ & \SI{0.047+-0.003}{V} & \SI{0.360+-0.003}{V} \\
+	\hline
+		\end{tabular}
+		\caption{Maximal und minimal gemessene Spannungen beim Bestimmen der Kennlinie des selbstgebauten und industriell gefertigten Displays mittels einer Photodiode.}
+		\label{tb_maxmin}
+\end{table}
+
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/industry.pdf}
 			\caption{Kennlinie des industriell hergestellten LC-Displays.
@@ -160,7 +177,8 @@ flüssigen Kristallen \par}
 		\begin{tabular}{ c | c | c }
 			 & industriell & selbstgebaut \\ \hline
 			$\Delta U=U_{10}-U_{90}$&\SI{2.0009+-0.0016}{V}&\SI{1.8348+-0.0016}{V} \\
-			$U_{th}$ & \SI{3.211+-0.0012}{V} & \SI{0.0016+-0.0012}{V} \\ \hline
+			$U_{th}$ & \SI{3.211+-0.0012}{V} & \SI{0.0016+-0.0012}{V} \\
+			\hline
 		\end{tabular}
 		\caption{Kenngrößen des selbstgebauten und industriell gefertigten Displays.}
 		\label{tb_kenngroessen}
@@ -170,10 +188,32 @@ flüssigen Kristallen \par}
 	%TODO Schwellspannung Unterschied U_th Grund?Nutzen?
 	%TODO U_th hängt von Anisotropie Delta epsilon ab (vgl. -> Einleitung)
 	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung)
-	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls}
+	%TODO U_max U_min diskussion
+	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls} %TODO kritische Temperatur vs Klärpunkt
 	\subsubsection{Unsicherheiten}
+	Die Temperatur des Flüssigkristalls wird mit einem Thermometer mit einer Nachkommastelle gemessen, wodurch sich eine Unsicherheit von $u(T)=\SI{0.03}{\degree C}$.
+	Die Unsicherheit des Abstands der aufgespalteten Strahlen des Lasers wird mit $u(d)=\SI{1.7}{mm}$ abgeschätzt.
+	Diese setzt sich aus der Größe des Laserstrahls auf dem Millimeterpapier und der instabilen Halterung des Laserpointers zusammen.
 	\subsubsection{Beobachtung und Datenanalyse}
+	Beim Steigern der Temperatur des Flüssigkristalls zeigt sich zunächst kaum eine Änderung in der Aufspaltung des Laserstrahls.
+	Erst beim Überschreiten einer Grenztemperatur ändert sich die milchige Farbe des Kristalls zu einer klaren Flüssigkeit.
+	Zeitgleich verschwinden die zwei Strahlen und es findet sich nur noch ein Strahl zwischen den ursprünglichen Strahlen.
+
+	Der gemessene Abstand der Laserstrahlen ist in \cref{fig_laser} abhängig von der Temperatur dargestellt.
+	Die kritische Temperatur $T_C$ liegt ca. bei \SI{36+-0.6}{\degree C}.
+		\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{images/laser.pdf}
+			\caption{
+			Temperaturabhängigkeit des Flüssigkristalls.
+			Die Verbindungslinien zwischen den Messpunkten dienen lediglich der Veranschaulichung des Verlaufs.
+			}
+			\label{fig_laser}
+	\end{figure}
 	\subsubsection{Diskussion}
+	%TODO ggf. erwähnen das Fehler zu groß abgeschätz  wurde, denke eig. aber des macht net so Sinn.
+	%TODO Verlauf ist so wie erwartet. (inklusiver der kleinen Annäherung vor dem Anitsplit)
+	%TODO Methode nicht geeignet um Kristische Temperatur exakt zu bestimmen, besser wenniger Flüssigkeit (weil Temperatur mehr ausgegelichen), Randeffekte bei Temperatur-Experimnenten
+	%TODO Messpunkt mittig ist unerwartet, beobachtung ist halb Frabe geändert
 
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
