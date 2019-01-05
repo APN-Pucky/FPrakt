@@ -130,8 +130,11 @@ for t in typ:
    #
    top = find_nearest_index(ydata,90.0);
    bot = find_nearest_index(ydata,10.0);
+   for i in range(top,bot):
+       ydata[i] = unc.ufloat(unv(ydata[i]),usd(ydata[i])*2)
+       #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
    fig=plt.figure(figsize=fig_size)
-   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2)
+   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label='Messpunkte')
    plt.plot((unv(xdata[top]),unv(xdata[top])),(0,100),'k-',color='red', label="$U_{90}=%s$ V"%(unv(xdata[top])))
    plt.plot((unv(xdata[bot]),unv(xdata[bot])),(0,100),'k-',color='green', label="$U_{10}=%s$ V"%(unv(xdata[bot])))
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
@@ -143,7 +146,7 @@ for t in typ:
    plt.grid()
    plt.tick_params(labelsize=fig_labelsize)
    plt.xlabel('Angelegte Spannung $U_{LCD}$ (in V)')
-   plt.ylabel('Lichtdurchlass (in %)')
+   plt.ylabel('Lichttransmission (in %)')
    plt.savefig("MP5/images/%s.pdf"%(t))
    plt.show()
 

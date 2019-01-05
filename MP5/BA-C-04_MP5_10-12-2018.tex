@@ -109,10 +109,43 @@ flüssigen Kristallen \par}
 	%TODO I guess hier der LCD-Bau, weil sonst (bis auf Diskussion) macht es net so viel Sinn
 
 	\section{Ergebnisse und Diskussion}
-	%TODO Unsicherheiten
-	\subsection{Bestimmung der Kennlinie eines LC-Displays}
+	\subsection{Bestimmung der Kennlinien der LC-Displays}
 	\subsubsection{Unsicherheiten}
+	Beide Spannungen werden von einer digitalen Anzeige abgelesen.
+	Mit einer Rechteckverteilung ergibt sich für die Spannung $U_{LCD}$ mit welcher das Display betrieben wird $u(U_{LCD})=\SI{0.00003}{V}$ und für die der Photodiode $u(U_{Ph})=\SI{0.0003}{V}$.
+	Da beide Anzeigen stark in den letzten Ziffern schwanken, wird die Breite der Schwankungen mit
+	\begin{itemize}
+		\item $u(U_{LCD})=\SI{0.001}{V}$
+		\item $u(U_{Ph})=\SI{0.003}{V}$
+	\end{itemize}
+	abgeschätzt, wohingegen die Displayunsicherheiten verschwinden.
+	Da die Schwankungen der Diodenspannung deutlich größer im Bereich von 10\% bis 90\% Transmission ist, wird hierfür die doppelte Unsicherheit verwendet.
 	\subsubsection{Beobachtung und Datenanalyse}
+	Um von der gemessenen Spannung an der Photodiode auf auf die relative Transmission zu schließen wird. %TODO erklären wie Diode Licht intensität messen tut?
+	\begin{equation}
+			T = \frac{U-U_{max}}{U_{max}-U_{min}}
+	\end{equation}
+	verwendet. Wobei sich die kombinierte Standardunsicherheit
+	\begin{align*}
+		u(T) &= \sqrt{\sum_{i}\left(\frac{\partial T}{\partial x_i} u(x_i)\right)^2}\\
+		&= \sqrt{\left(\frac{u(U)}{U_{max}-U_{min}}\right)^2+\left(\frac{u(U_{max})(U_{min}-U)}{(U_{max}-U_{min})^2}\right)^2+\left(\frac{u(U_{min})(U-U_{max})}{(U_{max}-U_{min})^2}\right)^2} \\
+		&=	\frac{\sqrt{ (\alpha^2+1) (U_{max}-U_{min})^2+2U_{max}U_{min}+2U(U-U_{max}-U_{min})}}{(U_{max}-U_{min})^2} u(U_{max}) \\
+	\end{align*}
+	mit
+	\begin{equation*}
+			u(U)=\alpha u(U_{max})=\alpha u(U_{min})
+	\end{equation*}
+	ergibt.
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{images/industry.pdf}
+			\caption{Industrie.}
+			\label{fig_industry}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{images/selfmade.pdf}
+			\caption{Gebaut.}
+			\label{fig_selfmade}
+	\end{figure}
 	\subsubsection{Diskussion}
 	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls}
 	\subsubsection{Unsicherheiten}
