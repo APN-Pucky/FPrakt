@@ -30,6 +30,8 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 
 # mathe Funktionen
 
+def normalize(ydata):
+   return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
 def mean(n):
     # find the mean value and add uncertainties
     k = np.mean(n)
@@ -118,8 +120,9 @@ for t in typ:
    xdata = unp.uarray(data[:,0],unc_x)
    ydata = unp.uarray(data[:,1],unc_y)
 
-   print(np.amax(ydata))
-   ydata = (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
+   # Normalize
+   ydata = normalize(ydata)
+   #
 
    fig=plt.figure(figsize=fig_size)
    plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2)
@@ -137,5 +140,29 @@ for t in typ:
    plt.savefig("MP5/images/%s.pdf"%(t))
    plt.show()
 
+
+data = np.loadtxt("MP5/data/laser.csv", skiprows = 0, delimiter = ",")
+
+xdata = unp.uarray(data[:,0],unc_x)
+ydata = unp.uarray(data[:,1],unc_y)
+
+# Normalize
+#
+
+fig=plt.figure(figsize=fig_size)
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2)
+
+#pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+#pp = unp.uarray(pfit, perr)
+#xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
+#plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*m+b\na=%s mbar\nb=%s mbar'%tuple(pp))
+#plt.plot(x, y, label='noice')
+#plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Temperatur $T$ (in °C)')
+plt.ylabel('Abstand $d$ (in mm)')
+plt.savefig("MP5/images/laser.pdf")
+plt.show()
 
 #end
