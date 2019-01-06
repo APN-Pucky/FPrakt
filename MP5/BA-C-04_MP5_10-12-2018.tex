@@ -34,6 +34,8 @@
 % Mathepaket (intlimits: Grenzen über/unter Integralzeichen)
 \usepackage[intlimits]{amsmath}
 % Ermöglicht die Nutzung von \SI{Zahl}{Einheit} u.a.
+\usepackage{amssymb}
+% mehr symbole plox
 \usepackage{siunitx}
 % Zum flexiblen Einbinden von Grafiken (\includegraphics)
 \usepackage{graphicx}
@@ -112,8 +114,46 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	% wdh. Besprechung
 	%TODO FRagen aus Einleitung, aber halt nur passiv beantworten.
 	 %TODO LED Lichtmess modus ala Fallnich? Gegenschaltung und so. Ist nur der Messapperat, aber Preuss meinte Ja auch man solle das Kanalgerät erklären.
+	Flüssigkristalle zeichnen sich dadurch aus, dass sie mindestens unter bestimmten Eigenschaften eine Orientierungsfernordnung, aber keine vollständige Positionsfernordnung aufweisen, wodurch sich sich in letzterem Punkt von \enquote{gewöhnlichen} Kristallen unterscheiden.
+	Positionsfernordnung meint hierbei eine Anordnung im Raum, die sich durch das periodische Fortsetzen einer Einheitszelle beschreiben lässt.
+	Eine unvollständige Positionsfernordnung meint eine Periodizität in nur einer oder nur zwei Dimensionen.
+	Orientierungsfernordnung meint, dass eine Vorzugsrichtung der Längsachsen der Moleküle des Kristalls existiert.
+	Diese kann periodisch ortsabhängig sein. %TODO klar? weil Helix halt.
+	Der Grad der Ordnung lässt sich als die Größe der durchschnittlichen Abweichung von der Vorzugsrichtung verstehen.
 
-	 	%TODO kp, ob relevant, aber für mehr Farben und überhaupt Darstellung halt mehr Pixel und dann Subpixel mit Farbfiltern.
+	Für die Herstellung von Flüssigkristallanzeigen wird ein Flüssigkristall in cholesterischer Phase verwendet.
+	Dies meint, dass die Molekülachsen ebenenweise in die gleiche Richtung zeigen.
+	Die Orientierung der Ebenen ist dabei periodisch und der Direktor dreht sich, wenn in Laufrichtung senkrecht zur Ebene betrachtet mit konstanter Winkelgeschwindigkeit und bildet eine Helixstruktur, wenn das Ende des Direktorvektors verfolgt wird.
+
+	Dies erlaubt den Bau einer Flüssigkristallanzeige, da sich in einem Flüssigkristall in cholesterischer Mesophase die Polarisation des Lichtes, wenn es entlang besagter Laufrichtung einfällt, periodisch mit dem Direktor ändert.
+	Wenn bekannt ist, mit welcher Ganghöhe (Länge der Helix bei einer Umdrehung des Direktors) der Kristall vorliegt, kann auf der Ausgangsseite des Displays linear polarisiertes Licht, mit einen Polfilter passieren, wenn dieser zur Einfallsrichtung soweit gedreht ist, wie sich der Direktor über die Dicke des Flüssigkristalls im Display ändert.
+	Im Folgenden wird hierfür eine Vierteldrehung verwendet. Wie aus dem Folgenden deutlich wird sind hier nur Drehungen um $\frac{\pi (2z+1)}{2}$ mit $z \in \mathbb{Z}$ praktikabel.
+	Da für die lineare Polarisation des einfallenden Lichts ebenfalls ein Polfilter verwendet wird, ist eine solche Flüssigkristallanzeige bidirektional.
+	Wenn jetzt im Flüssigkristall ein annähernd homogenes elektisches Feld angelegt wird, richten sich die Molekülachsen statt nach der Helixstruktur mit zunehmender Feldstärke zunehmend eher nach dem Feld aus.
+	Dies verhindert, dass sich die Polarisation des Lichtes im Innern ändert, weshalb bei einer der oben genannten Drehungen der Polarisationsfilter zueinander das Licht den zweiten Polarisationsfilter nicht passieren kann.
+	Demnach ist eine spannungsgesteuerte Schaltung der Durchlässigkeit des Filters möglich.
+
+	Flüssigkristalldisplays werden mit Wechselspannung betrieben, da eine Gleichspannung die elektrolytische Zersetzung des Flüssigkristalls zufolge hätte.
+
+	Bei Farbdisplays werden Pixel aus drei Subpixeln zusammgesetzt, welche wiederum aus einer spannungsgesteuerten Flüssigkristallanzeige mit einem Farbfilter (Rot, Grün, Blau) bestehen.
+
+	\par
+	Für die Messung wird eine Photodiode verwendet.
+	Diese wird über einen Widerstand kurzgeschlossen und die Spannung über den Widerstand gemessen.
+	Diese ist im Messbereich proportional zum Photostrom, welcher als im Messbereich proportional zur Intensität des eintreffenden Lichts angenommen wird.
+	\par
+	Flüssigkristalle weisen einen polarisationsabhängigen Brechungsindex auf, da die Molekülelektronen je nach Orierntierung der Moleküle und Schwingungsrichtung sich gegenseitig unterschiedlich stark zum Schwingen anregen. %TODO approven
+	Dies führt bei einem zum Direktor nicht exakt parallelen Strahl zum Phänomen der Doppelbrechung. %TODO approven
+	Der Strahl spaltet in zwei senkrecht zueinander polarisierte Strahlen auf.
+	Diese Aufspaltung wird maximal, wenn der einfallende Strahl senkrecht zum Direktor steht.
+	Wenn der Flüssigkristall in einem keilförmigen Gefäß ist, behält der Strahl nach dem Austritt aus dem Kristall eine Winkelaufspaltung, weshalb in größerem Abstand die Aufspaltung einfacher gemessen werden kann.
+	In einem plan-paralleln Aufbau würden die Strahlen nach dem Austritt aus dem Kristall wieder parallel verlaufen und die Ortsaufspaltung würde nicht mit dem Messabstand steigen.
+  Die Differenz der Brechungsindizes ist dabei direkt abhängig vom Ordnungsgrad, weshalb sie als ein Maß für diesen verwendet werden kann.
+
+	Bei steigender Temperatur steigt die mittlere Abweichung der Molekülachsen vom Direktor und damit sinkt der Ordnungsgrad und die Differenz der Brechungsindizes.
+	Ab einer bestimmten, materialabängigen kritischen Temperatur verliert der Flüssigkristall seine Orientierungsfernordnung vollständig und das Phänomen der Doppelbrechung verschwindet.
+	%TODO elektrische/optische Eigenschaften/Strukur präziser
+
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
@@ -268,10 +308,10 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	%TODO Methode nicht geeignet um Kristische Temperatur exakt zu bestimmen, besser wenniger Flüssigkeit (weil Temperatur mehr ausgegelichen), Randeffekte bei Temperatur-Experimnenten
 	%TODO Messpunkt mittig ist unerwartet, beobachtung ist halb Frabe geändert
 
-	Zu \cref{fig_laser} lässt sich sagen, dass der Sprung von der nematischen Phase in die isotrope deutlich abrupter vonstatten geht, als zu erwarten war.
-	Diese Erwartung geht darauf zurück, dass es für den Kristall am energetisch günstigsten ist, erst dann die Orientierungsfernordnung zu verlieren, wenn die kritische Temperatur überschritten ist und davor bei homogener Temperatur keine lokalen Abweichungen von der Orientierungsfernordnung stattfinden. %TODO confirmen pls
-	Aufgrund der Art und Weise, wie die Peltierelemente positioniert sind, ist jedoch zu erwarten, dass die Temperatur im Innern des Flüssigkristalls nicht homogen ist und somit Teile des Kristalls bereits die Orientierungsfernordnung verloren haben, während andere sie noch haben.
-	Dies erklärt den Messpunkt in \cref{fig_laser} bei etwa $T= \SI{35,5}{\degree \celsius}$, da hier offenbar der Laser durch einen Teil Flüssigristall mit und einen ohne Orientierungsfernordnung strahlt und somit die Aufspaltung geringer ist, als wenn er vollständig durch Flüssigkristall in nematischer Phase strahlt.
+	Zu \cref{fig_laser} lässt sich sagen, dass der Sprung von der nematischen Phase in die isotrope deutlich weniger abrupt vonstatten geht, als zu erwarten war.
+	Diese Erwartung geht darauf zurück, dass es für den Kristall am energetisch günstigsten ist, erst dann die Orientierungsfernordnung zu verlieren, wenn die kritische Temperatur überschritten ist und davor bei homogener Temperatur zwar steigende, aber geringe Abweichungen von der Orientierungsfernordnung stattfinden. %TODO confirmen pls
+	Aufgrund der Art und Weise, wie die Peltierelemente positioniert sind, kann jedoch angenommen werden, dass die Temperatur im Innern des Flüssigkristalls nicht homogen ist und somit Teile des Kristalls bereits die Orientierungsfernordnung verloren haben, während andere sie noch haben.
+	Dies erklärt den Messpunkt in \cref{fig_laser} bei etwa $T= \SI{35,5}{\degree \celsius}$, da hier offenbar der Laser durch einen Teil Flüssikristall mit und einen ohne Orientierungsfernordnung strahlt und somit die Aufspaltung geringer ist, als wenn er vollständig durch Flüssigkristall in nematischer Phase strahlt.
 
 	Aus dieser Feststellung lässt sich folgern, dass diese Methode mit dem verwendeten Aufbau nur geeignet ist, um eine grobe Bestimmung der kritischen Temperatur durchzuführen.
 	Ein längeres Warten vor der Aufnahme des Messwertes würde nur bedingt hiergegen helfen, da durch die Positionierung der Peltierelemente immer noch ein räumliches Temperaturgefälle zwischen Peltierelement und Umgebungsluft bestehen würde.
