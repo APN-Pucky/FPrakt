@@ -73,7 +73,7 @@
 		{\scshape\LARGE Versuchsbericht zu \par}
 		\vspace{1cm}
 		{\scshape\huge MP5 - Weiche Materie: Physik der
-flüssigen Kristallen \par}
+flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehmen...
 		\vspace{2.5cm}
 		{\LARGE Gruppe BA-C-04 \par}
 		\vspace{0.5cm}
@@ -99,16 +99,48 @@ flüssigen Kristallen \par}
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	Flüssigkristalle besitzen einige ungewöhnliche Eigenschaften, die es erlauben, mit ihnen eine spannungsgesteuerte Anzeige zu konstruieren.
+	In diesem Versuch soll einerseits eine solche Flüssigkristallanzeige (auch LC-Anzeige) angefertigt werden und auf ihre Charakteristik untersucht werden.
+	Andererseits soll die sogenannte kritische Temperatur eines Flüssigkristalls bestimmt werden, ab der die Flüssigkristalleigenschaften verschwinden.
+	Hierfür wird der Effekt der Doppelbrechung von Flüssigkristallen ausgenutzt und gemessen, ab welcher Temperatur dieser Effekt verschwindet.
 
 	\section{Theorie}
 	%TODO v
 	% wdh. Texte
 	% wdh. Besprechung
-	% FRagen aus Einleitung
+	%TODO FRagen aus Einleitung, aber halt nur passiv beantworten.
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
 	%TODO I guess hier der LCD-Bau, weil sonst (bis auf Diskussion) macht es net so viel Sinn
+	% Doppelbrechung
+	% Fernordnungskram und Phasen und bla
+	\subsection{Herstellung der Flüssigkristallanzeige}
+	Es werden rechteckige Glasplatten verwendet, auf die zuvor eine Schicht aus Indiumzinnoxid aufgebracht wurde.
+	Diese werden zunächst in einem Ultraschallbad von Verunreinigungen auf der Oberfläche befreit. %TODO richtige Reihenfolge an dieser Stelle?
+	Dies erlaubt eine einseitige elektrische Leitfähigkeit der Schichten, die nötig ist, um später ein elektrisches Feld anlegen zu können. %TODO Hier war halt noch der komische Maskenschritt in der Anleitung, der wohl bei den Platten schon vorher gemacht wurde, aber ich verstehe den nur so halb und der Mensch hat dazu nicht wirklich was gesagt.
+	Mit einem Multimeter wird die leitende Seite der Platten bestimmt.
+	Auf diese Seite werden bei beiden Platten Rillen entlang der langen Seite der Platten durch wiederholtes Reiben mit einem Tuch aufgebracht.
+	Dann werden die Platten im \SI{90}{\degree}-Winkel aufeinander gelegt, wobei \SI{15}{\micro \meter} dicke Streifen auf zwei gegenüberliegenden Seiten als Abstandshalter verwendet werden.
+	Beim Aufeinanderlegen wird je eine der Ecken der Platten aneinander ausgerichtet, sodass von beiden Platten ein Stück übersteht, an das später der Kontakt angebracht werden kann.
+	Der \SI{90}{\degree}-Winkel ist wichtig, damit sich die Flüssigkristallmoleküle daran ausrichten und sich die Helixstruktur der cholesterischen Phase mit der Ganghöhe $p=4h$, wenn $h$ der Abstand der Glasplatten (\SI{15}{\micro \meter}) ist, die Moleküle sich also zwischen den Platten um \SI{90}{\degree} drehen. %TODO zu ausführlich?
+	Dann werden zunächst die beiden Seiten mit Abstandshalter mit Zweikomponentenkleber bestrichen, um sie abzudichten und gewartet, bis er ausgehärtet ist.
+	Dann wird mit einer Spitze ein Tropfen Flüssigkristall auf eine der noch offenen Seiten gebracht. Für die Verteilung im Innern der Anzeige wird die Kapillarität ausgenutzt.
+  Sobal der Flüssigkristall im Innern verteilt ist, werden die übrigen Seiten mit Kleber verschlossen.
+	Zuletzt werden Polarisationsfilter im \SI{90}{\degree}-Winkel zueinander auf die Außenseiten der Flüssigkristallanzeige geklebt.
+
+	\subsection{Bestimmung der elektroopischen Kennline}
+	An die überstehenden Flächen der Flüssigkristallanzeige wird über Krokodilklemmen eine Spannung angelegt und zunächst eine menschliche Beobachtung des Verdunklungsvorgangs beim Erhöhen der Spannung von \SIrange{0}{8}{V} durchgeführt.
+	Gleiches wird für eine kommerziell erhältliche, industriell gefertigte LC-Anzeige durchgeführt.
+	Dann werden die Anzeigen nacheinander zwischen eine Lampe und eine Photodiode gebracht und die Spannung an der Photodiode bei schrittweiser Erhöhung der Spanung an der Anzeige gemessen.
+
+	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls}
+	Der Effekt der Doppelbrechung wird ausgenutzt, um die Temperatur zu bestimmen, ab der ein untersuchter Flüssigkristall seine Eigenschaften als solcher (also seine Orientierungsfernordnung) verliert.
+	Um die Orientierungsfernordnung indirekt zu messen, wird die Doppelbrechung des Kristalls beobachtet.
+	Hierzu wird ein Laserstrahl auf ein keilförmiges Gefäß mit einem Flüssigkristall im Innern gerichtet.
+	Durch die Doppelbrechung spaltet dieser in zwei unterschiedlich polarisierte, unterschiedlich polarisierte Strahlen auf.
+	Jetzt wird mit einem Peltierelement die Temperatur des Flüssigkristalls langsam erhöht und dabei der Abstand der Teilstrahlen mit einem Millimeterpapier gemessen.
+	Die Temperatur, ab der der Abstand der Teilstrahlen verschwindet, entspricht der kritischen Temperatur des Phasenübergangs von nematischer zu isotroper Phase.
 
 	\section{Ergebnisse und Diskussion}
 	\subsection{Bestimmung der Kennlinien der LC-Displays}
@@ -121,53 +153,54 @@ flüssigen Kristallen \par}
 		\item $u(U_{Ph})=\SI{0.003}{V}$
 	\end{itemize}
 	abgeschätzt, wohingegen die Displayunsicherheiten verschwinden.
-	Da die Schwankungen der Diodenspannung deutlich größer im Bereich von 10\% bis 90\% Transmission ist, wird hierfür die doppelte Unsicherheit verwendet.
+	Da die Schwankungen der Diodenspannung deutlich größer im Bereich von 10\% bis 90\% Transmission ist, wird dort die doppelte Unsicherheit verwendet.
 	\subsubsection{Beobachtung und Datenanalyse}
 	%TODO Allg Beob
-	Beim Betrieb des selbstgebauten und industriellen Displays lässt sich feststellen, dass sie dunkler, bzw. weniger lichtdurchlässig, werden, wenn man die Spannung erhöht.
-	Das selbstgebaute Display flimmert und ist nicht so dunkel wie das Industrie-Display.
+	Beim Betrieb des selbst gebauten und industriellen Displays lässt sich feststellen, dass sie dunkler, bzw. weniger lichtdurchlässig, werden, wenn man die Spannung erhöht.
+	Das selbst gebaute Display flimmert und wird auch bei höheren Spannungen nicht so dunkel wie das industriell gefertigte Display.
 
 	Um von der an der Photodiode gemessenen Spannung auf auf die relative Transmission zu schließen wird %TODO erklären wie Diode Licht intensität messen tut? %TODO von der an der...
 	\begin{equation}
 			T = \frac{U-U_{max}}{U_{max}-U_{min}}
 	\end{equation}
-	verwendet. Wobei sich die kombinierte Standardunsicherheit
+	verwendet, da sie hierdurch auf $0\leq T \leq 1$ normiert wird. Dabei ergibt sich die kombinierte Standardunsicherheit
 	\begin{align*}
 		u(T) &= \sqrt{\sum_{i}\left(\frac{\partial T}{\partial x_i} u(x_i)\right)^2}\\
 		&= \sqrt{\left(\frac{u(U)}{U_{max}-U_{min}}\right)^2+\left(\frac{u(U_{max})(U_{min}-U)}{(U_{max}-U_{min})^2}\right)^2+\left(\frac{u(U_{min})(U-U_{max})}{(U_{max}-U_{min})^2}\right)^2} \\
-		&=	\frac{\sqrt{ (\alpha^2+1) (U_{max}-U_{min})^2+2U_{max}U_{min}+2U(U-U_{max}-U_{min})}}{(U_{max}-U_{min})^2} u(U_{max}) \\
+		&=	\frac{\sqrt{ (\alpha^2+1) (U_{max}-U_{min})^2+2U_{max}U_{min}+2U(U-U_{max}-U_{min})}}{(U_{max}-U_{min})^2} u(U_{max}), \\
 	\end{align*}
-	mit
+	wobei
 	\begin{equation*}
 			u(U)=\alpha u(U_{max})=\alpha u(U_{min})
 	\end{equation*}
-	ergibt.
+	verwendet wurde.
+
 	Mittels der Werte aus \cref{tb_maxmin} lassen sich die Messpunkte in die Kennlinien in \cref{fig_industry} und \cref{fig_selfmade} transformieren.
 \begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c }
-			 & industriell & selbstgebaut \\ \hline
+			 & industriell & selbst gebaut \\ \hline
 			$U_{max}$ & \SI{2.414+-0.003}{V} & \SI{1.866+-0.003}{V} \\
 			$U_{min}$ & \SI{0.047+-0.003}{V} & \SI{0.360+-0.003}{V} \\
-	\hline
+	%\hline
 		\end{tabular}
-		\caption{Maximal und minimal gemessene Spannungen beim Bestimmen der Kennlinie des selbstgebauten und industriell gefertigten Displays mittels einer Photodiode.}
+		\caption{Maximal und minimal gemessene Spannungen beim Bestimmen der Kennlinie des selbst gebauten und industriell gefertigten Displays mittels einer Photodiode.}
 		\label{tb_maxmin}
 \end{table}
 
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/industry.pdf}
 			\caption{Kennlinie des industriell hergestellten LC-Displays.
-			Die schwarze Senkrechte beschreibt die Schwellspannung, welche mindestens am Display anliegen muss um eine Veränderung messen zu können.
-			Die rote(grüne) bespreibt dagegen eine Transmission von 90\%(10\%) durch das Diplay.  %TODO meh deutsch
+			Die schwarze Senkrechte liegt bei der Schwellspannung, welche mindestens am Display anliegen muss, um einen Unterschied in der Transmittivität messen zu können. %TODO wofür brauchst du die?
+			Die rote(grüne) dagegen liegt bei der Spannung, bei der eine Transmission von 90\%(10\%) durch das Diplay gemessen wurde.
 			}
 			\label{fig_industry}
 	\end{figure}
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/selfmade.pdf}
-			\caption{Kennlinie des selbstgebauten LC-Displays.
-			Die schwarze Senkrechte beschreibt die Schwellspannung, welche mindestens am Display anliegen muss um eine Veränderung messen zu können.
-			Die rote(grüne) bespreibt dagegen eine Transmission von 90\%(10\%) durch das Diplay.  %TODO meh deutsch
+			\caption{Kennlinie des selbst gebauten LC-Displays.
+			Die schwarze Senkrechte liegt bei der Schwellspannung, welche mindestens am Display anliegen muss, um einen Unterschied in der Transmittivität messen zu können.
+			Die rote(grüne) dagegen liegt bei der Spannung, bei der eine Transmission von 90\%(10\%) durch das Diplay gemessen wurde.
 			}
 			\label{fig_selfmade}
 	\end{figure}
@@ -175,37 +208,37 @@ flüssigen Kristallen \par}
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c }
-			 & industriell & selbstgebaut \\ \hline
+			 & industriell & selbst gebaut \\ \hline
 			$\Delta U=U_{10}-U_{90}$&\SI{2.0009+-0.0016}{V}&\SI{1.8348+-0.0016}{V} \\
 			$U_{th}$ & \SI{3.211+-0.0012}{V} & \SI{0.0016+-0.0012}{V} \\
 			\hline
 		\end{tabular}
-		\caption{Kenngrößen des selbstgebauten und industriell gefertigten Displays.}
+		\caption{Kenngrößen des selbst gebauten und industriell gefertigten Displays.}
 		\label{tb_kenngroessen}
 \end{table}
 
 	\subsubsection{Diskussion}
 	%TODO Schwellspannung Unterschied U_th Grund?Nutzen?
 	%TODO U_th hängt von Anisotropie Delta epsilon ab (vgl. -> Einleitung)
-	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung)
+	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung) -> beides
 	%TODO U_max U_min diskussion
 	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls} %TODO kritische Temperatur vs Klärpunkt
 	\subsubsection{Unsicherheiten}
-	Die Temperatur des Flüssigkristalls wird mit einem Thermometer mit einer Nachkommastelle gemessen, wodurch sich eine Unsicherheit von $u(T)=\SI{0.03}{\degree C}$.
+	Die Temperatur des Flüssigkristalls wird mit einem Thermometer mit einer Nachkommastelle gemessen, wodurch sich eine Unsicherheit von $u(T)=\SI{0.03}{\degree C}$ ergibt.
 	Die Unsicherheit des Abstands der aufgespalteten Strahlen des Lasers wird mit $u(d)=\SI{1.7}{mm}$ abgeschätzt.
-	Diese setzt sich aus der Größe des Laserstrahls auf dem Millimeterpapier und der instabilen Halterung des Laserpointers zusammen.
+	Diese setzt sich aus dem Durchmesser des Laserstrahlquerschnitts auf dem Millimeterpapier und der instabilen Halterung des Laserpointers zusammen.
 	\subsubsection{Beobachtung und Datenanalyse}
 	Beim Steigern der Temperatur des Flüssigkristalls zeigt sich zunächst kaum eine Änderung in der Aufspaltung des Laserstrahls.
 	Erst beim Überschreiten einer Grenztemperatur ändert sich die milchige Farbe des Kristalls zu einer klaren Flüssigkeit.
-	Zeitgleich verschwinden die zwei Strahlen und es findet sich nur noch ein Strahl zwischen den ursprünglichen Strahlen.
+	Zeitgleich verschwinden die zwei Strahlen und es findet sich nur noch ein Strahl zwischen den Positionen der ursprünglichen Strahlen.
 
 	Der gemessene Abstand der Laserstrahlen ist in \cref{fig_laser} abhängig von der Temperatur dargestellt.
-	Die kritische Temperatur $T_C$ liegt ca. bei \SI{36+-0.6}{\degree C}.
+	Die kritische Temperatur $T_C$ liegt demnach bei \SI{36.0+-0.6}{\degree C}.
 		\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/laser.pdf}
 			\caption{
 			Temperaturabhängigkeit des Flüssigkristalls.
-			Die Verbindungslinien zwischen den Messpunkten dienen lediglich der Veranschaulichung des Verlaufs.
+			Die Verbindungslinien zwischen den Messpunkten dienen lediglich zur Veranschaulichung des Verlaufs. %TODO finde ich nicht sinnvoll. Die Menschen hassen Verbindungslinien und ich denke nicht, dass irgendjemand sagen würde, dass sie ihm fehlen, aber manch einer würde dafür abziehen und streng genommen bruacht man sie ja nicht, weil man ja nicht wirklich interpoliert, oder?
 			}
 			\label{fig_laser}
 	\end{figure}
@@ -226,8 +259,13 @@ flüssigen Kristallen \par}
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
 
+	%TODO kp, ob relevant, aber für mehr Farben und überhaupt Darstellung halt mehr Pixel und dann Subpixel mit Farbfiltern.
+	%TODO sehr sad sein, dass kein Literaturwertvergleich möglich, weil nicht bekannt, welcher Flüssigkristall
+
+
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
 	%\printbibliography
 \end{document}
+%TODO selbst gebaut wird von Duden über selbstgebaut empfohlen
