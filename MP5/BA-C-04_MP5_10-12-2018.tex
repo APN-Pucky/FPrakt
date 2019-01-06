@@ -111,6 +111,9 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	% wdh. Texte
 	% wdh. Besprechung
 	%TODO FRagen aus Einleitung, aber halt nur passiv beantworten.
+	 %TODO LED Lichtmess modus ala Fallnich? Gegenschaltung und so. Ist nur der Messapperat, aber Preuss meinte Ja auch man solle das Kanalgerät erklären.
+
+	 	%TODO kp, ob relevant, aber für mehr Farben und überhaupt Darstellung halt mehr Pixel und dann Subpixel mit Farbfiltern.
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
@@ -119,8 +122,8 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	% Fernordnungskram und Phasen und bla
 	\subsection{Herstellung der Flüssigkristallanzeige}
 	Es werden rechteckige Glasplatten verwendet, auf die zuvor eine Schicht aus Indiumzinnoxid aufgebracht wurde.
-	Diese werden zunächst in einem Ultraschallbad von Verunreinigungen auf der Oberfläche befreit. %TODO richtige Reihenfolge an dieser Stelle? IMO, ja
-	Dies erlaubt eine einseitige elektrische Leitfähigkeit der Schichten, die nötig ist, um später ein elektrisches Feld anlegen zu können. %TODO Order,'Dies', weil das REinigen erlaubt das ja nicht oder?
+	Dies erlaubt eine einseitige elektrische Leitfähigkeit der Schichten, die nötig ist, um später ein elektrisches Feld anlegen zu können.
+	Die Glasplatten werden zunächst in einem Ultraschallbad von Verunreinigungen auf der Oberfläche befreit.
 	Mit einem Multimeter wird die leitende Seite der Platten bestimmt.
 	Auf diese Seite werden bei beiden Platten Rillen entlang der langen Seite der Platten durch wiederholtes Reiben mit einem Tuch aufgebracht.
 	Dann werden die Platten im \SI{90}{\degree}-Winkel aufeinander gelegt, wobei \SI{15}{\micro \meter} dicke Streifen auf zwei gegenüberliegenden Seiten als Abstandshalter verwendet werden.
@@ -135,7 +138,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	\subsection{Bestimmung der elektroopischen Kennline}
 	An den überstehenden Flächen der Flüssigkristallanzeige wird über Krokodilklemmen eine Spannung angelegt und zunächst eine menschliche Beobachtung des Verdunklungsvorgangs beim Erhöhen der Spannung von \SIrange{0}{8}{V} durchgeführt. %TODO menschlich klingt komisch
 	Gleiches wird für eine kommerziell erhältliche, industriell gefertigte LC-Anzeige durchgeführt.
-	Dann werden die Anzeigen nacheinander zwischen eine Lampe und eine Photodiode gebracht und die Spannung an der Photodiode bei schrittweiser Erhöhung der Spanung an der Anzeige gemessen. %TODO LED Lichtmess modus ala Fallnich? Gegenschaltung und so. Ist nur der Messapperat, aber Preuss meinte Ja auch man solle das Kanalgerät erklären.
+	Dann werden die Anzeigen nacheinander zwischen eine Lampe und eine Photodiode gebracht und die Spannung an der Photodiode bei schrittweiser Erhöhung der Spanung an der Anzeige gemessen.
 
 	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls}
 	Der Effekt der Doppelbrechung wird ausgenutzt, um die Temperatur zu bestimmen, ab der ein untersuchter Flüssigkristall seine Eigenschaften als solcher (also seine Orientierungsfernordnung) verliert.
@@ -162,7 +165,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	Beim Betrieb des selbst gebauten und industriellen Displays lässt sich feststellen, dass sie dunkler, bzw. weniger lichtdurchlässig, werden, wenn man die Spannung erhöht.
 	Das selbst gebaute Display flimmert und wird auch bei höheren Spannungen nicht so dunkel wie das industriell gefertigte Display.
 
-	Um von der an der Photodiode gemessenen Spannung auf auf die relative Transmission zu schließen wird %TODO erklären wie Diode Licht intensität messen tut? %TODO von der an der...
+	Um von der an der Photodiode gemessenen Spannung auf auf die relative Transmission zu schließen wird %TODO erklären wie Diode Licht intensität messen tut? %TODO von der an der... %TODO ist in Theorie
 	\begin{equation}
 			T = \frac{U-U_{max}}{U_{max}-U_{min}}
 	\end{equation}
@@ -225,11 +228,11 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	%TODO U_th hängt von Anisotropie Delta epsilon ab (vgl. -> Einleitung)
 	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung) -> beides
 	%TODO U_max U_min diskussion
-	Zunächst einmal muss angemerkt werden, dass der hier bestimmte Wert für $\Delta U=U_{10}-U_{90}$ zwar erlaubt zu klassifizieren, ob das Display besser dazu geeignet ist, technisch einfach viele Helligkeitsstufen darzustellen oder aber mit geringer Spannungsdifferenz eine Kontrastreiche Hell-Dunkel-Anzeige zu realisieren.
+	Zunächst einmal muss angemerkt werden, dass der hier bestimmte Wert für $\Delta U=U_{10}-U_{90}$ zwar erlaubt zu klassifizieren, ob das Display besser dazu geeignet ist, technisch einfach viele Helligkeitsstufen darzustellen oder aber mit geringer Spannungsdifferenz eine kontrastreiche Hell-Dunkel-Anzeige zu realisieren.
 	Ob das Display tatsächlich gut für eine der beiden Varianten geeignet ist, hängt aber auch davon ab, wie hoch die Differenz der nichtnormierten Transmittivität bei $U_{max}$ und $U_{max}$ ist, da dies den tatsächlichen Kontrast beschreibt, also wie gut das durchsichtig geschaltete Display von undurchsichtigen zu unterscheiden ist.
 
-	Wenn man zunächst nur die erste Betrachtung anwendet, stellt man fest, dass das industrielle Display eine größere Spannungsdifferenz (\SI{2.0009+-0.0016}{V}) zum Schalten benötigt, also besser für ein kontrastreiches Display geeignet ist, als das selbst gebaute, während dieses nur eine geringe Spannungsdifferenz (\SI{1.8348+-0.0016}{V}) benötigt und somit z.B. für Taschenrechner, deren Batterien eine geringe Spannung liefern, geeignet ist.
-	%TODO Betrachtung anwenden, amybe was besseresm, aber sonst nicht so wichtig
+	Wenn man zunächst nur die erste Betrachtung anwendet, stellt man fest, dass das industrielle Display eine größere Spannungsdifferenz (\SI{2.0009+-0.0016}{V}) zum Schalten benötigt, also besser für ein Display mit vielen verschiedenen Helligkeitsstufen geeignet ist, als das selbst gebaute, während dieses nur eine geringe Spannungsdifferenz (\SI{1.8348+-0.0016}{V}) benötigt und somit z.B. für Taschenrechner, deren Batterien eine geringe Spannung liefern, geeignet ist.
+  %TODO Betrachtung anwenden, amybe was besseresm, aber sonst nicht so wichtig
 	Letztere Einschätzung verstärkt sich dadurch, dass das industrielle bereits eine deutlich höhere Schwellspannung (vgl. \cref{tb_kenngroessen}) benötigt, um überhaupt in den schaltbaren Bereich zu kommen.
 	Wenn man allerdings die nichtnormierte Spannung an der Diode als Rückschluss auf die Intensität und diese als Rückschluss auf die nichtnormierte Transmittivität betrachtet (vgl. \cref{tb_maxmin}), stellt man fest, dass die industrelle Anzeige, wenn sie auf lichtdurchlässig geschaltet ist, deutlich mehr Licht durchlässt und im undurchlässigen Fall deutlich weniger passieren lässt als die selbst gebaute.
 	Dies bedeutet, dass, wenn man die nötige Spannung aufbringen kann, auch für eine Hell-Dunkel-Anzeige die industrielle Anzeige für ein einfaches Ablesen deutlich besser geeignet ist.
@@ -290,13 +293,12 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
 
-	%TODO kp, ob relevant, aber für mehr Farben und überhaupt Darstellung halt mehr Pixel und dann Subpixel mit Farbfiltern.
-
 	Zusammengefasst lässt sich feststellen, dass eine Flüssigkristallanzeige hergestellt werden konnte, ihre elektrooptische Kennlinie aufgenommen werden konnte sowie die kritische Temperatur des Übergangs zwischen nematischer und isotroper Phase eines anderen Flüssigkristalls bestimmt werden konnte.
 	Beim Vergleich der selbst gebauten Flüssigkristallanzeige mit einer industriellen wurde festgestellt, dass die selbst gebaute in ihren Eigenschaften für die Anwendung schlechter geeignet ist als die industrielle.
 	Lediglich in Bezug auf die Geringe der Schwellspannung ist die selbstgebaute im Vorteil.
 	Die Bestimmung der kritischen Temperatur eines Flüssigkristalls durch Ausnutzung der Doppelbrechung war möglich, aber aufgrund der Art der Versuchsdurchführung und des Versuchsaufbaus nur innerhalb großer Unsicherheiten.
 	Für eine genauere Untersuchung wäre ein langsameres Erhöhen der Temperatur in geringeren Schritten und die Möglichkeit eines gleichmäßigeren Erhitzens des Flüssigkristalls notwendig.
+	% Ein Literaturwertvergleich war hier leider nicht möglich, da nicht bekannt ist, um welchen Flüssigkristall es sich handelt.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
