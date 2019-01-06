@@ -132,7 +132,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Wenn bekannt ist, mit welcher Ganghöhe (Länge der Helix bei einer Umdrehung des Direktors) der Kristall vorliegt, kann auf der Ausgangsseite des Displays linear polarisiertes Licht, mit einen Polfilter passieren, wenn dieser zur Einfallsrichtung soweit gedreht ist, wie sich der Direktor über die Dicke des Flüssigkristalls im Display ändert.
 	Im Folgenden wird hierfür eine Vierteldrehung verwendet. Wie aus dem Folgenden deutlich wird sind hier nur Drehungen um $\frac{\pi (2z+1)}{2}$ mit $z \in \mathbb{Z}$ praktikabel.
 	Da für die lineare Polarisation des einfallenden Lichts ebenfalls ein Polfilter verwendet wird, ist eine solche Flüssigkristallanzeige bidirektional.
-	Wenn jetzt im Flüssigkristall ein annähernd homogenes elektrisches Feld angelegt wird, richten sich die Molekülachsen statt nach der Helixstruktur mit zunehmender Feldstärke zunehmend eher nach dem Feld aus.
+	Wenn jetzt im Flüssigkristall ein annähernd homogenes elektrisches Feld angelegt wird, richten sich die Molekülachsen statt nach der Helixstruktur mit zunehmender Feldstärke zunehmend eher nach dem Feld aus (vgl. \cref{fig_displayHelixBild}).
 	Dies verhindert, dass sich die Polarisation des Lichtes im Innern ändert, weshalb bei einer der oben genannten Drehungen der Polarisationsfilter zueinander das Licht den zweiten Polarisationsfilter nicht passieren kann.
 	Demnach ist eine spannungsgesteuerte Schaltung der Durchlässigkeit des Filters möglich.
 
@@ -153,8 +153,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\label{fig_keil}
 	\end{figure}
 
-	Flüssigkristalle weisen einen polarisationsabhängigen Brechungsindex auf, da die Molekülelektronen je nach Orientierung der Moleküle und Schwingungsrichtung sich gegenseitig unterschiedlich stark zum Schwingen anregen. %TODO approven, dunno
-	Dies führt bei einem zum Direktor nicht exakt parallelen Strahl zum Phänomen der Doppelbrechung. %TODO approven, dunno
+	Flüssigkristalle weisen einen polarisationsabhängigen Brechungsindex auf, da die Molekülelektronen je nach Orientierung der Moleküle und Schwingungsrichtung sich gegenseitig unterschiedlich stark zum Schwingen anregen.
+	Dies führt bei einem zum Direktor nicht exakt parallelen Strahl zum Phänomen der Doppelbrechung. %TODO approven, dunno: meintest du nicht wir wissen nicht wie das relativ zum Direktor ist => also kann entweder durchgeghen oder eliminiert werden. %TODO minimum 'parallel polarisiert'
 	Der Strahl spaltet in zwei senkrecht zueinander polarisierte Strahlen auf.
 	Diese Aufspaltung wird maximal, wenn der einfallende Strahl senkrecht zum Direktor steht.
 	Wenn der Flüssigkristall in einem keilförmigen Gefäß ist, behält der Strahl nach dem Austritt aus dem Kristall eine Winkelaufspaltung, weshalb in größerem Abstand die Aufspaltung einfacher gemessen werden kann (vgl. \cref{fig_keil}).
@@ -287,7 +287,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Wenn man allerdings die nichtnormierte Spannung an der Diode als Rückschluss auf die Intensität und diese als Rückschluss auf die nichtnormierte Transmissivität betrachtet (vgl. \cref{tb_maxmin}), stellt man fest, dass die industrielle Anzeige, wenn sie auf lichtdurchlässig geschaltet ist, deutlich mehr Licht durchlässt und im undurchlässigen Fall deutlich weniger passieren lässt als die selbst gebaute.
 	Dies bedeutet, dass, wenn man die nötige Spannung aufbringen kann, auch für eine Hell-Dunkel-Anzeige die industrielle Anzeige für ein einfaches Ablesen deutlich besser geeignet ist.
 	Die geringe Schwellspannung hat zusätzlich den Nachteil, dass  Spannungsschwankungen im durchlässigen Modus die Helligkeit des Displays ändern.
-	%TODO FLackern, aber kp
+	%TODO FLackern, aber kp, gibt es Spannungsschwankungen bei U=0V ?
 
 	Die geringere Transmissivität der selbst gebauten im durchlässigen Fall kann darin begründet sein, dass die selbst gebaute Anzeige stärker verunreinigt ist, ein anderer Flüssigkristall verwendet wurde oder das elektrische Feld im Innern des Displays aufgrund von Widerstandsverlusten geringer ist.
 	Die höhere Transmissivität der selbst gebauten im undurchlässigen Fall kann auf ein höhere Schichtdicke des Flüssigkristalls oder eine bessere Ausrichtung der Moleküle an den Glasplatten im industriellen Display zurückgeführt werden.
@@ -300,7 +300,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\subsubsection{Unsicherheiten}
 	Die Temperatur des Flüssigkristalls wird mit einem Thermometer mit einer Nachkommastelle gemessen, wodurch sich eine Unsicherheit von $u(T)=\SI{0.03}{\celsius}$ ergibt.
 	Die Unsicherheit des Abstands der aufgespalteten Strahlen des Lasers wird mit $u(d)=\SI{1.7}{mm}$ abgeschätzt.
-	Diese setzt sich aus dem Durchmesser des Laserstrahlquerschnitts auf dem Millimeterpapier und der instabilen Halterung des Laserpointers zusammen.
+	Diese setzt sich aus der Aufweitung des Laserstrahls und der instabilen Halterung des Laserpointers zusammen.
 	\subsubsection{Beobachtung und Datenanalyse}
 	Beim Steigern der Temperatur des Flüssigkristalls zeigt sich zunächst kaum eine Änderung in der Aufspaltung des Laserstrahls.
 	Erst beim Überschreiten einer Grenztemperatur ändert sich die milchige Farbe des Kristalls zu der einer klaren Flüssigkeit.
@@ -318,7 +318,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\subsubsection{Diskussion}
 
 	Zu \cref{fig_laser} lässt sich sagen, dass der Sprung von der nematischen Phase in die isotrope deutlich weniger abrupt vonstatten geht, als zu erwarten war.
-	Diese Erwartung geht darauf zurück, dass es für den Kristall am energetisch günstigsten ist, erst dann die Orientierungsfernordnung zu verlieren, wenn die kritische Temperatur überschritten ist und davor bei homogener Temperatur zwar steigende, aber geringe Abweichungen von der Orientierungsfernordnung stattfinden. %TODO confirmen pls
+	Diese Erwartung geht darauf zurück, dass es für den Kristall am energetisch günstigsten ist, erst dann die Orientierungsfernordnung zu verlieren, wenn die kritische Temperatur überschritten ist und davor bei homogener Temperatur zwar steigende, aber geringe Abweichungen von der Orientierungsfernordnung stattfinden.
 	Aufgrund der Art und Weise, wie die Peltierelemente positioniert sind, kann jedoch angenommen werden, dass die Temperatur im Innern des Flüssigkristalls nicht homogen ist und somit Teile des Kristalls bereits die Orientierungsfernordnung verloren haben, während andere sie noch haben.
 
 	Dies erklärt den Messpunkt in \cref{fig_laser} bei etwa $T= \SI{35,5}{\celsius}$, da hier offenbar der Laser durch einen Teil Flüssigkristall mit und einen ohne Orientierungsfernordnung strahlt und somit die Aufspaltung geringer ist, als wenn er vollständig durch Flüssigkristall in nematischer Phase strahlt.
