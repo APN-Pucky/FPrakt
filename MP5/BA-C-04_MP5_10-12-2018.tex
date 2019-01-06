@@ -101,8 +101,10 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	% manche leute wollen Passiv oder "man", manche nicht
 	Flüssigkristalle besitzen einige ungewöhnliche Eigenschaften, die es erlauben, mit ihnen eine spannungsgesteuerte Anzeige zu konstruieren.
 	In diesem Versuch soll einerseits eine solche Flüssigkristallanzeige (auch LC-Anzeige) angefertigt werden und auf ihre Charakteristik untersucht werden.
+	Dabei wird festgestellt, dass diese selbst gebaute Flüssigkristallanzeige den Erwartungen an eine solche genügt, aber im Vergleich mit einer industriell gefertigten deutlich schlechtere Eigenschaften bietet.
 	Andererseits soll die sogenannte kritische Temperatur eines Flüssigkristalls bestimmt werden, ab der die Flüssigkristalleigenschaften verschwinden.
 	Hierfür wird der Effekt der Doppelbrechung von Flüssigkristallen ausgenutzt und gemessen, ab welcher Temperatur dieser Effekt verschwindet.
+	Dies ist möglich, aber wird in seiner Präzision durch die Art der Versuchsdurchführung und den Aufbau eingeschränkt.
 
 	\section{Theorie}
 	%TODO v
@@ -191,7 +193,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/industry.pdf}
 			\caption{Kennlinie des industriell hergestellten LC-Displays.
-			Die schwarze Senkrechte liegt bei der Schwellspannung, welche mindestens am Display anliegen muss, um einen Unterschied in der Transmittivität messen zu können. %TODO wofür brauchst du die?
+			Die schwarze Senkrechte liegt bei der Schwellspannung, welche mindestens am Display anliegen muss, um einen Unterschied in der Transmittivität messen zu können.
 			Die rote(grüne) dagegen liegt bei der Spannung, bei der eine Transmission von 90\%(10\%) durch das Diplay gemessen wurde.
 			}
 			\label{fig_industry}
@@ -222,6 +224,21 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	%TODO U_th hängt von Anisotropie Delta epsilon ab (vgl. -> Einleitung)
 	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung) -> beides
 	%TODO U_max U_min diskussion
+	Zunächst einmal muss angemerkt werden, dass der hier bestimmte Wert für $\Delta U=U_{10}-U_{90}$ zwar erlaubt zu klassifizieren, ob das Display besser dazu geeignet ist, technisch einfach viele Helligkeitsstufen darzustellen oder aber mit geringer Spannungsdifferenz eine Kontrastreiche Hell-Dunkel-Anzeige zu realisieren.
+	Ob das Display tatsächlich gut für eine der beiden Varianten geeignet ist, hängt aber auch davon ab, wie hoch die Differenz der nichtnormierten Transmittivität bei $U_{max}$ und $U_{max}$ ist, da dies den tatsächlichen Kontrast beschreibt, also wie gut das durchsichtig geschaltete Display von undurchsichtigen zu unterscheiden ist.
+
+	Wenn man zunächst nur die erste Betrachtung anwendet, stellt man fest, dass das industrielle Display eine größere Spannungsdifferenz (\SI{2.0009+-0.0016}{V}) zum Schalten benötigt, also besser für ein kontrastreiches Display geeignet ist, als das selbst gebaute, während dieses nur eine geringe Spannungsdifferenz (\SI{1.8348+-0.0016}{V}) benötigt und somit z.B. für Taschenrechner, deren Batterien eine geringe Spannung liefern, geeignet ist.
+	Letztere Einschätzung verstärkt sich dadurch, dass das industrielle bereits eine deutlich höhere Schwellspannung (vgl. \cref{tb_kenngroessen}) benötigt, um überhaupt in den schaltbaren Bereich zu kommen.
+	Wenn man allerdings die nichtnormierte Spannung an der Diode als Rückschluss auf die Intensität und diese als Rückschluss auf die nichtnormierte Transmittivität betrachtet (vgl. \cref{tb_maxmin}), stellt man fest, dass die industrelle Anzeige, wenn sie auf lichtdurchlässig geschaltet ist, deutlich mehr Licht durchlässt und im undurchlässigen Fall deutlich weniger passieren lässt als die selbst gebaute.
+	Die bedeutet, dass, wenn man die nötige Spannung aufbringen kann, auch für eine Hell-Dunkel-Anzeige die industrielle Anzeige für ein einfaches Ablesen deutlich besser geeignet ist.
+	Die geringe Schwellspannung hat zusätzlich den Nachteil, dass bereits geringe Spannungsschwankungen die Helligkeit des Displays ändern, was Grund für das leichte Flackern des selbst gebauten Displays sein kann. % sollte eigentlich nicht so stark sein, denke ich, aber idk
+
+	Die geringere Transmittivität der selbst gebauten im durchlässigen Fall kann darin begründet sein, dass die selbstgebaute Anzeige stärker verunreinigt ist, ein anderer Flüssigkristall verwendet wurde oder das elektrische Feld im Innern des Displays aufgrund von Widerstandsverlusten geringer ist.
+	Die höhere Transmittivität der selbst gebauten im undurchlässigen Fall kann auf ein höhere Schichtdicke des Flüssigkristalls oder eine bessere Ausrichtung der Moleküle an den Glasplatten im industriellen Display zurückgeführt werden.
+	Außerdem ist zu erwarten, dass die Polfilterfolie nicht exakt im \SI{0}{\degree}-Winkel zu den Rillen in der Glasplatte aufgeklebt wurde, welche zueinander wiederum nicht exakt parallel sind.
+
+	Dass es sich um einen anderen Flüssigkristall handelt kann dadurch bestätigt werden, dass sich die Schwellspannungen so stark unterscheiden, da die Schwellspannung mit der dielektrischen Anisotropie sinkt, welche eine Materialeigenschaft des Flüssigkristalls ist.
+
 	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls} %TODO kritische Temperatur vs Klärpunkt
 	\subsubsection{Unsicherheiten}
 	Die Temperatur des Flüssigkristalls wird mit einem Thermometer mit einer Nachkommastelle gemessen, wodurch sich eine Unsicherheit von $u(T)=\SI{0.03}{\degree C}$ ergibt.
@@ -229,7 +246,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	Diese setzt sich aus dem Durchmesser des Laserstrahlquerschnitts auf dem Millimeterpapier und der instabilen Halterung des Laserpointers zusammen.
 	\subsubsection{Beobachtung und Datenanalyse}
 	Beim Steigern der Temperatur des Flüssigkristalls zeigt sich zunächst kaum eine Änderung in der Aufspaltung des Laserstrahls.
-	Erst beim Überschreiten einer Grenztemperatur ändert sich die milchige Farbe des Kristalls zu einer klaren Flüssigkeit.
+	Erst beim Überschreiten einer Grenztemperatur ändert sich die milchige Farbe des Kristalls zu der einer klaren Flüssigkeit.
 	Zeitgleich verschwinden die zwei Strahlen und es findet sich nur noch ein Strahl zwischen den Positionen der ursprünglichen Strahlen.
 
 	Der gemessene Abstand der Laserstrahlen ist in \cref{fig_laser} abhängig von der Temperatur dargestellt.
@@ -248,6 +265,14 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	%TODO Methode nicht geeignet um Kristische Temperatur exakt zu bestimmen, besser wenniger Flüssigkeit (weil Temperatur mehr ausgegelichen), Randeffekte bei Temperatur-Experimnenten
 	%TODO Messpunkt mittig ist unerwartet, beobachtung ist halb Frabe geändert
 
+	Zu \cref{fig_laser} lässt sich sagen, dass der Sprung von der nematischen Phase in die isotrope deutlich abrupter vonstatten geht, als zu erwarten war.
+	Diese Erwartung geht darauf zurück, dass es für den Kristall am energetisch günstigsten ist, erst dann die Orientierungsfernordnung zu verlieren, wenn die kritische Temperatur überschritten ist und davor bei homogener Temperatur keine lokalen Abweichungen von der Orientierungsfernordnung stattfinden. %TODO confirmen pls
+	Aufgrund der Art und Weise, wie die Peltierelemente positioniert sind, ist jedoch zu erwarten, dass die Temperatur im Innern des Flüssigkristalls nicht homogen ist und somit Teile des Kristalls bereits die Orientierungsfernordnung verloren haben, während andere sie noch haben.
+	Dies erklärt den Messpunkt in \cref{fig_laser} bei etwa $T= \SI{35,5}{\degree \celsius}$, da hier offenbar der Laser durch einen Teil Flüssigristall mit und einen ohne Orientierungsfernordnung strahlt und somit die Aufspaltung geringer ist, als wenn er vollständig durch Flüssigkristall in nematischer Phase strahlt.
+
+	Aus dieser Feststellung lässt sich folgern, dass diese Methode mit dem verwendeten Aufbau nur geeignet ist, um eine grobe Bestimmung der kritischen Temperatur durchzuführen.
+	Ein längeres Warten vor der Aufnahme des Messwertes würde nur bedingt hiergegen helfen, da durch die Positionierung der Peltierelemente immer noch ein räumliches Temperaturgefälle zwischen Peltierelement und Umgebungsluft bestehen würde.
+	Dies könnte nur durch ein gleichmäßiges Erhitzen der gesamten Umgebung des Versuchsaufbaus umgangen werden.
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
 	% Berechung nach Aufgabenstellung
@@ -262,6 +287,11 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	%TODO kp, ob relevant, aber für mehr Farben und überhaupt Darstellung halt mehr Pixel und dann Subpixel mit Farbfiltern.
 	%TODO sehr sad sein, dass kein Literaturwertvergleich möglich, weil nicht bekannt, welcher Flüssigkristall
 
+	Zusammengefasst lässt sich feststellen, dass eine Flüssigkristallanzeige hergestellt werden konnte, ihre elektrooptische Kennlinie aufgenommen werden konnte sowie die kritische Temperatur des Übergangs zwischen nematischer und isotroper Phase eines anderen Flüssigkristalls bestimmt werden konnte.
+	Beim Vergleich der selbst gebauten Flüssigkristallanzeige mit einer industriellen wurde festgestellt, dass die selbst gebaute in ihren Eigenschaften für die Anwendung schlechter geeignet ist als die industrielle.
+	Lediglich in Bezug auf die Geringe der Schwellspannung ist die selbstgebaute im Vorteil.
+	Die Bestimmung der kritischen Temperatur eines Flüssigkristalls durch Ausnutzung der Doppelbrechung war möglich, aber aufgrund der Art der Versuchsdurchführung und des Versuchsaufbaus nur innerhalb großer Unsicherheiten.
+	Für eine genauere Untersuchung wäre ein langsameres Erhöhen der Temperatur in geringeren Schritten und die Möglichkeit eines gleichmäßigeren Erhitzens des Flüssigkristalls notwendig.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
