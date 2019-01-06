@@ -113,7 +113,6 @@ g = 9.81 # m/s^2
 rad = 360 / 2 / math.pi
 grad = 1/rad
 # Unsicherheiten
-# TODO
 unc_x = 0.002/math.sqrt(3)
 unc_y = 0.005/math.sqrt(3)
 unc_w = 0.3
