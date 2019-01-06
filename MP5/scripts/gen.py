@@ -176,7 +176,7 @@ ydata = unp.uarray(data[:,1],unc_y)
 #
 
 fig=plt.figure(figsize=fig_size)
-plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt='-', capsize=5,linewidth=1,label='Messpunkte')
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1,label='Messpunkte')
 
 #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 #pp = unp.uarray(pfit, perr)
