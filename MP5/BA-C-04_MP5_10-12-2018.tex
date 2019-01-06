@@ -109,23 +109,26 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	Dies ist möglich, aber wird in seiner Präzision durch die Art der Versuchsdurchführung und den Aufbau eingeschränkt.
 
 	\section{Theorie}
-	%TODO v
-	% wdh. Texte
-	% wdh. Besprechung
-	%TODO FRagen aus Einleitung, aber halt nur passiv beantworten.
-	 %TODO LED Lichtmess modus ala Fallnich? Gegenschaltung und so. Ist nur der Messapperat, aber Preuss meinte Ja auch man solle das Kanalgerät erklären.
 	Flüssigkristalle zeichnen sich dadurch aus, dass sie mindestens unter bestimmten Eigenschaften eine Orientierungsfernordnung, aber keine vollständige Positionsfernordnung, aufweisen, wodurch sich sich in letzterem Punkt von \enquote{gewöhnlichen} Kristallen unterscheiden.
 	Positionsfernordnung meint hierbei eine Anordnung im Raum, die sich durch das periodische Fortsetzen einer Einheitszelle beschreiben lässt.
 	Eine unvollständige Positionsfernordnung meint eine Periodizität in nur einer oder nur zwei Dimensionen.
-	Orientierungsfernordnung meint, dass eine Vorzugsrichtung der Längsachsen der Moleküle des Kristalls existiert.
-	Diese kann periodisch ortsabhängig sein. %TODO klar? weil Helix halt. Ja aber nicht intuitiv Bild/Bsp?
+	Orientierungsfernordnung meint, dass eine Vorzugsrichtung der Längsachsen der Moleküle des Flüssigkristalls existiert.
+	Diese ist periodisch ortsabhängig oder konstant.
 	Der Grad der Ordnung lässt sich als die Größe der durchschnittlichen Abweichung von der Vorzugsrichtung verstehen.
 
 	Für die Herstellung von Flüssigkristallanzeigen wird ein Flüssigkristall in cholesterischer Phase verwendet.
 	Dies meint, dass die Molekülachsen ebenenweise in die gleiche Richtung zeigen.
-	Die Orientierung der Ebenen ist dabei periodisch und der Direktor dreht sich, wenn in Laufrichtung senkrecht zur Ebene betrachtet mit konstanter Winkelgeschwindigkeit und bildet eine Helixstruktur, wenn das Ende des Direktorvektors verfolgt wird. %TODO uh, Bild maybe, weil so ist das schwer nur mit Worten verständlich. %TODO winkelgeschwindigkeit implziert bewegung, eher nur Rotation
+	Die Orientierung der Ebenen ist dabei periodisch und der Direktor dreht sich, wenn in Laufrichtung senkrecht zur Ebene betrachtet mit konstanter Winkelgeschwindigkeit und bildet eine Helixstruktur, wenn das Ende des Direktorvektors verfolgt wird.
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{images/displayHelix}
+			\caption{
+			Polarisationsrichtung in der Flüssigkristallanzeige. a) ohne angelegte Spannung. b) bei angelegter Spannung. E1, E2: Elektroden (ITO); G: Glasplatten; I: Lichtintensität; L: Lichtwelle; LC: Flüssigkristall;
+P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
+			}
+			\label{fig_displayHelixBild}
+	\end{figure}
 
-	Dies erlaubt den Bau einer Flüssigkristallanzeige, da sich in einem Flüssigkristall in cholesterischer Mesophase die Polarisation des Lichtes, wenn es entlang besagter Laufrichtung einfällt, periodisch mit dem Direktor ändert. %TODO periodisch oder schrittweise?
+	Dies erlaubt den Bau einer Flüssigkristallanzeige, da in einem Flüssigkristall in cholesterischer Mesophase die Polarisation des Lichtes, wenn es entlang besagter Laufrichtung einfällt, der Helixform des Direktors folgt.
 	Wenn bekannt ist, mit welcher Ganghöhe (Länge der Helix bei einer Umdrehung des Direktors) der Kristall vorliegt, kann auf der Ausgangsseite des Displays linear polarisiertes Licht, mit einen Polfilter passieren, wenn dieser zur Einfallsrichtung soweit gedreht ist, wie sich der Direktor über die Dicke des Flüssigkristalls im Display ändert.
 	Im Folgenden wird hierfür eine Vierteldrehung verwendet. Wie aus dem Folgenden deutlich wird sind hier nur Drehungen um $\frac{\pi (2z+1)}{2}$ mit $z \in \mathbb{Z}$ praktikabel.
 	Da für die lineare Polarisation des einfallenden Lichts ebenfalls ein Polfilter verwendet wird, ist eine solche Flüssigkristallanzeige bidirektional.
@@ -142,23 +145,28 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	Diese wird über einen Widerstand kurzgeschlossen und die Spannung über den Widerstand gemessen.
 	Diese ist im Messbereich proportional zum Photostrom, welcher als im Messbereich proportional zur Intensität des eintreffenden Lichts angenommen wird.
 	\par
+
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{images/keil}
+			\caption{Schematischer Versuchsaufbau \cite{imp08}
+			}
+			\label{fig_keil}
+	\end{figure}
+
 	Flüssigkristalle weisen einen polarisationsabhängigen Brechungsindex auf, da die Molekülelektronen je nach Orientierung der Moleküle und Schwingungsrichtung sich gegenseitig unterschiedlich stark zum Schwingen anregen. %TODO approven, dunno
 	Dies führt bei einem zum Direktor nicht exakt parallelen Strahl zum Phänomen der Doppelbrechung. %TODO approven, dunno
-	%TODO der einfallende Strahl ist unpolarisiert erwähnen?
 	Der Strahl spaltet in zwei senkrecht zueinander polarisierte Strahlen auf.
 	Diese Aufspaltung wird maximal, wenn der einfallende Strahl senkrecht zum Direktor steht.
-	Wenn der Flüssigkristall in einem keilförmigen Gefäß ist, behält der Strahl nach dem Austritt aus dem Kristall eine Winkelaufspaltung, weshalb in größerem Abstand die Aufspaltung einfacher gemessen werden kann.
+	Wenn der Flüssigkristall in einem keilförmigen Gefäß ist, behält der Strahl nach dem Austritt aus dem Kristall eine Winkelaufspaltung, weshalb in größerem Abstand die Aufspaltung einfacher gemessen werden kann (vgl. \cref{fig_keil}).
 	In einem plan-paralleln Aufbau würden die Strahlen nach dem Austritt aus dem Kristall wieder parallel verlaufen und die Ortsaufspaltung würde nicht mit dem Messabstand steigen.
   Die Differenz der Brechungsindizes ist dabei direkt abhängig vom Ordnungsgrad, weshalb sie als ein Maß für diesen verwendet werden kann.
 
 	Bei steigender Temperatur steigt die mittlere Abweichung der Molekülachsen vom Direktor und damit sinkt der Ordnungsgrad und die Differenz der Brechungsindizes.
 	Ab einer bestimmten, materialabängigen kritischen Temperatur verliert der Flüssigkristall seine Orientierungsfernordnung vollständig und das Phänomen der Doppelbrechung verschwindet.
-	%TODO elektrische/optische Eigenschaften/Strukur präziser
 
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
-	%TODO I guess hier der LCD-Bau, weil sonst (bis auf Diskussion) macht es net so viel Sinn
 	% Doppelbrechung
 	% Fernordnungskram und Phasen und bla
 	\subsection{Herstellung der Flüssigkristallanzeige}
@@ -169,15 +177,15 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	Auf diese Seite werden bei beiden Platten Rillen entlang der langen Seite der Platten durch wiederholtes Reiben mit einem Tuch aufgebracht.
 	Dann werden die Platten im \SI{90}{\degree}-Winkel aufeinander gelegt, wobei \SI{15}{\micro \meter} dicke Streifen auf zwei gegenüberliegenden Seiten als Abstandshalter verwendet werden.
 	Beim Aufeinanderlegen wird je eine der Ecken der Platten aneinander ausgerichtet, sodass von beiden Platten ein Stück übersteht, an das später der Kontakt angebracht werden kann.
-	Der \SI{90}{\degree}-Winkel ist wichtig, damit sich die Flüssigkristallmoleküle daran ausrichten und sich die Helixstruktur der cholesterischen Phase mit der Ganghöhe $p=4h$, wenn $h$ der Abstand der Glasplatten (\SI{15}{\micro \meter}) ist, die Moleküle sich also zwischen den Platten um \SI{90}{\degree} drehen. %TODO zu ausführlich?
+	Der \SI{90}{\degree}-Winkel ist wichtig, damit sich die Flüssigkristallmoleküle daran ausrichten und sich die Helixstruktur der cholesterischen Phase mit der Ganghöhe $p=4h$, wenn $h$ der Abstand der Glasplatten (\SI{15}{\micro \meter}) ist, die Moleküle sich also zwischen den Platten um \SI{90}{\degree} drehen.
 	Dann werden zunächst die beiden Seiten mit Abstandshalter mit Zweikomponentenkleber bestrichen, um sie abzudichten und gewartet, bis er ausgehärtet ist.
 	Dann wird mit einer Spitze ein Tropfen Flüssigkristall auf eine der noch offenen Seiten gebracht. Für die Verteilung im Innern der Anzeige wird die Kapillarität ausgenutzt.
   Sobal der Flüssigkristall im Innern verteilt ist, werden die übrigen Seiten mit Kleber verschlossen.
-	Zuletzt werden Polarisationsfilter im \SI{90}{\degree}-Winkel zueinander auf die Außenseiten der Flüssigkristallanzeige geklebt. %TODO so gedreht, dass man durch sieht.
+	Zuletzt werden Polarisationsfilter im \SI{90}{\degree}-Winkel zueinander auf die Außenseiten der Flüssigkristallanzeige geklebt.
 	%TODO Bild aus der einleitung mit Stern?
 
 	\subsection{Bestimmung der elektroopischen Kennline}
-	An den überstehenden Flächen der Flüssigkristallanzeige wird über Krokodilklemmen eine Spannung angelegt und zunächst eine menschliche Beobachtung des Verdunklungsvorgangs beim Erhöhen der Spannung von \SIrange{0}{8}{V} durchgeführt. %TODO menschlich klingt komisch
+	An den überstehenden Flächen der Flüssigkristallanzeige wird über Krokodilklemmen eine Spannung angelegt und zunächst eine qualitative Beobachtung des Verdunklungsvorgangs beim Erhöhen der Spannung von \SIrange{0}{8}{V} durchgeführt.
 	Gleiches wird für eine kommerziell erhältliche, industriell gefertigte LC-Anzeige durchgeführt.
 	Dann werden die Anzeigen nacheinander zwischen eine Lampe und eine Photodiode gebracht und die Spannung an der Photodiode bei schrittweiser Erhöhung der Spanung an der Anzeige gemessen.
 
@@ -187,7 +195,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	Hierzu wird ein Laserstrahl auf ein keilförmiges Gefäß mit einem Flüssigkristall im Innern gerichtet.
 	Durch die Doppelbrechung spaltet dieser in zwei unterschiedlich polarisierte Strahlen auf.
 	Jetzt wird mit einem Peltierelement die Temperatur des Flüssigkristalls langsam erhöht und dabei der Abstand der Teilstrahlen mit einem Millimeterpapier gemessen.
-	Die Temperatur, ab der der Abstand der Teilstrahlen verschwindet, entspricht der kritischen Temperatur des Phasenübergangs von nematischer zu isotroper Phase. %TODO Bild aus Anleitung?
+	Die Temperatur, ab der der Abstand der Teilstrahlen verschwindet, entspricht der kritischen Temperatur des Phasenübergangs von nematischer zu isotroper Phase.
 
 	\section{Ergebnisse und Diskussion}
 	\subsection{Bestimmung der Kennlinien der LC-Displays}
@@ -202,11 +210,10 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 	abgeschätzt, wohingegen die Displayunsicherheiten verschwinden.
 	Da die Schwankungen der Diodenspannung deutlich größer im Bereich von 10\% bis 90\% Transmission ist, wird dort die doppelte Unsicherheit verwendet.
 	\subsubsection{Beobachtung und Datenanalyse}
-	%TODO Allg Beob
-	Beim Betrieb des selbst gebauten und industriellen Displays lässt sich feststellen, dass sie dunkler, bzw. weniger lichtdurchlässig, werden, wenn man die Spannung erhöht.
+	Beim Betrieb des selbst gebauten und industriellen Displays lässt sich feststellen, dass sie dunkler, bzw. weniger lichtdurchlässig, werden, wenn man die angelegte Spannung erhöht.
 	Das selbst gebaute Display flimmert und wird auch bei höheren Spannungen nicht so dunkel wie das industriell gefertigte Display.
 
-	Um von der an der Photodiode gemessenen Spannung auf auf die relative Transmission zu schließen wird %TODO erklären wie Diode Licht intensität messen tut? %TODO von der an der... %TODO ist in Theorie
+	Um von der an der Photodiode gemessenen Spannung auf auf die relative Transmission zu schließen wird
 	\begin{equation}
 			T = \frac{U-U_{max}}{U_{max}-U_{min}}
 	\end{equation}
@@ -265,29 +272,24 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 \end{table}
 
 	\subsubsection{Diskussion}
-	%TODO Schwellspannung Unterschied U_th Grund?Nutzen?
-	%TODO U_th hängt von Anisotropie Delta epsilon ab (vgl. -> Einleitung)
-	%TODO Delta U ist bei selfmade kleiner => gut für Kontrastreiche Hell-Dunkel Displays, aber! selfmade beim ist die absolute Diodenspannung immernoch 10x heller. (soll des iwo in  Beobachtung?, passt jedenfalls zu Augen-beobachtung) -> beides
-	%TODO U_max U_min diskussion
 	Zunächst einmal muss angemerkt werden, dass der hier bestimmte Wert für $\Delta U=U_{10}-U_{90}$ zwar erlaubt zu klassifizieren, ob das Display besser dazu geeignet ist, technisch einfach viele Helligkeitsstufen darzustellen oder aber mit geringer Spannungsdifferenz eine kontrastreiche Hell-Dunkel-Anzeige zu realisieren.
 	Ob das Display tatsächlich gut für eine der beiden Varianten geeignet ist, hängt aber auch davon ab, wie hoch die Differenz der nichtnormierten Transmittivität bei $U_{max}$ und $U_{max}$ ist, da dies den tatsächlichen Kontrast beschreibt, also wie gut das durchsichtig geschaltete Display von undurchsichtigen zu unterscheiden ist.
 
-	Wenn man zunächst nur die erste Betrachtung anwendet, stellt man fest, dass das industrielle Display eine größere Spannungsdifferenz (\SI{2.0009+-0.0016}{V}) zum Schalten benötigt, also besser für ein Display mit vielen verschiedenen Helligkeitsstufen geeignet ist, als das selbst gebaute, während dieses nur eine geringe Spannungsdifferenz (\SI{1.8348+-0.0016}{V}) benötigt und somit z.B. für Taschenrechner, deren Batterien eine geringe Spannung liefern, geeignet ist.
-	%TODO Betrachtung anwenden, amybe was besseresm, aber sonst nicht so wichtig
+	Wenn man zunächst nur die erste Überlegung anwendet, stellt man fest, dass das industrielle Display eine größere Spannungsdifferenz (\SI{2.0009+-0.0016}{V}) zum Schalten benötigt, also besser für ein Display mit vielen verschiedenen Helligkeitsstufen geeignet ist, als das selbst gebaute, während dieses nur eine geringe Spannungsdifferenz (\SI{1.8348+-0.0016}{V}) benötigt und somit z.B. für Taschenrechner, deren Batterien eine geringe Spannung liefern, geeignet ist.
 	Letztere Einschätzung verstärkt sich dadurch, dass das industrielle bereits eine deutlich höhere Schwellspannung (vgl. \cref{tb_kenngroessen}) benötigt, um überhaupt in den schaltbaren Bereich zu kommen.
 	Wenn man allerdings die nichtnormierte Spannung an der Diode als Rückschluss auf die Intensität und diese als Rückschluss auf die nichtnormierte Transmittivität betrachtet (vgl. \cref{tb_maxmin}), stellt man fest, dass die industrelle Anzeige, wenn sie auf lichtdurchlässig geschaltet ist, deutlich mehr Licht durchlässt und im undurchlässigen Fall deutlich weniger passieren lässt als die selbst gebaute.
 	Dies bedeutet, dass, wenn man die nötige Spannung aufbringen kann, auch für eine Hell-Dunkel-Anzeige die industrielle Anzeige für ein einfaches Ablesen deutlich besser geeignet ist.
-	Die geringe Schwellspannung hat zusätzlich den Nachteil, dass bereits geringe Spannungsschwankungen die Helligkeit des Displays ändern, was Grund für das leichte Flackern des selbst gebauten Displays sein kann. % sollte eigentlich nicht so stark sein, denke ich, aber idk
-	%TODO ich würde eher sagen ein kleines Delta U ist Grund für flimmern (oder lowlevel Produktion), aber imo halt auch net so stark
+	Die geringe Schwellspannung hat zusätzlich den Nachteil, dass  Spannungsschwankungen im durchlssigen Modus die Helligkeit des Displays ändern.
+	%TODO FLackern, aber kp
 
-	Die geringere Transmittivität der selbst gebauten im durchlässigen Fall kann darin begründet sein, dass die selbstgebaute Anzeige stärker verunreinigt ist, ein anderer Flüssigkristall verwendet wurde oder das elektrische Feld im Innern des Displays aufgrund von Widerstandsverlusten geringer ist.
+	Die geringere Transmittivität der selbst gebauten im durchlässigen Fall kann darin begründet sein, dass die selbst gebaute Anzeige stärker verunreinigt ist, ein anderer Flüssigkristall verwendet wurde oder das elektrische Feld im Innern des Displays aufgrund von Widerstandsverlusten geringer ist.
 	Die höhere Transmittivität der selbst gebauten im undurchlässigen Fall kann auf ein höhere Schichtdicke des Flüssigkristalls oder eine bessere Ausrichtung der Moleküle an den Glasplatten im industriellen Display zurückgeführt werden.
 	Außerdem ist zu erwarten, dass die Polfilterfolie nicht exakt im \SI{0}{\degree}-Winkel zu den Rillen in der Glasplatte aufgeklebt wurde, welche zueinander wiederum nicht exakt parallel sind.
 
-	Dass es sich um einen anderen Flüssigkristall handelt kann dadurch bestätigt werden, dass sich die Schwellspannungen so stark unterscheiden, da die Schwellspannung mit der dielektrischen Anisotropie sinkt, welche eine Materialeigenschaft des Flüssigkristalls ist.
-	%TODO habe noch mal gedenkt, könnte der industrielle nicht auch einfach nur nen fake widerstand drin haben zum Trollen?
+	Dass es sich um einen anderen Flüssigkristall handelt kann dadurch bestätigt werden, dass sich die Schwellspannungen so stark unterscheiden, da die Schwellspannung mit der dielektrischen Anisotropie sinkt, welche davon abhängt, um welchen Flüssigkristall es sich handelt.
+	% habe noch mal gedenkt, könnte der industrielle nicht auch einfach nur nen fake widerstand drin haben zum Trollen? > ja, aber würde ich nicht vermutetn
 
-	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls} %TODO kritische Temperatur vs Klärpunkt
+	\subsection{Bestimmung der kritischen Temperatur eines Flüssigkristalls}
 	\subsubsection{Unsicherheiten}
 	Die Temperatur des Flüssigkristalls wird mit einem Thermometer mit einer Nachkommastelle gemessen, wodurch sich eine Unsicherheit von $u(T)=\SI{0.03}{\celsius}$ ergibt.
 	Die Unsicherheit des Abstands der aufgespalteten Strahlen des Lasers wird mit $u(d)=\SI{1.7}{mm}$ abgeschätzt.
@@ -299,7 +301,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 
 	Der gemessene Abstand der Laserstrahlen ist in \cref{fig_laser} abhängig von der Temperatur dargestellt.
 	Die kritische Temperatur $T_C$ liegt demnach bei \SI{36.0+-0.6}{\celsius }.
-		\begin{figure}[H]
+	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{images/laser.pdf}
 			\caption{
 			Temperaturabhängigkeit des Flüssigkristalls.
@@ -307,16 +309,14 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 			\label{fig_laser}
 	\end{figure}
 	\subsubsection{Diskussion}
-	%TODO ggf. erwähnen das Fehler zu groß abgeschätz  wurde, denke eig. aber des macht net so Sinn.
-	%TODO Verlauf ist so wie erwartet. (inklusiver der kleinen Annäherung vor dem Anitsplit)
-	%TODO Methode nicht geeignet um Kristische Temperatur exakt zu bestimmen, besser wenniger Flüssigkeit (weil Temperatur mehr ausgegelichen), Randeffekte bei Temperatur-Experimnenten
-	%TODO Messpunkt mittig ist unerwartet, beobachtung ist halb Frabe geändert
 
 	Zu \cref{fig_laser} lässt sich sagen, dass der Sprung von der nematischen Phase in die isotrope deutlich weniger abrupt vonstatten geht, als zu erwarten war.
 	Diese Erwartung geht darauf zurück, dass es für den Kristall am energetisch günstigsten ist, erst dann die Orientierungsfernordnung zu verlieren, wenn die kritische Temperatur überschritten ist und davor bei homogener Temperatur zwar steigende, aber geringe Abweichungen von der Orientierungsfernordnung stattfinden. %TODO confirmen pls
 	Aufgrund der Art und Weise, wie die Peltierelemente positioniert sind, kann jedoch angenommen werden, dass die Temperatur im Innern des Flüssigkristalls nicht homogen ist und somit Teile des Kristalls bereits die Orientierungsfernordnung verloren haben, während andere sie noch haben.
 
 	Dies erklärt den Messpunkt in \cref{fig_laser} bei etwa $T= \SI{35,5}{\celsius}$, da hier offenbar der Laser durch einen Teil Flüssigkristall mit und einen ohne Orientierungsfernordnung strahlt und somit die Aufspaltung geringer ist, als wenn er vollständig durch Flüssigkristall in nematischer Phase strahlt.
+
+	Dass der Kristall bei der gleichen Temperatur klar wird, bei der die Doppelbrechung verschwindet, entspricht der Erwartung, da die Doppelbrechung für die milchige Farbe verantwortlich ist.
 
 	Aus dieser Feststellung lässt sich folgern, dass diese Methode mit dem verwendeten Aufbau nur geeignet ist, um eine grobe Bestimmung der kritischen Temperatur durchzuführen.
   Die so bestimmte Temperatur beträgt \SI{36.0+-0.6}{\celsius} und beinhaltet im doppelten Unsicherheitsintervall den Literaturwert von 4’-Pentyl[1,1’-biphenyl]-4-carbonitril (5CB) aus \cite{Luk2004} von \SI{35}{\celsius}.
@@ -337,7 +337,7 @@ flüssigen Kristalle \par} %den Rechtschreibfehler muss man wohl nicht übernehm
 
 	Zusammengefasst lässt sich feststellen, dass eine Flüssigkristallanzeige hergestellt werden konnte, ihre elektrooptische Kennlinie aufgenommen werden konnte sowie die kritische Temperatur des Übergangs zwischen nematischer und isotroper Phase eines anderen Flüssigkristalls bestimmt werden konnte.
 	Beim Vergleich der selbst gebauten Flüssigkristallanzeige mit einer industriellen wurde festgestellt, dass die selbst gebaute in ihren Eigenschaften für die Anwendung schlechter geeignet ist als die industrielle.
-	Lediglich in Bezug auf die Geringe der Schwellspannung ist die selbstgebaute im Vorteil.
+	Lediglich in Bezug auf die Geringe der Schwellspannung ist die selbst gebaute im Vorteil.
 	Die Bestimmung der kritischen Temperatur eines Flüssigkristalls durch Ausnutzung der Doppelbrechung war möglich, aber aufgrund der Art der Versuchsdurchführung und des Versuchsaufbaus nur innerhalb großer Unsicherheiten.
 	Für eine genauere Untersuchung wäre ein langsameres Erhöhen der Temperatur in geringeren Schritten und die Möglichkeit eines gleichmäßigeren Erhitzens des Flüssigkristalls notwendig.
 	% Ein Literaturwertvergleich war hier leider nicht möglich, da nicht bekannt ist, um welchen Flüssigkristall es sich handelt.
