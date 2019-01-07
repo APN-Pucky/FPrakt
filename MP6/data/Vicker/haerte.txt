@@ -1,0 +1,28 @@
+nickel vs paradinphosphor?
+500N 5sec
+Nickel:
+
+Härte in HV
+188.1
+178.9
+183.9
+191.4
+179.4
+194.2
+189.2
+191.7
+188.7
+191.7
+paradin phosphor
+529.4
+535.8
+550.2
+541.0
+532.9
+513.3
+510.9
+531.9
+541.0
+555.6
+Fehler:  15 oder so.
+
