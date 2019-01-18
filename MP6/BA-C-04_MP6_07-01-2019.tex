@@ -140,8 +140,40 @@
 	\subsubsection{Diskussion}
 
 	\subsection{Röntgendiffraktometrie}
-	\subsubsection{Unsicherheiten}
+	%\subsubsection{Unsicherheiten} %hab ich bissle im Beob diskutiert.
 	\subsubsection{Beobachtung und Datenanalyse}
+	Die gemessenen Kurven sind in \cref{fig_xrd_kristallin} und \cref{fig_xrd_glas} dargestellt.
+	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
+	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
+	Aus dem Abschnitt ohne Probe lässt sich gut eine Unsicherheit und der Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet.
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit und weshalb diese vernachlässigt werden kann.
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
+			\caption{Diffraktogramm der kristallinen Probe.}
+			\label{fig_xrd_kristallin}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Glas_45_25.pdf}
+			\caption{Diffraktogramm der Glasprobe.}
+			\label{fig_xrd_glas}
+	\end{figure}
+
+	Zur Bestimmung der Positionen und Breiten der Peaks werden Gaussfunktionen an die Messungen in einem Intervall um den Peak angefittet (vgl. \nameref{s_anhang}).
+	\begin{equation}
+		\label{eq_gauss}
+		f(x) = a\cdot e^{-\frac{(x - c)^2}{2d^2}} + y
+	\end{equation}
+	Das Ergebnis für die Glasprobe ist $2\bar{\theta}=\SI{42.2+-1.3}{\degree}$ und für die kristalline Probe befinden sich die gemittelten Peakpositionen in \cref{tb_xrd_result}.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c | c}
+			 & Peak 1 & Peak 2 & Peak 3 & Peak 4\\ \hline
+			 $2\bar{\theta}$&\SI{39.7+-0.6}{\degree} & \SI{40.52+-0.19}{\degree} &\SI{41.59+-0.16}{\degree} & \SI{43.6+-0.43}{\degree} \\
+		\end{tabular}
+		\caption{Positionen und Breiten der Diffraktogramm Peaks.}
+		\label{tb_xrd_result}
+\end{table}
+%TODO div theta by two und Bragg für Abstände d ; 2 d sin theta = lambda
 	\subsubsection{Diskussion}
 
 	\subsection{Messung der Vickershärte}
@@ -186,4 +218,59 @@
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
 	%\printbibliography
+
+
+
+	\section{Anhang} \label{s_anhang}
+	%TODO image sizes/scaling 2 Bilder auf 1 Seite?
+	\subsection{Röntgendiffraktometrie}
+
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Glas_42_10.pdf}
+			\caption{
+				Vergrößertes Diffraktogramm der Glasprobe.
+				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				}
+			\label{fig_xrd_glas_1}
+	\end{figure}
+
+
+
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Kristallin_43,5_1.pdf}
+			\caption{
+				Vergrößertes Diffraktogramm der kristallinen Probe.
+				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				}
+			\label{fig_xrd_kristall_1}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Kristallin_41,5_0,5.pdf}
+			\caption{
+				Vergrößertes Diffraktogramm der kristallinen Probe.
+				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				}
+			\label{fig_xrd_kristall_2}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Kristallin_40,5_0,5.pdf}
+			\caption{
+				Vergrößertes Diffraktogramm der kristallinen Probe.
+				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				}
+			\label{fig_xrd_kristall_3}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/XRD_Kristallin_39,76_0,5.pdf}
+			\caption{
+				Vergrößertes Diffraktogramm der kristallinen Probe.
+				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				}
+			\label{fig_xrd_kristall_4}
+	\end{figure}
 \end{document}

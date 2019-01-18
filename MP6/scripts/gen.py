@@ -21,7 +21,7 @@ usd=unp.std_devs
 
 # Konstanten fuer einheitliche Darstellung
 
-fig_size = (20, 12)
+fig_size = (10, 6)
 fig_legendsize = 14
 fig_labelsize = 12
 matplotlib.rcParams.update({'font.size': fig_labelsize})
@@ -136,9 +136,9 @@ for t in typ:
     ydata = unp.uarray(data[:,1],unc_y)
 
     if t=="Glas":
-        peaks = [(45,25,[(42,5)]),(42,5, [(42,2)])]
+        peaks = [(45,25),(42,10,[(42,2.5),(42,5)])]
     else:
-        peaks = [(45,25),(40.5,0.5,[(40.5,0.25)]),(43.5,1,[(43.5,0.25)]),(39.76,0.5,[(39.76,0.5),(39.8,0.12),(39.5,0.15)]), (41.5,0.5, [(41.5,0.20)])]
+        peaks = [(45,25),(40.5,0.5,[(40.5,0.25)]),(43.5,1,[(43.5,0.25)]),(39.76,0.5,[(39.76,0.5),(39.8,0.12),(39.5,0.15)]), (41.6,0.5, [(41.6,0.25)])]
     for p in peaks:
         fig=plt.figure(figsize=fig_size)
 
@@ -147,24 +147,33 @@ for t in typ:
         pw = int(p[1]*width)
         plt.plot(unv(xdata[ind-pw:ind+pw]),unv(ydata[ind-pw:ind+pw]),'-', linewidth=1, label='Messpunkte')
         #plt.plot(unv(xdata),unv(ydata),'-', linewidth=1, label='Messpunkte')
+
+        color = [u'#ff7f0e', u'#d62728', u'#9467bd', u'#8c564b', u'#e377c2', u'#7f7f7f', u'#bcbd22', u'#17becf']
+        k=0
+
         if len(p)>2:
+            arr1 = []
             for fp in p[2]:
                 ind = find_nearest_index(xdata,fp[0])
                 pww = int(fp[1]*width)
                 pfit, perr = fit_curvefit(unv(xdata[ind-pww:ind+pww]), unv(ydata[ind-pww:ind+pww]), gauss, p0 = [fp[0],unv(ydata[ind]),fp[1],0])
                 pp = unp.uarray(pfit, perr)
                 ind = find_nearest_index(xdata,pp[0])
+                arr1.append(unc.ufloat(unv(pp[0]),np.sqrt(usd(pp[0])**2+unv(pp[2])**2)))
 
                 #xxdata = np.linspace(unv(xdata[ind-pww]),unv(xdata[ind+pww]))
                 #plt.plot(xxdata,unv(gauss(xxdata,*pfit)), label='Gauss Fit x=%s A=%s d=%s y=%s'%tuple(pp))
-                plt.plot(unv(xdata[ind-pww:ind+pww]),unv(gauss(unv(xdata[ind-pww:ind+pww]),*pfit)), label='Gauss Fit x=%s A=%s d=%s y=%s'%tuple(pp))
+                plt.plot(unv(xdata[ind-pww:ind+pww]),unv(gauss(unv(xdata[ind-pww:ind+pww]),*pfit)), label='Gauss Fit c=%s a=%s d=%s y=%s'%tuple(pp), color = color[k])
+                k+=1
+            if len(p[2])>1:
+                print(mean(arr1))
         #plt.plot(x, y, label='noice')
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()
         plt.tick_params(labelsize=fig_labelsize)
-        plt.xlabel('2 $\\theta$ (in °)')
+        plt.xlabel('$2\\theta$ (in °)')
         plt.ylabel('Ereignisse')
-        plt.savefig("MP6/img/XRD_%s_%s_%s.pdf"%(t,p[0],p[1]))
+        plt.savefig(("MP6/img/XRD_%s_%s_%s"%(t,p[0],p[1])).replace(".",",") + ".pdf")
         plt.show()
 
 sys.exit(0)
