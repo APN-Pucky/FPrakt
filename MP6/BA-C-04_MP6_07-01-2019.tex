@@ -102,6 +102,7 @@
 	% wdh. Texte
 	% wdh. Besprechung
 
+
 	\section{Methoden} %TODO Ziele angeben
 	% Bilder von der Website klauen
 	% einer will Präsens
@@ -124,7 +125,7 @@
 	Beiden werden nicht pulverisiert.	%TODO weil pulver erwartung, dass bei kristall nichts exaktes
 
 	\subsection{Messung der Vickershärte}
- 	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem und einer aus amorphem PdNiP zu bestimmen.%TODO das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
+ 	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem und einer aus amorphem PdNiP zu bestimmen. %TODO das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
 	Dazu wird ein Diamant in Form einer vierseitigen Pyramide mit einem Öffnungswinkel von \SI{136}{\degree} für \SI{5}{s} mit einer Kraft von \SI{500}{\newton} auf die Probe gedrückt.
 	Dann wird mit einem Mikroskop die Länge der beiden Diagonalen gemessen.
 	Das verwendete Gerät errechnet dann aus diesen Werten die Vickershärte.
@@ -133,14 +134,43 @@
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 
-
-	\subsection{Beobachtung und Datenanalyse}
-	% Allgemeine Beobachtungen
-	% Einflüsse von veränderten Parametern auf Messung
+	\subsection{Kalorimetrie}
 	\subsubsection{Unsicherheiten}
-	% Berechung nach Aufgabenstellung
+	\subsubsection{Beobachtung und Datenanalyse}
+	\subsubsection{Diskussion}
 
-	\subsection{Diskussion}
+	\subsection{Röntgendiffraktometrie}
+	\subsubsection{Unsicherheiten}
+	\subsubsection{Beobachtung und Datenanalyse}
+	\subsubsection{Diskussion}
+
+	\subsection{Messung der Vickershärte}
+	\subsubsection{Unsicherheiten}
+	Die Vickershärte konnte direkt am Mikroskop von einer Digitalanzeige abgelesen werden.
+	Mit einer Rechteckverteilung ergibt sich eine Unsicherheit von $u(H) = \SI{0.03}{HV}$.
+	\subsubsection{Beobachtung und Datenanalyse}
+	In \cref{fig_indents} sind beispielhafte Aufnahmen des Mikroskops dargestellt.
+	\begin{figure}[H]
+		\centering
+
+		%TODO length scale
+		\subcaptionbox{
+				PdNiP-Probe.\label{fig_indent_pdnip}}{
+			\includegraphics[width=.47\linewidth]{img/Paradin-Phosphor-500N-5s}} 			\subcaptionbox{
+				Nickel-Probe.\label{fig_indent_ni}}{
+			\includegraphics[width=.47\linewidth]{img/Ni-500N-5s}}
+			\caption{Abdrücke der Indenterpyramide auf verschiedenen Proben.}
+			\label{fig_indents}
+ \end{figure}
+ Der Mittelwert $\bar{H}$ von N Messung berechnet sich nach GUM wie folgt.
+ \begin{equation}
+	 \bar{H} = \frac{1}{N}\sum_{i=1}^N H_i \quad \text{mit} \quad u(\bar{H}) = \sqrt{\sum_{i=1}^N \frac{(H_i-\bar{H})^2}{N-1}}
+ \end{equation}
+ Die gemittelte Vickershärte der Nickel-Probe beträgt \SI{188+-5}{HV} und die der PdNiP-Probe \SI{534+-14}{HV}.
+
+	\subsubsection{Diskussion}
+
+	%TODO Notes für Diskussion v , weil abgetrennt
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
