@@ -145,18 +145,19 @@
 	\subsubsection{Diskussion}
 
 	\subsection{Messung der Vickershärte}
-	\subsubsection{Unsicherheiten}
+	\subsubsection{Unsicherheiten} \label{sss_vicker_unsicher}
 	Die Vickershärte konnte direkt am Mikroskop von einer Digitalanzeige abgelesen werden.
 	Mit einer Rechteckverteilung ergibt sich eine Unsicherheit von $u(H) = \SI{0.03}{HV}$.
 	\subsubsection{Beobachtung und Datenanalyse}
+	%TODO mehr Text hier
 	In \cref{fig_indents} sind beispielhafte Aufnahmen des Mikroskops dargestellt.
 	\begin{figure}[H]
 		\centering
-
 		%TODO length scale
-		\subcaptionbox{
+			\subcaptionbox{
 				PdNiP-Probe.\label{fig_indent_pdnip}}{
-			\includegraphics[width=.47\linewidth]{img/Paradin-Phosphor-500N-5s}} 			\subcaptionbox{
+			\includegraphics[width=.47\linewidth]{img/Paradin-Phosphor-500N-5s}}
+			\subcaptionbox{
 				Nickel-Probe.\label{fig_indent_ni}}{
 			\includegraphics[width=.47\linewidth]{img/Ni-500N-5s}}
 			\caption{Abdrücke der Indenterpyramide auf verschiedenen Proben.}
@@ -167,8 +168,11 @@
 	 \bar{H} = \frac{1}{N}\sum_{i=1}^N H_i \quad \text{mit} \quad u(\bar{H}) = \sqrt{\sum_{i=1}^N \frac{(H_i-\bar{H})^2}{N-1}}
  \end{equation}
  Die gemittelte Vickershärte der Nickel-Probe beträgt \SI{188+-5}{HV} und die der PdNiP-Probe \SI{534+-14}{HV}.
+ Die Unsicherheit durch die Digitalanzeige (vgl. \ref{sss_vicker_unsicher}) verschwindet gegenüber Standardabweichung der Mittelwerte.
 
 	\subsubsection{Diskussion}
+	%TODO Bilder vergleichen, dass erwähnen was er meinte mit man sieht schön die 'Brechung'/'Verschiebung' oder so, kp was es war
+	%TODO wie erwartet Glas härter
 
 	%TODO Notes für Diskussion v , weil abgetrennt
 	% Bezug/Nutzen oder sonst was

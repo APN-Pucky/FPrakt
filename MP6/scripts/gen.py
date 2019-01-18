@@ -21,7 +21,7 @@ usd=unp.std_devs
 
 # Konstanten fuer einheitliche Darstellung
 
-fig_size = (10, 6)
+fig_size = (20, 12)
 fig_legendsize = 14
 fig_labelsize = 12
 matplotlib.rcParams.update({'font.size': fig_labelsize})
@@ -114,8 +114,6 @@ g = 9.81 # m/s^2
 rad = 360 / 2 / math.pi
 grad = 1/rad
 # Unsicherheiten
-unc_x = 0.002/math.sqrt(3)
-unc_y = 0.005/math.sqrt(3)
 unc_w = 0.3
 #vickers
 vickers = ["ni","pdnip"]
@@ -126,54 +124,50 @@ for vicker in vickers:
     print(unv(np.mean(data)))
     print ("%s:%s"%(vicker,mean(data)))
 
-sys.exit(0)
-# import der messwerte
-typ = ["industry", "selfmade"]
+#XRD
+unc_x = 0.002/math.sqrt(3)*0
+unc_y = 0.005/math.sqrt(3)*0
+typ = ["Glas", "Kristallin"]
+width = int(1/0.02) # == 1Grad
+position = 39.76
 for t in typ:
-   data = np.loadtxt("MP5/data/%s.csv"%(t), skiprows = 0, delimiter = ",")
+    data = np.genfromtxt("MP6/data/XRD/Roentgen_%s.uxd"%(t), skip_header = 66)
+    xdata = unp.uarray(data[:,0],unc_x)
+    ydata = unp.uarray(data[:,1],unc_y)
 
-   xdata = unp.uarray(data[:,0],unc_x)
-   ydata = unp.uarray(data[:,1],unc_y)
+    if t=="Glas":
+        peaks = [(45,25,[(42,5)]),(42,5, [(42,2)])]
+    else:
+        peaks = [(45,25),(40.5,0.5,[(40.5,0.25)]),(43.5,1,[(43.5,0.25)]),(39.76,0.5,[(39.76,0.5),(39.8,0.12),(39.5,0.15)]), (41.5,0.5, [(41.5,0.20)])]
+    for p in peaks:
+        fig=plt.figure(figsize=fig_size)
 
-   fig=plt.figure(figsize=fig_size)
-   # Max
-   print("max%s"%(np.amax(ydata)))
-   #Min
-   print("min%s"%(np.amin(ydata)))
-   # Normalize
-   ydata = normalize(ydata)*100.0
-   #
-   top = find_nearest_index(ydata,90.0);
-   bot = find_nearest_index(ydata,10.0);
-   print(ydata[top])
-   print(ydata[bot])
-   for i in range(top,bot):
-       ydata[i] = unc.ufloat(unv(ydata[i]),usd(ydata[i])*2)
-   second = False
-   if(t=="industry"):
-       i=31
-   else:
-       i=0
-   plt.plot((unv(xdata[i]),unv(xdata[i])),(0,100),'k-',color='black', label="$U_{th}=%s$ V"%(xdata[i]))
+        ind = find_nearest_index(xdata,p[0])
+        #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label='Messpunkte')
+        pw = int(p[1]*width)
+        plt.plot(unv(xdata[ind-pw:ind+pw]),unv(ydata[ind-pw:ind+pw]),'-', linewidth=1, label='Messpunkte')
+        #plt.plot(unv(xdata),unv(ydata),'-', linewidth=1, label='Messpunkte')
+        if len(p)>2:
+            for fp in p[2]:
+                ind = find_nearest_index(xdata,fp[0])
+                pww = int(fp[1]*width)
+                pfit, perr = fit_curvefit(unv(xdata[ind-pww:ind+pww]), unv(ydata[ind-pww:ind+pww]), gauss, p0 = [fp[0],unv(ydata[ind]),fp[1],0])
+                pp = unp.uarray(pfit, perr)
+                ind = find_nearest_index(xdata,pp[0])
 
-       #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
-   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label='Messpunkte')
-   plt.plot((unv(xdata[top]),unv(xdata[top])),(0,100),'k-',color='red', label="$U_{90}=%s$ V"%(xdata[top]))
-   plt.plot((unv(xdata[bot]),unv(xdata[bot])),(0,100),'k-',color='green', label="$U_{10}=%s$ V"%(xdata[bot]))
-   print("dU%s"%(xdata[bot]-xdata[top]))
-   #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
-   #pp = unp.uarray(pfit, perr)
-   #xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
-   #plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*m+b\na=%s mbar\nb=%s mbar'%tuple(pp))
-   #plt.plot(x, y, label='noice')
-   plt.legend(prop={'size':fig_legendsize})
-   plt.grid()
-   plt.tick_params(labelsize=fig_labelsize)
-   plt.xlabel('Angelegte Spannung $U_{LCD}$ (in V)')
-   plt.ylabel('Lichttransmission (in %)')
-   plt.savefig("MP5/images/%s.pdf"%(t))
-   plt.show()
+                #xxdata = np.linspace(unv(xdata[ind-pww]),unv(xdata[ind+pww]))
+                #plt.plot(xxdata,unv(gauss(xxdata,*pfit)), label='Gauss Fit x=%s A=%s d=%s y=%s'%tuple(pp))
+                plt.plot(unv(xdata[ind-pww:ind+pww]),unv(gauss(unv(xdata[ind-pww:ind+pww]),*pfit)), label='Gauss Fit x=%s A=%s d=%s y=%s'%tuple(pp))
+        #plt.plot(x, y, label='noice')
+        plt.legend(prop={'size':fig_legendsize})
+        plt.grid()
+        plt.tick_params(labelsize=fig_labelsize)
+        plt.xlabel('2 $\\theta$ (in °)')
+        plt.ylabel('Ereignisse')
+        plt.savefig("MP6/img/XRD_%s_%s_%s.pdf"%(t,p[0],p[1]))
+        plt.show()
 
+sys.exit(0)
 
 data = np.loadtxt("MP5/data/laser.csv", skiprows = 0, delimiter = ",")
 
@@ -186,7 +180,7 @@ ydata = unp.uarray(data[:,1],unc_y)
 #
 
 fig=plt.figure(figsize=fig_size)
-plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1,label='Messpunkte')
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt='-', capsize=5,linewidth=1,label='Messpunkte')
 
 #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 #pp = unp.uarray(pfit, perr)
