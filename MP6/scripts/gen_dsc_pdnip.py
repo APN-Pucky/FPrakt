@@ -188,7 +188,7 @@ plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel("Temperatur $T$ [$°C$]", {'fontsize':fig_legendsize+2})
 plt.ylabel("Wärmefluss $\Phi$ [$mW$]", {'fontsize': fig_legendsize+2})
-plt.savefig("MP6/img/Kalorimetrie_blei.pdf")
+plt.savefig("MP6/img/Kalorimetrie_pdnip_50.pdf")
 plt.show()
 
 #end
