@@ -148,7 +148,7 @@ ax = plt.gca()
 
 xdata, ydata = lead_heat
 color = next(ax._get_lines.prop_cycler)['color']
-ax.plot(unv(xdata), unv(ydata), label = "Aufheizen",color=color)
+ax.plot(unv(xdata), unv(ydata), label = "Messung",color=color)
 #ax.errorbar(unv(xdata), unv(ydata), usd(ydata), usd(xdata), capsize = 4, fmt = ".", label = "Aufheißen")
 
 
@@ -258,8 +258,8 @@ ax.set_xlim([250,525])
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel("Temperatur $T$ [$°C$]", {'fontsize':fig_legendsize+2})
-plt.ylabel("Wärmefluss $\Phi$ [$mW$]", {'fontsize': fig_legendsize+2})
+plt.xlabel("Temperatur $T$ [°C]", {'fontsize':fig_legendsize+2})
+plt.ylabel("Wärmefluss $\\Phi$ [mW]", {'fontsize': fig_legendsize+2})
 plt.savefig("MP6/img/Kalorimetrie_pdnip_50.pdf")
 plt.show()
 

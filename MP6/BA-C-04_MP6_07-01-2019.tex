@@ -278,14 +278,32 @@
 			Die Unsicherheiten sind kleiner als die Symbolgröße.
 			}
 			\label{fig_themo_pdnip_100}
-		\end{figure}
+	\end{figure}
+	Die spezifische und molare Kristallisationsenthalpie lässt sich erneut mit Masse und molarer Masse der Probe bestimmen.
+	Die molare Masse $M$ ergibt sich als Summe der Molaren Massen der Bestandteile.
+	Sie beträgt somit $M=\SI{196.1}{g/mol}$. %TODO src: https://www.lenntech.de/pse/elemente/p.htm
+\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c  }
+			 Masse $m$ &$\Delta H$& $\Delta h$  &$\Delta H_m$ \\ \hline
+			 \SI{10.99}{mg}& \SI{-1181+-14}{mJ}&\SI{107.5+-1.3}{J/g}& \SI{21.1+-0.3}{kJ/mol} \\
+			 \SI{11.52}{mg}& \SI{-1231+-13}{mJ}&\SI{106.9+-1.1}{J/g}& \SI{21.0+-0.2}{kJ/mol} \\
+			 \SI{11.94}{mg}& \SI{-1276+-50}{mJ}&\SI{106.9+-4.2}{J/g}& \SI{21.0+-0.8}{kJ/mol} \\
+		\end{tabular}
+		\caption{
+		Verschiedene gemessene Kristallisationsenthalpie der PdNiP-Proben.
+		}
+		\label{tb_enthal_pdnip}
+\end{table}
 
 	Um die Aktivierungsenthalpie $Q$ nach Kissinger zu erhalten, wird gemäß \cref{eq_linear} in \cref{fig_thermo_kissinger} linearisiert.
-	Das Resultat ist eine Aktivierungsenthalpie $Q=\SI{307+-19}{kJ/mol}$.
 	\begin{equation}
 		\label{eq_linear}
 			\ln{\frac{\alpha}{T_p^2}} = -\frac{Q}{RT_p} + C
 	\end{equation}
+	Hier bei ist $T_p$ die Kristallisationspeaktemperatur und $\alpha$ die zur selben Messung gehörende Heizrate.
+	$R=\SI{8.31446}{J/molK}$ ist die allgemeine Gaskonstante und C eine beliebige Konstante.
+	Das Resultat ist eine Aktivierungsenthalpie $Q=\SI{289+-18}{kJ/mol}$.
 
 \begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_kissinger.pdf}
@@ -303,7 +321,7 @@
 	%TODO Schmelzenthalpie mit Lit. vergleichen
 	%TODO Kristallisationsenthalpie ist abhängig von Heizrate/Unterkühlung
 	%TODO Übersteuerung am Ende durch Umschalten von Heizen zu Kühlen.
-	Der Literaturwert der Schmelzenthalpie von Blei beträgt \SI{4,8}{\kilo \joule \per \mol} \cite{blei_enthalpie}.
+	Der Literaturwert der Schmelzenthalpie von Blei beträgt \SI{4,8}{\kilo \joule \per \mol} \cite{blei_enthalpie}. %TODO why not this: http://www.periodensystem-online.de/index.php?id=bonds&el=82 passt besser
 	%TODO Blei: Nur schmelzen/kristallisation -> reversibel und Schmelz=Kristallisation
 	%TODO PdNiP: irreversibel-> keine Erneute Kristallisation
 	%TODO zwei Peaks, weil vmtl im MAterial Bereiche mit PdNi und welche mit NiP, sodass der eine Teil erst Kristallisiert.

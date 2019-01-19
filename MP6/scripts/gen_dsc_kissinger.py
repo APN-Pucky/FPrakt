@@ -137,12 +137,12 @@ grad = 1/rad
 
 #######################
 unc_T = 0.01 / 2 / np.sqrt(3) # digital thermometer [kelvin]
-unc_psi = 0.0001 / 2 / np.sqrt(3) # digital [milli watt]
+unc_a = 0.1 / 2 / np.sqrt(3) # digital [milli watt]
 
 data = np.loadtxt("MP6/data/DSC/kissinger_fit.txt", skiprows = 0)
-a = unp.uarray(data[:,0], 0)
+a = unp.uarray(data[:,0], unc_a)
 T = unp.uarray(data[:,1]+273.15, unc_T)
-kiss = (1/T/8.314,unp.log(a/T**2))
+kiss = (1/T/8.314*1000,unp.log(a/T**2))
 fig=plt.figure(figsize=fig_size) # fullscreen or sidescreen
 ax = plt.gca()
 
@@ -154,12 +154,12 @@ heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 
 color = next(ax._get_lines.prop_cycler)['color']
 xfit = np.linspace(xdata[0],xdata[-1])
 yfit = gerade(xfit, *heat_base)
-ax.plot(unv(xfit), unv(yfit), color = color, label='Linear Fit Q=%s kJ/mol'%(-heat_base[0]/1000))
+ax.plot(unv(xfit), unv(yfit), color = color, label='Linear Fit Q=%s kJ/mol'%(-heat_base[0]))
 
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel("$1/RT_p$ (in mol/J)", {'fontsize':fig_legendsize+2})
+plt.xlabel("$1/RT_p$ (in mol/kJ)", {'fontsize':fig_legendsize+2})
 plt.ylabel("$\\ln(\\alpha/T_p^2)$", {'fontsize': fig_legendsize+2})
 plt.savefig("MP6/img/Kalorimetrie_kissinger.pdf")
 plt.show()
