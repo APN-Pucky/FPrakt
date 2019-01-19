@@ -202,7 +202,7 @@
 		\item[Leistungsdifferenzkaloriemeter:] digital, Rechteckverteilung, $u(\Phi)=\SI{0.03}{\mu W}$ %TODO besserer Name?
 	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
-	\subsubsection*{Vergleichsprobe}
+	\subsubsection*{Vergleichsprobe} \label{ssss_vergleich}
 	In \cref{fig_thermo_blei} ist der temperaturabhängige Verlauf des Wärmeflusses beim Aufheizen und Abkühlen  der Bleiprobe abgebildet.
 	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün).
 	Der Schnittpunkt der linearen Funktionen liefert die Schmelztemperatur $T_e= \SI{327.2+-3.1}{\celsius}$.
@@ -216,6 +216,7 @@
 			Der rote (grüne) Pfeil zeigt auf den Schnittpunkt der linearisieren Peaksteigung und Basislinie.
 			Er gibt also die Erstarrungstemperatur (Schmelztemperatur) an.
 			Die gelben Pfeile beschreien die mittels \cref{eq_enth} berechneten Enthalpien im jeweiligen farblich gekennzeichneten Bereich zwischen Basislinie und Peak.
+			Die Unsicherheiten sind kleiner als die Symbolgröße.
 			}
 			\label{fig_thermo_blei}
 	\end{figure}
@@ -242,9 +243,57 @@
 \end{table}
 
 	\subsubsection*{PdNiP-Probe}
-	%TODO nur einen Cycle weil kapputt dann antistruktur
+	%TODO nur einen Cycle weil kapputt dann antistruktur Abgezogen erwähn in methode
+	Es wurden die Thermogramme \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} für verschieden schwere PdNiP-Proben gemessen.
+	Die Kristallisationspeaktemperaturen sind in blau gekennzeichnet.
+	Die Kristallisationsenthalpie ist in gelb markiert und berechnet sich analog zur \nameref{ssss_vergleich}.
+	Der orange Pfeil zeigt auf die Kristallisationstemperatur, die sich ebenfalls analog ergibt.
+	Die Glasübergangstemperatur befindet sich zwischen der roten und der grünen Gerade.
+
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/Kalorimetrie_pdnip_20.pdf}
+			\caption{
+				Thermogramm der PdNiP-Probe bei einer Heizrate $\alpha = \SI{20}{K/min}$.
+			Die Unsicherheiten sind kleiner als die Symbolgröße.
+			}
+			\label{fig_themo_pdnip_20}
+		\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/Kalorimetrie_pdnip_50.pdf}
+			\caption{
+				Thermogramm der PdNiP-Probe bei einer Heizrate $\alpha = \SI{50}{K/min}$.
+			Die Unsicherheiten sind kleiner als die Symbolgröße.
+			}
+			\label{fig_themo_pdnip_50}
+		\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/Kalorimetrie_pdnip_100.pdf}
+			\caption{
+				Thermogramm der PdNiP-Probe bei einer Heizrate $\alpha = \SI{100}{K/min}$.
+			Die Unsicherheiten sind kleiner als die Symbolgröße.
+			}
+			\label{fig_themo_pdnip_100}
+		\end{figure}
+
+	Um die Aktivierungsenthalpie $Q$ nach Kissinger zu erhalten, wird gemäß \cref{eq_linear} in \cref{fig_thermo_kissinger} linearisiert.
+	Das Resultat ist eine Aktivierungsenthalpie $Q=\SI{307+-19}{kJ/mol}$.
+	\begin{equation}
+		\label{eq_linear}
+			\ln{\frac{\alpha}{T_p^2}} = -\frac{Q}{RT_p} + C
+	\end{equation}
+
+\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/Kalorimetrie_kissinger.pdf}
+			\caption{
+			Linearisierung nach \cref{eq_linear} zur Bestimmung der Aktivierungsenthalpie nach Kissinger.
+			}
+			\label{fig_thermo_kissinger}
+		\end{figure}
+
+
 	\subsubsection{Diskussion}
 	%TODO erwähnen was endothermer Prozess ist
+	%TODO erwartung dass Q größer H ist, nach Anleitungs Bild
 
 	\subsection{Röntgendiffraktometrie}
 	%\subsubsection{Unsicherheiten} %hab ich bissle im Beob diskutiert.

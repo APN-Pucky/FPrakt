@@ -243,10 +243,10 @@ print ("Integral Q heat:", q)
 xdata = [T_schmelz, T_schmelz]
 ydata = [-20, 30]
 ax.plot(unv(xdata), ydata, color = color, linestyle = ":")
-ax.annotate('$\\Delta H_e = %.2f$ mJ' % unv(q),
+ax.annotate('$\\Delta H_s = %.2f$ mJ' % unv(q),
             xy=(333, unv(gerade(333,*heat_base))), xytext=(333+2, 30),
             arrowprops=dict(facecolor="yellow", shrink=0.05))
-ax.annotate('$T_e = %.2f$ °C' % unv(T_schmelz),
+ax.annotate('$T_s = %.2f$ °C' % unv(T_schmelz),
             xy=(unv(T_schmelz), unv(gerade(T_schmelz,*heat_base))), xytext=(unv(T_schmelz)-19, 30),
             arrowprops=dict(facecolor=color, shrink=0.05))
 
@@ -275,10 +275,10 @@ print ("Integral cool q", q)
 xdata = [T_crystal, T_crystal]
 ydata = [-30, 20]
 ax.plot(unv(xdata), ydata, color = color, linestyle = ":")
-ax.annotate('$T_c = %.2f$ °C' % unv(T_crystal),
+ax.annotate('$T_e = %.2f$ °C' % unv(T_crystal),
             xy=(unv(T_crystal), unv(gerade(T_crystal,*cool_base))), xytext=(unv(T_crystal)+5, -35),
             arrowprops=dict(facecolor=color, shrink=0.05))
-ax.annotate('$\\Delta H_c = %.2f$ mJ' % unv(q),
+ax.annotate('$\\Delta H_e = %.2f$ mJ' % unv(q),
             xy=(310, unv(gerade(310,*cool_base))), xytext=(310-25, -35),
             arrowprops=dict(facecolor="yellow", shrink=0.05))
 ax.set_xlim([275,350])
