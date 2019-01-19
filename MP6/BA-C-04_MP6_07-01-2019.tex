@@ -152,7 +152,12 @@
 	In \cref{fig_kristallisierung} ist als c) auch der umgekehrte Prozess dargestellt, welcher in diesem Versuch untersucht wird.
 	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann.
 	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation.
-	Demnach ist auch die zur Kristallisation zuzuführende Wärme abhängig von der Heizrate.
+	Demnach ist auch die zur Kristallisation zuzuführende Wärme (Kristallisationsenthalpie) abhängig von der Heizrate.
+	Dieser Prozess ist irreversibel, weshalb ein Senken der Temperatur nicht wieder in die Glasphase führt.
+	Hierfür wäre ein Schmelzen gefolgt vom oben geschilderte Prozess der schnellen Abkühlung erforderlich.
+
+	Die Schmelzenthalpie eines Metalls ist demhingegen nur materialabhängig und kann mit Literaturwerten verglichen werden, da der Übergang von Schmelze zu Kristall reversibel ist.
+	Hier ist also zu erwarten, dass die Schmelzenthalpie der Kristallisationsenthalpie entspricht. %TODO ist doch so, oder?
 
 	\subsection{Röntgendiffraktometrie}
 	Da ein amorpher Festkörper lediglich eine Nahordnung der Atome besitzen kann, während ein Kristall eine regelmäßige Gitterstruktur aufweist, ist zu erwarten, dass sich der amorphe Festkörper unter monochromatischem Röntgenlicht eher wie ein pulverisierter Kristall verhält und sich ein kontinuierliches Spektrum zeigt.
@@ -292,17 +297,24 @@
 
 
 	\subsubsection{Diskussion}
+
 	%TODO erwähnen was endothermer Prozess ist
 	%TODO erwartung dass Q größer H ist, nach Anleitungs Bild
-
+	%TODO Schmelzenthalpie mit Lit. vergleichen
+	%TODO Kristallisationsenthalpie ist abhängig von Heizrate/Unterkühlung
+	%TODO Übersteuerung am Ende durch Umschalten von Heizen zu Kühlen.
+	Der Literaturwert der Schmelzenthalpie von Blei beträgt \SI{4,8}{\kilo \joule \per \mol} \cite{blei_enthalpie}.
+	%TODO Blei: Nur schmelzen/kristallisation -> reversibel und Schmelz=Kristallisation
+	%TODO PdNiP: irreversibel-> keine Erneute Kristallisation
+	%TODO zwei Peaks, weil vmtl im MAterial Bereiche mit PdNi und welche mit NiP, sodass der eine Teil erst Kristallisiert.
 	\subsection{Röntgendiffraktometrie}
 	%\subsubsection{Unsicherheiten} %hab ich bissle im Beob diskutiert.
 	\subsubsection{Beobachtung und Datenanalyse}
 	Die gemessenen Kurven sind in \cref{fig_xrd_kristallin} und \cref{fig_xrd_glas} dargestellt.
 	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
 	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
-	Aus dem Abschnitt ohne Probe lässt sich gut eine Unsicherheit und der Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet.
-	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätzte Unsicherheit weshalb diese vernachlässigt werden kann. %TODO Deutsch
+	Aus dem Abschnitt ohne Probe lässt sich gut eine Unsicherheit und der Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet. %TODO ist irgendwie nicht "gut", wenn man danach sagt, dass es nicht gut ist. Naja das gut ist spezifisch für Untergrund
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit, weshalb diese vernachlässigt wird.
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
 			\caption{Diffraktogramm der kristallinen Probe.}
@@ -314,7 +326,7 @@
 			\label{fig_xrd_glas}
 	\end{figure}
 
-	Zur Bestimmung der Positionen und Breiten der Peaks werden Gaussfunktionen an die Messungen in einem Intervall um den Peak gefittet (vgl. \nameref{s_anhang}):
+	Zur Bestimmung der Positionen und Breiten der Peaks werden Gauß-Funktionen an die Messungen in einem Intervall um den Peak gefittet (vgl. \nameref{s_anhang}):
 	\begin{equation}
 		\label{eq_gauss}
 		f(x) = a\cdot e^{-\frac{(x - c)^2}{2d^2}} + y
@@ -325,8 +337,8 @@
 			\label{eq_bragg}
 			\bar{d} = \frac{\lambda}{2\sin{\bar{\theta}}} \quad \text{mit} \quad u(\bar{d}) = \left|\frac{\cos{\bar{\theta}}}{2\sin^2{\bar{\theta}}} \right| \lambda \cdot u(\bar{\theta})
 	\end{equation}
-	Die Wellenlänge der Röntgenstrahlung einer Kupfer Anode beträgt $\lambda_{\text{K}_\alpha}= \SI{1.5406}{\angstrom}$.
-	\begin{table}[H]
+	Die Wellenlänge der Röntgenstrahlung einer Kupfer-Anode beträgt $\lambda_{\text{K}_\alpha}= \SI{1.5406}{\angstrom}$.
+	\begin{table}[H] %TODO die haut sich rechts raus.
 		\centering
 		\begin{tabular}{ c | c | c | c | c | c}
 			 Probe& Glas  &\multicolumn{4}{c}{Kristall} \\ \hline
@@ -339,7 +351,24 @@
 \end{table}
 	\subsubsection{Diskussion}
 	%TODO anleitung sagt 3 maximalsten peaks, würde ich dann halt die schöneren 3 der 4 nehmen, oder alle weil ca. gleich hoch
+	Rein qualitativ lässt sich sofort feststellen, dass erwartungsgemäß das Spektrum vom metallischen Glas in \cref{fig_xrd_glas} kontinuierlich ist, während das des Kristalls in \cref{fig_xrd_kristallin} eher diskret ist, was dafür spricht, dass die Glasprobe tatsächlich amorph ist. %TODO zu vorsichtig?
+	\cite{SIETSMA1991146} gibt die Atomabstände in \cref{tb_xrd_vgl} aus einer Kombination aus theoretischer Berechnung mit radialen Verteilungsfunktionen und experimenteller Bestimmung.
+	Sie lassen sich nicht eindeutig den Messwerten in \cref{tb_xrd_result} zuordnen, da in der durchgeführten Messung nicht zwischen Atomsorten unterschieden werden kann. Der Messwert liegt aber zwischen den Literaturwerten für die einzelnen Atome, weshalb hier kein Widerspruch gezeigt werden kann. %TODO komisch vormuliert, ab idk
 
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c }%TODO die haut sich rechts raus.
+			 Peak&  $\sigma_1$ & $\sigma_2$ & $\sigma_3$\\ \hline
+			  & Pd \SI{2.8}{\angstrom} & Ni \SI{2.4}{\angstrom} & P \SI{1.8}{\angstrom}
+		\end{tabular}
+		\caption{Die in \cite{SIETSMA1991146} für Glas (PdNiP) angegebenen Atomdurchmesser. Sie wurden dort als beste Übereinstimmung von Experiment und Berechnung gewählt. Da mit Atomdurchmesser hier der Platz gemeint ist, den das Atom im Gitter einnimmt, ist er hier als mittlerer Atomabstand zu verstehen. Die Unsicherheit beträgt etwa \SI{0.005}{\angstrom}.} %TODO das ist bissl riskant, weil ich nicht 100% sicher bin, ob das true ist.
+		\label{tb_xrd_vgl}
+\end{table}
+
+	%TODO ich finde keinen Literaturwert für PdNiP in kristallförmig.
+	%Die Größe der Schwankungen könnte dadurch zustande kommen, dass
+	%TODO Absorption? naja. Drehprozess? Ist der ruckartig? misst der dazwischen?
+	%TODO warum sind die Schwankungen so riesig?
 
 	\subsection{Messung der Vickershärte}
 	\subsubsection{Unsicherheiten} \label{sss_vicker_unsicher}
@@ -367,10 +396,15 @@
  Die Unsicherheit durch die Digitalanzeige (vgl. \ref{sss_vicker_unsicher}) verschwindet gegenüber der Standardabweichung der Mittelwerte.
 
 	\subsubsection{Diskussion}
-	%TODO Bilder vergleichen, dass erwähnen was er meinte mit man sieht schön die 'Brechung'/'Verschiebung' oder so, kp was es war
-	%TODO wie erwartet Glas härter
+	% Bilder vergleichen, dass erwähnen was er meinte mit man sieht schön die 'Brechung'/'Verschiebung' oder so, kp was es war
+	% wie erwartet Glas härter
 
-	%TODO Notes für Diskussion v , weil abgetrennt
+	In \cref{fig_indents} ist zu erkennen, dass bei der PdNiP-Probe dauerhafte Verformungen außerhalb des Pyramidenabdrucks auftreten.
+	In der Nickel-Probe ist das nicht der Fall.
+	Dies liegt daran, dass im Kristall bei einer Verformung die geschobenen Atome einfach einige Gitterpositionen weiter springen können, ohne die Gitterstruktur zu verletzen.
+	Im amorphen PdNiP ist dies nicht möglich, weshalb Bereiche anderer Nahordnung ebenfalls geschoben werden und die beobachteten \enquote{ripples} auftreten. %TODO ripple fine?
+	Diese leichtere Verschiebbarkeit der Atome im Kristall im Vergleich zum amorphem Glas ist auch der Grund dafür, dass die PdNiP-Probe die beobachtete deutlich höhere Vickers-Härte (\SI{524 \pm 14}{HV}) als die kristalline Nickel-Probe (\SI{188 \pm 5}{HV}) hat.
+	%TODO Notes für Diskussion v , weil abgetrennt >>???
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
@@ -393,8 +427,8 @@
 			\includegraphics[width=\linewidth]{img/XRD_Glas_42_10.pdf}
 			\caption{
 				Vergrößertes Diffraktogramm der Glasprobe.
-				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
-				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				Die Fitfunktionen sind Gauß-Funktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall, in welchem die jeweilige Gauß-Funktion abgebildet ist.
 				}
 			\label{fig_xrd_glas_1}
 	\end{figure}
@@ -405,8 +439,8 @@
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_43,5_1.pdf}
 			\caption{
 				Vergrößertes Diffraktogramm der kristallinen Probe.
-				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
-				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				Die Fitfunktionen sind Gauß-Funktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall, in welchem die jeweilige Gauß-Funktion abgebildet ist.
 				}
 			\label{fig_xrd_kristall_1}
 	\end{figure}
@@ -414,8 +448,8 @@
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_41,6_0,5.pdf}
 			\caption{
 				Vergrößertes Diffraktogramm der kristallinen Probe.
-				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
-				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				Die Fitfunktionen sind Gauß-Funktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall, in welchem die jeweilige Gauß-Funktion abgebildet ist.
 				}
 			\label{fig_xrd_kristall_2}
 	\end{figure}
@@ -423,8 +457,8 @@
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_40,5_0,5.pdf}
 			\caption{
 				Vergrößertes Diffraktogramm der kristallinen Probe.
-				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
-				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				Die Fitfunktionen sind Gauß-Funktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall, in welchem die jeweilige Gauß-Funktion abgebildet ist.
 				}
 			\label{fig_xrd_kristall_3}
 	\end{figure}
@@ -432,8 +466,8 @@
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_39,76_0,5.pdf}
 			\caption{
 				Vergrößertes Diffraktogramm der kristallinen Probe.
-				Die Fitfunktionen sind Gaussfunktionen nach \cref{eq_gauss}.
-				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gaussfunktion abgebildet ist.
+				Die Fitfunktionen sind Gauß-Funktionen nach \cref{eq_gauss}.
+				Die für den Fit einbezogenen Messpunkte entstammen dem Intervall in welchem die jeweilige Gauß-Funktion abgebildet ist.
 				}
 			\label{fig_xrd_kristall_4}
 	\end{figure}
