@@ -1,4 +1,3 @@
-
 # Importanweisungen
 
 import sys
@@ -139,7 +138,7 @@ grad = 1/rad
 unc_T = 0.01 / 2 / np.sqrt(3) # digital thermometer [kelvin]
 unc_psi = 0.0001 / 2 / np.sqrt(3) # digital [milli watt]
 
-data = np.loadtxt("MP6/data/DSC/50K-mt.txt", skiprows = 3)
+data = np.loadtxt("MP6/data/DSC/20K-mt.txt", skiprows = 3)
 T = unp.uarray(data[:,0], unc_T)
 flow = unp.uarray(data[:,1], unc_psi)
 lead_heat = (T, flow)
@@ -152,8 +151,8 @@ ax.plot(unv(xdata), unv(ydata), label = "Aufheizen")
 
 # heat
 # fit 310-320 °C linear
-start_hb = find_nearest_index(lead_heat[0],500)
-end_hb = find_nearest_index(lead_heat[0],520)
+start_hb = find_nearest_index(lead_heat[0],480)
+end_hb = find_nearest_index(lead_heat[0],510)
 start_hb2 = find_nearest_index(lead_heat[0],350)
 end_hb2 = find_nearest_index(lead_heat[0],380)
 xdata,ydata = lead_heat[0][start_hb:end_hb], lead_heat[1][start_hb:end_hb]
@@ -162,33 +161,94 @@ ydata= np.append(ydata,lead_heat[1][start_hb2:end_hb2])
 heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 print("  BASE: ", heat_base)
 color = next(ax._get_lines.prop_cycler)['color']
-xfit = np.linspace(387, 510, 2)
+xfit = np.linspace(370, 495, 2)
 yfit = gerade(xfit, *heat_base)
 ax.plot(unv(xfit), unv(yfit), color = color)
 
+# fit peak linear
+start_hb = find_nearest_index(lead_heat[0],395)
+end_hb = find_nearest_index(lead_heat[0],405)
+xdata,ydata = lead_heat[0][start_hb:end_hb], lead_heat[1][start_hb:end_hb]
+heat_peak = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+print("  PEAK: ", heat_peak)
+xfit = np.linspace(390, 410, 2)
+yfit = gerade(xfit, *heat_peak)
+ax.plot(unv(xfit), unv(yfit), color = color)
+
+T_crystal = -(heat_base[1] - heat_peak[1]) / (heat_base[0] - heat_peak[0])
+print("Kristallisationstemperatur: ", T_crystal)
+ax.annotate('$T_e = %.2f$ °C' % unv(T_crystal),
+            xy=(unv(T_crystal), unv(gerade(T_crystal,*heat_base))), xytext=(unv(T_crystal)-30, -10),
+            arrowprops=dict(facecolor=color, shrink=0.05))
 
 xdata, ydata = lead_heat
-li = find_nearest_index(xdata,387)
-hi = find_nearest_index(xdata,510)
+li = find_nearest_index(xdata,375)
+hi = find_nearest_index(xdata,495)
 full_yfit = gerade(xdata[li:hi],*heat_base)
 ax.fill_between(unv(xdata[li:hi]),unv(full_yfit),unv(ydata[li:hi]),unv(ydata[li:hi])<unv(full_yfit), color = "yellow", hatch='/',edgecolor=color)
 xxdata = []
 for i in range(0,len(xdata)-1):
     xxdata.append(np.abs(xdata[i]-xdata[i+1]))
 xxdata.append(mean(xxdata)) # last step mean approx
-q=np.sum((ydata[li:hi]-full_yfit)*xxdata[li:hi])/50*60 # mJ
+q=np.sum((ydata[li:hi]-full_yfit)*xxdata[li:hi])/20*60 # mJ
 print ("Integral Q heat:", q)
 xpp = 450
 ax.annotate('$\\Delta H_e = %.2f$ mJ' % unv(q),
-            xy=(xpp, unv(gerade(xpp,*heat_base))), xytext=(xpp+2, -15),
+            xy=(xpp, unv(gerade(xpp,*heat_base))), xytext=(xpp+2, -9),
             arrowprops=dict(facecolor="yellow", shrink=0.05))
-ax.set_xlim([250,525])
+
+
+
+# heat
+# fit linear
+start_hb = find_nearest_index(lead_heat[0],260)
+end_hb = find_nearest_index(lead_heat[0],290)
+xdata,ydata = lead_heat[0][start_hb:end_hb], lead_heat[1][start_hb:end_hb]
+heat_base1 = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+print("  BASE: ", heat_base1)
+color = next(ax._get_lines.prop_cycler)['color']
+xfit = np.linspace(250, 350, 2)
+yfit = gerade(xfit, *heat_base1)
+ax.plot(unv(xfit), unv(yfit), color = color)
+
+
+# heat
+# fit linear
+start_hb = find_nearest_index(lead_heat[0],330)
+end_hb = find_nearest_index(lead_heat[0],350)
+xdata,ydata = lead_heat[0][start_hb:end_hb], lead_heat[1][start_hb:end_hb]
+heat_base2 = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+print("  BASE: ", heat_base2)
+color = next(ax._get_lines.prop_cycler)['color']
+xfit = np.linspace(280, 350, 2)
+yfit = gerade(xfit, *heat_base2)
+ax.plot(unv(xfit), unv(yfit), color = color)
+
+xdata, ydata = lead_heat
+li = find_nearest_index(lead_heat[0],300)
+hi = find_nearest_index(lead_heat[0],330)
+full_yfit1 = gerade(xdata[li:hi],*heat_base1)
+full_yfit2 = gerade(xdata[li:hi],*heat_base2)
+dis = np.abs(np.abs(ydata[li:hi]-full_yfit1)-np.abs(np.abs(ydata[li:hi]-full_yfit2)))
+i = np.argmin(dis)
+T_schmelz = (xdata[li:hi])[i]
+print("Temp Glass: " ,T_schmelz)
+xdata = [T_schmelz, T_schmelz]
+ydata = [-5, 5]
+ax.plot(unv(xdata), ydata, color = color, linestyle = ":")
+xdata, ydata = lead_heat
+ax.annotate('$T_g = %.2f$ °C' % unv(T_schmelz),
+            xy=(unv(T_schmelz), unv((ydata[li:hi])[i])), xytext=(unv(T_schmelz)+19, -5),
+            arrowprops=dict(facecolor=color, shrink=0.05))
+
+
+ax.set_xlim([240,525])
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel("Temperatur $T$ [$°C$]", {'fontsize':fig_legendsize+2})
 plt.ylabel("Wärmefluss $\Phi$ [$mW$]", {'fontsize': fig_legendsize+2})
-plt.savefig("MP6/img/Kalorimetrie_pdnip_50.pdf")
+plt.savefig("MP6/img/Kalorimetrie_pdnip_20.pdf")
 plt.show()
 
 #end
