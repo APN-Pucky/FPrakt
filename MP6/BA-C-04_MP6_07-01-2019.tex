@@ -66,7 +66,7 @@
 	locale=DE,
 	separate-uncertainty
 }
-%\bibliography{BA-C-04_MP6_07-01-2019_References}
+\bibliography{BA-C-04_MP6_07-01-2019_References}
 
 \begin{document}
 
@@ -101,9 +101,66 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 
   \section{Theorie}
+	%TODO noch sagen, dass halt nur bei Metallen
 	% wdh. Texte
 	% wdh. Besprechung
 
+	\subsection{Phasenübergang}
+
+	Für das Verständnis des Verhaltens von metallischen Gläsern ist die Keimbildungstheorie fundamental.
+	Dieser geht die Annahme vorraus, dass der Kristallisationsprozess von kleinsten Keimen (Verunreinigungen) ausgeht und sich dann durch die gesamte Probe fortsetzt. %TODO sind das immer Verunreinigungen?
+	Um diesen Vorgang zu beschreiben, wird die Gibbs-Energie (auch freie Enthalpie) verwendet, welche in einem geschlossenen System konstanter Temperatur und konstanten Drucks minimiert wird. %TODO brauche ich hier mehr Herleitung?
+	Diese Minimierung lässt sich als treibende Kraft des Kristallisationsprozesses verstehen.
+
+
+	Die Änderung der Gibbs-Energie ergibt
+	\begin{equation} %TODO Variablen an das Bild anpassen?
+		\label{eq_gibbs}
+		\Delta G = - \frac{4 \pi}{3} r^3 \Delta g_\text{u} + 4 \pi r^2 \gamma ,
+	\end{equation}
+	wobei $r$ der Radius des sphärisch angenommenen Keims ist und $\Delta g_\text{u} = g_\text{s} - g_\text{k}$ (freie Enthalpie der Schmelze und des Kristalls) als Änderung der spezifischen freien Enthalpie die treibende Kraft der Umwandlung pro Volumeneinheit darstellt. %TODO letzteres ist wörtlich
+
+	\begin{figure}[H]
+			\includegraphics[width= 0.5 \linewidth]{img/radius}
+			\caption{
+			Darstellung der Änderung der freien Enthalpie in Abhängigkeit von der Keimgröße.
+			Es ist leicht zu erkennen, dass ein kritischer Radius überschritten werden muss, damit der Keim stabil ist und wachsen kann.
+			\cite{radius_enthalpie}
+			}
+			\label{fig_radius_enthalpie}
+	\end{figure}
+
+	Daraus ergibt sich, wie in \cref{fig_radius_enthalpie} zu erkennen ist, ein kritischer Radius, unter dem Keime nicht stabil sind und keine Kristallisation stattfinden kann.
+	Dies ist darin begründet, dass die Grenzfläche zwischen kristalliner und amorpher Phase energetisch ungünstiger als beide Phasen ist.
+	Da das Volumen mit $r^3$ und die Oberfläche mit $r^2$ geht, ist eine Erhöhung des Keimradiusses also erst ab einem bestimmten Radius energetisch günstig.
+
+	Aus diesen Erkenntnissen folgt, dass bei der Frage, ob eine Abkühlende Schmelze kristallisiert, die Geschwindigkeit des Entstehens und Größe der Keime sowie die Geschwindigkeit des Abkühlens relevant sind.
+	Wenn die Schmelze schnell genug abgekühlt wird bzw. die Probe ausreichend rein ist, können sich keine ausreichend große Keime bilden und sie erstarrt in amorpher Form (vgl. \cref{fig_kristallisierung}).
+
+	\begin{figure}[H]
+			\includegraphics[width= 0.7 \linewidth]{img/kristallisierung}
+			\caption{
+			ZTU-Diagramm zu Kristallisation und Glasbildung
+			a) schnelles Abschrecken
+			b) isotherme Kristallisation
+			c) Kristallisation für schnelle (links) und langsame (rechts) Aufheizrate
+			\cite{anleitung}
+			}
+			\label{fig_kristallisierung}
+	\end{figure}
+
+	In \cref{fig_kristallisierung} ist als c) auch der umgekehrte Prozess dargestellt, welcher in diesem Versuch untersucht wird.
+	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann.
+	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation.
+	Demnach ist auch die zur Kristallisation zuzuführende Wärme abhängig von der Heizrate.
+
+	\subsection{Röntgendiffraktometrie}
+	Da ein amorpher Festkörper lediglich eine Nahordnung der Atome besitzen kann, während ein Kristall eine regelmäßige Gitterstruktur aufweist, ist zu erwarten, dass sich der amorphe Festkörper unter monochromatischem Röntgenlicht eher wie ein pulverisierter Kristall verhält und sich ein kontinuierliches Spektrum zeigt.
+	Beim Kristall hingegen sind nur einige scharfe Reflexe zu erwarten, bei denen die Bragg-Gleichung erfüllt ist. %TODO nenne ich jetzt hier nicht, weil später?
+	Aus der Position des Maximums beim amorphen Kristall lässt sich gemäß der Bragg-Gleichung der Mittlere Atomabstand berechnen.
+
+
+	%\subsection{Vickers-Härte} %TODO ist schon weitgehend in Methoden
 
 	\section{Methoden} %TODO Ziele angeben
 	% Bilder von der Website klauen
@@ -112,7 +169,7 @@
 	Hierzu wird als Vertreter der metallischen Gläser PdNiP verwendet.
 
 	\subsection{Kalorimetrie}
-	Es wird ein Leistungskalorimeter verwendet, um den Wärmefluss beim Erhitzen von verschiedenen Stoffen zu untersuchen.
+	Es wird ein Leistungskalorimeter eingesetzt, um den Wärmefluss beim Erhitzen von verschiedenen Stoffen zu untersuchen.
 	Zunächst wird eine Bleiprobe, die sich bereits in einem Tiegel befindet, im Vergleich zu einem Referenztiegel untersucht.
 	Bei dieser wird keine gläserne Phase erwartet, da dies ein Erhitzen über den Schmelzpunkt gefolgt von einem schnelleren Abkühlen, als es mit diesem oder einem anderen bekannten Aufbau möglich ist, erfordern würde.
 	Es werden zwei aufeinanderfolgende Messzyklen durchgeführt und das auf der Probe angegebene Gewicht notiert.
@@ -122,7 +179,7 @@
 	Auch hier werden zwei Messzyklen aufgenommen.
 
 	\subsection{Röntgendiffraktometrie} %lul steht in der Anleitung mindestens einmal falsch geschrieben
-	In einem Röntgendiffraktometer wird im Debye-Scherrer-Verfahren die Röngenbeugung in Abhängigkeit vom Einstrahlwinkel unter monochromatischer Röntgenstrahlung gemessen.
+	In einem Röntgendiffraktometer (Kupfer-Anode, $\text{K}_\alpha$-Linie) wird im Debye-Scherrer-Verfahren die Röngenbeugung in Abhängigkeit vom Einstrahlwinkel unter monochromatischer Röntgenstrahlung gemessen.
 	Dabei wird eine amorphe und eine kristalline PdNiP-Probe untersucht.
 	Beiden werden nicht pulverisiert.	%TODO weil pulver erwartung, dass bei kristall nichts exaktes
 
@@ -148,7 +205,7 @@
 	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
 	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
 	Aus dem Abschnitt ohne Probe lässt sich gut eine Unsicherheit und der Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet.
-	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit und weshalb diese vernachlässigt werden kann.
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit und weshalb diese vernachlässigt werden kann. %TODO Deutsch
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
 			\caption{Diffraktogramm der kristallinen Probe.}
@@ -160,7 +217,7 @@
 			\label{fig_xrd_glas}
 	\end{figure}
 
-	Zur Bestimmung der Positionen und Breiten der Peaks werden Gaussfunktionen an die Messungen in einem Intervall um den Peak angefittet (vgl. \nameref{s_anhang}).
+	Zur Bestimmung der Positionen und Breiten der Peaks werden Gaussfunktionen an die Messungen in einem Intervall um den Peak gefittet (vgl. \nameref{s_anhang}):
 	\begin{equation}
 		\label{eq_gauss}
 		f(x) = a\cdot e^{-\frac{(x - c)^2}{2d^2}} + y
@@ -189,7 +246,7 @@
 
 	\subsection{Messung der Vickershärte}
 	\subsubsection{Unsicherheiten} \label{sss_vicker_unsicher}
-	Die Vickershärte konnte direkt am Mikroskop von einer Digitalanzeige abgelesen werden.
+	Die Vickershärte wird direkt am Mikroskop von einer Digitalanzeige abgelesen.
 	Mit einer Rechteckverteilung ergibt sich eine Unsicherheit von $u(H) = \SI{0.03}{HV}$.
 	\subsubsection{Beobachtung und Datenanalyse}
 	%TODO mehr Text hier
@@ -202,15 +259,15 @@
 			\subcaptionbox{
 				Nickel-Probe.\label{fig_indent_ni}}{
 			\includegraphics[width=.47\linewidth]{img/Ni-500N-5s-l}}
-			\caption{Abdrücke der Indenterpyramide auf verschiedenen Proben.}
+			\caption{Abdrücke der Indenterpyramide auf verschiedenen Proben. Der Fokus ist auf die Probenebene gelegt, weshalb die Mitte des Abdrucks unscharf ist.}
 			\label{fig_indents}
  \end{figure}
- Der Mittelwert $\bar{H}$ von N Messung berechnet sich nach GUM wie folgt.
+ Der Mittelwert $\bar{H}$ von N Messungen berechnet sich nach GUM wie folgt:
  \begin{equation}
 	 \bar{H} = \frac{1}{N}\sum_{i=1}^N H_i \quad \text{mit} \quad u(\bar{H}) = \sqrt{\sum_{i=1}^N \frac{(H_i-\bar{H})^2}{N-1}}
  \end{equation}
  Die gemittelte Vickershärte der Nickel-Probe beträgt \SI{188+-5}{HV} und die der PdNiP-Probe \SI{534+-14}{HV}.
- Die Unsicherheit durch die Digitalanzeige (vgl. \ref{sss_vicker_unsicher}) verschwindet gegenüber Standardabweichung der Mittelwerte.
+ Die Unsicherheit durch die Digitalanzeige (vgl. \ref{sss_vicker_unsicher}) verschwindet gegenüber der Standardabweichung der Mittelwerte.
 
 	\subsubsection{Diskussion}
 	%TODO Bilder vergleichen, dass erwähnen was er meinte mit man sieht schön die 'Brechung'/'Verschiebung' oder so, kp was es war
@@ -227,7 +284,7 @@
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
-	%\printbibliography
+	\printbibliography
 
 
 
@@ -284,3 +341,5 @@
 			\label{fig_xrd_kristall_4}
 	\end{figure}
 \end{document}
+
+%TODO Angleichen: Vickers-Härte/Vickershärte.
