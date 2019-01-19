@@ -128,7 +128,7 @@
 
 	\subsection{Messung der Vickershärte}
  	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem und einer aus amorphem PdNiP zu bestimmen. %TODO das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
-	Dazu wird ein Diamant in Form einer vierseitigen Pyramide mit einem Öffnungswinkel von \SI{136}{\degree} für \SI{5}{s} mit einer Kraft von \SI{500}{\newton} auf die Probe gedrückt.
+	Dazu wird ein Diamant in Form einer vierseitigen Pyramide mit einem Öffnungswinkel von \SI{136}{\degree} für \SI{5}{s} mit einer Kraft von \SI{0.5}{kgf} auf die Probe gedrückt.
 	Dann wird mit einem Mikroskop die Länge der beiden Diagonalen gemessen.
 	Das verwendete Gerät errechnet dann aus diesen Werten die Vickershärte.
 	Es werden jeweils \num{10} Messungen durchgeführt, um einen Mittelwert bilden zu können.
@@ -171,6 +171,7 @@
 			\label{eq_bragg}
 			\bar{d} = \frac{\lambda}{2\sin{\bar{\theta}}} \quad \text{mit} \quad u(\bar{d}) = \left|\frac{\cos{\bar{\theta}}}{2\sin^2{\bar{\theta}}} \right| \lambda \cdot u(\bar{\theta})
 	\end{equation}
+	Die Wellenlänge der Röntgenstrahlung einer Kupfer Anode beträgt $\lambda_{\text{K}_\alpha}= \SI{1.5406}{\angstrom}$.
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c | c | c | c}
@@ -182,8 +183,9 @@
 		\caption{Positionen der Diffraktogramm Peaks, sowie die aus der Bragg-\cref{eq_bragg} resultierenden Gitterebenenabstände (Kristall), bzw. der mittlere Atomabstand (Glas).}
 		\label{tb_xrd_result}
 \end{table}
-%TODO div theta by two und Bragg für Abstände d ; 2 d sin theta = lambda
 	\subsubsection{Diskussion}
+	%TODO anleitung sagt 3 maximalsten peaks, würde ich dann halt die schöneren 3 der 4 nehmen, oder alle weil ca. gleich hoch
+
 
 	\subsection{Messung der Vickershärte}
 	\subsubsection{Unsicherheiten} \label{sss_vicker_unsicher}
@@ -194,13 +196,12 @@
 	In \cref{fig_indents} sind beispielhafte Aufnahmen des Mikroskops dargestellt.
 	\begin{figure}[H]
 		\centering
-		%TODO length scale
 			\subcaptionbox{
 				PdNiP-Probe.\label{fig_indent_pdnip}}{
-			\includegraphics[width=.47\linewidth]{img/Paradin-Phosphor-500N-5s}}
+			\includegraphics[width=.47\linewidth]{img/Paradin-Phosphor-500N-5s-l}}
 			\subcaptionbox{
 				Nickel-Probe.\label{fig_indent_ni}}{
-			\includegraphics[width=.47\linewidth]{img/Ni-500N-5s}}
+			\includegraphics[width=.47\linewidth]{img/Ni-500N-5s-l}}
 			\caption{Abdrücke der Indenterpyramide auf verschiedenen Proben.}
 			\label{fig_indents}
  \end{figure}
