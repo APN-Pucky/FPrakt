@@ -195,8 +195,56 @@
 
 	\subsection{Kalorimetrie}
 	\subsubsection{Unsicherheiten}
+	Folgende Unsicherheiten werden angenommen:
+	\begin{description}
+		\item[Waage:]  Digitalanzeige, Rechteckverteilung, $u(m)=\SI{3}{\mu g}$
+		\item[Thermometer:] digital, Rechteckverteilung, $u(T)=\SI{0.003}{K}$ %TODO oder Kelvin?
+		\item[Leistungsdifferenzkaloriemeter:] digital, Rechteckverteilung, $u(\Phi)=\SI{0.03}{\mu W}$ %TODO besserer Name?
+	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
+	\subsubsection*{Vergleichsprobe}
+	In \cref{fig_thermo_blei} ist der temperaturabhängige Verlauf des Wärmeflusses beim Aufheizen und Abkühlen  der Bleiprobe abgebildet.
+	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün).
+	Der Schnittpunkt der linearen Funktionen liefert die Schmelztemperatur $T_e= \SI{327.2+-3.1}{\celsius}$.
+	Analog erhält man die Erstarrungstemperatur $T_c = \SI{314.1+-2.8}{\celsius}$.
+
+
+	\begin{figure}[H]
+			\includegraphics[width=\linewidth]{img/Kalorimetrie_blei.pdf}
+			\caption{
+			Thermogramm der Bleiprobe.
+			Der rote (grüne) Pfeil zeigt auf den Schnittpunkt der linearisieren Peaksteigung und Basislinie.
+			Er gibt also die Erstarrungstemperatur (Schmelztemperatur) an.
+			Die gelben Pfeile beschreien die mittels \cref{eq_enth} berechneten Enthalpien im jeweiligen farblich gekennzeichneten Bereich zwischen Basislinie und Peak.
+			}
+			\label{fig_thermo_blei}
+	\end{figure}
+
+	Die Schmelzenthalpie ist gegeben durch eingeschlossen Fläche zwischen Basislinie und Peak:
+	\begin{equation}
+			\label{eq_enth}
+			\Delta H = \frac{1}{\alpha} \int \Phi(T) dT \approx \frac{1}{\alpha} \sum_{i=1}^{N-1} \Phi(T_i) (T_i-T_{i+1})
+	\end{equation}
+	Wobei $\alpha=\SI{50}{K/min}$ die Heizrate ist.
+	Die Masse des Bleis ist mit \SI{16.62}{mg} angegeben, woraus sich die spezifische und daraus mit der Molmasse \SI{207.2}{g/mol} die molare Enthalpie bestimmen lässt. %TODO source 4 molmasse https://www.lenntech.de/pse/elemente/pb.htm
+	Diese sind in \cref{tb_enthal_blei} aufgeführt.
+\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c  }
+			 &$\Delta H$& $\Delta h$  &$\Delta H_m$ \\ \hline
+			 Schmelzenthalpie& \SI{415.8+-2.8}{mJ}&\SI{25.01+-0.17}{J/g}& \SI{5.182+-0.035}{kJ/mol} \\
+			 Erstarrungsenthalpie&\SI{-408.6+-0.7}{mJ}&\SI{-24.58+-0.04}{J/g}&\SI{-5.093+-0.008}{kJ/mol} \\
+		\end{tabular}
+		\caption{
+		Verschiedene gemessene Enthalpien der Bleiprobe.
+		}
+		\label{tb_enthal_blei}
+\end{table}
+
+	\subsubsection*{PdNiP-Probe}
+	%TODO nur einen Cycle weil kapputt dann antistruktur
 	\subsubsection{Diskussion}
+	%TODO erwähnen was endothermer Prozess ist
 
 	\subsection{Röntgendiffraktometrie}
 	%\subsubsection{Unsicherheiten} %hab ich bissle im Beob diskutiert.
@@ -205,7 +253,7 @@
 	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
 	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
 	Aus dem Abschnitt ohne Probe lässt sich gut eine Unsicherheit und der Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet.
-	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit und weshalb diese vernachlässigt werden kann. %TODO Deutsch
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätzte Unsicherheit weshalb diese vernachlässigt werden kann. %TODO Deutsch
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
 			\caption{Diffraktogramm der kristallinen Probe.}
