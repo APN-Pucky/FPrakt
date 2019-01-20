@@ -152,7 +152,7 @@
 	In \cref{fig_kristallisierung} ist als c) auch der umgekehrte Prozess dargestellt, welcher in diesem Versuch untersucht wird.
 	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann.
 	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation.
-	Demnach ist auch die zur Kristallisation zuzuführende Wärme (Kristallisationsenthalpie) abhängig von der Heizrate.
+	Demnach ist auch die bei der Kristallisation vorliegende Temperatur abhängig von der Heizrate.
 	Dieser Prozess ist irreversibel, weshalb ein Senken der Temperatur nicht wieder in die Glasphase führt.
 	Hierfür wäre ein Schmelzen gefolgt vom oben geschilderte Prozess der schnellen Abkühlung erforderlich.
 
@@ -280,7 +280,7 @@
 			\label{fig_themo_pdnip_100}
 	\end{figure}
 	Die spezifische und molare Kristallisationsenthalpie lässt sich erneut mit Masse und molarer Masse der Probe bestimmen.
-	Die molare Masse $M$ ergibt sich als Summe der Molaren Massen der Bestandteile.
+	Die molare Masse $M$ ergibt sich als Summe der molaren Massen der Bestandteile.
 	Sie beträgt somit $M=\SI{196.1}{g/mol}$. %TODO src: https://www.lenntech.de/pse/elemente/p.htm
 \begin{table}[H]
 		\centering
@@ -331,6 +331,26 @@
 	\subsubsection*{PdNiP-Probe}
 	Wenn man \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} anschaut, ist zu beobachten, dass bei der Kristallisation nicht wie zu erwarten war ein negativer Peak, sondern zwei gemessen wurden.
 	Die ist vermutlich darauf zurückzuführen, dass im Glas Bereiche vorhanden sind, die vornehmlich aus Nickel- und Phosphoratomen bestehen, sowie Bereiche, die vornehmlich aus Nickel- und Palladiumatomen bestehen, was zu zwei verschiedenen Kristallisationsenthalpien für die beiden Bereiche führen würde.
+	Da die Proben alle aus dem selben Material bestehen wurde erwartet, dass die normierten Kristallisationsenthalpien in \cref{tb_enthal_pdnip} bei allen drei Proben im Rahmen der Unsicherheiten gleich sind. %TODO bissl gefährlich
+	Dies ist der Fall.
+
+	Für die Kristallisationstemperatur war aufgrund von \cref{fig_kristallisierung} zu erwarten, dass sie bei einer höheren Heizrate höher ist.
+	Dazu sind sie in \cref{tb_kristall_temp} eingetragen.
+	Der Anstieg der Kristallisationstemperatur mit der Heizrate lässt sich zwar feststellen, ist aber aufgrund der großen Unsicherheiten nicht signifikant.
+	Die großen Unsicherheiten kommen aufgrund der Konstruktion der angepassten Geraden zustande.
+	Vorallem die Basislinie kann nur sehr grob angepasst werden, da die Linearität abseits der Peaks nicht exakt vorhanden ist. %TODO meintest du das?
+
+	\begin{table}[H]
+			\centering
+			\begin{tabular}{c | c | c | c  }
+				 Heizrate & \SI{20}{\kelvin \per \minute} & \SI{50}{\kelvin \per \minute}  & \SI{100}{\kelvin \per \minute} \\ \hline
+				 $T_c$ & \SI{391 \pm 6}{\celsius}&\SI{403 \pm 8}{\celsius} & \SI{-413 \pm 18}{\celsius}
+			\end{tabular}
+			\caption{
+			Kristallisationstemperaturen bei den drei untersuchten Heizraten. Die Unsicherheiten ergeben sich aus dem Fit.
+			}
+			\label{tb_kristall_temp}
+	\end{table}
 
 	%TODO PdNiP: irreversibel-> keine Erneute Kristallisation
 	%TODO zwei Peaks, weil vmtl im MAterial Bereiche mit PdNi und welche mit NiP, sodass der eine Teil erst Kristallisiert.
@@ -341,7 +361,7 @@
 	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
 	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
 	Aus dem Abschnitt ohne Probe lässt sich gut die Unsicherheit durch den Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet. %TODO ist irgendwie nicht "gut", wenn man danach sagt, dass es nicht gut ist. Naja das gut ist spezifisch für Untergrund
-	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit, weshalb diese vernachlässigt werden kann.
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätzte Unsicherheit, weshalb diese vernachlässigt werden kann.
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
 			\caption{Diffraktogramm der kristallinen Probe.}
