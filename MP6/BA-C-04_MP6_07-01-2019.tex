@@ -108,17 +108,17 @@
 	\subsection{Phasenübergang}
 
 	Für das Verständnis des Verhaltens von metallischen Gläsern ist die Keimbildungstheorie fundamental.
-	Dieser geht die Annahme vorraus, dass der Kristallisationsprozess von kleinsten Keimen (Verunreinigungen) ausgeht und sich dann durch die gesamte Probe fortsetzt. %TODO sind das immer Verunreinigungen? IMO ist Verunreinigung auch ein Error im Gitter
-	Um diesen Vorgang zu beschreiben, wird die Gibbs-Energie (auch freie Enthalpie) verwendet, welche in einem geschlossenen System konstanter Temperatur und konstanten Drucks minimiert wird. %TODO brauche ich hier mehr Herleitung? Nö
+	Dieser geht die Annahme vorraus, dass der Kristallisationsprozess von kleinsten Keimen (Verunreinigungen) ausgeht und sich dann durch die gesamte Probe fortsetzt.
+	Um diesen Vorgang zu beschreiben, wird die Gibbs-Energie (auch freie Enthalpie) verwendet, welche in einem geschlossenen System konstanter Temperatur und konstanten Drucks minimiert wird.
 	Diese Minimierung lässt sich als treibende Kraft des Kristallisationsprozesses verstehen.
 
 
 	Die Änderung der Gibbs-Energie ergibt
 	\begin{equation} %TODO Variablen an das Bild anpassen? Ja, ist glaub besser
 		\label{eq_gibbs}
-		\Delta G = - \frac{4 \pi}{3} r^3 \Delta g_\text{u} + 4 \pi r^2 \gamma ,
+		\Delta G = - \frac{4 \pi}{3} r^3 \Delta G_\text{v} + 4 \pi r^2 \sigma ,
 	\end{equation}
-	wobei $r$ der Radius des sphärisch angenommenen Keims ist und $\Delta g_\text{u} = g_\text{s} - g_\text{k}$ (freie Enthalpie der Schmelze und des Kristalls) als Änderung der spezifischen freien Enthalpie die treibende Kraft der Umwandlung pro Volumeneinheit darstellt. %TODO letzteres ist wörtlich
+	wobei $r$ der Radius des sphärisch angenommenen Keims ist und $\Delta G_\text{v} = g_\text{s} - g_\text{k}$ (freie Enthalpie der Schmelze und des Kristalls) als Änderung der spezifischen freien Enthalpie die treibende Kraft der Umwandlung pro Volumeneinheit darstellt.
 
 	\begin{figure}[H]
 			\includegraphics[width= 0.5 \linewidth]{img/radius}
@@ -150,22 +150,22 @@
 	\end{figure}
 
 	In \cref{fig_kristallisierung} ist als c) auch der umgekehrte Prozess dargestellt, welcher in diesem Versuch untersucht wird.
-	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann. %TODO führen kann oder führt?
-	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation. %TODO muss man dafür über T_g sein?
+	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann.
+	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation.
 	Demnach ist auch die bei der Kristallisation vorliegende Temperatur abhängig von der Heizrate.
 	Dieser Prozess ist irreversibel, weshalb ein Senken der Temperatur nicht wieder in die Glasphase führt.
 	Hierfür wäre ein Schmelzen gefolgt vom oben geschilderte Prozess der schnellen Abkühlung erforderlich.
 
-	Die Schmelzenthalpie eines Metalls ist demhingegen nur materialabhängig und kann mit Literaturwerten verglichen werden, da der Übergang von Schmelze zu Kristall reversibel ist.
-	Hier ist also zu erwarten, dass die Schmelzenthalpie der Kristallisationsenthalpie entspricht. %TODO ist doch so, oder? IMO sind das zwei verschiedene Prozesse. Ich würde denken ich muss dem Kristallisierten noch extra Enthalpie pumpen um es zur Schmelze zu machen
+	Die Schmelzenthalpie eines Metalls, das nicht in die Glasphase gerät, ist demhingegen nur materialabhängig und kann mit Literaturwerten verglichen werden, da der Übergang von Schmelze zu Kristall reversibel ist.
+	Hier ist also zu erwarten, dass die Schmelzenthalpie der Kristallisationsenthalpie entspricht.
 
 	\subsection{Röntgendiffraktometrie}
 	Da ein amorpher Festkörper lediglich eine Nahordnung der Atome besitzen kann, während ein Kristall eine regelmäßige Gitterstruktur aufweist, ist zu erwarten, dass sich der amorphe Festkörper unter monochromatischem Röntgenlicht eher wie ein pulverisierter Kristall verhält und sich ein kontinuierliches Spektrum zeigt.
-	Beim Kristall hingegen sind nur einige scharfe Reflexe zu erwarten, bei denen die Bragg-Gleichung erfüllt ist. %TODO nenne ich jetzt hier nicht, weil später?
+	Beim Kristall hingegen sind nur einige scharfe Reflexe zu erwarten, bei denen die Bragg-Gleichung erfüllt ist.
 	Aus der Position des Maximums beim amorphen Kristall lässt sich gemäß der Bragg-Gleichung der Mittlere Atomabstand berechnen.
 
 
-	%\subsection{Vickers-Härte} %TODO ist schon weitgehend in Methoden
+	%\subsection{Vickers-Härte}
 
 	\section{Methoden} %TODO Ziele angeben
 	% Bilder von der Website klauen
@@ -176,20 +176,20 @@
 	\subsection{Kalorimetrie}
 	Es wird ein Leistungskalorimeter eingesetzt, um den Wärmefluss beim Erhitzen von verschiedenen Stoffen zu untersuchen.
 	Zunächst wird eine Bleiprobe, die sich bereits in einem Tiegel befindet, im Vergleich zu einem Referenztiegel untersucht.
-	Bei dieser wird keine gläserne Phase erwartet, da dies ein Erhitzen über den Schmelzpunkt gefolgt von einem schnelleren Abkühlen, als es mit diesem oder einem anderen bekannten Aufbau möglich ist, erfordern würde. %TODO Kann man Blei überhaupt zu Glas machen, imo nö, oder geht das bei jedem Material?.
-	Es werden zwei aufeinanderfolgende Messzyklen durchgeführt und das auf der Probe angegebene Gewicht notiert. %TODO wir haben glaub nur einen Messzyklus bei Blei
+	Bei dieser wird keine gläserne Phase erwartet, da dies ein Erhitzen über den Schmelzpunkt gefolgt von einem schnelleren Abkühlen, als es mit diesem oder einem anderen bekannten Aufbau möglich ist, erfordern würde.
+	Es wird ein Messzyklus durchgeführt und das auf der Probe angegebene Gewicht notiert.
 
 	Dann werden von einem Band aus amorphem PdNiP drei ungefähr gleich große Stücke mit einer Zange abgekniffen, gewogen und in Tiegeln verschlossen.
 	Diese werden im Vergleich zu einem leeren Referenztiegel im Kalorimeter bei je unterschiedlicher Heizrate untersucht.
-	Auch hier werden zwei Messzyklen aufgenommen.
+ 	Hier werden zwei Messzyklen aufgenommen.
 
 	\subsection{Röntgendiffraktometrie} %lul steht in der Anleitung mindestens einmal falsch geschrieben
 	In einem Röntgendiffraktometer (Kupfer-Anode, $\text{K}_\alpha$-Linie) wird im Debye-Scherrer-Verfahren die Röngenbeugung in Abhängigkeit vom Einstrahlwinkel unter monochromatischer Röntgenstrahlung gemessen.
 	Dabei wird eine amorphe und eine kristalline PdNiP-Probe untersucht.
-	Beide sind nicht pulverisiert.	%TODO weil pulver erwartung, dass bei kristall nichts exaktes
+	Beide sind nicht pulverisiert.	% weil pulver erwartung, dass bei kristall nichts exaktes
 
 	\subsection{Messung der Vickershärte}
- 	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem Nickel und einer aus amorphem PdNiP zu bestimmen. %TODO das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
+ 	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem Nickel und einer aus amorphem PdNiP zu bestimmen. % das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
 	Dazu wird ein Diamant in Form einer vierseitigen Pyramide mit einem Öffnungswinkel von \SI{136}{\degree} für \SI{5}{s} mit einer Kraft von \SI{0.5}{kgf} auf die Probe gedrückt.
 	Dann wird mit einem Mikroskop die Länge der beiden Diagonalen gemessen.
 	Das verwendete Gerät errechnet dann aus diesen Werten die Vickershärte.
@@ -202,13 +202,13 @@
 	Folgende Unsicherheiten werden angenommen:
 	\begin{description}
 		\item[Waage:]  Digitalanzeige, Rechteckverteilung, $u(m)=\SI{3}{\mu g}$
-		\item[Thermometer:] digital, Rechteckverteilung, $u(T)=\SI{0.003}{K}$ %TODO oder Kelvin?
-		\item[Leistungsdifferenzkalorimeter:] digital, Rechteckverteilung, $u(\Phi)=\SI{0.03}{\mu W}$ %TODO besserer Name?
+		\item[Thermometer:] digital, Rechteckverteilung, $u(T)=\SI{0.003}{K}$
+		\item[Leistungsdifferenzkalorimeter:] digital, Rechteckverteilung, $u(\Phi)=\SI{0.03}{\mu W}$
 	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
 	\subsubsection*{Vergleichsprobe} \label{ssss_vergleich}
 	In \cref{fig_thermo_blei} ist der temperaturabhängige Verlauf des Wärmeflusses beim Aufheizen und Abkühlen  der Bleiprobe abgebildet.
-	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün). %TODO manuell angepasst?
+	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün).
 	Der Schnittpunkt der linearen Funktionen liefert die Schmelztemperatur $T_s= \SI{327.2+-3.1}{\celsius}$.
 	Analog erhält man die Erstarrungstemperatur $T_e = \SI{314.1+-2.8}{\celsius}$.
 
@@ -225,13 +225,13 @@
 			\label{fig_thermo_blei}
 	\end{figure}
 
-	Die Schmelzenthalpie ist gegeben durch die eingeschlossen Fläche zwischen Basislinie und Peak: %TODO , die hier durch eine Summe genähert wird, was aufgrund des geringen Abstands der Messwerte in T eine gute Näherung ist:
+	Die Schmelzenthalpie ist gegeben durch die eingeschlossen Fläche zwischen Basislinie und Peak, die hier durch eine Summe genähert wird, was aufgrund des geringen Abstands der Messwerte in T eine gute Näherung ist:
 	\begin{equation}
 			\label{eq_enth}
 			\Delta H = \frac{1}{\alpha} \int \Phi(T) dT \approx \frac{1}{\alpha} \sum_{i=1}^{N-1} \Phi(T_i) (T_i-T_{i+1})
 	\end{equation}
-	Wobei $\alpha=\SI{50}{K/min}$ die Rate der Temperaturänderung ist.
-	Die Masse des Bleis ist mit \SI{16.62}{mg} angegeben, woraus sich die spezifische und daraus mit der Molmasse \SI{207.2}{g/mol} die molare Enthalpie bestimmen lässt. %TODO source 4 molmasse https://www.lenntech.de/pse/elemente/pb.htm
+	Dabei ist $\alpha=\SI{50}{K/min}$ die Rate der Temperaturänderung.
+	Die Masse des Bleis ist mit \SI{16.62}{mg} angegeben, woraus sich die spezifische und daraus mit der Molmasse \SI{207.2}{g/mol} die molare Enthalpie bestimmen lässt. % source 4 molmasse https://www.lenntech.de/pse/elemente/pb.htm
 	Diese sind in \cref{tb_enthal_blei} aufgeführt.
 \begin{table}[H]
 		\centering
@@ -241,11 +241,11 @@
 			 Erstarrungsenthalpie&\SI{-408.6+-0.7}{mJ}&\SI{-24.58+-0.04}{J/g}&\SI{-5.093+-0.008}{kJ/mol} \\
 		\end{tabular}
 		\caption{
-		Verschiedene gemessene Enthalpien der Bleiprobe unnormiert, normiert auf ein Gramm und auf ein Mol. %TODO Ergänzung fine?
+		Verschiedene gemessene Enthalpien der Bleiprobe unnormiert, normiert auf ein Gramm und auf ein Mol.
 		}
 		\label{tb_enthal_blei}
 \end{table}
- %TODO signi weg in den Tabellen??? >> halte ich für egal, sag halt sonst in caption: Ist orientierte Fläche, deshalb negativ.
+ % signi weg in den Tabellen??? >> halte ich für egal, sag halt sonst in caption: Ist orientierte Fläche, deshalb negativ.
 	\subsubsection*{PdNiP-Probe}
 	Es wurde der Wärmefluss in Abhängigkeit von der Temperatur für verschieden schwere PdNiP-Proben gemessen.
 	Jede Probe wurde zweimal erhitzt und wieder abgekühlt.
@@ -281,7 +281,7 @@
 	\end{figure}
 	Die spezifische und molare Kristallisationsenthalpie lässt sich erneut mit Masse und molarer Masse der Probe bestimmen.
 	Die molare Masse $M$ ergibt sich als Summe der molaren Massen der Bestandteile.
-	Sie beträgt somit $M=\SI{196.1}{g/mol}$. %TODO src: https://www.lenntech.de/pse/elemente/p.htm
+	Sie beträgt somit $M=\SI{196.1}{g/mol}$. % src: https://www.lenntech.de/pse/elemente/p.htm
 \begin{table}[H]
 		\centering
 		\begin{tabular}{c | c | c | c  }
@@ -316,29 +316,30 @@
 
 	\subsubsection{Diskussion}
 
-	%TODO erwähnen was endothermer Prozess ist
-	%TODO erwartung dass Q größer H ist, nach Anleitungs Bild
-	%TODO Schmelzenthalpie mit Lit. vergleichen
-	%TODO Kristallisationsenthalpie ist abhängig von Heizrate/Unterkühlung
+	% erwartung dass Q größer H ist, nach Anleitungs Bild >> nee
 	%TODO Übersteuerung am Ende durch Umschalten von Heizen zu Kühlen.
 	\subsubsection*{Vergleichsprobe}
 	Es war zu erwarten, dass bei der Untersuchung von Blei die Schmelzenthalpie der Erstarrungsenthalpie entspricht, da es sich um einen reversiblen Vorgang handelt.
+	Die Vorzeichen kommen dadurch zustande, dass beim Schmelzen eine zusätzliche Wärme zugeführt werden muss (endotherm), da die Schmelze energetisch ungünstiger als das Kristallgitter ist und dementsprechend beim Erstarren Wärme frei wird (exotherm).
 	Wenn man die Messwerte dafür in \cref{tb_enthal_blei} betrachtet, stellt man fest, dass dies innerhalb der doppelten Unsicherheit nicht der Fall ist.
 	Wenn man jedoch die dreifache Unsicherheit verwendet, überschneiden sich die Unsicherheitsintervallt, weshalb hier kein Widerspruch festgestellt werden kann.
 	Der Literaturwert der auf ein Mol normierten Schmelzenthalpie von Blei beträgt \SI{5.12}{\kilo \joule \per \mol} \cite{blei_enthalpie}.
-	Wenn man hierfür einen Rundungsunsicherheit annimmt, deckt sich dies mit dem Messwert von \SI{5,182 \pm 0,035}{\kilo \joule \per \mol}. %TODO könnte der dude natrülich sagen wir sollen genauere Literatur verwenden, aber ist mir jedenfalls Wurst ...
-	%TODO sollen wir standardmässig / oder \per in SI verwenden, weil 1 ist / anderes ^-1 , aber nicht so wichtig
+	Wenn man hierfür einen Rundungsunsicherheit annimmt, deckt sich dies mit dem Messwert von \SI{5,182 \pm 0,035}{\kilo \joule \per \mol}. % könnte der dude natrülich sagen wir sollen genauere Literatur verwenden, aber ist mir jedenfalls Wurst ...
+	% sollen wir standardmässig / oder \per in SI verwenden, weil 1 ist / anderes ^-1 , aber nicht so wichtig >> ja
 
+	%TODO Kristallisationsenthalpie ist abhängig von Heizrate/Unterkühlung
 	\subsubsection*{PdNiP-Probe}
-	Wenn man \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} anschaut, ist zu beobachten, dass bei der Kristallisation nicht wie zu erwarten war ein negativer Peak, sondern zwei gemessen wurden. %TODO zwei peaks oder drei
+	Wenn man \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} anschaut, ist zu beobachten, dass bei der Kristallisation (exotherm) nicht wie zu erwarten war ein negativer Peak, sondern zwei eindeutiger und ein dritter an der Flanke des größeren zu vermutender gemessen wurden. %TODO so fine?
 	Die ist vermutlich darauf zurückzuführen, dass im Glas Bereiche vorhanden sind, die vornehmlich aus Nickel- und Phosphoratomen bestehen, sowie Bereiche, die vornehmlich aus Nickel- und Palladiumatomen bestehen, was zu zwei verschiedenen Kristallisationsenthalpien für die beiden Bereiche führen würde.
-	Da die Proben alle aus dem selben Material bestehen wurde erwartet, dass die normierten Kristallisationsenthalpien in \cref{tb_enthal_pdnip} bei allen drei Proben im Rahmen der Unsicherheiten gleich sind. %TODO bissl gefährlich
+	Der fragliche dritte Peak lässt dann vermuten, dass auch einige wenige Bereiche, die vornehmlich aus Phosphor und Palladium bestehen, exisiteren. %TODO so fine?
+
+	Da die Proben alle aus dem selben Material bestehen, und die Kristallisationsenthalpie die Energie darstellt, die frei wird, weil das Metall in einen günstigeren Zustand übergeht, wurde erwartet, dass die normierten Kristallisationsenthalpien in \cref{tb_enthal_pdnip} bei allen drei Proben im Rahmen der Unsicherheiten gleich sind.
 	Dies ist der Fall.
 
 	Für die Kristallisationstemperatur war aufgrund von \cref{fig_kristallisierung} zu erwarten, dass sie bei einer höheren Heizrate höher ist.
-	Dazu sind sie in \cref{tb_kristall_temp} eingetragen.
+	Dazu sind die gemessenen Kristallisationstemperaturen in \cref{tb_kristall_temp} eingetragen.
 	Der Anstieg der Kristallisationstemperatur mit der Heizrate lässt sich zwar feststellen, ist aber aufgrund der großen Unsicherheiten nicht signifikant.
-	Die großen Unsicherheiten kommen durch die linear interpolierte Basislinie zustande.
+	Die großen Unsicherheiten kommen durch die linear interpolierte Basislinie (Tangentenkonstruktion) zustande.
 
 	\begin{table}[H]
 			\centering
@@ -352,8 +353,7 @@
 			\label{tb_kristall_temp}
 	\end{table}
 
-	%TODO PdNiP: irreversibel-> keine Erneute Kristallisation
-	%TODO zwei Peaks, weil vmtl im MAterial Bereiche mit PdNi und welche mit NiP, sodass der eine Teil erst Kristallisiert.
+	Dass beim Abkühlen der Probe das PdNiP keinen positiven Wärmefluss im Vergleich zum Referenztiegel aufweist, entspricht den Erwartungen, da der Übergang von Glas zu Kristall irreversibel ist.
 	\subsection{Röntgendiffraktometrie}
 	%\subsubsection{Unsicherheiten} %hab ich bissle im Beob diskutiert.
 	\subsubsection{Beobachtung und Datenanalyse}
@@ -452,7 +452,7 @@
 	Dies liegt daran, dass im Kristall bei einer Verformung die geschobenen Atome einfach einige Gitterpositionen weiter springen können, ohne die Gitterstruktur zu verletzen. %TODO 'springen'
 	Im amorphen PdNiP ist dies nicht möglich, weshalb Bereiche anderer Nahordnung ebenfalls geschoben werden und die beobachteten \enquote{ripples} auftreten. %TODO ripple fine? >> IMO Ja, aber 'anderer Nahordnung' klingt komisch
 	Diese leichtere Verschiebbarkeit der Atome im Kristall im Vergleich zum amorphem Glas ist auch der Grund dafür, dass die PdNiP-Probe die beobachtete deutlich höhere Vickers-Härte (\SI{524 \pm 14}{HV}) als die kristalline Nickel-Probe (\SI{188 \pm 5}{HV}) hat.
-	
+
 	%TODO Notes für Diskussion v , weil abgetrennt >>???
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
