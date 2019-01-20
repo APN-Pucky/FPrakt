@@ -108,13 +108,13 @@
 	\subsection{Phasenübergang}
 
 	Für das Verständnis des Verhaltens von metallischen Gläsern ist die Keimbildungstheorie fundamental.
-	Dieser geht die Annahme vorraus, dass der Kristallisationsprozess von kleinsten Keimen (Verunreinigungen) ausgeht und sich dann durch die gesamte Probe fortsetzt. %TODO sind das immer Verunreinigungen?
-	Um diesen Vorgang zu beschreiben, wird die Gibbs-Energie (auch freie Enthalpie) verwendet, welche in einem geschlossenen System konstanter Temperatur und konstanten Drucks minimiert wird. %TODO brauche ich hier mehr Herleitung?
+	Dieser geht die Annahme vorraus, dass der Kristallisationsprozess von kleinsten Keimen (Verunreinigungen) ausgeht und sich dann durch die gesamte Probe fortsetzt. %TODO sind das immer Verunreinigungen? IMO ist Verunreinigung auch ein Error im Gitter
+	Um diesen Vorgang zu beschreiben, wird die Gibbs-Energie (auch freie Enthalpie) verwendet, welche in einem geschlossenen System konstanter Temperatur und konstanten Drucks minimiert wird. %TODO brauche ich hier mehr Herleitung? Nö
 	Diese Minimierung lässt sich als treibende Kraft des Kristallisationsprozesses verstehen.
 
 
 	Die Änderung der Gibbs-Energie ergibt
-	\begin{equation} %TODO Variablen an das Bild anpassen?
+	\begin{equation} %TODO Variablen an das Bild anpassen? Ja, ist glaub besser
 		\label{eq_gibbs}
 		\Delta G = - \frac{4 \pi}{3} r^3 \Delta g_\text{u} + 4 \pi r^2 \gamma ,
 	\end{equation}
@@ -132,9 +132,9 @@
 
 	Daraus ergibt sich, wie in \cref{fig_radius_enthalpie} zu erkennen ist, ein kritischer Radius, unter dem Keime nicht stabil sind und keine Kristallisation stattfinden kann.
 	Dies ist darin begründet, dass die Grenzfläche zwischen kristalliner und amorpher Phase energetisch ungünstiger als beide Phasen ist.
-	Da das Volumen mit $r^3$ und die Oberfläche mit $r^2$ geht, ist eine Erhöhung des Keimradiusses also erst ab einem bestimmten Radius energetisch günstig.
+	Da das Volumen mit $r^3$ und die Oberfläche mit $r^2$ geht, ist eine Erhöhung des Keimradius also erst ab einem bestimmten Radius energetisch günstig.
 
-	Aus diesen Erkenntnissen folgt, dass bei der Frage, ob eine Abkühlende Schmelze kristallisiert, die Geschwindigkeit des Entstehens und Größe der Keime sowie die Geschwindigkeit des Abkühlens relevant sind.
+	Aus diesen Erkenntnissen folgt, dass für die Frage, ob eine Abkühlende Schmelze kristallisiert, die Geschwindigkeit des Entstehens und Größe der Keime sowie die Abkühlrate relevant sind.
 	Wenn die Schmelze schnell genug abgekühlt wird bzw. die Probe ausreichend rein ist, können sich keine ausreichend große Keime bilden und sie erstarrt in amorpher Form (vgl. \cref{fig_kristallisierung}).
 
 	\begin{figure}[H]
@@ -150,14 +150,14 @@
 	\end{figure}
 
 	In \cref{fig_kristallisierung} ist als c) auch der umgekehrte Prozess dargestellt, welcher in diesem Versuch untersucht wird.
-	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann.
-	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation.
+	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann. %TODO führen kann oder führt?
+	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation. %TODO muss man dafür über T_g sein?
 	Demnach ist auch die bei der Kristallisation vorliegende Temperatur abhängig von der Heizrate.
 	Dieser Prozess ist irreversibel, weshalb ein Senken der Temperatur nicht wieder in die Glasphase führt.
 	Hierfür wäre ein Schmelzen gefolgt vom oben geschilderte Prozess der schnellen Abkühlung erforderlich.
 
 	Die Schmelzenthalpie eines Metalls ist demhingegen nur materialabhängig und kann mit Literaturwerten verglichen werden, da der Übergang von Schmelze zu Kristall reversibel ist.
-	Hier ist also zu erwarten, dass die Schmelzenthalpie der Kristallisationsenthalpie entspricht. %TODO ist doch so, oder?
+	Hier ist also zu erwarten, dass die Schmelzenthalpie der Kristallisationsenthalpie entspricht. %TODO ist doch so, oder? IMO sind das zwei verschiedene Prozesse. Ich würde denken ich muss dem Kristallisierten noch extra Enthalpie pumpen um es zur Schmelze zu machen
 
 	\subsection{Röntgendiffraktometrie}
 	Da ein amorpher Festkörper lediglich eine Nahordnung der Atome besitzen kann, während ein Kristall eine regelmäßige Gitterstruktur aufweist, ist zu erwarten, dass sich der amorphe Festkörper unter monochromatischem Röntgenlicht eher wie ein pulverisierter Kristall verhält und sich ein kontinuierliches Spektrum zeigt.
@@ -176,8 +176,8 @@
 	\subsection{Kalorimetrie}
 	Es wird ein Leistungskalorimeter eingesetzt, um den Wärmefluss beim Erhitzen von verschiedenen Stoffen zu untersuchen.
 	Zunächst wird eine Bleiprobe, die sich bereits in einem Tiegel befindet, im Vergleich zu einem Referenztiegel untersucht.
-	Bei dieser wird keine gläserne Phase erwartet, da dies ein Erhitzen über den Schmelzpunkt gefolgt von einem schnelleren Abkühlen, als es mit diesem oder einem anderen bekannten Aufbau möglich ist, erfordern würde.
-	Es werden zwei aufeinanderfolgende Messzyklen durchgeführt und das auf der Probe angegebene Gewicht notiert.
+	Bei dieser wird keine gläserne Phase erwartet, da dies ein Erhitzen über den Schmelzpunkt gefolgt von einem schnelleren Abkühlen, als es mit diesem oder einem anderen bekannten Aufbau möglich ist, erfordern würde. %TODO Kann man Blei überhaupt zu Glas machen, imo nö, oder geht das bei jedem Material?.
+	Es werden zwei aufeinanderfolgende Messzyklen durchgeführt und das auf der Probe angegebene Gewicht notiert. %TODO wir haben glaub nur einen Messzyklus bei Blei
 
 	Dann werden von einem Band aus amorphem PdNiP drei ungefähr gleich große Stücke mit einer Zange abgekniffen, gewogen und in Tiegeln verschlossen.
 	Diese werden im Vergleich zu einem leeren Referenztiegel im Kalorimeter bei je unterschiedlicher Heizrate untersucht.
@@ -186,17 +186,16 @@
 	\subsection{Röntgendiffraktometrie} %lul steht in der Anleitung mindestens einmal falsch geschrieben
 	In einem Röntgendiffraktometer (Kupfer-Anode, $\text{K}_\alpha$-Linie) wird im Debye-Scherrer-Verfahren die Röngenbeugung in Abhängigkeit vom Einstrahlwinkel unter monochromatischer Röntgenstrahlung gemessen.
 	Dabei wird eine amorphe und eine kristalline PdNiP-Probe untersucht.
-	Beiden werden nicht pulverisiert.	%TODO weil pulver erwartung, dass bei kristall nichts exaktes
+	Beide sind nicht pulverisiert.	%TODO weil pulver erwartung, dass bei kristall nichts exaktes
 
 	\subsection{Messung der Vickershärte}
- 	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem und einer aus amorphem PdNiP zu bestimmen. %TODO das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
+ 	Es wird ein Mikroindenter verwendet, um die Vickershärte einer Probe aus kristallinem Nickel und einer aus amorphem PdNiP zu bestimmen. %TODO das steht in der Anleitung, aber an den Daten steht was von Paradin-Phosphor (was nicht existiert) und Ni.
 	Dazu wird ein Diamant in Form einer vierseitigen Pyramide mit einem Öffnungswinkel von \SI{136}{\degree} für \SI{5}{s} mit einer Kraft von \SI{0.5}{kgf} auf die Probe gedrückt.
 	Dann wird mit einem Mikroskop die Länge der beiden Diagonalen gemessen.
 	Das verwendete Gerät errechnet dann aus diesen Werten die Vickershärte.
 	Es werden jeweils \num{10} Messungen durchgeführt, um einen Mittelwert bilden zu können.
 
 	\section{Ergebnisse und Diskussion}
-	%TODO Unsicherheiten
 
 	\subsection{Kalorimetrie}
 	\subsubsection{Unsicherheiten}
@@ -204,7 +203,7 @@
 	\begin{description}
 		\item[Waage:]  Digitalanzeige, Rechteckverteilung, $u(m)=\SI{3}{\mu g}$
 		\item[Thermometer:] digital, Rechteckverteilung, $u(T)=\SI{0.003}{K}$ %TODO oder Kelvin?
-		\item[Leistungsdifferenzkaloriemeter:] digital, Rechteckverteilung, $u(\Phi)=\SI{0.03}{\mu W}$ %TODO besserer Name?
+		\item[Leistungsdifferenzkalorimeter:] digital, Rechteckverteilung, $u(\Phi)=\SI{0.03}{\mu W}$ %TODO besserer Name?
 	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
 	\subsubsection*{Vergleichsprobe} \label{ssss_vergleich}
@@ -248,7 +247,6 @@
 \end{table}
  %TODO signi weg in den Tabellen??? >> halte ich für egal, sag halt sonst in caption: Ist orientierte Fläche, deshalb negativ.
 	\subsubsection*{PdNiP-Probe}
-	%TODO nur einen Cycle weil kaputt dann Antistruktur abgezogen erwähn in Methoden
 	Es wurde der Wärmefluss in Abhängigkeit von der Temperatur für verschieden schwere PdNiP-Proben gemessen.
 	Jede Probe wurde zweimal erhitzt und wieder abgekühlt.
 	In \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} ist die Differenz des zweiten Aufheizen von dem ersten abgebildet.
@@ -328,10 +326,11 @@
 	Wenn man die Messwerte dafür in \cref{tb_enthal_blei} betrachtet, stellt man fest, dass dies innerhalb der doppelten Unsicherheit nicht der Fall ist.
 	Wenn man jedoch die dreifache Unsicherheit verwendet, überschneiden sich die Unsicherheitsintervallt, weshalb hier kein Widerspruch festgestellt werden kann.
 	Der Literaturwert der auf ein Mol normierten Schmelzenthalpie von Blei beträgt \SI{5.12}{\kilo \joule \per \mol} \cite{blei_enthalpie}.
-	Wenn man hierfür einen Rundungsfehler annimmt, deckt sich dies mit dem Messwert von \SI{5,182 \pm 0,035}{\kilo \joule \per \mol}.
+	Wenn man hierfür einen Rundungsunsicherheit annimmt, deckt sich dies mit dem Messwert von \SI{5,182 \pm 0,035}{\kilo \joule \per \mol}. %TODO könnte der dude natrülich sagen wir sollen genauere Literatur verwenden, aber ist mir jedenfalls Wurst ...
+	%TODO sollen wir standardmässig / oder \per in SI verwenden, weil 1 ist / anderes ^-1 , aber nicht so wichtig
 
 	\subsubsection*{PdNiP-Probe}
-	Wenn man \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} anschaut, ist zu beobachten, dass bei der Kristallisation nicht wie zu erwarten war ein negativer Peak, sondern zwei gemessen wurden.
+	Wenn man \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} anschaut, ist zu beobachten, dass bei der Kristallisation nicht wie zu erwarten war ein negativer Peak, sondern zwei gemessen wurden. %TODO zwei peaks oder drei
 	Die ist vermutlich darauf zurückzuführen, dass im Glas Bereiche vorhanden sind, die vornehmlich aus Nickel- und Phosphoratomen bestehen, sowie Bereiche, die vornehmlich aus Nickel- und Palladiumatomen bestehen, was zu zwei verschiedenen Kristallisationsenthalpien für die beiden Bereiche führen würde.
 	Da die Proben alle aus dem selben Material bestehen wurde erwartet, dass die normierten Kristallisationsenthalpien in \cref{tb_enthal_pdnip} bei allen drei Proben im Rahmen der Unsicherheiten gleich sind. %TODO bissl gefährlich
 	Dies ist der Fall.
@@ -339,8 +338,7 @@
 	Für die Kristallisationstemperatur war aufgrund von \cref{fig_kristallisierung} zu erwarten, dass sie bei einer höheren Heizrate höher ist.
 	Dazu sind sie in \cref{tb_kristall_temp} eingetragen.
 	Der Anstieg der Kristallisationstemperatur mit der Heizrate lässt sich zwar feststellen, ist aber aufgrund der großen Unsicherheiten nicht signifikant.
-	Die großen Unsicherheiten kommen aufgrund der Konstruktion der angepassten Geraden zustande.
-	Vorallem die Basislinie kann nur sehr grob angepasst werden, da die Linearität abseits der Peaks nicht exakt vorhanden ist. %TODO meintest du das?
+	Die großen Unsicherheiten kommen durch die linear interpolierte Basislinie zustande.
 
 	\begin{table}[H]
 			\centering
@@ -399,10 +397,11 @@
 		\label{tb_xrd_result}
 \end{table}
 	\subsubsection{Diskussion}
-	%TODO anleitung sagt 3 maximalsten peaks, würde ich dann halt die schöneren 3 der 4 nehmen, oder alle weil ca. gleich hoch
-	Rein qualitativ lässt sich sofort feststellen, dass erwartungsgemäß das Spektrum vom metallischen Glas in \cref{fig_xrd_glas} kontinuierlich ist, während das des Kristalls in \cref{fig_xrd_kristallin} eher diskret ist, was dafür spricht, dass die Glasprobe tatsächlich amorph ist. %TODO zu vorsichtig?
+	%TODO Anleitung sagt 3 maximalsten peaks, würde ich dann halt die schöneren 3 der 4 nehmen, oder alle weil ca. gleich hoch
+	Rein qualitativ lässt sich sofort feststellen, dass erwartungsgemäß das Spektrum vom metallischen Glas in \cref{fig_xrd_glas} kontinuierlich ist, während das des Kristalls in \cref{fig_xrd_kristallin} eher diskret ist, was dafür spricht, dass die Glasprobe tatsächlich amorph ist. %TODO zu vorsichtig? Ja
 	\cite{SIETSMA1991146} gibt die Atomabstände in \cref{tb_xrd_vgl} aus einer Kombination aus theoretischer Berechnung mit radialen Verteilungsfunktionen und experimenteller Bestimmung.
 	Sie lassen sich nicht eindeutig den Messwerten in \cref{tb_xrd_result} zuordnen, da in der durchgeführten Messung nicht zwischen Atomsorten unterschieden werden kann. Der Messwert liegt aber zwischen den Literaturwerten für die einzelnen Atome, weshalb hier kein Widerspruch gezeigt werden kann. %TODO komisch vormuliert, ab idk
+%TODO "kristallinen Proben ist mit Literaturdaten der Atomradien von Pd, Ni und P zu vergleichen (gewichteter Mittelwert)." << Anleitung, gewichteter Mittelwert? womit gewichtet, Masse,Voumen?
 
 	\begin{table}[H]
 		\centering
@@ -450,9 +449,10 @@
 
 	In \cref{fig_indents} ist zu erkennen, dass bei der PdNiP-Probe dauerhafte Verformungen außerhalb des Pyramidenabdrucks auftreten.
 	In der Nickel-Probe ist das nicht der Fall.
-	Dies liegt daran, dass im Kristall bei einer Verformung die geschobenen Atome einfach einige Gitterpositionen weiter springen können, ohne die Gitterstruktur zu verletzen.
-	Im amorphen PdNiP ist dies nicht möglich, weshalb Bereiche anderer Nahordnung ebenfalls geschoben werden und die beobachteten \enquote{ripples} auftreten. %TODO ripple fine?
+	Dies liegt daran, dass im Kristall bei einer Verformung die geschobenen Atome einfach einige Gitterpositionen weiter springen können, ohne die Gitterstruktur zu verletzen. %TODO 'springen'
+	Im amorphen PdNiP ist dies nicht möglich, weshalb Bereiche anderer Nahordnung ebenfalls geschoben werden und die beobachteten \enquote{ripples} auftreten. %TODO ripple fine? >> IMO Ja, aber 'anderer Nahordnung' klingt komisch
 	Diese leichtere Verschiebbarkeit der Atome im Kristall im Vergleich zum amorphem Glas ist auch der Grund dafür, dass die PdNiP-Probe die beobachtete deutlich höhere Vickers-Härte (\SI{524 \pm 14}{HV}) als die kristalline Nickel-Probe (\SI{188 \pm 5}{HV}) hat.
+	
 	%TODO Notes für Diskussion v , weil abgetrennt >>???
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
