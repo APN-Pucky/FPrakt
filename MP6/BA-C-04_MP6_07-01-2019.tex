@@ -210,14 +210,14 @@
 	\subsubsection*{Vergleichsprobe} \label{ssss_vergleich}
 	In \cref{fig_thermo_blei} ist der temperaturabhängige Verlauf des Wärmeflusses beim Aufheizen und Abkühlen  der Bleiprobe abgebildet.
 	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün).
-	Der Schnittpunkt der linearen Funktionen liefert die Schmelztemperatur $T_e= \SI{327.2+-3.1}{\celsius}$.
-	Analog erhält man die Erstarrungstemperatur $T_c = \SI{314.1+-2.8}{\celsius}$.
+	Der Schnittpunkt der linearen Funktionen liefert die Schmelztemperatur $T_s= \SI{327.2+-3.1}{\celsius}$.
+	Analog erhält man die Erstarrungstemperatur $T_e = \SI{314.1+-2.8}{\celsius}$.
 
 
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_blei.pdf}
 			\caption{
-			Thermogramm der Bleiprobe.
+			Thermogramm der Bleiprobe bei einer Heizrate, bzw. Abkühlrate, $\alpha =\SI{50}{K/min}$.
 			Der rote (grüne) Pfeil zeigt auf den Schnittpunkt der linearisieren Peaksteigung und Basislinie.
 			Er gibt also die Erstarrungstemperatur (Schmelztemperatur) an.
 			Die gelben Pfeile beschreien die mittels \cref{eq_enth} berechneten Enthalpien im jeweiligen farblich gekennzeichneten Bereich zwischen Basislinie und Peak.
@@ -226,12 +226,12 @@
 			\label{fig_thermo_blei}
 	\end{figure}
 
-	Die Schmelzenthalpie ist gegeben durch eingeschlossen Fläche zwischen Basislinie und Peak:
+	Die Schmelzenthalpie ist gegeben durch die eingeschlossen Fläche zwischen Basislinie und Peak:
 	\begin{equation}
 			\label{eq_enth}
 			\Delta H = \frac{1}{\alpha} \int \Phi(T) dT \approx \frac{1}{\alpha} \sum_{i=1}^{N-1} \Phi(T_i) (T_i-T_{i+1})
 	\end{equation}
-	Wobei $\alpha=\SI{50}{K/min}$ die Heizrate ist.
+	Wobei $\alpha=\SI{50}{K/min}$ die Rate der Temperaturänderung ist.
 	Die Masse des Bleis ist mit \SI{16.62}{mg} angegeben, woraus sich die spezifische und daraus mit der Molmasse \SI{207.2}{g/mol} die molare Enthalpie bestimmen lässt. %TODO source 4 molmasse https://www.lenntech.de/pse/elemente/pb.htm
 	Diese sind in \cref{tb_enthal_blei} aufgeführt.
 \begin{table}[H]
@@ -246,10 +246,10 @@
 		}
 		\label{tb_enthal_blei}
 \end{table}
-
+ %TODO signi weg in den Tabellen???
 	\subsubsection*{PdNiP-Probe}
-	%TODO nur einen Cycle weil kapputt dann antistruktur Abgezogen erwähn in methode
-	Es wurden die Thermogramme \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} für verschieden schwere PdNiP-Proben gemessen.
+	%TODO nur einen Cycle weil kaputt dann Antistruktur abgezogen erwähn in Methoden
+	Es wurden die Thermogramme in \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} für verschieden schwere PdNiP-Proben gemessen.
 	Die Kristallisationspeaktemperaturen sind in blau gekennzeichnet.
 	Die Kristallisationsenthalpie ist in gelb markiert und berechnet sich analog zur \nameref{ssss_vergleich}.
 	Der orange Pfeil zeigt auf die Kristallisationstemperatur, die sich ebenfalls analog ergibt.
@@ -258,7 +258,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_pdnip_20.pdf}
 			\caption{
-				Thermogramm der PdNiP-Probe bei einer Heizrate $\alpha = \SI{20}{K/min}$.
+				Thermogramm der \SI{10.99}{mg} PdNiP-Probe bei einer Heizrate $\alpha = \SI{20}{K/min}$.
 			Die Unsicherheiten sind kleiner als die Symbolgröße.
 			}
 			\label{fig_themo_pdnip_20}
@@ -266,7 +266,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_pdnip_50.pdf}
 			\caption{
-				Thermogramm der PdNiP-Probe bei einer Heizrate $\alpha = \SI{50}{K/min}$.
+				Thermogramm der \SI{11.52}{mg} PdNiP-Probe bei einer Heizrate $\alpha = \SI{50}{K/min}$.
 			Die Unsicherheiten sind kleiner als die Symbolgröße.
 			}
 			\label{fig_themo_pdnip_50}
@@ -274,7 +274,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_pdnip_100.pdf}
 			\caption{
-				Thermogramm der PdNiP-Probe bei einer Heizrate $\alpha = \SI{100}{K/min}$.
+				Thermogramm der \SI{11.94}{mg} PdNiP-Probe bei einer Heizrate $\alpha = \SI{100}{K/min}$.
 			Die Unsicherheiten sind kleiner als die Symbolgröße.
 			}
 			\label{fig_themo_pdnip_100}
@@ -286,12 +286,12 @@
 		\centering
 		\begin{tabular}{c | c | c | c  }
 			 Masse $m$ &$\Delta H$& $\Delta h$  &$\Delta H_m$ \\ \hline
-			 \SI{10.99}{mg}& \SI{-1181+-14}{mJ}&\SI{107.5+-1.3}{J/g}& \SI{21.1+-0.3}{kJ/mol} \\
-			 \SI{11.52}{mg}& \SI{-1231+-13}{mJ}&\SI{106.9+-1.1}{J/g}& \SI{21.0+-0.2}{kJ/mol} \\
-			 \SI{11.94}{mg}& \SI{-1276+-50}{mJ}&\SI{106.9+-4.2}{J/g}& \SI{21.0+-0.8}{kJ/mol} \\
+			 \SI{10.99}{mg}& \SI{-1181+-14}{mJ}&\SI{-107.5+-1.3}{J/g}& \SI{-21.1+-0.3}{kJ/mol} \\
+			 \SI{11.52}{mg}& \SI{-1231+-13}{mJ}&\SI{-106.9+-1.1}{J/g}& \SI{-21.0+-0.2}{kJ/mol} \\
+			 \SI{11.94}{mg}& \SI{-1276+-50}{mJ}&\SI{-106.9+-4.2}{J/g}& \SI{-21.0+-0.8}{kJ/mol} \\
 		\end{tabular}
 		\caption{
-		Verschiedene gemessene Kristallisationsenthalpie der PdNiP-Proben.
+		Verschiedene gemessene Kristallisationsenthalpien der PdNiP-Proben.
 		}
 		\label{tb_enthal_pdnip}
 \end{table}
@@ -301,14 +301,14 @@
 		\label{eq_linear}
 			\ln{\frac{\alpha}{T_p^2}} = -\frac{Q}{RT_p} + C
 	\end{equation}
-	Hier bei ist $T_p$ die Kristallisationspeaktemperatur und $\alpha$ die zur selben Messung gehörende Heizrate.
+	Hier bei ist $T_p$ die Kristallisationspeaktemperatur in Kelvin und $\alpha$ die zur selben Messung gehörende Heizrate in \si{K/min}.
 	$R=\SI{8.31446}{J/molK}$ ist die allgemeine Gaskonstante und C eine beliebige Konstante.
 	Das Resultat ist eine Aktivierungsenthalpie $Q=\SI{289+-18}{kJ/mol}$.
 
 \begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_kissinger.pdf}
 			\caption{
-			Linearisierung nach \cref{eq_linear} zur Bestimmung der Aktivierungsenthalpie nach Kissinger.
+			Linearisierung der Kristallisationspeaktemperaturen und Heizraten nach \cref{eq_linear} zur Bestimmung der Aktivierungsenthalpie nach Kissinger.
 			}
 			\label{fig_thermo_kissinger}
 		\end{figure}
@@ -331,8 +331,8 @@
 	Die gemessenen Kurven sind in \cref{fig_xrd_kristallin} und \cref{fig_xrd_glas} dargestellt.
 	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
 	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
-	Aus dem Abschnitt ohne Probe lässt sich gut eine Unsicherheit und der Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet. %TODO ist irgendwie nicht "gut", wenn man danach sagt, dass es nicht gut ist. Naja das gut ist spezifisch für Untergrund
-	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit, weshalb diese vernachlässigt wird.
+	Aus dem Abschnitt ohne Probe lässt sich gut die Unsicherheit durch den Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet. %TODO ist irgendwie nicht "gut", wenn man danach sagt, dass es nicht gut ist. Naja das gut ist spezifisch für Untergrund
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit, weshalb diese vernachlässigt werden kann.
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
 			\caption{Diffraktogramm der kristallinen Probe.}
@@ -350,19 +350,19 @@
 		f(x) = a\cdot e^{-\frac{(x - c)^2}{2d^2}} + y
 	\end{equation}
 	Die gemittelten Peakpositionen der Proben befinden sich in \cref{tb_xrd_result}.
-	Außerdem wurde nach der Bragg-\cref{eq_bragg} der Abstand der Gitterebenen, bzw. der mittler Atomabstand berechnet.
+	Außerdem wurde nach der Bragg-\cref{eq_bragg} der Abstand der Gitterebenen, bzw. der mittler Atomabstand, berechnet.
 	\begin{equation}
 			\label{eq_bragg}
 			\bar{d} = \frac{\lambda}{2\sin{\bar{\theta}}} \quad \text{mit} \quad u(\bar{d}) = \left|\frac{\cos{\bar{\theta}}}{2\sin^2{\bar{\theta}}} \right| \lambda \cdot u(\bar{\theta})
 	\end{equation}
-	Die Wellenlänge der Röntgenstrahlung einer Kupfer-Anode beträgt $\lambda_{\text{K}_\alpha}= \SI{1.5406}{\angstrom}$.
+	Die Wellenlänge der Röntgenstrahlung der Kupfer-Anode beträgt $\lambda_{\text{K}_\alpha}= \SI{1.5406}{\angstrom}$.
 	\begin{table}[H] %TODO die haut sich rechts raus.
 		\centering
 		\begin{tabular}{ c | c | c | c | c | c}
 			 Probe& Glas  &\multicolumn{4}{c}{Kristall} \\ \hline
 			 Peak&  1 & 1 & 2 &  3 & 4\\ \hline
-			 $2\bar{\theta}$&\SI{42.2+-1.3}{\degree}&\SI{39.7+-0.3}{\degree} & \SI{40.52+-0.19}{\degree} &\SI{41.59+-0.16}{\degree} & \SI{43.6+-0.43}{\degree} \\
-			 $\bar{d}$ &\SI{2.14+-0.06}{\angstrom} & \SI{2.27+-0.02}{\angstrom} & \SI{2.224+-0.010}{\angstrom} & \SI{2.17+-0.008}{\angstrom} & \SI{2.07+-0.02}{\angstrom}
+			 $2\bar{\theta}$ in \si{\degree}&\SI{42.2+-1.3}{}&\SI{39.7+-0.3}{} & \SI{40.52+-0.19}{} &\SI{41.59+-0.16}{} & \SI{43.6+-0.43}{} \\
+			 $\bar{d}$ in \si{\angstrom} &\SI{2.14+-0.06}{} & \SI{2.27+-0.02}{} & \SI{2.224+-0.010}{} & \SI{2.17+-0.008}{} & \SI{2.07+-0.02}{}
 		\end{tabular}
 		\caption{Positionen der Diffraktogramm Peaks, sowie die aus der Bragg-\cref{eq_bragg} resultierenden Gitterebenenabstände (Kristall), bzw. der mittlere Atomabstand (Glas).}
 		\label{tb_xrd_result}
@@ -394,7 +394,7 @@
 	Mit einer Rechteckverteilung ergibt sich eine Unsicherheit von $u(H) = \SI{0.03}{HV}$.
 	\subsubsection{Beobachtung und Datenanalyse}
 	%TODO mehr Text hier
-	In \cref{fig_indents} sind beispielhafte Aufnahmen des Mikroskops dargestellt.
+	In \cref{fig_indents} sind beispielhafte Aufnahmen des Mikroskops der zwei untersuchten Proben dargestellt.
 	\begin{figure}[H]
 		\centering
 			\subcaptionbox{
