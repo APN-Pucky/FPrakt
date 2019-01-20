@@ -152,7 +152,7 @@
 	In \cref{fig_kristallisierung} ist als c) auch der umgekehrte Prozess dargestellt, welcher in diesem Versuch untersucht wird.
 	Das Erhitzen eines Metalls in Glasphase führt dazu, dass es in den Bereich der unterkühlten Schmelze gerät, in der der oben beschriebene Keimbildungsprozess zur Kristallisation führen kann.
 	Je schneller das Erhitzen stattfindet, desto eher kristallisiert das Glas, aber auch ein geringes Erhitzen gefolgt von einem Konstanthalten der Temperatur führt nach ausreichender Zeit zu Kristallisation.
-	Demnach ist auch die zur Kristallisation zuzuführende Wärme (Kristallisationsenthalpie) abhängig von der Heizrate.
+	Demnach ist auch die bei der Kristallisation vorliegende Temperatur abhängig von der Heizrate.
 	Dieser Prozess ist irreversibel, weshalb ein Senken der Temperatur nicht wieder in die Glasphase führt.
 	Hierfür wäre ein Schmelzen gefolgt vom oben geschilderte Prozess der schnellen Abkühlung erforderlich.
 
@@ -209,7 +209,7 @@
 	\subsubsection{Beobachtung und Datenanalyse}
 	\subsubsection*{Vergleichsprobe} \label{ssss_vergleich}
 	In \cref{fig_thermo_blei} ist der temperaturabhängige Verlauf des Wärmeflusses beim Aufheizen und Abkühlen  der Bleiprobe abgebildet.
-	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün).
+	Um die Schmelztemperatur zu bestimmen wurden an die Aufheizkurve zwei Geraden (Basislinie und Peak) angepasst (grün). %TODO manuell angepasst?
 	Der Schnittpunkt der linearen Funktionen liefert die Schmelztemperatur $T_s= \SI{327.2+-3.1}{\celsius}$.
 	Analog erhält man die Erstarrungstemperatur $T_e = \SI{314.1+-2.8}{\celsius}$.
 
@@ -217,7 +217,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/Kalorimetrie_blei.pdf}
 			\caption{
-			Thermogramm der Bleiprobe bei einer Heizrate, bzw. Abkühlrate, $\alpha =\SI{50}{K/min}$.
+			Thermogramm der Bleiprobe bei einer Heiz- bzw. Abkühlrate $\alpha =\SI{50}{K/min}$.
 			Der rote (grüne) Pfeil zeigt auf den Schnittpunkt der linearisieren Peaksteigung und Basislinie.
 			Er gibt also die Erstarrungstemperatur (Schmelztemperatur) an.
 			Die gelben Pfeile beschreien die mittels \cref{eq_enth} berechneten Enthalpien im jeweiligen farblich gekennzeichneten Bereich zwischen Basislinie und Peak.
@@ -226,7 +226,7 @@
 			\label{fig_thermo_blei}
 	\end{figure}
 
-	Die Schmelzenthalpie ist gegeben durch die eingeschlossen Fläche zwischen Basislinie und Peak:
+	Die Schmelzenthalpie ist gegeben durch die eingeschlossen Fläche zwischen Basislinie und Peak: %TODO , die hier durch eine Summe genähert wird, was aufgrund des geringen Abstands der Messwerte in T eine gute Näherung ist:
 	\begin{equation}
 			\label{eq_enth}
 			\Delta H = \frac{1}{\alpha} \int \Phi(T) dT \approx \frac{1}{\alpha} \sum_{i=1}^{N-1} \Phi(T_i) (T_i-T_{i+1})
@@ -242,11 +242,11 @@
 			 Erstarrungsenthalpie&\SI{-408.6+-0.7}{mJ}&\SI{-24.58+-0.04}{J/g}&\SI{-5.093+-0.008}{kJ/mol} \\
 		\end{tabular}
 		\caption{
-		Verschiedene gemessene Enthalpien der Bleiprobe.
+		Verschiedene gemessene Enthalpien der Bleiprobe unnormiert, normiert auf ein Gramm und auf ein Mol. %TODO Ergänzung fine?
 		}
 		\label{tb_enthal_blei}
 \end{table}
- %TODO signi weg in den Tabellen???
+ %TODO signi weg in den Tabellen??? >> halte ich für egal, sag halt sonst in caption: Ist orientierte Fläche, deshalb negativ.
 	\subsubsection*{PdNiP-Probe}
 	%TODO nur einen Cycle weil kaputt dann Antistruktur abgezogen erwähn in Methoden
 	Es wurde der Wärmefluss in Abhängigkeit von der Temperatur für verschieden schwere PdNiP-Proben gemessen.
@@ -282,7 +282,7 @@
 			\label{fig_themo_pdnip_100}
 	\end{figure}
 	Die spezifische und molare Kristallisationsenthalpie lässt sich erneut mit Masse und molarer Masse der Probe bestimmen.
-	Die molare Masse $M$ ergibt sich als Summe der Molaren Massen der Bestandteile.
+	Die molare Masse $M$ ergibt sich als Summe der molaren Massen der Bestandteile.
 	Sie beträgt somit $M=\SI{196.1}{g/mol}$. %TODO src: https://www.lenntech.de/pse/elemente/p.htm
 \begin{table}[H]
 		\centering
@@ -323,8 +323,37 @@
 	%TODO Schmelzenthalpie mit Lit. vergleichen
 	%TODO Kristallisationsenthalpie ist abhängig von Heizrate/Unterkühlung
 	%TODO Übersteuerung am Ende durch Umschalten von Heizen zu Kühlen.
-	Der Literaturwert der Schmelzenthalpie von Blei beträgt \SI{4,8}{\kilo \joule \per \mol} \cite{blei_enthalpie}. %TODO why not this: http://www.periodensystem-online.de/index.php?id=bonds&el=82 passt besser
-	%TODO Blei: Nur schmelzen/kristallisation -> reversibel und Schmelz=Kristallisation
+	\subsubsection*{Vergleichsprobe}
+	Es war zu erwarten, dass bei der Untersuchung von Blei die Schmelzenthalpie der Erstarrungsenthalpie entspricht, da es sich um einen reversiblen Vorgang handelt.
+	Wenn man die Messwerte dafür in \cref{tb_enthal_blei} betrachtet, stellt man fest, dass dies innerhalb der doppelten Unsicherheit nicht der Fall ist.
+	Wenn man jedoch die dreifache Unsicherheit verwendet, überschneiden sich die Unsicherheitsintervallt, weshalb hier kein Widerspruch festgestellt werden kann.
+	Der Literaturwert der auf ein Mol normierten Schmelzenthalpie von Blei beträgt \SI{5.12}{\kilo \joule \per \mol} \cite{blei_enthalpie}.
+	Wenn man hierfür einen Rundungsfehler annimmt, deckt sich dies mit dem Messwert von \SI{5,182 \pm 0,035}{\kilo \joule \per \mol}.
+
+	\subsubsection*{PdNiP-Probe}
+	Wenn man \crefrange{fig_themo_pdnip_20}{fig_themo_pdnip_100} anschaut, ist zu beobachten, dass bei der Kristallisation nicht wie zu erwarten war ein negativer Peak, sondern zwei gemessen wurden.
+	Die ist vermutlich darauf zurückzuführen, dass im Glas Bereiche vorhanden sind, die vornehmlich aus Nickel- und Phosphoratomen bestehen, sowie Bereiche, die vornehmlich aus Nickel- und Palladiumatomen bestehen, was zu zwei verschiedenen Kristallisationsenthalpien für die beiden Bereiche führen würde.
+	Da die Proben alle aus dem selben Material bestehen wurde erwartet, dass die normierten Kristallisationsenthalpien in \cref{tb_enthal_pdnip} bei allen drei Proben im Rahmen der Unsicherheiten gleich sind. %TODO bissl gefährlich
+	Dies ist der Fall.
+
+	Für die Kristallisationstemperatur war aufgrund von \cref{fig_kristallisierung} zu erwarten, dass sie bei einer höheren Heizrate höher ist.
+	Dazu sind sie in \cref{tb_kristall_temp} eingetragen.
+	Der Anstieg der Kristallisationstemperatur mit der Heizrate lässt sich zwar feststellen, ist aber aufgrund der großen Unsicherheiten nicht signifikant.
+	Die großen Unsicherheiten kommen aufgrund der Konstruktion der angepassten Geraden zustande.
+	Vorallem die Basislinie kann nur sehr grob angepasst werden, da die Linearität abseits der Peaks nicht exakt vorhanden ist. %TODO meintest du das?
+
+	\begin{table}[H]
+			\centering
+			\begin{tabular}{c | c | c | c  }
+				 Heizrate & \SI{20}{\kelvin \per \minute} & \SI{50}{\kelvin \per \minute}  & \SI{100}{\kelvin \per \minute} \\ \hline
+				 $T_c$ & \SI{391 \pm 6}{\celsius}&\SI{403 \pm 8}{\celsius} & \SI{-413 \pm 18}{\celsius}
+			\end{tabular}
+			\caption{
+			Kristallisationstemperaturen bei den drei untersuchten Heizraten. Die Unsicherheiten ergeben sich aus dem Fit.
+			}
+			\label{tb_kristall_temp}
+	\end{table}
+
 	%TODO PdNiP: irreversibel-> keine Erneute Kristallisation
 	%TODO zwei Peaks, weil vmtl im MAterial Bereiche mit PdNi und welche mit NiP, sodass der eine Teil erst Kristallisiert.
 	\subsection{Röntgendiffraktometrie}
@@ -334,7 +363,7 @@
 	Bei $\theta \approx \SI{31}{\degree}$ ist in der Messung der kristallinen Probe eine deutliche Kante zuerkennen.
 	Sie kennzeichnet den Punkt an dem die Probe aus der Halterung gefallen ist und somit keine sinnvolle Messung mehr möglich war.
 	Aus dem Abschnitt ohne Probe lässt sich gut die Unsicherheit durch den Untergrund abschätzen, da man ohne eine Probe keine Ereignisse erwartet. %TODO ist irgendwie nicht "gut", wenn man danach sagt, dass es nicht gut ist. Naja das gut ist spezifisch für Untergrund
-	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätze Unsicherheit, weshalb diese vernachlässigt werden kann.
+	Jedoch ist die Schwankung während der Messung deutlich größer als die so abgeschätzte Unsicherheit, weshalb diese vernachlässigt werden kann.
 	\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/XRD_Kristallin_45_25.pdf}
 			\caption{Diffraktogramm der kristallinen Probe.}
