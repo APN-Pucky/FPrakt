@@ -1,0 +1,130 @@
+Usb stick Uni
+
+624 raum 11.februar abgabe
+
+1. poly dann tandem
+am filter nur bei tandem
+
+spitzenabstand 1.59mm
+korrektur faktor nach schauen für dicke schicht
+
+Unsicherheit Dicke +- 0.003mm weil Nullpunkt dannach anders
+
+Probe X):
+1) 
+Widerstand in 10^2 ohm
+0.514*10^2 ohm
+0.507*10^2 o
+0.502*10^2 o
+0.549*10^2 o
+0.486*10^2 o
+0.429*10^2 o
+0.529
+0.445
+0.494
+0.517
+Dicke in mm
+0.449 mm
+0.449 mm
+0.449 mm
+0.448 mm
+0.448 mm
+
+2)
+Dicke in mm
+0.454
+0.453
+0.453
+0.453
+0.453
+Widerstand in 10^1 ohm
+
+0.844 10^1 ohm
+0.838
+0.826
+0.819
+0.883
+0.873
+0.874
+0.861
+0.860
+0.843
+
+3)
+Widerstand in 10^-1 ohm
+.731*10^-1
+.730
+.703
+.705
+.734
+.733
+.689
+.692
+.703
+.705
+Dicke in mm
+.676
+.677
+.677
+.677
+.678
+4)
+Dicke in mm
+2.001
+1.994
+1.999
+2.005
+1.995
+Widerstand in 10^-3 ohm
+1.937 *10^-3 ohm
+1.911
+1.889
+1.921
+1.893
+1.886
+1.999
+1.984
+1.882
+1.888
+5)
+Widerstand in 10^2 ohm
+.211
+.211
+.250
+.250
+.251
+.1982
+.358
+.287
+.207
+.236
+.250
+Dicke in mm
+2.107
+2.108
+2.108
+2.106
+2.106
+
+6)
+Dicke in mm
+.683
+.682
+.682
+.683
+.683
+Widerstand in 10^-1 ohm
+.770
+.791
+.875
+.949
+.777
+.782
+.777
+.825
+.931
+.922
+
+
+
+

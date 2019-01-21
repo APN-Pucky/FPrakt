@@ -1,0 +1,165 @@
+Poliermessung
+17 mu meter übergang ab 16 
+stufe genauer auflösen
+Normier messung dicke 0.767(1)mm
+1.)
+Widerstand in 10^1 ohm
+.825
+.769
+.778
+.774
+.786
+Dicke 0mm
+2.)
+Dicke .018 mm
+Widerstand in 10^2 ohm
+.214
+.213
+.213
+.235
+.211
+3.)
+Dicke .020 mm
+Widerstand in 10^2 ohm
+.203
+.221
+.210
+.225
+.208
+4.)
+Dicke d 0.022 mm
+Widerstand in 10^2 ohm
+.241
+.232
+.249
+.275
+.231
+5.)
+Dicke d 0.031 mm
+Widerstand in 10^2 ohm
+.435
+.425
+.415
+.425
+.439
+6.)
+Dicke d 0.034 mm
+Widerstand in 10^2 o
+.512 
+.492
+.478
+.512
+.500
+7.)
+Dicke d 0.036 mm
+Widerstand in 10^2 ohm
+.885
+.890
+.949
+.822
+.889
+8.)
+Dicke d 0.039 mm
+Widerstand in 10^2 o
+1.083
+1.062
+1.063
+1.136
+1.041
+9.)
+Dicke d 0.041 mm
+Widerstand 10^2 ohm
+1.474
+1.448
+1.448
+1.423
+1.447
+10.)
+Dicke d 0.044 mm
+Widerstand 10^3 ohm
+.227 
+.286
+.235
+.249
+.230
+11.)
+Dicke d 0.047 mm
+Widerstand in 10^3 ohm
+.411
+.410
+.432
+.417
+.420
+12.)
+Dicke d 0.051mm
+Widerstand in 10^3 ohm
+.968
+.970
+1.059
+.910
+1.004
+13.)
+Dicke d 0.057mm
+Widerstand in 10^4 ohm
+.371
+.404
+.390
+.401
+.369
+.375
+!!! Neu Nullpos 0.799mm !!!
+14.)
+Dicke d 0.092mm
+Widerstand in 10^4 ohm
+.952
+.986
+.994
+.987
+1.003
+1.106
+
+15.)
+Dicke d 0.097 mm
+Widerstand in 10^5 ohm
+.477
+.533
+.444
+.493
+.572
+
+16.)
+Dicke d 0.104 mm
+Widerstand in 10^3 ohm
+1.132
+1.133
+1.133
+1.155
+1.177
+17.)
+Dicke d 0.112 mm
+Widerstand in 10^3 ohm
+1.153
+1.153
+1.165
+1.152
+1.156
+18.)
+Dicke d 0.121 mm
+Widerstand in 10^3 ohm
+1.198
+1.199
+1.330
+1.196
+1.210
+19.)
+Dicke 0.137 mm
+Widerstand in 10^3 ohm
+1.235
+1.238
+1.227
+1.246
+1.217
+
+
+
+
