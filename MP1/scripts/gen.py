@@ -1,6 +1,7 @@
 # Importanweisungen
 
 import os
+import re
 import numpy as np
 import statistics as stat
 import scipy as sci
@@ -9,6 +10,7 @@ import sympy as sym
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.axes as axes
+import matplotlib.patches as patches
 from matplotlib import colors as mcolors
 import math
 from scipy import optimize
@@ -137,12 +139,15 @@ for fname in os.listdir("MP1/data/"):
    with open("MP1/data/" + fname) as f:
        lines = (line for line in f if not line.startswith('#'))
        names = next(lines,None).split(";")
-       unc = next(lines,None).split(";")
+       m = re.compile(".*\\((\w+)\\)")
+       units = [m.findall(names[0])[0],m.findall(names[1])[0]]
+       uncc = next(lines,None).split(";")
        data = np.loadtxt(lines, skiprows = 0, delimiter = ";")
    fname = fname.split(".")[0]
 
-   ydata = unp.uarray(data[:,0],float(unc[0])/2/math.sqrt(3))
-   xdata = unp.uarray(data[:,1],float(unc[1])/2/math.sqrt(3))
+   ydata = unp.uarray(data[:,0],float(uncc[0])/2/math.sqrt(3))
+   xdata = unp.uarray(data[:,1],float(uncc[1])/2/math.sqrt(3))
+
 
    fig=plt.figure(figsize=fig_size)
 
@@ -157,15 +162,41 @@ for fname in os.listdir("MP1/data/"):
        n= 13
    else:
        n = 5
-   print(e/k_B/T/n)
    pfit = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata),maxfev=100000, p0 = [np.amin(unv(ydata)), unv(ydata[find_nearest_index(xdata,0)]),unv(e/k_B/T/n)])
-   print(*pfit)
 
    xfit = np.linspace(unv(np.amin(xdata)), unv(np.amax(xdata)), unv((np.amin(xdata)-np.amax(xdata))/-100))
    xfit = np.linspace(-1, 1)
    yfit = custom(xfit, unv(pfit[0]),unv(pfit[1]),unv(pfit[2]))
    color = next(ax._get_lines.prop_cycler)['color']
-   ax.plot(unv(xfit), unv(yfit),color=color,linewidth=1)
+   ax.plot(unv(xfit), unv(yfit),color="orange",linewidth=1)
+   color = next(ax._get_lines.prop_cycler)['color']
+
+   if fname.split("_")[1]!="unbeleuchtet":
+       uoc=umath.log(pfit[1]/pfit[0]+1)/pfit[2]
+       xx = np.linspace(0,1);
+       ind = np.argmin(xdata*ydata)
+       yind = find_nearest_index(yfit,0)
+       xind = find_nearest_index(xdata,0)
+       ax.add_patch(patches.Rectangle((0,0),unv(xfit[yind]),unv(ydata[xind]),facecolor=color))
+       ax.add_patch(patches.Rectangle((0,0),unv(xdata[ind]),unv(ydata[ind]),facecolor="red"))
+
+       plt.errorbar([], [],[],[], ' ', color="orange",label='Diodenkennlinien Fit')
+       plt.errorbar([], [],[],[], ' ', color="green",label='$I_{sc} = %s$ %s' % (ydata[xind],units[0]))
+       plt.errorbar([], [],[],[], ' ', color="green", label='$U_{oc} = %s$ %s' % (uoc,units[1]))
+       plt.errorbar([], [],[],[], ' ', color="red",label='$I_{MPP} = %s$ %s' % (ydata[ind],units[0]))
+       plt.errorbar([], [],[],[], ' ', color="red", label='$U_{MPP} = %s$ %s' % (xdata[ind],units[1]))
+       plt.errorbar([], [],[],[], ' ', color="red", label='$P_{MPP} = %s$ %s%s' % (xdata[ind]*ydata[ind],units[0],units[1]))
+       plt.errorbar([], [],[],[], ' ', color="white", label='$FF = %s$ %s' % (xdata[ind]*ydata[ind]/(ydata[xind]*xfit[yind])*100,"%"))
+
+
+
+
+   print(np.amin(xdata*ydata))
+   print(np.amin(xfit*yfit))
+   ff=np.amin(xfit*yfit)
+   pp=np.amin(xdata*ydata)
+   print(mean([ff,pp]))
+   print()
 
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
    #pp = unp.uarray(pfit, perr)
