@@ -125,8 +125,8 @@ for fname in os.listdir("MP1/data/"):
        data = np.loadtxt(lines, skiprows = 0, delimiter = ";")
    fname = fname.split(".")[0]
 
-   xdata = unp.uarray(data[:,0],unc_x)*-1
-   ydata = unp.uarray(data[:,1],unc_y)*-1
+   ydata = unp.uarray(data[:,0],unc_y)
+   xdata = unp.uarray(data[:,1],unc_x)
 
    fig=plt.figure(figsize=fig_size)
 
@@ -143,8 +143,8 @@ for fname in os.listdir("MP1/data/"):
    plt.legend(prop={'size':fig_legendsize})
    plt.grid()
    plt.tick_params(labelsize=fig_labelsize)
-   plt.xlabel(names[0])
-   plt.ylabel(names[1])
+   plt.xlabel(names[1])
+   plt.ylabel(names[0])
    plt.savefig("MP1/images/%s.pdf"%(fname))
    plt.show()
 
