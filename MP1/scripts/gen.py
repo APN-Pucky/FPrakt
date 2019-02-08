@@ -1,5 +1,6 @@
 # Importanweisungen
 
+import os
 import numpy as np
 import statistics as stat
 import scipy as sci
@@ -117,39 +118,23 @@ unc_x = 0.002/math.sqrt(3)
 unc_y = 0.005/math.sqrt(3)
 unc_w = 0.3
 # import der messwerte
-typ = ["industry", "selfmade"]
-for t in typ:
-   data = np.loadtxt("MP5/data/%s.csv"%(t), skiprows = 0, delimiter = ",")
+for fname in os.listdir("MP1/data/"):
+   with open("MP1/data/" + fname) as f:
+       lines = (line for line in f if not line.startswith('#'))
+       names = next(lines,None).split(";")
+       data = np.loadtxt(lines, skiprows = 0, delimiter = ";")
+   fname = fname.split(".")[0]
 
-   xdata = unp.uarray(data[:,0],unc_x)
-   ydata = unp.uarray(data[:,1],unc_y)
+   xdata = unp.uarray(data[:,0],unc_x)*-1
+   ydata = unp.uarray(data[:,1],unc_y)*-1
 
    fig=plt.figure(figsize=fig_size)
-   # Max
-   print("max%s"%(np.amax(ydata)))
-   #Min
-   print("min%s"%(np.amin(ydata)))
-   # Normalize
-   ydata = normalize(ydata)*100.0
-   #
-   top = find_nearest_index(ydata,90.0);
-   bot = find_nearest_index(ydata,10.0);
-   print(ydata[top])
-   print(ydata[bot])
-   for i in range(top,bot):
-       ydata[i] = unc.ufloat(unv(ydata[i]),usd(ydata[i])*2)
-   second = False
-   if(t=="industry"):
-       i=31
-   else:
-       i=0
-   plt.plot((unv(xdata[i]),unv(xdata[i])),(0,100),'k-',color='black', label="$U_{th}=%s$ V"%(xdata[i]))
 
-       #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
-   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label='Messpunkte')
-   plt.plot((unv(xdata[top]),unv(xdata[top])),(0,100),'k-',color='red', label="$U_{90}=%s$ V"%(xdata[top]))
-   plt.plot((unv(xdata[bot]),unv(xdata[bot])),(0,100),'k-',color='green', label="$U_{10}=%s$ V"%(xdata[bot]))
-   print("dU%s"%(xdata[bot]-xdata[top]))
+   ax = fig.gca()
+   ax.axhline(y=0, color='k',linewidth=1)
+   ax.axvline(x=0, color='k',linewidth=1)
+   #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
+   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label=fname)
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
    #pp = unp.uarray(pfit, perr)
    #xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
@@ -158,36 +143,11 @@ for t in typ:
    plt.legend(prop={'size':fig_legendsize})
    plt.grid()
    plt.tick_params(labelsize=fig_labelsize)
-   plt.xlabel('Angelegte Spannung $U_{LCD}$ (in V)')
-   plt.ylabel('Lichttransmission (in %)')
-   plt.savefig("MP5/images/%s.pdf"%(t))
+   plt.xlabel(names[0])
+   plt.ylabel(names[1])
+   plt.savefig("MP1/images/%s.pdf"%(fname))
    plt.show()
 
 
-data = np.loadtxt("MP5/data/laser.csv", skiprows = 0, delimiter = ",")
-
-unc_x = 0.05/math.sqrt(3)
-unc_y = 3/math.sqrt(3)
-xdata = unp.uarray(data[:,0],unc_x)
-ydata = unp.uarray(data[:,1],unc_y)
-
-# Normalize
-#
-
-fig=plt.figure(figsize=fig_size)
-plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1,label='Messpunkte')
-
-#pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
-#pp = unp.uarray(pfit, perr)
-#xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
-#plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*m+b\na=%s mbar\nb=%s mbar'%tuple(pp))
-#plt.plot(x, y, label='noice')
-plt.legend(prop={'size':fig_legendsize})
-plt.grid()
-plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('Temperatur $T$ (in °C)')
-plt.ylabel('Abstand $d$ (in mm)')
-plt.savefig("MP5/images/laser.pdf")
-plt.show()
 
 #end
