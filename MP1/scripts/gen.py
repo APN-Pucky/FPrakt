@@ -69,13 +69,8 @@ def gauss(x, x0, A, d, y0):
 def exponential(x, c, y0):
     return np.exp(c * x) * y0
 
-def custom(x,n):
-    m = x
-    l = 650.4*10**-9#unc.ufloat(630,10)*10**-9
-    #l =unp.uarray([630],[10])*10**-9
-    #t = unp.uarray([5],[0.1])*10**-3
-    t = 5.05*10**-3#unc.ufloat(5,0.1)*10**-3
-    return (n*m*l+m*m*l*l/(4*t))/(m*l+2*t*(n-1))
+def custom(x,I0,IP,a):
+    return I0*(np.exp(x*a)-1)-IP
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
@@ -95,8 +90,27 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
           error.append( 0.00 )
     pfit_curvefit = pfit
     perr_curvefit = np.array(error)
-    return pfit_curvefit, perr_curvefit
+    return unp.uarray(pfit_curvefit, perr_curvefit)
 
+# fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
+# gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
+#
+# https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
+# Updated on 4/6/2016
+# User: https://stackoverflow.com/users/1476240/pedro-m-duarte
+def fit_curvefit2(datax, datay, function, p0=None, yerr=None, **kwargs):
+    pfit, pcov = \
+         optimize.curve_fit(function,datax,datay,p0=p0,\
+                            sigma=yerr, epsfcn=0.0001, **kwargs)
+    error = []
+    for i in range(len(pfit)):
+        try:
+          error.append(np.absolute(pcov[i][i])**0.5)
+        except:
+          error.append( 0.00 )
+    pfit_curvefit = pfit
+    perr_curvefit = np.array(error)
+    return unp.uarray(pfit_curvefit, perr_curvefit)
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
@@ -105,6 +119,7 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
 # Werte von https://physics.nist.gov/cuu/Constants/index.html[0]
 
 c = 299792458 # m/s
+e = unc.ufloat_fromstr("1.6021766208(98)e-19") # C
 k_B = unc.ufloat_fromstr("1.38064852(79)e-23") # J K-1 [0]
 h = unc.ufloat_fromstr("4.135667662(25)e-15") # eV s [0]
 r_e = unc.ufloat_fromstr("2.8179403227(19)e-15") # m [0]
@@ -122,11 +137,12 @@ for fname in os.listdir("MP1/data/"):
    with open("MP1/data/" + fname) as f:
        lines = (line for line in f if not line.startswith('#'))
        names = next(lines,None).split(";")
+       unc = next(lines,None).split(";")
        data = np.loadtxt(lines, skiprows = 0, delimiter = ";")
    fname = fname.split(".")[0]
 
-   ydata = unp.uarray(data[:,0],unc_y)
-   xdata = unp.uarray(data[:,1],unc_x)
+   ydata = unp.uarray(data[:,0],float(unc[0])/2/math.sqrt(3))
+   xdata = unp.uarray(data[:,1],float(unc[1])/2/math.sqrt(3))
 
    fig=plt.figure(figsize=fig_size)
 
@@ -134,7 +150,23 @@ for fname in os.listdir("MP1/data/"):
    ax.axhline(y=0, color='k',linewidth=1)
    ax.axvline(x=0, color='k',linewidth=1)
    #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
-   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label=fname)
+   color = next(ax._get_lines.prop_cycler)['color']
+   ax.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', color=color,capsize=5,linewidth=2, label=fname.replace("_"," ").replace("t ","t T=")+"°C")
+   T = float(fname.split("_")[2])+K
+   if fname.split("_")[0]=="poly":
+       n= 13
+   else:
+       n = 5
+   print(e/k_B/T/n)
+   pfit = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata),maxfev=100000, p0 = [np.amin(unv(ydata)), unv(ydata[find_nearest_index(xdata,0)]),unv(e/k_B/T/n)])
+   print(*pfit)
+
+   xfit = np.linspace(unv(np.amin(xdata)), unv(np.amax(xdata)), unv((np.amin(xdata)-np.amax(xdata))/-100))
+   xfit = np.linspace(-1, 1)
+   yfit = custom(xfit, unv(pfit[0]),unv(pfit[1]),unv(pfit[2]))
+   color = next(ax._get_lines.prop_cycler)['color']
+   ax.plot(unv(xfit), unv(yfit),color=color,linewidth=1)
+
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
    #pp = unp.uarray(pfit, perr)
    #xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
@@ -147,6 +179,9 @@ for fname in os.listdir("MP1/data/"):
    plt.ylabel(names[0])
    plt.savefig("MP1/images/%s.pdf"%(fname))
    plt.show()
+
+
+
 
 
 
