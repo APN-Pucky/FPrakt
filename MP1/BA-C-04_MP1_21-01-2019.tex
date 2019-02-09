@@ -155,7 +155,35 @@
 	\subsection{Dotierstoffe}
 	\subsubsection{Unsicherheiten}
 	\subsubsection{Beobachtung und Datenanalyse}
+	Mit der Vierspitzenmethode wurde der Widerstand $R=U/I$ gemessen.
+	Daraus lässt sich dann mittels der Scheibendicke $d$ für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand):
+	\begin{equation}
+			\rho = \frac{R d \pi}{\ln 2}
+	\end{equation}
+	\begin{equation}
+			u(\rho) = \rho\cdot\sqrt{(u(R)/R)^2 + (u(d)/d)^2}
+	\end{equation}
+	Für die dickere Scheiben erhält man einen Korrekturfaktor gemäß DIN-NORM. %TODO cite DIN!
+	Dieser beträgt für Probe 4 $0.84$ und für Probe 5 $0.83$.
 
+	In \cref{tb_spez_wd} befinden sich die über mehrere Messungen gemittelten Messergebnisse.
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c  }
+			 &Widerstand $R$ in \si{\ohm}& Scheibendicke $d$ in \si{mm} & spez. Widerstand $\rho$ in \si{m\ohm m} \\ \hline
+			 Probe 1, p-dot& \SI{50+-4}{}&\SI{0.4486+-0.0009}{}& \SI{101+-7}{} \\
+			 Probe 2, n-dot&\SI{8.52+-0.21}{}&\SI{0.4532+-0.0009}{}&\SI{17.5+-0.4}{} \\
+			 Probe 3, n-dot&\SI{0.0713+-0.0018}{}&\SI{0.0677+-0.001}{}&\SI{0.219+-0.005}{} \\
+			 Probe 4, p-dot&\SI{0.00192+-0.00004}{}&\SI{1.999+-0.005}{}&\SI{0.0146+-0.0003}{} \\
+			 Probe 6, n-dot&\SI{0.084+-0.007}{}&\SI{0.6826+-0.0009}{}&\SI{0.260+-0.022}{} \\
+			 Probe 5, i-dot&\SI{25+-5}{}&\SI{2.1070+-0.0013}{}&\SI{199.2+-33.2}{}  \\ %TODO i-dot fine?
+		\end{tabular}
+		\caption{
+		Silizium
+		}
+		\label{tb_spez_wd}
+\end{table}
 	\subsubsection{Diskussion}
 	\subsection{Solarzelle}
 	\subsubsection{Unsicherheiten}

@@ -135,8 +135,8 @@ unc_x = 0.002/math.sqrt(3)
 unc_y = 0.005/math.sqrt(3)
 unc_w = 0.3
 # import der messwerte
-for fname in os.listdir("MP1/data/"):
-   with open("MP1/data/" + fname) as f:
+for fname in os.listdir("MP1/data/solar/"):
+   with open("MP1/data/solar/" + fname) as f:
        lines = (line for line in f if not line.startswith('#'))
        names = next(lines,None).split(";")
        m = re.compile(".*\\((\w+)\\)")
