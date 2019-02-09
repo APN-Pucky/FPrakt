@@ -1,5 +1,7 @@
 # Importanweisungen
 
+import os
+import re
 import numpy as np
 import statistics as stat
 import scipy as sci
@@ -8,6 +10,7 @@ import sympy as sym
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.axes as axes
+import matplotlib.patches as patches
 from matplotlib import colors as mcolors
 import math
 from scipy import optimize
@@ -68,13 +71,8 @@ def gauss(x, x0, A, d, y0):
 def exponential(x, c, y0):
     return np.exp(c * x) * y0
 
-def custom(x,n):
-    m = x
-    l = 650.4*10**-9#unc.ufloat(630,10)*10**-9
-    #l =unp.uarray([630],[10])*10**-9
-    #t = unp.uarray([5],[0.1])*10**-3
-    t = 5.05*10**-3#unc.ufloat(5,0.1)*10**-3
-    return (n*m*l+m*m*l*l/(4*t))/(m*l+2*t*(n-1))
+def custom(x,I0,IP,a):
+    return I0*(np.exp(x*a)-1)-IP
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
@@ -94,8 +92,27 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
           error.append( 0.00 )
     pfit_curvefit = pfit
     perr_curvefit = np.array(error)
-    return pfit_curvefit, perr_curvefit
+    return unp.uarray(pfit_curvefit, perr_curvefit)
 
+# fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
+# gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
+#
+# https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
+# Updated on 4/6/2016
+# User: https://stackoverflow.com/users/1476240/pedro-m-duarte
+def fit_curvefit2(datax, datay, function, p0=None, yerr=None, **kwargs):
+    pfit, pcov = \
+         optimize.curve_fit(function,datax,datay,p0=p0,\
+                            sigma=yerr, epsfcn=0.0001, **kwargs)
+    error = []
+    for i in range(len(pfit)):
+        try:
+          error.append(np.absolute(pcov[i][i])**0.5)
+        except:
+          error.append( 0.00 )
+    pfit_curvefit = pfit
+    perr_curvefit = np.array(error)
+    return unp.uarray(pfit_curvefit, perr_curvefit)
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
@@ -104,6 +121,7 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
 # Werte von https://physics.nist.gov/cuu/Constants/index.html[0]
 
 c = 299792458 # m/s
+e = unc.ufloat_fromstr("1.6021766208(98)e-19") # C
 k_B = unc.ufloat_fromstr("1.38064852(79)e-23") # J K-1 [0]
 h = unc.ufloat_fromstr("4.135667662(25)e-15") # eV s [0]
 r_e = unc.ufloat_fromstr("2.8179403227(19)e-15") # m [0]
@@ -117,39 +135,79 @@ unc_x = 0.002/math.sqrt(3)
 unc_y = 0.005/math.sqrt(3)
 unc_w = 0.3
 # import der messwerte
-typ = ["industry", "selfmade"]
-for t in typ:
-   data = np.loadtxt("MP5/data/%s.csv"%(t), skiprows = 0, delimiter = ",")
+for fname in os.listdir("MP1/data/"):
+   with open("MP1/data/" + fname) as f:
+       lines = (line for line in f if not line.startswith('#'))
+       names = next(lines,None).split(";")
+       m = re.compile(".*\\((\w+)\\)")
+       units = [m.findall(names[0])[0],m.findall(names[1])[0]]
+       uncc = next(lines,None).split(";")
+       data = np.loadtxt(lines, skiprows = 0, delimiter = ";")
+   fname = fname.split(".")[0]
 
-   xdata = unp.uarray(data[:,0],unc_x)
-   ydata = unp.uarray(data[:,1],unc_y)
+   ydata = unp.uarray(data[:,0],float(uncc[0])/2/math.sqrt(3))
+   xdata = unp.uarray(data[:,1],float(uncc[1])/2/math.sqrt(3))
+
 
    fig=plt.figure(figsize=fig_size)
-   # Max
-   print("max%s"%(np.amax(ydata)))
-   #Min
-   print("min%s"%(np.amin(ydata)))
-   # Normalize
-   ydata = normalize(ydata)*100.0
-   #
-   top = find_nearest_index(ydata,90.0);
-   bot = find_nearest_index(ydata,10.0);
-   print(ydata[top])
-   print(ydata[bot])
-   for i in range(top,bot):
-       ydata[i] = unc.ufloat(unv(ydata[i]),usd(ydata[i])*2)
-   second = False
-   if(t=="industry"):
-       i=31
-   else:
-       i=0
-   plt.plot((unv(xdata[i]),unv(xdata[i])),(0,100),'k-',color='black', label="$U_{th}=%s$ V"%(xdata[i]))
 
-       #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
-   plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2, label='Messpunkte')
-   plt.plot((unv(xdata[top]),unv(xdata[top])),(0,100),'k-',color='red', label="$U_{90}=%s$ V"%(xdata[top]))
-   plt.plot((unv(xdata[bot]),unv(xdata[bot])),(0,100),'k-',color='green', label="$U_{10}=%s$ V"%(xdata[bot]))
-   print("dU%s"%(xdata[bot]-xdata[top]))
+   ax = fig.gca()
+   ax.axhline(y=0, color='k',linewidth=1)
+   ax.axvline(x=0, color='k',linewidth=1)
+   #xdata[i] = unc.ufloat(unv(xdata[i]),usd(xdata[i])*2)
+   color = next(ax._get_lines.prop_cycler)['color']
+   ax.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', color=color,capsize=5,linewidth=2, label=fname.replace("_"," ").replace("t ","t T=")+"°C")
+   T = float(fname.split("_")[2])+K
+   if fname.split("_")[0]=="PolykristallineZelle":
+       n= 13
+   else:
+       n = 5
+   pfit = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata),maxfev=100000, p0 = [np.amin(unv(ydata)), unv(ydata[find_nearest_index(xdata,0)]),unv(e/k_B/T/n)])
+
+   xfit = np.linspace(-1, 1)
+   yfit = custom(xfit, unv(pfit[0]),unv(pfit[1]),unv(pfit[2]))
+   color = next(ax._get_lines.prop_cycler)['color']
+   ax.plot(unv(xfit), unv(yfit),color="orange",linewidth=1)
+   color = next(ax._get_lines.prop_cycler)['color']
+
+
+   plt.errorbar([], [],[],[], ' ', color="orange",label='Diodenkennlinien Fit')
+   print(pfit)
+   if fname.split("_")[1]=="unbeleuchtet" and fname.split("_")[0]=="PolykristallineZelle":
+
+       #pfit = fit_curvefit2(unv(xdata[0:-2]), unv(ydata[0:-2]), custom, yerr = usd(ydata[0:-2]),maxfev=100000, p0 = [np.amin(unv(ydata)), unv(ydata[find_nearest_index(xdata,0)]),unv(e/k_B/T/n)])
+
+       xfit = np.linspace(-1, 1)
+       yfit = custom(xfit, 0.33547,0.27644,7.12)
+       ax.plot(unv(xfit), unv(yfit),color="violet",linewidth=1)
+       plt.errorbar([], [],[],[], ' ', color="violet",label='Diodenkennlinien Fit ohne Ausreißer')
+
+   if fname.split("_")[1]!="unbeleuchtet":
+       uoc=umath.log(pfit[1]/pfit[0]+1)/pfit[2]
+       xx = np.linspace(0,1);
+       ind = np.argmin(xdata*ydata)
+       yind = find_nearest_index(yfit,0)
+       xind = find_nearest_index(xdata,0)
+       ax.add_patch(patches.Rectangle((0,0),unv(uoc),unv(ydata[xind]),facecolor=color))
+       ax.add_patch(patches.Rectangle((0,0),unv(xdata[ind]),unv(ydata[ind]),facecolor="red"))
+
+       plt.errorbar([], [],[],[], ' ', color="green",label='$I_{sc} = %s$ %s' % (ydata[xind],units[0]))
+       plt.errorbar([], [],[],[], ' ', color="green", label='$U_{oc} = %s$ %s' % (uoc,units[1]))
+       plt.errorbar([], [],[],[], ' ', color="red",label='$I_{MPP} = %s$ %s' % (ydata[ind],units[0]))
+       plt.errorbar([], [],[],[], ' ', color="red", label='$U_{MPP} = %s$ %s' % (xdata[ind],units[1]))
+       plt.errorbar([], [],[],[], ' ', color="red", label='$P_{MPP} = %s$ %s%s' % (xdata[ind]*ydata[ind],units[0],units[1]))
+       plt.errorbar([], [],[],[], ' ', color="white", label='$FF = %s$ %s' % (xdata[ind]*ydata[ind]/(ydata[xind]*uoc)*100,"%"))
+
+
+
+
+   #print(np.amin(xdata*ydata))
+   #print(np.amin(xfit*yfit))
+   #ff=np.amin(xfit*yfit)
+   #pp=np.amin(xdata*ydata)
+   #print(mean([ff,pp]))
+   #print()
+
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
    #pp = unp.uarray(pfit, perr)
    #xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
@@ -158,36 +216,14 @@ for t in typ:
    plt.legend(prop={'size':fig_legendsize})
    plt.grid()
    plt.tick_params(labelsize=fig_labelsize)
-   plt.xlabel('Angelegte Spannung $U_{LCD}$ (in V)')
-   plt.ylabel('Lichttransmission (in %)')
-   plt.savefig("MP5/images/%s.pdf"%(t))
+   plt.xlabel(names[1])
+   plt.ylabel(names[0])
+   plt.savefig("MP1/img/%s.pdf"%(fname))
    plt.show()
 
 
-data = np.loadtxt("MP5/data/laser.csv", skiprows = 0, delimiter = ",")
 
-unc_x = 0.05/math.sqrt(3)
-unc_y = 3/math.sqrt(3)
-xdata = unp.uarray(data[:,0],unc_x)
-ydata = unp.uarray(data[:,1],unc_y)
 
-# Normalize
-#
 
-fig=plt.figure(figsize=fig_size)
-plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1,label='Messpunkte')
-
-#pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
-#pp = unp.uarray(pfit, perr)
-#xdata = np.linspace(unv(xdata[0]),unv(xdata[-1]))
-#plt.plot(xdata,unv(gerade(xdata,*pfit)), label='Linear Fit p=a*m+b\na=%s mbar\nb=%s mbar'%tuple(pp))
-#plt.plot(x, y, label='noice')
-plt.legend(prop={'size':fig_legendsize})
-plt.grid()
-plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('Temperatur $T$ (in °C)')
-plt.ylabel('Abstand $d$ (in mm)')
-plt.savefig("MP5/images/laser.pdf")
-plt.show()
 
 #end
