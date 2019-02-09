@@ -144,29 +144,66 @@
 
 	Die Fitfunktion ist die ideale Diodenkennlinie unter Einstrahlung von Licht \cref{eq_photostrom}.
 
-	\cref{fig_tandem_beleuchtet_20} stellt exemplarisch die I-U-Kennlinie der Solarzellen dar, wenn sie mit Licht bestrahlt werden (weitere befinden sich im \nameref{s_anhang})
+	\cref{fig_tandem_beleuchtet_20} stellt exemplarisch die I-U-Kennlinie der Solarzellen dar, wenn sie mit Licht bestrahlt werden (weitere befinden sich im \nameref{s_anhang}).
 	Das rote (grüne) Rechteck gibt die im 4. Quadranten durch $U_{MPP}$ und $I_{MPP}$ ($U_{oc}$ und $I_{sc}$) begrenzte Fläche an.
-	Die rote Fläche entspricht der Maximalen Leistung.
+	Die rote Fläche entspricht der Maximalen Leistung $P_{max} = U_{MPP}I_{MPP}$.
 	Der Füllfaktor $FF$ ergibt sich als das Verhältnis der Flächen, also
 	\begin{equation}
 		FF = \frac{U_{mpp}I_{mpp}}{U_{oc}I_{sc}}.
 	\end{equation}
+	Dabei konnten $U_{MPP}$, $I_{MPP}$ und $I_{sc}$ direkt aus den Messpunkten extrahiert werden.
+	$U_{oc}$ musste mittels des Fits interpoliert werden.
 
 
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/Tandemzelle_beleuchtet_20.pdf}
 			\caption{
-				I-U-Kennlinie einer Tandemzelle bei $T=\SI{20}{\degree}$ unter Beleuchtung.
+				I-U-Kennlinie einer Tandemzelle bei $T=\SI{20}{\celsius}$ unter Beleuchtung.
 								}
 			\label{fig_tandem_beleuchtet_20}
 	\end{figure}
 	%TODO table
+	In \cref{tb_solar_param_poly} und \cref{tb_solar_param_tandem} sind die wichtigsten Parameter der Solarzellen die unter Variation der Temperatur bestimmt wurden aufgeführt.
 
+\begin{table}[H]
+	%TODO signums? alles positiv??
+		\centering
+		\begin{tabular}{c | c | c | c  }
+			 &$T=\SI{20}{\celsius}$& $T=\SI{35}{\celsius}$& $T=\SI{50}{\celsius}$ \\ \hline
+			 $I_{sc}$ in \si{mA}& \SI{151+-0.3}{}&\SI{149+-0.3}{}& \SI{147+-0.3}{} \\
+			 $U_{oc}$ in \si{V}&\SI{0.63+-0.04}{}&\SI{0.61+-0.04}{}&\SI{0.61+-0.05}{} \\
+			 $I_{MPP}$ in \si{mA}&\SI{108+-0.3}{}&\SI{99+-0.3}{}&\SI{96+-0.3}{} \\
+			 $U_{MPP}$ in \si{V}&\SI{0.31+-0.003}{}&\SI{0.32+-0.003}{}&\SI{0.31+-0.003}{} \\
+			 $P_{MPP}$ in \si{mW}&\SI{33.48+-0.32}{}&\SI{31.68+-0.3}{}&\SI{29.76+-0.3}{} \\
+			 $FF$ in \si{\percent}&\SI{35.05+-2.5}{}&\SI{34.8+-2.5}{}&\SI{33+-2.7}{} \\
+		\end{tabular}
+		\caption{
+		Polykristalline Zelle.
+		}
+		\label{tb_solar_param_poly}
+\end{table}
 
+\begin{table}[H]
+	%TODO signums? alles positiv??
+		\centering
+		\begin{tabular}{c | c | c | c  }
+			 &$T=\SI{20}{\celsius}$& $T=\SI{50}{\celsius}$& AM-Filter $T=\SI{20}{\celsius}$ \\ \hline
+			 $I_{sc}$ in \si{mA}& \SI{7.9+-0.003}{}&\SI{5.42+-0.003}{}& \SI{0.94+-0.003}{} \\
+			 $U_{oc}$ in \si{V}&\SI{0.88+-0.04}{}&\SI{0.776+-0.032}{}&\SI{0.705+-0.024}{} \\
+			 $I_{MPP}$ in \si{mA}&\SI{6.84+-0.03}{}&\SI{4.24+-0.003}{}&\SI{0.700+-0.003}{} \\
+			 $U_{MPP}$ in \si{V}&\SI{0.64+-0.003}{}&\SI{0.60+-0.003}{}&\SI{0.54+-0.003}{} \\
+			 $P_{MPP}$ in \si{mW}&\SI{4.378+-0.022}{}&\SI{2.544+-0.012}{}&\SI{0.378+-0.003}{} \\
+			 $FF$ in \si{\percent}&\SI{63.3+-2.8}{}&\SI{60.5+-2.5}{}&\SI{57+-2.0}{} \\
+		\end{tabular}
+		\caption{
+		Tandemzelle.
+		}
+		\label{tb_solar_param_tandem}
+\end{table}
 	\subsubsection{Diskussion}
 	%TODO Messfehler bei unbeleuchtet poly???? diskus
 	%TODO hab das hier hin geschpoben weiel diskus
-	Da in \cref{eq_photostrom} $I_{ph}$ der vertikale Verschiebung an der Ordinate entspricht wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird, also in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20}.
+	Da in \cref{eq_photostrom} $I_{ph}$ der vertikale Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird, also in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20}.
 	%TODO passt bis auf thermo + hintergrund licht effekte
 
 
@@ -199,7 +236,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/PolykristallineZelle_beleuchtet_35.pdf}
 			\caption{
-				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei $T=\SI{35}{\degree}$ unter Beleuchtung.
+				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei $T=\SI{35}{\celsius}$ unter Beleuchtung.
 								}
 			\label{fig_poly_beleuchtet_35}
 	\end{figure}
@@ -207,7 +244,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/PolykristallineZelle_beleuchtet_50.pdf}
 			\caption{
-				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei $T=\SI{50}{\degree}$ unter Beleuchtung.
+				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei $T=\SI{50}{\celsius}$ unter Beleuchtung.
 								}
 			\label{fig_poly_beleuchtet_50}
 	\end{figure}
@@ -216,7 +253,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/Tandemzelle_beleuchtet_50.pdf}
 			\caption{
-				I-U-Kennlinie einer Tandemzelle bei $T=\SI{50}{\degree}$ unter Beleuchtung.
+				I-U-Kennlinie einer Tandemzelle bei $T=\SI{50}{\celsius}$ unter Beleuchtung.
 								}
 			\label{fig_tandem_beleuchtet_50}
 	\end{figure}
@@ -224,7 +261,7 @@
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/Tandemzelle_realbeleuchtet_20.pdf}
 			\caption{
-				I-U-Kennlinie einer Tandemzelle bei $T=\SI{20}{\degree}$ unter Beleuchtung durch einen AM-Filter.
+				I-U-Kennlinie einer Tandemzelle bei Raumtemperatur unter Beleuchtung durch einen AM-Filter.
 				%TODO die Daten sagen nur hier "realbelecuhtet" also gehe ich von nur 1x AM-Filter aus
 			}
 			\label{fig_tandem_realbeleuchtet_20}

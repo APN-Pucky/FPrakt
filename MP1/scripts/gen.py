@@ -188,7 +188,7 @@ for fname in os.listdir("MP1/data/"):
        ind = np.argmin(xdata*ydata)
        yind = find_nearest_index(yfit,0)
        xind = find_nearest_index(xdata,0)
-       ax.add_patch(patches.Rectangle((0,0),unv(xfit[yind]),unv(ydata[xind]),facecolor=color))
+       ax.add_patch(patches.Rectangle((0,0),unv(uoc),unv(ydata[xind]),facecolor=color))
        ax.add_patch(patches.Rectangle((0,0),unv(xdata[ind]),unv(ydata[ind]),facecolor="red"))
 
        plt.errorbar([], [],[],[], ' ', color="green",label='$I_{sc} = %s$ %s' % (ydata[xind],units[0]))
@@ -196,7 +196,7 @@ for fname in os.listdir("MP1/data/"):
        plt.errorbar([], [],[],[], ' ', color="red",label='$I_{MPP} = %s$ %s' % (ydata[ind],units[0]))
        plt.errorbar([], [],[],[], ' ', color="red", label='$U_{MPP} = %s$ %s' % (xdata[ind],units[1]))
        plt.errorbar([], [],[],[], ' ', color="red", label='$P_{MPP} = %s$ %s%s' % (xdata[ind]*ydata[ind],units[0],units[1]))
-       plt.errorbar([], [],[],[], ' ', color="white", label='$FF = %s$ %s' % (xdata[ind]*ydata[ind]/(ydata[xind]*xfit[yind])*100,"%"))
+       plt.errorbar([], [],[],[], ' ', color="white", label='$FF = %s$ %s' % (xdata[ind]*ydata[ind]/(ydata[xind]*uoc)*100,"%"))
 
 
 
