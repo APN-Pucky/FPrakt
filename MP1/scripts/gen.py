@@ -158,18 +158,29 @@ for fname in os.listdir("MP1/data/"):
    color = next(ax._get_lines.prop_cycler)['color']
    ax.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', color=color,capsize=5,linewidth=2, label=fname.replace("_"," ").replace("t ","t T=")+"°C")
    T = float(fname.split("_")[2])+K
-   if fname.split("_")[0]=="poly":
+   if fname.split("_")[0]=="PolykristallineZelle":
        n= 13
    else:
        n = 5
    pfit = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata),maxfev=100000, p0 = [np.amin(unv(ydata)), unv(ydata[find_nearest_index(xdata,0)]),unv(e/k_B/T/n)])
 
-   xfit = np.linspace(unv(np.amin(xdata)), unv(np.amax(xdata)), unv((np.amin(xdata)-np.amax(xdata))/-100))
    xfit = np.linspace(-1, 1)
    yfit = custom(xfit, unv(pfit[0]),unv(pfit[1]),unv(pfit[2]))
    color = next(ax._get_lines.prop_cycler)['color']
    ax.plot(unv(xfit), unv(yfit),color="orange",linewidth=1)
    color = next(ax._get_lines.prop_cycler)['color']
+
+
+   plt.errorbar([], [],[],[], ' ', color="orange",label='Diodenkennlinien Fit')
+   print(pfit)
+   if fname.split("_")[1]=="unbeleuchtet" and fname.split("_")[0]=="PolykristallineZelle":
+
+       #pfit = fit_curvefit2(unv(xdata[0:-2]), unv(ydata[0:-2]), custom, yerr = usd(ydata[0:-2]),maxfev=100000, p0 = [np.amin(unv(ydata)), unv(ydata[find_nearest_index(xdata,0)]),unv(e/k_B/T/n)])
+
+       xfit = np.linspace(-1, 1)
+       yfit = custom(xfit, 0.33547,0.27644,7.12)
+       ax.plot(unv(xfit), unv(yfit),color="violet",linewidth=1)
+       plt.errorbar([], [],[],[], ' ', color="violet",label='Diodenkennlinien Fit ohne Ausreißer')
 
    if fname.split("_")[1]!="unbeleuchtet":
        uoc=umath.log(pfit[1]/pfit[0]+1)/pfit[2]
@@ -180,7 +191,6 @@ for fname in os.listdir("MP1/data/"):
        ax.add_patch(patches.Rectangle((0,0),unv(xfit[yind]),unv(ydata[xind]),facecolor=color))
        ax.add_patch(patches.Rectangle((0,0),unv(xdata[ind]),unv(ydata[ind]),facecolor="red"))
 
-       plt.errorbar([], [],[],[], ' ', color="orange",label='Diodenkennlinien Fit')
        plt.errorbar([], [],[],[], ' ', color="green",label='$I_{sc} = %s$ %s' % (ydata[xind],units[0]))
        plt.errorbar([], [],[],[], ' ', color="green", label='$U_{oc} = %s$ %s' % (uoc,units[1]))
        plt.errorbar([], [],[],[], ' ', color="red",label='$I_{MPP} = %s$ %s' % (ydata[ind],units[0]))
@@ -191,12 +201,12 @@ for fname in os.listdir("MP1/data/"):
 
 
 
-   print(np.amin(xdata*ydata))
-   print(np.amin(xfit*yfit))
-   ff=np.amin(xfit*yfit)
-   pp=np.amin(xdata*ydata)
-   print(mean([ff,pp]))
-   print()
+   #print(np.amin(xdata*ydata))
+   #print(np.amin(xfit*yfit))
+   #ff=np.amin(xfit*yfit)
+   #pp=np.amin(xdata*ydata)
+   #print(mean([ff,pp]))
+   #print()
 
    #pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
    #pp = unp.uarray(pfit, perr)
@@ -208,7 +218,7 @@ for fname in os.listdir("MP1/data/"):
    plt.tick_params(labelsize=fig_labelsize)
    plt.xlabel(names[1])
    plt.ylabel(names[0])
-   plt.savefig("MP1/images/%s.pdf"%(fname))
+   plt.savefig("MP1/img/%s.pdf"%(fname))
    plt.show()
 
 
