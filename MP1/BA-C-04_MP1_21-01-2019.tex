@@ -100,19 +100,55 @@
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
 
+
+
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
-	\subsection{Dotierstoffe}
+
+
+	%TODO siehe Methoden gegen dopplung
+
+	\subsection{Halbleiter}
+	%TODO dotierkram allgemein
+
 	\subsection{Solarzelle}
+	%TODO ultra ätzende Herleitung von pn-Übergang zu Solarzelle
+	%TODO MPP erklären
+	%TODO AM erklären
 	\begin{equation}
 			\label{eq_photostrom}
 			I = I_0 \left[\exp{\left(\frac{eU}{n k_B T}\right)}-1\right]-I_{ph}
 	\end{equation}
 
+	\subsubsection{Vierspitzenmethode}
+	Die Vierspitzenmethode ermöglicht die Messung des Flächenwiderstands in einer dünnen Probe.
+	Dazu werden vier Spitzen, dies sich unter gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.
+	Über die äußeren beiden lässt das Gerät dann einen bekannten Strom fließen und misst die Potenzialdifferenz zwischen den mittleren beiden.
+	Die Vierspitzenmethode basiert auf dem Prinzip der Vierleitermessung nach Thomson und Kelvin, die es erlaubt den untersuchten Widerstand unabhängig vom Anschlusswiderstand (hier dem Übergangswiderstand Spitze zu Probe) zu bestimmen.
+	%TODO dein Kram:
+	\iffalse
+	-allgemeine Formel
+	-sehr dünne schichten Korrekturfaktor 1
+	-hier: ...kp
+	\fi
+
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
+	\subsection{Solarzellen}
+	Da der vorliegende Versuchsaufbau fehlerhaft war und es nicht möglich war die Messungen durchzuführen, wird hier nur das grundsätzliche Vorgehen beschrieben.
+
+	Es sollen für eine Tandemsolarzelle und eine Solarzelle aus polykistallinem Silizium I-U-Kennlinien aufgenommen werden.
+	Dies wird ohne Beleuchtung der Solarzellen, bei vollständigem Sonnenspektrum und bei einem AM-gefilterten Sonnenspektrum bei verschiedenen Temperaturen durchgeführt.
+	Dazu wird an die Zellen eine Spannung angelegt, die schrittweise erhöht wird.
+	Bei Beleuchtung hätte auch der Lastwiderstand variiert werden können, um die I-U-Kennlinie aufzunehmen.
+	Dies hätte jedoch das Messen negativer Spannungen unmöglich gemacht, die so in die Fit-Funktion mit einbezogen werden konnten.
+
+	\subsection{Dotierstoffe}
+	Es wird ein Gerät verwendet, dass die Vierspitzenmethode verwendet, um den Widerstand der untersuchten Halbleiter zu bestimmen.
+
+
 
 	\section{Ergebnisse und Diskussion}
 
@@ -124,6 +160,8 @@
 	\subsection{Solarzelle}
 	\subsubsection{Unsicherheiten}
 	\subsubsection{Beobachtung und Datenanalyse}
+	Da keine eigenen Messungen zu den Solarzellen durchgeführt werden konnten, werden im folgenden alte Messdaten, die uns freundlicherweise von Finn Kutschmann ausgehändigt wurden, ausgewertet. %TODO fine?
+
 	In \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} sind die aufgenohmenen I-U-Kennlinien der polykistallinen Silizium Solarzelle und der Tandemzelle abgebildet.
 
 	\begin{figure}[H]
