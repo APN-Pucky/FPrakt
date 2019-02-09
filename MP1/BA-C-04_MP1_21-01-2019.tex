@@ -122,32 +122,82 @@
 	Mit der Vierspitzenmethode wurde der Widerstand $R=U/I$ gemessen.
 	Daraus lässt sich dann mittels der Scheibendicke $d$ für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand):
 	\begin{equation}
-			\rho = \frac{R d \pi}{\ln 2}
+			\rho = \frac{R d \pi}{\ln 2} \cdot F(d/s)
 	\end{equation}
 	\begin{equation}
 			u(\rho) = \rho\cdot\sqrt{(u(R)/R)^2 + (u(d)/d)^2}
 	\end{equation}
-	Für die dickere Scheiben erhält man einen Korrekturfaktor gemäß DIN-NORM. %TODO cite DIN!
-	Dieser beträgt für Probe 4 $0.84$ und für Probe 5 $0.83$.
+	Für die dickere Scheiben erhält man einen Korrekturfaktor F(d/s) ungleich 1 gemäß der DIN-NORM. %TODO cite DIN!
+	Dieser beträgt für Probe 4 $F=0.84$ und für Probe 5 $F=0.83$.
 
-	In \cref{tb_spez_wd} befinden sich die über mehrere Messungen gemittelten Messergebnisse.
+	In \cref{tb_spez_wd} befinden sich die gemittelten Messergebnisse.
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{c | c | c | c  }
-			 &Widerstand $R$ in \si{\ohm}& Scheibendicke $d$ in \si{mm} & spez. Widerstand $\rho$ in \si{m\ohm m} \\ \hline
-			 Probe 1, p-dot& \SI{50+-4}{}&\SI{0.4486+-0.0009}{}& \SI{101+-7}{} \\
-			 Probe 2, n-dot&\SI{8.52+-0.21}{}&\SI{0.4532+-0.0009}{}&\SI{17.5+-0.4}{} \\
-			 Probe 3, n-dot&\SI{0.0713+-0.0018}{}&\SI{0.0677+-0.001}{}&\SI{0.219+-0.005}{} \\
-			 Probe 4, p-dot&\SI{0.00192+-0.00004}{}&\SI{1.999+-0.005}{}&\SI{0.0146+-0.0003}{} \\
-			 Probe 6, n-dot&\SI{0.084+-0.007}{}&\SI{0.6826+-0.0009}{}&\SI{0.260+-0.022}{} \\
-			 Probe 5, i-dot&\SI{25+-5}{}&\SI{2.1070+-0.0013}{}&\SI{199.2+-33.2}{}  \\ %TODO i-dot fine?
+		\begin{tabular}{c | c | c | c | c | c  }
+			 Nr.& Mat. & dot. & Widerstand $R$ in \si{\ohm}& Scheibendicke $d$ in \si{mm} & spez. Widerstand $\rho$ in \si{\ohm cm} \\ \hline %TODO fix overflow
+			 1& Si& p& \SI{50+-4}{}&\SI{0.4486+-0.0009}{}& \SI{10.1+-0.7}{} \\
+			 2& Si& n&\SI{8.52+-0.21}{}&\SI{0.4532+-0.0009}{}&\SI{1.75+-0.04}{} \\
+			 3& Si& n&\SI{0.0713+-0.0018}{}&\SI{0.0677+-0.001}{}&\SI{0.0219+-0.0005}{} \\
+			 4& Si& p&\SI{0.00192+-0.00004}{}&\SI{1.999+-0.005}{}&\SI{0.00146+-0.00003}{} \\ %TODO eher als e/10 potenz?
+			 6& Si& n&\SI{0.084+-0.007}{}&\SI{0.6826+-0.0009}{}&\SI{0.0260+-0.0022}{} \\
+			 5& Ge& i&\SI{25+-5}{}&\SI{2.1070+-0.0013}{}&\SI{19.92+-3.32}{}  \\ %TODO i-dot fine?
 		\end{tabular}
 		\caption{
-		Silizium
+		%TODO caption hier
 		}
 		\label{tb_spez_wd}
-\end{table}
+	\end{table}
+
+	Die Ladungsträgerkonzentrationen lassen sich mittels
+	\begin{equation}
+			\frac{1}{\rho}=en\mu_n + ep\mu_p
+	\end{equation}
+	bestimmen.
+	Für kristallines Silizium bei Raumtemperatur gilt $c=n\cdot p=\SI{2.1e19}{cm^{-6}}$ und die Beweglichkeiten sind nach \cref{tb_beweg} gegeben.
+
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c  }
+			 &$\mu_n$ in \si{cm^2/V/s}&$\mu_p$ in \si{cm^2/V/s}\\ \hline
+			 Si&1350&480 \\
+		\end{tabular}
+		\caption{
+		Beweglichkeitsdaten für Silizium bei Raumtemperatur.
+		}
+		\label{tb_beweg}
+	\end{table}
+
+	Es ergibt sich:
+	\begin{equation}
+			n =  \pm\sqrt{\left(\frac{1}{2e\mu_n\rho}\right)^2-c\mu_p/\mu_n}+\frac{1}{2e\mu_n \rho} %TODO u(n)
+	\end{equation}
+	bzw.
+	\begin{equation}
+			p =  \pm\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(n)
+	\end{equation}
+	Aus der sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n dotierte das Vorzeichen der Wurzel positiv und für p dotierte negative ist.
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c }
+			 Nr.& n in \si{cm^{-3}}&p in \si{cm^{-3}}& DIN in \si{cm^{-3}}\\ \hline
+
+			 1&\SI{1.63+-0.12e+04}{}&\SI{1.29+-0.09e+15}{}&$p=\SI{1.33e+14}{}$\\
+			  2 & \SI{2.64+-0.07e+15}{}&\SI{7.95+-0.20e+03}{}&$n=\SI{2.77e+15}{}$ \\
+			  3& \SI{2.11+-0.05e+17}{}& \SI{99.3+-2.5}{}& $n=\SI{1.09e18}{}$\\
+			 4 &\SI{2.36+-0.05}{}&\SI{8.90+-0.20e+18}{}& $p=\SI{7.68e+19}{}$\\
+			 6 & \SI{1.78+-0.15e+17}{}&\SI{118+-10}{}&$n=\SI{7.94e17}{}$\\
+		\end{tabular}
+		\caption{
+		Dotierungskonzentrationen %TODO quote DIN
+		}
+		\label{tb_beweg}
+	\end{table}
+
+
+
 	\subsubsection{Diskussion}
 	\subsection{Solarzelle}
 	\subsubsection{Unsicherheiten}
