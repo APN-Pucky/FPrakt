@@ -72,7 +72,7 @@
 		\centering
 		{\scshape\LARGE Versuchsbericht zu \par}
 		\vspace{1cm}
-		{\scshape\huge MP1 - Eigenschaften der Solarzelle \par} %TODO Iwie ist der Titel nur 50% -> tja, ist aber so
+		{\scshape\huge MP1 - Eigenschaften der Solarzelle \par}
 		\vspace{2.5cm}
 		{\LARGE Gruppe BA-C-04 \par}
 		\vspace{0.5cm}
@@ -103,19 +103,16 @@
 
 	Es können die Ladungsträgerkonzentrationen verschiedener Halbleiterproben mithilfe der Vierspitzenmethode bestimmt werden.
 	Dabei kann die Angabe auf dem beiliegenden Zettel bezüglich der Probe, die als intrinsisch markiert ist, als korrekt gezeigt werden.
-	Außerdem wird ein Höhenprofil der Ladungsträgerkonzentration in einer Probe mit vollständiger Phosphordotierung und beidseitiger Ga-Diffusion mit begrenzter Eindringtiefe angefertigt. %TODO Höhenprofil find ich weird aber bin maybe nur ich %TODO eineseite von der Ga-Diffusion war doch bereits weg
+	Außerdem wird ein Höhenprofil der Ladungsträgerkonzentration in einer Probe mit vollständiger Phosphordotierung und beidseitiger Ga-Diffusion mit begrenzter Eindringtiefe angefertigt.
 	Hierbei kann die Angabe der Diffusionstiefe von etwa \SI{70}{\micro \meter} bestätigt werden.
 
 	Dann werden zwei verschiedene Solarzellen auf ihre Eigenschaften untersucht.
 	Unter anderem wird hier der Maximum Power Point (MPP, Punkt der maximalen Leistung) und der Füllfaktor bei verschiedenen Temperaturen und Bestrahlungen bestimmt.
-	Ein Vergleich zwischen den Solarzellen ist jedoch nicht möglich. %TODO naja man kann Füllfaktoren und U_oc I_sc vergleichen ist nur nicht so ganz ertragreich
+	Ein Vergleich zwischen den Solarzellen ist jedoch nicht möglich.
 
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
-
-
-	%TODO siehe Methoden gegen dopplung
 
 	\subsection{Halbleiter}
 	Um die Solarzelle verstehen zu können, muss man zunächst dotierte Halbleiter und die Diode verstehen.
@@ -126,7 +123,7 @@
 
 	Bei Raumtemperatur befinden sich in Halbleitern nur wenige Ladungsträger im Leitungsband, weshalb der spezifische Widerstand groß ist.
 	Wenn nun Elemente aus der fünften Hauptgruppe (Donatoren) in das Gitter eingebracht werden, nennt man das n-Dotierung, da die eingebrachten Elemente ein Elektron zu viel in der äußeren Schale haben, um sich optimal in das Gitter einfügen zu können.
-	Das führt dazu, dass dieses Elektron nicht fest am Atomrumpf sitzt, sondern durch thermische Anregung leicht ins Leitungsband befördert werden kann und somit der spezifische Widerstand sinkt bzw. die Leitfähigkeit steigt. %TODO glaube diese Erkenntnis stammt aus PkM
+	Das führt dazu, dass dieses Elektron nicht fest am Atomrumpf sitzt, sondern durch thermische Anregung leicht ins Leitungsband befördert werden kann und somit der spezifische Widerstand sinkt bzw. die Leitfähigkeit steigt.
 	Analog kann mit Elementen aus der dritten Hauptgruppe (Akzeptoren) dotiert werden.
 	Dies führt zu fehlenden Elektronen im Gitter, sodass mit einer geringen thermischen Anregung ein Elektron von einem benachbarten Atom in die Fehlstelle springen kann.
 	Jetzt liegt die Fehlstelle an dem anderen Atom, zu dem wiederum ein anderes Elektron springen kann.
@@ -140,7 +137,7 @@
 	Gleichzeitig erhalten die Atome im p-dotierten Halbleiter ein Elektron mehr, als sie Protonen im Kern haben, sodass sich hier eine negative Gesamtladung sammelt.
 
 	Das elektrische Feld, das durch die Ladungsdifferenz entsteht wirkt energetisch der Rekombination entgegen, sodass sich ein Gleichgewicht mit einer Raumladungszone zwischen den Halbleitern einstellt.
-	Diese Raumladungszone sorgt für die vielfältigen Eigenschaften des pn-Übergangs, der auch Diode genannt wird: %TODO Diode ist doch auch anders möglich, nicht nur pn
+	Diese Raumladungszone sorgt für die vielfältigen Eigenschaften des pn-Übergangs, der als Diode fungiert:
 	Wird eine Spannung so angelegt, dass der Pluspol am p-dotierten Halbleiter liegt, baut diese die Raumladungszone ab und es kommt zu einem exponentiellen Anstieg der Stromstärke.
 	Wird die Spannung andersherum angelegt, wird die Raumladungszone verbreitert und die Diode sperrt, sodass der Stromfluss gering (Null) ist.
 
@@ -157,7 +154,6 @@
 		\label{eq_diode_real}
 		I = I_0 \left[ \exp \left( \frac{e (U-I R_\text{s})}{n k_B T} \right) -1 \right] + \frac{U-I R_\text{s}}{R_\text{sh}}%TODO prüfen, ob das schön ist, weil kann ich nicht
 	\end{equation}
-	%TODO ok, sehe zwar nicht direkt die Notwendigkeit hierfür
 
 	\subsection{Solarzelle}
 
@@ -176,7 +172,7 @@
 	Wenn ein Photodetektor gebaut werden sollte, der einen linearen Zusammenhang zwischen Stromfluss und einfallenden Photonen herstellen soll, würde eine Spannung angelegt werden und der dritte Quadrant wäre relevant.
 	Da jedoch eine möglichst hohe Leistung erzielt werden soll, wird bei der Solarzelle der vierte Quadrant verwendet.
 	Die Spannung entsteht hier aufgrund des Stromflusses und muss nicht extern angelegt werden.
-	Wenn der Widerstand des Widerstands, über den die Enden des Halbleiters verbunden sind, verschwindet stellt sich der sog. Kurzschlussstrom $ I_\text{sc} = - I_\text{ph}$ ein. %TODO Widerstand des Widerstands? Maybe direkt wenn man kurzschließt?
+	Wenn der Widerstand des Widerstands, über den die Enden des Halbleiters verbunden sind, verschwindet stellt sich der sog. Kurzschlussstrom $ I_\text{sc} = - I_\text{ph}$ ein.
 	Wenn andersherum keine Verbindung besteht (unendlich großer Widerstand) stellt sich die Leerlaufspannung $ U_\text{oc}$ ein.
 	Für die Anwendung soll im Allgemeinen die Leistung maximiert werden, weshalb der sog. Maximum Power Point (MPP) gesucht wird, welcher sich bei der Leistung
 	\begin{equation}
@@ -185,7 +181,7 @@
 	\end{equation}
 	ergibt.
 	$FF$ ist dabei der Füllfaktor, der von der Bauart der Solarzelle abhängt.
-	%TODO der Rest der Formeln für FF und eta ist unten, deswegen lass ich das jetzt so.
+
 	Abschließend ist der Begriff der Luftmasse zu erklären.
 	Ein AM-Filter (Air Mass) simuliert die Bedingungen für Solarzellen auf der Erdoberfläche, indem er aus dem Spektrum einer Lampe die Wellenlängen herausfiltert, die auch die Atmosphäre aus dem Sonnenspektrum herausfiltert.
 	Eine Luftmasse von eins entspricht dabei dem Weg durch die Atmosphäre, den das Licht bei einem senkrechten Einfall auf die Erdoberfläche zurücklegt.
@@ -235,7 +231,7 @@
 	Den Proben liegt ein Zettel bei, der angibt, ob sie p- oder n-dotiert oder intrinsisch sind.
 
 	Zusätzlich wird eine Silizium-Scheibe untersucht, die vollständig mit Phosphor dotiert und dann von beiden Seiten mit Gallium dotiert wurde.
-	Dadurch ergibt sich eine tiefenabhängige Dotierung, die untersucht werden soll, indem schrittweise Schichten abgetragen werden und jeweils wie oben die Dicke und der Widerstand gemessen. %TODO eine Ga Seite war schon weg.
+	Dadurch ergibt sich eine tiefenabhängige Dotierung, die untersucht werden soll, indem schrittweise Schichten abgetragen werden und jeweils wie oben die Dicke und der Widerstand gemessen.
 	Die Schichten wurden durch Reiben der Probe in destilliertem Wasser mit Aluminiumpulver abpoliert.
 
 	\section{Ergebnisse und Diskussion}
@@ -249,7 +245,7 @@
 	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
 
-	%\subsubsection*{Dotierungskonzentrationen} %TODO Dotierungs oder Dotierung - konz. -> eigentlich ja Ladungsträgerkonzentrationen
+	%\subsubsection*{Dotierungskonzentrationen} % Dotierungs oder Dotierung - konz. -> eigentlich ja Ladungsträgerkonzentrationen
 	Mit der Vierspitzenmethode wird der Widerstand $R=U/I$ gemessen.
 	Daraus lässt sich dann mittels der Scheibendicke $d$ der spezifische Widerstand $\rho$ bestimmen.
 	\begin{equation}
@@ -299,7 +295,7 @@
 			 Ge&3900&1900 \\
 		\end{tabular}
 		\caption{
-		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung}. %TODO Ich war mal so frei, dass hier zu addieren, lol du hast den Punkt am Ende vergessen
+		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung}.
 		}
 		\label{tb_beweg}
 	\end{table}
@@ -307,12 +303,12 @@
 	Es ergibt sich nach Multiplikation mit n, bzw. p, und quadratischer Ergänzung:
 	\begin{equation}
 		\label{eq_n}
-			n =  \pm\sqrt{\left(\frac{1}{2e\mu_n\rho}\right)^2-c\mu_p/\mu_n}+\frac{1}{2e\mu_n \rho} %TODO u(n)?
+			n =  \pm\sqrt{\left(\frac{1}{2e\mu_n\rho}\right)^2-c\mu_p/\mu_n}+\frac{1}{2e\mu_n \rho}
 	\end{equation}
 	bzw.
 	\begin{equation}
 			\label{eq_p}
-			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(p)?
+			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho}
 	\end{equation}
 	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negative ist.
 
@@ -382,12 +378,11 @@
 	%TODO Ausreißer bei 0.02 weil zu kleiner mess wert
 	%TODO Ausreißer/Lock  bei 0.065 weil riesen sprung negativ => nicht aufgeführt
 	%TODO Angabe zu intrinsisch bestätigen
-	%TODO 70 mu m bestätigen
 	In \cref{tb_dot_konz} sind die ermittelten Ladungsträgerkonzentrationen angegeben.
 	Da hierfür keine Referenzwerte bekannt sind, kann kein Vergleich vorgenommen werden.
 	Es kann aber festgestellt werden, dass in den dotierten Proben die eine Art der Ladungsträger um ein Vielfaches überwiegt und größer ist als im intrinsischen Halbleiter.
 	Dass der spezifische Widerstand für dotierte Halbleiter um Größenordnungen geringer ist als für intrinsische Halbleiter ergibt sich aus den Beschreibungen im Theorieteil und kann anhand von \cref{tb_spez_wd} bestätigt werden.
-	Außerdem kann die Gültigkeit der vorgenommenen Rechnungen aufgrund der Übereinstimmung mit den DIN-Tabellen gezeigt werden. %TODO naja nur die größen Ordnung, imo
+	Außerdem kann die Gültigkeit der vorgenommenen Rechnungen aufgrund der Übereinstimmung mit den DIN-Tabellen zumindest innerhalb der Größenordnung erkannt werden.
 
 	Bei der schichtweisen Messung kann zunächst in \cref{fig_polier_wdst} festgestellt werden, dass der Widerstand mit zunehmender Messtiefe zunimmt und dann bei etwa \SI{65}{\micro \meter} auf ein konstantes Niveau fällt.
 	Dieses Verhalten lässt sich vollständig aufgrund des Vorwissens über die Struktur der Probe erklären.
@@ -396,7 +391,7 @@
 	Mit zunehmender Tiefe nimmt die Konzentration der Galliumatome ab, bis der Punkt erreicht ist, an dem die Konzentration der Galliumatome genauso groß wie die der Phosphoratome ist.
 	An diesem Punkt kombinieren die meisten Löcher durch die Galliumdotierung mit Valenzelektronen der Phosphordotierung und die resultierende Gesamtladungsträgerkonzentration wird gering.
 	Dementsprechend wurde hier ein Peak im Widerstand gemessen.
-	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt. %TODO naja nur so halb nicht gemessen ich habe ja die 3 dafür genommen. imo eher sage, dass man mehr MEsspunkte braucht damit error verschwindet
+	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt.
 	Hier steigt die Ladungsträgerkonzentration wieder und der Widerstand sinkt bis auf den Grenzwert durch die Phosphordotierung.
 
 	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird wenn man wie in \cref{eq_spez_wd_diff} den Kehrwert nahe Null bildet.
@@ -491,7 +486,7 @@
 	Letztere können auf Hintergrundlicht oder thermischen Schwankungen beruhen.
 
 	In \cref{tb_solar_param_poly} und \cref{tb_solar_param_tandem} ist deutlich zu erkennen, dass bei beiden Solarzellen der Füllfaktor und die Spannung am MPP mit der Temperatur abnimmt.
-	Dies liegt daran, dass mit steigender Temperatur die Größe der Bandlücke sinkt, sodass die angeregten Elektronen durch graduelle Abstrahlung energetisch tiefer sinken können und somit mehr Energie verlieren, die nicht in elektrische Leistung umgesetzt werden kann. %TODO ändert sich wirklich die Bandlücke oder haben randoms nur mehr (therm-)Energie und jumpen ins Band?
+	Dies liegt daran, dass mit steigender Temperatur die Größe der Bandlücke sinkt, sodass die angeregten Elektronen durch graduelle Abstrahlung energetisch tiefer sinken können und somit mehr Energie verlieren, die nicht in elektrische Leistung umgesetzt werden kann.
 	Der AM-Filter reduziert die Spannung am MPP massiv, was daran liegt, dass weniger Lichtleistung für die Zelle zur Verfügung steht, da einige Wellenlängen herausgefiltert wurden.
 
 	Es wäre zu erwarten, dass der Wirkungsgrad der Tandemzelle höher ist, als der der polykristallinen Siliziumzelle, da diese aus mehreren pn-Übergängen übereinander besteht, welche die Absorption eines breiteren Lichtspektrums erlauben.
