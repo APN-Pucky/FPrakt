@@ -68,11 +68,11 @@ def cyclicOff(x, a, f, phi, offset):
 def gauss(x, x0, A, d, y0):
     return A * np.exp(-(x - x0)**2 / 2 / d**2) + y0
 
-def exponential(x, c, y0):
-    return np.exp(c * x) * y0
+def exponential(x, c, y0,yy):
+    return np.exp(c * x) * y0-yy
 
-def custom(x,I0,IP,a):
-    return I0*(np.exp(x*a)-1)-IP
+def custom(x,y,c):
+    return 1/((x-0.066)*c)+y
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
@@ -146,29 +146,86 @@ for fname in os.listdir("MP1/data/dotier/"):
        data = np.genfromtxt(lines,  delimiter = ";")
 
    fname = fname.split(".")[0]
-   for i in range(6):
-       xdata = unp.uarray(data[:,2*i+0]*float(factors[2*i+0]),float(uncc[2*i+0])*float(factors[2*i+0])/2/math.sqrt(3))
-       ydata = unp.uarray(data[:,2*i+1]*float(factors[2*i+1]),float(uncc[2*i+1])*float(factors[2*i+1])/2/math.sqrt(3))
-       mx = mean(xdata[~np.isnan(unv(xdata))])
-       my = mean(ydata[~np.isnan(unv(ydata))])
-       print(i+1, " Probe")
-       print("R=",mx)
-       print("d=",my)
-       rho = mx*my*math.pi/math.log(2)
-       if i==4:
-           rho = rho*0.83
-       if i==3:
-           rho = rho*0.84
-       print("RHO=",rho/10)
-       mn = 1350
-       mp = 480
-       c=2.1e19
-       n = (-umath.sqrt((1/(2*e*mn*rho/10)**2)-c*mp/mn) + 1/(2*e*mn*rho/10))
-       p = (+umath.sqrt((1/(2*e*mp*rho/10)**2)-c*mn/mp) + 1/(2*e*mp*rho/10))
-       print("pn=",c/p)
-       print("nn=",n)
-       print("pp=",p)
-       print("np=",c/n)
+   if fname=="widerstand":
+       for i in range(6):
+           xdata = unp.uarray(data[:,2*i+0]*float(factors[2*i+0]),float(uncc[2*i+0])*float(factors[2*i+0])/2/math.sqrt(3))
+           ydata = unp.uarray(data[:,2*i+1]*float(factors[2*i+1]),float(uncc[2*i+1])*float(factors[2*i+1])/2/math.sqrt(3))
+           mx = mean(xdata[~np.isnan(unv(xdata))])
+           my = mean(ydata[~np.isnan(unv(ydata))])
+           print(i+1, " Probe")
+           print("R=",mx)
+           print("d=",my)
+           rho = mx*my*math.pi/math.log(2)
+           if i==4:
+               rho = rho*0.83
+           if i==3:
+               rho = rho*0.84
+               print("RHO=",rho/10)
+               mn = 1350
+               mp = 480
+               c=2.1e19
+               n = (-umath.sqrt((1/(2*e*mn*rho/10)**2)-c*mp/mn) + 1/(2*e*mn*rho/10))
+               p = (+umath.sqrt((1/(2*e*mp*rho/10)**2)-c*mn/mp) + 1/(2*e*mp*rho/10))
+               print("pn=",c/p)
+               print("nn=",n)
+               print("pp=",p)
+               #print("np=",c/n)
+               print("n_i=",1/(rho/10*e*(3900+1900)))
+   if fname == "polier":
+       xxdata = unp.uarray([],[])
+       yydata = unp.uarray([],[])
+       for i in range(19):
+           ydata = unp.uarray(data[:,2*i+0]*float(factors[2*i+0]),float(uncc[2*i+0])*float(factors[2*i+0])/2/math.sqrt(3))
+           xdata = unp.uarray(data[:,2*i+1]*float(factors[2*i+1]),float(uncc[2*i+1])*float(factors[2*i+1])/2/math.sqrt(3))
+           my = mean(ydata[~np.isnan(unv(ydata))])
+           mx = xdata[~np.isnan(unv(xdata))][0]
+           #rho = mx*my*math.pi/math.log(2)
+           yydata =np.append(yydata,my)
+           xxdata = np.append(xxdata,mx)
+       yyydata = unp.uarray([],[])
+       ii = 18
+       for i in range(ii):
+           rrho = math.log(2)/math.pi*(-1)*(((yydata[i]-yydata[i+1])))/(xxdata[i+1]-xxdata[i])/(yydata[i+1]*yydata[i])
+           yyydata = np.append(yyydata,rrho)
+
+       fig=plt.figure(figsize=fig_size)
+       ax = fig.gca()
+       print(yydata)
+       #ax.errorbar(unv(xxdata[0:ii]),unv(yyydata), usd(yyydata), usd(xxdata[0:ii]),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       ax.errorbar(unv(xxdata),unv(yydata), usd(yydata), usd(xxdata),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       #ax.errorbar(unv(xxdata[3:-1]),unv(1/yydata[3:-1]), usd(1/yydata[3:-1]), usd(xxdata[3:-1]),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       yyyydata = 1/np.diff(yydata)/np.diff(xxdata)
+       #ax.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Polier")
+
+       start_hb = find_nearest_index(xxdata,0.07)
+       end_hb = find_nearest_index(xxdata,0.11)
+       xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
+       heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+       print("  BASE: ", heat_base)
+       xfit = np.linspace(0.07,0.11, 200)
+       yfit = gerade(xfit, *heat_base)
+       ax.plot(unv(xfit), unv(yfit))
+
+
+       start_hb = find_nearest_index(xxdata,0.047)
+       end_hb = find_nearest_index(xxdata,0.065)
+       xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
+       #heat_base = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata), p0 = [0.1, -0.01],maxfev=10000)
+       heat_base = fit_curvefit2(unv(xdata), unv(ydata), exponential, yerr = usd(ydata), p0 = [284, 0.000356,-192],maxfev=10000)
+       print("  BASE: ", heat_base)
+       #heat_base = [0.1, -0.01,0.065]
+       xfit = np.linspace(0.00,0.067, 200)
+       #yfit = custom(xfit, unv(heat_base[0]),unv(heat_base[1]))
+       yfit = exponential(xfit, unv(heat_base[0]),unv(heat_base[1]),unv(heat_base[2]))
+       ax.plot(unv(xfit), unv(yfit))
+
+       plt.legend(prop={'size':fig_legendsize})
+       plt.grid()
+       plt.tick_params(labelsize=fig_labelsize)
+       plt.xlabel(names[1])
+       plt.ylabel(names[0])
+       plt.savefig("MP1/img/%s.pdf"%(fname))
+       plt.show()
 
 
 
