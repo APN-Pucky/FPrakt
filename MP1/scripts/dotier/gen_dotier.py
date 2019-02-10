@@ -192,19 +192,20 @@ for fname in os.listdir("MP1/data/dotier/"):
        ax = fig.gca()
        print(yydata)
        #ax.errorbar(unv(xxdata[0:ii]),unv(yyydata), usd(yyydata), usd(xxdata[0:ii]),fmt=' ', capsize=5,linewidth=2, label="Polier")
-       ax.errorbar(unv(xxdata),unv(yydata), usd(yydata), usd(xxdata),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       #ax.errorbar(unv(xxdata),unv(yydata), usd(yydata), usd(xxdata),fmt=' ', capsize=5,linewidth=2, label="Polier")
        #ax.errorbar(unv(xxdata[3:-1]),unv(1/yydata[3:-1]), usd(1/yydata[3:-1]), usd(xxdata[3:-1]),fmt=' ', capsize=5,linewidth=2, label="Polier")
-       yyyydata = 1/np.diff(yydata)/np.diff(xxdata)
-       #ax.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       yyyydata = -math.log(2)/math.pi*np.diff(1/yydata)/np.diff(xxdata)
+       print(yyyydata)
+       ax.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Polier")
 
        start_hb = find_nearest_index(xxdata,0.07)
-       end_hb = find_nearest_index(xxdata,0.11)
+       end_hb = find_nearest_index(xxdata,0.14)
        xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
-       heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+       heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [300, 1000])
        print("  BASE: ", heat_base)
        xfit = np.linspace(0.07,0.11, 200)
        yfit = gerade(xfit, *heat_base)
-       ax.plot(unv(xfit), unv(yfit))
+       #ax.plot(unv(xfit), unv(yfit))
 
 
        start_hb = find_nearest_index(xxdata,0.047)
@@ -217,7 +218,7 @@ for fname in os.listdir("MP1/data/dotier/"):
        xfit = np.linspace(0.00,0.067, 200)
        #yfit = custom(xfit, unv(heat_base[0]),unv(heat_base[1]))
        yfit = exponential(xfit, unv(heat_base[0]),unv(heat_base[1]),unv(heat_base[2]))
-       ax.plot(unv(xfit), unv(yfit))
+       #ax.plot(unv(xfit), unv(yfit))
 
        plt.legend(prop={'size':fig_legendsize})
        plt.grid()
