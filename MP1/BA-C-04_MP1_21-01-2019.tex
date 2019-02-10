@@ -72,7 +72,7 @@
 		\centering
 		{\scshape\LARGE Versuchsbericht zu \par}
 		\vspace{1cm}
-		{\scshape\huge MP1 - Eigenschaften der Solarzelle \par} %TODO Iwie ist der Titel nur 50%
+		{\scshape\huge MP1 - Eigenschaften der Solarzelle \par} %TODO Iwie ist der Titel nur 50% -> tja, ist aber so
 		\vspace{2.5cm}
 		{\LARGE Gruppe BA-C-04 \par}
 		\vspace{0.5cm}
@@ -92,7 +92,6 @@
 	\tableofcontents
 	\newpage
 
-	%TODO mehr TODO in Default
 
 	\section{Kurzfassung}
 	% Hypothese	und deren Ergebnis, wenn Hypothese ist, dass nur Theorie erfüllt, sagen: Erwartung: Theorie aus einführung (mit reflink) erfüllt
@@ -100,7 +99,9 @@
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
 
-
+	Es wird erwartet, dass die Angaben auf dem den Proben beiliegenden Zettel bezüglich des Vorhandenseins einer Dotierung bestätigt werden können.
+	%TODO Dies konnte gezeigt werden.
+	Nicht möglich war es die Art der Dotierung zu bestimmen, da diese Funktion des Vierspitzenmessgeräts nicht mehr funktionierte. %TODO Prüfen, ob true
 
   \section{Theorie}
 	% wdh. Texte
@@ -111,6 +112,16 @@
 
 	\subsection{Halbleiter}
 	%TODO dotierkram allgemein
+	Um die Solarzelle verstehen zu könne, muss man zunächst dotierte Halbleiter und die Diode verstehen.
+	Halbleiter zeichnen sich dadurch aus, dass sie im Gegensatz zu Leitern eine Bandlücke zwischen Valenz- und Leitungsband besitzen, welche gleichzeitig im Vergleich zu Isolatoren sehr gering ist.
+	Im folgenden werden elementare Halbleiter der vierten Hauptgruppe betrachtet, aber die Erklärungen lassen sich auch auf andere Halbleiter ausweiten.
+	Andere Halbleiter sind beispielsweise aus Elementen der dritten und fünften Hauptgruppe zusammengesetzt.
+	Das prominenteste Beispiel hierfür ist Galliumarsenid.
+
+	Bei Raumtemperatur befinden sich in Halbleitern nur wenige Ladungsträger im Leitungsband, weshalb der spezifische Widerstand groß ist.
+	Wenn nun Elemente aus der fünften Hauptgruppe in das Gitter eingebracht werden, nennt man das n-Dotierung, da die eingebrachten Elemente ein Elektron zu viel in der äußeren Schale haben, um sich optimal in das Gitter einfügen zu können.
+	Das führt dazu, dass dieses Elektron nicht fest am Atomrumpf sitzt, sondern durch thermische Anregung leicht ins Leitungsband befördert werden kann und somit der spezifische Widerstand sinkt. %TODO glaube diese Erkenntnis stammt aus PkM
+	
 
 	\subsection{Solarzelle}
 	%TODO ultra ätzende Herleitung von pn-Übergang zu Solarzelle
@@ -123,7 +134,7 @@
 
 	\subsubsection{Vierspitzenmethode}
 	Die Vierspitzenmethode ermöglicht die Messung des Flächenwiderstands in einer dünnen Probe.
-	Dazu werden vier Spitzen, dies sich unter gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.
+	Dazu werden vier Spitzen, dies sich unter gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.der
 	Über die äußeren beiden lässt das Gerät dann einen bekannten Strom fließen und misst die Potenzialdifferenz zwischen den mittleren beiden.
 	Die Vierspitzenmethode basiert auf dem Prinzip der Vierleitermessung nach Thomson und Kelvin, die es erlaubt den untersuchten Widerstand unabhängig vom Anschlusswiderstand (hier dem Übergangswiderstand Spitze zu Probe) zu bestimmen.
 	%TODO dein Kram:
@@ -137,18 +148,22 @@
 	% Bilder von der Website klauen
 	% einer will Präsens
 	\subsection{Solarzellen}
-	Da der vorliegende Versuchsaufbau fehlerhaft war und es nicht möglich war die Messungen durchzuführen, wird hier nur das grundsätzliche Vorgehen beschrieben.
+	Da der vorliegende Versuchsaufbau fehlerhaft war und es nicht möglich war die Messungen zur Solarzelle durchzuführen, wird hier nur das grundsätzliche Vorgehen beschrieben.
 
 	Es sollen für eine Tandemsolarzelle und eine Solarzelle aus polykistallinem Silizium I-U-Kennlinien aufgenommen werden.
 	Dies wird ohne Beleuchtung der Solarzellen, bei vollständigem Sonnenspektrum und bei einem AM-gefilterten Sonnenspektrum bei verschiedenen Temperaturen durchgeführt.
 	Dazu wird an die Zellen eine Spannung angelegt, die schrittweise erhöht wird.
-	Bei Beleuchtung hätte auch der Lastwiderstand variiert werden können, um die I-U-Kennlinie aufzunehmen.
-	Dies hätte jedoch das Messen negativer Spannungen unmöglich gemacht, die so in die Fit-Funktion mit einbezogen werden konnten.
+	Bei Beleuchtung könnte auch der Lastwiderstand variiert werden, um die I-U-Kennlinie aufzunehmen.
+	Dies würde jedoch das Messen negativer Spannungen unmöglich machen, die so in die Fit-Funktion mit einbezogen werden können.
 
 	\subsection{Dotierstoffe}
-	Es wird ein Gerät verwendet, dass die Vierspitzenmethode verwendet, um den Widerstand der untersuchten Halbleiter zu bestimmen.
+	Es wird ein Gerät verwendet, dass die Vierspitzenmethode verwendet, um den spezifischen Widerstand der zu untersuchenden Halbleiter zu bestimmen.
+	Dazu werden jeweils zehn Messungen des Oberflächenwiderstands durchgeführt und dann fünf mal mit einem digitalen Mikrometer die Dicke der Probe gemessen, um wissen zu können, ob ein Korrekturfaktor bei der Bestimmung des Widerstands nötig ist.
+	Untersucht werden unterschiedlich dotierte Silizium- und Germaniumproben.
+	Den Proben liegt ein Zettel bei, der angibt, ob sie p- oder n-dotiert oder intrinsisch sind.
 
-
+	Zusätzlich wird eine Silizium-Scheibe untersucht, die vollständig mit Phosphor dotiert und dann von beiden Seiten mit Gallium dotiert wurde.
+	Dadurch ergibt sich eine tiefenabhängige Dotierung, die untersucht werden soll, indem schrittweise Schichten abgetragen werden und jeweils wie oben die Dicke und der Flächenwiderstand gemessen.
 
 	\section{Ergebnisse und Diskussion}
 
@@ -269,9 +284,9 @@
 	\subsubsection{Diskussion}
 	%TODO Messfehler bei unbeleuchtet poly???? diskus
 	%TODO hab das hier hin geschpoben weiel diskus
-	Da in \cref{eq_photostrom} $I_{ph}$ der vertikale Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird, also in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20}.
+	Da in \cref{eq_photostrom} $I_{ph}$ der vertikalen Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird, also in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20}.
 	%TODO passt bis auf thermo + hintergrund licht effekte
-
+	%TODO Wärme macht das schlechter (oder vlt besser) weil?
 
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
