@@ -291,6 +291,7 @@
 	\end{equation}
 	bzw.
 	\begin{equation}
+			\label{eq_p}
 			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(n)
 	\end{equation}
 	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negative ist.
@@ -318,7 +319,35 @@
 		\label{tb_dot_konz}
 	\end{table}
 
+	In \cref{fig_polier_wdst} ist die Widerstandsmessung der phosphordotierten Si-Scheibe mit Ga-Diffusion gegen den Schichtenabtrag abgebildet.
+	Der Widerstand erreicht ein Maximum bei \SI{65+-2}{\mu m}.
 
+	\begin{figure}[H]
+			\includegraphics[width=.9\linewidth]{img/polier_wdst.pdf}
+			\caption{
+			%TODO caption
+							}
+			\label{fig_polier_wdst}
+	\end{figure}
+
+	Der spezifische Widerstand ergibt sich aus
+	\begin{equation}
+		\frac{1}{\rho} = - \frac{\ln 2}{\pi} \frac{d R^{-1}}{dx},
+	\end{equation}
+	bzw. numerisch
+	\begin{equation}
+		\frac{1}{\rho_i} = - \frac{\ln 2 }{\pi} \frac{R^{-1}_{i+1}-R^{-1}_{i}}{x_{i+1}-x_i}
+	\end{equation}
+	Man erhält durch Einsetzten in \cref{eq_p} die Löcherkonzentration.
+	Diese ist in Abhängingkeit vom Schichtenabtrag in \cref{fig_polier_konz} dargestellt.
+
+	\begin{figure}[H]
+			\includegraphics[width=.9\linewidth]{img/polier_konz.pdf}
+			\caption{
+			%TODO caption
+							}
+			\label{fig_polier_konz}
+	\end{figure}
 
 	\subsubsection{Diskussion}
 	\subsection{Solarzelle}

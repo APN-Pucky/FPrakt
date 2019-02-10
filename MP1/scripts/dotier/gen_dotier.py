@@ -183,6 +183,7 @@ for fname in os.listdir("MP1/data/dotier/"):
            yydata =np.append(yydata,my)
            xxdata = np.append(xxdata,mx)
        yyydata = unp.uarray([],[])
+       print(xxdata)
        ii = 18
        for i in range(ii):
            rrho = math.log(2)/math.pi*(-1)*(((yydata[i]-yydata[i+1])))/(xxdata[i+1]-xxdata[i])/(yydata[i+1]*yydata[i])
@@ -192,40 +193,55 @@ for fname in os.listdir("MP1/data/dotier/"):
        ax = fig.gca()
        print(yydata)
        #ax.errorbar(unv(xxdata[0:ii]),unv(yyydata), usd(yyydata), usd(xxdata[0:ii]),fmt=' ', capsize=5,linewidth=2, label="Polier")
-       #ax.errorbar(unv(xxdata),unv(yydata), usd(yydata), usd(xxdata),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       ax.errorbar(unv(xxdata),unv(yydata), usd(yydata), usd(xxdata),fmt=' ', capsize=5,linewidth=2, label="Messung")
        #ax.errorbar(unv(xxdata[3:-1]),unv(1/yydata[3:-1]), usd(1/yydata[3:-1]), usd(xxdata[3:-1]),fmt=' ', capsize=5,linewidth=2, label="Polier")
        yyyydata = -math.log(2)/math.pi*np.diff(1/yydata)/np.diff(xxdata)
+       ax.set_yscale("log", nonposy='clip')
+       plt.legend(prop={'size':fig_legendsize})
+       plt.grid()
+       plt.tick_params(labelsize=fig_labelsize)
+       plt.xlabel("Schichtenabtrag (mm)")
+       plt.ylabel(names[0])
+       plt.savefig("MP1/img/%s.pdf"%(fname+"_wdst"))
+       plt.show()
+
+       fig2=plt.figure(figsize=fig_size)
+       ax2 = fig2.gca()
+       mn = 1350
+       mp = 480
+       yyyydata = (+((1/(2*e*mp*1/yyyydata/10)**2)-c*mn/mp)**0.5 + 1/(2*e*mp*1/yyyydata/10))
        print(yyyydata)
-       ax.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Polier")
+       ax2.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Messung")
+       ax2.set_yscale("log", nonposy='clip')
 
-       start_hb = find_nearest_index(xxdata,0.07)
-       end_hb = find_nearest_index(xxdata,0.14)
-       xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
-       heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [300, 1000])
-       print("  BASE: ", heat_base)
-       xfit = np.linspace(0.07,0.11, 200)
-       yfit = gerade(xfit, *heat_base)
-       #ax.plot(unv(xfit), unv(yfit))
-
-
-       start_hb = find_nearest_index(xxdata,0.047)
-       end_hb = find_nearest_index(xxdata,0.065)
-       xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
-       #heat_base = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata), p0 = [0.1, -0.01],maxfev=10000)
-       heat_base = fit_curvefit2(unv(xdata), unv(ydata), exponential, yerr = usd(ydata), p0 = [284, 0.000356,-192],maxfev=10000)
-       print("  BASE: ", heat_base)
-       #heat_base = [0.1, -0.01,0.065]
-       xfit = np.linspace(0.00,0.067, 200)
-       #yfit = custom(xfit, unv(heat_base[0]),unv(heat_base[1]))
-       yfit = exponential(xfit, unv(heat_base[0]),unv(heat_base[1]),unv(heat_base[2]))
-       #ax.plot(unv(xfit), unv(yfit))
+       #start_hb = find_nearest_index(xxdata,0.07)
+       #end_hb = find_nearest_index(xxdata,0.14)
+       #xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
+       #heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [300, 1000])
+       #print("  BASE: ", heat_base)
+       #xfit = np.linspace(0.07,0.11, 200)
+       #yfit = gerade(xfit, *heat_base)
+       ##ax.plot(unv(xfit), unv(yfit))
+#
+#
+       #start_hb = find_nearest_index(xxdata,0.047)
+       #end_hb = find_nearest_index(xxdata,0.065)
+       #xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
+       ##heat_base = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata), p0 = [0.1, -0.01],maxfev=10000)
+       #heat_base = fit_curvefit2(unv(xdata), unv(ydata), exponential, yerr = usd(ydata), p0 = [284, 0.000356,-192],maxfev=10000)
+       #print("  BASE: ", heat_base)
+       ##heat_base = [0.1, -0.01,0.065]
+       #xfit = np.linspace(0.00,0.067, 200)
+       ##yfit = custom(xfit, unv(heat_base[0]),unv(heat_base[1]))
+       #yfit = exponential(xfit, unv(heat_base[0]),unv(heat_base[1]),unv(heat_base[2]))
+       ##ax.plot(unv(xfit), unv(yfit))
 
        plt.legend(prop={'size':fig_legendsize})
        plt.grid()
        plt.tick_params(labelsize=fig_labelsize)
-       plt.xlabel(names[1])
-       plt.ylabel(names[0])
-       plt.savefig("MP1/img/%s.pdf"%(fname))
+       plt.xlabel("Schichtenabtrag (mm)")
+       plt.ylabel("Löcherkonzentration (cm$^{-3}$)")
+       plt.savefig("MP1/img/%s.pdf"%(fname+"_konz"))
        plt.show()
 
 
