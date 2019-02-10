@@ -240,7 +240,7 @@
 	\subsubsection{Unsicherheiten}
 	Folgende Unsicherheiten werden angenommen:
 	\begin{description}
-		\item[Mikrometerschraube:]  Digitalanzeige, Rechteckverteilung, da sich jedoch nach einigen Messungen die kalibrierte Nullposition geändert hat, wird die Unsicherheit größer mit $u(x)=\SI{1.7}{\mu m}$ abgeschätzt.
+		\item[Mikrometerschraube:]  Digitalanzeige, Rechteckverteilung. Da sich jedoch nach einigen Messungen die kalibrierte Nullposition geändert hat, wird die Unsicherheit größer, nämlich mit $u(x)=\SI{1.7}{\mu m}$ abgeschätzt.
 		\item[Vierspitzenmessgerät:] Digitalanzeige, Rechteckverteilung
 	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
@@ -256,6 +256,7 @@
 			u(\rho) = \rho\cdot\sqrt{(u(R)/R)^2 + (u(d)/d)^2}
 	\end{equation}
 	Für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand) ist der Korrekturfaktor gleich 1.
+	Dies ist für alle Proben außer Probe 4 und 5 der Fall.
 	Für dicke Scheiben erhält man einen Korrekturfaktor F(d/s) ungleich 1 gemäß der DIN-Norm\cite{DIN50431}.
 	Dieser beträgt für Probe 4 $F=0.84$ und für Probe 5 $F=0.83$.
 	In \cref{tb_spez_wd} befinden sich die gemittelten Messergebnisse.
@@ -295,7 +296,7 @@
 			 Ge&3900&1900 \\
 		\end{tabular}
 		\caption{
-		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung}.
+		Beweglichkeiten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung}.
 		}
 		\label{tb_beweg}
 	\end{table}
@@ -310,7 +311,7 @@
 			\label{eq_p}
 			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho}
 	\end{equation}
-	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negative ist.
+	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negativ ist.
 
 	Für die intrinsische Ge-Probe gilt $n_i=n=p$.  %SRC https://www.tf.uni-kiel.de/matwis/amat/mw_for_et/kap_9/backbone/r9_1_1.html
 	Also:
@@ -388,13 +389,13 @@
 	Mit zunehmender Tiefe nimmt die Konzentration der Galliumatome ab, bis der Punkt erreicht ist, an dem die Konzentration der Galliumatome genauso groß wie die der Phosphoratome ist.
 	An diesem Punkt kombinieren die meisten Löcher durch die Galliumdotierung mit Valenzelektronen der Phosphordotierung und die resultierende Gesamtladungsträgerkonzentration wird gering.
 	Dementsprechend wurde hier ein Peak im Widerstand gemessen.
-	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt.
+	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt und Elektronen Majoritätsladungsträger sind.
 	Hier steigt die Ladungsträgerkonzentration wieder und der Widerstand sinkt bis auf den Grenzwert durch die Phosphordotierung.
 
-	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird wenn man, wie in \cref{eq_spez_wd_diff}, den Kehrwert nahe Null bildet.
+	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird, wenn man wie in \cref{eq_spez_wd_diff} den Kehrwert nahe Null bildet.
 	Die Lücke bei \SI{65}{\mu m} kommt daher, dass in \cref{fig_polier_wdst} der Verlauf des Widerstands nicht mehr monoton ist und sich ein negativer (und unphysikalisher) spezifischer Widerstand ergibt.
-	Gleiches gilt für den Wert bei \SI{0.02}{\mu m}, hier ergibt sich ebenfalls mathematisch eine negative Löcherkonzentration.
-	In der logarithmischern Darstellung sieht man jedoch nur das obere Ende des Fehlerbalkens.
+	Gleiches gilt für den Wert bei \SI{20}{\mu m}, hier ergibt sich ebenfalls mathematisch eine negative Löcherkonzentration.
+	In der logarithmischern Darstellung sieht man hiervon jedoch nur das obere Ende des Fehlerbalkens.
 	Die P-Grunddotierung lässt sich nur mit ziemlich großer Unsicherheit bestimmen \SI{0.9+-1.2e14}{cm^{-3}}.
 	Dieser Wert funktioniert lediglich als eine Obere Schranke.
 	Daraus kann man wiederum mit \cref{fig_polier_konz} folgern, dass die Konzentration Ga-Atome an der Oberfläche deutlich höher mit \SI{1.29+-0.19e17}{cm^{-3}} ist.
@@ -429,7 +430,7 @@
 
 	\cref{fig_tandem_beleuchtet_20} stellt exemplarisch die I-U-Kennlinie der Solarzellen dar, wenn sie mit Licht bestrahlt werden (weitere befinden sich im \nameref{s_anhang}).
 	Das rote (grüne) Rechteck gibt die im 4. Quadranten durch $U_\text{MPP}$ und $I_\text{MPP}$ ($U_\text{oc}$ und $I_\text{sc}$) begrenzte Fläche an.
-	Die rote Fläche entspricht der Maximalen Leistung $P_{max} = U_\text{MPP}I_\text{MPP}$.
+	Die rote Fläche entspricht der maximalen Leistung $P_{max} = U_\text{MPP}I_\text{MPP}$.
 	Der Füllfaktor $FF$ ergibt sich als das Verhältnis der Flächen, also
 	\begin{equation}
 		FF = \frac{U_\text{MPP}I_\text{MPP}}{U_\text{oc}I_\text{sc}}.
@@ -482,9 +483,9 @@
 \end{table}
 	\subsubsection{Diskussion}
 	Da die Messungen nicht selbst durchgeführt wurden, kann nicht geklärt werden, worauf der \enquote{Ausreißer} in den Messwerten in \cref{fig_poly_unbeleuchtet_20} zurückzuführen ist.
-	Wie anhand der Fits in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} zu erkennen ist, verhalten sich die Solarzellen insgesamt aber beide erwartungsgemäß wie Dioden.
+	Wie anhand der Fits in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} zu erkennen ist, verhalten sich die unbeleuchteten Solarzellen insgesamt aber beide erwartungsgemäß wie Dioden.
 
-	Da in \cref{eq_photostrom} $I_\text{ph}$ der vertikalen Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird.
+	Da in \cref{eq_photostrom} $I_\text{ph}$ der vertikalen Verschiebung an der Ordinate entspricht, wird erwartet, dass diese nahe Null ist, wenn die Solarzelle nicht beleuchtet wird.
 	Dies ist in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} innerhalb der Messunsicherheiten erfüllt.
 	Letztere können auf Hintergrundlicht oder thermischen Schwankungen beruhen.
 
