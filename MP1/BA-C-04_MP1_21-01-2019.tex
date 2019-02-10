@@ -231,6 +231,8 @@
 	\subsection{Dotierstoffe}
 	\subsubsection{Unsicherheiten}
 	\subsubsection{Beobachtung und Datenanalyse}
+
+	\subsubsection*{Dotierungskonzentrationen} %TODO Dotierungs oder Dotierung - konz.
 	Mit der Vierspitzenmethode wurde der Widerstand $R=U/I$ gemessen.
 	Daraus lässt sich dann mittels der Scheibendicke $d$ für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand):
 	\begin{equation}
@@ -252,8 +254,8 @@
 			 2& Si& n&\SI{8.52+-0.21}{}&\SI{0.4532+-0.0009}{}&\SI{1.75+-0.04}{} \\
 			 3& Si& n&\SI{0.0713+-0.0018}{}&\SI{0.0677+-0.001}{}&\SI{0.0219+-0.0005}{} \\
 			 4& Si& p&\SI{0.00192+-0.00004}{}&\SI{1.999+-0.005}{}&\SI{0.00146+-0.00003}{} \\ %TODO eher als e/10 potenz?
-			 6& Si& n&\SI{0.084+-0.007}{}&\SI{0.6826+-0.0009}{}&\SI{0.0260+-0.0022}{} \\
 			 5& Ge& i&\SI{25+-5}{}&\SI{2.1070+-0.0013}{}&\SI{19.92+-3.32}{}  \\ %TODO i-dot fine?
+			 6& Si& n&\SI{0.084+-0.007}{}&\SI{0.6826+-0.0009}{}&\SI{0.0260+-0.0022}{} \\
 		\end{tabular}
 		\caption{
 		%TODO caption hier
@@ -266,7 +268,7 @@
 			\frac{1}{\rho}=en\mu_n + ep\mu_p
 	\end{equation}
 	bestimmen.
-	Für kristallines Silizium bei Raumtemperatur gilt $c=n\cdot p=\SI{2.1e19}{cm^{-6}}$ und die Beweglichkeiten sind nach \cref{tb_beweg} gegeben.
+	Für kristallines Silizium bei $T=\SI{300}{K}$ gilt $c=n\cdot p=\SI{2.1e19}{cm^{-6}}$ und die Beweglichkeiten sind nach \cref{tb_beweg} gegeben.
 
 
 	\begin{table}[H]
@@ -274,23 +276,30 @@
 		\begin{tabular}{c | c | c  }
 			 &$\mu_n$ in \si{cm^2/V/s}&$\mu_p$ in \si{cm^2/V/s}\\ \hline
 			 Si&1350&480 \\
+			 Ge&3900&1900 \\
 		\end{tabular}
 		\caption{
-		Beweglichkeitsdaten für Silizium bei Raumtemperatur.
+		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$.
 		}
 		\label{tb_beweg}
 	\end{table}
 
 	Es ergibt sich:
 	\begin{equation}
+		\label{eq_n}
 			n =  \pm\sqrt{\left(\frac{1}{2e\mu_n\rho}\right)^2-c\mu_p/\mu_n}+\frac{1}{2e\mu_n \rho} %TODO u(n)
 	\end{equation}
 	bzw.
 	\begin{equation}
-			p =  \pm\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(n)
+			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(n)
 	\end{equation}
-	Aus der sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n dotierte das Vorzeichen der Wurzel positiv und für p dotierte negative ist.
+	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negative ist.
 
+	Für die intrinsische Ge-Probe gilt $n_i=n=p$.  % https://www.tf.uni-kiel.de/matwis/amat/mw_for_et/kap_9/backbone/r9_1_1.html
+	Also:
+	\begin{equation}
+			n_i = \frac{1}{ \rho e (\mu_n+\mu_p)}
+	\end{equation}
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c | c }
@@ -300,12 +309,13 @@
 			  2 & \SI{2.64+-0.07e+15}{}&\SI{7.95+-0.20e+03}{}&$n=\SI{2.77e+15}{}$ \\
 			  3& \SI{2.11+-0.05e+17}{}& \SI{99.3+-2.5}{}& $n=\SI{1.09e18}{}$\\
 			 4 &\SI{2.36+-0.05}{}&\SI{8.90+-0.20e+18}{}& $p=\SI{7.68e+19}{}$\\
+			 5 & \SI{ 5.5+-1.0e+13}{}&\SI{5.5+-1.0e+13}{}& \\
 			 6 & \SI{1.78+-0.15e+17}{}&\SI{118+-10}{}&$n=\SI{7.94e17}{}$\\
 		\end{tabular}
 		\caption{
 		Dotierungskonzentrationen %TODO quote DIN
 		}
-		\label{tb_beweg}
+		\label{tb_dot_konz}
 	\end{table}
 
 
@@ -322,6 +332,7 @@
 			\includegraphics[width=.9\linewidth]{img/PolykristallineZelle_unbeleuchtet_20.pdf}
 			\caption{
 				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei Raumtemperatur.
+				Der Diodenkennlinien Fit ist deutlich schöner unter Vernachlässigung des Messwerts bei $U=\SI{0.8}{V}$. %TODO schön, meh.
 								}
 			\label{fig_poly_unbeleuchtet_20}
 	\end{figure}
