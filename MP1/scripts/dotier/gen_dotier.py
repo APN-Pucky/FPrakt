@@ -209,6 +209,7 @@ for fname in os.listdir("MP1/data/dotier/"):
        ax2 = fig2.gca()
        mn = 1350
        mp = 480
+       c=2.1e19
        yyyydata = (+((1/(2*e*mp*1/yyyydata/10)**2)-c*mn/mp)**0.5 + 1/(2*e*mp*1/yyyydata/10))
        print(yyyydata)
        ax2.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Messung")

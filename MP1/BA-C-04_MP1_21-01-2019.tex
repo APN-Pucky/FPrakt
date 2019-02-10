@@ -315,7 +315,7 @@
 	\end{equation}
 	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negative ist.
 
-	Für die intrinsische Ge-Probe gilt $n_i=n=p$.  % https://www.tf.uni-kiel.de/matwis/amat/mw_for_et/kap_9/backbone/r9_1_1.html
+	Für die intrinsische Ge-Probe gilt $n_i=n=p$.  %SRC https://www.tf.uni-kiel.de/matwis/amat/mw_for_et/kap_9/backbone/r9_1_1.html
 	Also:
 	\begin{equation}
 		\label{eq_ni}
@@ -323,15 +323,15 @@
 	\end{equation}
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{ c | c | c | c }
-			 Nr.& n in \si{cm^{-3}}&p in \si{cm^{-3}}& DIN in \si{cm^{-3}}\\ \hline
+		\begin{tabular}{ c | c | c | c | c | c }
+			 Nr.&Mat.& dot.& n in \si{cm^{-3}}&p in \si{cm^{-3}}& DIN in \si{cm^{-3}}\\ \hline
 
-			 1&\SI{1.63+-0.12e+04}{}&\SI{1.29+-0.09e+15}{}&$p=\SI{1.33e+14}{}$\\
-			  2 & \SI{2.64+-0.07e+15}{}&\SI{7.95+-0.20e+03}{}&$n=\SI{2.77e+15}{}$ \\
-			  3& \SI{2.11+-0.05e+17}{}& \SI{99.3+-2.5}{}& $n=\SI{1.09e18}{}$\\
-			 4 &\SI{2.36+-0.05}{}&\SI{8.90+-0.20e+18}{}& $p=\SI{7.68e+19}{}$\\
-			 5 & \SI{ 5.5+-1.0e+13}{}&\SI{5.5+-1.0e+13}{}& \\
-			 6 & \SI{1.78+-0.15e+17}{}&\SI{118+-10}{}&$n=\SI{7.94e17}{}$\\
+			 1&Si&p&\SI{1.63+-0.12e+04}{}&\SI{1.29+-0.09e+15}{}&$p=\SI{1.33e+14}{}$\\
+			  2 &Si&n& \SI{2.64+-0.07e+15}{}&\SI{7.95+-0.20e+03}{}&$n=\SI{2.77e+15}{}$ \\
+			  3&Si&n& \SI{2.11+-0.05e+17}{}& \SI{99.3+-2.5}{}& $n=\SI{1.09e18}{}$\\
+			 4 &Si&p&\SI{2.36+-0.05}{}&\SI{8.90+-0.20e+18}{}& $p=\SI{7.68e+19}{}$\\
+			 5 & Ge&i&\SI{ 5.5+-1.0e+13}{}&\SI{5.5+-1.0e+13}{}& \\
+			 6 & Si&n&\SI{1.78+-0.15e+17}{}&\SI{118+-10}{}&$n=\SI{7.94e17}{}$\\
 		\end{tabular}
 		\caption{
 		Aus den spezifischen Widerständen $\rho$ folgende Dotierungskonzentrationen.
@@ -409,9 +409,9 @@
 	Die rote Fläche entspricht der Maximalen Leistung $P_{max} = U_\text{MPP}I_\text{MPP}$.
 	Der Füllfaktor $FF$ ergibt sich als das Verhältnis der Flächen, also
 	\begin{equation}
-		FF = \frac{U_\text{MPP}I_\text{}}{U_\text{oc}I_\text{sc}}.
+		FF = \frac{U_\text{MPP}I_\text{MPP}}{U_\text{oc}I_\text{sc}}.
 	\end{equation}
-	Dabei konnten $U_\text{MPP}$, $I_\text{}$ und $I_\text{sc}$ direkt aus den Messpunkten extrahiert werden.
+	Dabei konnten $U_\text{MPP}$, $I_\text{MPP}$ und $I_\text{sc}$ direkt aus den Messpunkten extrahiert werden.
 	$U_\text{oc}$ musste mittels des Fits interpoliert werden.
 
 
@@ -422,7 +422,6 @@
 								}
 			\label{fig_tandem_beleuchtet_20}
 	\end{figure}
-	%TODO table
 	In \cref{tb_solar_param_poly} und \cref{tb_solar_param_tandem} sind die wichtigsten Parameter der Solarzellen die unter Variation der Temperatur bestimmt wurden aufgeführt.
 
 \begin{table}[H]
@@ -438,7 +437,7 @@
 			 $FF$ in \si{\percent}&\SI{35.05+-2.5}{}&\SI{34.8+-2.5}{}&\SI{33+-2.7}{} \\
 		\end{tabular}
 		\caption{
-		Polykristalline Zelle.
+		Beträge der wichtigen Parameter der polykristalline Zelle bei verschieden Temperaturen.
 		}
 		\label{tb_solar_param_poly}
 \end{table}
@@ -456,7 +455,7 @@
 			 $FF$ in \si{\percent}&\SI{63.3+-2.8}{}&\SI{60.5+-2.5}{}&\SI{57+-2.0}{} \\
 		\end{tabular}
 		\caption{
-		Tandemzelle.
+		Beträge der wichtigen Parameter der Tandemzelle bei verschiedenen Temperaturen und Lichtspektren.
 		}
 		\label{tb_solar_param_tandem}
 \end{table}
