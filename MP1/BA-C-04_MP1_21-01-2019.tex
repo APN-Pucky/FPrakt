@@ -98,10 +98,17 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	Aufgrund von Energiewende bzw. CO2-Ausstieg sind Solarzellen auf der Prioritätenliste der Forschung weit nach oben gerückt.
+	In diesem Versuch sollen Halbleiter als Grundlage der Solarzelle untersucht werden und zusätzlich die Eigenschaften zweier Solarzellen untersucht werden.
 
-	Es wird erwartet, dass die Angaben auf dem den Proben beiliegenden Zettel bezüglich des Vorhandenseins einer Dotierung bestätigt werden können.
-	%TODO Dies konnte gezeigt werden.
-	Nicht möglich war es die Art der Dotierung zu bestimmen, da diese Funktion des Vierspitzenmessgeräts nicht mehr funktionierte. %TODO Prüfen, ob true
+	Es können die Ladungsträgerkonzentrationen verschiedener Halbleiterproben mithilfe der Vierspitzenmethode bestimmt werden.
+	Dabei kann die Angabe auf dem beiliegenden Zettel bezüglich der Probe, die als intrinsisch markiert ist, als korrekt gezeigt werden.
+	Außerdem wird ein Höhenprofil der Ladungsträgerkonzentration in einer Probe mit vollständiger Phosphordotierung und beidseitiger Ga-Diffusion mit begrenzter Eindringtiefe angefertigt.
+	Hierbei kann die Angabe der Diffusionstiefe von etwa \SI{70}{\micro \meter} bestätigt werden.
+
+	Dann werden zwei verschiedene Solarzellen auf ihre Eigenschaften untersucht.
+	Unter anderem wird hier der Maximum Power Point (MPP, Punkt der maximalen Leistung) und der Füllfaktor bei verschiedenen Temperaturen und Bestrahlungen bestimmt.
+	Ein Vergleich zwischen den Solarzellen ist jedoch nicht möglich.
 
   \section{Theorie}
 	% wdh. Texte
@@ -165,7 +172,7 @@
 
 	\begin{equation}
 			\label{eq_photostrom}
-			I = I_0 \left[\exp{\left(\frac{eU}{n k_B T}\right)}-1\right]-I_{ph}
+			I = I_0 \left[\exp{\left(\frac{eU}{n k_B T}\right)}-1\right]-I_\text{ph}
 	\end{equation}
 
 	In \cref{fig_photodiode_kennlinie} ist dargestellt, wie dieser Vorang im Banschema aussieht und wie die durch den Photostrom modifizierte Diodenkennlinie aussieht.
@@ -207,7 +214,7 @@
 	\subsection{Solarzellen}
 	Da der vorliegende Versuchsaufbau fehlerhaft war und es nicht möglich war die Messungen zur Solarzelle durchzuführen, wird hier nur das grundsätzliche Vorgehen beschrieben.
 
-	Es sollen für eine Tandemsolarzelle und eine Solarzelle aus polykistallinem Silizium I-U-Kennlinien aufgenommen werden.
+	Es sollen für eine Tandemsolarzelle und eine Solarzelle aus polykristallinem Silizium I-U-Kennlinien aufgenommen werden.
 	Dies wird ohne Beleuchtung der Solarzellen, bei vollständigem Sonnenspektrum und bei einem AM-gefilterten Sonnenspektrum bei verschiedenen Temperaturen durchgeführt.
 	Dazu wird an die Zellen eine Spannung angelegt, die schrittweise erhöht wird.
 	Bei Beleuchtung könnte auch der Lastwiderstand variiert werden, um die I-U-Kennlinie aufzunehmen.
@@ -323,18 +330,23 @@
 
 
 	\subsubsection{Diskussion}
+
+	%TODO Angabe zu intrinsisch bestätigen
+	%TODO 70 mu m bestätigen
+
+
 	\subsection{Solarzelle}
 	\subsubsection{Unsicherheiten}
 	\subsubsection{Beobachtung und Datenanalyse}
 	Da keine eigenen Messungen zu den Solarzellen durchgeführt werden konnten, werden im folgenden alte Messdaten, die uns freundlicherweise von Finn Kutschmann ausgehändigt wurden, ausgewertet. %TODO fine?
 
-	In \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} sind die aufgenohmenen I-U-Kennlinien der polykistallinen Silizium Solarzelle und der Tandemzelle abgebildet.
+	In \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} sind die aufgenohmenen I-U-Kennlinien der polykristallinen Silizium Solarzelle und der Tandemzelle abgebildet.
 
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/PolykristallineZelle_unbeleuchtet_20.pdf}
 			\caption{
-				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei Raumtemperatur.
-				Der Diodenkennlinien Fit ist deutlich schöner unter Vernachlässigung des Messwerts bei $U=\SI{0.8}{V}$. %TODO schön, meh.
+				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei Raumtemperatur ohne Beleuchtung.
+				Der Diodenkennlinien-Fit erreicht deutlich geringere Abweichungen von den Messwerten unter Vernachlässigung des Messwerts bei $U=\SI{0.8}{V}$, weshalb im Bild beide Varianten dargestellt sind.
 								}
 			\label{fig_poly_unbeleuchtet_20}
 	\end{figure}
@@ -342,12 +354,12 @@
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/Tandemzelle_unbeleuchtet_20.pdf}
 			\caption{
-				I-U-Kennlinie einer Tandemzelle bei Raumtemperatur.
+				I-U-Kennlinie einer Tandemzelle bei Raumtemperatur ohne Beleuchtung.
 								}
 			\label{fig_tandem_unbeleuchtet_20}
 	\end{figure}
 
-	Die Fitfunktion ist die ideale Diodenkennlinie unter Einstrahlung von Licht \cref{eq_photostrom}.
+	Die Fitfunktion ist die ideale Diodenkennlinie unter Einstrahlung von Licht (vgl. \cref{eq_photostrom}).
 
 	\cref{fig_tandem_beleuchtet_20} stellt exemplarisch die I-U-Kennlinie der Solarzellen dar, wenn sie mit Licht bestrahlt werden (weitere befinden sich im \nameref{s_anhang}).
 	Das rote (grüne) Rechteck gibt die im 4. Quadranten durch $U_\text{MPP}$ und $I_\text{MPP}$ ($U_\text{oc}$ und $I_\text{sc}$) begrenzte Fläche an.
@@ -377,7 +389,7 @@
 			 &$T=\SI{20}{\celsius}$& $T=\SI{35}{\celsius}$& $T=\SI{50}{\celsius}$ \\ \hline
 			 $I_\text{sc}$ in \si{mA}& \SI{151+-0.3}{}&\SI{149+-0.3}{}& \SI{147+-0.3}{} \\
 			 $U_\text{oc}$ in \si{V}&\SI{0.63+-0.04}{}&\SI{0.61+-0.04}{}&\SI{0.61+-0.05}{} \\
-			 $I_\text{}$ in \si{mA}&\SI{108+-0.3}{}&\SI{99+-0.3}{}&\SI{96+-0.3}{} \\
+			 $I_\text{MPP}$ in \si{mA}&\SI{108+-0.3}{}&\SI{99+-0.3}{}&\SI{96+-0.3}{} \\
 			 $U_\text{MPP}$ in \si{V}&\SI{0.31+-0.003}{}&\SI{0.32+-0.003}{}&\SI{0.31+-0.003}{} \\
 			 $P_\text{MPP}$ in \si{mW}&\SI{33.48+-0.32}{}&\SI{31.68+-0.3}{}&\SI{29.76+-0.3}{} \\
 			 $FF$ in \si{\percent}&\SI{35.05+-2.5}{}&\SI{34.8+-2.5}{}&\SI{33+-2.7}{} \\
@@ -406,11 +418,20 @@
 		\label{tb_solar_param_tandem}
 \end{table}
 	\subsubsection{Diskussion}
-	%TODO Messfehler bei unbeleuchtet poly???? diskus
-	%TODO hab das hier hin geschpoben weiel diskus
-	Da in \cref{eq_photostrom} $I_{ph}$ der vertikalen Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird, also in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20}.
-	%TODO passt bis auf thermo + hintergrund licht effekte
-	%TODO Wärme macht das schlechter (oder vlt besser) weil?
+	Da die Messungen nicht selbst durchgeführt wurden, kann nicht geklärt werden, worauf der \enquote{Ausreißer} in den Messwerten in \cref{fig_poly_unbeleuchtet_20} zurückzuführen ist.
+
+	Da in \cref{eq_photostrom} $I_\text{ph}$ der vertikalen Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird.
+	Dies ist in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} innerhalb der Messunsicherheiten erfüllt.
+	Letztere können auf Hintergrundlicht oder thermischen Schwankungen beruhen.
+
+	In \cref{tb_solar_param_poly} und \cref{tb_solar_param_tandem} ist deutlich zu erkennen, dass bei beiden Solarzellen der Füllfaktor und die Spannung am MPP mit der Temperatur abnimmt.
+	Dies liegt daran, dass mit steigender Temperatur die Größe der Bandlücke sinkt, sodass die angeregten Elektronen durch graduelle Abstrahlung energetisch tiefer sinken können und somit mehr Energie verlieren, die nicht in elektrische Leistung umgesetzt werden kann.
+	Der AM-Filter reduziert die Spannung am MPP massiv, was daran liegt, dass weniger Lichtleistung für die Zelle zur Verfügung steht, da einige Wellenlängen herausgefiltert wurden.
+
+	Es wäre zu erwarten, dass der Wirkungsgrad der Tandemzelle höher ist, als der der polykristallinen Siliziumzelle, da diese aus mehreren pn-Übergängen übereinander besteht, welche die Absorption eines breiteren Lichtspektrums erlauben.
+	Da die Leistung des einfallenden Lichts nicht bekannt ist, kann der Wirkungsgrad jedoch nicht bestimmt werden.
+	Die Füllfaktoren wären nur vergleichbar, wenn eine gleich große Fläche der Zelle mit der gleichen Lampe beschienen werden würde.
+	Ersteres war jedoch nicht der Fall.
 
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
@@ -422,6 +443,8 @@
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+
+	Wenn die Leistung des einfallenden Lichts bekannt gewesen wäre, wäre es möglich gewesen, den Wirkungsgrad der Solarzellen zu bestimmen.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
@@ -467,7 +490,6 @@
 			\includegraphics[width=.9\linewidth]{img/Tandemzelle_realbeleuchtet_20.pdf}
 			\caption{
 				I-U-Kennlinie einer Tandemzelle bei Raumtemperatur unter Beleuchtung durch einen AM-Filter.
-				%TODO die Daten sagen nur hier "realbelecuhtet" also gehe ich von nur 1x AM-Filter aus
 			}
 			\label{fig_tandem_realbeleuchtet_20}
 	\end{figure}
