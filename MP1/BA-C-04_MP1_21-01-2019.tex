@@ -353,6 +353,7 @@
 
 	Der spezifische Widerstand ergibt sich aus
 	\begin{equation}
+		\label{eq_spez_wd_diff}
 		\frac{1}{\rho} = - \frac{\ln 2}{\pi} \frac{d}{dx}R^{-1},
 	\end{equation}
 	bzw. numerisch
@@ -396,6 +397,8 @@
 	Dementsprechend wurde hier ein Peak im Widerstand gemessen.
 	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt. %TODO naja nur so halb nicht gemessen ich habe ja die 3 dafür genommen. imo eher sage, dass man mehr MEsspunkte braucht damit error verschwindet
 	Hier steigt die Ladungsträgerkonzentration wieder und der Widerstand sinkt bis auf den Grenzwert durch die Phosphordotierung.
+
+	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird wenn man wie in \cref{eq_spez_wd_diff} den Kehrwert nahe Null bildet.
 
 	\subsection{Solarzelle}
 
