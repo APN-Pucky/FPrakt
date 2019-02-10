@@ -232,18 +232,25 @@
 
 	\subsection{Dotierstoffe}
 	\subsubsection{Unsicherheiten}
+	Folgende Unsicherheiten werden angenommen:
+	\begin{description}
+		\item[Mikrometerschraube:]  Digitalanzeige, Rechteckverteilung, da sich jedoch nach einigen Messungen die kalibrierte Nullposition geändert hat, wird die Unsicherheit größer mit $u(x)=\SI{1.7}{\mu m}$ abgeschätzt.
+		\item[Vierspitzenmessgeräts:] Digitalanzeige, Rechteckverteilung
+	\end{description}
 	\subsubsection{Beobachtung und Datenanalyse}
 
-	\subsubsection*{Dotierungskonzentrationen} %TODO Dotierungs oder Dotierung - konz. -> eigentlich ja Ladungsträgerkonzentrationen
+	%\subsubsection*{Dotierungskonzentrationen} %TODO Dotierungs oder Dotierung - konz. -> eigentlich ja Ladungsträgerkonzentrationen
 	Mit der Vierspitzenmethode wurde der Widerstand $R=U/I$ gemessen.
-	Daraus lässt sich dann mittels der Scheibendicke $d$ für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand):
+	Daraus lässt sich dann mittels der Scheibendicke $d$ der spezifische Widerstand bestimmen.
 	\begin{equation}
 			\rho = \frac{R d \pi}{\ln 2} \cdot F(d/s)
+			\label{eq_spez_wd}
 	\end{equation}
 	\begin{equation}
 			u(\rho) = \rho\cdot\sqrt{(u(R)/R)^2 + (u(d)/d)^2}
 	\end{equation}
-	Für die dickere Scheiben erhält man einen Korrekturfaktor F(d/s) ungleich 1 gemäß der DIN-NORM. %TODO cite DIN!
+	Für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand) ist der Korrekturfaktor gleich 1.
+	Für dicke Scheiben erhält man einen Korrekturfaktor F(d/s) ungleich 1 gemäß der DIN-Norm\cite{DIN50431}.
 	Dieser beträgt für Probe 4 $F=0.84$ und für Probe 5 $F=0.83$.
 
 	In \cref{tb_spez_wd} befinden sich die gemittelten Messergebnisse.
@@ -251,7 +258,7 @@
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{c | c | c | c | c | c  }
-			 Nr.& Mat. & dot. & Widerstand $R$ in \si{\ohm}& Scheibendicke $d$ in \si{mm} & spez. Widerstand $\rho$ in \si{\ohm cm} \\ \hline %TODO fix overflow
+			 Nr.& Mat. & dot. & Widerstand $R/\si{\ohm}$& Scheibendicke $d/\si{mm}$ & spez. Widerstand $\rho/\si{\ohm cm}$ \\ \hline %TODO fix overflow
 			 1& Si& p& \SI{50+-4}{}&\SI{0.4486+-0.0009}{}& \SI{10.1+-0.7}{} \\
 			 2& Si& n&\SI{8.52+-0.21}{}&\SI{0.4532+-0.0009}{}&\SI{1.75+-0.04}{} \\
 			 3& Si& n&\SI{0.0713+-0.0018}{}&\SI{0.0677+-0.001}{}&\SI{0.0219+-0.0005}{} \\
@@ -261,6 +268,9 @@
 		\end{tabular}
 		\caption{
 		%TODO caption hier
+		Gemessene Widerstände und Scheibendicken verschiedener Proben.
+		Diese sind p/n-dotiert oder intrinsisch.
+		Aus \cref{eq_spez_wd} folgt der spezifische Widerstand.
 		}
 		\label{tb_spez_wd}
 	\end{table}
@@ -270,7 +280,7 @@
 			\frac{1}{\rho}=en\mu_n + ep\mu_p
 	\end{equation}
 	bestimmen.
-	Für kristallines Silizium bei $T=\SI{300}{K}$ gilt $c=n\cdot p=\SI{2.1e19}{cm^{-6}}$ und die Beweglichkeiten sind nach \cref{tb_beweg} gegeben.
+	Für kristallines Silizium bei $T=\SI{300}{K}$ gilt $c=n\cdot p=\SI{2.1e19}{cm^{-6}}$ und die Beweglichkeiten $\mu$ sind nach \cref{tb_beweg} gegeben.
 
 
 	\begin{table}[H]
@@ -301,6 +311,7 @@
 	Für die intrinsische Ge-Probe gilt $n_i=n=p$.  % https://www.tf.uni-kiel.de/matwis/amat/mw_for_et/kap_9/backbone/r9_1_1.html
 	Also:
 	\begin{equation}
+		\label{eq_ni}
 			n_i = \frac{1}{ \rho e (\mu_n+\mu_p)}
 	\end{equation}
 	\begin{table}[H]
@@ -316,7 +327,8 @@
 			 6 & \SI{1.78+-0.15e+17}{}&\SI{118+-10}{}&$n=\SI{7.94e17}{}$\\
 		\end{tabular}
 		\caption{
-		Dotierungskonzentrationen %TODO quote DIN
+		Aus den spezifischen Widerständen $\rho$ folgende Dotierungskonzentrationen. 
+		Diese wurden einmal mit \crefrange{eq_n}{eq_ni} und einmal mittels einer Tabelle aus der DIN-Norm\cite{DIN50431} bestimmt.
 		}
 		\label{tb_dot_konz}
 	\end{table}
@@ -353,9 +365,11 @@
 
 	\subsubsection{Diskussion}
 	\subsection{Solarzelle}
-	\subsubsection{Unsicherheiten}
-	\subsubsection{Beobachtung und Datenanalyse}
+
 	Da keine eigenen Messungen zu den Solarzellen durchgeführt werden konnten, werden im folgenden alte Messdaten, die uns freundlicherweise von Finn Kutschmann ausgehändigt wurden, ausgewertet. %TODO fine?
+	\subsubsection{Unsicherheiten}
+	Für die erhaltenen Daten wurde immer eine Rechteckverteilung, ähnlich wie bei einer Digitalanzeige, angenommen.
+	\subsubsection{Beobachtung und Datenanalyse}
 
 	In \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} sind die aufgenohmenen I-U-Kennlinien der polykistallinen Silizium Solarzelle und der Tandemzelle abgebildet.
 
