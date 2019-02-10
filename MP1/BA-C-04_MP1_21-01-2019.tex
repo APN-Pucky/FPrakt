@@ -129,7 +129,7 @@
 	Jetzt liegt die Fehlstelle an dem anderen Atom, zu dem wiederum ein anderes Elektron springen kann.
 	Das Loch ist also beweglich und erlaubt einen Ladungstransport, weshalb auch hier der Widerstand sinkt.
 
-	\subsubsection{pn-Übergang}
+	\subsection{pn-Übergang}
 	Wenn man einen p-dotierten Halbleiter in direkten Kontakt mit einem n-dotierten bringt oder einfach einen Halbleiter an zwei Seiten unterschiedlich dotiert, nennt man dies einen pn-Übergang.
 
 	Aus energetischen Gründen wandern dann Elektronen und Löcher aufeinander zu und rekombinieren in der Übergangszone.
@@ -147,7 +147,7 @@
 		I = I_0 \left[ \exp \left( \frac{eU}{n k_B T} \right) -1 \right] %TODO prüfen, ob das schön ist, weil kann ich nicht
 	\end{equation}
 
-	In realen Dioden (besonders Solarzellen) treten jedoch ohmsche Verluste auf, was die Beschreibung durch eine ideale Diode, die mit einem Widerstand in Reihe ( $ R_\text{sh} $ ) und einem anderen parallel ( $ R_\text{s} $ ) geschaltet wurde, erforderlich macht.
+	In realen Dioden (besonders Solarzellen) treten jedoch ohmsche Verluste auf, was die Beschreibung durch eine ideale Diode, die mit einem Widerstand in Reihe ($R_\text{sh}$) und einem anderen parallel ($R_\text{s}$) geschaltet wurde, erforderlich macht.
 	Dadurch wird \cref{eq_diode_ideal} folgendermaßen modifiziert:
 
 	\begin{equation}
@@ -158,7 +158,7 @@
 	\subsection{Solarzelle}
 
 	In der Solarzelle wird ein pn-Übergang verwendet, der so offengelegt wird, dass das Licht auf ihn fallen kann.
-	Wenn dies der Fall ist, geben die Photonen den Elektronen im Halbleiter die nötige Energie, um die Elektronen aus dem Gitter zu lösen, sodass ein Elektron-Loch-Paar entsteht.
+	Wenn dies der Fall ist, geben die Photonen Elektronen im Halbleiter die nötige Energie, um sich aus dem Gitter zu lösen, sodass ein Elektron-Loch-Paar entsteht.
 	Wenn dieses Paar in die Raumladungszone diffundiert, bevor es rekombiniert, wird es dort durch das elektrische Feld getrennt.
 	Wenn die beiden Enden des pn-Übergangs jetzt über einen Widerstand (oder einen anderen Verbraucher) leitend verbunden werden, können die von den Löchern getrennten Elektronen über den Widerstand rekombinieren, an dem dementsprechend ein Strom gemessen werden kann.
 	Dieser Photostrom fließt in Sperrrichtung und modifiziert die ideale Diodengleichung \label{eq_diode_real} wie folgt:
@@ -172,7 +172,7 @@
 	Wenn ein Photodetektor gebaut werden sollte, der einen linearen Zusammenhang zwischen Stromfluss und einfallenden Photonen herstellen soll, würde eine Spannung angelegt werden und der dritte Quadrant wäre relevant.
 	Da jedoch eine möglichst hohe Leistung erzielt werden soll, wird bei der Solarzelle der vierte Quadrant verwendet.
 	Die Spannung entsteht hier aufgrund des Stromflusses und muss nicht extern angelegt werden.
-	Wenn der Widerstand des Widerstands, über den die Enden des Halbleiters verbunden sind, verschwindet stellt sich der sog. Kurzschlussstrom $ I_\text{sc} = - I_\text{ph}$ ein.
+	Wenn der Widerstand des Widerstands, über den die Enden des Halbleiters verbunden sind, verschwindet, stellt sich der sog. Kurzschlussstrom $ I_\text{sc} = - I_\text{ph}$ ein.
 	Wenn andersherum keine Verbindung besteht (unendlich großer Widerstand) stellt sich die Leerlaufspannung $ U_\text{oc}$ ein.
 	Für die Anwendung soll im Allgemeinen die Leistung maximiert werden, weshalb der sog. Maximum Power Point (MPP) gesucht wird, welcher sich bei der Leistung
 	\begin{equation}
@@ -212,7 +212,7 @@
 	Da der vorliegende Versuchsaufbau fehlerhaft war und es nicht möglich war die Messungen zur Solarzelle durchzuführen, wird hier nur das grundsätzliche Vorgehen beschrieben.
 
 	Es sollen für eine Tandemsolarzelle und eine Solarzelle aus polykristallinem Silizium I-U-Kennlinien aufgenommen werden.
-	Tandemzelle meint hier eine Zelle, die aus einem Schichtsystem verschiedener Halbleiter besteht, die so designed sind, dass sie in unterschiedliche Wellenlängenbereichen absorbieren, um so eine möglichst vollständige Absorption des Lichtspektrums zu ermöglichen.
+	Tandemzelle meint hier eine Zelle, die aus einem Schichtsystem verschiedener Halbleiter besteht, die so gewählt sind, dass sie in unterschiedlichen Wellenlängenbereichen absorbieren, um so eine möglichst vollständige Absorption des Lichtspektrums zu ermöglichen.
 	Dies wird ohne Beleuchtung der Solarzellen, bei vollständigem Sonnenspektrum und bei einem AM-gefilterten Sonnenspektrum bei verschiedenen Temperaturen durchgeführt.
 	Dazu wird an die Zellen eine Spannung angelegt, die schrittweise erhöht wird.
 	Bei Beleuchtung könnte auch der Lastwiderstand variiert werden, um die I-U-Kennlinie aufzunehmen.
@@ -220,9 +220,9 @@
 
 	\subsection{Vierspitzenmethode}
 	Die Vierspitzenmethode ermöglicht die Messung des Widerstands zwischen den Spitzen in einer dünnen Probe.
-	Dazu werden vier Spitzen, dies sich unter gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.
-	Über die äußeren beiden lässt das Gerät dann einen bekannten Strom fließen und misst die Potenzialdifferenz zwischen den mittleren beiden.
-	Die Vierspitzenmethode basiert auf dem Prinzip der Vierleitermessung nach Thomson und Kelvin, die es erlaubt den untersuchten Widerstand unabhängig vom Anschlusswiderstand (hier dem Übergangswiderstand Spitze zu Probe) zu bestimmen.
+	Dazu werden vier Spitzen, die sich in gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.
+	Über die äußeren beiden lässt man dann einen bekannten Strom fließen und misst die Potenzialdifferenz zwischen den mittleren beiden.
+	Die Vierspitzenmethode basiert auf dem Prinzip der Vierleitermessung nach Thomson und Kelvin, die es erlaubt den untersuchten Widerstand unabhängig vom Anschlusswiderstand (hier dem Übergangswiderstand von Spitze zu Probe) zu bestimmen.
 
 	\subsection{Dotierstoffe}
 	Es wird ein Gerät verwendet, dass die Vierspitzenmethode verwendet, um den spezifischen Widerstand der zu untersuchenden Halbleiter zu bestimmen.
@@ -231,8 +231,8 @@
 	Den Proben liegt ein Zettel bei, der angibt, ob sie p- oder n-dotiert oder intrinsisch sind.
 
 	Zusätzlich wird eine Silizium-Scheibe untersucht, die vollständig mit Phosphor dotiert und dann von beiden Seiten mit Gallium dotiert wurde.
-	Dadurch ergibt sich eine tiefenabhängige Dotierung, die untersucht werden soll, indem schrittweise Schichten abgetragen werden und jeweils wie oben die Dicke und der Widerstand gemessen.
-	Die Schichten wurden durch Reiben der Probe in destilliertem Wasser mit Aluminiumpulver abpoliert.
+	Dadurch ergibt sich eine tiefenabhängige Dotierung, die untersucht werden soll, indem schrittweise Schichten abgetragen werden und jeweils wie oben die Dicke und der Widerstand gemessen wird.
+	Die Schichten werden durch Reiben der Probe in destilliertem Wasser mit Aluminiumpulver abpoliert.
 
 	\section{Ergebnisse und Diskussion}
 
@@ -506,12 +506,11 @@
 	% Rückgriff auf Hypothese und drittes Nennen dieser
 	Insgesamt gesehen konnten die geplanten Messungen durchgeführt werden und die Eigenschaften der untersuchten Halbleiter und Solarzellen erfolgreich untersucht werden.
 	So konnten bei den Halbleitern die Ladungsträgerkonzentrationen bestimmt werden und gezeigt werden, dass intrinsische Halbleiter den elektrischen Strom um Größenordnungen schlechter leiten als dotierte Halbleiter.
-	es wurde ein Schichtprofil der Ladungsträgerkonzentration in einem Halbleiter mit tiefenabhängiger Dotierung erstellt.
+	Es wurde ein Schichtprofil der Ladungsträgerkonzentration in einem Halbleiter mit tiefenabhängiger Dotierung erstellt.
 	Die Güte dieses Profils litt jedoch unter der ungenauen Methode des Abpolierens des Halbleiters.
-	Die Untersuchung einer polykristallinen Siliziumzelle und einer Tandemzelle erlaubte die Bestimmung des Maximum Power Points und des Füllfaktors.
-	Der Zusammenhang dieser beiden Eigenschaften mit der Temperatur konnte ebenfalls untersucht werden.
+	Die Untersuchung einer polykristallinen Siliziumzelle und einer Tandemzelle erlaubte die Bestimmung des Maximum Power Points und des Füllfaktors der beiden Zellen bei unterschiedlicher Bestrahlung und Temperatur.
 	Ein Vergleich der beiden Zellen war jedoch aufgrund mangelnder gleicher Versuchsbedingungen nicht möglich.
-	Wenn die Leistung des einfallenden Lichts bekannt gewesen wäre, wäre es möglich gewesen, den Wirkungsgrad der Solarzellen zu bestimmen.
+	Wenn die Leistung des auf die Zelle einfallenden Lichts bekannt gewesen wäre, wäre es möglich gewesen, den Wirkungsgrad der Solarzellen zu bestimmen.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
