@@ -184,7 +184,7 @@
 	%TODO der Rest der Formeln für FF und eta ist unten, deswegen lass ich das jetzt so.
 
 	\begin{figure}[H]
-			\includegraphics[width= 0.5 \linewidth]{img/photodiode} %TODO prüfen, ob die caption schön ist, weil kann ich nicht.
+			\includegraphics[width= 0.8 \linewidth]{img/photodiode} %TODO prüfen, ob die caption schön ist, weil kann ich nicht.
 			\caption{
 			a) pn-Übergang unter Beleuchtung: Die photogenerierten Minoritätsladungsträger diffundieren zunächst zur Raumladungszone und werden dort durch das elektrische Feld getrennt
 			b) Strom-Spannungs-Charakteristik einer Solarzelle. Die Kennlinie ergibt sich aus der Summe von Diodenstrom $ I $ und Photostrom $ I_\text{ph} $ (negatives Vorzeichen!).
@@ -193,11 +193,7 @@
 			\label{fig_photodiode_kennlinie}
 	\end{figure}
 
-	\subsubsection{Vierspitzenmethode}
-	Die Vierspitzenmethode ermöglicht die Messung des Flächenwiderstands in einer dünnen Probe.
-	Dazu werden vier Spitzen, dies sich unter gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.der
-	Über die äußeren beiden lässt das Gerät dann einen bekannten Strom fließen und misst die Potenzialdifferenz zwischen den mittleren beiden.
-	Die Vierspitzenmethode basiert auf dem Prinzip der Vierleitermessung nach Thomson und Kelvin, die es erlaubt den untersuchten Widerstand unabhängig vom Anschlusswiderstand (hier dem Übergangswiderstand Spitze zu Probe) zu bestimmen.
+
 	%TODO dein Kram:
 	\iffalse
 	-allgemeine Formel
@@ -217,6 +213,12 @@
 	Bei Beleuchtung könnte auch der Lastwiderstand variiert werden, um die I-U-Kennlinie aufzunehmen.
 	Dies würde jedoch das Messen negativer Spannungen unmöglich machen, die so in die Fit-Funktion mit einbezogen werden können.
 
+	\subsection{Vierspitzenmethode}
+	Die Vierspitzenmethode ermöglicht die Messung des Flächenwiderstands in einer dünnen Probe.
+	Dazu werden vier Spitzen, dies sich unter gleichem Abstand in einer Linie befinden, auf die Probenoberfläche gedrückt.
+	Über die äußeren beiden lässt das Gerät dann einen bekannten Strom fließen und misst die Potenzialdifferenz zwischen den mittleren beiden.
+	Die Vierspitzenmethode basiert auf dem Prinzip der Vierleitermessung nach Thomson und Kelvin, die es erlaubt den untersuchten Widerstand unabhängig vom Anschlusswiderstand (hier dem Übergangswiderstand Spitze zu Probe) zu bestimmen.
+
 	\subsection{Dotierstoffe}
 	Es wird ein Gerät verwendet, dass die Vierspitzenmethode verwendet, um den spezifischen Widerstand der zu untersuchenden Halbleiter zu bestimmen.
 	Dazu werden jeweils zehn Messungen des Oberflächenwiderstands durchgeführt und dann fünf mal mit einem digitalen Mikrometer die Dicke der Probe gemessen, um wissen zu können, ob ein Korrekturfaktor bei der Bestimmung des Widerstands nötig ist.
@@ -232,7 +234,7 @@
 	\subsubsection{Unsicherheiten}
 	\subsubsection{Beobachtung und Datenanalyse}
 
-	\subsubsection*{Dotierungskonzentrationen} %TODO Dotierungs oder Dotierung - konz.
+	\subsubsection*{Dotierungskonzentrationen} %TODO Dotierungs oder Dotierung - konz. -> eigentlich ja Ladungsträgerkonzentrationen
 	Mit der Vierspitzenmethode wurde der Widerstand $R=U/I$ gemessen.
 	Daraus lässt sich dann mittels der Scheibendicke $d$ für dünne Scheiben ($d/s<0.5$, $s=\SI{1.59}{mm}$ Messspitzenabstand):
 	\begin{equation}
@@ -279,7 +281,7 @@
 			 Ge&3900&1900 \\
 		\end{tabular}
 		\caption{
-		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$.
+		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung} %TODO Ich war mal so frei, dass hier zu addieren
 		}
 		\label{tb_beweg}
 	\end{table}
@@ -453,7 +455,7 @@
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
-	%\printbibliography
+	\printbibliography
 
 	%TODO Anhang notwendig?
 	\section{Anhang} \label{s_anhang}
