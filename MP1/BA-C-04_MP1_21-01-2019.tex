@@ -160,9 +160,6 @@
 	\end{equation}
 
 	\subsection{Solarzelle}
-	%TODO ultra ätzende Herleitung von pn-Übergang zu Solarzelle
-	%TODO MPP erklären
-	%TODO AM erklären
 
 	In der Solarzelle wird ein pn-Übergang verwendet, der so offengelegt wird, dass das Licht auf ihn fallen kann.
 	Wenn dies der Fall ist, geben die Photonen den Elektronen im Halbleiter die nötige Energie, um die Elektronen aus dem Gitter zu lösen, sodass ein Elektron-Loch-Paar entsteht.
@@ -189,6 +186,10 @@
 	ergibt.
 	$FF$ ist dabei der Füllfaktor, der von der Bauart der Solarzelle abhängt.
 	%TODO der Rest der Formeln für FF und eta ist unten, deswegen lass ich das jetzt so.
+	Abschließend ist der Begriff der Luftmasse zu erklären.
+	Ein AM-Filter (Air Mass) simuliert die Bedingungen für Solarzellen auf der Erdoberfläche, indem er aus dem Spektrum einer Lampe die Wellenlängen herausfiltert, die auch die Atmosphäre aus dem Sonnenspektrum herausfiltert.
+	Eine Luftmasse von eins entspricht dabei dem Weg durch die Atmosphäre, den das Licht bei einem senkrechten Einfall auf die Erdoberfläche zurücklegt.
+
 
 	\begin{figure}[H]
 			\includegraphics[width= 0.8 \linewidth]{img/photodiode} %TODO prüfen, ob die caption schön ist, weil kann ich nicht.
@@ -374,6 +375,10 @@
 
 	%TODO Angabe zu intrinsisch bestätigen
 	%TODO 70 mu m bestätigen
+	In \cref{tb_dot_konz} sind die ermittelten Ladungsträgerkonzentrationen angegeben.
+	Da hierfür keine Referenzwerte bekannt sind, kann kein Vergleich vorgenommen werden.
+	Es kann aber festgestellt werden, dass in den dotierten Proben die eine Art der Ladungsträger um ein Vielfaches überwiegt und größer ist als im intrinsischen Halbleiter.
+	Dass der spezifische Widerstand für dotierte Halbleiter um Größenordnungen geringer ist als für intrinsische Halbleiter ergibt sich aus den Beschreibungen im Theorieteil
 
 
 	\subsection{Solarzelle}
@@ -462,6 +467,7 @@
 \end{table}
 	\subsubsection{Diskussion}
 	Da die Messungen nicht selbst durchgeführt wurden, kann nicht geklärt werden, worauf der \enquote{Ausreißer} in den Messwerten in \cref{fig_poly_unbeleuchtet_20} zurückzuführen ist.
+	Wie anhand der Fits in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} zu erkennen ist, verhalten sich die Solarzellen insgesamt aber beide erwartungsgemäß wie Dioden.
 
 	Da in \cref{eq_photostrom} $I_\text{ph}$ der vertikalen Verschiebung an der Ordinate entspricht, wird erwartet, dass dieser nahe Null ist, wenn die Solarzelle nicht beleuchtet wird.
 	Dies ist in \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} innerhalb der Messunsicherheiten erfüllt.
