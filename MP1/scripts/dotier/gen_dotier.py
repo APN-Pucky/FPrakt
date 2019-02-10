@@ -244,7 +244,6 @@ for fname in os.listdir("MP1/data/dotier/"):
        plt.tick_params(labelsize=fig_labelsize)
        plt.xlabel("Schichtenabtrag (mm)")
        plt.ylabel("Löcherkonzentration (cm$^{-3}$)")
-       plt.savefig("MP1/img/%s.pdf"%(fname+"_konz_2"))
        plt.show()
 
 
