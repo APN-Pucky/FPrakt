@@ -155,7 +155,20 @@ for fname in os.listdir("MP1/data/dotier/"):
        print("R=",mx)
        print("d=",my)
        rho = mx*my*math.pi/math.log(2)
-       print("RHO=",rho)
+       if i==4:
+           rho = rho*0.83
+       if i==3:
+           rho = rho*0.84
+       print("RHO=",rho/10)
+       mn = 1350
+       mp = 480
+       c=2.1e19
+       n = (-umath.sqrt((1/(2*e*mn*rho/10)**2)-c*mp/mn) + 1/(2*e*mn*rho/10))
+       p = (+umath.sqrt((1/(2*e*mp*rho/10)**2)-c*mn/mp) + 1/(2*e*mp*rho/10))
+       print("pn=",c/p)
+       print("nn=",n)
+       print("pp=",p)
+       print("np=",c/n)
 
 
 
