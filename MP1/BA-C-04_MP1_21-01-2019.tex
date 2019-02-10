@@ -299,7 +299,7 @@
 			 Ge&3900&1900 \\
 		\end{tabular}
 		\caption{
-		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung} %TODO Ich war mal so frei, dass hier zu addieren
+		Beweglichkeitsdaten für Silizium und Germanium bei $T=\SI{300}{K}$. Entnommen aus \cite{anleitung}. %TODO Ich war mal so frei, dass hier zu addieren, lol du hast den Punkt am Ende vergessen
 		}
 		\label{tb_beweg}
 	\end{table}
@@ -307,12 +307,12 @@
 	Es ergibt sich:
 	\begin{equation}
 		\label{eq_n}
-			n =  \pm\sqrt{\left(\frac{1}{2e\mu_n\rho}\right)^2-c\mu_p/\mu_n}+\frac{1}{2e\mu_n \rho} %TODO u(n)
+			n =  \pm\sqrt{\left(\frac{1}{2e\mu_n\rho}\right)^2-c\mu_p/\mu_n}+\frac{1}{2e\mu_n \rho} %TODO u(n)?
 	\end{equation}
 	bzw.
 	\begin{equation}
 			\label{eq_p}
-			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(n)
+			p =\frac{c}{n}=  \mp\sqrt{\left(\frac{1}{2e\mu_p\rho}\right)^2-c\mu_n/\mu_p}+\frac{1}{2e\mu_p \rho} %TODO u(p)?
 	\end{equation}
 	Aus der Anleitung sind typische Größenordnungen für n/p-Dotierungkonzentrationen gegeben, woraus folgt, dass für n-dotierte das Vorzeichen vor der Wurzel in \cref{eq_n} positiv und für p-dotierte negative ist.
 
@@ -347,32 +347,39 @@
 	\begin{figure}[H]
 			\includegraphics[width=.9\linewidth]{img/polier_wdst.pdf}
 			\caption{
-			%TODO caption
-							}
+			Der Widerstand $R$ wird durch die Vierspitzenmethode gemessen und die Oberfläche wird schichtweise abgetragen.
+			}
 			\label{fig_polier_wdst}
 	\end{figure}
 
 	Der spezifische Widerstand ergibt sich aus
 	\begin{equation}
-		\frac{1}{\rho} = - \frac{\ln 2}{\pi} \frac{d R^{-1}}{dx},
+		\frac{1}{\rho} = - \frac{\ln 2}{\pi} \frac{d}{dx}R^{-1},
 	\end{equation}
 	bzw. numerisch
 	\begin{equation}
-		\frac{1}{\rho_i} = - \frac{\ln 2 }{\pi} \frac{R^{-1}_{i+1}-R^{-1}_{i}}{x_{i+1}-x_i}
+		\frac{1}{\rho_i} = - \frac{\ln 2 }{\pi} \frac{R^{-1}_{i+1}-R^{-1}_{i}}{x_{i+1}-x_i}.
 	\end{equation}
 	Man erhält durch Einsetzten in \cref{eq_p} die Löcherkonzentration.
 	Diese ist in Abhängingkeit vom Schichtenabtrag in \cref{fig_polier_konz} dargestellt.
 
 	\begin{figure}[H]
-			\includegraphics[width=.9\linewidth]{img/polier_konz.pdf}
+			\includegraphics[width=\linewidth]{img/polier_konz.pdf}
 			\caption{
-			%TODO caption
+			Löcherkonzentration in Abhängigkeit von dem Schichtenabtrag.
 							}
 			\label{fig_polier_konz}
 	\end{figure}
 
-	\subsubsection{Diskussion}
+	Der Mittelwert der letzten drei Löcherkonzentrationen beträgt \SI{0.9+-1.2e14}{cm^{-3}} und gibt die P-Grunddotierung an.
+	Um die Konzentrationsverteilung der Ga-Atome zu erhalten muss die P-Grunddotierung von der Löcherkonzentration subtrahiert werden.
+	Im Bereich von \SI{0}{\mu m} bis \SI{60}{\mu m} führt dies zu keiner merklichen Änderung der Löcherkonzentration, sodass in diesem Bereich in \cref{fig_polier_konz} die Konzentrationsverteilung der Ga-Atome entnommen werden kann.
+	Nach \SI{65}{\mu m} ist die  Konzentration nahe Null.
 
+	\subsubsection{Diskussion}
+	%TODO diskus error von P-Grunddotierung
+	%TODO Ausreißer bei 0.02 weil zu kleiner mess wert
+	%TODO Ausreißer/Lock  bei 0.065 weil riesen sprung negativ => nicht aufgeführt
 	%TODO Angabe zu intrinsisch bestätigen
 	%TODO 70 mu m bestätigen
 	In \cref{tb_dot_konz} sind die ermittelten Ladungsträgerkonzentrationen angegeben.

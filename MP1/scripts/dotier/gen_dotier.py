@@ -160,17 +160,17 @@ for fname in os.listdir("MP1/data/dotier/"):
                rho = rho*0.83
            if i==3:
                rho = rho*0.84
-               print("RHO=",rho/10)
-               mn = 1350
-               mp = 480
-               c=2.1e19
-               n = (-umath.sqrt((1/(2*e*mn*rho/10)**2)-c*mp/mn) + 1/(2*e*mn*rho/10))
-               p = (+umath.sqrt((1/(2*e*mp*rho/10)**2)-c*mn/mp) + 1/(2*e*mp*rho/10))
-               print("pn=",c/p)
-               print("nn=",n)
-               print("pp=",p)
-               #print("np=",c/n)
-               print("n_i=",1/(rho/10*e*(3900+1900)))
+           print("RHO=",rho/10)
+           mn = 1350
+           mp = 480
+           c=2.1e19
+           n = (-umath.sqrt((1/(2*e*mn*rho/10)**2)-c*mp/mn) + 1/(2*e*mn*rho/10))
+           p = (+umath.sqrt((1/(2*e*mp*rho/10)**2)-c*mn/mp) + 1/(2*e*mp*rho/10))
+           print("pn=",c/p)
+           print("nn=",n)
+           print("pp=",p)
+           #print("np=",c/n)
+           print("n_i=",1/(rho/10*e*(3900+1900)))
    if fname == "polier":
        xxdata = unp.uarray([],[])
        yydata = unp.uarray([],[])
@@ -215,27 +215,8 @@ for fname in os.listdir("MP1/data/dotier/"):
        ax2.errorbar(unv(xxdata[0:18]),unv(yyyydata), usd(yyyydata), usd(xxdata[0:18]),fmt=' ', capsize=5,linewidth=2, label="Messung")
        ax2.set_yscale("log", nonposy='clip')
 
-       #start_hb = find_nearest_index(xxdata,0.07)
-       #end_hb = find_nearest_index(xxdata,0.14)
-       #xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
-       #heat_base = fit_curvefit2(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [300, 1000])
-       #print("  BASE: ", heat_base)
-       #xfit = np.linspace(0.07,0.11, 200)
-       #yfit = gerade(xfit, *heat_base)
-       ##ax.plot(unv(xfit), unv(yfit))
-#
-#
-       #start_hb = find_nearest_index(xxdata,0.047)
-       #end_hb = find_nearest_index(xxdata,0.065)
-       #xdata,ydata = xxdata[start_hb:end_hb], yydata[start_hb:end_hb]
-       ##heat_base = fit_curvefit2(unv(xdata), unv(ydata), custom, yerr = usd(ydata), p0 = [0.1, -0.01],maxfev=10000)
-       #heat_base = fit_curvefit2(unv(xdata), unv(ydata), exponential, yerr = usd(ydata), p0 = [284, 0.000356,-192],maxfev=10000)
-       #print("  BASE: ", heat_base)
-       ##heat_base = [0.1, -0.01,0.065]
-       #xfit = np.linspace(0.00,0.067, 200)
-       ##yfit = custom(xfit, unv(heat_base[0]),unv(heat_base[1]))
-       #yfit = exponential(xfit, unv(heat_base[0]),unv(heat_base[1]),unv(heat_base[2]))
-       ##ax.plot(unv(xfit), unv(yfit))
+       print("mean p :",mean(yyyydata[-3:-1]))
+
 
        plt.legend(prop={'size':fig_legendsize})
        plt.grid()
@@ -243,6 +224,27 @@ for fname in os.listdir("MP1/data/dotier/"):
        plt.xlabel("Schichtenabtrag (mm)")
        plt.ylabel("Löcherkonzentration (cm$^{-3}$)")
        plt.savefig("MP1/img/%s.pdf"%(fname+"_konz"))
+       plt.show()
+
+       fig2=plt.figure(figsize=fig_size)
+       ax2 = fig2.gca()
+       mn = 1350
+       mp = 480
+       c=2.1e19
+       yyyydata = yyyydata-0.9e14
+       print(yyyydata)
+       ax2.errorbar(unv(xxdata[0:15]),unv(yyyydata[0:15]), usd(yyyydata[0:15]), usd(xxdata[0:15]),fmt=' ', capsize=5,linewidth=2, label="Messung")
+       ax2.set_yscale("log", nonposy='clip')
+
+       print("mean p :",mean(yyyydata[-3:-1]))
+
+
+       plt.legend(prop={'size':fig_legendsize})
+       plt.grid()
+       plt.tick_params(labelsize=fig_labelsize)
+       plt.xlabel("Schichtenabtrag (mm)")
+       plt.ylabel("Löcherkonzentration (cm$^{-3}$)")
+       plt.savefig("MP1/img/%s.pdf"%(fname+"_konz_2"))
        plt.show()
 
 
