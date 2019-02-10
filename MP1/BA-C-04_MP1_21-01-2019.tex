@@ -378,9 +378,6 @@
 	Nach \SI{65}{\mu m} ist die Konzentration nahe Null.
 
 	\subsubsection{Diskussion}
-	%TODO diskus error von P-Grunddotierung
-	%TODO Ausreißer bei 0.02 weil zu kleiner mess wert
-	%TODO Ausreißer/Lock  bei 0.065 weil riesen sprung negativ => nicht aufgeführt
 	%TODO Angabe zu intrinsisch bestätigen
 	%TODO 70 mu m bestätigen
 	In \cref{tb_dot_konz} sind die ermittelten Ladungsträgerkonzentrationen angegeben.
@@ -399,7 +396,13 @@
 	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt. %TODO naja nur so halb nicht gemessen ich habe ja die 3 dafür genommen. imo eher sage, dass man mehr MEsspunkte braucht damit error verschwindet
 	Hier steigt die Ladungsträgerkonzentration wieder und der Widerstand sinkt bis auf den Grenzwert durch die Phosphordotierung.
 
-	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird wenn man wie in \cref{eq_spez_wd_diff} den Kehrwert nahe Null bildet.
+	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird wenn man, wie in \cref{eq_spez_wd_diff}, den Kehrwert nahe Null bildet.
+	Die Lücke bei \SI{65}{\mu m} kommt daher, dass in \cref{fig_polier_wdst} der Verlauf des Widerstands nicht mehr monoton ist und sich ein negativer (und unphysikalisher) spezifischer Widerstand ergibt.
+	Gleiches gilt für den Wert bei \SI{0.02}{\mu m}, hier ergibt sich ebenfalls mathematisch eine negative Löcherkonzentration.
+	In der logarithmischern Darstellung sieht man jedoch nur das obere Ende des Fehlerbalkens.
+	Die P-Grunddotierung lässt sich nur mit ziemlich großer Unsicherheit bestimmen \SI{0.9+-1.2e14}{cm^{-3}}.
+	Dieser Wert funktioniert lediglich als eine Obere Schranke.
+	Daraus kann man wiederum mit \cref{fig_polier_konz} folgern, dass die Konzentration Ga-Atome an der Oberfläche deutlich höher mit \SI{1.29+-0.19e17}{cm^{-3}} ist.
 
 	\subsection{Solarzelle}
 
