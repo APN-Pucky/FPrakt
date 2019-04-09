@@ -392,8 +392,8 @@
 	Danach nimmt die Galliumkonzentration weiter ab (dieser Bereich konnte nicht gemessen werden), bis nur noch Phosphordotierung vorliegt und Elektronen Majoritätsladungsträger sind.
 	Hier steigt die Ladungsträgerkonzentration wieder und der Widerstand sinkt bis auf den Grenzwert durch die Phosphordotierung.
 
-	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine (lineare) Unsicherheit sehr groß wird, wenn man wie in \cref{eq_spez_wd_diff} den Kehrwert nahe Null bildet.
-	Die Lücke bei \SI{65}{\mu m} kommt daher, dass in \cref{fig_polier_wdst} der Verlauf des Widerstands nicht mehr monoton ist und sich ein negativer (und unphysikalisher) spezifischer Widerstand ergibt.
+	Auffällig in \cref{fig_polier_konz} sind die teilweise großen Fehler, diese rühren daher, dass eine kleine Unsicherheit sehr groß wird, wenn man wie in \cref{eq_spez_wd_diff} den Kehrwert nahe Null bildet.
+	Die Lücke bei \SI{65}{\mu m} kommt daher, dass in \cref{fig_polier_wdst} der Verlauf des Widerstands nicht mehr monoton steigend ist und sich ein negativer (und unphysikalisher) spezifischer Widerstand ergibt.
 	Gleiches gilt für den Wert bei \SI{20}{\mu m}, hier ergibt sich ebenfalls mathematisch eine negative Löcherkonzentration.
 	In der logarithmischern Darstellung sieht man hiervon jedoch nur das obere Ende des Fehlerbalkens.
 	Die P-Grunddotierung lässt sich nur mit ziemlich großer Unsicherheit bestimmen \SI{0.9+-1.2e14}{cm^{-3}}.
@@ -408,9 +408,10 @@
 	\subsubsection{Beobachtung und Datenanalyse}
 
 	In \cref{fig_poly_unbeleuchtet_20} und \cref{fig_tandem_unbeleuchtet_20} sind die aufgenohmenen I-U-Kennlinien der polykristallinen Silizium Solarzelle und der Tandemzelle abgebildet.
+	Die Fitfunktion ist die ideale Diodenkennlinie unter Einstrahlung von Licht (vgl. \cref{eq_photostrom}).
 
 	\begin{figure}[H]
-			\includegraphics[width=.9\linewidth]{img/PolykristallineZelle_unbeleuchtet_20.pdf}
+			\includegraphics[width=.95\linewidth]{img/PolykristallineZelle_unbeleuchtet_20.pdf}
 			\caption{
 				I-U-Kennlinie einer polykristallinen Silizium Solarzelle bei Raumtemperatur ohne Beleuchtung.
 				Der Diodenkennlinien-Fit erreicht deutlich geringere Abweichungen von den Messwerten unter Vernachlässigung des Messwerts bei $U=\SI{0.8}{V}$, weshalb im Bild beide Varianten dargestellt sind.
@@ -419,14 +420,13 @@
 	\end{figure}
 
 	\begin{figure}[H]
-			\includegraphics[width=.9\linewidth]{img/Tandemzelle_unbeleuchtet_20.pdf}
+			\includegraphics[width=.95\linewidth]{img/Tandemzelle_unbeleuchtet_20.pdf}
 			\caption{
 				I-U-Kennlinie einer Tandemzelle bei Raumtemperatur ohne Beleuchtung.
 								}
 			\label{fig_tandem_unbeleuchtet_20}
 	\end{figure}
 
-	Die Fitfunktion ist die ideale Diodenkennlinie unter Einstrahlung von Licht (vgl. \cref{eq_photostrom}).
 
 	\cref{fig_tandem_beleuchtet_20} stellt exemplarisch die I-U-Kennlinie der Solarzellen dar, wenn sie mit Licht bestrahlt werden (weitere befinden sich im \nameref{s_anhang}).
 	Das rote (grüne) Rechteck gibt die im 4. Quadranten durch $U_\text{MPP}$ und $I_\text{MPP}$ ($U_\text{oc}$ und $I_\text{sc}$) begrenzte Fläche an.
