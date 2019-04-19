@@ -110,6 +110,16 @@
 	% Bilder von der Website klauen
 	% einer will Präsens
 
+	%TODO  Zeiten
+	% Zeitdifferenz: 25.3h
+	% Positronium_Zeitdifferenz: 1.2h
+	% Zeitkalibrierung: 7s
+	% Energy_Start: 3.7m
+	% Energy_Stop: 11.4m
+
+	%TODO
+	% Zeit in Material bei Speed of Light vernachläsigbar (bzw. Ausdehnung)
+
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
 
@@ -120,6 +130,72 @@
 	\subsubsection{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
 
+	\subsection{Energiespektren}
+	Zuächst wurden die Energeispektren \cref{fig_energy_start} und \cref{fig_energy_stop} gemessen. Hieraus wurden die Kanalbereiche für aus dem jeweiligen Prozess stammende Photonen ermittelt.
+
+	\begin{figure}[H]
+				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Start}
+				\caption{
+				Energiespektrum welches von der ersten Messapparatur aufgenommen wurde.
+				}
+				\label{fig_energy_start}
+		\end{figure}
+
+	\begin{figure}[H]
+				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Stop}
+				\caption{
+				Energiespektrum welches von der zweiten Messapparatur aufgenommen wurde.
+				}
+				\label{fig_energy_stop}
+		\end{figure}
+
+  \subsubsection{Zeitkalibrierung}
+	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}, das heißt so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
+
+	\begin{figure}[H]
+				\includegraphics[width= 0.9 \linewidth]{img/Zeitkalibrierung}
+				\caption{
+				Zeitkalibrierung der Kanäle mittels eines Zeitkalibrators %TODO 'TIME Calibrator' ?
+				Es gibt auch kleine Beiträge zu anderen Kanälen in naher Umgebung der Peaks, jedoch sind diese wegen der Auflösung des Bildes kaum sichtbar.
+				}
+				\label{fig_zeitkalibrierung}
+		\end{figure}
+
+		\subsubsection{Bestimmung des Nullpunkts}
+		In \cref{fig_positronium_zeitdifferenzen} sind die Messungen der Zeitdifferenzen des Positroniumzerfalls abgebildet.
+		Da dieser sehr scharf ist, ist er in \cref{fig_positronium_zeitdifferenzen_zoom} vergrößert dargestellt.
+		Es wird eine Gaußfunktion \ref{eq_gauss} an die Messpunkte angepasst.
+		\begin{equation}
+			\label{eq_gauss}
+			%A * np.exp(-(x - x0)**2 / 2 / d**2)
+			 f(t) = N\exp\left\{{\frac{(t-T_0)^2}{2 \Delta T^2}}\right\}
+		\end{equation}
+		Die Standardabweichung des Fits $\Delta T$ beschreibt für die folgende Bestimmung der Lebensdauer des $\gamma$-Niveaus die Unsicherheit der Messapparatur bei der Auflösung von Zeitdifferenzen, da beim Positroniumzerfall kein zeitlicher Unterschied vorliegt. %TODO ref in Theorie?
+
+	\begin{figure}[H]
+				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz}
+				\caption{
+					Positronium-Kanal
+				}
+				\label{fig_positronium_zeitdifferenzen}
+		\end{figure}
+
+	\begin{figure}[H]
+				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz_zoom}
+				\caption{
+					Positronium-Kanal:
+				}
+				\label{fig_positronium_zeitdifferenzen_zoom}
+		\end{figure}
+		\subsection{Bestimmung der Lebensdauer}
+
+	\begin{figure}[H]
+				\includegraphics[width= 0.7 \linewidth]{img/Zeitdifferenzen}
+				\caption{
+				hh
+				}
+				\label{fig_zeitdifferenz}
+		\end{figure}
 	\subsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen

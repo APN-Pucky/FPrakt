@@ -69,13 +69,8 @@ def gauss(x, x0, A, d, y0):
 def exponential(x, c, y0):
     return np.exp(c * x) * y0
 
-def custom(x,n):
-    m = x
-    l = 650.4*10**-9#unc.ufloat(630,10)*10**-9
-    #l =unp.uarray([630],[10])*10**-9
-    #t = unp.uarray([5],[0.1])*10**-3
-    t = 5.05*10**-3#unc.ufloat(5,0.1)*10**-3
-    return (n*m*l+m*m*l*l/(4*t))/(m*l+2*t*(n-1))
+def custom(x,x0,A,d):
+    return A * np.exp(-(x - x0)**2 / 2 / d**2)
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
@@ -106,7 +101,7 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
 def fit_curvefit2(datax, datay, function, p0=None, yerr=None, **kwargs):
     pfit, pcov = \
          optimize.curve_fit(function,datax,datay,p0=p0,\
-                            sigma=yerr, epsfcn=0.0001, **kwargs)
+                            sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=1000000)
     error = []
     for i in range(len(pfit)):
         try:
@@ -144,9 +139,10 @@ print ("%s:%s"%("Zeitkalibrier",mean(adata)))
 #XRD
 unc_x = 0.002/math.sqrt(3)*0
 unc_y = 0.005/math.sqrt(3)*0
-typ = ["Energiespektrum_Start", "Energiespektrum_Stop" , "Positronium_Zeitdifferenz","Zeitdifferenzen", "Zeitkalibrierung"]
-width = int(1/0.02) # == 1Grad
+typ = ["Zeitkalibrierung","Positronium_Zeitdifferenz","Energiespektrum_Start", "Energiespektrum_Stop" , "Zeitdifferenzen", ]
 position = 39.76
+kali = 0.64/514.8
+width = 1 # == 1Grad
 for t in typ:
     print(t)
     data = np.genfromtxt("V05/data/%s_cut.Spe"%(t))
@@ -154,14 +150,43 @@ for t in typ:
     xdata = np.linspace(0,8191,8192)
     #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
     if(t=="Zeitkalibrierung"):
-        plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(0), label= 'Messpunkte')
-    else:
+        plt.bar(unv(xdata), unv(ydata), width=width*10, color='r', yerr=usd(0), label= 'Messpunkte')
+    elif(t=="Positronium_Zeitdifferenz"):
+        xdata = xdata*kali
+        plt.bar(unv(xdata[1300:1700]), unv(ydata[1300:1700]), width=width*kali, color='r', yerr=usd(ydata[1300:1700]), label= 'Messpunkte')
+
+        fit = fit_curvefit2(unv(xdata[1300:1700]), unv(ydata[1300:1700]), custom, p0 = [1471*kali, 475,17*kali])
+
+        xfit = np.linspace(1300, 1700, 400)
+        xfit = xfit*kali
+        yfit = custom(xfit, *unv(fit))
+        plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Gauss Fit\n$T_0$=%s\n$N$=%s\n$\Delta T$=%s'%tuple(fit))
+
+        plt.legend(prop={'size':fig_legendsize})
+        plt.grid()
+        plt.tick_params(labelsize=fig_labelsize)
+        plt.xlabel('Zeitdifferenz in $\mu$s')
+        plt.ylabel('Ereignisse')
+        plt.savefig(("V05/img/%s_zoom"%(t)).replace(".",",") + ".pdf")
+        plt.show()
+
+        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
+
+    elif(t=="Energiespektrum_Stop" or t=="Energiespektrum_Start"):
         plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
+    else:
+        xdata = xdata*kali
+        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
 
     plt.legend(prop={'size':fig_legendsize})
     plt.grid()
     plt.tick_params(labelsize=fig_labelsize)
-    plt.xlabel('$2\\theta$ (in °)')
+    if(t=="Zeitkalibrierung"):
+        plt.xlabel('Kanal')
+    elif(t=="Energiespektrum_Stop" or t=="Energiespektrum_Start"):
+        plt.xlabel('Energie in a.u.')
+    else:
+        plt.xlabel('Zeitdifferenz in $\mu$s')
     plt.ylabel('Ereignisse')
     plt.savefig(("V05/img/%s"%(t)).replace(".",",") + ".pdf")
     plt.show()
