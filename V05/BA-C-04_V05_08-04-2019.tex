@@ -133,10 +133,13 @@
 	\subsection{Energiespektren}
 	Zuächst wurden die Energeispektren \cref{fig_energy_start} und \cref{fig_energy_stop} gemessen. Hieraus wurden die Kanalbereiche für aus dem jeweiligen Prozess stammende Photonen ermittelt.
 
+	%TODO Peaks der zwei Zerfälle nicht unterscheidbar
+
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Start}
 				\caption{
 				Energiespektrum welches von der ersten Messapparatur aufgenommen wurde.
+				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_energy_start}
 		\end{figure}
@@ -145,6 +148,7 @@
 				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Stop}
 				\caption{
 				Energiespektrum welches von der zweiten Messapparatur aufgenommen wurde.
+				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_energy_stop}
 		\end{figure}
@@ -170,12 +174,13 @@
 			%A * np.exp(-(x - x0)**2 / 2 / d**2)
 			 f(t) = N\exp\left\{{\frac{(t-T_0)^2}{2 \Delta T^2}}\right\}
 		\end{equation}
-		Die Standardabweichung des Fits $\Delta T$ beschreibt für die folgende Bestimmung der Lebensdauer des $\gamma$-Niveaus die Unsicherheit der Messapparatur bei der Auflösung von Zeitdifferenzen, da beim Positroniumzerfall kein zeitlicher Unterschied vorliegt. %TODO ref in Theorie?
+		Die Standardabweichung des Fits $\Delta T$ beschreibt für die folgende Bestimmung der Lebensdauer des $\gamma$-Niveaus die Unsicherheit der Messapparatur bei der Auflösung von Zeitdifferenzen, da beim Positroniumzerfall kein zeitlicher Unterschied vorliegt. %TODO ref in Theorie? bzw. vernachlässigbar klein
 
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz}
 				\caption{
 					Positronium-Kanal
+				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_positronium_zeitdifferenzen}
 		\end{figure}
@@ -184,6 +189,7 @@
 				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz_zoom}
 				\caption{
 					Positronium-Kanal:
+				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_positronium_zeitdifferenzen_zoom}
 		\end{figure}
@@ -192,7 +198,8 @@
 	\begin{figure}[H]
 				\includegraphics[width= 0.7 \linewidth]{img/Zeitdifferenzen}
 				\caption{
-				hh
+					$\gamma$-Niveau-Kanal:
+				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_zeitdifferenz}
 		\end{figure}

@@ -66,8 +66,14 @@ def cyclicOff(x, a, f, phi, offset):
 def gauss(x, x0, A, d, y0):
     return A * np.exp(-(x - x0)**2 / 2 / d**2) + y0
 
-def exponential(x, c, y0):
-    return np.exp(c * x) * y0
+def exponential(x, c, y0,x0):
+    return np.exp(c * (x-x0)) * y0
+
+def sym_exponential(x, c, y0,x0):
+    return np.exp(c * np.abs(x-x0)) * y0
+
+def double_exponential(x, c1,c2, y0,x0):
+    return np.exp(c2* (x-x0)) * y0*np.heaviside(x-x0,1)+ np.heaviside(x0-x,1)*np.exp(-c1* (x-x0)) * y0
 
 def custom(x,x0,A,d):
     return A * np.exp(-(x - x0)**2 / 2 / d**2)
@@ -139,7 +145,7 @@ print ("%s:%s"%("Zeitkalibrier",mean(adata)))
 #XRD
 unc_x = 0.002/math.sqrt(3)*0
 unc_y = 0.005/math.sqrt(3)*0
-typ = ["Zeitkalibrierung","Positronium_Zeitdifferenz","Energiespektrum_Start", "Energiespektrum_Stop" , "Zeitdifferenzen", ]
+typ = [ "Zeitdifferenzen","Zeitkalibrierung","Positronium_Zeitdifferenz","Energiespektrum_Start", "Energiespektrum_Stop", ]
 position = 39.76
 kali = 0.64/514.8
 width = 1 # == 1Grad
@@ -153,11 +159,11 @@ for t in typ:
         plt.bar(unv(xdata), unv(ydata), width=width*10, color='r', yerr=usd(0), label= 'Messpunkte')
     elif(t=="Positronium_Zeitdifferenz"):
         xdata = xdata*kali
-        plt.bar(unv(xdata[1300:1700]), unv(ydata[1300:1700]), width=width*kali, color='r', yerr=usd(ydata[1300:1700]), label= 'Messpunkte')
+        plt.bar(unv(xdata[1400:1700]), unv(ydata[1400:1700]), width=width*kali, color='r', yerr=usd(ydata[1400:1700]), label= 'Messpunkte')
 
-        fit = fit_curvefit2(unv(xdata[1300:1700]), unv(ydata[1300:1700]), custom, p0 = [1471*kali, 475,17*kali])
+        fit = fit_curvefit2(unv(xdata[1400:1700]), unv(ydata[1400:1700]), custom, p0 = [1471*kali, 475,17*kali])
 
-        xfit = np.linspace(1300, 1700, 400)
+        xfit = np.linspace(1400, 1700, 400)
         xfit = xfit*kali
         yfit = custom(xfit, *unv(fit))
         plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Gauss Fit\n$T_0$=%s\n$N$=%s\n$\Delta T$=%s'%tuple(fit))
@@ -174,6 +180,22 @@ for t in typ:
 
     elif(t=="Energiespektrum_Stop" or t=="Energiespektrum_Start"):
         plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
+    elif(t=="Zeitdifferenzen"):
+
+        xdata = xdata*kali
+        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
+        m =mean(ydata[2000:])
+        print("%s:%s"%("Untergrund",m))
+
+        fit = fit_curvefit2(unv(xdata), unv(ydata-m),double_exponential,yerr=usd(ydata-m), p0 = [-4.5,-4.5,447,1.74])
+        print(fit)
+        xfit = np.linspace(0,8000,8001)
+        xfit = xfit*kali
+        yfit = double_exponential(xfit, *unv(fit))
+
+        plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='DExp Fit\n$T_0$=%s\n$N$=%s\n$\Delta T$=%s%s'%tuple(fit))
+
+        plt.axhline(y=unv(mean(ydata[2500:])),color="g")
     else:
         xdata = xdata*kali
         plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
