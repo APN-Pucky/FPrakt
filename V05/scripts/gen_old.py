@@ -183,9 +183,15 @@ for t in typ:
     elif(t=="Zeitdifferenzen"):
 
         xdata = xdata*kali
-        ww = 1200
-        hh = 1800
+        ww = 1300
+        hh = 1600
         plt.bar(unv(xdata[ww:hh]), unv(ydata[ww:hh]), width=width*kali, color='r', yerr=usd(ydata[ww:hh]), label= 'Messpunkte')
+
+        plt.axhline(y=125,color="green")
+        plt.axhline(y=550,color="y")
+        plt.axvline(x=1.75,color="y")
+        plt.axhline(y=337,color="m")
+        plt.axvline(x=1.9,color="m")
 
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()

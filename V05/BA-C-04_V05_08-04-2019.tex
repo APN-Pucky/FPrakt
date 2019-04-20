@@ -194,7 +194,23 @@
 				\label{fig_positronium_zeitdifferenzen_zoom}
 		\end{figure}
 
-		\subsection{Bestimmung der Lebensdauer}
+		\subsubsection{Bestimmung der Lebensdauer}
+
+		\subsubsection*{Abschätzung}
+		Mit \cref{fig_zeitdifferenz_zoom} wurde die Halbwertszeit grob abgeschätzt.
+		Hierbei beschreibt die grüne Horizontale bei \SI{125}{} Ereignissen den Untergrund (siehe \cref{fig_zeitdifferenz}).
+		In gelb verlaufen eine Horizontale und eine Vertikale durch das abgeschätze Maximum.
+		Ebenso ist der Punkt der mit halb so vielen Ereignissen (ohne den Untergrund) lila markiert.
+		Die Differenz gibt die Halbwertszeit $t_{1/2}=\SI{150+-50}{ns}$.
+		\begin{figure}[H]
+				\includegraphics[width= 0.9 \linewidth]{img/Zeitdifferenzen_zoom}
+				\caption{
+					$\gamma$-Niveau-Kanal:
+				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
+				}
+				\label{fig_zeitdifferenz_zoom}
+		\end{figure}
+		\subsubsection*{Fit}
 		In \cref{fig_zeitdifferenz} ist die Grüne Linie der Mittelwert aller Ereignisse bei einer Zeitdifferenz größer \SI{4}{\mu s}.
 		Der lila Fit ist in in die jeweilige Richtung ein exponentiell abfallende Funktion:
 		\begin{equation}
@@ -209,14 +225,17 @@
 				}
 				\label{fig_zeitdifferenz}
 		\end{figure}
+		\subsubsection*{Integration}
 
-		In \cref{tb_leb} sind die resultierenden Lebendauern aufgeführt.
+		In \cref{tb_leb} sind die insgesamt resultierenden Lebensdauern aufgeführt.
 		\begin{table}[H]
 		\centering
 		\begin{tabular}{c | c | c | c  }
 			 Index&$\lambda$ in \si{\mu s^{-1}}& $\tau=1/\lambda$ in \si{ns} &$t_{1/2}=\tau\ln 2$ in \si{ns}\\ \hline
 			 1&\SI{4.68+-0.07}{}&\SI{213+-3}{}&\SI{147+-2}{} \\
 			 2&\SI{4.39+-0.06}{}&\SI{228+-3}{}&\SI{158+-2}{} \\
+			 3\\
+			 4\\
 		\end{tabular}
 		\caption{
 		Verschiedene gemessene Lebensdauern, bzw. Halbwertszeiten, des angeregten $\gamma$-Niveaus von $^{44}$Sc.
