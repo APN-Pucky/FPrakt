@@ -193,16 +193,36 @@
 				}
 				\label{fig_positronium_zeitdifferenzen_zoom}
 		\end{figure}
-		\subsection{Bestimmung der Lebensdauer}
 
+		\subsection{Bestimmung der Lebensdauer}
+		In \cref{fig_zeitdifferenz} ist die Grüne Linie der Mittelwert aller Ereignisse bei einer Zeitdifferenz größer \SI{4}{\mu s}.
+		Der lila Fit ist in in die jeweilige Richtung ein exponentiell abfallende Funktion:
+		\begin{equation}
+			\label{eq_dexp}
+			f(t)=N\cdot (\exp{-\left\{\lambda_1(t-T_0)\right\}}\Theta(t-T_0)+\exp{\left\{\lambda_2(t-T_0)\right\}}\Theta(T_0-t))
+		\end{equation}
 	\begin{figure}[H]
-				\includegraphics[width= 0.7 \linewidth]{img/Zeitdifferenzen}
+				\includegraphics[width= 0.9 \linewidth]{img/Zeitdifferenzen}
 				\caption{
 					$\gamma$-Niveau-Kanal:
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_zeitdifferenz}
 		\end{figure}
+
+		In \cref{tb_leb} sind die resultierenden Lebendauern aufgeführt.
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c  }
+			 Index&$\lambda$ in \si{\mu s^{-1}}& $\tau=1/\lambda$ in \si{ns} &$t_{1/2}=\tau\ln 2$ in \si{ns}\\ \hline
+			 1&\SI{4.68+-0.07}{}&\SI{213+-3}{}&\SI{147+-2}{} \\
+			 2&\SI{4.39+-0.06}{}&\SI{228+-3}{}&\SI{158+-2}{} \\
+		\end{tabular}
+		\caption{
+		Verschiedene gemessene Lebensdauern, bzw. Halbwertszeiten, des angeregten $\gamma$-Niveaus von $^{44}$Sc.
+		}
+			 \label{tb_leb}
+	\end{table}
 	\subsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen

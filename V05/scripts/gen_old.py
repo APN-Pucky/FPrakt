@@ -73,7 +73,7 @@ def sym_exponential(x, c, y0,x0):
     return np.exp(c * np.abs(x-x0)) * y0
 
 def double_exponential(x, c1,c2, y0,x0):
-    return np.exp(c2* (x-x0)) * y0*np.heaviside(x-x0,1)+ np.heaviside(x0-x,1)*np.exp(-c1* (x-x0)) * y0
+    return np.exp(-c1* (x-x0)) * y0*np.heaviside(x-x0,1)+ np.heaviside(x0-x,1)*np.exp(c2* (x-x0)) * y0
 
 def custom(x,x0,A,d):
     return A * np.exp(-(x - x0)**2 / 2 / d**2)
@@ -183,17 +183,31 @@ for t in typ:
     elif(t=="Zeitdifferenzen"):
 
         xdata = xdata*kali
+        ww = 1200
+        hh = 1800
+        plt.bar(unv(xdata[ww:hh]), unv(ydata[ww:hh]), width=width*kali, color='r', yerr=usd(ydata[ww:hh]), label= 'Messpunkte')
+
+        plt.legend(prop={'size':fig_legendsize})
+        plt.grid()
+        plt.tick_params(labelsize=fig_labelsize)
+        plt.xlabel('Zeitdifferenz in $\mu$s')
+        plt.ylabel('Ereignisse')
+        plt.savefig(("V05/img/%s_zoom"%(t)).replace(".",",") + ".pdf")
+        plt.show()
+
         plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
         m =mean(ydata[2000:])
         print("%s:%s"%("Untergrund",m))
 
-        fit = fit_curvefit2(unv(xdata), unv(ydata-m),double_exponential,yerr=usd(ydata-m), p0 = [-4.5,-4.5,447,1.74])
+        fit = fit_curvefit2(unv(xdata), unv(ydata-m),double_exponential,yerr=usd(ydata-m), p0 = [4.5,4.5,447,1.74])
         print(fit)
+        print(1/fit)
+        print(1/fit*np.log(2))
         xfit = np.linspace(0,8000,8001)
         xfit = xfit*kali
         yfit = double_exponential(xfit, *unv(fit))
 
-        plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='DExp Fit\n$T_0$=%s\n$N$=%s\n$\Delta T$=%s%s'%tuple(fit))
+        plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='DExp Fit\n$\\lambda_1$=%s\n$\\lambda_2$=%s\n$N$=%s\n$T_0$=%s'%tuple(fit))
 
         plt.axhline(y=unv(mean(ydata[2500:])),color="g")
     else:
