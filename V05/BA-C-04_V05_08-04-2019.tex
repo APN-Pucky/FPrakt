@@ -83,8 +83,6 @@
 
 		durchgeführt am 08.04.2019\par
 		betreut von\par
-		{\large Raffaela Busse} \par %TODO Ich würde die hier legit rausnehmen. Die hat halt offiziell nur zugeschaut (und auch faktisch)
-		und \par
 		{\large Daniel Guderian}
 		\vfill
 
@@ -93,7 +91,6 @@
 	\tableofcontents
 	\newpage
 
-	%TODO mehr TODO in Default
 
 	\section{Kurzfassung}
 	% Hypothese	und deren Ergebnis, wenn Hypothese ist, dass nur Theorie erfüllt, sagen: Erwartung: Theorie aus einführung (mit reflink) erfüllt
@@ -106,6 +103,9 @@
 	Deshalb wird die Zeitdifferenz zwischen den ausgesandten Photonen über viele Ereignisse gemessen und dann über Bestimmung des Mittelwerts, Fit mit einer Exponentialfunktion und Bestimmung der Halbwertsbreite die mittlere Lebensdauer des untersuchten Niveaus bestimmt.
 	Dazu muss zunächst durch zusätzliche Messungen der Versuchsaufbau kalibriert werden.
 	Hierzu wird das beim Beta-Zerfall des Scandiums entstehende Positronium genutzt.
+
+	Die verschiedenen verwendeten Methoden zur Berechnung der mittleren Lebensdauer des Gamma-Zustands ergeben leicht unterschiedliche Ergebnisse.
+	Eine Möglichkeit, diesen nachzugehen, wird diskutiert.
 
   \section{Theorie}
 	% wdh. Texte
@@ -260,7 +260,7 @@
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Start}
 				\caption{
-				Energiespektrum welches von der ersten Messapparatur aufgenommen wurde.
+				Energiespektrum, welches von der ersten Messapparatur aufgenommen wurde.
 				Die Energie ist in willkürlichen Einheiten angegeben, da nicht bekannt ist, welcher Photonenenergie der Multi Channel Analyzer welchen Kanal zuordnet, aber bekannt ist, dass ein höherer Kanal auch einer höheren Energie entspricht.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
@@ -270,7 +270,7 @@
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Stop}
 				\caption{
-				Energiespektrum welches von der zweiten Messapparatur aufgenommen wurde.
+				Energiespektrum, welches von der zweiten Messapparatur aufgenommen wurde.
 				Die Energie ist in willkürlichen Einheiten angegeben, da nicht bekannt ist, welcher Photonenenergie der Multi Channel Analyzer welchen Kanal zuordnet, aber bekannt ist, dass ein höherer Kanal auch einer höheren Energie entspricht.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
@@ -278,7 +278,7 @@
 		\end{figure}
 
   \subsubsection{Zeitkalibrierung}
-	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}, das heißt, so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
+	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}. Das heißt, so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
 
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Zeitkalibrierung}
@@ -292,13 +292,13 @@
 		\subsubsection{Bestimmung des Nullpunkts}
 		In \cref{fig_positronium_zeitdifferenzen} sind die Messungen der Zeitdifferenzen des Positroniumzerfalls abgebildet.
 		Da dieser sehr scharf ist, ist er in \cref{fig_positronium_zeitdifferenzen_zoom} vergrößert dargestellt.
-		Es wird eine Gaußfunktion \ref{eq_gauss} an die Messpunkte angepasst.
+		Es wird eine Gaußfunktion \ref{eq_gauss} an die Messpunkte angepasst:
 		\begin{equation}
 			\label{eq_gauss}
 			%A * np.exp(-(x - x0)**2 / 2 / d**2)
 			 f(t) = N\exp\left\{{\frac{(t-T_0)^2}{2 \Delta T^2}}\right\}
 		\end{equation}
-		Die Standardabweichung des Fits $\Delta T$ beschreibt für die folgende Bestimmung der Lebensdauer des $\gamma$-Niveaus die Unsicherheit der Messapparatur bei der Auflösung von Zeitdifferenzen, da beim Positroniumzerfall kein zeitlicher Unterschied vorliegt. %TODO ref in Theorie? bzw. vernachlässigbar klein
+		Die Standardabweichung $\Delta T$ des Fits beschreibt für die folgende Bestimmung der Lebensdauer des $\gamma$-Niveaus die Unsicherheit der Messapparatur bei der Auflösung von Zeitdifferenzen, da beim Positroniumzerfall kein zeitlicher Unterschied vorliegt. %TODO ref in Theorie? bzw. vernachlässigbar klein
 
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz}
@@ -324,19 +324,19 @@
 		Mit \cref{fig_zeitdifferenz_zoom} wurde die Halbwertszeit grob abgeschätzt.
 		Hierbei beschreibt die grüne Horizontale bei \SI{125}{} Ereignissen den Untergrund (siehe \cref{fig_zeitdifferenz}).
 		In gelb verlaufen eine Horizontale und eine Vertikale durch das abgeschätzte Maximum.
-		Ebenso ist der Punkt der mit halb so vielen Ereignissen (ohne den Untergrund) lila markiert.
+		Ebenso ist der Punkt mit halb so vielen Ereignissen (ohne den Untergrund) lila markiert.
 		Die Differenz gibt die Halbwertszeit $t_{1/2}=\SI{150+-50}{ns}$.
 		\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Zeitdifferenzen_zoom}
 				\caption{
-					$\gamma$-Niveau-Kanal:
+				Vergrößerung um das Maximum der Zeitdifferenzen zwischen den Photonen der Gamma-Niveau-Abregung.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_zeitdifferenz_zoom}
 		\end{figure}
 		\subsubsection*{Fit}
-		In \cref{fig_zeitdifferenz} ist die Grüne Linie der Mittelwert aller Ereignisse bei einer Zeitdifferenz größer \SI{4}{\mu s}.
-		Der lila Fit ist in in die jeweilige Richtung ein exponentiell abfallende Funktion:
+		In \cref{fig_zeitdifferenz} ist die grüne Linie der Mittelwert aller Ereignisse bei einer Zeitdifferenz, die größer als \SI{4}{\mu s} ist.
+		Der lila Fit ist eine in die jeweilige Richtung exponentiell abfallende Funktion:
 		\begin{equation}
 			\label{eq_dexp}
 			f(t)=N\cdot (\exp{-\left\{\lambda_1(t-T_0)\right\}}\Theta(t-T_0)+\exp{\left\{\lambda_2(t-T_0)\right\}}\Theta(T_0-t))
@@ -344,7 +344,7 @@
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Zeitdifferenzen}
 				\caption{
-					$\gamma$-Niveau-Kanal:
+				Zeitdifferenzen zwischen den Photonen der Gamma-Niveau-Abregung.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_zeitdifferenz}
@@ -385,20 +385,30 @@
 	In den Energiespektren in \crefrange{fig_energy_start}{fig_energy_stop} wird dem höchsten Peak die Photonen aus der Abregung von Scandium-44 zugeordnet.
 	Diese sind aufgrund des geringen Energieunterschieds von \SI{11}{keV} nicht unterscheidbar.
 	Dem deutlich kleineren, aber immer noch ausgeprägten Peak bei höherer Energie werden die Photonen des Positroniumzerfalls bei \SI{511}{keV} zugeordnet.
-	Die Bestimmung des Zeitnullpunkt aus der Messung mittels Signalgenerators (\cref{fig_positronium_zeitdifferenzen_zoom}) ist möglich, liefert aber ein anderes Ergebnis, als die aus der Position des Maximums der Zeitdifferenzen bei der Scandium-44-Abregung (\cref{fig_zeitdifferenz}).
+
+	In \cref{fig_zeitdifferenz} ist zu erkennen, dass die Zeitdifferenzen symmetrisch um einen Peak herum gemessen werden.
+	Dies liegt daran, dass negative Zeitdifferenzen dann auftreten, wenn das erste Photon am zweiten Detektor und dann das zweite Photon am ersten Detektor ankommt.
+	Da keine ausgezeichnete Emissionsrichtung bei dem Zerfall existiert, ist dieser Fall ein genauso valider Messwert.
+	Aufgrund der zeitlichen Verschiebung zwischen der Signalerzeugung und -verarbeitung der beiden Detektoren liegt der Peak allerdings nicht bei Null, sondern im positiven Bereich.
+	Die Position des Peaks sollte dementsprechend bei demselben Wert liegen, der zuvor als Zeitnullpunkt (\cref{fig_positronium_zeitdifferenzen_zoom}) bestimmt wurde.
+	Dies ist allerdings nicht der Fall.
+	Aus der Messung des Positroniums ergibt sich ein Wert von \SI{1,8292+-0.00013}{\mu s}, während der Peak bei \SI{1,7480+-0.00017}{\mu s} liegt.
 	Eine Erklärung für diesen Effekt bleiben wir hier schuldig, da sich lediglich die Ausrichtung der Detektoren geändert hat.
 
-	%TODO Vergleich der verschiedenen mittleren Lebensdauern mit Literaturwert
-	Literaturwert liegt bei \SI{}{} (\cite{})
 
-	\subsubsection{Vergleich der Ergebnisse}
+	\subsubsection{Vergleich der mittleren Lebensdauern}
+	Beim Vergleich der in \cref{tb_leb} angegebenen mit verschiedenen Methoden bestimmten Lebensdauern stellt man fest, dass sich Werte ergeben, die teilweise um mehr als den doppelten Fehler voneinander abweichen.
+	Wenn man den Literaturwert von \SI{216 \pm 4,2}{\nano s} (\cite{Anleitung}, Unsicherheit auf Basis mangelnder Nachkommastellen) zum Vergleich heranzieht, stellt man fest, dass die Ergebnisse einiger Methoden hiervon signifikant nach oben abweichen.
+	Bei der Ermittlung mittels Fit ist außerdem auch ein signifikanter Unterschied zwischen den beiden Flanken festzustellen.
+	Zu erwarten wäre hier eigentlich, dass die Ergebnisse innerhalb der Messunsicherheiten übereinstimmen.
+	Dass dem nicht so ist, muss auf Untergrundeffekte und durch die Messapparatur verursachte systematische Fehler zurückgeführt werden.
+	Dennoch liegen die Werte hinreichend nah beieinander, um eine Einschätzung über die mittlere Lebensdauer des untersuchten Zustands zuzulassen.
 
-	%TODO unterschiedlicher Zeitnullpunkt
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
 	Insgesamt gesehen lässt sich sagen, dass die Lebensdauer des untersuchten ersten angeregten $\gamma$-Niveaus in Scandium-44 erfolgreich bestimmt werden konnte.
-	%TODO Ergebnis Vergleich der Varianten
-	%TODO Vergleich Literaturwert
+	Der Vergleich der verschiedenen Methoden zur Bestimmung dieser führen jedoch zu Ergebnissen, die sich um mehr als die Messunsicherheiten unterscheiden.
+	Um diese Effekte näher zu untersuchen, wäre ein längerer Messzeitraum ein erster Ansatz, da dies Aufschluss darauf geben könnte, ob es sich tatsächlich um systematische Fehler handelt.
 	Nicht geklärt werden konnte, warum bei der Messung von Positronium-Photonen und Scandium-Photonen unterschiedliche Zeitdifferenzen auftreten.
 	Um diesen Effekt näher zu untersuchen, wäre es hilfreich, die Messungen erneut durchzuführen, um festzustellen, ob er mit der Messung bei unterschiedlichen Energien oder den unterschiedlichen Messzeitpunkten zusammenhängt.
 
