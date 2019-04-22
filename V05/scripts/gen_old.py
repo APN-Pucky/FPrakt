@@ -180,7 +180,17 @@ for t in typ:
         plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', label= 'Messpunkte')
         #plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
 
-    elif(t=="Energiespektrum_Stop" or t=="Energiespektrum_Start"):
+    elif(t=="Energiespektrum_Stop" ):
+        plt.axvline(x=0.31/10*8192,color="y")
+        plt.axvline(x=0.61/10*8192,color="y")
+        plt.axvline(x=2.36/10*8192,color="m")
+        plt.axvline(x=3.03/10*8192,color="m")
+        plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
+    elif(t=="Energiespektrum_Start"):
+        plt.axvline(x=0.19/10*8192,color="y")
+        plt.axvline(x=0.34/10*8192,color="y")
+        plt.axvline(x=1.17/10*8192,color="m")
+        plt.axvline(x=1.59/10*8192,color="m")
         plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
     elif(t=="Zeitdifferenzen"):
 

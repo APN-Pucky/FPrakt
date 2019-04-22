@@ -99,25 +99,26 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	In diesem Versuch wird die mittlere Lebensdauer des ersten angeregten $\gamma$-Niveaus in Scandium-44 gemessen.
 	Dazu wird verwendet, dass Titan-44 nach dem Zerfall durch Elektroneneinfang in einen angeregten Zustand von Scandium-44 übergeht.
-	Dieser Zustand wird dann zunächst durch Aussenden eines Photons zum untersuchten Zustand, der dann unter erneutem Aussenden eines Photons in den Grundzustand übergeht.
+	Dieser Zustand wird dann zunächst durch Aussenden eines Photons zum untersuchten Zustand, der dann unter erneutem Aussenden eine:w
+	s Photons in den Grundzustand übergeht.
 	Deshalb wird die Zeitdifferenz zwischen den ausgesandten Photonen über viele Ereignisse gemessen und dann über Bestimmung des Mittelwerts, Fit mit einer Exponentialfunktion und Bestimmung der Halbwertsbreite die mittlere Lebensdauer des untersuchten Niveaus bestimmt.
 	Dazu muss zunächst durch zusätzliche Messungen der Versuchsaufbau kalibriert werden.
 	Hierzu wird das beim Beta-Zerfall des Scandiums entstehende Positronium genutzt.
 
 	Die verschiedenen verwendeten Methoden zur Berechnung der mittleren Lebensdauer des Gamma-Zustands ergeben leicht unterschiedliche Ergebnisse.
 	Eine Möglichkeit, diesen nachzugehen, wird diskutiert.
-
+  %TODO 150ns bestätigt
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
 	\subsection{Zerfall von Titan-44}
 
-	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang mit einer Halbwertszeit von \SI{2,44}{} Tagen zu einem angeregten Niveau von Scandium-44 (\cite{Anleitung}).
+	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang mit einer Halbwertszeit von \SI{2,44}{} Tagen zu einem angeregten Niveau von Scandium-44 (\cite{Anleitung}). %TODO die 2,44 sind hier nicht Ti44 sonder Sc44***, also falsch. Dein Bild sagt 59 Jahre. Die Anleitung sagt 48 Jahre. Interweb sagt 60
 	Das angeregte Scandium-44 sendet dann zwei $\gamma$-Photonen beim Abregen auf das zu untersuchende mittlere Niveau und dann in den Grundzustand aus.
 	%Hierbei ist zu erwähnen, dass die erste Abregung mit einer Halbwertszeit von \SI{0,15}{\mikro \seconds} stattfindet %nvm schätze das ist doch egal. %TODO oder muss man hier wissen, dass das nicht lange in dem oberen Niveau ist, wir hatten irgendwas bei der Vorbesprechung gesagt, aber war glaube ich halbgar
 	Der Grundzustand von Scandium-44 zerfällt dann durch Beta-Plus-Zerfall in einen angeregten Zustand von Calcium-44, der dann wiederum durch Aussenden eines $\gamma$-Photons in den Grundzustand über.
 	Für die Versuchsdurchführung sind die beiden Photonen bei der Abregung des Scandiums und der Beta-Plus-Zerfall relevant.
-
+	%TODO in der Graphik gibt es auch noch nen Zweiter 0,4% Pfeil auf den nicht eingegangen wird., bzw. könnte das auch grund für einen Fehler Error/Korrelation sein.
 	\begin{figure}[H]
 			\includegraphics[width=0.6\linewidth]{img/44Ti-decay_reduziert}
 			\caption{
@@ -136,20 +137,20 @@
 		\label{eq_beta-plus}
 		 _{21}^{44}\text{Sc} \rightarrow _{20}^{44}\text{Ca} + \text{e}^+ + \nu_{\text{e}}
 	\end{equation}
-	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe abgebremst.
+	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe abgebremst. %TODO + unter Aussendung von Bremsstrahlung?
 	Wenn es ausreichend stark abgebremst ist, kann es mit einem Elektron in der Probe das instabile Positronium bilden.
 	Beim Positronium unterscheidet man je nach Spinausrichtung von Positron und Elektron in Parapositronium ($S=0$) und Orthopositronium ($S=1$).
 	Aufgrund von Spin- und Impulserhaltung zerfällt Orthopositronium in eine ungerade Anzahl Photonen, die mindestens \num{3} beträgt.
 	Aus analogen Gründen zerfällt Parapositronium eine gerade Anzahl Photonen, aber mindestens \num{2}.
 	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen voraussetzt, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
-	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist.
+	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist. %TODO kp., aber nur durch Umgebung?
 	Deswegen kann man sich in den folgenden Betrachtungen im Wesentlichen auf den Zerfall von Parapositronium in zwei Photonen mit einer Energie von \SI{511}{keV} beschränken.
 	Außerdem ist anzumerken, dass die mittlere Lebensdauer von Parapositronium bei \SI{125}{ps} liegt, was im Vergleich zur erwarteten Lebensdauer des untersuchten $\gamma$-Niveaus verschwindend gering ist (\cite{Anleitung}).
 
 	\subsection{Wechselwirkung der $\gamma$-Photonen mit Materie}
 
 	Die bei den zuvor beschriebenen Zerfallsprozessen entstandenen Photonen können mit Kern oder Hüllenelektronen der Umgebung oder deren elektromagnetischen Feldern wechselwirken.
-	Da die Wechselwirkung mit Atomkernen aufgrund des geringen Anteils des Kernvolumens am Atomvolumen einen deutlich geringeren Wirkungsquerschnitt hat, überwiegt die Wechselwirkung mit Hüllenelektronen.
+	Da die Wechselwirkung mit Atomkernen aufgrund des geringen Anteils des Kernvolumens am Atomvolumen einen deutlich geringeren Wirkungsquerschnitt hat, überwiegt die Wechselwirkung mit Hüllenelektronen. %TODO Naja Elektronen sind Punktteilchen also mit einem Volumen von Null
 
 	\subsubsection{Photoeffekt}
 	Ein einfallendes $\gamma$-Photon kann im Atom absorbiert werden und die Emission eines Hüllenelektrons aus dem Atom heraus zufolge haben.
@@ -157,7 +158,7 @@
 	Auf das nun unbesetzte Energieniveau kann ein Elektron aus einer höheren Schale (oder ein freies Elektron) absinken, wobei ein Photon charakteristischer Energie (bei freien Elektronen kontinuierliches Spektrum ab einer Mindestenergie) frei wird. % das freie Elektron ist halt unwahrscheinlich, aber ich habs mal trotzdem erwähnt.
 
 	\subsubsection{Compton-Effekt}
-	Bei der Compton-Streuung überlebt im Gegensatz zum Photoeffekt das einfallende $\gamma$-Photon und bewegt sich danach im Allgemeinen mit geänderter Richtung und Energie.
+	Bei der Compton-Streuung überlebt im Gegensatz zum Photoeffekt das einfallende $\gamma$-Photon und bewegt sich danach im Allgemeinen mit geänderter Richtung und Energie. %TODO lel, philosophisch, ob ein Quant anderer Quantenzahl 'das gleiche' Quant ist, also ob das Photon noch es selbst ist nach Frequenzänderung, imo nö, außer dem würden wir ja beim Messen auch einen Andern Prozess der Anfung und Ende gleich wie Compton hat als Compton betiteln, unabhängig ob es Compton war (==Terme höherer Ordnung)?
 	Wenn die Energie des einfallenden Photons deutlich größer als die Ionisierungsenergie ist, kann das Hüllenelektron wie ein freies Elektron betrachtet werden.
 	Die Energieänderung des Photons hängt dann nur vom Winkel der Richtungsänderung und seiner Ursprungsenergie ab.
 
@@ -206,7 +207,7 @@
 	Diese werden mit Hochspannung (\SI{1400}{V} und \SI{1100}{V}) betrieben.
 	Die Signale werden zunächst vorverstärkt und dann in einen Spektralverstärker geleitet.
 	Dieser verstärkt das Signal einerseits zusätzlich und wandelt es in eine Form um, die später bei der Ermittlung der Zeitdifferenz Effekte von Walk und Jitter minimiert.
-	Hierbei wird statt dem Überschreiten eines bestimmten Schwellenwerts der Nulldurchgang des näherungsweise sinusförmigen (eine Periode) Signals verwendet als zu vergleichender Zeitpunkt verwendet.
+	Hierbei wird statt dem Überschreiten eines bestimmten Schwellenwerts der Nulldurchgang des näherungsweise sinusförmigen (eine Periode) Signals verwendet als zu vergleichender Zeitpunkt verwendet. %TODO hier eine Bild/Scan aus Anleitung?
 
 	\subsection{Energiefilterung}
 
@@ -231,7 +232,7 @@
 
 	\subsection{Messung der mittleren Lebensdauer}
 
-	Die Detektoren werden nun im \SI{90}{\degree}-Winkel zueinander auf die Probe gerichtet, um die Messung von Positronium auszuschließen und zusätzlich der Spannungsbereich nach dem Spektralverstärker auf den Bereich der Abregung von Scandium-44 begrenzt.
+	Die Detektoren werden nun im \SI{90}{\degree}-Winkel zueinander auf die Probe gerichtet, um die Messung von Positronium auszuschließen und zusätzlich der Spannungsbereich nach dem Spektralverstärker auf den Bereich der Abregung von Scandium-44 begrenzt. %TODO eher Messung von korreliertem Positronium zu minimieren?
 	Dann werden über \num{25} Stunden die auftretenden Ereignisse gemessen.
 	Da diese die zeitlichen Differenzen zwischen Aussendung des Photons bei Abregung auf den mittleren angeregten Zustand und Abregung auf den Grundzustand darstellen, kann so die mittlere Lebensdauer des mittleren angeregten Zustands bestimmt werden.
 	%  Zeiten
@@ -246,36 +247,39 @@
 	%TODO Unsicherheiten
 
 
-	\subsection{Beobachtung und Datenanalyse}
+	%\subsection{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
 	% Berechung nach Aufgabenstellung
+	\subsection{Unsicherheiten}
+	In allen folgenden Graphen wurde die Unsicherheit bei $n_i$ Ereignissen mit $\sqrt{n_i}$ gemäß Poissonverteilung angegeben.
+	%TODO dachte einmal für alle am Anfang ist einfacher. ggf mehr hier?
 
 	\subsection{Energiespektren}
 	Zuächst wurden die Energeispektren \cref{fig_energy_start} und \cref{fig_energy_stop} gemessen. Hieraus wurden die Kanalbereiche für aus dem jeweiligen Prozess stammende Photonen ermittelt.
-
-	%TODO Peaks der zwei Zerfälle nicht unterscheidbar
+	In Gelb wurde der $\gamma$-Peak gekennzeichnet und in lila der Positronium-Peak.
+	Beim $\gamma$-Zerfall sind die Strahlungen der verschiedenen Niveaus nicht unterscheidbar aufgelösst (\SI{78.4}{keV} und \SI{67.8}{keV} \cite{Anleitung}). %TODO hier ggf. iwas warum die so sind?
 
 	\begin{figure}[H]
-				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Start}
-				\caption{
-				Energiespektrum, welches von der ersten Messapparatur aufgenommen wurde.
-				Die Energie ist in willkürlichen Einheiten angegeben, da nicht bekannt ist, welcher Photonenenergie der Multi Channel Analyzer welchen Kanal zuordnet, aber bekannt ist, dass ein höherer Kanal auch einer höheren Energie entspricht.
-				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
-				}
+		\centering
+	\begin{subfigure}[b]{0.8\textwidth}
+				\includegraphics[width= 1 \linewidth]{img/Energiespektrum_Start}
+				\caption{}
 				\label{fig_energy_start}
-		\end{figure}
-
-	\begin{figure}[H]
-				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Stop}
-				\caption{
-				Energiespektrum, welches von der zweiten Messapparatur aufgenommen wurde.
+		\end{subfigure}
+	\begin{subfigure}[b]{0.8\textwidth}
+				\includegraphics[width= 1 \linewidth]{img/Energiespektrum_Stop}
+				\caption{}
+				\label{fig_energy_stop}
+		\end{subfigure}
+		\caption{
+				Energiespektren, welche von den zwei Messapparatur aufgenommen wurde.
 				Die Energie ist in willkürlichen Einheiten angegeben, da nicht bekannt ist, welcher Photonenenergie der Multi Channel Analyzer welchen Kanal zuordnet, aber bekannt ist, dass ein höherer Kanal auch einer höheren Energie entspricht.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
+				Die groben Grenzen des $\gamma$-Zerfall sind gelb und die des Positroniumzerfalls lila. %TODO grob hier fine?
 				}
-				\label{fig_energy_stop}
 		\end{figure}
-
+  %TODO an apn hier weiter
   \subsubsection{Zeitkalibrierung}\label{sss_zeitkali}
 	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}. Das heißt, so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
 
