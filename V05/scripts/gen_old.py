@@ -145,6 +145,7 @@ print ("%s:%s"%("Zeitkalibrier",mean(adata)))
 #XRD
 unc_x = 0.002/math.sqrt(3)*0
 unc_y = 0.005/math.sqrt(3)*0
+unc_t = 0.02
 typ = [ "Zeitdifferenzen","Zeitkalibrierung","Positronium_Zeitdifferenz","Energiespektrum_Start", "Energiespektrum_Stop", ]
 position = 39.76
 kali = 0.64/514.8
@@ -219,23 +220,30 @@ for t in typ:
         sumtn = 0
         sumn = 0
         for i in range(find_nearest_index(xdata,1.74),find_nearest_index(xdata,3)):
-            sumtn += (xdata[i]-1.74)*(ydata[i]-m)
+            sumtn += unc.ufloat(xdata[i]-1.74,unc_t)*(ydata[i]-m)
             sumn += (ydata[i]-m)
         print("n %s"%(find_nearest_index(xdata,1.74)-find_nearest_index(xdata,3)))
         print("tau: %s"%(sumtn/sumn))
         print("thalf: %s"%(sumtn/sumn*np.log(2)))
         print("lambda: %s"%(sumn/sumtn))
 
+        print("tau: %s"%(unv(sumtn/sumn)))
+        print("thalf: %s"%(unv(sumtn/sumn*np.log(2))))
+        print("lambda: %s"%(unv(sumn/sumtn)))
+
         sumtn = 0
         sumn = 0
         for i in range(find_nearest_index(xdata,0.4),find_nearest_index(xdata,1.74)):
-            sumtn += -(xdata[i]-1.74)*(ydata[i]-m)
+            sumtn += -unc.ufloat(xdata[i]-1.74,unc_t)*(ydata[i]-m)
             sumn += (ydata[i]-m)
         print("n %s"%(find_nearest_index(xdata,1.74)-find_nearest_index(xdata,0.4)))
         print("tau: %s"%(sumtn/sumn))
         print("thalf: %s"%(sumtn/sumn*np.log(2)))
         print("lambda: %s"%(sumn/sumtn))
 
+        print("tau: %s"%(unv(sumtn/sumn)))
+        print("thalf: %s"%(unv(sumtn/sumn*np.log(2))))
+        print("lambda: %s"%(unv(sumn/sumtn)))
         plt.axhline(y=unv(mean(ydata[2500:])),color="g")
     else:
         xdata = xdata*kali
