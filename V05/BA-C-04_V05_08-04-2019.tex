@@ -279,15 +279,17 @@
 				Die groben Grenzen des $\gamma$-Zerfall sind gelb und die des Positroniumzerfalls lila. %TODO grob hier fine?
 				}
 		\end{figure}
-  %TODO an apn hier weiter
-  \subsubsection{Zeitkalibrierung}\label{sss_zeitkali}
-	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}. Das heißt, so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
 
+  \subsubsection{Zeitkalibrierung}\label{sss_zeitkali}
+	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}. Das heißt, so viele Kanäle entsprechen einer Zeit von \SI{640+-3}{ns}.
+
+	%TODO kann man hier überhaupt mehr schreiben?
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Zeitkalibrierung}
 				\caption{
 				Zeitkalibrierung der Kanäle mittels eines Signalgenerators.
 				Es gibt auch kleine Beiträge zu anderen Kanälen in naher Umgebung der Peaks, jedoch sind diese aufgrund der zu geringen Auflösung des Bildes kaum sichtbar.
+				Die Unsicherheiten sind zur besseren Erkenntlichkeit nicht abgebildet.
 				}
 				\label{fig_zeitkalibrierung}
 		\end{figure}
@@ -304,7 +306,7 @@
 		Die Standardabweichung $\Delta T$ des Fits beschreibt für die folgende Bestimmung der Lebensdauer des $\gamma$-Niveaus die Unsicherheit der Messapparatur bei der Auflösung von Zeitdifferenzen, da beim Positroniumzerfall kein zeitlicher Unterschied vorliegt. %TODO ref in Theorie? bzw. vernachlässigbar klein
 
 	\begin{figure}[H]
-				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz}
+				\includegraphics[width= 0.8 \linewidth]{img/Positronium_Zeitdifferenz}
 				\caption{
 				Zeitdifferenz zwischen den Photonen des Positroniumzerfalls.
 				Die Unsicherheiten sind zur besseren Erkenntlichkeit nicht abgebildet.
@@ -313,7 +315,7 @@
 		\end{figure}
 
 	\begin{figure}[H]
-				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz_zoom}
+				\includegraphics[width= 0.8 \linewidth]{img/Positronium_Zeitdifferenz_zoom}
 				\caption{
 				Vergrößertes Zeitdifferenzpeak zwischen den Photonen des Positroniumzerfalls.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
@@ -349,17 +351,19 @@
 			 \label{tb_punkte}
 	\end{table}
 		\begin{figure}[H]
-				\includegraphics[width= 0.9 \linewidth]{img/Zeitdifferenzen_zoom}
+				\includegraphics[width= 0.7 \linewidth]{img/Zeitdifferenzen_zoom}
 				\caption{
 				Vergrößerung um das Maximum der Zeitdifferenzen zwischen den Photonen der Gamma-Niveau-Abregung.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				Die grüne Horizontale ist der Untergrund.
-				In gelb und lila sind die Punkte, welche für die Abschätzung der Halbwertszeit verwendet werden markiert.
+				In gelb und lila sind die Punkte, welche für die Abschätzung der Halbwertszeit verwendet werden, markiert.
 				}
 				\label{fig_zeitdifferenz_zoom}
 		\end{figure}
+
 		\subsubsection*{Fit}
 		In \cref{fig_zeitdifferenz} ist die grüne Linie der Mittelwert aller Ereignisse bei einer Zeitdifferenz, die größer als \SI{4}{\mu s} ist.
+		Somit beträgt der Untergrund \SI{120+-21}{} Ereignisse.
 		Der lila Fit ist eine in die jeweilige Richtung exponentiell abfallende Funktion:
 		\begin{equation}
 			\label{eq_dexp}
@@ -382,22 +386,25 @@
 		\end{equation}
 		bestimmen.
 		Wobei hier $t_i$ der Abstand zum Maximum (hier $\SI{1.74}{\mu s}$) und $n_i$ die Anzahl der Ereignisse \textbf{ohne} den Untergrund ist.
-		\cref{eq_mittel} ist also der gewichtete und normierte Mittelwert der Lebesndauern und die Unsicherheit ergibtsich aus dem Quotienten der Standardabweichung und der Wurzel der Anzahl der Messpunkte über welche gemittelt wird ($\frac{s}{\sqrt{N}}$).
+		\cref{eq_mittel} ist also der gewichtete und normierte Mittelwert der Lebensdauern und die Unsicherheit ergibt sich aus dem Quotienten der Standardabweichung und der Wurzel der Anzahl der Messpunkte über welche gemittelt wird ($\frac{s}{\sqrt{N}}$).
 
-		Es ergibt sich $\tau_5=\SI{229+-3}{ns}$ im Bereich von $\SI{1.74}{\mu s}$ bis $\SI{3}{\mu s}$ und umgekehrt in $\SI{0.4}{\mu s}$ bis $\SI{1.74}{\mu s}$ folgt $\tau_6=\SI{233+-4}{\mu s}$.
+		Es folgt $\tau_5=\SI{229+-3}{ns}$ im Bereich von $\SI{1.74}{\mu s}$ bis $\SI{3}{\mu s}$ und umgekehrt in $\SI{0.4}{\mu s}$ bis $\SI{1.74}{\mu s}$ folgt $\tau_6=\SI{233+-4}{\mu s}$.
 		Die Bereiche wurden so gewählt, da in \cref{eq_mittel} die Terme hoher $t_i$, die um Null schwanken, zu großen Fehlern führen.
 
 		In \cref{tb_leb} sind die insgesamt resultierenden Lebensdauern aufgeführt.
 		\begin{table}[H]
 		\centering
 		\begin{tabular}{c| c | c | c | c  }
-			 Index&Methode&$\lambda$ in \si{\mu s^{-1}}& $\tau=1/\lambda$ in \si{ns} &$t_{1/2}=\tau\ln 2$ in \si{ns}\\ \hline
-			 1&Halbwertsbreite&\SI{4.7+-0.12}{}&\SI{215+-6}{}&\SI{149+-4}{}\\
-			 2&Halbwertsbreite&\SI{4.6+-0.12}{}&\SI{217+-6}{}&\SI{151+-4}{}\\
-			 3&Fit&\SI{4.69+-0.07}{}&\SI{213+-3}{}&\SI{147+-2}{} \\
-			 4&Fit&\SI{4.39+-0.06}{}&\SI{228+-3}{}&\SI{158+-2}{} \\
-			 5&Mittelwert&\SI{4.37+-0.06}{}&\SI{229+-3}{}&\SI{159+-2}{}\\
-			 6&Mittelwert&\SI{4.29+-0.07}{}&\SI{233+-4}{}&\SI{162+-3}{}\\
+			 Methode&Index&$\lambda$ in \si{\mu s^{-1}}& $\tau=1/\lambda$ in \si{ns} &$t_{1/2}=\tau\ln 2$ in \si{ns}\\ \hline
+			 Halbwertsbreite&1&\SI{4.7+-0.12}{}&\SI{215+-6}{}&\SI{149+-4}{}\\
+			 &2&\SI{4.6+-0.12}{}&\SI{217+-6}{}&\SI{151+-4}{}\\
+			 &Mittelwert 1+2&\SI{4.65+-0.05}{}&\SI{216+-1}{}&\SI{150+-1}{}\\\hline
+			 Fit&3&\SI{4.69+-0.07}{}&\SI{213+-3}{}&\SI{147+-2}{} \\
+			 &4&\SI{4.39+-0.06}{}&\SI{228+-3}{}&\SI{158+-2}{} \\
+			 &Mittelwert 3+4&\SI{4.54+-0.15}{}&\SI{220+-8}{}&\SI{150+-7}{}\\\hline
+			 Mittelwert&5&\SI{4.37+-0.06}{}&\SI{229+-3}{}&\SI{159+-2}{}\\
+			 &6&\SI{4.29+-0.07}{}&\SI{233+-4}{}&\SI{162+-3}{}\\
+			 &Mittelwert 5+6&\SI{4.33+-0.04}{}&\SI{231+-2}{}&\SI{160+-2}{}\\\hline
 		\end{tabular}
 		\caption{
 		Verschiedene gemessene Lebensdauern, bzw. Halbwertszeiten, des angeregten $\gamma$-Niveaus von $^{44}$Sc.
