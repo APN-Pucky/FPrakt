@@ -64,8 +64,7 @@
 	locale=DE,
 	separate-uncertainty
 }
-%\bibliography{BA-C-04_V05_08-04-2019_References}
-%TODO aktivieren
+\bibliography{BA-C-04_V05_08-04-2019_References}
 
 \begin{document}
 
@@ -73,7 +72,7 @@
 		\centering
 		{\scshape\LARGE Versuchsbericht zu \par}
 		\vspace{1cm}
-		{\scshape\huge V05 - Titel \par} %TODO Anpasen
+		{\scshape\huge V05 - Lebensdauermessung eines $\gamma$-Niveaus \par}
 		\vspace{2.5cm}
 		{\LARGE Gruppe BA-C-04 \par}
 		\vspace{0.5cm}
@@ -84,7 +83,7 @@
 
 		durchgeführt am 08.04.2019\par
 		betreut von\par
-		{\large Raffaela Busse} \par
+		{\large Raffaela Busse} \par %TODO Ich würde die hier legit rausnehmen. Die hat halt offiziell nur zugeschaut (und auch faktisch)
 		und \par
 		{\large Daniel Guderian}
 		\vfill
@@ -105,10 +104,47 @@
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
+	\subsection{Zerfall von Titan-44}
 
+	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang mit einer Halbwertszeit von \SI{2,44}{} Tagen zu einem angeregten Niveau von Scandium-44. \cite{Anleitung} %TODO ist das Halbwertszeit oder mittlere Lebensdauer???
+	Das angeregte Scandium-44 sendet dann zwei $\gamma$-Photonen beim Abregen auf das zu untersuchende mittlere Niveau und dann in den Grundzustand aus.
+	%Hierbei ist zu erwähnen, dass die erste Abregung mit einer Halbwertszeit von \SI{0,15}{\mikro \seconds} stattfindet %nvm schätze das ist doch egal. %TODO oder muss man hier wissen, dass das nicht lange in dem oberen Niveau ist, wir hatten irgendwas bei der Vorbesprechung gesagt, aber war glaube ich halbgar
+	Der Grundzustand von Scandium-44 zerfällt dann durch Beta-Plus-Zerfall in einen angeregten Zustand von Calcium-44, der dann wiederum durch Aussenden eines $\gamma$-Photons in den Grundzustand über.
+	Für die Versuchsdurchführung sind die beiden Photonen bei der Abregubg des Scandiums und der Beta-Plus-Zerfall relevant.
+
+	\begin{figure}[H]
+			\includegraphics[width=0.6\linewidth]{img/44Ti-decay_reduziert}
+			\caption{
+			Reduziertes Zerfallsschema von Titan-44 über Scandium-44 zu Calcium-44. Zerfallswege geringer Wahrscheinlichkeit sind nicht dargestellt.
+			\cite{Zerfallsschema} %TODO theoretisch copyrightmäßig schwierig, weil ich den unnötigen Teil rausgecropt habe. Alternative: Anleitung scannen.
+			}
+			\label{fig_Zerfallsschema}
+	\end{figure}
+
+	\subsection{Elektroneneinfang}
+	%TODO Elektroneneinfang erklären bzw Gleichung hinschreiben!
+	\subsubsection{Beta-Plus-Zerfall}
+	Wie oben beschrieben findet die folgende Kernreaktion statt:
+	\begin{equation}
+		\label{eq_beta-plus}
+		 _{21}^{44}\text{Sc} \rightarrow _{20}^{44}\text{Ca} + \text{e}^+ + \nu_{\text{e}}
+	\end{equation}
+	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe abgebremst.
+	Wenn es ausreichend stark abgebremst ist, kann es mit einem Elektron in der Probe das instabile Positronium bilden.
+	Beim Positronium unterscheidet man je nach Spinausrichtung von Positron und Elektron in Parapositronium ($S=0$) und Orthopositronium ($S=1$).
+	Aufgrund von Spin- und Impulserhaltung zerfällt Orthopositronium in eine ungerade Anzahl Photonen, die mindestens \num{3} beträgt.
+	Aus analogen Gründen zerfällt Parapositronium eine gerade Anzahl Photonen, aber mindestens \num{2}.
+	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen vorraussetzt, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
+	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist.
+	Deswegen kann man sich in den folgenden Betrachtungen im Wesentlichen auf den Zerfall von Parapositronium in zwei Photonen mit einer Energie von \SI{511}{keV} beschränken.
+	Außerdem ist anzumerken, dass die mittlere Lebensdauer von Parapositronium bei \SI{125}{ps} liegt, was im Vergleich zur erwarteten Lebensdauer des untersuchten $\gamma$-Niveaus verschwindend gering ist. \cite{Anleitung}
+
+	%TODO Wechselwirkungen
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
+	%TODO Detektionsmechanismus
+	%TODO welche Geräte haben welche Funktion
 
 	%TODO  Zeiten
 	% Zeitdifferenz: 25.3h
@@ -265,5 +301,5 @@
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
-	%\printbibliography
+	\printbibliography
 \end{document}
