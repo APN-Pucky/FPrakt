@@ -100,13 +100,19 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	In diesem Versuch wird die mittlere Lebensdauer des ersten angeregten $\gamma$-Niveaus in Scandium-44 gemessen.
+	Dazu wird verwendet, dass Titan-44 nach dem Zerfall durch Elektroneneinfang in einen angeregten Zustand von Scandium-44 übergeht.
+	Dieser Zustand wird dann zunächst durch Aussenden eines Photons zum untersuchten Zustand, der dann unter erneutem Aussenden eines Photons in den Grundzustand übergeht.
+	Deshalb wird die Zeitdifferenz zwischen den ausgesandten Photonen über viele Erergnisse gemessen und dann über Bestimmung des Mittelwerts, Fit mit einer Exponentialfunktion und Bestimmung der Halbwertsbreite die mittlere Lebensdauer des untersuchten Niveaus bestimmt.
+	Dazu muss zunächst durch zusätzliche Messungen der Versuchsaufbau kalibriert werden.
+	Hierzu wird das beim Beta-Zerfall des Scandiums entstehende Positronium genutzt.
 
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
 	\subsection{Zerfall von Titan-44}
 
-	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang mit einer Halbwertszeit von \SI{2,44}{} Tagen zu einem angeregten Niveau von Scandium-44. \cite{Anleitung} %TODO ist das Halbwertszeit oder mittlere Lebensdauer???
+	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang mit einer Halbwertszeit von \SI{2,44}{} Tagen zu einem angeregten Niveau von Scandium-44 (\cite{Anleitung}).
 	Das angeregte Scandium-44 sendet dann zwei $\gamma$-Photonen beim Abregen auf das zu untersuchende mittlere Niveau und dann in den Grundzustand aus.
 	%Hierbei ist zu erwähnen, dass die erste Abregung mit einer Halbwertszeit von \SI{0,15}{\mikro \seconds} stattfindet %nvm schätze das ist doch egal. %TODO oder muss man hier wissen, dass das nicht lange in dem oberen Niveau ist, wir hatten irgendwas bei der Vorbesprechung gesagt, aber war glaube ich halbgar
 	Der Grundzustand von Scandium-44 zerfällt dann durch Beta-Plus-Zerfall in einen angeregten Zustand von Calcium-44, der dann wiederum durch Aussenden eines $\gamma$-Photons in den Grundzustand über.
@@ -121,6 +127,7 @@
 			\label{fig_Zerfallsschema}
 	\end{figure}
 
+	%TODO mehr zu gamma-abregung?
 	\subsection{Elektroneneinfang}
 	%TODO Elektroneneinfang erklären bzw Gleichung hinschreiben!
 	\subsubsection{Beta-Plus-Zerfall}
@@ -137,24 +144,103 @@
 	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen vorraussetzt, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
 	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist.
 	Deswegen kann man sich in den folgenden Betrachtungen im Wesentlichen auf den Zerfall von Parapositronium in zwei Photonen mit einer Energie von \SI{511}{keV} beschränken.
-	Außerdem ist anzumerken, dass die mittlere Lebensdauer von Parapositronium bei \SI{125}{ps} liegt, was im Vergleich zur erwarteten Lebensdauer des untersuchten $\gamma$-Niveaus verschwindend gering ist. \cite{Anleitung}
+	Außerdem ist anzumerken, dass die mittlere Lebensdauer von Parapositronium bei \SI{125}{ps} liegt, was im Vergleich zur erwarteten Lebensdauer des untersuchten $\gamma$-Niveaus verschwindend gering ist (\cite{Anleitung}).
 
-	%TODO Wechselwirkungen
+	\subsection{Wechselwirkung der $\gamma$-Photonen mit Materie}
+
+	Die bei den zuvor beschriebenen Zerfallsprozessen entstandenen Photonen können mit Kern oder Hüllenelektronen der Umgebung oder deren elektromagnetischen Feldern wechselwirken.
+	Da die Wechselwirkung mit Atomkernen aufgrund des geringen Anteils des Kernvolumens am Atomvolumen einen deutlich geringeren Wirkungsquerschnitt hatt, überwiegt die Wechselwirkung mit Hüllenelektronen.
+
+	\subsubsection{Photoeffekt}
+	Ein einfallendes $\gamma$-Photon kann im Atom absorbiert werden und die Emission eines Hüllenelektrons aus dem Atom heraus zufolge haben.
+	Das herausgelöste Elektron erhält dabei die Differenz zwischen Energie des einfallenden Photons und der nötigen Ionisierungsenergie, um es aus dem Atom zu lösen.
+	Auf das nun unbesetzte Energieniveau kann ein Elektron aus einer höheren Schale (oder ein freies Elektron) absinken, wobei ein Photon charakteristischer Energie (bei freien Elektronen kontinuierliches Spektrum ab einer Mindestenergie) frei wird. % das freie Elektron ist halt unwahrscheinlich, aber ich habs mal trotzdem erwähnt.
+
+	\subsubsection{Compton-Effekt}
+	Bei der Compton-Streuung überlebt im Gegensatz zum Photoeffekt das einfallende $\gamma$-Photon und bewegt sich danach im Allgemeinen mit geänderter Richtung und Energie.
+	Wenn die Energie des einfallenden Photons deutlich größer als die Ionisierungsenergie ist, kann das Hüllenelektron wie ein freies Elektron betrachtet werden.
+	Die Energieänderung des Photons hängt dann nur vom Winkel der Richtungsänderung und seiner Ursprungsenergie ab.
+
+	\subsubsection{Paarbildungseffekt}
+
+	Hier wird im Coulomb-Feld eines Atomkerns ein $\gamma$-Photon in ein Positron und eine Elektron umgewandelt.
+	Dies kann aufgrund von Energie- und Impulserhaltungssatz nur in Wechselwirkung mit einem Atomkern stattfinden.
+
+	\subsection{Szintillator}
+
+	Ein Szintillator ist ein Detektor, der einfallende Strahlung in eine einfacher messbare elektromagnetische Strahlung umwandelt.
+	In diesem Versuch wurde ein anorganischer Halbleiter-Szintillator verwendet.
+	Bei diesem wird durch die einfallende Strahlung ein Elektron aus den Valenzband in das Leitungsband angeregt und lässt im Valenzband ein Loch zurück.
+	Wenn das Elektron an einer Störstelle mit dem Loch rekombiniert, kann dies durch die an der Störstelle modifizierten Bandstruktur schrittweise geschehen, weshalb Strahlung einer geringeren, leichter detektierbaren Wellenlänge frei wird.
+
+	\subsection{Photomultiplier}
+
+	In einem Photomultiplier werden einzelne einfallende Photonen in ein messbares Signal umgewandelt.
+	Das Funktionsprinzip ist in \cref{fig_Photomultiplier} dargestellt.
+	Dabei löst zunächst ein einfallendes Photon an der Kathode (negative Spannung) ein Elektron aus.
+	Dieses Elektron wird in Richtung der Anode (positive Spannung) beschleunigt und schlägt auf dem Weg dorthin aus den Dynoden zusätzliche Elektronen heraus.
+	An der Anode kommen dann ausreichend viele Elektronen an, um einen messbaren Rückfluss zur Kathode zu erzeugen (bzw. über einen Widerstand eine messbare Spannung).
+
+	\begin{figure}[H]
+			\includegraphics[width=0.6\linewidth]{img/Photomultiplier}
+			\caption{
+			Schematische Darstellung eines Photomultipliers.
+			\cite{Photomultiplier}
+			}
+			\label{fig_Photomultiplier}
+	\end{figure}
+
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
 	%TODO Detektionsmechanismus
 	%TODO welche Geräte haben welche Funktion
+	Der Versuch wird in zwei Teilen durchgeführt und eine Titan-44-Probe untersucht.
+	Zunächst wird der Zerfall des nach dem Beta-Zerfall entstehenden Positroniums genutzt, um eine Zeitkalibrierung zu ermöglichen.
+	Dann wird die Zeitdifferenz der $\gamma$-Photonen der schrittweisen Abregung von Scandium-44 genutzt, um die Lebensdauer des mittleren Niveaus zu bestimmen.
 
-	%TODO  Zeiten
+	%Die eine Titan-44-Probe verlassende $\gamma$-Strahlung soll detektiert werden.
+	%Zusätzlich soll die zeitliche Differenz zwischen zwei $\gamma$-Photonen eines bestimmten Energiefensters gemessen werden.
+
+	Verwendet werden zwei Detektoren, die Szintillator und Photomultiplier kombinieren, um ein Signal zu erzeugen, das proportional zum einfallenden Photon ist.
+	Diese werden mit Hochspannung (\SI{1400}{V} und \SI{1100}{V}) betrieben.
+	Die Signale werden zunächst vorverstärkt und dann in einen Spektralverstärker geleitet.
+	Dieser verstärkt das Signal einerseits zusätzlich und wandelt es in eine Form um, die später bei der Ermittlung der Zeitdifferenz Effekte von Walk und Jitter minimiert.
+	Hierbei wird statt dem Überschreiten eines bestimmten Schwellenwerts der Nulldurchgang des näherungsweise sinusförmigen (eine Periode) Signals verwendet als zu vergleichender Zeitpunkt verwendet.
+
+	\subsection{Energiefilterung}
+
+	Die Detektoren werden im \SI{180}{\degree}-Winkel zueinander auf die Probe gerichtet.
+	Mit dem Aufbau bis zu diesem Punkt wird nun die Energie der Signale mit einem Multi Channel Analyzer in Kanäle aufgeteilt, digitalisiert und über einen Zeitraum von wenigen Minuten gemessen. %TODO ich bin mir nicht sicher, ob für das Energiegedöns das Signal schon umgeformt wurde...
+	Die gemessenen Ereignisse werden dann über die entsprechenden Kanäle aufgetragen.
+	In dem so gemessenen Energiespektrum wird der zum Zerfall des Positroniums gehörige Peak (\SI{511}{keV}) und der zur Abregung von Scandium-44 gehörige Peak (\SI{87,4}{keV} und \SI{67,8}{keV}) identifiziert und Anfang und Ende des Peaks im Kanalspektrum notiert.
+	Über einen Dreisatz wird aus den Gesamtkanälen (8192) und dem möglichen Spannungsintervall (\SIrange{0}{10}{\volt}) der Signale der Spannungsbereich berechnet, in dem die Signale der Abregung und des Positroniumzerfalls liegen.
+	Dies wird für beide Detektoren getrennt durchgeführt.
+
+	\subsection{Zeitkalibrierung}
+	Für diesen Versuchsteil der untersuchte Bereich auf den zum Positronium gehörigen Spannungsbereich begrenzt.
+  Die übrigen Signale werden dann in einen Timing Single Channel Analyzer in ein Rechtecksignal konvertiert, wobei der Nulldurchgang für den Beginn des Rechtecksignals genutzt wird.
+	Die Rechtecksignale von beiden Detektoren werden dann in einem Time to Amplitude Converter geleitet, der die zeitliche Differenz zwischen den Rechtecksignalen der beiden Detektoren in Ausgangssignal umwandelt, dessen Höhe proportional zur Zeitdifferenz ist.
+	Dieses Signal wird dann vom Multichannel Analyzer digitalisiert und in Kanäle in Abhängigkeit von der Signalhöhe getrennt.
+	Da die beiden Photonen vom Positronium im \SI{180}{\degree}-Winkel zeitgleich emittiert werden, kann nun der Zeitnullpunkt ermittelt werden, da hier das Maximum der gemessenen Ereignisse liegt.
+	Die Zeitdifferenz aufgrund der Postion des Positroniums in der Probe wird hierbei vernachlässigt, da sie aufgrund der Bewegung der Photonen mit Lichtgeschwindigkeit verschwindend gering ist.
+
+	Nun muss noch die Kanalbreite in eine Zeitdifferenz umgerechnet werden können.
+	Hierfür wird anstelle der Detektoren ein Signalgenerator verwendet, der im Abstand vom \SI{640}{\nano \second} Signale erzeugt.
+	Diese werden im Kanalspektrum aufgetragen und auf Basis des Mittelwerts der Abstände der Signale der Umrechnungsfaktor von Kanalbreite und Zeitdifferenz bestimmt.
+
+	\subsection{Messung der mittleren Lebensdauer}
+
+	Die Detektoren werden nun im \SI{90}{\degree}-Winkel zueinander auf die Probe gerichtet, um die Messung von Positronium auszuschließen und zusätzlich der Spannungsbereich nach dem Spektralverstärker auf den Bereich der Abregung von Scandium-44 begrenzt.
+	Dann werden über \num{25} Stunden die auftretenden Ereignisse gemessen.
+	Da diese die zeitlichen Differenzen zwischen Aussendung des Photons bei Abregung auf den mittleren angeregten Zustand und Abregung auf den Grundzustand darstellen, kann so die mittlere Lebensdauer des mittleren angeregten Zustands bestimmt werden.
+	%  Zeiten
 	% Zeitdifferenz: 25.3h
 	% Positronium_Zeitdifferenz: 1.2h
 	% Zeitkalibrierung: 7s
 	% Energy_Start: 3.7m
 	% Energy_Stop: 11.4m
 
-	%TODO
-	% Zeit in Material bei Speed of Light vernachläsigbar (bzw. Ausdehnung)
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
@@ -175,6 +261,7 @@
 				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Start}
 				\caption{
 				Energiespektrum welches von der ersten Messapparatur aufgenommen wurde.
+				Die Energie ist in willkürlichen Einheiten angegeben, da nicht bekannt ist, welcher Photonenenergie der Multi Channel Analyzer welchen Kanal zuordnet, aber bekannt ist, dass ein höherer Kanal auch einer höheren Energie entspricht.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_energy_start}
@@ -184,19 +271,20 @@
 				\includegraphics[width= 0.9 \linewidth]{img/Energiespektrum_Stop}
 				\caption{
 				Energiespektrum welches von der zweiten Messapparatur aufgenommen wurde.
+				Die Energie ist in willkürlichen Einheiten angegeben, da nicht bekannt ist, welcher Photonenenergie der Multi Channel Analyzer welchen Kanal zuordnet, aber bekannt ist, dass ein höherer Kanal auch einer höheren Energie entspricht.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_energy_stop}
 		\end{figure}
 
   \subsubsection{Zeitkalibrierung}
-	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}, das heißt so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
+	Der Mittelwert der Abstände der Peaks in \cref{fig_zeitkalibrierung} beträgt \SI{514.8+-0.4}{}, das heißt, so viele Kanäle entsprechen einer Zeit von \SI{0.64+-0.003}{\mu s}.
 
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Zeitkalibrierung}
 				\caption{
-				Zeitkalibrierung der Kanäle mittels eines Zeitkalibrators %TODO 'TIME Calibrator' ?
-				Es gibt auch kleine Beiträge zu anderen Kanälen in naher Umgebung der Peaks, jedoch sind diese wegen der Auflösung des Bildes kaum sichtbar.
+				Zeitkalibrierung der Kanäle mittels eines Signalgenerators.
+				Es gibt auch kleine Beiträge zu anderen Kanälen in naher Umgebung der Peaks, jedoch sind diese aufgrund der zu geringen Auflösung des Bildes kaum sichtbar.
 				}
 				\label{fig_zeitkalibrierung}
 		\end{figure}
@@ -215,7 +303,7 @@
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz}
 				\caption{
-					Positronium-Kanal
+				Zeitdifferenz zwischen den Photonen des Positroniumzerfalls.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_positronium_zeitdifferenzen}
@@ -224,7 +312,7 @@
 	\begin{figure}[H]
 				\includegraphics[width= 0.9 \linewidth]{img/Positronium_Zeitdifferenz_zoom}
 				\caption{
-					Positronium-Kanal:
+				Zeitdifferenz zwischen den Photonen des Positroniumzerfalls.
 				Die Unsicherheiten sind in Schwarz abgebildet, sodass sich der Messwert mittig im schwarzen Bereich befindet.
 				}
 				\label{fig_positronium_zeitdifferenzen_zoom}
@@ -282,12 +370,28 @@
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	In den Energiespektren in \crefrange{fig_energy_start}{fig_energy_stop} wird dem höchsten Peak die Photonen aus der Abregung von Scandium-44 zugeordnet.
+	Diese sind aufgrund des geringen Energieunterschieds von \SI{11}{keV} nicht unterscheidbar.
+	Dem deutlich kleineren, aber immer noch ausgeprägten Peak bei höherer Energie werden die Photonen des Positroniumzerfalls bei \SI{511}{keV} zugeordnet.
+	Die Bestimmung des Zeitnullpunkt aus der Messung mittels Signalgenerators (\cref{fig_positronium_zeitdifferenzen_zoom}) ist möglich, liefert aber ein anderes Ergebnis, als die aus der Position des Maximums der Zeitdifferenzen bei der Scandium-44-Abregung (\cref{fig_zeitdifferenz}).
+	Eine Erklärung für diesen Effekt bleiben wir hier schuldig, da sich lediglich die Ausrichtung der Detektoren geändert hat.
 
+	%TODO Vergleich der verschiedenen mittleren Lebensdauern mit Literaturwert
+	Literaturwert liegt bei \SI{}{} (\cite{})
+
+	\subsubsection{Vergleich der Ergebnisse}
+
+	%TODO unterschiedlicher Zeitnullpunkt
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+	Insgesamt gesehen lässt sich sagen, dass die Lebensdauer des untersuchten ersten angeregten $\gamma$-Niveaus in Scandium-44 erfolgreich bestimmt werden konnte.
+	%TODO Ergebnis Vergleich der Varianten
+	%TODO Vergleich Literaturwert
+	Nicht geklärt werden konnt, warum bei der Messung von Positronium-Photonen und Scandium-Photonen unterschiedliche Zeitdifferenzen auftreten.
+	Um diesen Effekt näher zu untersuchen, wäre es hilfreich, die Messungen erneut durchzuführen, um festzustellen, ob er mit der Messung bei unterschiedlichen Energien oder den unterschiedlichen Messzeitpunkten zusammenhängt.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
-	\printbibliography
+	\printbibliography %TODO Die Anleitung ist so irgendwie unschön gereferenced, aber was soll man machen...
 \end{document}
