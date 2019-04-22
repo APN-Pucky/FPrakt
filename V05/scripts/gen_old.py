@@ -167,7 +167,7 @@ for t in typ:
         xfit = np.linspace(1400, 1700, 400)
         xfit = xfit*kali
         yfit = custom(xfit, *unv(fit))
-        plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Gauss Fit\n$T_0$=%s\n$N$=%s\n$\Delta T$=%s'%tuple(fit))
+        plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Gauss Fit\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
 
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()
@@ -177,22 +177,24 @@ for t in typ:
         plt.savefig(("V05/img/%s_zoom"%(t)).replace(".",",") + ".pdf")
         plt.show()
 
-        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
+        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', label= 'Messpunkte')
+        #plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
 
     elif(t=="Energiespektrum_Stop" or t=="Energiespektrum_Start"):
         plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
     elif(t=="Zeitdifferenzen"):
 
         xdata = xdata*kali
-        ww = 1300
+        ww = 1200
         hh = 1600
         plt.bar(unv(xdata[ww:hh]), unv(ydata[ww:hh]), width=width*kali, color='r', yerr=usd(ydata[ww:hh]), label= 'Messpunkte')
 
         plt.axhline(y=125,color="green")
-        plt.axhline(y=550,color="y")
+        plt.axhline(y=549,color="y")
         plt.axvline(x=1.75,color="y")
         plt.axhline(y=337,color="m")
-        plt.axvline(x=1.9,color="m")
+        plt.axvline(x=1.89,color="m")
+        plt.axvline(x=1.59,color="m")
 
         plt.legend(prop={'size':fig_legendsize})
         plt.grid()
@@ -214,7 +216,7 @@ for t in typ:
         xfit = xfit*kali
         yfit = double_exponential(xfit, *unv(fit))
 
-        plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='DExp Fit\n$\\lambda_1$=%s\n$\\lambda_2$=%s\n$N$=%s\n$T_0$=%s'%tuple(fit))
+        plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='Exp Fit\n$\\lambda_3$=%s $\\mu s^{-1}$\n$\\lambda_4$=%s $\\mu s^{-1}$\n$N$=%s\n$T_0$=%s $\\mu s$'%tuple(fit))
 
 
         sumtn = 0
