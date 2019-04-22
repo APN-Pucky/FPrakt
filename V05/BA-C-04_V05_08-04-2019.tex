@@ -349,17 +349,29 @@
 				}
 				\label{fig_zeitdifferenz}
 		\end{figure}
-		\subsubsection*{Integration}
+		\subsubsection*{Mittelwert}
+		Außerdem lässt sich die mittlere Lebensdauer durch
+		\begin{equation}
+			\label{eq_mittel}
+			\tau = \frac{\sum_i t_i \cdot n_i}{\sum_i n_i}
+		\end{equation}
+		bestimmen.
+		Wobei hier $t_i$ der Abstand zum Maximum (hier $\SI{1.74}{\mu s}$) und $n_i$ die Anzahl der Ereignisse \textbf{ohne} den Untergrund ist.
+		\cref{eq_mittel} ist also der gewichtete und normierte Mittelwert der Lebesndauern und die Unsicherheit ergibtsich aus dem Quotienten der Standardabweichung und der Wurzel der Abnzahl der Messpunkte über welche gemittelt wird ($\frac{s}{\sqrt{N}}$).
+
+		Es ergibt sich $\tau_3=\SI{230+-3}{ns}$ im Bereich von $\SI{1.74}{\mu s}$ bis $\SI{3}{\mu s}$ und umgekehrt in $\SI{0.4}{\mu s}$ bis $\SI{1.74}{\mu s}$ folgt $\tau_4=\SI{230+-4}{\mu s}$.
+		Die Bereiche wurden so gewählt, da in \cref{eq_mittel} die Terme hoher $t_i$, die um Null schwanken, zu großen Fehlern führen.
 
 		In \cref{tb_leb} sind die insgesamt resultierenden Lebensdauern aufgeführt.
 		\begin{table}[H]
 		\centering
-		\begin{tabular}{c | c | c | c  }
-			 Index&$\lambda$ in \si{\mu s^{-1}}& $\tau=1/\lambda$ in \si{ns} &$t_{1/2}=\tau\ln 2$ in \si{ns}\\ \hline
-			 1&\SI{4.68+-0.07}{}&\SI{213+-3}{}&\SI{147+-2}{} \\
-			 2&\SI{4.39+-0.06}{}&\SI{228+-3}{}&\SI{158+-2}{} \\
-			 3\\
-			 4\\
+		\begin{tabular}{c| c | c | c | c  }
+			 Index&Methode&$\lambda$ in \si{\mu s^{-1}}& $\tau=1/\lambda$ in \si{ns} &$t_{1/2}=\tau\ln 2$ in \si{ns}\\ \hline
+			 0&Schätzung&&&\SI{150+-50}{}\\
+			 1&Fit&\SI{4.68+-0.07}{}&\SI{213+-3}{}&\SI{147+-2}{} \\
+			 2&Fit&\SI{4.39+-0.06}{}&\SI{228+-3}{}&\SI{158+-2}{} \\
+			 3&Mittelwert&&\SI{230+-3}{}&\\
+			 4&Mittelwert&&\SI{230+-4}{}&\\
 		\end{tabular}
 		\caption{
 		Verschiedene gemessene Lebensdauern, bzw. Halbwertszeiten, des angeregten $\gamma$-Niveaus von $^{44}$Sc.

@@ -215,6 +215,27 @@ for t in typ:
 
         plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='DExp Fit\n$\\lambda_1$=%s\n$\\lambda_2$=%s\n$N$=%s\n$T_0$=%s'%tuple(fit))
 
+
+        sumtn = 0
+        sumn = 0
+        for i in range(find_nearest_index(xdata,1.74),find_nearest_index(xdata,3)):
+            sumtn += (xdata[i]-1.74)*(ydata[i]-m)
+            sumn += (ydata[i]-m)
+        print("n %s"%(find_nearest_index(xdata,1.74)-find_nearest_index(xdata,3)))
+        print("tau: %s"%(sumtn/sumn))
+        print("thalf: %s"%(sumtn/sumn*np.log(2)))
+        print("lambda: %s"%(sumn/sumtn))
+
+        sumtn = 0
+        sumn = 0
+        for i in range(find_nearest_index(xdata,0.4),find_nearest_index(xdata,1.74)):
+            sumtn += -(xdata[i]-1.74)*(ydata[i]-m)
+            sumn += (ydata[i]-m)
+        print("n %s"%(find_nearest_index(xdata,1.74)-find_nearest_index(xdata,0.4)))
+        print("tau: %s"%(sumtn/sumn))
+        print("thalf: %s"%(sumtn/sumn*np.log(2)))
+        print("lambda: %s"%(sumn/sumtn))
+
         plt.axhline(y=unv(mean(ydata[2500:])),color="g")
     else:
         xdata = xdata*kali
