@@ -106,51 +106,59 @@
 	Hierzu wird das beim Beta-Zerfall des Scandiums entstehende Positronium genutzt.
 
 	Die verschiedenen verwendeten Methoden zur Berechnung der mittleren Lebensdauer des Gamma-Zustands ergeben leicht unterschiedliche Ergebnisse.
+	Der in der Anleitung angegebene Wert von \SI{150}{\nano s} kann aber bestätigt werden.
 	Eine Möglichkeit, diesen nachzugehen, wird diskutiert.
-  %TODO 150ns bestätigt
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
 	\subsection{Zerfall von Titan-44}
 
-	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang mit einer Halbwertszeit von \SI{2,44}{} Tagen zu einem angeregten Niveau von Scandium-44 (\cite{Anleitung}). %TODO die 2,44 sind hier nicht Ti44 sonder Sc44***, also falsch. Dein Bild sagt 59 Jahre. Die Anleitung sagt 48 Jahre. Interweb sagt 60
+	Das Zerfallsschema von Titan-44 ist in \cref{fig_Zerfallsschema} dargestellt. Titan-44 zerfällt über Elektroneneinfang zu einem angeregten Niveau von Scandium-44 (\cite{Anleitung}). %Dein Bild sagt 59 Jahre. Die Anleitung sagt 48 Jahre. Interweb sagt 60
 	Das angeregte Scandium-44 sendet dann zwei $\gamma$-Photonen beim Abregen auf das zu untersuchende mittlere Niveau und dann in den Grundzustand aus.
-	%Hierbei ist zu erwähnen, dass die erste Abregung mit einer Halbwertszeit von \SI{0,15}{\mikro \seconds} stattfindet %nvm schätze das ist doch egal. %TODO oder muss man hier wissen, dass das nicht lange in dem oberen Niveau ist, wir hatten irgendwas bei der Vorbesprechung gesagt, aber war glaube ich halbgar
+	%Hierbei ist zu erwähnen, dass die erste Abregung mit einer Halbwertszeit von \SI{0,15}{\mikro \seconds} stattfindet %nvm schätze das ist doch egal. % oder muss man hier wissen, dass das nicht lange in dem oberen Niveau ist, wir hatten irgendwas bei der Vorbesprechung gesagt, aber war glaube ich halbgar
+	In \cref{fig_Zerfallsschema} sieht man außerdem, dass das Titan zu einer geringen Wahrscheinlichkeit direkt in das erste angeregte Niveau (in der Abbildung das mittlere) zerfallen kann.
+	Da das in diesem Fall bei der Abregung ausgesandte Photon zeitlich nicht zu anderen Photonen korreliert ist, trägt dies jedoch in der folgenden Betrachtung der Zeitdifferenzen nur gleichmäßig zum Untergrund bei.
 	Der Grundzustand von Scandium-44 zerfällt dann durch Beta-Plus-Zerfall in einen angeregten Zustand von Calcium-44, der dann wiederum durch Aussenden eines $\gamma$-Photons in den Grundzustand über.
 	Für die Versuchsdurchführung sind die beiden Photonen bei der Abregung des Scandiums und der Beta-Plus-Zerfall relevant.
-	%TODO in der Graphik gibt es auch noch nen Zweiter 0,4% Pfeil auf den nicht eingegangen wird., bzw. könnte das auch grund für einen Fehler Error/Korrelation sein.
 	\begin{figure}[H]
 			\includegraphics[width=0.6\linewidth]{img/44Ti-decay_reduziert}
 			\caption{
 			Reduziertes Zerfallsschema von Titan-44 über Scandium-44 zu Calcium-44. Zerfallswege geringer Wahrscheinlichkeit sind nicht dargestellt.
-			\cite{Zerfallsschema} %TODO theoretisch copyrightmäßig schwierig, weil ich den unnötigen Teil rausgecropt habe. Alternative: Anleitung scannen.
+			\cite{Zerfallsschema} % theoretisch copyrightmäßig schwierig, weil ich den unnötigen Teil rausgecropt habe. Alternative: Anleitung scannen.
 			}
 			\label{fig_Zerfallsschema}
 	\end{figure}
 
-	%TODO mehr zu gamma-abregung?
-	\subsection{Elektroneneinfang}
-	%TODO Elektroneneinfang erklären bzw Gleichung hinschreiben!
-	\subsubsection{Beta-Plus-Zerfall}
+
+	\subsection{Beta-Plus-Zerfall}
 	Wie oben beschrieben findet die folgende Kernreaktion statt:
 	\begin{equation}
 		\label{eq_beta-plus}
 		 _{21}^{44}\text{Sc} \rightarrow _{20}^{44}\text{Ca} + \text{e}^+ + \nu_{\text{e}}
 	\end{equation}
-	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe abgebremst. %TODO + unter Aussendung von Bremsstrahlung?
+	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe unter Aussendung von Bremsstrahlung abgebremst.
 	Wenn es ausreichend stark abgebremst ist, kann es mit einem Elektron in der Probe das instabile Positronium bilden.
 	Beim Positronium unterscheidet man je nach Spinausrichtung von Positron und Elektron in Parapositronium ($S=0$) und Orthopositronium ($S=1$).
 	Aufgrund von Spin- und Impulserhaltung zerfällt Orthopositronium in eine ungerade Anzahl Photonen, die mindestens \num{3} beträgt.
 	Aus analogen Gründen zerfällt Parapositronium eine gerade Anzahl Photonen, aber mindestens \num{2}.
 	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen voraussetzt, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
-	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist. %TODO kp., aber nur durch Umgebung?
+	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist.
 	Deswegen kann man sich in den folgenden Betrachtungen im Wesentlichen auf den Zerfall von Parapositronium in zwei Photonen mit einer Energie von \SI{511}{keV} beschränken.
 	Außerdem ist anzumerken, dass die mittlere Lebensdauer von Parapositronium bei \SI{125}{ps} liegt, was im Vergleich zur erwarteten Lebensdauer des untersuchten $\gamma$-Niveaus verschwindend gering ist (\cite{Anleitung}).
+
+	\subsection{Elektroneneinfang}
+	Beim Elektroneneinfang findet aufgrund der Überlagerung der Wellenfunktionen von Hüllenelektronen und Kern im Kern die folgende Umwandlung statt:
+	\begin{equation}
+		\label{eq_elec_cap}
+		\text{e}^- + \text{p} \rightarrow \text{n} + \nu_{\text{e}}
+	\end{equation}
+	Insofern ist der Elektroneneinfang unwahrscheinlicher als der Beta-Zerfall, da der Überlappe der Wellenfunktionen im Allgemeinen gering ist.
+	Andererseits stellt er aber weniger strikte Anforderungen an die Zerfallsenergie.
 
 	\subsection{Wechselwirkung der $\gamma$-Photonen mit Materie}
 
 	Die bei den zuvor beschriebenen Zerfallsprozessen entstandenen Photonen können mit Kern oder Hüllenelektronen der Umgebung oder deren elektromagnetischen Feldern wechselwirken.
-	Da die Wechselwirkung mit Atomkernen aufgrund des geringen Anteils des Kernvolumens am Atomvolumen einen deutlich geringeren Wirkungsquerschnitt hat, überwiegt die Wechselwirkung mit Hüllenelektronen. %TODO Naja Elektronen sind Punktteilchen also mit einem Volumen von Null
+	Da die Wechselwirkung mit Atomkernen aufgrund des geringen Anteils des Kernvolumens am Atomvolumen einen deutlich geringeren Wirkungsquerschnitt hat, überwiegt die Wechselwirkung mit Hüllenelektronen.
 
 	\subsubsection{Photoeffekt}
 	Ein einfallendes $\gamma$-Photon kann im Atom absorbiert werden und die Emission eines Hüllenelektrons aus dem Atom heraus zufolge haben.
@@ -158,7 +166,7 @@
 	Auf das nun unbesetzte Energieniveau kann ein Elektron aus einer höheren Schale (oder ein freies Elektron) absinken, wobei ein Photon charakteristischer Energie (bei freien Elektronen kontinuierliches Spektrum ab einer Mindestenergie) frei wird. % das freie Elektron ist halt unwahrscheinlich, aber ich habs mal trotzdem erwähnt.
 
 	\subsubsection{Compton-Effekt}
-	Bei der Compton-Streuung überlebt im Gegensatz zum Photoeffekt das einfallende $\gamma$-Photon und bewegt sich danach im Allgemeinen mit geänderter Richtung und Energie. %TODO lel, philosophisch, ob ein Quant anderer Quantenzahl 'das gleiche' Quant ist, also ob das Photon noch es selbst ist nach Frequenzänderung, imo nö, außer dem würden wir ja beim Messen auch einen Andern Prozess der Anfung und Ende gleich wie Compton hat als Compton betiteln, unabhängig ob es Compton war (==Terme höherer Ordnung)?
+	Bei der Compton-Streuung überlebt im Gegensatz zum Photoeffekt das einfallende $\gamma$-Photon und bewegt sich danach im Allgemeinen mit geänderter Richtung und Energie. % lel, philosophisch, ob ein Quant anderer Quantenzahl 'das gleiche' Quant ist, also ob das Photon noch es selbst ist nach Frequenzänderung, imo nö, außer dem würden wir ja beim Messen auch einen Andern Prozess der Anfung und Ende gleich wie Compton hat als Compton betiteln, unabhängig ob es Compton war (==Terme höherer Ordnung)?
 	Wenn die Energie des einfallenden Photons deutlich größer als die Ionisierungsenergie ist, kann das Hüllenelektron wie ein freies Elektron betrachtet werden.
 	Die Energieänderung des Photons hängt dann nur vom Winkel der Richtungsänderung und seiner Ursprungsenergie ab.
 
@@ -194,8 +202,6 @@
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
-	%TODO Detektionsmechanismus
-	%TODO welche Geräte haben welche Funktion
 	Der Versuch wird in zwei Teilen durchgeführt und eine Titan-44-Probe untersucht.
 	Zunächst wird der Zerfall des nach dem Beta-Zerfall entstehenden Positroniums genutzt, um eine Zeitkalibrierung zu ermöglichen.
 	Dann wird die Zeitdifferenz der $\gamma$-Photonen der schrittweisen Abregung von Scandium-44 genutzt, um die Lebensdauer des mittleren Niveaus zu bestimmen.
@@ -207,7 +213,17 @@
 	Diese werden mit Hochspannung (\SI{1400}{V} und \SI{1100}{V}) betrieben.
 	Die Signale werden zunächst vorverstärkt und dann in einen Spektralverstärker geleitet.
 	Dieser verstärkt das Signal einerseits zusätzlich und wandelt es in eine Form um, die später bei der Ermittlung der Zeitdifferenz Effekte von Walk und Jitter minimiert.
-	Hierbei wird statt dem Überschreiten eines bestimmten Schwellenwerts der Nulldurchgang des näherungsweise sinusförmigen (eine Periode) Signals verwendet als zu vergleichender Zeitpunkt verwendet. %TODO hier eine Bild/Scan aus Anleitung?
+	Hierbei wird statt dem Überschreiten eines bestimmten Schwellenwerts der Nulldurchgang des näherungsweise sinusförmigen (eine Periode) Signals verwendet als zu vergleichender Zeitpunkt verwendet.
+	Diese als fast Zero-Crossing bezeichnete Technik ist in \cref{fig_Zero-Cross} abgebildet.
+
+	\begin{figure}[H]
+			\includegraphics[width=0.6\linewidth]{img/Zero-Cross}
+			\caption{
+			Zero-Crossover SCA Output Triggering.
+			\cite{Anleitung}
+			}
+			\label{fig_Zero-Cross}
+	\end{figure}
 
 	\subsection{Energiefilterung}
 
