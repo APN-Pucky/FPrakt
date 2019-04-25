@@ -17,3 +17,5 @@ job-pdf:
 	while inotifywait -e close_write $(TEX) || true; do make pdf && pkill -HUP mupdf ; done
 job-mk:
 	latexmk -pdf -pvc $(TEX) &>log.log &
+clean:
+	rm *.aux *.bcf *.fls *.log *.out *.fdb_latexmk *.synctex *.run.xml *.toc *.lot *.gz *.lof *.blg *.blg *.bbl *.bib
