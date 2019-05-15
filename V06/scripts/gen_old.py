@@ -146,16 +146,70 @@ width = 0.001 # == 1Grad
 
 data = np.genfromtxt("V06/data/Langzeitmessung.txt", skip_header=1)
 ydata = unp.uarray(data[:,3],np.sqrt(data[:,3]))
+tdata = unp.uarray(data[:,2],0)
+print('T=%s tage'%(np.sum(tdata)/1000/60/60/24))
+
+ydata = ydata/(tdata/1000)
 xdata = unp.uarray(data[:,1],0)
 print(xdata)
-plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(0), label= 'Messpunkte')
+
+fig=plt.figure(figsize=fig_size)
+#plt.errorbar(unv(xdata), unv(ydata),usd(ydata), color='r', label= 'Messpunkte')
+plt.plot(unv(xdata), unv(ydata), color='r', label= 'Messpunkte')
+#plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(0), label= 'Messpunkte')
+lb=find_nearest_index(xdata,0.25)
+rb=find_nearest_index(xdata,0.0)
+llb=find_nearest_index(xdata,2)
+rrb=find_nearest_index(xdata,1.75)
+fit = fit_curvefit2(unv(np.append(xdata[lb:rb],xdata[llb:rrb])), unv(np.append(ydata[lb:rb],ydata[llb:rrb])), lambda x,a : gerade(x,0,a), p0 = [10])
+
+xfit = np.linspace(xdata[0],xdata[-1],4000)
+print(fit)
+underground=fit[0]
+yfit = gerade(xfit, 0,*unv(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Untergrund %s Hz'%(underground))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
 
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
-plt.tick_params(labelsize=fig_labelsize)
+#plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('Spannung $U$ in V')
-plt.ylabel('Ereignisse')
-plt.savefig(("V06/img/out.pdf"))
+plt.ylabel('Ereignisrate in Hz')
+plt.savefig(("V06/img/untergrund.pdf"))
+plt.show()
+wzoom = 0.95
+wwzoom = 1.075
+lb=find_nearest_index(xdata,1.075)
+rb=find_nearest_index(xdata,0.95)
+yydata = ydata[lb:rb]-underground
+xxdata = xdata[lb:rb]
+
+fig=plt.figure(figsize=fig_size)
+plt.plot(unv(xxdata), unv(yydata), color='r', label= 'Messpunkte')
+
+llb=find_nearest_index(xxdata,1.01)
+rrb=find_nearest_index(xxdata,0.997)
+fit = fit_curvefit2(unv(xxdata[llb:rrb]), unv(yydata[llb:rrb]), custom, p0 = [1,33,0.005])
+xfit = np.linspace(unv(xxdata[rrb]),unv(xxdata[llb]),400)
+print(fit)
+yfit = custom(xfit, *unv(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Gauss Fit\n$U_0$=%s V\n$R$=%s Hz\n$\Delta U$=%s V'%tuple(fit))
+
+llb=find_nearest_index(xxdata,1.0425)
+rrb=find_nearest_index(xxdata,1.025)
+fit = fit_curvefit2(unv(xxdata[llb:rrb]), unv(yydata[llb:rrb]), custom, p0 = [1,7,0.007])
+xfit = np.linspace(unv(xxdata[rrb]),unv(xxdata[llb]),400)
+print(fit)
+yfit = custom(xfit, *unv(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Gauss Fit\n$U_0$=%s V\n$R$=%s Hz\n$\Delta U$=%s V'%tuple(fit))
+#plt.plot(unv(xdata), unv(ydata), color='r', label= 'Messpunkte')
+#plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(0), label= 'Messpunkte')
+
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+#plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Spannung $U$ in V')
+plt.ylabel('Ereignisrate in Hz')
+plt.savefig(("V06/img/kalibrier.pdf"))
 plt.show()
 
 
