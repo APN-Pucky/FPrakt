@@ -78,6 +78,18 @@ def double_exponential(x, c1,c2, y0,x0):
 def custom(x,x0,A,d):
     return A * np.exp(-(x - x0)**2 / 2 / d**2)
 
+def custom2(x,d,b):
+    c = 299792458 # m/s
+    m = 9.109e-31 # kg
+    e = 1.602e-19 # C
+    a = 1.0/137
+    Z = 56
+    p = (x/100)*e
+    v = np.sqrt(p**2/(m**2+p**2/c**2))
+    n=(Z*a*c/v)
+    return d*p**2*(b-np.sqrt(p**2*c**2+m**2*c**4))**2 *n/(1-np.exp(-2*np.pi*n))
+    #return d*p**2*(b-p*c)**2 *n/(1-np.exp(-2*np.pi*n))
+
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
@@ -145,14 +157,22 @@ kali = 0.64/514.8
 width = 0.001 # == 1Grad
 
 data = np.genfromtxt("V06/data/Langzeitmessung.txt", skip_header=1)
+xdata = unp.uarray(data[:,1],0)
 ydata = unp.uarray(data[:,3],np.sqrt(data[:,3]))
 tdata = unp.uarray(data[:,2],0)
 print('T=%s tage'%(np.sum(tdata)/1000/60/60/24))
 
+fig=plt.figure(figsize=fig_size)
+plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(0), label= 'Messpunkte')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.xlabel('Spannung $U$ in V')
+plt.ylabel('Ereignisrate R in Hz')
+plt.savefig(("V06/img/raw.pdf"))
+plt.show()
 ydata = ydata/(tdata/1000)
-xdata = unp.uarray(data[:,1],0)
 print(xdata)
-
+#################################################################### Untergrund
 fig=plt.figure(figsize=fig_size)
 #plt.errorbar(unv(xdata), unv(ydata),usd(ydata), color='r', label= 'Messpunkte')
 plt.plot(unv(xdata), unv(ydata), color='r', label= 'Messpunkte')
@@ -171,11 +191,12 @@ plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Untergrund %s 
 
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
-#plt.tick_params(labelsize=fig_labelsize)
+plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('Spannung $U$ in V')
-plt.ylabel('Ereignisrate in Hz')
+plt.ylabel('Ereignisrate R in Hz')
 plt.savefig(("V06/img/untergrund.pdf"))
 plt.show()
+############################################################################Kali
 wzoom = 0.95
 wwzoom = 1.075
 lb=find_nearest_index(xdata,1.075)
@@ -208,8 +229,53 @@ plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 #plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('Spannung $U$ in V')
-plt.ylabel('Ereignisrate in Hz')
-plt.savefig(("V06/img/kalibrier.pdf"))
+plt.ylabel('Ereignisrate R in Hz')
+plt.savefig(("V06/img/kalibration.pdf"))
+plt.show()
+#################################################################################### Kali 2
+
+kali = unc.ufloat(0.384,0.089)
+lpeak = unc.ufloat(1.0033,0.005)
+lbrho = unc.ufloat(0.33814,0.00005)
+fig=plt.figure(figsize=fig_size)
+#plt.errorbar(unv(xdata), unv(ydata),usd(ydata), color='r', label= 'Messpunkte')
+rb=find_nearest_index(xdata,0.3125)
+lb=find_nearest_index(xdata,1.1)
+yydata= ydata[lb:rb]-underground
+xxdata= xdata[lb:rb]*kali-lpeak*kali+lbrho
+plt.plot(unv(xxdata), unv(yydata), color='r', label= 'Messpunkte')
+
+lb=find_nearest_index(xxdata,0.11)
+rb=find_nearest_index(xxdata,0.1)
+llb=find_nearest_index(xxdata,0.31)
+rrb=find_nearest_index(xxdata,0.3)
+
+fit = fit_curvefit2(unv(np.append(xxdata[lb:rb],xxdata[llb:rrb])), unv(np.append(yydata[lb:rb],yydata[llb:rrb])), gerade, p0 = [15,-2])
+xfit = np.linspace(xxdata[lb],xxdata[rrb],4000)
+print(fit)
+ofit = fit
+yfit = gerade(xfit, *unv(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Linear f=a+xb\na=%s Hz\nb=%s Hz/Tcm'%(fit[0],fit[1]))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+tttt = yydata[llb:rb]-gerade(xxdata[llb:rb],*unv(fit))
+zzzz = xxdata[llb:rb]- xxdata[lb]
+#fit = fit_curvefit2(unv(zzzz), unv(tttt), custom2, p0 = [1,1])
+xfit = np.linspace(unv(xxdata[lb]),unv(xxdata[rrb]),4000)
+fit = [1e70,1.6e-19*1000*1250]
+print(fit)
+yfit = custom2(xfit,*unv(fit))+gerade(xfit, *unv(ofit))
+print(yfit[2001]-gerade(xfit[2001],*unv(ofit)))
+#fit = [5,1.6e-19*1000*1000]
+yfit = custom2(xfit,*unv(fit))+gerade(xfit, *unv(ofit))
+print(yfit[2001]-gerade(xfit[2001],*unv(ofit)))
+plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear f=a+xb\na=%s\nb=%s Hz'%(fit[0],fit[1]))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+
+
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+#plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('$B\\rho$ in Tcm')
+plt.ylabel('Ereignisrate R in Hz')
+plt.savefig(("V06/img/kali.pdf"))
 plt.show()
 
 

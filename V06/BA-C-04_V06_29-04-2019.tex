@@ -105,6 +105,10 @@
 	% wdh. Texte
 	% wdh. Besprechung
 
+	\begin{equation}
+		B\rho = \sqrt{\frac{E_k^2+2E_kmc^2}{c^2e^2}}
+	\end{equation}
+
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
@@ -116,13 +120,84 @@
 	\subsection{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-	\subsubsection{Unsicherheiten}
+	%\subsubsection{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
+	\subsubsection{Untergrund}
+	In \cref{fg_untergrund} sind die gemessenen Ereignisraten gegen die angelegte Spannungen aufgetragen.
+	Die blaue Horizontale ist jeweils an einen Bereich von \SI{0.25}{V} am Anfang und Ende der Messkurve angepasst und beschreibt so die Untergrundrate.
+	\begin{figure}[H]
+			\includegraphics[width=  \linewidth]{img/untergrund}
+			\caption{
+			Die Anzahl der Ereignisse wurde durch die Messzeit bei einer festen Spannung dividiert, sodass sich die Ereignisrate ergibt.
+			Die Unsicherheiten sind kleiner als die Symbole.
+			}
+			\label{fg_untergrund}
+	\end{figure}
 
+	\subsubsection{Kalibration des Spektrometers}
+	Um das Spektrometer zu Kalibrieren nutzt man, dass die Konversionselektronen des $^{137}$Ba eine scharfe Energie haben.
+	Diese Energien sind bekannt und in \cref{tb_konversion} aufgelistet.
+	Dabei ist der Wert für die L-Linie der nach den Intensitäten der drei L-Linien gewichtete Mittelwert.
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c  }
+			 Schale&E in \si{keV} & $B\rho$ in \si{Tcm} \\ \hline
+			 K & \SI{624.21}{} & \SI{0.33814(5)}{} \\
+			 L & \SI{655.8}{} & \SI{0.3499(1)}{} \\
+		\end{tabular}
+		\caption{
+		Gemittelte Energie der L und K Konversionselektronen von $^{137}$Ba und zugehöriger B$\rho$-Wert. \cite{Anleitung}
+		}
+		\label{tb_konversion}
+\end{table}
+In \cref{fg_kalibration} sind die zwei Peaks vergrößert dargestellt und es wurden jeweils die Spitzen mit einer Gaußfunktion angepasst.
+Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
+	\begin{figure}[H]
+			\includegraphics[width=  \linewidth]{img/kalibration}
+			\caption{
+			Vergrößerte und um den Untergrund reduzierte Messung der Peaks.
+			Der größere Peak ist der K-Peak.
+			Die Unsicherheiten sind kleiner als die Symbole.
+			}
+			\label{fg_kalibration}
+	\end{figure}
+
+	Da mit einem Magnetspektrometer jedoch ein Impuls $p=eB\rho$ anstelle einer Energie gemessen wird, kalibriert man zunächst nach $B\rho$.
+	Der Kalibrationsparameter ergibt sich aus dem Verhältnis von der Differenz der $B\rho$-Werte und dem Abstand der Peaks.
+	\begin{equation}
+		a = \frac{\Delta B\rho}{\Delta U} = \frac{\SI{0.0118+-0.0001}{Tcm}}{\SI{0.031+-0.007}{V}} = \SI{0.384+-0.089}{Tcm/V}
+	\end{equation}
+	Für die Unsicherheit der Peakpositionen wurde die Breite des Gaußfits verwendet.
+	Die gemäß \cref{eq_rho} kalibrierte Messkurve ist in \cref{fg_kali} enthalten.
+	\begin{equation}
+		\label{eq_rho}
+		B\rho = aU-aU_{0,K}+(B\rho)_K
+	\end{equation}
+	\begin{figure}[H]
+			\includegraphics[width=  \linewidth]{img/kali}
+			\caption{
+			Um den Untergrund und Ränder reduzierte kalibrierte Messung.
+			Die Unsicherheiten sind kleiner als die Symbole.
+			}
+			\label{fg_kali}
+	\end{figure}
+	Für die Impulsauflösung folgt:
+	\begin{equation}
+		R = \frac{\Delta B \rho}{B\rho} = \frac{2\sqrt{2\ln2}a\Delta U}{aU-aU_{0,K}+(B\rho)_K}
+	\end{equation}
+	Der Faktor $2\sqrt{2\ln2}$ kommt daher, dass $\Delta U$ die Standardabweichung der Gaußkurve ist, die Definition der Impulsauflösung aber $\Delta B\rho$ als Halbwertsbreite verlangt.
+	Für die zwei Peaks ergibt sich:
+	\begin{align}
+	R_K&= \SI{14+- 0.3}{\percent} \\
+	R_L&= \SI{16+-0.4}{\percent}
+	\end{align}
 	\subsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+
+	%TODO gewisserweise erwartet, dass die Impulsauflösung weiter entfernt von dem Kalibrierpunkt schlechter wird.
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
