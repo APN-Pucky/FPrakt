@@ -279,10 +279,18 @@ lb=find_nearest_index(xdata,1.1)
 yydata= ydata[lb:rb]-underground
 xxdata= xdata[lb:rb]*kali-lpeak*kali+lbrho
 
-lb=find_nearest_index(xxdata,0.115)
-rb=find_nearest_index(xxdata,0.115)
-llb=find_nearest_index(xxdata,0.33)
-rrb=find_nearest_index(xxdata,0.33)
+#lb=find_nearest_index(xxdata,0.115)
+#rb=find_nearest_index(xxdata,0.115)
+#llb=find_nearest_index(xxdata,0.33)
+#rrb=find_nearest_index(xxdata,0.33)
+
+lb=find_nearest_index(xxdata,0.10)
+rb=find_nearest_index(xxdata,0.10)
+llb=find_nearest_index(xxdata,0.30)
+rrb=find_nearest_index(xxdata,0.30)
+
+rb2=find_nearest_index(xxdata,0.15)
+llb2=find_nearest_index(xxdata,0.20)
 
 c = 299792458 # m/s
 m = 9.109e-31 # kg
@@ -299,12 +307,13 @@ yyydata = np.sqrt(unv(yyydata))
 xxxdata = unp.sqrt(c**2*xxxdata**2+m**2*c**4)-m*c**2
 plt.plot(unv(xxxdata), unv(yyydata), color='r', label= 'Messpunkte')
 
-#fit = fit_curvefit2(unv(np.append(xxdata[lb:rb],xxdata[llb:rrb])), unv(np.append(yydata[lb:rb],yydata[llb:rrb])), gerade, p0 = [15,-2])
-xfit = np.linspace(xxdata[lb],xxdata[rrb],4000)
+fit = fit_curvefit2(unv(xxxdata), unv(yyydata), gerade, p0 = [-1e30,20e20])
+xfit = np.linspace(xxxdata[0],xxxdata[-1],4000)
 print(fit)
-ofit = fit
+#ofit = fit
 yfit = gerade(xfit, *unv(fit))
-#plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Linear f=a+xb\na=%s Hz\nb=%s Hz/Tcm'%(fit[0],fit[1]))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Linear f=a+xb\na=%s Hz\nb=%s Hz/Tcm'%(fit[0],fit[1]))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+
 
 
 plt.legend(prop={'size':fig_legendsize})
@@ -312,7 +321,7 @@ plt.grid()
 #plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('$B\\rho e$ in eTm')
 plt.ylabel('Ereignisrate R in Hz')
-plt.savefig(("V06/img/kali.pdf"))
+plt.savefig(("V06/img/kurie.pdf"))
 plt.show()
 
 
