@@ -16,6 +16,7 @@
 *.fdb_latexmk
 *.synctex
 *.synctex(busy)
+*.xcf
 *~
 **/doc/*
 *2018.pdf
