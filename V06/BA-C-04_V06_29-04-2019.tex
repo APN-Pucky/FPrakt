@@ -174,7 +174,25 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 		\label{eq_rho}
 		B\rho = aU-aU_{0,K}+(B\rho)_K
 	\end{equation}
-	\begin{figure}[H]
+		Für die Impulsauflösung folgt:
+	\begin{equation}
+		R = \frac{\Delta B \rho}{B\rho} = \frac{2\sqrt{2\ln2}a\Delta U}{aU-aU_{0,K}+(B\rho)_K}
+	\end{equation}
+	Der Faktor $2\sqrt{2\ln2}$ kommt daher, dass $\Delta U$ die Standardabweichung der Gaußkurve ist, die Definition der Impulsauflösung aber $\Delta B\rho$ als Halbwertsbreite verlangt.
+	Für die zwei Peaks ergibt sich:
+	\begin{align}
+	R_K&= \SI{1.4+- 0.3}{\percent} \\
+	R_L&= \SI{1.6+-0.4}{\percent}
+	\end{align}
+
+	\subsubsection{Kurie-Plot}
+	%TODO Zerfallsschema irgendwo im Protokoll
+
+	In \cref{fg_kali} wird der Untergrund durch den $\beta$-Zerfall direkt in den Grundzustand approximiert.
+	Als Anfangspunkt für diesen wurden einige Messpunkte vor dem deutlichen Anstieg des $\beta$-Spektrums und einige unmittelbar vor dem Anstieg des L-Konversionspeaks gewählt (Siehe Anfang und Ende der blauen Linie).
+	Die genaue Wahl dieses Punktes ist nicht wichtig, da eine Verschiebung um $\pm\SI{0.05}{Tcm}$, den Fit kaum verändert.
+	Wenn man die Messkurve ebenfalls um diesen Untergrund reduziert erhält man die Ereignisrate $N(eB\rho)=N(p)$.
+\begin{figure}[H]
 			\includegraphics[width=  \linewidth]{img/kali}
 			\caption{
 			Um den Untergrund und Ränder reduzierte kalibrierte Messung.
@@ -182,16 +200,40 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 			}
 			\label{fg_kali}
 	\end{figure}
-	Für die Impulsauflösung folgt:
+	$N(p)$ lässt sich zum Kurie-Plot gemäß
 	\begin{equation}
-		R = \frac{\Delta B \rho}{B\rho} = \frac{2\sqrt{2\ln2}a\Delta U}{aU-aU_{0,K}+(B\rho)_K}
+		\kappa(p) = \sqrt{\frac{N(p)}{F(Z,E)p^2}}
 	\end{equation}
-	Der Faktor $2\sqrt{2\ln2}$ kommt daher, dass $\Delta U$ die Standardabweichung der Gaußkurve ist, die Definition der Impulsauflösung aber $\Delta B\rho$ als Halbwertsbreite verlangt.
-	Für die zwei Peaks ergibt sich:
-	\begin{align}
-	R_K&= \SI{14+- 0.3}{\percent} \\
-	R_L&= \SI{16+-0.4}{\percent}
-	\end{align}
+	mit
+	\begin{equation}
+		F = \frac{k}{1-\exp^{-k}} \quad \textrm{und} \quad k=\frac{2\pi Z \alpha c}{v}
+	\end{equation}
+	transformieren.
+	$F$ ist die genäherte Fermifunktion und ist nötig für die Coulombkorrektur durch die Kernladung $Z$.
+	$\alpha$ ist die Feinstrukturkonstante.
+	Relativistisch gilt für die Geschwindigkeit $v$ des Elektrons.
+	\begin{equation}
+		v = \frac{p}{\gamma m} = \frac{p\sqrt{1-(v/c)^2}}{m}
+	\end{equation}
+	Nun quadriert man und formt nach $v^2$ um:
+	\begin{equation}
+		v^2 = \frac{p^2}{m^2c^2} (c^2-v^2) = \frac{p^2}{m^2} \frac{1}{1+p^2/(mc)^2} = \frac{p^2}{m^2+(p/c)^2}
+	\end{equation}
+	Für die Kurie-Darstellung gilt $\kappa(p)\propto (E_0-E)$.
+	Damit erhält man die Energie des $\beta$-Zerfalls als x-Achsenschnittpunkt, wenn man die x-Achse von $B\rho=p/e$ zu $E_{kin}=\sqrt{p^2c^2+m^2c^4}-mc^2$ umskaliert.
+	Das Ergebnis dieser Umformungen ist in \cref{fg_kurie} abgebildet.
+	%TODO Rechnung aus Anleitung erwähnen?
+	\begin{figure}[H]
+			\includegraphics[width=  \linewidth]{img/kurie}
+			\caption{
+			Kurie-Darstellung der Messung.
+			}
+			\label{fg_kurie}
+	\end{figure}
+	Als maximale kinetische Energie des Elektrons, was der $\beta$-Zerfallsenergie entspricht, ergibt sich $E_0=E_{max}=\SI{538+-10}{keV}$.
+	%TODO erwähnen, dass unsicherheiten mittels uncertainties python fortgepflanzt wurden?
+	%TODO Grund für hohe Errorbalken ist die Abhängigkeit von p, p wird weiter weg von kalibrierung ungenauer
+	%TODO Kurven Form diskutieren !!!
 	\subsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
