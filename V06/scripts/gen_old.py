@@ -172,7 +172,7 @@ plt.savefig(("V06/img/raw.pdf"))
 plt.show()
 ydata = ydata/(tdata/1000)
 print(xdata)
-#################################################################### Untergrund
+# %% Untergrund
 fig=plt.figure(figsize=fig_size)
 #plt.errorbar(unv(xdata), unv(ydata),usd(ydata), color='r', label= 'Messpunkte')
 plt.plot(unv(xdata), unv(ydata), color='r', label= 'Messpunkte')
@@ -196,7 +196,7 @@ plt.xlabel('Spannung $U$ in V')
 plt.ylabel('Ereignisrate R in Hz')
 plt.savefig(("V06/img/untergrund.pdf"))
 plt.show()
-############################################################################Kali
+# %% Kali
 wzoom = 0.95
 wwzoom = 1.075
 lb=find_nearest_index(xdata,1.075)
@@ -232,7 +232,7 @@ plt.xlabel('Spannung $U$ in V')
 plt.ylabel('Ereignisrate R in Hz')
 plt.savefig(("V06/img/kalibration.pdf"))
 plt.show()
-#################################################################################### Kali 2
+# %% Kali 2
 
 kali = unc.ufloat(0.384,0.089)
 lpeak = unc.ufloat(1.0033,0.005)
@@ -247,9 +247,9 @@ xxdata= xdata[lb:rb]*kali-lpeak*kali+lbrho
 plt.plot(unv(xxdata), unv(yydata), color='r', label= 'Messpunkte')
 
 lb=find_nearest_index(xxdata,0.11)
-rb=find_nearest_index(xxdata,0.1)
-llb=find_nearest_index(xxdata,0.33)
-rrb=find_nearest_index(xxdata,0.32)
+rb=find_nearest_index(xxdata,0.10)
+llb=find_nearest_index(xxdata,0.305)
+rrb=find_nearest_index(xxdata,0.295)
 
 fit = fit_curvefit2(unv(np.append(xxdata[lb:rb],xxdata[llb:rrb])), unv(np.append(yydata[lb:rb],yydata[llb:rrb])), gerade, p0 = [15,-2])
 xfit = np.linspace(xxdata[lb],xxdata[rrb],4000)
@@ -266,7 +266,8 @@ plt.xlabel('$B\\rho$ in Tcm')
 plt.ylabel('Ereignisrate R in Hz')
 plt.savefig(("V06/img/kali.pdf"))
 plt.show()
-#################################################### Kurie
+
+# %% Kurie
 
 kali = unc.ufloat(0.384,0.089)
 lpeak = unc.ufloat(1.0033,0.005)
@@ -284,13 +285,10 @@ xxdata= xdata[lb:rb]*kali-lpeak*kali+lbrho
 #llb=find_nearest_index(xxdata,0.33)
 #rrb=find_nearest_index(xxdata,0.33)
 
-lb=find_nearest_index(xxdata,0.10)
-rb=find_nearest_index(xxdata,0.10)
-llb=find_nearest_index(xxdata,0.30)
-rrb=find_nearest_index(xxdata,0.30)
-
-rb2=find_nearest_index(xxdata,0.15)
-llb2=find_nearest_index(xxdata,0.20)
+lb=find_nearest_index(xxdata,0.12)
+rb=find_nearest_index(xxdata,0.12)
+llb=find_nearest_index(xxdata,0.29)
+rrb=find_nearest_index(xxdata,0.29)
 
 c = 299792458 # m/s
 m = 9.109e-31 # kg
@@ -303,24 +301,52 @@ v = unp.sqrt(p**2/(m**2+p**2/c**2))
 n=(Z*a*c/v)
 yyydata = yydata[llb:rb]-gerade(xxdata[llb:rb],*unv(ofit))
 yyydata = yyydata/(xxxdata**2*2*np.pi*n/(1-unp.exp(-2*np.pi*n)))
-yyydata = np.sqrt(unv(yyydata))
+yyydata = (yyydata)**(0.5)
 xxxdata = unp.sqrt(c**2*xxxdata**2+m**2*c**4)-m*c**2
-plt.plot(unv(xxxdata), unv(yyydata), color='r', label= 'Messpunkte')
+plt.errorbar(unv(xxxdata), unv(yyydata), usd(yyydata),fmt=' ',capsize=4,color='r', label= 'Messpunkte')
 
-fit = fit_curvefit2(unv(xxxdata), unv(yyydata), gerade, p0 = [-1e30,20e20])
-xfit = np.linspace(xxxdata[0],xxxdata[-1],4000)
+#rb2=find_nearest_index(xxxdata,3e-14)
+#lb2=find_nearest_index(xxxdata,7e-14)
+#
+#fit = fit_curvefit2(unv(xxxdata[lb2:rb2]), unv(yyydata[lb2:rb2]), gerade, p0 = [-1e30,20e20])
+#xfit = np.linspace(xxxdata[lb2:rb2][0],xxxdata[lb2:rb2][-1],4000)
+#print(fit)
+#print(-fit[1]/fit[0]/e/1000+511)
+##ofit = fit
+#yfit = gerade(xfit, *unv(fit))
+#plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Linear $E_0$=%s'%(-fit[1]/fit[0]/e/1000+511))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+
+
+rb2=find_nearest_index(xxxdata,3e-14)
+lb2=find_nearest_index(xxxdata,8e-14)
+
+fit = fit_curvefit2(unv(xxxdata[lb2:rb2]), unv(yyydata[lb2:rb2]), gerade, p0 = [-1e30,20e20])
+xfit = np.linspace(xxxdata[lb2:rb2][0],xxxdata[lb2:rb2][-1],4000)
 print(fit)
+print(-fit[1]/fit[0]/e/1000+511)
 #ofit = fit
 yfit = gerade(xfit, *unv(fit))
-plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Linear f=a+xb\na=%s Hz\nb=%s Hz/Tcm'%(fit[0],fit[1]))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear $E_0$=%skeV'%(-fit[1]/fit[0]/e/1000+511))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
 
+
+
+rb2=find_nearest_index(xxxdata,3e-14)
+lb2=find_nearest_index(xxxdata,6.5e-14)
+
+fit = fit_curvefit2(unv(xxxdata[lb2:rb2]), unv(yyydata[lb2:rb2]), gerade, p0 = [-1e30,20e20])
+xfit = np.linspace(xxxdata[lb2:rb2][0],xxxdata[lb2:rb2][-1],4000)
+print(fit)
+print(-fit[1]/fit[0]/e/1000+511)
+#ofit = fit
+yfit = gerade(xfit, *unv(fit))
+plt.plot(unv(xfit), unv(yfit), color = 'black',linewidth=2, label='Linear $E_0$=%skeV'%(-fit[1]/fit[0]/e/1000+511))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
 
 
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 #plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('$B\\rho e$ in eTm')
-plt.ylabel('Ereignisrate R in Hz')
+plt.xlabel('Kinetische Energie in J')
+plt.ylabel('Kurie-Plot $\\sqrt{\\frac{N(p)}{p^2F(Z,E)}}$')
 plt.savefig(("V06/img/kurie.pdf"))
 plt.show()
 
