@@ -64,8 +64,7 @@
 	locale=DE,
 	separate-uncertainty
 }
-%\bibliography{6Mi_M3_29-11-2017_References}
-%TODO anpassen
+\bibliography{BA-C-04_V06_29-04-2019_References.bib}
 
 \begin{document}
 
@@ -100,16 +99,43 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
-	Es wird ein Toroid-Spektrometer verwendet, um das Energiespektrum des ausgesandten Elektrons beim $\beta$-Zerfall von Cs-137 zu bestimmen.
+	Es wird ein Toroid-Spektrometer verwendet, um das Energiespektrum des ausgesandten Elektrons beim $\beta$-Zerfall von $^{137}$Cs zu bestimmen.
 	Mit dessen Hilfe wird die Grenzenergie des Übergangs in den angeregten Zustand des entstehenden Ba-137 bestimmt.
 
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
+	Die untersuchte Quelle enthält $^{137}$Cs.
+	Dessen Zerfallsschema ist in \cref{fig_Zerfallsschema} dargestellt.
+	Man sieht, dass es jeweils über $\beta^-$-Zerfall mit einer Wahrscheinlichkeit von etwa \SI{95}{\percent} zu einem angeregten Zustand von $^{137}$Ba und ansonsten direkt in den Grundzustand zerfällt.
+
+	\begin{figure}[H]
+			\includegraphics[width= 0.6 \linewidth]{img/cs-137-zerfallsschema}
+			\caption{
+			Zerfallsschema von $^{137}$Cs.
+			\cite{Leifi}
+			}
+			\label{fig_Zerfallsschema}
+	\end{figure}
 
 	\begin{equation}
 		B\rho = \sqrt{\frac{E_k^2+2E_kmc^2}{c^2e^2}}
 	\end{equation}
+
+		Beim $\beta^-$-Zerfall findet die folgende Kernreaktion statt:
+		\begin{equation}
+			\label{eq_beta-minus}
+			 _{55}^{137}\text{Cs} \rightarrow _{56}^{137}\text{Ba} + \text{e}^- + \bar{\nu_{\text{e}}}
+		\end{equation}
+		Hierfür wird im Kern ein Neutron in ein Proton, ein Elektron und ein Anitelektronneutrino umgewandelt.
+
+		Da im Impulserhaltungssatz hier die Impulse von drei Teilchen eine Rolle spielen, nimmt das Elektron nach dem Zerfall keine diskrete Energie (wie der Heliumkern beim $\alpha$-Zerfall) an, sondern ergibt ein kontinuierliches Spektrum.
+
+		Um trotzdem die Übergangsenergie des Zerfalls messen zu können, muss das hochenergetiche Ende des Spektrums extrapoliert werden, da hier die gesamte Übergangsenergie in Ruheenergie und kinetische Energie des Elektrons übergeht.
+		Die Ruheenergie des Neutrinos muss hierbei vernachlässigt werden. %TODO confirmen
+		Dies ist aber nach aktuellem Forschungsstand innerhalb der Messunsicherheiten problemlos möglich. %TODO theoretisch bräuchte man hier ne Referenz
+
+
 
 	\section{Methoden}
 	% Bilder von der Website klauen
@@ -134,9 +160,40 @@
 	Dies sorgt für eine Fokussierung in beide Streurichtungen der eintretenden Elektronen.
 	Der Detektor ist dementsprechend keilförmig geformt. %TODO muss zugeben, das Kapitel in der Anleitung nicht recht verstanden zu haben...
 
-	%TODO evakuiertes Spektrometer
-	%TODO Testmessung für ungefähres Spektrum und Aufteilung der Messzeiträume anhand dessen.
+	Für die Erzeugung des Magnetfelds wird ein Spule verwendet.
+	Hier ist aufgrund der Restmagnetisierung des Materials eine Hysteresekurve anstelle eines gleichmäßigen linearen Zusammenhangs zwischen Strom und Magnetfeld zu erwarten.
+	Gemäß \cite{Anleitung} kann der Zusammenhang innerhalb des Messbereiches jedoch als linear angenommen werden.
 
+	Die Elektronen werden mit einem Szintillator in Verbindung mit einem Photomultiplier detektiert.
+	Das Signal wird nach dem Vorverstärker in den Hauptverstärker geleitet und dann über den gewählten Messzeitraum akkumuliert und digitalisiert.
+
+	\subsection{Messung des Spektrums}
+
+	Für die Messung wird das Spektrometer mit einer Vakuumpumpe evakuiert.
+	Zunächst wird das Spektrum in Schritten von \SI{1}{V} \SI{60}{\minute} lang gemessen.
+	Mithilfe dieser Messung wird dann das Spektrum in mehrere Teile eingeteilt.
+	Dabei werden den Bereichen, in denen vorallem der Untergrund gemessen wird, lange Messdauern und hohe Schrittweiten zugewiesen, während in Bereichen hoher Messrate kurze Messzeiträume und geringe Schrittweisen verwendet werden.
+	Dies erlaubt, dass nahe der Peaks besonders kleinschrittig gemessen wird, während in den Bereichen geringer Ereignisrate noch immer ausreichend Ereignisse gemessen werden.
+	Mit dieser Einteilung wird das Spektrum dann über einen Zeitraum von \SI{6,5}{\day} gemessen.
+	Zur Aufnahme und Speicherung sowie Steuerung der Messparameter wird ein LabVIEW-Programm geschrieben und verwendet.
+
+	\begin{figure}[H]
+			\includegraphics[width= 0.6 \linewidth]{img/Schema_Spektrum}
+			\caption{
+			Schematisches erwartetes Gesamtspektrum.
+			\cite{Anleitung}
+			}
+			\label{fig_Schema_Spektrum}
+	\end{figure}
+
+	In \cref{fig_Schema_Spektrum} ist das erwartete Spektrum in schematischer Form dargestellt.
+	Z$_0$ entspricht dabei einem linearen Untergrund aus Hintergrundstrahlung.
+	Z$_1$ ist der oben erwähnte Zerfall in den Grundzustand von $^{137}$Ba, der später als näherungsweise linear angenommen wird.
+	Z$_2$ stellt den gesuchten Zerfall in den angeregten Zustand dar.
+	Die beiden schmalen Peaks treten durch Konversionselektronen von K- und L-Schale auf.
+	Sie sollen im Folgenden zur Kalibrierung des Spektrums verwendet werden.
+
+	Konversionselektronen treten dadurch auf, dass, wenn das angeregte $^{137}$Ba wieder in den Grundzustand übergeht und der Energieübertrag zur Aussendung eines Elektrons aus der K- oder L-Schale führt.
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
@@ -160,7 +217,7 @@
 	\end{figure}
 
 	\subsubsection{Kalibration des Spektrometers}
-	Um das Spektrometer zu Kalibrieren nutzt man, dass die Konversionselektronen des $^{137}$Ba eine scharfe Energie haben.
+	Um das Spektrometer zu kalibrieren, nutzt man, dass die Konversionselektronen des $^{137}$Ba eine scharfe Energie haben.
 	Diese Energien sind bekannt und in \cref{tb_konversion} aufgelistet.
 	Dabei ist der Wert für die L-Linie der nach den Intensitäten der drei L-Linien gewichtete Mittelwert.
 
@@ -203,7 +260,7 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	\begin{equation}
 		R = \frac{\Delta B \rho}{B\rho} = \frac{2\sqrt{2\ln2}a\Delta U}{aU-aU_{0,K}+(B\rho)_K}
 	\end{equation}
-	Der Faktor $2\sqrt{2\ln2}$ kommt daher, dass $\Delta U$ die Standardabweichung der Gaußkurve ist, die Definition der Impulsauflösung aber $\Delta B\rho$ als Halbwertsbreite verlangt.
+	Der Faktor $2\sqrt{2\ln2}$ kommt daher, dass $\Delta U$ die Standardabweichung der Gaußkurve ist, während die Definition der Impulsauflösung aber $\Delta B\rho$ als Halbwertsbreite verlangt.
 	Für die zwei Peaks ergibt sich:
 	\begin{align}
 	R_K&= \SI{1.4+- 0.3}{\percent} \\
@@ -213,14 +270,14 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	\subsubsection{Kurie-Plot}
 	%TODO Zerfallsschema irgendwo im Protokoll
 
-	In \cref{fg_kali} wird der Untergrund durch den $\beta$-Zerfall direkt in den Grundzustand approximiert.
+	In \cref{fg_kali} wird der Beitrag durch den $\beta$-Zerfall direkt in den Grundzustand approximiert.
 	Als Anfangspunkt für diesen wurden einige Messpunkte vor dem deutlichen Anstieg des $\beta$-Spektrums und einige unmittelbar vor dem Anstieg des L-Konversionspeaks gewählt (Siehe Anfang und Ende der blauen Linie).
 	Die genaue Wahl dieses Punktes ist nicht wichtig, da eine Verschiebung um $\pm\SI{0.05}{Tcm}$, den Fit kaum verändert.
-	Wenn man die Messkurve ebenfalls um diesen Untergrund reduziert erhält man die Ereignisrate $N(eB\rho)=N(p)$.
+	Wenn man die Messkurve ebenfalls um diesen Beitrag reduziert erhält man die Ereignisrate $N(eB\rho)=N(p)$.
 \begin{figure}[H]
 			\includegraphics[width=  \linewidth]{img/kali}
 			\caption{
-			Um den Untergrund und Ränder reduzierte kalibrierte Messung.
+			Um den Beitrag des direkten Zerfalls in den Grundzustand und die Ränder reduzierte kalibrierte Messung.
 			Die Unsicherheiten sind kleiner als die Symbole.
 			}
 			\label{fg_kali}
@@ -234,7 +291,7 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 		F = \frac{k}{1-\exp^{-k}} \quad \textrm{und} \quad k=\frac{2\pi Z \alpha c}{v}
 	\end{equation}
 	transformieren.
-	$F$ ist die genäherte Fermifunktion und ist nötig für die Coulombkorrektur durch die Kernladung $Z$.
+	$F$ ist die genäherte Fermifunktion und ist notwendig für die Coulombkorrektur durch die Kernladung $Z$.
 	$\alpha$ ist die Feinstrukturkonstante.
 	Relativistisch gilt für die Geschwindigkeit $v$ des Elektrons.
 	\begin{equation}
@@ -245,7 +302,7 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 		v^2 = \frac{p^2}{m^2c^2} (c^2-v^2) = \frac{p^2}{m^2} \frac{1}{1+p^2/(mc)^2} = \frac{p^2}{m^2+(p/c)^2}
 	\end{equation}
 	Für die Kurie-Darstellung gilt $\kappa(p)\propto (E_0-E)$.
-	Damit erhält man die Energie des $\beta$-Zerfalls als x-Achsenschnittpunkt, wenn man die x-Achse von $B\rho=p/e$ zu $E_{kin}=\sqrt{p^2c^2+m^2c^4}-mc^2$ umskaliert.
+	Damit erhält man die Energie des $\beta$-Zerfalls als Schnittpunkt mit der x-Achse, wenn man die x-Achse von $B\rho=p/e$ zu $E_{kin}=\sqrt{p^2c^2+m^2c^4}-mc^2$ umskaliert.
 	Das Ergebnis dieser Umformungen ist in \cref{fg_kurie} abgebildet.
 	%TODO Rechnung aus Anleitung erwähnen?
 	\begin{figure}[H]
@@ -255,7 +312,7 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 			}
 			\label{fg_kurie}
 	\end{figure}
-	Als maximale kinetische Energie des Elektrons, was der $\beta$-Zerfallsenergie entspricht, ergibt sich $E_0=E_{max}=\SI{538+-10}{keV}$.
+	Als maximale kinetische Energie des Elektrons, die der $\beta$-Zerfallsenergie entspricht, ergibt sich $E_0=E_{max}=\SI{538+-10}{keV}$.
 	%TODO erwähnen, dass unsicherheiten mittels uncertainties python fortgepflanzt wurden?
 	%TODO Grund für hohe Errorbalken ist die Abhängigkeit von p, p wird weiter weg von kalibrierung ungenauer
 	%TODO Kurven Form diskutieren !!!
@@ -273,5 +330,5 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
-	%\printbibliography
+	\printbibliography
 \end{document}
