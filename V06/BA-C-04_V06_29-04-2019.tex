@@ -266,6 +266,8 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	R_L&= \SI{1.6+-0.4}{\percent}
 	\end{align}
 
+	\label{sec_Aufloesung}
+
 	\subsubsection{Kurie-Plot}
 	%TODO Zerfallsschema irgendwo im Protokoll
 
@@ -320,16 +322,35 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	Zunächst lässt sich sagen, dass das gemessene Spektrum (vgl. \cref{fg_untergrund}) prinzipiell dem schamatisch erwarteten Spektrum (vgl. \cref{fig_Schema_Spektrum}) entspricht.
+	Da der Zerfall in den Grundzustand nur mit einer Wahrscheinlichkeit von etwa \SI{5}{\percent} auftritt, ist es nicht überraschend, dass er im Spektrum am schwersten zu erkennen ist.
+	Das Kalibrieren anhand der Peaks ist möglich, da diese eindeutig zu identifizieren sind.
+
 	Bei der Betrachtung von \cref{fg_kurie} fällt zunächst auf, dass der erwartete lineare Zusammenhang in der Kurie-Darstellung für hohe Energien erkennbar ist, aber für geringere Energien stark anders aussieht.
 	Dies zunächst darauf zurückgeführt werden, dass die Kalibrierung weit vom Kalibrierpunkt entfernt weniger präzise wird, was ein Grund für die Abweichung sein kann.
 	Andererseits ist zu erwähnen, dass das Abziehen des Einflusses des Übergangs in den Grundzustand durch einen linearen Fit zu Abweichungen führen kann, da es keinen Grund gibt, warum die Energieabhängigkeit linear sein sollte.
+	Bei Betrachtung von \cref{fig_Schema_Spektrum} sieht man, dass die Linearität vorallem für höhere Energien gegeben ist, was die Vermutung, dass dies ein Grund für die Abweichungen ist, bekräftigt.
+
 	Außerdem führt die Fehlerfortpflanzung zu einem größeren Fehler bei kleiner Energie, wie ebenfalls aus \cref{fg_kurie} entnommen werden kann.
+	Dies drückt sich auch in der Impulsauflösung aus, die wie es in \cref{sec_Aufloesung} auftritt beim Peak anhand dessen kalibriert wurde besser ist als an dem anderen Peak.
+	Dies lässt sich für das gesamte Spektrum annehmen.
+	Sie liegt wie nach \cite{Anleitung} üblich in der Nähe von \SI{1}{\percent}.
+	
+	Die bestimmte Übergangsenergie $E_0=\SI{538+-10}{keV}$ ist nun mit dem Literaturwert von \SI{512}{keV} gemäß \cite{Leifi} zuvergleichen.
+	Der Literaturwert liegt innerhalb der dreifachen Unsicherheit des Messwerts und die Abweichung ist geringer als \SI{10}{\percent}.
+	Die Abweichung ist auf die oben diskutierten Abweichungen zurückzuführen.
+
 
 	%TODO gewisserweise erwartet, dass die Impulsauflösung weiter entfernt von dem Kalibrierpunkt schlechter wird.
 
 	% lineare approx ist am hohen Ende nicht mehr so gut
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+	Insgesamt gesehen lässt sich sagen, dass die Messung der Zerfallsenergie von $^{137}$Cs erfolgreich war.
+	Der Messwert weicht um weniger als \SI{10}{\percent} vom Literaturwert ab, weshalb dieser als bestätigt angesehen werden kann.
+	Um die Abweichung zu reduzieren, könnte ein passenderer Fit für den Abzug des Übergangs in den Grundzustand gewählt werden.
+	Auch die Kalibrierung könnte präziser durchgeführt werden, indem einzelne Messungen mit Proben mit bekannten Konversionspeaks durchgeführt werden würden.
+	Hierfür könnten Proben mit Peaks im Bereich geringerer Energien ausgewählt werden, wodurch die Abweichung durch Messpunkte weit entfernt von den Kalibrierpunkten ausgeschlossen werden.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
