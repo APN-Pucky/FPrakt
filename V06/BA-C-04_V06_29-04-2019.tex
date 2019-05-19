@@ -101,7 +101,7 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	Es wird ein Toroid-Spektrometer verwendet, um das Energiespektrum des ausgesandten Elektrons beim $\beta$-Zerfall von $^{137}$Cs zu bestimmen.
 	Mit dessen Hilfe wird durch einen Kurzie-Plot die Grenzenergie des Übergangs in den angeregten Zustand des entstehenden Ba-137 bestimmt.
-	Dies ist insofern erfolgreich, als dass das Ergebnis von \SI{538 \pm 10}{keV} um weniger als \SI{10}{\percent} oder um weniger als die dreifache Standardunsicherheit vom Literaturwert abweicht.
+	Dies ist insofern erfolgreich, als dass das Ergebnis von \SI{538 \pm 10}{keV} um weniger als \SI{10}{\percent} und um weniger als die dreifache Standardunsicherheit vom Literaturwert abweicht.
 	Die Abweichung wird diskutiert und Methoden zur genaueren Bestimmung nahegelegt.
 	Außerdem wird  die Impulsauflösung des Spektrometers bestimmt.
 
@@ -208,9 +208,15 @@
 	% Einflüsse von veränderten Parametern auf Messung
 	%\subsubsection{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
+	\subsubsection{Unsicherheiten}
+	Jegliche Unsicherhieten werden nach GUM bestimmt und berechnet.
+	Für die Unsicherheitsrechnungen wurde die Python Bibliothek "uncertainties" herangezogen, welche den Richtlinien des GUM folgt.
+	Die Fits verwenden die Methode der kleinsten Quadrate.
 	\subsubsection{Untergrund}
 	In \cref{fg_untergrund} sind die gemessenen Ereignisraten gegen die angelegte Spannungen aufgetragen.
 	Die blaue Horizontale ist jeweils an einen Bereich von \SI{0.25}{V} am Anfang und Ende der Messkurve angepasst und beschreibt so die Untergrundrate.
+	Die Unsicherheit der gemessenen Ereignisse ist durch $\sqrt{N}$ gemäß Poisson-Verteilung gegeben.
+	Damit folgt für die Unsicherheit der Ereignisrate $u(R)=\sqrt{N}/T$, wobei $T$ die Messdauer bei gegebener Spannung ist.
 	\begin{figure}[H]
 			\includegraphics[width=  \linewidth]{img/untergrund}
 			\caption{
