@@ -269,26 +269,43 @@ plt.ylabel('Ereignisrate R in Hz')
 plt.savefig(("V06/img/kali.pdf"))
 plt.show()
 
-# %% Kurie
-
+# %% Aufläsung
 kali = unc.ufloat(0.384,0.089)
-lpeak = unc.ufloat(1.0033,0.0051)
-dlpeak = unc.ufloat(0.0051,0.00018)
-kpeak = unc.ufloat(1.03396,0.006)
-dkpeak = unc.ufloat(0.006,0.00011)
-lbrho = unc.ufloat(0.33814,0.00005)
+kpeak = unc.ufloat(1.0033,0.0051)
+dkpeak = unc.ufloat(0.0051,0.00018)
+lpeak = unc.ufloat(1.03396,0.006)
+dlpeak = unc.ufloat(0.006,0.00011)
+kbrho = unc.ufloat(0.33814,0.00005)
 
-print("R_K=",2*np.sqrt(np.log(2)*2)*kali*dlpeak/(kali*lpeak-kali*kpeak+lbrho))
-print("R_L=",2*np.sqrt(np.log(2)*2)*kali*dkpeak/(kali*kpeak-kali*kpeak+lbrho))
+print("R_K=",2*np.sqrt(np.log(2)*2)*kali*dkpeak/(kali*kpeak-kali*kpeak+kbrho)*100)
+print("R_L=",2*np.sqrt(np.log(2)*2)*kali*dlpeak/(kali*lpeak-kali*kpeak+kbrho)*100)
 
-fig=plt.figure(figsize=fig_size)
-#plt.errorbar(unv(xdata), unv(ydata),usd(ydata), color='r', label= 'Messpunkte')
 rb=find_nearest_index(xdata,0.3125)
 lb=find_nearest_index(xdata,1.1)
 
 yydata= ydata[lb:rb]-underground
-xxdata= xdata[lb:rb]*kali-lpeak*kali+lbrho
+xxdata= xdata[lb:rb]*kali-kpeak*kali+kbrho
 
+fig=plt.figure(figsize=fig_size)
+print(usd(xxdata))
+#rdata = 2*np.sqrt(np.log(2)*2)*kali*usd(xxdata)/(unv(xxdata))/100
+rdata = 2*np.sqrt(np.log(2)*2)*usd(xxdata)/(unv(xxdata))*100
+print("R_K=",rdata[find_nearest_index(xxdata,0.33)])
+print("R_L=",rdata[find_nearest_index(xxdata,0.35)])
+print(rdata)
+plt.plot(unv(xxdata), unv(rdata), color='r', label= 'Messpunkte')
+
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+#plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('$B\\rho$ in Tcm')
+plt.ylabel('Auflösung in %')
+plt.savefig(("V06/img/aufloesung.pdf"))
+plt.show()
+# %% Kurie
+
+fig=plt.figure(figsize=fig_size)
+#plt.errorbar(unv(xdata), unv(ydata),usd(ydata), color='r', label= 'Messpunkte')
 #lb=find_nearest_index(xxdata,0.115)
 #rb=find_nearest_index(xxdata,0.115)
 #llb=find_nearest_index(xxdata,0.33)

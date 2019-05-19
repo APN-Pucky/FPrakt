@@ -120,9 +120,6 @@
 			\label{fig_Zerfallsschema}
 	\end{figure}
 
-	\begin{equation}
-		B\rho = \sqrt{\frac{E_k^2+2E_kmc^2}{c^2e^2}}
-	\end{equation}
 
 		Beim $\beta^-$-Zerfall findet die folgende Kernreaktion statt:
 		\begin{equation}
@@ -175,7 +172,7 @@
 	Für die Messung wird das Spektrometer mit einer Vakuumpumpe evakuiert.
 	Zunächst wird das Spektrum in Schritten von \SI{1}{V} \SI{60}{\minute} lang gemessen.
 	Mithilfe dieser Messung wird dann das Spektrum in mehrere Teile eingeteilt.
-	Dabei werden den Bereichen, in denen vorallem der Untergrund gemessen wird, lange Messdauern und hohe Schrittweiten zugewiesen, während in Bereichen hoher Messrate kurze Messzeiträume und geringe Schrittweisen verwendet werden.
+	Dabei werden den Bereichen, in denen vorallem der Untergrund gemessen wird, lange Messdauern und hohe Schrittweiten zugewiesen, während in Bereichen hoher Messrate kurze Messzeiträume und geringe Schrittweiten verwendet werden.
 	Dies erlaubt, dass nahe der Peaks besonders kleinschrittig gemessen wird, während in den Bereichen geringer Ereignisrate noch immer ausreichend Ereignisse gemessen werden.
 	Mit dieser Einteilung wird das Spektrum dann über einen Zeitraum von \SI{6,5}{\day} gemessen.
 	Zur Aufnahme und Speicherung sowie Steuerung der Messparameter wird ein LabVIEW-Programm geschrieben und verwendet.
@@ -196,7 +193,7 @@
 	Die beiden schmalen Peaks treten durch Konversionselektronen von K- und L-Schale auf.
 	Sie sollen im Folgenden zur Kalibrierung des Spektrums verwendet werden.
 
-	Konversionselektronen treten dadurch auf, dass, wenn das angeregte $^{137}$Ba wieder in den Grundzustand übergeht und der Energieübertrag zur Aussendung eines Elektrons aus der K- oder L-Schale führt.
+	Konversionselektronen treten dadurch auf, dass, wenn das angeregte $^{137}$Ba wieder in den Grundzustand übergeht und der Energieübertrag zur Aussendung eines Elektrons aus der K- oder L-Schale führt. %TODO wieso wieder?
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
@@ -243,7 +240,6 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 			\caption{
 			Vergrößerte und um den Untergrund reduzierte Messung der Peaks.
 			Der größere Peak ist der K-Peak.
-			Die Unsicherheiten sind kleiner als die Symbole.
 			}
 			\label{fg_kalibration}
 	\end{figure}
@@ -251,7 +247,7 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	Da mit einem Magnetspektrometer jedoch ein Impuls $p=eB\rho$ anstelle einer Energie gemessen wird, kalibriert man zunächst nach $B\rho$.
 	Der Kalibrationsparameter ergibt sich aus dem Verhältnis von der Differenz der $B\rho$-Werte und dem Abstand der Peaks.
 	\begin{equation}
-		a = \frac{\Delta B\rho}{\Delta U} = \frac{\SI{0.0118+-0.0001}{Tcm}}{\SI{0.031+-0.007}{V}} = \SI{0.384+-0.089}{Tcm/V}
+		a = \frac{\Delta B\rho}{\Delta U_{KL}} = \frac{\SI{0.0118+-0.0001}{Tcm}}{\SI{0.031+-0.007}{V}} = \SI{0.384+-0.089}{Tcm/V}
 	\end{equation}
 	Für die Unsicherheit der Peakpositionen wurde die Breite des Gaußfits verwendet.
 	Die gemäß \cref{eq_rho} kalibrierte Messkurve ist in \cref{fg_kali} enthalten.
@@ -273,10 +269,10 @@ Außerdem wurde der zuvor bestimmte Untergrund subtrahiert.
 	\subsubsection{Kurie-Plot}
 	%TODO Zerfallsschema irgendwo im Protokoll
 
-	In \cref{fg_kali} wird der Beitrag durch den $\beta$-Zerfall direkt in den Grundzustand approximiert.
+	In \cref{fg_kali} wird der Beitrag durch den $\beta$-Zerfall direkt in den Grundzustand linear approximiert.
 	Als Anfangspunkt für diesen wurden einige Messpunkte vor dem deutlichen Anstieg des $\beta$-Spektrums und einige unmittelbar vor dem Anstieg des L-Konversionspeaks gewählt (Siehe Anfang und Ende der blauen Linie).
-	Die genaue Wahl dieses Punktes ist nicht wichtig, da eine Verschiebung um $\pm\SI{0.05}{Tcm}$, den Fit kaum verändert.
-	Wenn man die Messkurve ebenfalls um diesen Beitrag reduziert erhält man die Ereignisrate $N(eB\rho)=N(p)$.
+	Die genaue Wahl des zweiten Punktes ist nicht wichtig, da eine Verschiebung um $\pm\SI{0.05}{Tcm}$, den Fit kaum verändert.
+	Wenn man die Messkurve dann um diesen Beitrag reduziert erhält man die Ereignisrate $N(eB\rho)=N(p)$.
 \begin{figure}[H]
 			\includegraphics[width=  \linewidth]{img/kali}
 			\caption{
