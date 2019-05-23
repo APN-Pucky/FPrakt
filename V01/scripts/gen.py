@@ -159,7 +159,7 @@ for name in names:
     plt.tick_params(labelsize=fig_labelsize)
 
     plt.xlabel('Kanal')
-    plt.savefig("EDX/images/" + nname.split('.')[0] + ".pdf")
+    plt.savefig("V01/img/" + nname.split('.')[0] + ".pdf")
     plt.show()
 
 #end
