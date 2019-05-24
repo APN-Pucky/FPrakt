@@ -83,6 +83,21 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
     perr_curvefit = np.array(error)
     return pfit_curvefit, perr_curvefit
 
+
+def fit_curvefit2(datax, datay, function, p0=None, yerr=None, **kwargs):
+    pfit, pcov = \
+         optimize.curve_fit(function,datax,datay,p0=p0,\
+                            sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=1000000)
+    error = []
+    for i in range(len(pfit)):
+        try:
+          error.append(np.absolute(pcov[i][i])**0.5)
+        except:
+          error.append( 0.00 )
+    pfit_curvefit = pfit
+    perr_curvefit = np.array(error)
+    return unp.uarray(pfit_curvefit, perr_curvefit)
+
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
@@ -103,7 +118,103 @@ grad = 1/rad
 
 unc_n = 0
 unc_p = 0
-# import der messwerte
+
+# %% Kali plot
+# p = peak
+
+data = np.loadtxt("V01/data/kali.txt", skiprows = 0, delimiter = " ")
+xdat = unp.uarray(data[:,0],0)#data[:,1])
+xdat = unp.uarray(data[:,2],0)#data[:,3])
+ydat = unp.uarray(data[:,4],0)#data[:,5])
+p_na_hx = unc.ufloat(6928.,189/2.4)
+p_na_lx = unc.ufloat(2862.,117/2.4)
+p_ge_hx = unc.ufloat(7371.0,5.7/2.4)
+p_ge_lx = unc.ufloat(2955.0,8/2.4)
+p_na_ly = unc.ufloat(511.0,0)
+p_na_hy = unc.ufloat(1274.0,0)
+ydat = np.array([p_ge_lx,p_ge_hx])
+ydat2 = np.array([p_na_lx,p_na_hx])
+xdat = np.array([p_na_ly,p_na_hy])
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdat),unv(ydat),usd(ydat),fmt=' ',capsize=5,label='Ge-Detektor')
+plt.errorbar(unv(xdat),unv(ydat2),usd(ydat2),fmt=' ',capsize=5,label='Na-Detektor')
+
+
+# Na
+fit = fit_curvefit2(unv(xdat), unv(ydat2), gerade, yerr=usd(ydat2),p0 = [5.5,-2.5])
+fit_na = fit
+print(1/fit)
+xfit = np.linspace(unv(xdat[0]),unv(xdat[-1]),400)
+yfit = gerade(xfit, *unv(fit))
+plt.plot(xfit,yfit,label='Na-Linear f=ax+b\na=%s Hz/Tcm\nb=%s Hz'%(fit[0],fit[1]))
+
+# Ge
+fit = fit_curvefit2(unv(xdat), unv(ydat), gerade, yerr=usd(ydat),p0 = [5.7,-2.5])
+fit_ge = fit
+print(1/fit)
+xfit = np.linspace(unv(xdat[0]),unv(xdat[-1]),400)
+yfit = gerade(xfit, *unv(fit))
+plt.plot(xfit,yfit,label='Ge-Linear f=ax+b\na=%s Hz/Tcm\nb=%s Hz'%(fit[0],fit[1]))
+
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.ylabel('Kanal')
+plt.tick_params(labelsize=fig_labelsize)
+
+plt.xlabel('Energie in keV')
+plt.savefig("V01/img/kali_ge.pdf")
+plt.show()
+
+# %% weird fit
+#swap
+
+d = p_na_hy - p_na_ly
+m_na = (d)/(p_na_hx-p_na_lx)
+m_na_x = (d)/(p_na_hx-p_na_lx +usd(p_na_hx)+usd(p_na_lx))
+m_na_n = (d)/(p_na_hx-p_na_lx-usd(p_na_hx)-usd(p_na_lx))
+m_ge = (d)/(p_ge_hx-p_ge_lx)
+m_ge_x = (d)/(p_ge_hx-p_ge_lx + usd(p_ge_hx) + usd(p_ge_lx))
+m_ge_n = (d)/(p_ge_hx-p_ge_lx - usd(p_ge_hx) - usd(p_ge_lx))
+print(1/m_na)
+print(1/m_ge)
+
+kali_na = lambda x : x*m_na - m_na*p_na_lx+p_na_ly
+kali_na_norm = lambda x : x*m_na - m_na*p_na_lx+p_na_ly
+kali_na_max = lambda x : x*m_na_x - m_na_x*(p_na_lx-usd(p_na_lx))+p_na_ly
+kali_na_min = lambda x : x*m_na_n - m_na_n*(p_na_lx+usd(p_na_lx))+p_na_ly
+kali_ge = lambda x : x*m_ge - m_ge*p_ge_lx+p_na_ly
+kali_ge_max = lambda x : x*m_ge_x - m_ge_x*(p_ge_lx-usd(p_ge_lx))+p_na_ly
+kali_ge_min = lambda x : x*m_ge_n - m_ge_n*(p_ge_lx-usd(p_ge_lx))+p_na_ly
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(ydat2),unv(xdat),xerr=usd(ydat2),fmt=' ',capsize=5,label='Na-Detektor')
+plt.errorbar(unv(ydat),unv(xdat),xerr=usd(ydat),fmt=' ',capsize=5,label='Ge-Detektor')
+xfit = np.linspace(unv(ydat[0])-1000,unv(ydat2[-1])+1000,400)
+#Na
+plt.plot(xfit,unv(kali_na_max(xfit)),label='Na-Linear m=%s b=%s'%(m_na_x, kali_na_max(0)))
+plt.plot(xfit,unv(kali_na(xfit)),label='Na-Linear m=%s b=%s'%(m_na,kali_na(0)))
+plt.plot(xfit,unv(kali_na_min(xfit)),label='Na-Linear m=%s b=%s'%(m_na_n, kali_na_min(0)))
+#Ge
+plt.plot(xfit,unv(kali_ge_max(xfit)),label='Ge-Linear m=%s b=%s'%(m_ge_x, kali_ge_max(0)))
+plt.plot(xfit,unv(kali_ge(xfit)),label='Ge-Linear m=%s b=%s'%(m_ge,kali_ge(0)))
+plt.plot(xfit,unv(kali_ge_min(xfit)),label='Ge-Linear m=%s b=%s'%(m_ge_n, kali_ge_min(0)))
+
+#plt.gca().set_yscale('log');
+#plt.gca().set_xscale('log');
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.ylabel('Energie in keV')
+plt.tick_params(labelsize=fig_labelsize)
+
+plt.xlabel('Kanal')
+plt.savefig("V01/img/kali_mix.pdf")
+plt.show()
+# %% import der messwerte
+
+
 names = glob.glob("V01/fit/*.dat")
 iter= -1
 for name in names:
@@ -124,7 +235,10 @@ for name in names:
     if(nnname=="CsGe"):
         peakids[1] = -1
 
-    xdata = unp.uarray(data[:,0],unc_n)
+    if(nnname.endswith("Na")):
+        xdata = kali_na(unp.uarray(data[:,0],unc_n))
+    if(nnname.endswith("Ge")):
+        xdata = kali_ge(unp.uarray(data[:,0],unc_n))
     ydata = unp.uarray(data[:,1],unc_p)
     model = unp.uarray(data[:,-2],unc_p)
     residual = unp.uarray(data[:,-1],unc_p)
@@ -172,7 +286,7 @@ for name in names:
     plt.grid()
     plt.tick_params(labelsize=fig_labelsize)
 
-    plt.xlabel('Kanal')
+    plt.xlabel('Energie in keV')
     plt.savefig("V01/img/" + nnname + ".pdf")
     plt.show()
 
