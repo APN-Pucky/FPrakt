@@ -106,31 +106,43 @@ unc_p = 0
 # import der messwerte
 names = glob.glob("V01/fit/*.dat")
 iter= -1
-peakid1 = 0
-peakid2 =  0
 for name in names:
     iter +=1
+    peakids = [1,2,-1]
     data = np.loadtxt(name, skiprows = 0, delimiter = " ")
 
     nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
     print(nname)
-    if(nname=="NaNa.dat"):
-        peakid1 = 1
-        peakid2 = 5
-    if(nname=="NaGe.dat"):
-        peakid1 = 1
-        peakid2 = 2
+    if(nnname=="NaNa"):
+        peakids[0] = 1
+        peakids[1] = 5
+    if(nnname=="CsNa"):
+        peakids[1] = -1
+    if(nnname=="MixNa"):
+        peakids = [3,4,2]
+    if(nnname=="CsGe"):
+        peakids[1] = -1
+
     xdata = unp.uarray(data[:,0],unc_n)
     ydata = unp.uarray(data[:,1],unc_p)
     model = unp.uarray(data[:,-2],unc_p)
     residual = unp.uarray(data[:,-1],unc_p)
-    peak1 = unp.uarray(data[:,peakid1+1],unc_p)
-    peak2 = unp.uarray(data[:,peakid2+1],unc_p)
 
-    ybackground = model - peak1 - peak2
+    ybackground = model
+
     limit = 0.4
-    xpeak1, ypeak1 = zip(*((x, y) for x, y in zip(xdata, peak1) if y > limit))
-    xpeak2, ypeak2 = zip(*((x, y) for x, y in zip(xdata, peak2) if y > limit))
+    peaks =[]
+    xpeaks = []
+    ypeaks =[]
+    for i in range(len(peakids)):
+        if(peakids[i] != -1):
+            peaks.insert(i,unp.uarray(data[:,peakids[i]+1],unc_p))
+            ybackground = ybackground -peaks[i]
+            xpeak, ypeak = zip(*((x, y) for x, y in zip(xdata, peaks[i]) if y > limit))
+            xpeaks.insert(i,xpeak)
+            ypeaks.insert(i,ypeak)
+
     xmodel, ymodel = zip(*((x, y) for x, y in zip(xdata, model) if y > limit))
     xback, yback = zip(*((x, y) for x, y in zip(xdata, ybackground) if y > limit))
 
@@ -143,8 +155,10 @@ for name in names:
     plt.plot(unv(xdata), unv(ydata), '.',label='Messung',linewidth='1')
     plt.plot(unv(xback), unv(yback), label='background',linewidth='1')
     plt.plot(unv(xmodel), unv(ymodel), label='model',linewidth='1')
-    plt.plot(unv(xpeak1), unv(ypeak1), label='peak',linewidth='1')
-    plt.plot(unv(xpeak2), unv(ypeak2), label='peak',linewidth='1')
+
+    for i in range(len(peakids)):
+        if(peakids[i] != -1):
+            plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='peak',linewidth='1')
 
     plt.gca().set_yscale('log');
     plt.legend(prop={'size':fig_legendsize})
@@ -159,7 +173,7 @@ for name in names:
     plt.tick_params(labelsize=fig_labelsize)
 
     plt.xlabel('Kanal')
-    plt.savefig("V01/img/" + nname.split('.')[0] + ".pdf")
+    plt.savefig("V01/img/" + nnname + ".pdf")
     plt.show()
 
 #end
