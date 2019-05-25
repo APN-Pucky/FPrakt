@@ -1,4 +1,4 @@
-# Fityk script. Fityk version: 1.3.1. Created: Thu May 23 09:56:19 2019
+# Fityk script. Fityk version: 1.3.1. Created: Fri May 24 16:46:16 2019
 
 set verbosity = -1 #the rest of the file is not shown
 set autoplot = 0
@@ -7,7 +7,7 @@ reset
 set box_constraints = 1
 set default_sigma = sqrt
 set domain_percent = 30
-set epsilon = 1e-012
+set epsilon = 1e-12
 set fit_replot = 0
 set fitting_method = levenberg_marquardt
 set ftol_rel = 0
@@ -17,8 +17,8 @@ set height_correction = 1
 set lm_lambda_down_factor = 10
 set lm_lambda_start = 0.001
 set lm_lambda_up_factor = 10
-set lm_max_lambda = 1e+015
-set lm_stop_rel_change = 1e-007
+set lm_max_lambda = 1e+15
+set lm_stop_rel_change = 1e-07
 set log_output = 0
 set logfile = ''
 set max_fitting_time = 0
