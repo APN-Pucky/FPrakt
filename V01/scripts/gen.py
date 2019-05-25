@@ -295,7 +295,31 @@ for name in names:
                 else:
                     plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(p_ge_hx),linewidth='1')
             else:
-                plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(xpeaks[i][np.argmax(ypeaks[i])]),linewidth='1')
+                plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s keV'%(xpeaks[i][np.argmax(ypeaks[i])]),linewidth='1')
+
+
+    m = 511
+    comp = lambda E : E*(1-1/(1+2*E/m))
+    back = lambda E : E*(1/(1+2*E/m))
+    lit = []
+    if(nnname.startswith("Na") and not nnname.endswith("Ch")):
+        lit=[1274,511]
+    if(nnname.startswith("Co")):
+        lit=[1173,1332]
+    if(nnname.startswith("Cs")):
+        lit=[662]
+
+    for l in lit:
+        c = comp(l)
+        b = back(l)
+        xx = [c, c]
+        yy = [1, 1000]
+        plt.gca().plot(xx, yy, linestyle = "-.", label="Compton %s keV"%(l))
+        xx = [b, b]
+        plt.gca().plot(xx, yy, linestyle = ":", label="Rückstreu. %s keV"%(l))
+    plt.gca().plot([72,72], yy, linestyle = ":", label="Blei %s keV"%(72))
+    plt.gca().plot([88,88], yy, linestyle = ":", label="Blei %s keV"%(88))
+
     plt.gca().set_yscale('log');
     plt.legend(prop={'size':fig_legendsize})
     plt.grid()
