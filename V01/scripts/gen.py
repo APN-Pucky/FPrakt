@@ -181,7 +181,6 @@ print(1/m_na)
 print(1/m_ge)
 
 kali_na = lambda x : x*m_na - m_na*p_na_lx+p_na_ly
-kali_na_norm = lambda x : x*m_na - m_na*p_na_lx+p_na_ly
 kali_na_max = lambda x : x*m_na_x - m_na_x*(p_na_lx-usd(p_na_lx))+p_na_ly
 kali_na_min = lambda x : x*m_na_n - m_na_n*(p_na_lx+usd(p_na_lx))+p_na_ly
 kali_ge = lambda x : x*m_ge - m_ge*p_ge_lx+p_na_ly
@@ -197,10 +196,21 @@ xfit = np.linspace(unv(ydat[0])-1000,unv(ydat2[-1])+1000,400)
 plt.plot(xfit,unv(kali_na_max(xfit)),label='Na-Linear m=%s b=%s'%(m_na_x, kali_na_max(0)))
 plt.plot(xfit,unv(kali_na(xfit)),label='Na-Linear m=%s b=%s'%(m_na,kali_na(0)))
 plt.plot(xfit,unv(kali_na_min(xfit)),label='Na-Linear m=%s b=%s'%(m_na_n, kali_na_min(0)))
+m_na = mean([m_na,m_na_x,m_na_n])
+b_na = mean([kali_na_max(0),kali_na(0),kali_na_min(0),])
+print("mean m_na=",m_na)
+print("mean b_na=",b_na)
+kali_na = lambda x : x*m_na+b_na
 #Ge
 plt.plot(xfit,unv(kali_ge_max(xfit)),label='Ge-Linear m=%s b=%s'%(m_ge_x, kali_ge_max(0)))
 plt.plot(xfit,unv(kali_ge(xfit)),label='Ge-Linear m=%s b=%s'%(m_ge,kali_ge(0)))
 plt.plot(xfit,unv(kali_ge_min(xfit)),label='Ge-Linear m=%s b=%s'%(m_ge_n, kali_ge_min(0)))
+m_ge = mean([m_ge,m_ge_x,m_ge_n])
+b_ge=mean([kali_ge_max(0),kali_ge(0),kali_ge_min(0)])
+print("mean m_ge=",m_ge)
+print("mean b_ge=",b_ge)
+kali_ge = lambda x : x*m_ge +b_ge
+
 
 #plt.gca().set_yscale('log');
 #plt.gca().set_xscale('log');
@@ -225,7 +235,7 @@ for name in names:
     nname =os.path.basename(name)
     nnname = nname.split('.')[0]
     print(nname)
-    if(nnname=="NaNa"):
+    if(nnname=="NaNa" or nnname=="NaNaCh"):
         peakids[0] = 1
         peakids[1] = 5
     if(nnname=="CsNa"):
@@ -237,9 +247,11 @@ for name in names:
 
     if(nnname.endswith("Na")):
         xdata = kali_na(unp.uarray(data[:,0],unc_n))
-    if(nnname.endswith("Ge")):
+    elif(nnname.endswith("Ge")):
         xdata = kali_ge(unp.uarray(data[:,0],unc_n))
-    ydata = unp.uarray(data[:,1],unc_p)
+    else:
+        xdata = unp.uarray(data[:,0],unc_n)
+    ydata = unp.uarray(data[:,1],np.sqrt(data[:,1]))
     model = unp.uarray(data[:,-2],unc_p)
     residual = unp.uarray(data[:,-1],unc_p)
 
@@ -267,13 +279,23 @@ for name in names:
     frame1=fig.add_axes((.1,.3,.8,.6))
     #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
     plt.plot(unv(xdata), unv(ydata), '.',label='Messung',linewidth='1')
-    plt.plot(unv(xback), unv(yback), label='background',linewidth='1')
-    plt.plot(unv(xmodel), unv(ymodel), label='model',linewidth='1')
+    plt.plot(unv(xback), unv(yback), label='Untergrund',linewidth='1')
+    plt.plot(unv(xmodel), unv(ymodel), label='Modell',linewidth='1')
 
     for i in range(len(peakids)):
         if(peakids[i] != -1):
-            plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='peak',linewidth='1')
-
+            if(nnname.endswith("NaCh")):
+                if(i==0):
+                    plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(p_na_lx),linewidth='1')
+                else:
+                    plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(p_na_hx),linewidth='1')
+            elif(nnname.endswith("GeCh")):
+                if(i==0):
+                    plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(p_ge_lx),linewidth='1')
+                else:
+                    plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(p_ge_hx),linewidth='1')
+            else:
+                plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s'%(xpeaks[i][np.argmax(ypeaks[i])]),linewidth='1')
     plt.gca().set_yscale('log');
     plt.legend(prop={'size':fig_legendsize})
     plt.grid()
@@ -282,11 +304,13 @@ for name in names:
     frame2=fig.add_axes((.1,.1,.8,.2))
     plt.plot(unv(xdata), unv(residual), '.',linewidth='1')
 
-    plt.ylabel('weighted residuals')
+    plt.ylabel('Gewichtete Residuen')
     plt.grid()
     plt.tick_params(labelsize=fig_labelsize)
 
     plt.xlabel('Energie in keV')
+    if(nnname.endswith("Ch")):
+        plt.xlabel('Kanal')
     plt.savefig("V01/img/" + nnname + ".pdf")
     plt.show()
 

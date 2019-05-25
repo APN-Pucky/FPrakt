@@ -113,9 +113,68 @@
 	\subsection{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-	\subsubsection{Unsicherheiten}
-	% Berechung nach Aufgabenstellung
 
+	\subsubsection{Unsicherheiten}
+	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
+	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
+	Die Fits verwenden die Methode der kleinsten Quadrate, außer wenn anders angegeben.
+	Die Unsicherheit der gemessenen Ereignisse $N$ ist durch $\sqrt{N}$ gemäß Poisson-Verteilung gegeben.
+	\subsubsection{Modell}
+	Die aufgenommenen Spektrum der $^{22}$Na-Probe sind in \cref{fg_NaNa_ch} sowie \cref{fg_NaGe_ch} abgebildet.
+	Es wurde bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung ein physikalischen Modells des Spektrums im Randbereich unmöglich machen. %TODO schönerer Satz wäre schöner
+	Das Modell wurde in \enquote{Fityk} aus Gaußkurven zusammengesetzt.
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/NaNaCh.pdf}
+			\caption{
+				NaJ-Detektor. $^{22}$Na-Probe
+			}
+			\label{fg_NaNa_ch}
+	\end{figure}
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/NaGeCh.pdf}
+			\caption{
+				Ge-Detektor. $^{22}$Na-Probe
+			}
+			\label{fg_NaGe_ch}
+	\end{figure}
+
+	\subsubsection{Kalibration}
+  Mittels der Literaturwerte der Peaks der $^{22}$Na-Probe (\SI{511}{keV} und \SI{1274}{keV}) lassen sich die Kanäle umrechnen zu einer Energieskala.  %TODO erläutert in Theorie?
+	In \cref{fg_kali_mix} sind in blau(gelb) die zwei Kalibrationspunkte für den NaJ-Detektor(Ge-Detektor) abgebildet.
+	Die Unsicherheit des Kanals ist durch die Standardunsicherheit der Gaußkurve in \cref{fg_NaNa_ch}(\cref{fg_NaGe_ch}) gegeben.
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/kali_mix.pdf}
+			\caption{
+				Kalibrationsgeraden $f(x)=mx+b$.
+				$m$ ist die Steigung der Gerade in \si{keV}.
+				$b$ ist der y-Achsenabschnitt in \si{keV}.
+			}
+			\label{fg_kali_mix}
+	\end{figure}
+
+	Da ein linearer Fit zwischen zwei Punkten mit Unsicherheiten mit dem \enquote{Least-Square-Fit} nicht zielführend ist, werden drei Geraden durch die Messintervalle gelegt, sodass sich eine mittlere, maximale und minimale Steigung ergeben.
+	Eine Mittelung dieser Werte ist in \cref{tb_kali_avg} aufgeführt.
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c  }
+			 Detektor& $m$ in \si{kev}& $b$ in \si{keV} \\ \hline
+			 NaJ & \SI{0.188+-0.007}{} & \SI{-27+-31}{} \\
+			 Ge & \SI{0.1728+-0.0003}{} & \SI{0.8+-1.2}{} \\
+		\end{tabular}
+		\caption{
+		Gemittelte Kalibrationsparameter für NaJ- und Ge-Detektor.
+		}
+		\label{tb_kali_avg}
+\end{table}
+%TODO y-Achse ist ca. Null, nice, aber diskutieren warum Anfang alles Null?
+Damit lässt sich ein Kanal $c$ nach \cref{eq_trans} in die Energie $E$ transformieren.
+\begin{equation}
+	\label{eq_trans}
+	E = m\cdot c + b
+\end{equation}
 	\subsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
