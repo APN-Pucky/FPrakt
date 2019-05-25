@@ -32,6 +32,15 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 
 # mathe Funktionen
 
+# mathe Funktionen
+def find_nearest_index(array, value):
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return idx
+def find_nearest(array, value):
+    array[find_nearest_index(array,value)]
+def normalize(ydata):
+   return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
 def mean(n):
     # find the mean value and add uncertainties
     k = np.mean(n)
@@ -242,6 +251,8 @@ for name in names:
         peakids[1] = -1
     if(nnname=="MixNa"):
         peakids = [3,4,2]
+    if(nname=="MixGe"):
+        peakids = [3,4,2]
     if(nnname=="CsGe"):
         peakids[1] = -1
 
@@ -273,10 +284,11 @@ for name in names:
     xback, yback = zip(*((x, y) for x, y in zip(xdata, ybackground) if y > limit))
 
 
-    fig=plt.figure(figsize=fig_size)
+    #fig=plt.figure(figsize=(15,8))
+    fig=plt.figure(figsize=(15,8))
 
     ## Plot
-    frame1=fig.add_axes((.1,.3,.8,.6))
+    frame1=fig.add_axes((.1,.3,.8,.5))
     #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
     plt.plot(unv(xdata), unv(ydata), '.',label='Messung',linewidth='1')
     plt.plot(unv(xback), unv(yback), label='Untergrund',linewidth='1')
@@ -313,15 +325,30 @@ for name in names:
         c = comp(l)
         b = back(l)
         xx = [c, c]
-        yy = [1, 1000]
-        plt.gca().plot(xx, yy, linestyle = "-.", label="Compton %s keV"%(l))
+        k = find_nearest_index(xdata,c)
+        yy = [ydata[k]/10 , ydata[k]*10]
+        plt.gca().plot(xx, unv(yy), linestyle = "-.", label="Compton %s keV"%(l))
         xx = [b, b]
-        plt.gca().plot(xx, yy, linestyle = ":", label="Rückstreu. %s keV"%(l))
-    plt.gca().plot([72,72], yy, linestyle = ":", label="Blei %s keV"%(72))
-    plt.gca().plot([88,88], yy, linestyle = ":", label="Blei %s keV"%(88))
+        k = find_nearest_index(xdata,b)
+        yy = [ydata[k]/10 , ydata[k]*10]
+        plt.gca().plot(xx, unv(yy), linestyle = ":", label="Rückstreu. %s keV"%(l))
+
+    if(not nnname.endswith("Ch")):
+        c= 72
+        b=88
+        k = find_nearest_index(xdata,c)
+        yy = [ydata[k]/10 , ydata[k]*10]
+        plt.gca().plot([c,c], unv(yy), linestyle = "--", label="Blei %s keV"%(72))
+        xx = [b, b]
+        k = find_nearest_index(xdata,b)
+        yy = [ydata[k]/10 , ydata[k]*10]
+        plt.gca().plot([b,b], unv(yy), linestyle = "--", label="Blei %s keV"%(88))
 
     plt.gca().set_yscale('log');
-    plt.legend(prop={'size':fig_legendsize})
+    #plt.legend(prop={'size':fig_legendsize+2},bbox_to_anchor=(-0.05, 0), loc=10, borderaxespad=0.)
+    plt.legend(prop={'size':fig_legendsize+2},bbox_to_anchor=(0., 1., 1, 1.5), loc=8,
+           ncol=3, mode="expand", borderaxespad=0.)
+    #plt.legend(prop={'size':fig_legendsize})
     plt.grid()
     plt.ylabel('Ereignisse')
     ## Residual
@@ -330,7 +357,8 @@ for name in names:
 
     plt.ylabel('Gewichtete Residuen')
     plt.grid()
-    plt.tick_params(labelsize=fig_labelsize)
+    plt.tick_params(labelsize=fig_labelsize+2)
+    #plt.tick_params(labelsize=fig_labelsize+2)
 
     plt.xlabel('Energie in keV')
     if(nnname.endswith("Ch")):
