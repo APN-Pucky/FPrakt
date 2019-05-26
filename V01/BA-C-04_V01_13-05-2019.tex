@@ -322,7 +322,30 @@
 			\label{fig_Photomultiplier}
 	\end{figure}
 
+	\subsection{Energieauflösung und mittlere Ionisationsenergie}
+	Die Energieauflösung ist
+	\begin{equation}
+		\Delta E = \frac{\sigma(E)}{E},
+	\end{equation}
+	wobei $\sigma$ die Standardunsicherheit und $E$ die Position eines Peaks ist.
 
+	Außerdem setzt sich die Energie aus der Ereignisanzahl und der mittleren Ionisationsenergie zusammen
+	\begin{equation}
+		\label{eq_eni}
+		E=N I
+	\end{equation}
+	und
+	\begin{align}
+		\frac{\sigma(E)}{E} &= \frac{\sigma(N) I}{N I}= \frac{\sigma(N)}{N} \\
+		&= \frac{\sqrt{N}}{N} = \frac{1}{\sqrt{N}}.
+	\end{align}
+	Es wurde verwendet das die Standardunsicherheit $\sigma(E)=\sigma(N)I$ ist, da $I$ als im Mittel konstant angenommen wird und da man von einer Poissonverteilung ausgehen kann ist $\sigma(N)=\sqrt{N}$.
+	Somit folgt $N = \left(\frac{E}{\sigma}\right)^2$.
+	Woraus sich mit \cref{eq_eni}
+	\begin{equation}
+		I = \frac{\sigma^2}{E}
+	\end{equation}
+	ergibt.
 
 	\section{Methoden}
 	% Bilder von der Website klauen
@@ -438,14 +461,15 @@ In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für
 Die horizontalen Linien, die sich im höher energetischen Bereich ergeben, entstehen durch die logarithmischen Darstellung.
 
 %TODO In der Theorie?
-Die Comptonkante berechnet sich aus dem Literaturwert $E_\gamma$ für einen Full-Energy-Peak:
+Die Comptonkante berechnet sich aus dem Literaturwert $E_\gamma$ für einen Full-Energy-Peak ($\varphi=\SI{180}{\degree}$ in \cref{eq_compton_energie}):
 \begin{equation}
 	E_C = E_\gamma - \frac{E_\gamma }{1+2E_\gamma/m_ec^2}
 \end{equation}
-Die Rückstreukante ist analog:
+Die Rückstreukante lässt sich analog mit:
 \begin{equation}
 	E_R =  \frac{E_\gamma}{1+2E_\gamma/m_ec^2}
 \end{equation}
+bestimmen.
 Die Literaturwert stammen aus \cref{tb_lit_peaks}.
 	Die Zusammensetzung der Mischprobe ist nicht bekannt, jedoch lassen sich die Peaks ziemlich genau Kernübergängen zuordnen.
 	Anhand derer Literaturwerte lassen sich somit auch Compton- und Rückstreukante berechnen.

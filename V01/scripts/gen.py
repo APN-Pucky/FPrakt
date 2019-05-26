@@ -628,10 +628,10 @@ ax2.plot([],[],'o',color='black',label="NaI-Detektor")
 ax2.legend(prop={'size':fig_legendsize},loc=9)
 ax1.legend(prop={'size':fig_legendsize})
 plt.grid()
-ax1.set_ylabel('Ge-Detektor Mittlere Ionisationsenergie $I$')
+ax1.set_ylabel('Ge-Detektor Mittlere Ionisationsenergie $I$ in keV')
 ax1.tick_params(labelsize=fig_labelsize)
 
-ax2.set_ylabel('NaI-Detektor Mittlere Ionisationsenergie $I$')
+ax2.set_ylabel('NaI-Detektor Mittlere Ionisationsenergie $I$ in keV')
 ax2.tick_params(labelsize=fig_labelsize)
 
 ax1.set_xlabel('Energie in keV')
@@ -690,7 +690,7 @@ found5 = {}
 for n in reihen:
     found5[n] = list(filter(lambda x : x[1]>5, reihe[n]))
 mask = {} # 0: no way, 1: bissl verschoben, 2: kleiner peak, 3: passt genau
-mask["U-Ra"] = [0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,2,2]
+mask["U-Ra"] = [0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,0,0]
 mask["U-Ac"] = [2,0,3,0,0,2,0,0,2,2,0,2,2,0,3]
 mask["Th"] = [0,3,2,0,0,3,0,0,0,0,3,0,0,3,0,2,2,2,0,0]
 print(found5["Th"])
