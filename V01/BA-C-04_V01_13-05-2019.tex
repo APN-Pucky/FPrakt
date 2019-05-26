@@ -196,7 +196,7 @@
 	Die Unsicherheit der gemessenen Ereignisse $N$ ist durch $\sqrt{N}$ gemäß Poisson-Verteilung gegeben.
 	\subsubsection{Modell}
 	Die aufgenommenen Spektren der $^{22}$Na-Probe sind in \cref{fg_Na_ch} abgebildet.
-	Es wurde bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung ein physikalischen Modells des Spektrums im Randbereich unmöglich machen. %TODO schönerer Satz wäre schöner
+	Es wurden bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung ein physikalischen Modells des Spektrums im Randbereich unmöglich machen. %TODO schönerer Satz wäre schöner
 	Das Modell wurde in \enquote{Fityk} aus Gaußkurven zusammengesetzt.
 	\begin{figure}[H]
 		\centering
@@ -221,7 +221,7 @@
 
 	\subsubsection{Kalibration}
   Mittels der Literaturwerte der Peaks der $^{22}$Na-Probe (\SI{511}{keV} und \SI{1274}{keV} \cite{Anleitung}) lassen sich die Kanäle umrechnen zu einer Energieskala.  %TODO erläutert in Theorie?
-	In \cref{fg_kali_mix} sind in blau(gelb) die zwei Kalibrationspunkte für den NaJ-Detektor(Ge-Detektor) abgebildet.
+	In \cref{fg_kali_mix} sind in blau (gelb) die zwei Kalibrationspunkte für den NaI-Detektor (Ge-Detektor) abgebildet.
 	Die Unsicherheit des Kanals ist durch die Standardunsicherheit der Gaußkurve in \cref{fg_Na_ch} gegeben.
 
 	\begin{figure}[H]
@@ -234,7 +234,7 @@
 			\label{fg_kali_mix}
 	\end{figure}
 
-	Da ein linearer Fit zwischen zwei Punkten mit Unsicherheiten mit dem \enquote{Least-Square-Fit} nicht zielführend ist, werden drei Geraden durch die Messintervalle gelegt, sodass sich eine mittlere, maximale und minimale Steigung ergeben.
+	Da ein linearer Fit zwischen zwei Punkten mit Unsicherheiten mit dem \enquote{Least-Square-Fit} nicht zielführend ist, werden drei Geraden durch die Messintervalle gelegt, sodass sich eine mittlere, maximale und minimale Steigung ergeben. %TODO hier wird er wissen wollen, warum der nicht zielführend ist.
 	Eine Mittelung dieser Werte ist in \cref{tb_kali_avg} aufgeführt.
 
 \begin{table}[H]
@@ -258,7 +258,7 @@ Damit lässt sich ein Kanal $c$ nach \cref{eq_trans} in die Energie $E$ transfor
 
 \subsection{Peaks und Kanten}
 In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für jeden der Detektoren dargestellt.
-Die horizontalen Linien die sich im höher energetischen Bereich ergeben entstehen durch die logarithmischen Darstellung.
+Die horizontalen Linien, die sich im höher energetischen Bereich ergeben, entstehen durch die logarithmischen Darstellung.
 
 %TODO In der Theorie?
 Die Comptonkante berechnet sich aus dem Literaturwert:
@@ -358,12 +358,12 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 
 \subsection{Erzprobe}
 \subsection{Nichtlinearität des Detektors}
-Die Nichtlinearität des Detektors kann gezeigt werden, in dem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
+Die Nichtlinearität des Detektors kann gezeigt werden, indem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
 Also
 \begin{equation}
 	\delta(E_r) = 1- \frac{E_m}{E_r}
 \end{equation}
-Diese wurde  in \cref{fg_diff_na} und \cref{fg_diff_ge} für NaI- und Ge-Detektor dargestellt.
+Diese Differenz wurde  in \cref{fg_diff_na} und \cref{fg_diff_ge} für NaI- und Ge-Detektor dargestellt.
 $E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
 
 %TODO log plot hier von?
@@ -384,7 +384,7 @@ $E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
 			}
 		\end{subfigure}
 		\caption{Nichtlinearität des NaI-Detektors.
-		Die Unsicherheiten sind nicht abgebildet, da ein Abbilden dieser ein Unterscheiden der Werte unmöglich macht.
+		Die Unsicherheiten sind nicht abgebildet, da ein Abbilden dieser ein Unterscheiden der Werte unmöglich macht. %TODO ...da sie im Vergleich sehr groß sind.
 		Der Wert Null für die relative Differenz liegt immer im Unsicherheitsintervall.
 		}
 		\label{fg_diff_na}
