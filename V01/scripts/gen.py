@@ -512,7 +512,7 @@ for (a,b,z,q,arr) in col:
     print("l ",lit[l])
     print("r ", r)
     if(a.endswith("Ge")):
-        plt.errorbar(unv(lit[l]),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
+        #plt.errorbar(unv(lit[l]),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
         if(a.startswith("Na")):
             plt.plot(unv(lit[l]),unv(r),'x',color='blue')
         if(a.startswith("Cs")):
@@ -575,7 +575,8 @@ ax2.plot([],[],'o',color='black',label="NaI-Detektor")
 
 ax2.legend(prop={'size':fig_legendsize},loc=9)
 ax1.legend(prop={'size':fig_legendsize})
-plt.grid()
+ax1.grid()
+ax2.grid()
 ax1.set_ylabel('Ge-Detektor Energieauflösung $\\Delta E$')
 ax1.tick_params(labelsize=fig_labelsize)
 
@@ -625,10 +626,10 @@ ax2.plot([],[],'o',color='black',label="NaI-Detektor")
 ax2.legend(prop={'size':fig_legendsize},loc=9)
 ax1.legend(prop={'size':fig_legendsize})
 plt.grid()
-ax1.set_ylabel('Ge-Detektor Mittlere Ionisationsenergie $I^2$')
+ax1.set_ylabel('Ge-Detektor Mittlere Ionisationsenergie $I$')
 ax1.tick_params(labelsize=fig_labelsize)
 
-ax2.set_ylabel('NaI-Detektor Mittlere Ionisationsenergie $I^2$')
+ax2.set_ylabel('NaI-Detektor Mittlere Ionisationsenergie $I$')
 ax2.tick_params(labelsize=fig_labelsize)
 
 ax1.set_xlabel('Energie in keV')
@@ -714,7 +715,10 @@ for r, i in zip(reihen, range(4)):
             coll = "red"
         if m >=3:
             coll="black"
-        plt.plot([Eg,Eg], [linestart, lineend], linewidth=1, ls="-.", color=coll,label="%s keV %s" % (Eg, str(parent)[3:-2]))
+        if m>=2:
+            plt.plot([Eg,Eg], [linestart, lineend], linewidth=1, ls="-.", color=coll,label="%s keV %s" % (Eg, str(parent)[3:-2]))
+        else:
+            plt.plot([Eg,Eg], [linestart, lineend], linewidth=1, ls="-.", color=coll)#,label="%s keV %s" % (Eg, str(parent)[3:-2]))
             #if Eg <= 1200:
              #   plt.annotate(xy = (Eg,1+t), s=t)
     #plot original data
@@ -736,7 +740,7 @@ for r, i in zip(reihen, range(4)):
 
 # %% Wombokombo
 
-c = ['C3', 'C1', 'C8', 'C5']
+c = ['black', 'red', 'green', 'orange']
 fig=plt.figure(figsize=fig_size)
 ax = plt.gca()
 

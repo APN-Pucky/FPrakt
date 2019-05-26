@@ -343,6 +343,7 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 			\subcaption{
 				NaI-Detektor.
 			}
+		\label{fg_Mix_Na}
 		\end{subfigure}
 		\begin{subfigure}[c]{\textwidth}
 			\centering
@@ -350,13 +351,13 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 			\subcaption{
 				Ge-Detektor.
 			}
+		\label{fg_Mix_Ge}
 		\end{subfigure}
 		\caption{Misch-Probe}
 		\label{fg_Mix}
 	\end{figure}
 
 
-\subsection{Erzprobe}
 \subsection{Nichtlinearität des Detektors}
 Die Nichtlinearität des Detektors kann gezeigt werden, indem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
 Also
@@ -364,9 +365,10 @@ Also
 	\delta(E_r) = 1- \frac{E_m}{E_r}
 \end{equation}
 Diese Differenz wurde  in \cref{fg_diff_na} und \cref{fg_diff_ge} für NaI- und Ge-Detektor dargestellt.
-$E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
+$E_r$ ist Literaturwert (aus \cref{fig_zerfallsschemata}) für die Peakposition und $E_m$ ist der gemessenen Wert.
 
 %TODO log plot hier von?
+%TODO no errors hier?
 \begin{figure}[H]
 		\centering
 		\begin{subfigure}[t]{0.8\textwidth}
@@ -411,9 +413,82 @@ $E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
 		}
 		\label{fg_diff_ge}
 	\end{figure}
-\subsection{Energieauflösung und mittlere Ionisationsenergie}
-\subsection{Relative Effizienz}
+\subsection{Energieauflösung}
+Die Energieauflösung $\Delta E$ lässt sich aus der Standardabweichung $\sigma$ und der Position $E$ eines Peaks berechnen.
+Die Formel hierfür ist:
+\begin{equation}
+	\Delta E = \frac{\sigma}{E}
+\end{equation}
+Die Unsicherheiten für $\sigma$ ergeben sich aus der Multiplikation mit der Steigung $m$ aus der Kalibrationsgeradengleichung (\ref{eq_trans}).
 
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/res}
+			\caption{
+			Energieauflösung für NaI- und Ge-Detektor.
+			}
+			\label{fg_resolution}
+	\end{figure}
+%TODO Schon Diskussion?
+Die große Unsicherheit des niederenergetischen NaI-Detektor Messpunkts ist der großen (relativen) Unsicherheit des ersten Peaks in der Mischprobe geschuldet (\cref{fg_Mix_Na}).
+\subsection{Mittlere Ionisationsenergie}
+Die Mittlere Ionisationsenergie $I$ lässt sich ebenso aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
+Die Formel hierfür ist:
+%TODO Theo: explain calc
+\begin{equation}
+	I = \frac{\sigma^2}{E}
+\end{equation}
+Die Unsicherheiten für $\sigma$ ergeben sich aus der Multiplikation mit der Steigung $m$ aus der Kalibrationsgeradengleichung (\ref{eq_trans}).
+
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/ion}
+			\caption{
+			Mittlere Ionisationsenergie für NaI- und Ge-Detektor.
+			}
+			\label{fg_ionisation}
+	\end{figure}
+\subsection{Relative Effizienz}
+Die relative normierte Effizienz $\varepsilon$ lässt sich nach \cref{eq_rel_eff} berechnen.
+\begin{equation}
+	\label{eq_rel_eff}
+	\varepsilon = \frac{\frac{S}{P}}{\left|\frac{S}{P}\right|}_{\text{ref}}
+\end{equation}
+%TODO in Theorie: Full Energy Peak ETC.
+Wobei $S$ die Fläche eines Full-Energy-Peak ist und $P$ die Anzahl Photonen, welche im Messzeitraum $t$ durch diesen $\gamma$-Übergang ausgesendet werden.
+Dieses Verhältnis wird auf einen Messpunkt $\left|\frac{S}{P}\right|_{\text{ref}}$ normiert.
+Die Anzahl Photonen ist das Produkt aus Messdauer $t$ und Aktivität $A$ des $\gamma$-Übergangs, $P=A\cdot t$.
+Die derzeitige ($t'$) Aktivitäten wurden aus einer vorherigen ($t_r$) Messung und bekannter Zerfallskonstante $\lambda$ berechnet.
+\begin{equation}
+	A(t') = A(t_r)\exp^{-\lambda (t'-t_r)}
+\end{equation}
+Die Ergebnisse sind in \cref{fg_eff} gegen die Energie $E$ aufgetragen.
+Als Normierung wurde für beide Detektoren der Full-Energy-Peak bei \SI{662}{keV} verwendet.
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/eff}
+			\caption{
+			Normierte Relative Effizienz für NaI- und Ge-Detektor bei der Mischprobe.
+			}
+			\label{fg_eff}
+	\end{figure}
+	%TODO Diskuss: grund für hohe NaI-Wert: Auflösung zuschlecht für die zwei peaks die Ge da hat, stackt sich dann.
+\subsection{Erzprobe}
+	In \cref{fg_erz} ist das Spektrum der Erzprobe abgebildet.
+	In unterschiedlichen Farben sind passende Peaks der vier natürlichen Zerfallsreihen markiert.
+	Im \nameref{s_anhang} sind in \crefrange{fg_erz_np}{fg_erz_u_ra} die Zerfallsreihen separat markiert.
+	Hierbei wurde nach Augemaß schwarz für ein passenden Peak, rot für ein verschobenen oder schwachen Peak, und blau für keine Korrelation verwendet.
+	Die Literaturwerte für die Energien $E_\gamma$ stammen aus \cite{erze1} und \cite{erze2}.
+	Es wurden direkt Peaks mit einer relativen Intensität kleiner \SI{5}{\percent} ausgeschlossen.
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/erz_alles}
+			\caption{
+			Spektrum der Erzprobe. Einige passende $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
+			}
+			\label{fg_erz}
+	\end{figure}
+	%TODO U-Ra passt am besten
 
 	\section{Diskussion}
 	% Bezug/Nutzen oder sonst was
@@ -446,6 +521,37 @@ $E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
 	%TODO Ergebnis Vergleich detektroen
 	%TODO Ergebnis unbektannte Probe
 
+
+	\section{Anhang} \label{s_anhang}
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/erz_Np}
+			\caption{
+			Spektrum der Erzprobe. Np-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
+			}
+			\label{fg_erz_np}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/erz_Th}
+			\caption{
+			Spektrum der Erzprobe. Th-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
+			}
+			\label{fg_erz_th}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/erz_U-Ac}
+			\caption{
+			Spektrum der Erzprobe. $^{235}$U-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
+			}
+			\label{fg_erz_u_ac}
+	\end{figure}
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{img/erz_U-Ra}
+			\caption{
+			Spektrum der Erzprobe. $^{238}$U-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
+			}
+			\label{fg_erz_u_ra}
+	\end{figure}
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
