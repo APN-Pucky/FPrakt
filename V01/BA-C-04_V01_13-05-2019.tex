@@ -113,11 +113,11 @@
 	% Welche Zerfälle gibt es
 	% Was braucht man für Gammazerfall? Halt Zerfall in angeregtes Niveau
 	\subsection{$\gamma$-Strahlung}
-	$\gamma$-Strahlung ist elektrische Strahlung, die sich entweder über den Energiebereich oder durch die Entstehungsart definieren lässt.
+	$\gamma$-Strahlung ist elektromagnetische Strahlung, die sich entweder über den Energiebereich oder durch die Entstehungsart definieren lässt.
 	Energetisch liegt die $\gamma$-Strahlung in der Regel über der Röntgenstrahlung, also etwa ab \SI{100}{keV}.
 	Sie entsteht dadurch, dass nach radioaktiven Zerfällen anderer Art der Kern in einem angeregten Zustand vorliegt, der dann durch Aussenden von elektromagnetischer Strahlung ($\gamma$-Strahlung) in den Grundzustand übergeht.
 	Die Zerfallsschemata einiger der in diesem Versuch verwendeten Proben sind in \cref{fig_zerfallsschemata} dargestellt.
-	Es findet wie beschreieben jeweils ein $\beta$-Zerfall (bzw. Elektroneneinfang) in ein angeregtes Niveau statt.
+	Es findet wie beschrieben jeweils ein $\beta$-Zerfall (bzw. Elektroneneinfang) in ein angeregtes Niveau statt.
 	Das angeregte Niveau geht dann entweder direkt oder über Zwischenniveaus in den Grundzustand über und $\gamma$-Strahlung wird frei.
 
 	Neben dem $\gamma$-Zerfall gibt es $\alpha$-, $\beta$-Zerfall und Elektroneneinfang, bei denen respektive ein Heliumkern, Elektron oder Positron ausgesandt werden und sich Ladung- bzw. Nukleonenzahl ändern.
@@ -126,7 +126,7 @@
 
 	\begin{equation}
 		\label{eq_alphazerfall}
-		 _{Z}^{A}\text{X} \rightarrow _{Z-2}^{A-4}\text{Y} + _{2}^{4}\text{He} \Delta E
+		 _{Z}^{A}\text{X} \rightarrow _{Z-2}^{A-4}\text{Y} + _{2}^{4}\text{He} +\Delta E
 	\end{equation}
 
 	Beim $\beta$-Zerfall trennt man in:
@@ -134,10 +134,10 @@
 	\begin{align}
 		\label{eq_beta-minus}
 		\beta^-: \quad & _{Z}^{A}\text{X} \rightarrow _{Z+1}^{A}\text{Y} + \text{e}^- + \bar{\nu_{\text{e}}}\\
-		\beta^+: \quad & _{Z}^{A}\text{X} \rightarrow _{Z-1}^{A}\text{X} + \text{e}^+ + \nu_{\text{e}}
+		\beta^+: \quad & _{Z}^{A}\text{X} \rightarrow _{Z-1}^{A}\text{Y} + \text{e}^+ + \nu_{\text{e}}
 	\end{align}
 
-	Beim Elektroneneinfang findet aufgrund der Überlagerung der Wellenfunktionen von Hüllenelektronen und Kern im Kern die folgende Umwandlung statt:
+	Beim Elektroneneinfang findet aufgrund der Überlagerung der Wellenfunktionen von Hüllenelektronen und Nukleonen im Kern die folgende Umwandlung statt:
 	\begin{equation}
 		\label{eq_elec_cap}
 		\text{e}^- + \text{p} \rightarrow \text{n} + \nu_{\text{e}}
@@ -179,7 +179,7 @@
 	% Vernachlässigung der Bindungsenergie `bei Photoeffekt möglich?
 	% Abhängigkeit von Wirkungsquerschnitt von Energie für Photoeffekt?
 	% warum sind da Stufen im Wirkungsquerschnitt?
-	Beim Photoeffekt trifft ein $\gamma$-Photon seine Energie an ein Hüllenelektron im Detektor ab und wird dabei absorbiert.
+	Beim Photoeffekt gibt ein $\gamma$-Photon seine Energie an ein Hüllenelektron im Detektor ab und wird dabei absorbiert.
 	Das Hüllenelektron wird aus der Atomhülle gelöst, wofür Energie des Photons aufgewendet wird, und bewegt sich dann mit der Restenergie als kinetischer Energie durch die Materie.
 	Die Energie der $\gamma$-Strahlung ($\ge \SI{100}{keV}$) ist dabei so deutlich größer als die Ionisierungsenergie (Größenordnung von wenigen \si{}{eV}), dass angenommen werden kann, dass alle Energie der $\gamma$-Strahlung in kinetische Energie umgesetzt wird.
 	Für den Wirkungsquerschnitt gilt nach \cite{queensu}:
@@ -252,11 +252,12 @@
 		\begin{figure}[H]
 				\includegraphics[width= 0.75 \linewidth]{charts/Spektrumschema}
 				\caption{
-					Schematische Darstellung des zu erwartenden Gammaspektrums.
+					Schematische Darstellung des Compton- (durchgezogen) und Rückstreu-Effekts (gestrichelt).
 					\cite{Anleitung}
 				}
 				\label{fig_Gammaspektrum}
 		\end{figure}
+
 
 	\subsection{Gamma-Detektoren}
 
@@ -279,24 +280,24 @@
 	Für diese Art der Detektion muss der Halbleiter extrem rein sein, da sonst durch Verunreinigungen Blindströme entstehen, die die Messung mit Rauschen überlagern können.
 	Alternativ kann ein p-n-Übergang verwendet werden, der in Sperrrichtung gepolt ist.
 	Durch das Feld in der Raumladungszone werden die Paare getrennt, bevor sie an Fehlstellen rekombinieren können.
-	Um die Raumladungszone zu verbreitern, wird zwischen p- und n-dotierte Schicht eine Schicht instrinsischen Halbleiters gebracht.
+	Um die Raumladungszone zu verbreitern, wird zwischen p- und n-dotierte Schicht eine Schicht intrinsischen Halbleiters gebracht.
 	Dies nennt man pin-Diode.
 	Ein solcher Detektor wird mit Stickstoff gekühlt, um das Rauschen zu reduzieren, da die Fermi-Energie der Elektronen mit der Temperatur steigt und bei höheren Temperaturen durch die Fermi-Dirak-Statistik der besetzten Zustände Elektronen ins Leitungsband angeregt werden können.
 	Solche Elektronen können Rauschen verursachen.
 	Bei geringen Temperaturen wird die Zustandsbesetzung aber schärfer und solche Effekte minimiert.
 
-	\subsubsection{Szintallationsdetektor} % (von woanders klaubar)
+	\subsubsection{Szintillationsdetektor} % (von woanders klaubar)
 	% welche gibt es, was sind die Unterschiede?
 	% warum dotiert?
 
-	% Auswahlkriterien für Szintallator für Gamma-Spektroskopie
+	% Auswahlkriterien für Szintillator für Gamma-Spektroskopie
 	Ein Szintillator ist ein Detektor, der einfallende Strahlung in eine einfacher messbare elektromagnetische Strahlung umwandelt.
 	Bei anorganischen Halbleiter-Szintillatoren wird durch die einfallende Strahlung ein Elektron aus den Valenzband in das Leitungsband angeregt und lässt im Valenzband ein Loch zurück.
 	Wenn das Elektron an einer Störstelle mit dem Loch rekombiniert, kann dies durch die an der Störstelle modifizierten Bandstruktur schrittweise geschehen, weshalb Strahlung einer geringeren, leichter detektierbaren Wellenlänge frei wird.
 	Um solche Störstellen hervorzurufen, kann das Material dotiert werden.
-	Bei organischen Szintallatoren werden stattdessen Anregungen in Molekülen ausgenutzt, die bei der Abregung Photonen anderer Energien freiwerden lassen.
+	Bei organischen Szintillatoren werden stattdessen Anregungen in Molekülen ausgenutzt, die bei der Abregung Photonen anderer Energien freiwerden lassen.
 
-	Bei der Auswahl eines Szintallators sind folgende Punkte wichtig:
+	Bei der Auswahl eines Szintillators sind folgende Punkte wichtig:
 
 	\begin{enumerate}
 		\item Transparenz für erzeugtes Licht
@@ -324,7 +325,30 @@
 			\label{fig_Photomultiplier}
 	\end{figure}
 
+	\subsection{Energieauflösung und mittlere Ionisationsenergie}
+	Die Energieauflösung ist
+	\begin{equation}
+		\Delta E = \frac{\sigma(E)}{E},
+	\end{equation}
+	wobei $\sigma$ die Standardunsicherheit und $E$ die Position eines Peaks ist.
 
+	Außerdem setzt sich die Energie aus der Ereignisanzahl und der mittleren Ionisationsenergie zusammen
+	\begin{equation}
+		\label{eq_eni}
+		E=N I
+	\end{equation}
+	und
+	\begin{align}
+		\frac{\sigma(E)}{E} &= \frac{\sigma(N) I}{N I}= \frac{\sigma(N)}{N} \\
+		&= \frac{\sqrt{N}}{N} = \frac{1}{\sqrt{N}}.
+	\end{align}
+	Es wurde verwendet das die Standardunsicherheit $\sigma(E)=\sigma(N)I$ ist, da $I$ als im Mittel konstant angenommen wird und da man von einer Poissonverteilung ausgehen kann ist $\sigma(N)=\sqrt{N}$.
+	Somit folgt $N = \left(\frac{E}{\sigma}\right)^2$.
+	Woraus sich mit \cref{eq_eni}
+	\begin{equation}
+		I = \frac{\sigma^2}{E}
+	\end{equation}
+	ergibt.
 
 	\section{Methoden}
 	% Bilder von der Website klauen
@@ -335,17 +359,17 @@
 	% Erzprobe
 % Photomultiplier? Was braucht man da sonst noch?->Lichtleiter, Vorverstärker.
 
-	Es wird ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und  ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)) verwendet, um $\gamma$-Spetren verschiedener Quellen zu messen.
-	Die verwendeten Proben sind: $^22$Na, $^137$Cs, $^57$Co, eine aus vielen Isotopen gemischte Probe und eine Probe aus einem unbekannten Erz.
+	Es wird ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintillationsdetektor und  ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)) verwendet, um $\gamma$-Spektren verschiedener Quellen zu messen.
+	Die verwendeten Proben sind: $^{22}$Na, $^{137}$Cs, $^{60}$Co, eine aus vielen Isotopen gemischte Probe und eine Probe aus einem unbekannten Erz.
 
 	Der Szintillationsdetektor wird mit Stickstoff gekühlt.
-	Der Szintillator ist möglichst verlustfrei mit dem Photomultiplier verbunden (ähnliche Brechungsinizes von Szintillator, Kleber und Eingangsfenster des Photomultipliers).
+	Der Szintillator ist möglichst verlustfrei mit dem Photomultiplier verbunden (ähnliche Brechungsindizes von Szintillator, Kleber und Eingangsfenster des Photomultipliers).
 	Damit das Signal über Koaxialkabel übertragen werden kann, wird es bei beiden Detektoren vorverstärkt.
 	Dann wird es im Hauptverstärker verstärkt und über einen Multichannel Analyzer in Energiekanälen gesammelt und digitalisiert.
-	Die Verstärkung wird jeweils so gewählt, dass die zur Verfügung stehenden Kanäle möglichst vollständig ausgenutzt werden und alle Peaks sichtbar sind.
-	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibierung anhand einer Probe möglich ist.
+	Die Verstärkung wird jeweils so gewählt, dass die zur Verfügung stehenden Kanäle möglichst vollständig ausgenutzt werden und alle relevanten Peaks sichtbar sind.
+	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibrierung anhand einer Probe möglich ist.
 
-	Es wird je nach Aktivität der Probe etwa \SIrange{10}{30}{\minute} gemessen.
+	Es wird je nach Aktivität der Probe etwa \SIrange{10}{60}{\minute} gemessen.
 	Die Probe wird außerdem je nach Probe in unterschiedlichem Abstand zum Detektor positioniert, wobei die Signalrate ausreichend gering gehalten wird, sodass die Totzeit unter \SI{15}{\percent} liegt und die Signalrate für die Proben etwa gleich ist.
 
 	\subsection{Kalibrierung}
@@ -423,7 +447,7 @@
 \begin{table}[H]
 		\centering
 		\begin{tabular}{c | c | c  }
-			 Detektor& $m$ in \si{kev}& $b$ in \si{keV} \\ \hline
+			 Detektor& $m$ in \si{keV}& $b$ in \si{keV} \\ \hline
 			 NaI & \SI{0.188+-0.015}{} & \SI{-30+-60}{} \\
 			 Ge & \SI{0.1728+-0.0006}{} & \SI{1.3+-2.3}{} \\
 		\end{tabular}
@@ -450,14 +474,15 @@ In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für
 Die horizontalen Linien, die sich im höher energetischen Bereich ergeben, entstehen durch die logarithmischen Darstellung.
 
 %TODO In der Theorie?
-Die Comptonkante berechnet sich aus dem Literaturwert $E_\gamma$ für einen Full-Energy-Peak:
+Die Comptonkante berechnet sich aus dem Literaturwert $E_\gamma$ für einen Full-Energy-Peak ($\varphi=\SI{180}{\degree}$ in \cref{eq_compton_energie}):
 \begin{equation}
 	E_C = E_\gamma - \frac{E_\gamma }{1+2E_\gamma/m_ec^2}
 \end{equation}
-Die Rückstreukante ist analog:
+Die Rückstreukante lässt sich analog mit:
 \begin{equation}
 	E_R =  \frac{E_\gamma}{1+2E_\gamma/m_ec^2}
 \end{equation}
+bestimmen.
 Die Literaturwert stammen aus \cref{tb_lit_peaks}.
 	Die Zusammensetzung der Mischprobe ist nicht bekannt, jedoch lassen sich die Peaks ziemlich genau Kernübergängen zuordnen.
 	Anhand derer Literaturwerte lassen sich somit auch Compton- und Rückstreukante berechnen.
