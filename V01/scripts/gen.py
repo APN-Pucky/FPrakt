@@ -335,7 +335,7 @@ for name in names:
                 pos = unc.ufloat(unv(ppdata[peakids[i]-1][-2]), unp.sqrt(usd(ppdata[peakids[i]-1][-2])**2+unv(pppdata[peakids[i]-1][-1]*2/2.4)**2))
                 err = unp.sqrt(usd(ppdata[peakids[i]-1][-2])**2+(pppdata[peakids[i]-1][-1]*2/2.4)**2)
                 sigma = unp.sqrt((pppdata[peakids[i]-1][-1]*2/2.4)**2)
-                area = unp.sqrt((pppdata[peakids[i]-1][-5]*2/2.4)**2)
+                area = unp.sqrt((pppdata[peakids[i]-1][-5])**2)
                 print("lel3",area)
                 col.append((nnname,pos,err,sigma,area))
                 plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s keV'%(pos),linewidth='1')
@@ -563,7 +563,9 @@ for (a,b,z,q,arr) in col:
         ax1.errorbar(unv(b),unv(eq),yerr=usd(eq),fmt='x',capsize=5,color=color)
     if(a.endswith("Na")):
         ax2.errorbar(unv(b),unv(eq),yerr=usd(eq),fmt='o',capsize=5,color=color)
-        print(eq)
+        print("q ",  q)
+        print("b ",b)
+        print("eq ", eq)
 
 ax1.errorbar([],[],[],color='blue',label="Na",capsize=5)
 ax1.errorbar([],[],[],color='red',label="Cs",capsize=5)

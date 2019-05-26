@@ -141,7 +141,7 @@
 	\end{equation}
 
 	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{charts/Zerfallsschemata}
+			\includegraphics[width= 0.8 \linewidth]{charts/Zerfallsschematarot}
 			\caption{
 				Zerfallsschemata der relevanten Zerfälle. %TODO
 				\cite{Anleitung}
@@ -377,17 +377,31 @@ In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für
 Die horizontalen Linien, die sich im höher energetischen Bereich ergeben, entstehen durch die logarithmischen Darstellung.
 
 %TODO In der Theorie?
-Die Comptonkante berechnet sich aus dem Literaturwert:
+Die Comptonkante berechnet sich aus dem Literaturwert $E_\gamma$ für einen Full-Energy-Peak:
 \begin{equation}
-	E_c = E_\gamma - \frac{E_\gamma }{1+2E_\gamma/m_ec^2}
+	E_C = E_\gamma - \frac{E_\gamma }{1+2E_\gamma/m_ec^2}
 \end{equation}
 Die Rückstreukante ist analog:
 \begin{equation}
-	E_c =  \frac{E_\gamma}{1+E_\gamma/m_ec^2}
+	E_R =  \frac{E_\gamma}{1+2E_\gamma/m_ec^2}
 \end{equation}
-Die Literaturwert stammen aus \cite{Anleitung}.
+Die Literaturwert stammen aus \cref{tb_lit_peaks}.
+	Die Zusammensetzung der Mischprobe ist nicht bekannt, jedoch lassen sich die Peaks ziemlich genau Kernübergängen zuordnen.
+	Anhand derer Literaturwerte lassen sich somit auch Compton- und Rückstreukante berechnen.
 Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei gekennzeichnet (aus \cite{XRAYDB}).
 
+\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c | c | c}
+			 Isotop& $^{60}$Co & $^{137}$Cs& $^{22}$Na & $^{241}$Am & $^{109}$Cd \\ \hline
+			 $E_\gamma$ in \si{keV} & \SI{1332}{}&\SI{662}{}& \SI{1274}{} &\SI{60}{}&\SI{88}{} \\
+			 & \SI{1173}{} &&\SI{511}{}& \\
+		\end{tabular}
+		\caption{
+		Literaturwerte für Full-Energy-Peaks.\cite{Anleitung}
+		}
+		\label{tb_lit_peaks}
+\end{table}
 
 %TODO caption ? Unsicherheit?
 \begin{figure}[H]
@@ -447,8 +461,8 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 				Ge-Detektor.
 			}
 		\end{subfigure}
-		\caption{$^{57}$Co-Probe}
-		\label{fg_Na}
+		\caption{$^{60}$Co-Probe}
+		\label{fg_Co}
 	\end{figure}
 
 \begin{figure}[H]
@@ -469,19 +483,20 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 			}
 		\label{fg_Mix_Ge}
 		\end{subfigure}
-		\caption{Misch-Probe}
+		\caption{Mischprobe}
 		\label{fg_Mix}
 	\end{figure}
+	%TODO Diskuss Anzahl Peaks verschieden => NA ist schlechter vong auflösung.
 
 
 \subsection{Nichtlinearität des Detektors}
-Die Nichtlinearität des Detektors kann gezeigt werden, indem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
+Die Nichtlinearität des Detektors kann ermittelt werden, indem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
 Also
 \begin{equation}
 	\delta(E_r) = 1- \frac{E_m}{E_r}
 \end{equation}
 Diese Differenz wurde  in \cref{fg_diff_na} und \cref{fg_diff_ge} für NaI- und Ge-Detektor dargestellt.
-$E_r$ ist Literaturwert (aus \cref{fig_zerfallsschemata}) für die Peakposition und $E_m$ ist der gemessenen Wert.
+$E_r$ ist Literaturwert (aus \cref{tb_lit_peaks}) für die Peakposition und $E_m$ ist der gemessenen Wert.
 
 %TODO log plot hier von?
 %TODO no errors hier?
@@ -530,7 +545,7 @@ $E_r$ ist Literaturwert (aus \cref{fig_zerfallsschemata}) für die Peakposition 
 		\label{fg_diff_ge}
 	\end{figure}
 \subsection{Energieauflösung}
-Die Energieauflösung $\Delta E$ lässt sich aus der Standardabweichung $\sigma$ und der Position $E$ eines Peaks berechnen.
+Die Energieauflösung $\Delta E$ lässt sich aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
 Die Formel hierfür ist:
 \begin{equation}
 	\Delta E = \frac{\sigma}{E}
@@ -555,6 +570,7 @@ Die Formel hierfür ist:
 	I = \frac{\sigma^2}{E}
 \end{equation}
 Die Unsicherheiten für $\sigma$ ergeben sich aus der Multiplikation mit der Steigung $m$ aus der Kalibrationsgeradengleichung (\ref{eq_trans}).
+In \cref{fg_ionisation} ist $I$ für beide Detektoren gegen $E$ aufgetragen.
 
 
 	\begin{figure}[H]
@@ -591,7 +607,7 @@ Als Normierung wurde für beide Detektoren der Full-Energy-Peak bei \SI{662}{keV
 	%TODO Diskuss: grund für hohe NaI-Wert: Auflösung zuschlecht für die zwei peaks die Ge da hat, stackt sich dann.
 \subsection{Erzprobe}
 	In \cref{fg_erz} ist das Spektrum der Erzprobe abgebildet.
-	In unterschiedlichen Farben sind passende Peaks der vier natürlichen Zerfallsreihen markiert.
+	In unterschiedlichen Farben sind die am deutlichsten passenden Peaks der vier natürlichen Zerfallsreihen markiert.
 	Im \nameref{s_anhang} sind in \crefrange{fg_erz_np}{fg_erz_u_ra} die Zerfallsreihen separat markiert.
 	Hierbei wurde nach Augemaß schwarz für ein passenden Peak, rot für ein verschobenen oder schwachen Peak, und blau für keine Korrelation verwendet.
 	Die Literaturwerte für die Energien $E_\gamma$ stammen aus \cite{erze1} und \cite{erze2}.
