@@ -100,7 +100,10 @@
 	In diesem Versuch sollen Messungen mit zwei verschiedene Detektoren für Gamma-Strahlung durchgeführt werden.
 	Auf Basis dieser Messungen werden dann qualitative Vergleiche der Detektortypen durchgeführt.
 	Verwendet wird einerseits ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und andererseits ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)).
-
+	Die gemessenen Spektren werden mit Literaturwerten verglichen und erklärt.
+	Außerdem werden Nichtlinearitäten, Energieauflösung, mittlere Ionisationsenergie und relative Effizienz der Detektoren bestimmt und verglichen.
+	Der Vergleich der beiden Detektoren zeigt, dass in den untersuchten Parametern im Allgemeinen der Halbleiterdetektor besser abschneidet.
+	Zuletzt wird eine unbekannte Erzprobe untersucht und kann der Uran-Radium-Reihe zugeordnet werden.
 
   \section{Theorie}
 	% wdh. Texte
@@ -240,16 +243,16 @@
 	%TODO Spektren vorhersagen: 22Na, 60Co, 137Cs
 
 		In \cref{fig_Gammaspektrum} ist ein idealisiertes Gammaspektrum dargestellt.
-		Die Peaks entstehen durch die Zerstrahlung des Positroniums.
-		Wenn beide entstandenen \SI{511}{keV}-Photonen nachgewiesen werden, schlägt sich dies im Full Energy Peak nieder. %TODO da steht, Photoeffekt wäre auch full energy peak???
-		Der Nachweis von nur einem Photon sorgt für den Single Escaoe Peak und das Entweichen beider Photonen zum Double Escape Peak.
+		Wenn das Photon im Spektrum Paarbildung verursacht und beide Photonen, die beim Zerfall des Positroniums entstehen, gemessen werden, bildet sich dies im so genannten Full Energy Peak ab, der bei der Energie des ursprünglichen $\gamma$-Photons liegt.
+		Wenn jedoch eins oder beide der Photonen aus dem Positronium den Detektor verlassen, ohne nachgewiesen zu werden, misst man eine um \SI{511}{keV} bzw. \SI{1022}{keV} verringerte Energie.
 		Der kontinuierliche Untergrund ergibt sich durch den Comptoneffekt, wobei die maximale Energie durch die Comptonkante bezeichnet wird.
 		Dazu tritt der Backscatteruntergrund, der durch Comptoneffekte außerhalb des Absorbers entsteht, bei denen die gestreuten Photonen dann im Detektor nachgewiesen werden.
+		Der Photoeffekt führt zur Messung der Photolinie, die dem Full Energy Peak entspricht.
 
 		\begin{figure}[H]
 				\includegraphics[width= 0.75 \linewidth]{charts/Spektrumschema}
 				\caption{
-					Schematische Darstellung des Compton-Effekts.
+					Schematische Darstellung des zu erwartenden Gammaspektrums.
 					\cite{Anleitung}
 				}
 				\label{fig_Gammaspektrum}
@@ -346,12 +349,16 @@
 	Die Probe wird außerdem je nach Probe in unterschiedlichem Abstand zum Detektor positioniert, wobei die Signalrate ausreichend gering gehalten wird, sodass die Totzeit unter \SI{15}{\percent} liegt und die Signalrate für die Proben etwa gleich ist.
 
 	\subsection{Kalibrierung}
-	%TODO Warum Na-22 zur Kalibrierung?
+	% Warum Na-22 zur Kalibrierung?
 	%TODO wie beeinflusst die Kalibrierunsicherheit die späteren Messungen?
 	%TODO Was bestimmt Peakbreite?
 	%TODO Warum misst man die Breite?->Zusammenhang zu
 	%TODO Definition FWHM, Sigma
 	%TODO kann man hier Kalibrierunsicherheit vernachlässigen?
+
+	Es wird $^{22}$Na zur Kalibrierung verwendet, da hier beim Beta-Plus-Zerfall Positronen frei werden, die die Bildung von Positronium und die Entstehung von Photonen bei \SI{511}{keV} verursachen.
+	Gleichzeitig entstehen, wie in\cref{fig_zerfallsschemata} zu erkennen ist, Photonen bei \SI{1274}{MeV}.
+	Diese beiden Energien liegen recht weit auseinander und ergeben so gut Peaks, um anhand ihnen die Kanalzahl in eine Energie zu übersetzen.
 
 	Die Peakbreite ergibt sich aus der verwendeten Elektronik und der Unsicherheit des Detektors, wobei angenommen werden kann, dass letztere dominiert.
 	Man kann die Peakbreite verwenden, um das Auflösungsvermögen der Detektoren zu bestimmen.
@@ -431,6 +438,12 @@ Damit lässt sich ein Kanal $c$ nach \cref{eq_trans} in die Energie $E$ transfor
 	\label{eq_trans}
 	E = m\cdot c + b
 \end{equation}
+
+\subsubsection{Diskussion}
+
+Wie bereits in \cref{fg_Na_ch} zu erkennen ist, misst der Ge-Detektor deutlich schmalere Peaks, hat also eine bessere Auflösung.
+Dies spiegelt sich auch in einer größeren Unsicherheit im Kalibrationsparameter des NaI-Detektors wieder.
+Die y-Achsenabschnitte der Kalibrierungsgeraden haben alle die Null im Fehlerintervall, weshalb hier kein Widerspruch zur erwarteten näherungsweisen Linearität des Szintillators (bzw. Halbleiterdetektor) gesehen werden kann.
 
 \subsection{Peaks und Kanten}
 In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für jeden der Detektoren dargestellt.
@@ -548,6 +561,26 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 	\end{figure}
 	%TODO Diskuss Anzahl Peaks verschieden => NA ist schlechter vong auflösung.
 
+\subsection{Diskussion}
+
+Bei der Betrachtung von \cref{fg_Na} sieht man, dass neben den Peaks anhand denen kalibriert wurde, beim NaI-Detektor auch ein Peak im Bereich der Röntgenfluoreszenz von Blei gemessen wurde.
+Dieser ist im Spektrum des Ge-Detektors nicht zusehen, da hier keine Blei-Abschirmung vorhanden war.
+Die Compton-Kanten und Rückstreu-Compton-Kanten sind in beiden Spektren zu erkennen (man beachte die logarithmische Skalierung, die den Abfall weniger drastisch aussehen lässt).
+
+Auch in \cref{fg_Cs} lassen sich die Compton- und Rückstreukanten sowie der Peak durch Abregung bei \SI{662}{keV} (vgl. \cref{fig_zerfallsschemata}) erkennen.
+Hier ist der Peak durch Röntgenfluoreszenz im Blei beim NaI-Detektor deutlich geringer ausgeprägt, da große Teile der Bleiabschirmung für diese Messung entfernt wurden.
+
+In \cref{fg_Co} sieht man die gemäß \cref{fig_zerfallsschemata} erwarteten Full Energy Peaks bei \SI{1173}{keV} und \SI{1332}{keV} sowie die jeweiligen Compton- und Rückstreukanten.
+Hier ist beim NaI-Detektor auch deutlich der Röntgenfluoreszenzpeak zu erkennen.
+
+Für die Mischprobe in \cref{fg_mix} lassen sich die vielen, in die Abbildung eingezeichneten, Peaks und Kanten erkennen.
+Anhand dessen konnten die in \cref{tb_lit_peaks} dargestellten Stoffe aus der Mischprobe zugeordnet werden.
+Es fällt allerdings auf, dass im beim Ge-Detektor zwei Peaks bei \SI{60.4\pm 2.4}{keV} und \SI{88.9\pm 2.4}{keV} auftreten, während im NaI-Detektor nur ein Peak bei \SI{40\pm 60}{keV} gemessen wurde.
+Hier ist zu vermuten, dass die einzelnen Peaks im schlechter aufgelösten NaI-Detektor zu einem einzelnen Peak verschmelzen.
+
+Double Escape Peak oder Single Escape Peak sind nirgendwo zu sehen.
+Dies bedeutet, dass die Paarbildung keinen großen Effekt im Spektrum ausmacht, da ansonsten aufgrund der hohen Reichweite der $\gamma$-Photonen in Materie einige der Photonen aus dem Detektor entkommen würden und man die verschobenen Peaks sehen würde.
+Dies deckt sich mit den Erwartungen gemäß \cref{fig_wirkunsquerschnitt_gamma}, da die gemessenen Energien unter dem Einsetzen der Paarbildung liegen.
 
 \subsection{Nichtlinearität des Detektors}
 Die Nichtlinearität des Detektors kann ermittelt werden, indem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
@@ -604,6 +637,14 @@ $E_r$ ist Literaturwert (aus \cref{tb_lit_peaks}) für die Peakposition und $E_m
 		}
 		\label{fg_diff_ge}
 	\end{figure}
+
+
+	\subsection{Diskussion}
+
+	Die relative Differenz ist bei Betrachtung der logarithmischen Darstellung in \cref{fg_diff_na} für den NaI-Detektor bei geringen Energien am höchsten und steigt auch für sehr hohe Energien leicht.
+	Beim Ge-Detektor in \cref{fg_diff_ge} ist dieser Zusammenhang ähnlich.
+	Dies zeigt, dass beide Detektoren nicht exakt linear Photonenenergie in Signalspannung und dann in Kanalnummer umsetzen.
+
 \subsection{Energieauflösung}
 Die Energieauflösung $\Delta E$ lässt sich aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
 Die Formel hierfür ist:
@@ -620,8 +661,14 @@ Die Unsicherheiten für $\sigma$ ergeben sich aus der Multiplikation mit der Ste
 			}
 			\label{fg_resolution}
 	\end{figure}
-%TODO Schon Diskussion?
+
+
+\subsection{Diskussion}
+
 Die große Unsicherheit des niederenergetischen NaI-Detektor Messpunkts ist der großen (relativen) Unsicherheit des ersten Peaks in der Mischprobe geschuldet (\cref{fg_Mix_Na}).
+Es lässt sich erkennen, dass die Energieauflösung für beide Detektoren zu hohen Energien hin abnimmt.
+Außerdem ist die Auflösung des NaI-Detektors immer höher, wie bereits zuvor anhand der großen Peakbreite angemerkt wurde, weshalb hier der Ge-Detektor zu bevorzugen ist.
+
 \subsection{Mittlere Ionisationsenergie}
 Die Mittlere Ionisationsenergie $I$ lässt sich ebenso aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
 Die Formel hierfür ist:
@@ -640,6 +687,11 @@ In \cref{fg_ionisation} ist $I$ für beide Detektoren gegen $E$ aufgetragen.
 			}
 			\label{fg_ionisation}
 	\end{figure}
+
+%\subsubsection{Diskussion}
+
+Die mittlere Ionisationsenergie des Ge-Detektors ist im Allgeimeinen deutlich geringer als die des NaI-Detektors. %TODO mehr weiß ich net.
+
 \subsection{Relative Effizienz}
 Die relative normierte Effizienz $\varepsilon$ lässt sich nach \cref{eq_rel_eff} berechnen.
 \begin{equation}
@@ -647,7 +699,7 @@ Die relative normierte Effizienz $\varepsilon$ lässt sich nach \cref{eq_rel_eff
 	\varepsilon = \frac{\frac{S}{P}}{\left|\frac{S}{P}\right|}_{\text{ref}}
 \end{equation}
 %TODO in Theorie: Full Energy Peak ETC.
-Wobei $S$ die Fläche eines Full-Energy-Peak ist und $P$ die Anzahl Photonen, welche im Messzeitraum $t$ durch diesen $\gamma$-Übergang ausgesendet werden.
+Wobei $S$ die Fläche eines Full-Energy-Peaks ist und $P$ die Anzahl Photonen, welche im Messzeitraum $t$ durch diesen $\gamma$-Übergang ausgesendet werden.
 Dieses Verhältnis wird auf einen Messpunkt $\left|\frac{S}{P}\right|_{\text{ref}}$ normiert.
 Die Anzahl Photonen ist das Produkt aus Messdauer $t$ und Aktivität $A$ des $\gamma$-Übergangs, $P=A\cdot t$.
 Die derzeitige ($t'$) Aktivitäten wurden aus einer vorherigen ($t_r$) Messung und bekannter Zerfallskonstante $\lambda$ berechnet.
@@ -664,51 +716,70 @@ Als Normierung wurde für beide Detektoren der Full-Energy-Peak bei \SI{662}{keV
 			}
 			\label{fg_eff}
 	\end{figure}
-	%TODO Diskuss: grund für hohe NaI-Wert: Auflösung zuschlecht für die zwei peaks die Ge da hat, stackt sich dann.
+	% Diskuss: grund für hohe NaI-Wert: Auflösung zuschlecht für die zwei peaks die Ge da hat, stackt sich dann.
+
+\subsubsection{Diskussion}
+
+In \cref{fg_eff} ist zu erkennen, dass für den NaI-Detektor die normierte relative Effizienz mit der Energie abnimmt, während für den Ge-Detektor kein Zusammenhang erkannt werden kann.
+Bis auf den ersten Messpunkt ist die Effizienz des Ge-Detektors aber gleich hoch oder höher.
+Der erste Messpunkt ist auf die Überlagerung von zwei Peaks infolge der schlechten Auflösung dieses Detektors zurückzuführen.
+Um möglichst viele Photonen nachzuweisen, ist mit dem verwendeten Aufbau der Ge-Detektor vorzuziehen.
+Faktisch hängt hier natürlich die Effizienz vorallem von der Raumgeometrie ab, weshalb hier ein direkter Vergleich nicht möglich ist.
+
 \subsection{Erzprobe}
 	In \cref{fg_erz} ist das Spektrum der Erzprobe abgebildet.
 	In unterschiedlichen Farben sind die am deutlichsten passenden Peaks der vier natürlichen Zerfallsreihen markiert.
 	Im \nameref{s_anhang} sind in \crefrange{fg_erz_np}{fg_erz_u_ra} die Zerfallsreihen separat markiert.
-	Hierbei wurde nach Augemaß schwarz für ein passenden Peak, rot für ein verschobenen oder schwachen Peak, und blau für keine Korrelation verwendet.
+	Hierbei wurde nach Augemaß Schwarz für einen passenden Peak, Rot für einen verschobenen oder schwachen Peak, und Blau für keine Korrelation verwendet.
 	Die Literaturwerte für die Energien $E_\gamma$ stammen aus \cite{erze1} und \cite{erze2}.
-	Es wurden direkt Peaks mit einer relativen Intensität kleiner \SI{5}{\percent} ausgeschlossen.
+	Es wurden direkt Peaks mit einer relativen Intensität kleiner als \SI{5}{\percent} ausgeschlossen.
 
 	\begin{figure}[H]
 			\includegraphics[width= 1 \linewidth]{img/erz_alles}
 			\caption{
-			Spektrum der Erzprobe. Einige passende $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
+			Spektrum der Erzprobe. Einige passende $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet. Verwendet wurde der Ge-Detektor.
 			}
 			\label{fg_erz}
 	\end{figure}
-	%TODO U-Ra passt am besten
 
-	\section{Diskussion}
+\subsubsection{Diskussion}
+
+	Besonders gut zu erkennen sind $^214$Pb und $^214$Bi.
+	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^238$U handelte. %TODO kann man das so sagen?
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-	%TODO Rückstreuungsminimierung durch Deckel abnehmen aber immernoch Luft/Decke/we
+	% Rückstreuungsminimierung durch Deckel abnehmen aber immernoch Luft/Decke/we
 
-	\subsection{Interpretation}
-	%TODO features of typical gamma spectrum
-	%TODO Vergleich Literaturwerte der gammalinien
-	%TODO Vergleich Literaturwerte der comptonkanten
-	%TODO zusätzliche Peaks zusehen?
-	%TODO welche der erwarteten Peaks in der Mischprobe?
-	%TODO welche Isotope in der unbekannten Probe? Zu welcher Zerfallsreihe gehören die.
+	%\subsection{Interpretation}
+	% features of typical gamma spectrum
+	% Vergleich Literaturwerte der gammalinien
+	% Vergleich Literaturwerte der comptonkanten
+	% zusätzliche Peaks zusehen?
+	% welche der erwarteten Peaks in der Mischprobe?
+	% welche Isotope in der unbekannten Probe? Zu welcher Zerfallsreihe gehören die.
 
-	\subsection{Vergleich der Detektoren}
-	%TODO Wie Energieunschärfe?
-	%TODO Zusammenhang Energieauflösung und mittlere Ionisationsenergie?
-	%TODO Abhängigkeit der beiden von Energie?
-	%TODO Definition der Effizienz? Wie misst man das?
-	%TODO Ist es möglich die Effizienzen zu vergleichen?->Raumgeometrie?
-	%TODO Wo sind die Detektoren ähnlich?
+	%\subsection{Vergleich der Detektoren}
+	% Wie Energieunschärfe?
+	% Zusammenhang Energieauflösung und mittlere Ionisationsenergie?
+	% Abhängigkeit der beiden von Energie?
+	% Definition der Effizienz? Wie misst man das?
+	% Ist es möglich die Effizienzen zu vergleichen?->Raumgeometrie?
+	% Wo sind die Detektoren ähnlich?
 
 
 	%TODO warum 511 nur bei NA?
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
-	Insgesamt gesehen lässt sich sagen, dass
+	Insgesamt gesehen lässt sich sagen, dass alle Messungen erfolgreich durchgeführt werden konnten und die in den Spektren gemessenen Peaks den Literaturwerten zugeordnet werden konnten.
+	Der Vergleich der beiden Detektoren erlaubt auch einige Aussagen bezüglich ihrer Güte zu treffen.
+	Bezüglich der Energieauflösung verhält sich der Ge-Detektor deutlich besser als der NaI-Detektor, sorgt also für deutlich schärfere Peaks.
+	Die Nichtlinearität der beiden Detektoren ist für den größten Teil des Spektrums etwa gleich.
+	Die Nichtlinearität des Ge-Detektors ist jedoch im Allgemeinen etwas geringer.
+	In Bezug auf die relative Effizienz lässt sich aufgrund mangelnder vergleichbarer Versuchsbedingungen keine vergleichende Aussage möglich.
+	Hierfür müsste ein Versuch durchgeführt werden, bei dem beide Absorber den gleichen Raumwinkel in gleichem Abstand von der Probe einnehmen.
+
+	Die Erzprobe konnte einer Zerfallsreihe zugeordnet werden.
 	%TODO Ergibnis Spektren-Aussehen
 	%TODO Ergebnis Vergleich detektroen
 	%TODO Ergebnis unbektannte Probe
