@@ -129,32 +129,37 @@
 	Die Fits verwenden die Methode der kleinsten Quadrate, außer wenn anders angegeben.
 	Die Unsicherheit der gemessenen Ereignisse $N$ ist durch $\sqrt{N}$ gemäß Poisson-Verteilung gegeben.
 	\subsubsection{Modell}
-	Die aufgenommenen Spektrum der $^{22}$Na-Probe sind in \cref{fg_NaNa_ch} sowie \cref{fg_NaGe_ch} abgebildet.
+	Die aufgenommenen Spektren der $^{22}$Na-Probe sind in \cref{fg_Na_ch} abgebildet.
 	Es wurde bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung ein physikalischen Modells des Spektrums im Randbereich unmöglich machen. %TODO schönerer Satz wäre schöner
 	Das Modell wurde in \enquote{Fityk} aus Gaußkurven zusammengesetzt.
 	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[c]{\textwidth}
+			\centering
 			\includegraphics[width= 1 \linewidth]{img/NaNaCh.pdf}
-			\caption{
-				NaJ-Detektor. $^{22}$Na-Probe
+			\subcaption{
+				NaI-Detektor.
 			}
-			\label{fg_NaNa_ch}
+		\end{subfigure}
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/NaGeCh.pdf}
+			\subcaption{
+				Ge-Detektor.
+			}
+		\end{subfigure}
+		\caption{$^{22}$Na-Probe}
+		\label{fg_Na_ch}
 	\end{figure}
 
-	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{img/NaGeCh.pdf}
-			\caption{
-				Ge-Detektor. $^{22}$Na-Probe
-			}
-			\label{fg_NaGe_ch}
-	\end{figure}
 
 	\subsubsection{Kalibration}
-  Mittels der Literaturwerte der Peaks der $^{22}$Na-Probe (\SI{511}{keV} und \SI{1274}{keV}) lassen sich die Kanäle umrechnen zu einer Energieskala.  %TODO erläutert in Theorie?
+  Mittels der Literaturwerte der Peaks der $^{22}$Na-Probe (\SI{511}{keV} und \SI{1274}{keV} \cite{Anleitung}) lassen sich die Kanäle umrechnen zu einer Energieskala.  %TODO erläutert in Theorie?
 	In \cref{fg_kali_mix} sind in blau(gelb) die zwei Kalibrationspunkte für den NaJ-Detektor(Ge-Detektor) abgebildet.
-	Die Unsicherheit des Kanals ist durch die Standardunsicherheit der Gaußkurve in \cref{fg_NaNa_ch}(\cref{fg_NaGe_ch}) gegeben.
+	Die Unsicherheit des Kanals ist durch die Standardunsicherheit der Gaußkurve in \cref{fg_Na_ch} gegeben.
 
 	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{img/kali_mix.pdf}
+			\includegraphics[width= 0.8 \linewidth]{img/kali_mix.pdf}
 			\caption{
 				Kalibrationsgeraden $f(x)=mx+b$.
 				$m$ ist die Steigung der Gerade in \si{keV}.
@@ -170,8 +175,8 @@
 		\centering
 		\begin{tabular}{c | c | c  }
 			 Detektor& $m$ in \si{kev}& $b$ in \si{keV} \\ \hline
-			 NaJ & \SI{0.188+-0.007}{} & \SI{-27+-31}{} \\
-			 Ge & \SI{0.1728+-0.0003}{} & \SI{0.8+-1.2}{} \\
+			 NaI & \SI{0.188+-0.015}{} & \SI{-30+-60}{} \\
+			 Ge & \SI{0.1728+-0.0006}{} & \SI{1.3+-2.3}{} \\
 		\end{tabular}
 		\caption{
 		Gemittelte Kalibrationsparameter für NaJ- und Ge-Detektor.
@@ -184,12 +189,171 @@ Damit lässt sich ein Kanal $c$ nach \cref{eq_trans} in die Energie $E$ transfor
 	\label{eq_trans}
 	E = m\cdot c + b
 \end{equation}
+
+\subsection{Peaks und Kanten}
+In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für jeden der Detektoren dargestellt.
+Die horizontalen Linien die sich im höher energetischen Bereich ergeben entstehen durch die logarithmischen Darstellung.
+
+%TODO In der Theorie?
+Die Comptonkante berechnet sich aus dem Literaturwert:
+\begin{equation}
+	E_c = E_\gamma - \frac{E_\gamma }{1+2E_\gamma/m_ec^2}
+\end{equation}
+Die Rückstreukante ist analog:
+\begin{equation}
+	E_c =  \frac{E_\gamma}{1+E_\gamma/m_ec^2}
+\end{equation}
+Die Literaturwert stammen aus \cite{Anleitung}.
+Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei gekennzeichnet (aus \cite{XRAYDB}).
+
+
+%TODO caption ? Unsicherheit?
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/NaNa.pdf}
+			\subcaption{
+				NaI-Detektor.
+			}
+		\end{subfigure}
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/NaGe.pdf}
+			\subcaption{
+				Ge-Detektor.
+			}
+		\end{subfigure}
+		\caption{$^{22}$Na-Probe}
+		\label{fg_Na}
+	\end{figure}
+
+
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/CsNa.pdf}
+			\subcaption{
+				NaI-Detektor.
+			}
+		\end{subfigure}
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/CsGe.pdf}
+			\subcaption{
+				Ge-Detektor.
+			}
+		\end{subfigure}
+		\caption{$^{137}$Cs-Probe}
+		\label{fg_Cs}
+	\end{figure}
+
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/CoNa.pdf}
+			\subcaption{
+				NaI-Detektor.
+			}
+		\end{subfigure}
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/CoGe.pdf}
+			\subcaption{
+				Ge-Detektor.
+			}
+		\end{subfigure}
+		\caption{$^{57}$Co-Probe}
+		\label{fg_Na}
+	\end{figure}
+
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/MixNa.pdf}
+			\subcaption{
+				NaI-Detektor.
+			}
+		\end{subfigure}
+		\begin{subfigure}[c]{\textwidth}
+			\centering
+			\includegraphics[width= 1 \linewidth]{img/MixGe.pdf}
+			\subcaption{
+				Ge-Detektor.
+			}
+		\end{subfigure}
+		\caption{Misch-Probe}
+		\label{fg_Mix}
+	\end{figure}
+
+
+\subsection{Erzprobe}
+\subsection{Nichtlinearität des Detektors}
+Die Nichtlinearität des Detektors kann gezeigt werden, in dem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
+Also
+\begin{equation}
+	\delta(E_r) = 1- \frac{E_m}{E_r}
+\end{equation}
+Diese wurde  in \cref{fg_diff_na} und \cref{fg_diff_ge} für NaI- und Ge-Detektor dargestellt.
+$E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
+
+%TODO log plot hier von?
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{0.8\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{img/diff_na.pdf}
+			\subcaption{
+				relative Differenz.
+			}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.8\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/diff_na_log.pdf}
+			\subcaption{
+				Betrag der relativen Differenz in logarithmischer Darstellung.
+			}
+		\end{subfigure}
+		\caption{Nichtlinearität des NaI-Detektors.
+		Die Unsicherheiten sind nicht abgebildet, da ein Abbilden dieser ein Unterscheiden der Werte unmöglich macht.
+		Der Wert Null für die relative Differenz liegt immer im Unsicherheitsintervall.
+		}
+		\label{fg_diff_na}
+	\end{figure}
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{0.8\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{img/diff_ge.pdf}
+			\subcaption{
+				relative Differenz.
+			}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.8\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{img/diff_ge_log.pdf}
+			\subcaption{
+				Betrag der relativen Differenz in logarithmischer Darstellung.
+			}
+		\end{subfigure}
+		\caption{Nichtlinearität des Ge-Detektors.
+		Die Unsicherheiten sind nicht abgebildet, da ein Abbilden dieser ein Unterscheiden der Werte unmöglich macht.
+		Der Wert Null für die relative Differenz liegt immer im Unsicherheitsintervall.
+		}
+		\label{fg_diff_ge}
+	\end{figure}
+\subsection{Energieauflösung und mittlere Ionisationsenergie}
+\subsection{Relative Effizienz}
 	\subsection{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	%TODO Rückstreuungsminimierung durch Deckel abnehmen aber immernoch Luft/Decke/we
 
+	%TODO warum 511 nur bei NA?
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
 
