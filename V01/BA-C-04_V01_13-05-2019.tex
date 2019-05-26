@@ -249,11 +249,12 @@
 		\begin{figure}[H]
 				\includegraphics[width= 0.75 \linewidth]{charts/Spektrumschema}
 				\caption{
-					Schematische Darstellung des Compton-Effekts.
+					Schematische Darstellung des Compton (durchgezogen) und Rückstreu-Effekts (gestrichelt).
 					\cite{Anleitung}
 				}
 				\label{fig_Gammaspektrum}
 		\end{figure}
+
 
 	\subsection{Gamma-Detektoren}
 
@@ -276,24 +277,24 @@
 	Für diese Art der Detektion muss der Halbleiter extrem rein sein, da sonst durch Verunreinigungen Blindströme entstehen, die die Messung mit Rauschen überlagern können.
 	Alternativ kann ein p-n-Übergang verwendet werden, der in Sperrrichtung gepolt ist.
 	Durch das Feld in der Raumladungszone werden die Paare getrennt, bevor sie an Fehlstellen rekombinieren können.
-	Um die Raumladungszone zu verbreitern, wird zwischen p- und n-dotierte Schicht eine Schicht instrinsischen Halbleiters gebracht.
+	Um die Raumladungszone zu verbreitern, wird zwischen p- und n-dotierte Schicht eine Schicht intrinsischen Halbleiters gebracht.
 	Dies nennt man pin-Diode.
 	Ein solcher Detektor wird mit Stickstoff gekühlt, um das Rauschen zu reduzieren, da die Fermi-Energie der Elektronen mit der Temperatur steigt und bei höheren Temperaturen durch die Fermi-Dirak-Statistik der besetzten Zustände Elektronen ins Leitungsband angeregt werden können.
 	Solche Elektronen können Rauschen verursachen.
 	Bei geringen Temperaturen wird die Zustandsbesetzung aber schärfer und solche Effekte minimiert.
 
-	\subsubsection{Szintallationsdetektor} % (von woanders klaubar)
+	\subsubsection{Szintillationsdetektor} % (von woanders klaubar)
 	% welche gibt es, was sind die Unterschiede?
 	% warum dotiert?
 
-	% Auswahlkriterien für Szintallator für Gamma-Spektroskopie
+	% Auswahlkriterien für Szintillator für Gamma-Spektroskopie
 	Ein Szintillator ist ein Detektor, der einfallende Strahlung in eine einfacher messbare elektromagnetische Strahlung umwandelt.
 	Bei anorganischen Halbleiter-Szintillatoren wird durch die einfallende Strahlung ein Elektron aus den Valenzband in das Leitungsband angeregt und lässt im Valenzband ein Loch zurück.
 	Wenn das Elektron an einer Störstelle mit dem Loch rekombiniert, kann dies durch die an der Störstelle modifizierten Bandstruktur schrittweise geschehen, weshalb Strahlung einer geringeren, leichter detektierbaren Wellenlänge frei wird.
 	Um solche Störstellen hervorzurufen, kann das Material dotiert werden.
-	Bei organischen Szintallatoren werden stattdessen Anregungen in Molekülen ausgenutzt, die bei der Abregung Photonen anderer Energien freiwerden lassen.
+	Bei organischen Szintillatoren werden stattdessen Anregungen in Molekülen ausgenutzt, die bei der Abregung Photonen anderer Energien freiwerden lassen.
 
-	Bei der Auswahl eines Szintallators sind folgende Punkte wichtig:
+	Bei der Auswahl eines Szintillators sind folgende Punkte wichtig:
 
 	\begin{enumerate}
 		\item Transparenz für erzeugtes Licht
@@ -332,17 +333,17 @@
 	% Erzprobe
 % Photomultiplier? Was braucht man da sonst noch?->Lichtleiter, Vorverstärker.
 
-	Es wird ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und  ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)) verwendet, um $\gamma$-Spetren verschiedener Quellen zu messen.
-	Die verwendeten Proben sind: $^22$Na, $^137$Cs, $^57$Co, eine aus vielen Isotopen gemischte Probe und eine Probe aus einem unbekannten Erz.
+	Es wird ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintillationsdetektor und  ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)) verwendet, um $\gamma$-Spektren verschiedener Quellen zu messen.
+	Die verwendeten Proben sind: $^{22}$Na, $^{137}$Cs, $^{60}$Co, eine aus vielen Isotopen gemischte Probe und eine Probe aus einem unbekannten Erz.
 
 	Der Szintillationsdetektor wird mit Stickstoff gekühlt.
-	Der Szintillator ist möglichst verlustfrei mit dem Photomultiplier verbunden (ähnliche Brechungsinizes von Szintillator, Kleber und Eingangsfenster des Photomultipliers).
+	Der Szintillator ist möglichst verlustfrei mit dem Photomultiplier verbunden (ähnliche Brechungsindizes von Szintillator, Kleber und Eingangsfenster des Photomultipliers).
 	Damit das Signal über Koaxialkabel übertragen werden kann, wird es bei beiden Detektoren vorverstärkt.
 	Dann wird es im Hauptverstärker verstärkt und über einen Multichannel Analyzer in Energiekanälen gesammelt und digitalisiert.
-	Die Verstärkung wird jeweils so gewählt, dass die zur Verfügung stehenden Kanäle möglichst vollständig ausgenutzt werden und alle Peaks sichtbar sind.
-	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibierung anhand einer Probe möglich ist.
+	Die Verstärkung wird jeweils so gewählt, dass die zur Verfügung stehenden Kanäle möglichst vollständig ausgenutzt werden und alle relevanten Peaks sichtbar sind.
+	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibrierung anhand einer Probe möglich ist.
 
-	Es wird je nach Aktivität der Probe etwa \SIrange{10}{30}{\minute} gemessen.
+	Es wird je nach Aktivität der Probe etwa \SIrange{10}{60}{\minute} gemessen.
 	Die Probe wird außerdem je nach Probe in unterschiedlichem Abstand zum Detektor positioniert, wobei die Signalrate ausreichend gering gehalten wird, sodass die Totzeit unter \SI{15}{\percent} liegt und die Signalrate für die Proben etwa gleich ist.
 
 	\subsection{Kalibrierung}
@@ -416,7 +417,7 @@
 \begin{table}[H]
 		\centering
 		\begin{tabular}{c | c | c  }
-			 Detektor& $m$ in \si{kev}& $b$ in \si{keV} \\ \hline
+			 Detektor& $m$ in \si{keV}& $b$ in \si{keV} \\ \hline
 			 NaI & \SI{0.188+-0.015}{} & \SI{-30+-60}{} \\
 			 Ge & \SI{0.1728+-0.0006}{} & \SI{1.3+-2.3}{} \\
 		\end{tabular}
