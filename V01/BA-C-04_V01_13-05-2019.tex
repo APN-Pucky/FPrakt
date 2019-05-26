@@ -106,9 +106,39 @@
 	% wdh. Texte
 	% wdh. Besprechung
 
-	%TODO Gamma-Entstehung: Was ist das, wie entsteht das
-	%TODO Welche Zerfälle gibt es
-	%TODO Was braucht man für Gammazerfall? Halt Zerfall in angeregtes Niveau
+	% Gamma-Entstehung: Was ist das, wie entsteht das
+	% Welche Zerfälle gibt es
+	% Was braucht man für Gammazerfall? Halt Zerfall in angeregtes Niveau
+	\subsection{$\gamma$-Strahlung}
+	$\gamma$-Strahlung ist elektrische Strahlung, die sich entweder über den Energiebereich oder durch die Entstehungsart definieren lässt.
+	Energetisch liegt die $\gamma$-Strahlung in der Regel über der Röntgenstrahlung, also etwa ab \SI{100}{keV}.
+	Sie entsteht dadurch, dass nach radioaktiven Zerfällen anderer Art der Kern in einem angeregten Zustand vorliegt, der dann durch Aussenden von elektromagnetischer Strahlung ($\gamma$-Strahlung) in den Grundzustand übergeht.
+	Die Zerfallsschemata einiger der in diesem Versuch verwendeten Proben sind in \cref{fig_zerfallsschemata} dargestellt.
+	Es findet wie beschreieben jeweils ein $\beta$-Zerfall (bzw. Elektroneneinfang) in ein angeregtes Niveau statt.
+	Das angeregte Niveau geht dann entweder direkt oder über Zwischenniveaus in den Grundzustand über und $\gamma$-Strahlung wird frei.
+
+	Neben dem $\gamma$-Zerfall gibt es $\alpha$-, $\beta$-Zerfall und Elektroneneinfang, bei denen respektive ein Heliumkern, Elektron oder Positron ausgesandt werden und sich Ladung- bzw. Nukleonenzahl ändern.
+
+	Die folgende Reaktionsgleichung entspricht dem $\alpha$-Zerfall:
+
+	\begin{equation}
+		\label{eq_alphazerfall}
+		 _{Z}^{A}\text{X} \rightarrow _{Z-2}^{A-4}\text{Y} + _{2}^{4}\text{He} \Delta E
+	\end{equation}
+
+	Beim $\beta$-Zerfall trennt man in:
+
+	\begin{align}
+		\label{eq_beta-minus}
+		\beta^-: \quad & _{Z}^{A}\text{X} \rightarrow _{Z+1}^{A}\text{Y} + \text{e}^- + \bar{\nu_{\text{e}}}\\
+		\beta^+: \quad & _{Z}^{A}\text{X} \rightarrow _{Z-1}^{A}\text{X} + \text{e}^+ + \nu_{\text{e}}
+	\end{align}
+
+	Beim Elektroneneinfang findet aufgrund der Überlagerung der Wellenfunktionen von Hüllenelektronen und Kern im Kern die folgende Umwandlung statt:
+	\begin{equation}
+		\label{eq_elec_cap}
+		\text{e}^- + \text{p} \rightarrow \text{n} + \nu_{\text{e}}
+	\end{equation}
 
 	\begin{figure}[H]
 			\includegraphics[width= 1 \linewidth]{charts/Zerfallsschemata}
@@ -120,33 +150,110 @@
 	\end{figure}
 
 	\subsection{Wechselwirkung mit Materie}
-	%TODO was ist die Schwierigkeit
+	% was ist die Schwierigkeit
 	%TODO Comptonedge-Gedöns siehe der link?
 
-	%TODO Abhängigkeit von Wirkungsquerschnitt von Energie? andere Faktoren?
+	Die Detektion von $\gamma$-Strahlung ist dadurch gegenüber der Detektion von Strahlung aus anderen Zerfällen erschwert, als dass sie keine Ladung besitzt.
+	Wenn man zusätzlich zum reinen Nachweis der Strahlung noch Information über Zeitpunkt des Auftreffens auf den Detektor, Intensität und Energie erhalten möchte, muss man sich mit der Wechselwirkung der Strahlung mit Materie auseinandersetzen und auf Basis dessen einen Detektor konstruieren.
+
+	Da $\gamma$-Strahlung im Allgemeinen geringe Wechselwirkung mit Materie zeigt, muss für eine zielführende Messrate ein Stoff mit hoher Dichte (ein Festkörper) verwendet werden.
+
+	\begin{figure}[H]
+			\includegraphics[width= 1 \linewidth]{charts/interaktion}
+			\caption{
+				Wirkungsquerschnitt von Photonen in Materie in Abhängigkeit von der Energie aufgeteilt in Compton-Effekt, photoelektrischen Effekt und Paarbildung sowie der Gesamtwirkungsquerschnitt.
+				\cite{atomkraft}
+			}
+			\label{fig_wirkunsquerschnitt_gamma}
+	\end{figure}
+
+	In \cref{fig_wirkunsquerschnitt_gamma} ist der Wirkungsquerschnitt von Photonen in Materie durch die verschiedenen Effekte dargestellt.
+	Außerdem steigt die Wechselwirkungwahrscheinlichkeit mit der Ladungszahl der Materie, durch die sich das Photon bewegt.
+
+	% Abhängigkeit von Wirkungsquerschnitt von Energie? andere Faktoren?
 
 	\subsubsection{Photoeffekt}
-	%TODO Vernachlässigung der Bindungsenergie `bei Photoeffekt möglich?
-	%TODO Abhängigkeit von Wirkungsquerschnitt von Energie für Photoeffekt?
-	%TODO warum sind da Stufen im Wirkungsquerschnitt?
+	% Vernachlässigung der Bindungsenergie `bei Photoeffekt möglich?
+	% Abhängigkeit von Wirkungsquerschnitt von Energie für Photoeffekt?
+	% warum sind da Stufen im Wirkungsquerschnitt?
+	Beim Photoeffekt trifft ein $\gamma$-Photon seine Energie an ein Hüllenelektron im Detektor ab und wird dabei absorbiert.
+	Das Hüllenelektron wird aus der Atomhülle gelöst, wofür Energie des Photons aufgewendet wird, und bewegt sich dann mit der Restenergie als kinetischer Energie durch die Materie.
+	Die Energie der $\gamma$-Strahlung ($\ge \SI{100}{keV}$) ist dabei so deutlich größer als die Ionisierungsenergie (Größenordnung von wenigen \si{}{eV}), dass angenommen werden kann, dass alle Energie der $\gamma$-Strahlung in kinetische Energie umgesetzt wird.
+	Für den Wirkungsquerschnitt gilt nach \cite{queensu}:
+
+	\begin{equation}
+		\label{eq_photo_wirk}
+		\sigma \propto Z^5 E_\gamma^{-\frac{7}{2}}
+	\end{equation}
+
+	Außerdem hängt der Wirkungsquerschnitt in der $\gamma$-Energie von den Ionisationskanten ab, sodass eine Stufenform entsteht, da der Wirkungsquerschnitt ansteigt, wann immer die Ionisationsenergie einer weiteren Schale erreicht wird.
 
 	\subsubsection{Comptoneffekt}
-	%TODO warum Compton kontinuierlich?
+
+	Beim Comptoneffekt streut ein $\gamma$-Photon mit einem freien (oder quasi-freien) Elektron.
+	Dabei ändern sich Energie und Bewegungsrichtung des Photons, da Energie auf das Elektron übertragen wird und eine Ablenkung stattfindet.
+	Dies ist in \cref{fig_Compton} dargestellt.
+	Der Energieübertrag auf das Elektron beträgt:
+	\begin{equation}
+		\label{eq_compton_energie}
+		E_\text{e} = E_\gamma \left[ 1 - \frac{1}{1+(E_\gamma /M_\text{e} c^2)(1-\cos \varphi)} \right]
+	\end{equation}
+
+	Das Spektrum ist kontinuierlich, da in Abhängigkeit von der Geometrie des Stoßes ein beliebiger Anteil der Energie des Photons (bis zu einer Maximalenergie) an das Elektron übertragen werden kann.
 	%TODO warum U-förmig?
 
-	\subsubsection{Paarbildung}
-	%TODO waas ist für Paarbildung ötig?
-	%TODO Sekundäreffekte bei Paarbildung?
+	\begin{figure}[H]
+			\includegraphics[width= 0.5 \linewidth]{charts/Comptonstreuung}
+			\caption{
+				Schematische Darstellung des Compton-Effekts.
+				\cite{comptonwiki}
+			}
+			\label{fig_Compton}
+	\end{figure}
 
-	%TODO Positronium-Gedöns: Vorraussetzungen
-	%TODO Vergleich zu Wasserstoff
-	%TODO Warum ist Zerfall in zwei am wahrscheinlichsten?
+	\subsubsection{Paarbildung}
+	% waas ist für Paarbildung ötig?
+	% Sekundäreffekte bei Paarbildung?
+	In Wechselwirkung mit einem Atom (oder anderen Teilchen) kann ein $\gamma$-Photon die Entstehung eines Elektron-Positron-Paares hervorrufen.
+	Dafür muss es mindestens die Ruheenergie des Teilchenpaares (\SI{1022}{keV}) besitzen.
+	Das Photon wird dabei vernichtet und die überschüssige Energie geht in kinetische Energie der Reaktionsprodukte über.
+
+	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe unter Aussendung von Bremsstrahlung abgebremst.
+	Wenn es ausreichend stark abgebremst ist, kann es mit einem Elektron in der Probe das instabile Positronium bilden.
+	Beim Positronium unterscheidet man je nach Spinausrichtung von Positron und Elektron in Parapositronium ($S=0$) und Orthopositronium ($S=1$).
+	Aufgrund von Spin- und Impulserhaltung zerfällt Orthopositronium in eine ungerade Anzahl Photonen, die mindestens \num{3} beträgt.
+	Aus analogen Gründen zerfällt Parapositronium in eine gerade Anzahl Photonen, aber mindestens \num{2}.
+	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen voraussetzt, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
+	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist.
+	Deswegen kann man sich in den folgenden Betrachtungen im Wesentlichen auf den Zerfall von Parapositronium in zwei Photonen mit einer Energie von \SI{511}{keV} beschränken.
+
+	Positronium unterscheidet sich von Wasserstoff (ohne Neutron) dadurch, dass sich nicht ein Elektron im Coulombfeld des deutlich schwereren Protons befindet, sondern sich gleichschweres Positron und Elektron im gegenseitigen Einfluss befinden.
+	Auch beim Wasserstoff unterscheidet man in Ortho- und Parawasserstoff.
+	% Positronium-Gedöns: Vorraussetzungen
+	% Vergleich zu Wasserstoff
+	% Warum ist Zerfall in zwei am wahrscheinlichsten?
 
 	\subsection{Gamma-Spektrum}
-	%TODO Welche Einflüsse?
+	% Welche Einflüsse?
 	%TODO Was passiert bei Zerfällen mit mehreren Gamma-Linien?
 	%TODO welche anderen Effekte kann man sehen?
 	%TODO Spektren vorhersagen: 22Na, 60Co, 137Cs
+
+		In \cref{fig_Gammaspektrum} ist ein idealisiertes Gammaspektrum dargestellt.
+		Die Peaks entstehen durch die Zerstrahlung des Positroniums.
+		Wenn beide entstandenen \SI{511}{keV}-Photonen nachgewiesen werden, schlägt sich dies im Full Energy Peak nieder. %TODO da steht, Photoeffekt wäre auch full energy peak???
+		Der Nachweis von nur einem Photon sorgt für den Single Escaoe Peak und das Entweichen beider Photonen zum Double Escape Peak.
+		Der kontinuierliche Untergrund ergibt sich durch den Comptoneffekt, wobei die maximale Energie durch die Comptonkante bezeichnet wird.
+		Dazu tritt der Backscatteruntergrund, der durch Comptoneffekte außerhalb des Absorbers entsteht, bei denen die gestreuten Photonen dann im Detektor nachgewiesen werden.
+
+		\begin{figure}[H]
+				\includegraphics[width= 0.75 \linewidth]{charts/Spektrumschema}
+				\caption{
+					Schematische Darstellung des Compton-Effekts.
+					\cite{Anleitung}
+				}
+				\label{fig_Gammaspektrum}
+		\end{figure}
 
 	\subsection{Gamma-Detektoren}
 
@@ -158,6 +265,15 @@
 	%TODO Was braucht man sonst noch?
 	%TODO Warum Schicht undotierte Schicht?-> breitere RLZ
 	%TODO Unterschiede Szintallator und Halbleiter
+
+	Der Übergang zwischen p- und n-dotiertem Halbleiter wird als pn-Übergang bezeichnet.
+	Durch die überschüssigen bzw. fehlenden Elektronen im Gitter und den folgenden Ladungsfluss, bei dem Elektronen und Löcher rekombinieren, entsteht im pn_Übergang eine Raumladungszone.
+	Diese ist räumlich begrenzt, da der Rekombination das Coulombfeld der verschobenen Ladungen gegenübersteht.
+
+	Wenn ein Photon auf das Halbleitermaterial trifft, entsteht ein Elektron-Loch-Paar.
+	Elektron und Loch können sich durch den Halbleiter bewegen und, wenn sie sich treffen, rekombinieren.
+	Wenn sie jedoch durch das elektrische Feld der Raumladungszone (das durch eine äußere Hochspannung vergrößert wird) getrennt und nachgewiesen werden.
+
 
 	\subsubsection{Szintallationsdetektor} % (von woanders klaubar)
 	%TODO welche gibt es, was sind die Unterschiede?
