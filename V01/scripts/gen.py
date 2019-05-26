@@ -1,5 +1,5 @@
 # Importanweisungen
-
+import matplotlib.patches as mpatches
 import numpy as np
 import statistics as stat
 import scipy as sci
@@ -312,7 +312,7 @@ for name in names:
     else:
         frame1=fig.add_axes((.1,.3,.8,.5))
     #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=2,label='Druck')
-    plt.plot(unv(xdata), unv(ydata), '.',label='Messung',linewidth='1')
+    plt.plot(unv(xdata), unv(ydata), '.',label='Messung',marker=".",markersize="2")
     plt.plot(unv(xback), unv(yback), label='Untergrund',linewidth='1')
     plt.plot(unv(xmodel), unv(ymodel), label='Modell',linewidth='1')
 
@@ -386,7 +386,7 @@ for name in names:
     plt.ylabel('Ereignisse')
     ## Residual
     frame2=fig.add_axes((.1,.1,.8,.2))
-    plt.plot(unv(xdata), unv(residual), '.',linewidth='1')
+    plt.plot(unv(xdata), unv(residual), '.',marker=".",markersize="2")
 
     plt.ylabel('Gewichtete Residuen')
     plt.grid()
@@ -669,5 +669,102 @@ ax1.tick_params(labelsize=fig_labelsize)
 
 ax1.set_xlabel('Energie in keV')
 plt.savefig("V01/img/eff.pdf")
+plt.show()
+
+# %% Erz
+
+data = np.loadtxt("V01/fit/ErzGe.xy", skiprows = 0, delimiter = " ")
+erzE = kali_ge(data[:,0])
+erzY = data[:,1]
+reihen = ["U-Ra", "U-Ac", "Th", "Np"]
+reihe = {}
+for n in reihen:
+    print("Reihe: ", n)
+    data = np.loadtxt("V01/lit/gammas_%s.csv" % n, skiprows = 1, delimiter=",", dtype={'names': ('Eg', 'Ig', 'decay', 'halflife', 'unit', 'parent'), 'formats': ('f4', 'f4', 'S4', 'f4', 'S2', 'S8')})
+    reihe[n] = data
+print(len(reihe["U-Ra"]))
+found5 = {}
+for n in reihen:
+    found5[n] = list(filter(lambda x : x[1]>5, reihe[n]))
+mask = {} # 0: no way, 1: bissl verschoben, 2: kleiner peak, 3: passt genau
+mask["U-Ra"] = [0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,2,2]
+mask["U-Ac"] = [2,0,3,0,0,2,0,0,2,2,0,2,2,0,3]
+mask["Th"] = [0,3,2,0,0,3,0,0,0,0,3,0,0,3,0,2,2,2,0,0]
+print(found5["Th"])
+mask["Np"] = [0,0,2,3,0,0,0,0,2,0,0]
+percent = 5.
+c = ['C3', 'C1', 'C3', 'C7']
+print(c)
+for r, i in zip(reihen, range(4)):
+    print("Reihe: ", r, len(found5[r]), len(mask[r]))
+    fig=plt.figure(figsize=fig_size)
+    ax = plt.gca()
+
+    #erzX, erzY = erz
+    #erzE = energyHalb(erzX)
+
+    for (Eg, Ig, decay, time, unit, parent), m, t in zip(found5[r], mask[r], range(len(found5[r]))):
+        #if m >= 2:
+            #found[r].append((Eg, Ig, decay, time, unit, parent))
+            #print("found: ", Eg, Ig, parent)
+        coll="blue"
+        if m>=1:
+            coll="orange"
+        if m>=2:
+            coll = "red"
+        if m >=3:
+            coll="black"
+        plt.plot([Eg,Eg], [linestart, lineend], linewidth=1, ls="-.", color=coll,label="%s keV %s" % (Eg, str(parent)[3:-2]))
+            #if Eg <= 1200:
+             #   plt.annotate(xy = (Eg,1+t), s=t)
+    #plot original data
+    plt.plot(unv(erzE), unv(erzY), label="Messpunkte", ls=" ",marker=".",markersize="2")
+
+    plt.grid()
+    plt.xlabel("Energie in $keV$")
+    plt.ylabel("Ereignisse")
+    plt.xlim(unv(erzE[0]),unv(erzE[-1]))
+    #plt.xlim(600, 700)
+    #plt.ylim(unv(max(min(activeY),1)), unv(3*max(max(activeY),1)))
+    #plt.legend(bbox_to_anchor=(0.68,0.87), loc="upper right", bbox_transform=fig.transFigure, prop={'size':fig_legendsize})
+
+    plt.legend(prop={'size':fig_legendsize})
+    plt.tick_params(labelsize=fig_labelsize)
+    ax.set_yscale('log')
+    plt.savefig("V01/img/erz_%s.pdf" % r)
+    plt.show()
+
+# %% Wombokombo
+
+c = ['C3', 'C1', 'C8', 'C5']
+fig=plt.figure(figsize=fig_size)
+ax = plt.gca()
+
+
+patches = []
+gammas = []
+
+for r, i in zip(reihen, range(4)):
+    patches.append(mpatches.Patch(color=c[i], label='%s Reihe' % r))
+    for (Eg, Ig, decay, time, unit, parent),m in zip(found5[r],mask[r]):
+        if m >= 3:
+            #print("found: ", Eg, Ig, parent)
+            gammas.append((Eg, Ig, decay, time, unit, parent))
+            plt.plot([Eg,Eg], [linestart,lineend], linewidth=1, ls="-.",color=c[i])
+
+#plot original data
+plt.plot(unv(erzE), unv(erzY), label="Messpunkte", ls=" ",marker=".",markersize="3")
+
+plt.grid()
+plt.xlabel("Energie in $keV$")
+plt.ylabel("Ereignisse")
+plt.xlim(unv(erzE[0]),unv(erzE[-1]))
+#plt.xlim(600, 700)
+#plt.ylim(unv(max(min(activeY),1)), unv(3*max(max(activeY),1)))
+#plt.legend(bbox_to_anchor=(0.68,0.87), loc="upper right", bbox_transform=fig.transFigure, prop={'size':fig_legendsize})
+plt.legend(handles=patches, prop={'size':fig_legendsize},loc=8)
+plt.tick_params(labelsize=fig_labelsize)
+ax.set_yscale('log')
+plt.savefig("V01/img/erz_alles.pdf")
 plt.show()
 #end
