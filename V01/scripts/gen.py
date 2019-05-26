@@ -383,6 +383,7 @@ for name in names:
            ncol=3, mode="expand", borderaxespad=0.)
     #plt.legend(prop={'size':fig_legendsize})
     plt.grid()
+    plt.tick_params(labelsize=fig_labelsize+2)
     plt.ylabel('Ereignisse')
     ## Residual
     frame2=fig.add_axes((.1,.1,.8,.2))
@@ -411,18 +412,18 @@ for (a,b,z,q,arr) in col:
     if(a.endswith("Na")):
         #plt.errorbar(unv(l),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
         if(a.startswith("Na")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='blue')
+            plt.plot(unv(lit[l]),unv(r),'o',color='blue')
         if(a.startswith("Cs")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='red')
+            plt.plot(unv(lit[l]),unv(r),'o',color='red')
         if(a.startswith("Co")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='orange')
+            plt.plot(unv(lit[l]),unv(r),'o',color='orange')
         if(a.startswith("Mix")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='purple')
+            plt.plot(unv(lit[l]),unv(r),'o',color='purple')
 
-plt.plot([],[],'x',color='blue',label="Na")
-plt.plot([],[],'x',color='red',label="Cs")
-plt.plot([],[],'x',color='orange',label="Co")
-plt.plot([],[],'x',color='purple',label="Misch")
+plt.plot([],[],'o',color='blue',label="Na")
+plt.plot([],[],'o',color='red',label="Cs")
+plt.plot([],[],'o',color='orange',label="Co")
+plt.plot([],[],'o',color='purple',label="Misch")
 #plt.gca().set_yscale('log');
 #plt.gca().set_xscale('log');
 plt.legend(prop={'size':fig_legendsize})
@@ -444,18 +445,18 @@ for (a,b,z,q,arr) in col:
     if(a.endswith("Ge")):
         #plt.errorbar(unv(l),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
         if(a.startswith("Na")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='blue')
+            plt.plot(unv(lit[l]),unv(r),'o',color='blue')
         if(a.startswith("Cs")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='red')
+            plt.plot(unv(lit[l]),unv(r),'o',color='red')
         if(a.startswith("Co")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='orange')
+            plt.plot(unv(lit[l]),unv(r),'o',color='orange')
         if(a.startswith("Mix")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='purple')
+            plt.plot(unv(lit[l]),unv(r),'o',color='purple')
 
-plt.plot([],[],'x',color='blue',label="Na")
-plt.plot([],[],'x',color='red',label="Cs")
-plt.plot([],[],'x',color='orange',label="Co")
-plt.plot([],[],'x',color='purple',label="Misch")
+plt.plot([],[],'o',color='blue',label="Na")
+plt.plot([],[],'o',color='red',label="Cs")
+plt.plot([],[],'o',color='orange',label="Co")
+plt.plot([],[],'o',color='purple',label="Misch")
 #plt.gca().set_yscale('log');
 #plt.gca().set_xscale('log');
 plt.legend(prop={'size':fig_legendsize})
@@ -481,18 +482,18 @@ for (a,b,z,q,arr) in col:
     if(a.endswith("Na")):
         #plt.errorbar(unv(l),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
         if(a.startswith("Na")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='blue')
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='blue',capsize=5)
         if(a.startswith("Cs")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='red')
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='red',capsize=5)
         if(a.startswith("Co")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='orange')
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='orange',capsize=5)
         if(a.startswith("Mix")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='purple')
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='purple',capsize=5)
 
-plt.plot([],[],'x',color='blue',label="Na")
-plt.plot([],[],'x',color='red',label="Cs")
-plt.plot([],[],'x',color='orange',label="Co")
-plt.plot([],[],'x',color='purple',label="Misch")
+plt.plot([],[],'o',color='blue',label="Na")
+plt.plot([],[],'o',color='red',label="Cs")
+plt.plot([],[],'o',color='orange',label="Co")
+plt.plot([],[],'o',color='purple',label="Misch")
 plt.gca().set_yscale('log');
 #plt.gca().set_xscale('log');
 plt.legend(prop={'size':fig_legendsize})
@@ -513,19 +514,20 @@ for (a,b,z,q,arr) in col:
     print("r ", r)
     if(a.endswith("Ge")):
         #plt.errorbar(unv(lit[l]),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
-        if(a.startswith("Na")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='blue')
-        if(a.startswith("Cs")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='red')
-        if(a.startswith("Co")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='orange')
-        if(a.startswith("Mix")):
-            plt.plot(unv(lit[l]),unv(r),'x',color='purple')
 
-plt.plot([],[],'x',color='blue',label="Na")
-plt.plot([],[],'x',color='red',label="Cs")
-plt.plot([],[],'x',color='orange',label="Co")
-plt.plot([],[],'x',color='purple',label="Misch")
+        if(a.startswith("Na")):
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='blue',capsize=5)
+        if(a.startswith("Cs")):
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='red',capsize=5)
+        if(a.startswith("Co")):
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='orange',capsize=5)
+        if(a.startswith("Mix")):
+            plt.errorbar(unv(lit[l]),unv(r),usd(r),fmt='o',color='purple',capsize=5)
+
+plt.plot([],[],'o',color='blue',label="Na")
+plt.plot([],[],'o',color='red',label="Cs")
+plt.plot([],[],'o',color='orange',label="Co")
+plt.plot([],[],'o',color='purple',label="Misch")
 plt.gca().set_yscale('log');
 #plt.gca().set_xscale('log');
 plt.legend(prop={'size':fig_legendsize})
