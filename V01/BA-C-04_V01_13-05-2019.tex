@@ -381,7 +381,7 @@
 	%TODO kann man hier Kalibrierunsicherheit vernachlässigen?
 
 	Es wird $^{22}$Na zur Kalibrierung verwendet, da hier beim Beta-Plus-Zerfall Positronen frei werden, die die Bildung von Positronium und die Entstehung von Photonen bei \SI{511}{keV} verursachen.
-	Gleichzeitig entstehen, wie in\cref{fig_zerfallsschemata} zu erkennen ist, Photonen bei \SI{1274}{MeV}.
+	Gleichzeitig entstehen, wie in \cref{fig_zerfallsschemata} zu erkennen ist, Photonen bei \SI{1274}{MeV}.
 	Diese beiden Energien liegen recht weit auseinander und ergeben so gut Peaks, um anhand ihnen die Kanalzahl in eine Energie zu übersetzen.
 
 	Die Peakbreite ergibt sich aus der verwendeten Elektronik und der Unsicherheit des Detektors, wobei angenommen werden kann, dass letztere dominiert.
@@ -392,16 +392,16 @@
 	%TODO Unsicherheiten
 
 
-	\subsection{Beobachtung und Datenanalyse}
+	%\subsection{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
 
-	\subsubsection{Unsicherheiten}
+	\subsection{Unsicherheiten}
 	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
 	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
 	Die Fits verwenden die Methode der kleinsten Quadrate, außer wenn anders angegeben.
 	Die Unsicherheit der gemessenen Ereignisse $N$ ist durch $\sqrt{N}$ gemäß Poisson-Verteilung gegeben.
-	\subsubsection{Modell}
+	\subsection{Modell}
 	Die aufgenommenen Spektren der $^{22}$Na-Probe sind in \cref{fg_Na_ch} abgebildet.
 	Es wurden bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung ein physikalischen Modells des Spektrums im Randbereich unmöglich machen. %TODO schönerer Satz wäre schöner
 	Das Modell wurde in \enquote{Fityk} aus Gaußkurven zusammengesetzt.
@@ -426,7 +426,8 @@
 	\end{figure}
 
 
-	\subsubsection{Kalibration}
+	\subsection{Kalibration}
+	\subsubsection{Datenanalyse}
   Mittels der Literaturwerte der Peaks der $^{22}$Na-Probe (\SI{511}{keV} und \SI{1274}{keV} \cite{Anleitung}) lassen sich die Kanäle umrechnen zu einer Energieskala.  %TODO erläutert in Theorie?
 	In \cref{fg_kali_mix} sind in blau (gelb) die zwei Kalibrationspunkte für den NaI-Detektor (Ge-Detektor) abgebildet.
 	Die Unsicherheit des Kanals ist durch die Standardunsicherheit der Gaußkurve in \cref{fg_Na_ch} gegeben.
@@ -470,6 +471,7 @@ Dies spiegelt sich auch in einer größeren Unsicherheit im Kalibrationsparamete
 Die y-Achsenabschnitte der Kalibrierungsgeraden haben alle die Null im Fehlerintervall, weshalb hier kein Widerspruch zur erwarteten näherungsweisen Linearität des Szintillators (bzw. Halbleiterdetektor) gesehen werden kann.
 
 \subsection{Peaks und Kanten}
+\subsubsection{Datenanalyse}
 In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für jeden der Detektoren dargestellt.
 Die horizontalen Linien, die sich im höher energetischen Bereich ergeben, entstehen durch die logarithmischen Darstellung.
 
@@ -586,7 +588,7 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 	\end{figure}
 	%TODO Diskuss Anzahl Peaks verschieden => NA ist schlechter vong auflösung.
 
-\subsection{Diskussion}
+\subsubsection{Diskussion}
 
 Bei der Betrachtung von \cref{fg_Na} sieht man, dass neben den Peaks anhand denen kalibriert wurde, beim NaI-Detektor auch ein Peak im Bereich der Röntgenfluoreszenz von Blei gemessen wurde.
 Dieser ist im Spektrum des Ge-Detektors nicht zusehen, da hier keine Blei-Abschirmung vorhanden war.
@@ -598,7 +600,7 @@ Hier ist der Peak durch Röntgenfluoreszenz im Blei beim NaI-Detektor deutlich g
 In \cref{fg_Co} sieht man die gemäß \cref{fig_zerfallsschemata} erwarteten Full Energy Peaks bei \SI{1173}{keV} und \SI{1332}{keV} sowie die jeweiligen Compton- und Rückstreukanten.
 Hier ist beim NaI-Detektor auch deutlich der Röntgenfluoreszenzpeak zu erkennen.
 
-Für die Mischprobe in \cref{fg_mix} lassen sich die vielen, in die Abbildung eingezeichneten, Peaks und Kanten erkennen.
+Für die Mischprobe in \cref{fg_Mix} lassen sich die vielen, in die Abbildung eingezeichneten, Peaks und Kanten erkennen.
 Anhand dessen konnten die in \cref{tb_lit_peaks} dargestellten Stoffe aus der Mischprobe zugeordnet werden.
 Es fällt allerdings auf, dass im beim Ge-Detektor zwei Peaks bei \SI{60.4\pm 2.4}{keV} und \SI{88.9\pm 2.4}{keV} auftreten, während im NaI-Detektor nur ein Peak bei \SI{40\pm 60}{keV} gemessen wurde.
 Hier ist zu vermuten, dass die einzelnen Peaks im schlechter aufgelösten NaI-Detektor zu einem einzelnen Peak verschmelzen.
@@ -608,6 +610,7 @@ Dies bedeutet, dass die Paarbildung keinen großen Effekt im Spektrum ausmacht, 
 Dies deckt sich mit den Erwartungen gemäß \cref{fig_wirkunsquerschnitt_gamma}, da die gemessenen Energien unter dem Einsetzen der Paarbildung liegen.
 
 \subsection{Nichtlinearität des Detektors}
+\subsubsection{Datenanalyse}
 Die Nichtlinearität des Detektors kann ermittelt werden, indem man die relative Differenz der gemessenen Peaks gegen den Referenzwert des Peaks aufträgt.
 Also
 \begin{equation}
@@ -664,13 +667,14 @@ $E_r$ ist Literaturwert (aus \cref{tb_lit_peaks}) für die Peakposition und $E_m
 	\end{figure}
 
 
-	\subsection{Diskussion}
+	\subsubsection{Diskussion}
 
 	Die relative Differenz ist bei Betrachtung der logarithmischen Darstellung in \cref{fg_diff_na} für den NaI-Detektor bei geringen Energien am höchsten und steigt auch für sehr hohe Energien leicht.
 	Beim Ge-Detektor in \cref{fg_diff_ge} ist dieser Zusammenhang ähnlich.
 	Dies zeigt, dass beide Detektoren nicht exakt linear Photonenenergie in Signalspannung und dann in Kanalnummer umsetzen.
 
 \subsection{Energieauflösung}
+\subsubsection{Datenanalyse}
 Die Energieauflösung $\Delta E$ lässt sich aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
 Die Formel hierfür ist:
 \begin{equation}
@@ -688,13 +692,14 @@ Die Unsicherheiten für $\sigma$ ergeben sich aus der Multiplikation mit der Ste
 	\end{figure}
 
 
-\subsection{Diskussion}
+\subsubsection{Diskussion}
 
 Die große Unsicherheit des niederenergetischen NaI-Detektor Messpunkts ist der großen (relativen) Unsicherheit des ersten Peaks in der Mischprobe geschuldet (\cref{fg_Mix_Na}).
 Es lässt sich erkennen, dass die Energieauflösung für beide Detektoren zu hohen Energien hin abnimmt.
 Außerdem ist die Auflösung des NaI-Detektors immer höher, wie bereits zuvor anhand der großen Peakbreite angemerkt wurde, weshalb hier der Ge-Detektor zu bevorzugen ist.
 
 \subsection{Mittlere Ionisationsenergie}
+\subsubsection{Datenanalyse}
 Die Mittlere Ionisationsenergie $I$ lässt sich ebenso aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
 Die Formel hierfür ist:
 %TODO Theo: explain calc
@@ -718,6 +723,7 @@ In \cref{fg_ionisation} ist $I$ für beide Detektoren gegen $E$ aufgetragen.
 Die mittlere Ionisationsenergie des Ge-Detektors ist im Allgeimeinen deutlich geringer als die des NaI-Detektors. %TODO mehr weiß ich net.
 
 \subsection{Relative Effizienz}
+\subsubsection{Datenanalyse}
 Die relative normierte Effizienz $\varepsilon$ lässt sich nach \cref{eq_rel_eff} berechnen.
 \begin{equation}
 	\label{eq_rel_eff}
@@ -752,6 +758,7 @@ Um möglichst viele Photonen nachzuweisen, ist mit dem verwendeten Aufbau der Ge
 Faktisch hängt hier natürlich die Effizienz vorallem von der Raumgeometrie ab, weshalb hier ein direkter Vergleich nicht möglich ist.
 
 \subsection{Erzprobe}
+\subsubsection{Datenanalyse}
 	In \cref{fg_erz} ist das Spektrum der Erzprobe abgebildet.
 	In unterschiedlichen Farben sind die am deutlichsten passenden Peaks der vier natürlichen Zerfallsreihen markiert.
 	Im \nameref{s_anhang} sind in \crefrange{fg_erz_np}{fg_erz_u_ra} die Zerfallsreihen separat markiert.
@@ -769,8 +776,8 @@ Faktisch hängt hier natürlich die Effizienz vorallem von der Raumgeometrie ab,
 
 \subsubsection{Diskussion}
 
-	Besonders gut zu erkennen sind $^214$Pb und $^214$Bi.
-	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^238$U handelte. %TODO kann man das so sagen?
+	Besonders gut zu erkennen sind $^{214}$Pb und $^{214}$Bi.
+	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^{238}$U handelte. %TODO kann man das so sagen?
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
