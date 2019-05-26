@@ -97,10 +97,18 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	In diesem Versuch sollen Messungen mit zwei verschiedene Detektoren für Gamma-Strahlung durchgeführt werden.
+	Auf Basis dieser Messungen werden dann qualitative Vergleiche der Detektortypen durchgeführt.
+	Verwendet wird einerseits ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und andererseits ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)).
+
 
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
+
+	%TODO Gamma-Entstehung: Was ist das, wie entsteht das
+	%TODO Welche Zerfälle gibt es
+	%TODO Was braucht man für Gammazerfall? Halt Zerfall in angeregtes Niveau
 
 	\begin{figure}[H]
 			\includegraphics[width= 1 \linewidth]{charts/Zerfallsschemata}
@@ -111,9 +119,67 @@
 			\label{fig_zerfallsschemata}
 	\end{figure}
 
+	\subsection{Wechselwirkung mit Materie}
+	%TODO was ist die Schwierigkeit
+	%TODO Comptonedge-Gedöns siehe der link?
+
+	%TODO Abhängigkeit von Wirkungsquerschnitt von Energie? andere Faktoren?
+
+	\subsubsection{Photoeffekt}
+	%TODO Vernachlässigung der Bindungsenergie `bei Photoeffekt möglich?
+	%TODO Abhängigkeit von Wirkungsquerschnitt von Energie für Photoeffekt?
+	%TODO warum sind da Stufen im Wirkungsquerschnitt?
+
+	\subsubsection{Comptoneffekt}
+	%TODO warum Compton kontinuierlich?
+	%TODO warum U-förmig?
+
+	\subsubsection{Paarbildung}
+	%TODO waas ist für Paarbildung ötig?
+	%TODO Sekundäreffekte bei Paarbildung?
+
+	%TODO Positronium-Gedöns: Vorraussetzungen
+	%TODO Vergleich zu Wasserstoff
+	%TODO Warum ist Zerfall in zwei am wahrscheinlichsten?
+
+	\subsection{Gamma-Spektrum}
+	%TODO Welche Einflüsse?
+	%TODO Was passiert bei Zerfällen mit mehreren Gamma-Linien?
+	%TODO welche anderen Effekte kann man sehen?
+	%TODO Spektren vorhersagen: 22Na, 60Co, 137Cs
+
+	\subsection{Gamma-Detektoren}
+
+	\subsubsection{Halbleiterdetektoren}
+	%TODO pn-Übergang? als gamma-detektor?
+	%TODO Problem herstellung von "pure semiconductor"
+	%TODO Was ist wichtig bei Verwendung von Halbleiterdetektor?
+	%TODO Warum muss der gekühlt werden?
+	%TODO Was braucht man sonst noch?
+	%TODO Warum Schicht undotierte Schicht?-> breitere RLZ
+	%TODO Unterschiede Szintallator und Halbleiter
+
+	\subsubsection{Szintallationsdetektor} % (von woanders klaubar)
+	%TODO welche gibt es, was sind die Unterschiede?
+	%TODO warum dotiert?
+	%TODO Photomultiplier? Was braucht man da sonst noch?->Lichtleiter, Vorverstärker.
+	%TODO Auswahlkriterien für Szintallator für Gamma-Spektroskopie
+
+	\subsubsection{Kalibrierung}
+	%TODO Warum Na-22 zur Kalibrierung?
+	%TODO wie beeinflusst die Kalibrierunsicherheit die späteren Messungen?
+	%TODO Was bestimmt Peakbreite?
+	%TODO Warum misst man die Breite?
+	%TODO Definition FWHM, Sigma
+	%TODO kann man hier Kalibrierunsicherheit vernachlässigen?
+
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
+	%TODO verwendete Proben
+	%TODO Wahl des Verstärkungsfaktors (pro Detektor gleich gelassen) -> so, dass alle Peaks im Spektrum sind durch kurzzeitmessung
+	%TODO Messdauern?
+	%TODO Erzprobe
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
@@ -347,15 +413,38 @@ $E_r$ ist Literaturwert für die Peakposition und $E_m$ ist der gemessenen Wert.
 	\end{figure}
 \subsection{Energieauflösung und mittlere Ionisationsenergie}
 \subsection{Relative Effizienz}
-	\subsection{Diskussion}
+
+
+	\section{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	%TODO Rückstreuungsminimierung durch Deckel abnehmen aber immernoch Luft/Decke/we
 
+	\subsection{Interpretation}
+	%TODO features of typical gamma spectrum
+	%TODO Vergleich Literaturwerte der gammalinien
+	%TODO Vergleich Literaturwerte der comptonkanten
+	%TODO zusätzliche Peaks zusehen?
+	%TODO welche der erwarteten Peaks in der Mischprobe?
+	%TODO welche Isotope in der unbekannten Probe? Zu welcher Zerfallsreihe gehören die.
+
+	\subsection{Vergleich der Detektoren}
+	%TODO Wie Energieunschärfe?
+	%TODO Zusammenhang Energieauflösung und mittlere Ionisationsenergie?
+	%TODO Abhängigkeit der beiden von Energie?
+	%TODO Definition der Effizienz? Wie misst man das?
+	%TODO Ist es möglich die Effizienzen zu vergleichen?->Raumgeometrie?
+	%TODO Wo sind die Detektoren ähnlich?
+
+
 	%TODO warum 511 nur bei NA?
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+	Insgesamt gesehen lässt sich sagen, dass
+	%TODO Ergibnis Spektren-Aussehen
+	%TODO Ergebnis Vergleich detektroen
+	%TODO Ergebnis unbektannte Probe
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
