@@ -103,7 +103,7 @@
 	Die gemessenen Spektren werden mit Literaturwerten verglichen und erklärt.
 	Außerdem werden Nichtlinearitäten, Energieauflösung, mittlere Ionisationsenergie und relative Effizienz der Detektoren bestimmt und verglichen.
 	Der Vergleich der beiden Detektoren zeigt, dass in den untersuchten Parametern im Allgemeinen der Halbleiterdetektor besser abschneidet.
-	Zuletzt wird eine unbekannte Erzprobe untersucht und kann der Uran-Radium-Reihe zugeordnet werden.
+	Zuletzt wird eine unbekannte Erzprobe untersucht und anhand des $\gamma$-Spektrums der Uran-Radium-Reihe zugeordnet.
 
   \section{Theorie}
 	% wdh. Texte
@@ -146,7 +146,7 @@
 	\begin{figure}[H]
 			\includegraphics[width= 0.8 \linewidth]{charts/Zerfallsschematarot}
 			\caption{
-				Zerfallsschemata der relevanten Zerfälle. %TODO
+				Zerfallsschemata der relevanten Zerfälle und des Zerfalls von $^57$Co.
 				\cite{Anleitung}
 			}
 			\label{fig_zerfallsschemata}
@@ -226,7 +226,7 @@
 	Beim Positronium unterscheidet man je nach Spinausrichtung von Positron und Elektron in Parapositronium ($S=0$) und Orthopositronium ($S=1$).
 	Aufgrund von Spin- und Impulserhaltung zerfällt Orthopositronium in eine ungerade Anzahl Photonen, die mindestens \num{3} beträgt.
 	Aus analogen Gründen zerfällt Parapositronium in eine gerade Anzahl Photonen, aber mindestens \num{2}.
-	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen voraussetzt, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
+	Da Zerfälle, die die Produktion einer geringeren Menge an Photonen voraussetzen, wahrscheinlicher sind, zerfällt Orthopositronium deutlich langsamer als Parapositronium.
 	Gleichzeitig kann durch Umgebungswechselwirkung Orthopositronium in Parapositronium übergehen, was während der vergleichsweise langen Zerfallsdauer wahrscheinlich ist.
 	Deswegen kann man sich in den folgenden Betrachtungen im Wesentlichen auf den Zerfall von Parapositronium in zwei Photonen mit einer Energie von \SI{511}{keV} beschränken.
 
@@ -243,7 +243,7 @@
 	%TODO Spektren vorhersagen: 22Na, 60Co, 137Cs
 
 		In \cref{fig_Gammaspektrum} ist ein idealisiertes Gammaspektrum dargestellt.
-		Wenn das Photon im Spektrum Paarbildung verursacht und beide Photonen, die beim Zerfall des Positroniums entstehen, gemessen werden, bildet sich dies im so genannten Full Energy Peak ab, der bei der Energie des ursprünglichen $\gamma$-Photons liegt.
+		Wenn das Photon im Detektor Paarbildung verursacht und beide Photonen, die beim Zerfall des Positroniums entstehen, gemessen werden, bildet sich dies im so genannten Full Energy Peak ab, der bei der Energie des ursprünglichen $\gamma$-Photons liegt.
 		Wenn jedoch eins oder beide der Photonen aus dem Positronium den Detektor verlassen, ohne nachgewiesen zu werden, misst man eine um \SI{511}{keV} bzw. \SI{1022}{keV} verringerte Energie.
 		Der kontinuierliche Untergrund ergibt sich durch den Comptoneffekt, wobei die maximale Energie durch die Comptonkante bezeichnet wird.
 		Dazu tritt der Backscatteruntergrund, der durch Comptoneffekte außerhalb des Absorbers entsteht, bei denen die gestreuten Photonen dann im Detektor nachgewiesen werden.
@@ -317,7 +317,7 @@
 	An der Anode kommen dann ausreichend viele Elektronen an, um einen messbaren Rückfluss zur Kathode zu erzeugen (bzw. über einen Widerstand eine messbare Spannung).
 
 	\begin{figure}[H]
-			\includegraphics[width=0.6\linewidth]{charts/Photomultiplier}
+			\includegraphics[width=0.8\linewidth]{charts/Photomultiplier}
 			\caption{
 			Schematische Darstellung eines Photomultipliers.
 			\cite{Photomultiplier}
@@ -370,7 +370,7 @@
 	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibrierung anhand einer Probe möglich ist.
 
 	Es wird je nach Aktivität der Probe etwa \SIrange{10}{60}{\minute} gemessen.
-	Die Probe wird außerdem je nach Probe in unterschiedlichem Abstand zum Detektor positioniert, wobei die Signalrate ausreichend gering gehalten wird, sodass die Totzeit unter \SI{15}{\percent} liegt und die Signalrate für die Proben etwa gleich ist.
+	Die Proben werden außerdem in unterschiedlichem Abstand zum Detektor positioniert, wobei die Signalrate ausreichend gering gehalten wird, sodass die Totzeit unter \SI{15}{\percent} liegt und die Signalrate für die Proben etwa gleich ist.
 
 	\subsection{Kalibrierung}
 	% Warum Na-22 zur Kalibrierung?
@@ -718,9 +718,13 @@ In \cref{fg_ionisation} ist $I$ für beide Detektoren gegen $E$ aufgetragen.
 			\label{fg_ionisation}
 	\end{figure}
 
-%\subsubsection{Diskussion}
+\subsubsection{Diskussion}
 
-Die mittlere Ionisationsenergie des Ge-Detektors ist im Allgemeinen deutlich geringer als die des NaI-Detektors. %TODO mehr weiß ich net.
+Die mittlere Ionisationsenergie des Ge-Detektors ist im Allgemeinen deutlich geringer als die des NaI-Detektors.
+Es ist zu erwarten, dass die mittlere Ionisationsenergie nur vom Detektormaterial abhängt und konstant ist.
+Für den NaI-Detektor ist dies zu erkennen und sie würde auf etwa \SI{0,7}{keV} geschätzt werden.
+Beim Ge-Detektor ist ein Sprung in der Energie vorhanden.
+Für höhere Energien als \SI{600}{KeV} kann aber ein Wert von etwa \SI{0,0005}{keV} zugeordnet werden.
 
 \subsection{Relative Effizienz}
 \subsubsection{Datenanalyse}
