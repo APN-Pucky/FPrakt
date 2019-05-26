@@ -154,6 +154,7 @@
 
 	\subsection{Wechselwirkung mit Materie}
 	% was ist die Schwierigkeit
+	%TODO Comptonedge-Gedöns siehe der link?
 
 	Die Detektion von $\gamma$-Strahlung ist dadurch gegenüber der Detektion von Strahlung aus anderen Zerfällen erschwert, als dass sie keine Ladung besitzt.
 	Wenn man zusätzlich zum reinen Nachweis der Strahlung noch Information über Zeitpunkt des Auftreffens auf den Detektor, Intensität und Energie erhalten möchte, muss man sich mit der Wechselwirkung der Strahlung mit Materie auseinandersetzen und auf Basis dessen einen Detektor konstruieren.
@@ -202,7 +203,7 @@
 	\end{equation}
 
 	Das Spektrum ist kontinuierlich, da in Abhängigkeit von der Geometrie des Stoßes ein beliebiger Anteil der Energie des Photons (bis zu einer Maximalenergie) an das Elektron übertragen werden kann.
-	% warum U-förmig?
+	%TODO warum U-förmig?
 
 	\begin{figure}[H]
 			\includegraphics[width= 0.5 \linewidth]{charts/Comptonstreuung}
@@ -237,17 +238,16 @@
 
 	\subsection{Gamma-Spektrum}
 	% Welche Einflüsse?
-	% Was passiert bei Zerfällen mit mehreren Gamma-Linien?
-	% welche anderen Effekte kann man sehen?
-	% Spektren vorhersagen: 22Na, 60Co, 137Cs
+	%TODO Was passiert bei Zerfällen mit mehreren Gamma-Linien?
+	%TODO welche anderen Effekte kann man sehen?
+	%TODO Spektren vorhersagen: 22Na, 60Co, 137Cs
 
 		In \cref{fig_Gammaspektrum} ist ein idealisiertes Gammaspektrum dargestellt.
 		Wenn das Photon im Detektor Paarbildung verursacht und beide Photonen, die beim Zerfall des Positroniums entstehen, gemessen werden, bildet sich dies im so genannten Full Energy Peak ab, der bei der Energie des ursprünglichen $\gamma$-Photons liegt.
 		Wenn jedoch eins oder beide der Photonen aus dem Positronium den Detektor verlassen, ohne nachgewiesen zu werden, misst man eine um \SI{511}{keV} bzw. \SI{1022}{keV} verringerte Energie.
 		Der kontinuierliche Untergrund ergibt sich durch den Comptoneffekt, wobei die maximale Energie durch die Comptonkante bezeichnet wird.
-		Dazu tritt der Rückstreuuntergrund, der durch Comptoneffekte außerhalb des Absorbers entsteht, bei denen die gestreuten Photonen dann im Detektor nachgewiesen werden.
+		Dazu tritt der Backscatteruntergrund, der durch Comptoneffekte außerhalb des Absorbers entsteht, bei denen die gestreuten Photonen dann im Detektor nachgewiesen werden.
 		Der Photoeffekt führt zur Messung der Photolinie, die dem Full Energy Peak entspricht.
-		Bei Zerfällen mit mehreren Gamma-Linien überlagern sich mehrere Compton-, Rückstreu- und Full Energy Peaks.
 
 		\begin{figure}[H]
 				\includegraphics[width= 0.75 \linewidth]{charts/Spektrumschema}
@@ -264,11 +264,11 @@
 	\subsubsection{Halbleiterdetektoren}
 	% pn-Übergang? als gamma-detektor?
 	% Problem herstellung von "pure semiconductor"
-	% Was ist wichtig bei Verwendung von Halbleiterdetektor?
+	%TODO Was ist wichtig bei Verwendung von Halbleiterdetektor?
 	% Warum muss der gekühlt werden?
-	% Was braucht man sonst noch?
+	%TODO Was braucht man sonst noch?
 	% Warum Schicht undotierte Schicht?-> breitere RLZ
-	% Unterschiede Szintallator und Halbleiter
+	%TODO Unterschiede Szintallator und Halbleiter
 
 	Der Übergang zwischen p- und n-dotiertem Halbleiter wird als pn-Übergang bezeichnet.
 	Durch die überschüssigen bzw. fehlenden Elektronen im Gitter und den folgenden Ladungsfluss, bei dem Elektronen und Löcher rekombinieren, entsteht im pn-Übergang eine Raumladungszone.
@@ -374,22 +374,22 @@
 
 	\subsection{Kalibrierung}
 	% Warum Na-22 zur Kalibrierung?
-	% wie beeinflusst die Kalibrierunsicherheit die späteren Messungen?
-	% Was bestimmt Peakbreite?
-	% Warum misst man die Breite?->Zusammenhang zu
-	% Definition FWHM, Sigma
-	% kann man hier Kalibrierunsicherheit vernachlässigen?
+	%TODO wie beeinflusst die Kalibrierunsicherheit die späteren Messungen?
+	%TODO Was bestimmt Peakbreite?
+	%TODO Warum misst man die Breite?->Zusammenhang zu
+	%TODO Definition FWHM, Sigma
+	%TODO kann man hier Kalibrierunsicherheit vernachlässigen?
 
 	Es wird $^{22}$Na zur Kalibrierung verwendet, da hier beim Beta-Plus-Zerfall Positronen frei werden, die die Bildung von Positronium und die Entstehung von Photonen bei \SI{511}{keV} verursachen.
 	Gleichzeitig entstehen, wie in \cref{fig_zerfallsschemata} zu erkennen ist, Photonen bei \SI{1274}{MeV}.
 	Diese beiden Energien liegen recht weit auseinander und ergeben so gut Peaks, um anhand ihnen die Kanalzahl in eine Energie zu übersetzen.
-	Die Kalibrierunsicherheit tritt als systematischer Fehler in den Messungen auf.
 
 	Die Peakbreite ergibt sich aus der verwendeten Elektronik und der Unsicherheit des Detektors, wobei angenommen werden kann, dass letztere dominiert.
 	Man kann die Peakbreite verwenden, um das Auflösungsvermögen der Detektoren zu bestimmen.
 	Die Standardunsicherheit ist durch die Breite des Peaks auf halber Höhe (FWHM) gegeben als: $\sigma = \frac{\text{FWHM}}{2\sqrt{2 \ln 2}}$
 
 	\section{Ergebnisse und Diskussion}
+	%TODO Unsicherheiten
 
 
 	%\subsection{Beobachtung und Datenanalyse}
@@ -403,7 +403,7 @@
 	Die Unsicherheit der gemessenen Ereignisse $N$ ist durch $\sqrt{N}$ gemäß Poisson-Verteilung gegeben.
 	\subsection{Modell}
 	Die aufgenommenen Spektren der $^{22}$Na-Probe sind in \cref{fg_Na_ch} abgebildet.
-	Es wurden bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung eines physikalischen Modells des Spektrums im Randbereich unmöglich machen.
+	Es wurden bei jeder Messung die ersten 95 Kanäle vernachlässigt, da all diese nahe Null Ereignisse liefern und die Erstellung ein physikalischen Modells des Spektrums im Randbereich unmöglich machen. %TODO schönerer Satz wäre schöner
 	Das Modell wurde in \enquote{Fityk} aus Gaußkurven zusammengesetzt.
 	\begin{figure}[H]
 		\centering
@@ -442,7 +442,7 @@
 			\label{fg_kali_mix}
 	\end{figure}
 
-	Da ein linearer Fit zwischen zwei Punkten mit Unsicherheiten mit dem \enquote{Least-Square-Fit} nicht zielführend ist, werden drei Geraden durch die Messintervalle gelegt, sodass sich eine mittlere, maximale und minimale Steigung ergibt.
+	Da ein linearer Fit zwischen zwei Punkten mit Unsicherheiten mit dem \enquote{Least-Square-Fit} nicht zielführend ist, werden drei Geraden durch die Messintervalle gelegt, sodass sich eine mittlere, maximale und minimale Steigung ergeben. %TODO hier wird er wissen wollen, warum der nicht zielführend ist.
 	Eine Mittelung dieser Werte ist in \cref{tb_kali_avg} aufgeführt.
 
 \begin{table}[H]
@@ -457,6 +457,7 @@
 		}
 		\label{tb_kali_avg}
 \end{table}
+%TODO y-Achse ist ca. Null, nice, aber diskutieren warum Anfang alles Null?
 Damit lässt sich ein Kanal $c$ nach \cref{eq_trans} in die Energie $E$ transformieren.
 \begin{equation}
 	\label{eq_trans}
@@ -474,7 +475,7 @@ Die y-Achsenabschnitte der Kalibrierungsgeraden haben alle die Null im Fehlerint
 In \crefrange{fg_Na}{fg_Mix} sind die kalibrierten Spektren von vier Proben für jeden der Detektoren dargestellt.
 Die horizontalen Linien, die sich im höher energetischen Bereich ergeben, entstehen durch die logarithmischen Darstellung.
 
-
+%TODO In der Theorie?
 Die Comptonkante berechnet sich aus dem Literaturwert $E_\gamma$ für einen Full-Energy-Peak ($\varphi=\SI{180}{\degree}$ in \cref{eq_compton_energie}):
 \begin{equation}
 	E_C = E_\gamma - \frac{E_\gamma }{1+2E_\gamma/m_ec^2}
@@ -502,6 +503,7 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 		\label{tb_lit_peaks}
 \end{table}
 
+%TODO caption ? Unsicherheit?
 \begin{figure}[H]
 		\centering
 		\begin{subfigure}[c]{\textwidth}
@@ -584,6 +586,7 @@ Außerdem wurden die Ränder des Bereichs der Röntgenfluoreszenz von Blei geken
 		\caption{Mischprobe}
 		\label{fg_Mix}
 	\end{figure}
+	%TODO Diskuss Anzahl Peaks verschieden => NA ist schlechter vong auflösung.
 
 \subsubsection{Diskussion}
 
@@ -730,6 +733,7 @@ Die relative normierte Effizienz $\varepsilon$ lässt sich nach \cref{eq_rel_eff
 	\label{eq_rel_eff}
 	\varepsilon = \frac{\frac{S}{P}}{\left|\frac{S}{P}\right|}_{\text{ref}}
 \end{equation}
+%TODO in Theorie: Full Energy Peak ETC.
 Wobei $S$ die Fläche eines Full-Energy-Peaks ist und $P$ die Anzahl Photonen, welche im Messzeitraum $t$ durch diesen $\gamma$-Übergang ausgesendet werden.
 Dieses Verhältnis wird auf einen Messpunkt $\left|\frac{S}{P}\right|_{\text{ref}}$ normiert.
 Die Anzahl Photonen ist das Produkt aus Messdauer $t$ und Aktivität $A$ des $\gamma$-Übergangs, $P=A\cdot t$.
@@ -777,7 +781,7 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 \subsubsection{Diskussion}
 
 	Besonders gut zu erkennen sind $^{214}$Pb und $^{214}$Bi.
-	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen.
+	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^{238}$U handelte. %TODO kann man das so sagen?
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
@@ -800,6 +804,7 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 	% Wo sind die Detektoren ähnlich?
 
 
+	%TODO warum 511 nur bei NA?
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
 	Insgesamt gesehen lässt sich sagen, dass alle Messungen erfolgreich durchgeführt werden konnten und die in den Spektren gemessenen Peaks den Literaturwerten zugeordnet werden konnten.
@@ -811,33 +816,36 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 	Hierfür müsste ein Versuch durchgeführt werden, bei dem beide Absorber den gleichen Raumwinkel in gleichem Abstand von der Probe einnehmen.
 
 	Die Erzprobe konnte einer Zerfallsreihe zugeordnet werden.
+	%TODO Ergibnis Spektren-Aussehen
+	%TODO Ergebnis Vergleich detektroen
+	%TODO Ergebnis unbektannte Probe
 
 
 	\section{Anhang} \label{s_anhang}
 
 	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{img/erz_Np}
+			\includegraphics[width= 0.8 \linewidth]{img/erz_Np}
 			\caption{
 			Spektrum der Erzprobe. Np-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
 			}
 			\label{fg_erz_np}
 	\end{figure}
 	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{img/erz_Th}
+			\includegraphics[width= 0.8 \linewidth]{img/erz_Th}
 			\caption{
 			Spektrum der Erzprobe. Th-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
 			}
 			\label{fg_erz_th}
 	\end{figure}
 	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{img/erz_U-Ac}
+			\includegraphics[width= 0.8 \linewidth]{img/erz_U-Ac}
 			\caption{
 			Spektrum der Erzprobe. $^{235}$U-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
 			}
 			\label{fg_erz_u_ac}
 	\end{figure}
 	\begin{figure}[H]
-			\includegraphics[width= 1 \linewidth]{img/erz_U-Ra}
+			\includegraphics[width= 0.8 \linewidth]{img/erz_U-Ra}
 			\caption{
 			Spektrum der Erzprobe. $^{238}$U-Reihen $\gamma$-Übergangenergien sind von den vier Zerfallsreihen farblich eingezeichnet.
 			}
@@ -848,3 +856,5 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 	% Tabelle + Bilder mit Beschriftung
 	\printbibliography
 \end{document}
+
+%TODO Ich hab der anleitung nen Datum gegeben, weil dass da drauf steht. Vielleicht ist nur das Jahr sinnvoller, weil mans bei veröffentlichungen so machen würde.
