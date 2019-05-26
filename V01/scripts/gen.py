@@ -267,7 +267,8 @@ for name in names:
         peakids = [1,2,7,6,9]
     if(nnname=="CsGe"):
         peakids[1] = -1
-
+    if(nnname.startswith("Mix")):
+        print(pdata[:,-1])
     if(nnname.endswith("Na")):
         xdata = kali_na(unp.uarray(data[:,0],unc_n))
         ppdata = kali_na(pdata)
@@ -331,9 +332,11 @@ for name in names:
                 print("mmm",xpeaks[i][np.argmax(ypeaks[i])])
                 print("ooo",ppdata[peakids[i]-1][-2])
                 print("ddd",pppdata[peakids[i]-1][-1]*2/2.4)
-                lel = unc.ufloat(unv(ppdata[peakids[i]-1][-2]), np.sqrt(usd(ppdata[peakids[i]-1][-2])**2+unv(pppdata[peakids[i]-1][-1]*2/2.4)**2))
-                print("lel",lel)
-                col.append((nnname,lel))
+                lel = unc.ufloat(unv(ppdata[peakids[i]-1][-2]), unp.sqrt(usd(ppdata[peakids[i]-1][-2])**2+unv(pppdata[peakids[i]-1][-1]*2/2.4)**2))
+                lel2 = unp.sqrt(usd(ppdata[peakids[i]-1][-2])**2+(pppdata[peakids[i]-1][-1]*2/2.4)**2)
+                lel3 = unp.sqrt((pppdata[peakids[i]-1][-1]*2/2.4)**2)
+                print("lel3",lel3)
+                col.append((nnname,lel,lel2,lel3))
                 plt.plot(unv(xpeaks[i]), unv(ypeaks[i]), label='Peak %s keV'%(lel),linewidth='1')
 
 
@@ -398,7 +401,7 @@ for name in names:
 
 lit=[60,88,511,662,1173,1274,1332]
 fig=plt.figure(figsize=fig_size)
-for (a,b) in col:
+for (a,b,z,q) in col:
     l=find_nearest_index(lit,b)
     r=1-b/lit[l]
     #print("b ",b)
@@ -431,7 +434,7 @@ plt.savefig("V01/img/diff_na.pdf")
 plt.show()
 
 fig=plt.figure(figsize=fig_size)
-for (a,b) in col:
+for (a,b,z,q) in col:
     l=find_nearest_index(lit,b)
     r=1-b/lit[l]
     #print("b ",b)
@@ -468,7 +471,7 @@ plt.show()
 # %% abs Nichtlinearität in log
 lit=[60,88,511,662,1173,1274,1332]
 fig=plt.figure(figsize=fig_size)
-for (a,b) in col:
+for (a,b,z,q) in col:
     l=find_nearest_index(lit,b)
     r=np.abs(1-b/lit[l])
     #print("b ",b)
@@ -501,12 +504,12 @@ plt.savefig("V01/img/diff_na_log.pdf")
 plt.show()
 
 fig=plt.figure(figsize=fig_size)
-for (a,b) in col:
+for (a,b,z,q) in col:
     l=find_nearest_index(lit,b)
     r=np.abs(1-b/lit[l])
     #print("b ",b)
-    #print("l ",lit[l])
-    #print("r ", r)
+    print("l ",lit[l])
+    print("r ", r)
     if(a.endswith("Ge")):
         plt.errorbar(unv(lit[l]),unv(r),yerr=usd(r),fmt=' ',capsize=5,label=a)
         if(a.startswith("Na")):
@@ -532,4 +535,103 @@ plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('Energie in keV')
 plt.savefig("V01/img/diff_ge_log.pdf")
 plt.show()
+
+# %% Energie
+
+fig=plt.figure(figsize=fig_size)
+ax1 = plt.gca()
+ax2 = ax1.twinx()
+for (a,b,z,q) in col:
+    l=find_nearest_index(lit,b)
+    #r=np.abs(1-b/lit[l])
+    #print("b ",b)
+    #print("z ",z)
+    #print("q ",q)
+    #print("l ",lit[l])
+    #print("r ", r)
+    eq = q/b
+    if(a.startswith("Na")):
+        color = 'blue'
+    if(a.startswith("Cs")):
+        color='red'
+    if(a.startswith("Co")):
+        color='orange'
+    if(a.startswith("Mix")):
+        color='purple'
+    if(a.endswith("Ge")):
+        ax1.errorbar(unv(b),unv(eq),yerr=usd(eq),fmt='x',capsize=5,color=color)
+    if(a.endswith("Na")):
+        ax2.errorbar(unv(b),unv(eq),yerr=usd(eq),fmt='o',capsize=5,color=color)
+        print(q/b)
+
+ax1.errorbar([],[],[],color='blue',label="Na",capsize=5)
+ax1.errorbar([],[],[],color='red',label="Cs",capsize=5)
+ax1.errorbar([],[],[],color='orange',label="Co",capsize=5)
+ax1.errorbar([],[],[],color='purple',label="Misch",capsize=5)
+
+ax2.plot([],[],'o',color='black',label="Ge-Detektor")
+ax2.plot([],[],'x',color='black',label="NaI-Detektor")
+
+ax2.legend(prop={'size':fig_legendsize},loc=9)
+ax1.legend(prop={'size':fig_legendsize})
+plt.grid()
+ax1.set_ylabel('Ge-Detektor Energieauflösung $\\Delta E$')
+ax1.tick_params(labelsize=fig_labelsize)
+
+ax2.set_ylabel('NaI-Detektor Energieauflösung $\\Delta E$')
+ax2.tick_params(labelsize=fig_labelsize)
+
+ax1.set_xlabel('Energie in keV')
+plt.savefig("V01/img/res.pdf")
+plt.show()
+# %% ion
+
+
+fig=plt.figure(figsize=fig_size)
+ax1 = plt.gca()
+ax2 = ax1.twinx()
+for (a,b,z,q) in col:
+    l=find_nearest_index(lit,b)
+    #r=np.abs(1-b/lit[l])
+    #print("b ",b)
+    #print("z ",z)
+    #print("q ",q)
+    #print("l ",lit[l])
+    #print("r ", r)
+    eq = q**2/b
+    if(a.startswith("Na")):
+        color = 'blue'
+    if(a.startswith("Cs")):
+        color='red'
+    if(a.startswith("Co")):
+        color='orange'
+    if(a.startswith("Mix")):
+        color='purple'
+    if(a.endswith("Ge")):
+        ax1.errorbar(unv(b),unv(eq),yerr=usd(eq),fmt='x',capsize=5,color=color)
+    if(a.endswith("Na")):
+        ax2.errorbar(unv(b),unv(eq),yerr=usd(eq),fmt='o',capsize=5,color=color)
+        print(q/b)
+
+ax1.errorbar([],[],[],color='blue',label="Na",capsize=5)
+ax1.errorbar([],[],[],color='red',label="Cs",capsize=5)
+ax1.errorbar([],[],[],color='orange',label="Co",capsize=5)
+ax1.errorbar([],[],[],color='purple',label="Misch",capsize=5)
+
+ax2.plot([],[],'o',color='black',label="Ge-Detektor")
+ax2.plot([],[],'x',color='black',label="NaI-Detektor")
+
+ax2.legend(prop={'size':fig_legendsize},loc=9)
+ax1.legend(prop={'size':fig_legendsize})
+plt.grid()
+ax1.set_ylabel('Ge-Detektor Mittlere Ionisationsenergie $I^2$')
+ax1.tick_params(labelsize=fig_labelsize)
+
+ax2.set_ylabel('NaI-Detektor Mittlere Ionisationsenergie $I^2$')
+ax2.tick_params(labelsize=fig_labelsize)
+
+ax1.set_xlabel('Energie in keV')
+plt.savefig("V01/img/ion.pdf")
+plt.show()
+
 #end
