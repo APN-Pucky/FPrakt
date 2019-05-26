@@ -349,9 +349,13 @@
 	%TODO Warum Na-22 zur Kalibrierung?
 	%TODO wie beeinflusst die Kalibrierunsicherheit die späteren Messungen?
 	%TODO Was bestimmt Peakbreite?
-	%TODO Warum misst man die Breite?
+	%TODO Warum misst man die Breite?->Zusammenhang zu
 	%TODO Definition FWHM, Sigma
 	%TODO kann man hier Kalibrierunsicherheit vernachlässigen?
+
+	Die Peakbreite ergibt sich aus der verwendeten Elektronik und der Unsicherheit des Detektors, wobei angenommen werden kann, dass letztere dominiert.
+	Man kann die Peakbreite verwenden, um das Auflösungsvermögen der Detektoren zu bestimmen.
+	Die Standardunsicherheit ist durch die Breite des Peaks auf halber Höhe (FWHM) gegeben als: $\sigma = \frac{\text{FWHM}}{2\sqrt{2 \ln 2}}$
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
