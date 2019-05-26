@@ -383,6 +383,7 @@ for name in names:
            ncol=3, mode="expand", borderaxespad=0.)
     #plt.legend(prop={'size':fig_legendsize})
     plt.grid()
+    plt.tick_params(labelsize=fig_labelsize+2)
     plt.ylabel('Ereignisse')
     ## Residual
     frame2=fig.add_axes((.1,.1,.8,.2))
