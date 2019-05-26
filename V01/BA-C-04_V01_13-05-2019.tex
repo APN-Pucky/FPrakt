@@ -261,9 +261,9 @@
 	% pn-Übergang? als gamma-detektor?
 	% Problem herstellung von "pure semiconductor"
 	%TODO Was ist wichtig bei Verwendung von Halbleiterdetektor?
-	%TODO Warum muss der gekühlt werden?
+	% Warum muss der gekühlt werden?
 	%TODO Was braucht man sonst noch?
-	%TODO Warum Schicht undotierte Schicht?-> breitere RLZ
+	% Warum Schicht undotierte Schicht?-> breitere RLZ
 	%TODO Unterschiede Szintallator und Halbleiter
 
 	Der Übergang zwischen p- und n-dotiertem Halbleiter wird als pn-Übergang bezeichnet.
@@ -278,29 +278,80 @@
 	Durch das Feld in der Raumladungszone werden die Paare getrennt, bevor sie an Fehlstellen rekombinieren können.
 	Um die Raumladungszone zu verbreitern, wird zwischen p- und n-dotierte Schicht eine Schicht instrinsischen Halbleiters gebracht.
 	Dies nennt man pin-Diode.
-	
+	Ein solcher Detektor wird mit Stickstoff gekühlt, um das Rauschen zu reduzieren, da die Fermi-Energie der Elektronen mit der Temperatur steigt und bei höheren Temperaturen durch die Fermi-Dirak-Statistik der besetzten Zustände Elektronen ins Leitungsband angeregt werden können.
+	Solche Elektronen können Rauschen verursachen.
+	Bei geringen Temperaturen wird die Zustandsbesetzung aber schärfer und solche Effekte minimiert.
 
 	\subsubsection{Szintallationsdetektor} % (von woanders klaubar)
-	%TODO welche gibt es, was sind die Unterschiede?
-	%TODO warum dotiert?
-	%TODO Photomultiplier? Was braucht man da sonst noch?->Lichtleiter, Vorverstärker.
-	%TODO Auswahlkriterien für Szintallator für Gamma-Spektroskopie
+	% welche gibt es, was sind die Unterschiede?
+	% warum dotiert?
 
-	\subsubsection{Kalibrierung}
+	% Auswahlkriterien für Szintallator für Gamma-Spektroskopie
+	Ein Szintillator ist ein Detektor, der einfallende Strahlung in eine einfacher messbare elektromagnetische Strahlung umwandelt.
+	Bei anorganischen Halbleiter-Szintillatoren wird durch die einfallende Strahlung ein Elektron aus den Valenzband in das Leitungsband angeregt und lässt im Valenzband ein Loch zurück.
+	Wenn das Elektron an einer Störstelle mit dem Loch rekombiniert, kann dies durch die an der Störstelle modifizierten Bandstruktur schrittweise geschehen, weshalb Strahlung einer geringeren, leichter detektierbaren Wellenlänge frei wird.
+	Um solche Störstellen hervorzurufen, kann das Material dotiert werden.
+	Bei organischen Szintallatoren werden stattdessen Anregungen in Molekülen ausgenutzt, die bei der Abregung Photonen anderer Energien freiwerden lassen.
+
+	Bei der Auswahl eines Szintallators sind folgende Punkte wichtig:
+
+	\begin{enumerate}
+		\item Transparenz für erzeugtes Licht
+		\item hohe Effizienz: viele der einfallenden Photonen werden umgewandelt
+		\item Antwortzeit: Verzögerung zwischen eintreffendem Photon und messbaren Photonen
+		\item Linearer Zusammenhang zwischen Signal und Energie des einfallenden Photons
+		\item geringe Anstiegs- und Abfallzeit des Signals
+		\item Brechungsindex in der Nähe von Glas, um einen verlustfreien Anschluss an einen Photomultiplier zu erlauben
+	\end{enumerate}
+
+	\subsubsection{Photomultiplier}
+
+	In einem Photomultiplier werden einzelne einfallende Photonen in ein messbares Signal umgewandelt.
+	Das Funktionsprinzip ist in \cref{fig_Photomultiplier} dargestellt.
+	Dabei löst zunächst ein einfallendes Photon an der Kathode (negative Spannung) ein Elektron aus.
+	Dieses Elektron wird in Richtung der Anode (positive Spannung) beschleunigt und schlägt auf dem Weg dorthin aus den Dynoden zusätzliche Elektronen heraus.
+	An der Anode kommen dann ausreichend viele Elektronen an, um einen messbaren Rückfluss zur Kathode zu erzeugen (bzw. über einen Widerstand eine messbare Spannung).
+
+	\begin{figure}[H]
+			\includegraphics[width=0.6\linewidth]{charts/Photomultiplier}
+			\caption{
+			Schematische Darstellung eines Photomultipliers.
+			\cite{Photomultiplier}
+			}
+			\label{fig_Photomultiplier}
+	\end{figure}
+
+
+
+	\section{Methoden}
+	% Bilder von der Website klauen
+	% einer will Präsens
+	% verwendete Proben
+	% Wahl des Verstärkungsfaktors (pro Detektor gleich gelassen) -> so, dass alle Peaks im Spektrum sind durch kurzzeitmessung
+	% Messdauern?
+	% Erzprobe
+% Photomultiplier? Was braucht man da sonst noch?->Lichtleiter, Vorverstärker.
+
+	Es wird ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und  ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)) verwendet, um $\gamma$-Spetren verschiedener Quellen zu messen.
+	Die verwendeten Proben sind: $^22$Na, $^137$Cs, $^57$Co, eine aus vielen Isotopen gemischte Probe und eine Probe aus einem unbekannten Erz.
+
+	Der Szintillationsdetektor wird mit Stickstoff gekühlt.
+	Der Szintillator ist möglichst verlustfrei mit dem Photomultiplier verbunden (ähnliche Brechungsinizes von Szintillator, Kleber und Eingangsfenster des Photomultipliers).
+	Damit das Signal über Koaxialkabel übertragen werden kann, wird es bei beiden Detektoren vorverstärkt.
+	Dann wird es im Hauptverstärker verstärkt und über einen Multichannel Analyzer in Energiekanälen gesammelt und digitalisiert.
+	Die Verstärkung wird jeweils so gewählt, dass die zur Verfügung stehenden Kanäle möglichst vollständig ausgenutzt werden und alle Peaks sichtbar sind.
+	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibierung anhand einer Probe möglich ist.
+
+	Es wird je nach Aktivität der Probe etwa \SIrange{10}{30}{\minute} gemessen.
+	Die Probe wird außerdem je nach Probe in unterschiedlichem Abstand zum Detektor positioniert, wobei die Signalrate ausreichend gering gehalten wird, sodass die Totzeit unter \SI{15}{\percent} liegt und die Signalrate für die Proben etwa gleich ist.
+
+	\subsection{Kalibrierung}
 	%TODO Warum Na-22 zur Kalibrierung?
 	%TODO wie beeinflusst die Kalibrierunsicherheit die späteren Messungen?
 	%TODO Was bestimmt Peakbreite?
 	%TODO Warum misst man die Breite?
 	%TODO Definition FWHM, Sigma
 	%TODO kann man hier Kalibrierunsicherheit vernachlässigen?
-
-	\section{Methoden}
-	% Bilder von der Website klauen
-	% einer will Präsens
-	%TODO verwendete Proben
-	%TODO Wahl des Verstärkungsfaktors (pro Detektor gleich gelassen) -> so, dass alle Peaks im Spektrum sind durch kurzzeitmessung
-	%TODO Messdauern?
-	%TODO Erzprobe
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
