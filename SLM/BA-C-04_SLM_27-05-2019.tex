@@ -1,0 +1,131 @@
+% Autor: Leonhard Segger, Alexander Neuwirth
+% Datum: 2017-10-30
+\documentclass[
+	% Papierformat
+	a4paper,
+	% Schriftgröße (beliebige Größen mit „fontsize=Xpt“)
+	12pt,
+	% Schreibt die Papiergröße korrekt ins Ausgabedokument
+	pagesize,
+	% Sprache für z.B. Babel
+	ngerman
+]{scrartcl}
+
+% Achtung: Die Reihenfolge der Pakete kann (leider) wichtig sein!
+% Insbesondere sollten (so wie hier) babel, fontenc und inputenc (in dieser
+% Reihenfolge) als Erstes und hyperref und cleveref (Reihenfolge auch hier
+% beachten) als Letztes geladen werden!
+
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes} % loads some tikz extensions\usepackage{tikz}
+\usetikzlibrary{babel}
+
+% Silbentrennung etc.; Sprache wird durch Option bei \documentclass festgelegt
+\usepackage{babel}
+% Verwendung der Zeichentabelle T1 (Sonderzeichen etc.)
+\usepackage[T1]{fontenc}
+% Legt die Zeichenkodierung der Eingabedatei fest, z.B. UTF-8
+\usepackage[utf8]{inputenc}
+% Schriftart
+\usepackage{lmodern}
+% Zusätzliche Sonderzeichen
+\usepackage{textcomp}
+
+% Mathepaket (intlimits: Grenzen über/unter Integralzeichen)
+\usepackage[intlimits]{amsmath}
+% Ermöglicht die Nutzung von \SI{Zahl}{Einheit} u.a.
+\usepackage{siunitx}
+% Zum flexiblen Einbinden von Grafiken (\includegraphics)
+\usepackage{graphicx}
+% Abbildungen im Fließtext
+\usepackage{wrapfig}
+% Abbildungen nebeneinander (subfigure, subtable)
+\usepackage{subcaption}
+% Funktionen für Anführungszeichen
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+% Zitieren, Bibliografie
+\usepackage[sorting=none]{biblatex}
+
+
+% Zur Darstellung von Webadressen
+\usepackage{url}
+%chemische Formeln
+\usepackage[version=4]{mhchem}
+% siunitx: Deutsche Ausgabe, Messfehler getrennt mit ± ausgeben
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+\usepackage{float}
+% Verlinkt Textstellen im PDF-Dokument
+\usepackage[unicode]{hyperref}
+% "Schlaue" Referenzen (nach hyperref laden!)
+\usepackage{cleveref}
+\sisetup{
+	locale=DE,
+	separate-uncertainty
+}
+\bibliography{BA-C-04_SLM_27-05-2019_References}
+
+\begin{document}
+
+	\begin{titlepage}
+		\centering
+		{\scshape\LARGE Versuchsbericht zu \par}
+		\vspace{1cm}
+		{\scshape\huge Räumlicher LC-Modulator und diffraktive Optik \par} %TODO schauen, ob da ne newline reinmuss
+		\vspace{2.5cm}
+		{\LARGE Gruppe BA-C-04 \par}
+		\vspace{0.5cm}
+
+		{\large Alexander Neuwirth (E-Mail: a\_neuw01@wwu.de) \par}
+		{\large Leonhard Segger (E-Mail: l\_segg03@uni-muenster.de) \par}
+		\vfill
+
+		durchgeführt am 27.05.2019\par
+		betreut von\par
+		{\large Milena Merkel}
+
+		\vfill
+
+		{\large \today\par}
+	\end{titlepage}
+	\tableofcontents
+	\newpage
+
+	\section{Kurzfassung}
+	% Hypothese	und deren Ergebnis, wenn Hypothese ist, dass nur Theorie erfüllt, sagen: Erwartung: Theorie aus einführung (mit reflink) erfüllt
+	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
+	% Was wurde gemacht
+	% manche leute wollen Passiv oder "man", manche nicht
+
+  \section{Theorie}
+	% wdh. Texte
+	% wdh. Besprechung
+	
+	\section{Methoden}
+	% Bilder von der Website klauen
+	% einer will Präsens
+
+	\section{Ergebnisse und Diskussion}
+	%TODO Unsicherheiten
+
+
+	\subsection{Beobachtung und Datenanalyse}
+	% Allgemeine Beobachtungen
+	% Einflüsse von veränderten Parametern auf Messung
+	\subsubsection{Unsicherheiten}
+	% Berechung nach Aufgabenstellung
+
+	\subsection{Diskussion}
+	% Bezug/Nutzen oder sonst was
+	% auch hier die Hypothese wiederholen
+	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+
+	\section{Schlussfolgerung}
+	% Rückgriff auf Hypothese und drittes Nennen dieser
+
+	% Quellen zitieren, Websiten mit Zugriffsdatum
+	% Verweise auf das Laborbuch (sind erlaubt)
+	% Tabelle + Bilder mit Beschriftung
+	%\printbibliography
+\end{document}
