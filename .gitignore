@@ -17,6 +17,7 @@
 *.synctex
 *.synctex(busy)
 *.xcf
+*.bak
 *~
 **/doc/*
 *2018.pdf
