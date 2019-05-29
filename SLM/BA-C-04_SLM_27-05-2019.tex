@@ -189,6 +189,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
+	%TODO irgendwo hier nen Bild hin?
 
 	\subsection{Überprüfung des Gesetzes von Malus}
 	Um das Gesetz von Malus zu überprüfen, wird das Licht eines He-Ne-Lasers durch einen Analysator geschickt und dann mit einer Linse auf ein Intensitätsmessgerät geschickt. %TODO He-Ne können wir nicht confirmen, aber ist schon ziemlich safe.
@@ -207,27 +208,129 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Zusätzlich wird der Kontrast gemessen, indem ein komplett weißes (schwarzes) Bild verwendet wird und mit einem Intensitätsmessgerät nach Fokussierung durch eine Linse die Intensität in der Fokusebene gemessen wird.
 
 	\subsection{Bestimmung der Pixelgröße}
-	Um die Pixelgröße des LC-Modulators zu bestimmen, wird ein weißes Bild mit einem 200x200 Pixel großen schwarzen Quadrat in der Mitte auf den Modulator gegeben.
-	In den Strahlengang wird der LC-Modulator und im Abstand der Brennweite eine Linse dahinter gestellt, hinter der wieder im Abstand der Brennweite ein Schirm aufgestellt wird.
-	Auf dem Schirm wird die Größe des Quadrats mit einem Lineal gemessen. %TODO waren wir hier wirklich nicht mit dem Modulator im Fokus? Hatten wir hier überhaupt einen Polarisator, an dem wir hätten falsch messen können?
+		\subsubsection*{Variante 1}
+		Um die Pixelgröße des LC-Modulators zu bestimmen, wird ein weißes Bild mit einem 200x200 Pixel großen schwarzen Quadrat in der Mitte auf den Modulator gegeben.
+		In den Strahlengang wird der LC-Modulator und im Abstand der Brennweite eine Linse dahinter gestellt, hinter der wieder im Abstand der Brennweite ein Schirm aufgestellt wird.
+		Auf dem Schirm wird die Größe des Quadrats mit einem Lineal gemessen. %TODO waren wir hier wirklich nicht mit dem Modulator im Fokus? Hatten wir hier überhaupt einen Polarisator, an dem wir hätten falsch messen können?
+		\subsubsection*{Variante 2}
+		Da die Pixel des LC-Modulators elektronische Strukturen zur Ansteuerung benötigen, bilden sie ein periodisches Gitter. %TODO sagte sie nicht noch irgendwas, woraus die Pixel bestehen würden?
+		Aufgrund dessen ergibt sich in der Fokusebene das Beugungsbild eines Gitters.
+		Es wird der Abstand zweier höherer Ordnungen mit einem Lineal gemessen und hieraus Gitterkonstante und somit Piselgröße bestimmt.
+
 
 	\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
-	
+
+		Es wird auf dem LC-Modulator ein einfarbiges Bild angezeigt. %TODO streng genommen Weiß/Schwarz keine Farben, wenn man pedantisch ist...
+		In der Fokusebene wird die Intensität gemessen und bei sechs verschiedenen Grauwerten des Bildes jeweils das Maximum der Intensität in Abhängigkeit vom Analysatorwinkel gesucht. %TODO ups. hier sollte man sich dann auch maximale und minimale Intensität notieren. Ich sehe aber nicht, wofür man das brauchen sollte.
+
+
+
+	\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays} %TODO hier habe ich jetzt komplett den Titel übernommen
+	Die Linse wird entfernt und stattdessen der Laser mittels der Linse am Laser auf einen Abstand von etwa \SI{80}{\centi \meter} fokussiert. %TODO haben wir da einen exakten Wert?
+	Es wird in horizontaler und vertikaler Richtung die Intensität der ersten elf Ordnungen gemessen. %TODO hier haben wir halt horziontal weniger. kp, ob man das hier oder unten erwähnen sollten.
+
+	\subsection{Beugungsbilder verschiedener DOEs}
+		Der Laser wird wieder kolminiert und eine Linse nach dem Analysator zur Fokussierung verwendet.
+		Es wird nacheinander ein Einzelspalt, zwei verschiedene Doppelspalte und ein Gitter als DOE für den LC-Modulator eingestellt.
+		Dann wird mit einer Kamera in der Fokusebene jeweils das Beugungsbild aufgenommen.
+		Für ein Gitter wird der Strahl mit der Linse am Laser (unter Entfernung der anderen Linse) auf einen Abstand von etwa \SI{1,23}{m} fokussiert und die Intensität des nullten und ersten Beugungsmaximums gemessen.
+
+	\subsection{Brennweite eines Fresnel-Linsen-DOEs}
+		Es wird als Bild eine Fresnel-Zonenplatte eingestellt.
+		Dann wird für vier verschiedene Linsenphasen mithilfe der Kamera der Fokus des Laserstrahls gesucht, um die Abhängigkeit zu bestimmen.
+
+	\subsection{Verschiedene DOEs als Hologramme}
+		Es wird wieder der kolminierte Laserstrahl mit Fokussierung nach dem Analysator mit der Kamera in der Fokusebene verwendet.
+		Es wird das Bild eines Schriftzugs und einiger geschachtelter Rechtecke am LC-Modulator eingestellt. %TODO Originalbilder hier oder später zum direkten Vergleich?
+		Mit der Kamera wird jeweils ein Bild aufgenommen.
+		Zuletzt wird auf der einen Hälfte des DOEs das Bild von geschachtelten Rechecken und auf der anderen Hälft von geschachtelten Kreisen dargestellt und ein Kamerabild aufgenommen.
+
+
 
 	\section{Ergebnisse und Diskussion}
-	%TODO Unsicherheiten
-
-
-	\subsection{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-	\subsubsection{Unsicherheiten}
+		\subsection{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
+	%TODO Unsicherheiten
 
-	\subsection{Diskussion}
-	% Bezug/Nutzen oder sonst was
-	% auch hier die Hypothese wiederholen
-	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+		\subsection{Überprüfung des Gesetzes von Malus}
+		%4.1.1
+		%TODO plotten und cos^2 reinfitten
+		%TODO Kontrast angeben (vmtl halt einfach Differenz der Intensitäten minmax)
+
+			\subsubsection*{Diskussion}
+			%TODO im Kontext von Malus diskutieren
+
+		\subsection{Einstellung der Eingangspolarisation}
+		%4.1.2
+		%TODO Kontrast für die vier Analysatorwinkel aus den Bildern (da steht explizit qualitativ. Reicht also wohl die Bilder zu printen und zu sagen: "Sieht man ja, wa?")
+		%TODO Intensitätsmessung 0 und 255 für horizontally divided
+
+			\subsubsection*{Diskussion}
+			%TODO qualitativ: ist tatsächlich deutlich anders
+			%TODO Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
+
+		\subsection{Bestimmung der Pixelgröße} %: Achtung, ich habe hier die beiden zusammengechoben und den dazwischen dahinter geschoben
+			\subsubsection*{Variante 1}
+			%4.1.3
+			%TODO ausrechnen und Messungenauigkeit abschätzen
+
+			\begin{equation}
+				G = \frac{B}{b/f-1}
+			\end{equation}
+
+			\subsubsection*{Variante 2}
+			%4.2.1
+			%TODO ausrechnen
+
+			\subsubsection*{Diskussion}
+			%TODO beide Werte mit Materialbeschreibung vergleichen. aus der Anleitung von dem SLM?
+
+		\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
+		%4.1.4
+		%TODO plotten
+
+			\subsubsection*{Diskussion}
+			%TODO Zusammenhang zwischen Grauwert und Drehwinkel erklären. Wie ist die Ausrichtung der Flüssigkristalle im LC-Modulator ohne Angelegte Spannung-> helix obv.
+
+		\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays}
+		%4.2.2
+		%TODO Trennung horzontale und vertikale Strukturen
+		%TODO Intensität bei 1-10 plotten
+		%TODO duty cycle bestimmen: Verhältnis transparenter Teil / lichtundurchlässiger Teil anhand der Intensitätsmodulation
+		%TODO Füllfaktor (Verhältnis transparent / gesamt) abschätzen: pixel quadratisch. -> ??? Dann ergibt sich der Füllfaktor doch instant aus dem duty cycle. Das klingt aber sehr anders gemeint in 4.2.2
+
+			\subsubsection*{Diskussion}
+			%TODO Warum Untermodulation?
+
+		\subsection{Beugungsbilder verschiedener DOEs}
+		%4.2.3
+		%TODO Bilder
+		%TODO Beugungswirkungsgrad bestimmen
+
+
+		%TODO Beobachtung, Änderung mit Strukturgröße
+			\subsubsection*{Diskussion}
+			%TODO Warum kann ein LC-Modulator Beugungsbilder erzeugen?
+
+		\subsection{Brennweite eines Fesnel-Linsen-DOEs}
+		%4.3.1
+		%TODO Brennweite gegen Linsenphase auftragen
+
+			\subsubsection*{Diskussion}
+			%TODO die Anleitung klingt so, als würden sich da mehrere Fokuspositionen ergebn, aber das kann ja wohl nicht sein.
+			%TODO auftretende Proportionalität beschreiben
+			%TODO feststellen: Computergesteuerte Hologramme können als Linsen verschiedener Brennweite agieren.
+
+
+		\subsection{Verschiedene DOEs als Hologramme}
+		%4.3.2, 4.3.3
+		%TODO Bilder
+
+			\subsubsection*{Diskussion}
+			%TODO DOEs nebeneinander: qualitativ Beugungsbild beschreiben, zugrundeliegenden physikalischen Effekte beschreiben
+			%TODO Glas-Hologrammfrage beantworten
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
@@ -237,3 +340,5 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	% Tabelle + Bilder mit Beschriftung
 	%\printbibliography
 \end{document}
+
+%TODO vlt die Diskussionssections alle mit * machen, weil das im Inhaltsverzeichnis wenig hilfreich ist.
