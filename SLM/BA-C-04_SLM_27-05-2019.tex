@@ -259,7 +259,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\item[Winkel:] analog, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
 		\item[Intensität:] digital, wobei die letzte Ziffer häufig schwankte, $u(I)=\frac{\SI{0.01}{mW}}{2\sqrt{3}}=\SI{0.003}{mW}=\SI{0.003}{}$ a.u.
 	\end{description}
-		\subsection{Überprüfung des Gesetzes von Malus}
+		\subsection{Überprüfung des Gesetzes von Malus}\label{ss_malus}
 		%4.1.1
 		%TODO plotten und cos^2 reinfitten
 		%TODO Kontrast angeben (vmtl halt einfach Differenz der Intensitäten minmax)
@@ -282,6 +282,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			}
 			\label{fig_malus}
 	\end{figure}
+
 
 
 
@@ -338,6 +339,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
     \end{figure}
 
 
+		Die Bestimmung des Kontrast erfolgt analog zu \cref{eq_kontrast} in \cref{ss_malus}, jedoch mit  den gemessenen intensitäten $I_\text{max}=\input{res/intens_max}$ und $I_\text{min}=\input{res/intens_min}$, respektiv für einen weißen und schwarzen \textit{Blank Screen}, sodass sich ein Kontrast von $C=\input{res/intens_kontrast}$ ergibt.
 			\subsubsection*{Diskussion}
 			%TODO qualitativ: ist tatsächlich deutlich anders
 			%TODO Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
