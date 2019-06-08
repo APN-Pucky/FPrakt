@@ -130,6 +130,16 @@ def out(fn,s):
     file.write(("%s"%(s)).replace("/",""))
     print(fn,": ", "%s"%(s))
     file.close()
+
+def out_si_tab(fn, tab):
+    file = open(fn,"w")
+    for i in range(len(tab)):
+        for j in range(len(tab[i])):
+            if(j!=0):
+                file.write("&")
+            file.write("\\SI{%s}{}"%(("%s"%(tab[i][j])).replace("/","")))
+        file.write("\\\\\n")
+    file.close()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
@@ -183,11 +193,36 @@ plt.savefig("SLM/img/malus.pdf")
 plt.show()
 
 # %% 4.1.2 Kontrast
+unc_i = 0.003
 imax = unc.ufloat(1.735,unc_i)
 imin = unc.ufloat(0.064,unc_i)
 out_si("SLM/res/intens_max", imax,"mW")
 out_si("SLM/res/intens_min", imin, "mW")
 out_si("SLM/res/intens_kontrast", (imax-imin)/(imax+imin))
+
+# %% 4.1.3 Pixel
+unc_f = 0.01/2/np.sqrt(3)
+unc_f = 0.003
+unc_l = 0.001/2/np.sqrt(6)
+unc_l = 0.0002
+unc_px = 10/2/np.sqrt(3)
+f = unc.ufloat(0.2,unc_f) *100
+bw1 = unc.ufloat(0.303,unc_l) *100
+bg1 = unc.ufloat(0.003,unc_l) *100
+bw2 = unc.ufloat(0.5,unc_l) *100
+bg2 = unc.ufloat(0.0095,unc_l) *100
+px = unc.ufloat(200,unc_px)
+
+g1 = bg1/(bw1/f-1)
+g2 = bg2/(bw2/f-1)
+
+px1 = g1/px*1e4
+px2 = g2/px*1e4
+print("pixel:", px)
+out_si("SLM/res/pixel1",px1,"\\mu m")
+out_si("SLM/res/pixel2",px2,"\\mu m")
+#'{:+.1uS}'.format(tab[i][j])
+out_si_tab("SLM/res/tb_pixel",[['{:+.1uS}'.format(f),'{:+.1uS}'.format(bw1),'{:+.1uS}'.format(bg1),'{:+.1uS}'.format(g1),px1],['{:+.1uS}'.format(f),'{:+.1uS}'.format(bw2),'{:+.1uS}'.format(bg2),'{:+.1uS}'.format(g2),px2]])
 # %% Old
 Sys.exit(0)
 #calc zeitkalibrier

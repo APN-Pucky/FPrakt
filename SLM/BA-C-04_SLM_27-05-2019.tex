@@ -258,6 +258,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\begin{description}
 		\item[Winkel:] analog, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
 		\item[Intensität:] digital, wobei die letzte Ziffer häufig schwankte, $u(I)=\frac{\SI{0.01}{mW}}{2\sqrt{3}}=\SI{0.003}{mW}=\SI{0.003}{}$ a.u.
+		\item[Brennweite:] Da keine Unsicherheit auf der Linse angegeben ist, wird einen Rechteckverteilung für die letzte Ziffer abgeschätzt $u(f)=\frac{\SI{1}{cm}}{2\sqrt{3}}= \SI{0.3}{cm}$
+		\item[Abstand:] analog, Dreiecksverteilung $u(d)=\frac{\SI{0.1}{cm}}{2\sqrt{6}}= \SI{0.02}{cm}$
 	\end{description}
 		\subsection{Überprüfung des Gesetzes von Malus}\label{ss_malus}
 		%4.1.1
@@ -341,14 +343,31 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			%TODO Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
 
 		\subsection{Bestimmung der Pixelgröße} %: Achtung, ich habe hier die beiden zusammengechoben und den dazwischen dahinter geschoben
+		%TODO Konsistenz mit Pixelabstand vs Pixelgröße
 			\subsubsection*{Variante 1}
 			%4.1.3
 			%TODO ausrechnen und Messungenauigkeit abschätzen
 
+			Die Größe $G$ des \SI{200}{}x\SI{200}{} Pixel Quadrats auf dem LC-Display lässt sich aus Bildgröße $B$, Bildweite $b$ und Brennweite $f$ mit \cref{eq_fokus} berechnen. %TODO x mathmode?
+			Der Pixelabstand $p$ ergibt sich aus dem Quotienten von $G$ und Höhe des Quadrats in Pixeln.
+			Für die Unsicherheit $u$ der Höhe des Quadrats in Pixeln wird einen Rechteckverteilung  von $u = \frac{\SI{10}{px}}{2\sqrt{3}}= \SI{3}{px}$ verwendet, da Bilder von 800x600 Pixel auf den LC-Modulator mit 824x624 Pixel skaliert werden und auch der Rahmen des Bildprogramms mit an den LC-Modulator übertragen wird. 
+			Die Messungen sowie der resultierende Pixelabstand $p$ sind in \cref{tb_pixel} tabelliert.
 			\begin{equation}
+				\label{eq_fokus}
 				G = \frac{B}{b/f-1}
 			\end{equation}
 
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c | c }
+			 Fokus $f/\si{cm}$ & Bildweite $b/\si{cm}$ & Bildgröße $B/\si{cm}$ & Größe $G/\si{cm}$ & Pixelabstand $p/\si{\mu m}$ \\ \hline
+			 \input{res/tb_pixel}
+		\end{tabular}
+		\caption{
+		Angegebene Brennweite $f$, gemessene Bildweite $b$, Bildgröße $B$ und berechnete Größe $G$, Pixelgröße $p$.
+		}
+		\label{tb_pixel}
+\end{table}
 			\subsubsection*{Variante 2}
 			%4.2.1
 			%TODO ausrechnen
