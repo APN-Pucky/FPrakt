@@ -77,8 +77,8 @@ def double_exponential(x, c1,c2, y0,x0):
 
 def custom(x,x0,A,d):
     return A * np.exp(-(x - x0)**2 / 2 / d**2)
-def malus(x,I,w,p):
-    return I*np.cos(w*x-p)**2
+def malus(x,I1,w,p,I2):
+    return (I1-I2)*np.cos(w*x-p)**2+I2
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
@@ -118,6 +118,18 @@ def fit_curvefit2(datax, datay, function, p0=None, yerr=None, **kwargs):
     pfit_curvefit = pfit
     perr_curvefit = np.array(error)
     return unp.uarray(pfit_curvefit, perr_curvefit)
+
+def out_si(fn,s,u=""):
+    file = open(fn,"w")
+    file.write(("\\SI{%s}{%s}"%(("%s"%(s)).replace("/",""),u)))
+    print(fn,": ", "%s"%(s))
+    file.close()
+
+def out(fn,s):
+    file = open(fn,"w")
+    file.write(("%s"%(s)).replace("/",""))
+    print(fn,": ", "%s"%(s))
+    file.close()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
@@ -151,12 +163,16 @@ fig=plt.figure(figsize=fig_size)
 
 plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
 
-fit = fit_curvefit2(unv(xdata), unv(ydata), malus,yerr=usd(ydata), p0 = [0,2*np.pi/360,0])
+fit = fit_curvefit2(unv(xdata), unv(ydata), malus,yerr=usd(ydata), p0 = [4.5,2*np.pi/360,0,0])
 
 xfit = np.linspace(xdata[0],xdata[-1], 400)
 xfit = xfit
 yfit = malus(unv(xfit), *unv(fit))
-plt.plot(unv(xfit), unv(yfit), linewidth=2, label='Malus Fit: $I_0\cdot\\cos^2(\\omega\\phi-\\theta)$\n$I$=%s a.u.\n$\\omega$=%s rad$^{-1}$\n$\\theta$=%s °'%(fit[0],fit[1]*180/np.pi,fit[2]*180/np.pi+180))
+plt.plot(unv(xfit), unv(yfit), linewidth=2, label='Malus Fit: $\\Delta I\\cdot\\cos^2(\\omega\\phi-\\theta)+I_{min}$\n$I_{max}$=%s a.u.\n$I_{min}$=%s a.u.\n$\\omega$=%s rad$^{-1}$\n$\\theta$=%s °'%(fit[0],fit[3],fit[1]*180/np.pi,fit[2]*180/np.pi+180))
+
+out_si("SLM/res/malus_kontrast",(fit[0]-fit[3])/(fit[0]+fit[3]))
+
+
 
 plt.legend(prop={'size':fig_legendsize},loc=4)
 plt.grid()

@@ -250,16 +250,15 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\section{Ergebnisse und Diskussion}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-		\subsection{Unsicherheiten}
+		\subsection*{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
 	%TODO Unsicherheiten
 
 	Folgende Unsicherheiten werden angenommen:
 	\begin{description}
 		\item[Winkel:] analog, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
-		\item[Intensität:] digital, wobei die letzte Ziffer häufig schwankte, $u(I)=\frac{\SI{0.01}{mW}}{2\sqrt{3}}=\SI{0.003}{mW}=\SI{0.003}{a.u.}$
+		\item[Intensität:] digital, wobei die letzte Ziffer häufig schwankte, $u(I)=\frac{\SI{0.01}{mW}}{2\sqrt{3}}=\SI{0.003}{mW}=\SI{0.003}{}$ a.u.
 	\end{description}
-
 		\subsection{Überprüfung des Gesetzes von Malus}
 		%4.1.1
 		%TODO plotten und cos^2 reinfitten
@@ -267,7 +266,12 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		In \cref{fig_malus} wurde die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
 		Es wurde ein Fit nach dem Gesetzt von Malus durchgeführt mit:
 		\begin{equation}
-			I = I_0\cos^2(\phi\omega-\theta)
+			I = (I_\text{max}-I_\text{min})\cos^2(\phi\omega-\theta) +I_\text{min}
+		\end{equation}
+		Der Kontrast lässt sich quantitativ mit \cref{eq_kontrast} beschreiben.
+		\begin{equation}
+			\label{eq_kontrast}
+			C = \frac{I_\text{max}-I_\text{min}}{I_\text{max}+I_\text{min}}= \input{res/malus_kontrast}
 		\end{equation}
 
 	\begin{figure}[H]
