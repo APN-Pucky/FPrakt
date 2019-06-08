@@ -240,7 +240,9 @@ out_si_tab("SLM/res/tb_gitter",[
 [(m2),'{:+.1uS}'.format(d2),g2]])
 
 # %% 4.2.2
-
+print(2/unc.ufloat(9,0.3))
+print(4/unc.ufloat(9,0.3))
+print(8/unc.ufloat(9,0.3)**2)
 data = np.loadtxt("SLM/data/422_1_good.csv",skiprows = 1, delimiter=',')
 xdata = unp.uarray(data[:,0],0.0)
 ydata = unp.uarray(data[:,1],data[:,2]) *1e3
