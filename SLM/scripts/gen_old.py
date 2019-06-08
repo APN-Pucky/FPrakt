@@ -202,9 +202,9 @@ out_si("SLM/res/intens_kontrast", (imax-imin)/(imax+imin))
 
 # %% 4.1.3 Pixel
 unc_f = 0.01/2/np.sqrt(3)
-unc_f = 0.003
+#unc_f = 0.003
 unc_l = 0.001/2/np.sqrt(6)
-unc_l = 0.0002
+#unc_l = 0.0002
 unc_px = 10/2/np.sqrt(3)
 f = unc.ufloat(0.2,unc_f) *100
 bw1 = unc.ufloat(0.303,unc_l) *100
@@ -222,7 +222,59 @@ print("pixel:", px)
 out_si("SLM/res/pixel1",px1,"\\mu m")
 out_si("SLM/res/pixel2",px2,"\\mu m")
 #'{:+.1uS}'.format(tab[i][j])
-out_si_tab("SLM/res/tb_pixel",[['{:+.1uS}'.format(f),'{:+.1uS}'.format(bw1),'{:+.1uS}'.format(bg1),'{:+.1uS}'.format(g1),px1],['{:+.1uS}'.format(f),'{:+.1uS}'.format(bw2),'{:+.1uS}'.format(bg2),'{:+.1uS}'.format(g2),px2]])
+out_si_tab("SLM/res/tb_pixel",[['{:+.1uS}'.format(bw1),'{:+.1uS}'.format(bg1),'{:+.1uS}'.format(g1),px1],['{:+.1uS}'.format(bw2),'{:+.1uS}'.format(bg2),'{:+.1uS}'.format(g2),px2]])
+
+# %% 4.2.1
+f = unc.ufloat(0.2,unc_f) *100
+d1 = unc.ufloat(0.025,unc_l) * 100
+d2 = unc.ufloat(0.033,unc_l) *100
+m1 = 3
+m2 = 4
+l = 632.8e-9
+g1 = m1*l/(d1/(2*f)) * 1e6
+g2 = m2*l/(d2/(2*f))*1e6
+print(g1)
+print(g2)
+out_si_tab("SLM/res/tb_gitter",[
+[(m1),'{:+.1uS}'.format(d1),g1],
+[(m2),'{:+.1uS}'.format(d2),g2]])
+
+# %% 4.2.2
+
+data = np.loadtxt("SLM/data/422_1_good.csv",skiprows = 1, delimiter=',')
+xdata = unp.uarray(data[:,0],0.0)
+ydata = unp.uarray(data[:,1],data[:,2]) *1e3
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
+
+plt.gca().set_yscale('log')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Maximum $m$')
+plt.ylabel('Intensität $I$ in a.u.')
+plt.savefig("SLM/img/sinc1.pdf")
+plt.show()
+
+data = np.loadtxt("SLM/data/422_2_good.csv",skiprows = 1, delimiter=',')
+xdata = unp.uarray(data[:,0],0.0)
+ydata = unp.uarray(data[:,1],data[:,2]) *1e3
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
+
+plt.gca().set_yscale('log')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Maximum $m$')
+plt.ylabel('Intensität $I$ in a.u.')
+plt.savefig("SLM/img/sinc2.pdf")
+plt.show()
+
 # %% Old
 Sys.exit(0)
 #calc zeitkalibrier
