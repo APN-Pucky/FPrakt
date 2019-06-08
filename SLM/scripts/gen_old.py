@@ -238,6 +238,43 @@ print(g2)
 out_si_tab("SLM/res/tb_gitter",[
 [(m1),'{:+.1uS}'.format(d1),g1],
 [(m2),'{:+.1uS}'.format(d2),g2]])
+
+# %% 4.2.2
+
+data = np.loadtxt("SLM/data/422_1_good.csv",skiprows = 1, delimiter=',')
+xdata = unp.uarray(data[:,0],0.0)
+ydata = unp.uarray(data[:,1],data[:,2]) *1e3
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
+
+plt.gca().set_yscale('log')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Maximum $m$')
+plt.ylabel('Intensität $I$ in a.u.')
+plt.savefig("SLM/img/sinc1.pdf")
+plt.show()
+
+data = np.loadtxt("SLM/data/422_2_good.csv",skiprows = 1, delimiter=',')
+xdata = unp.uarray(data[:,0],0.0)
+ydata = unp.uarray(data[:,1],data[:,2]) *1e3
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
+
+plt.gca().set_yscale('log')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Maximum $m$')
+plt.ylabel('Intensität $I$ in a.u.')
+plt.savefig("SLM/img/sinc2.pdf")
+plt.show()
+
 # %% Old
 Sys.exit(0)
 #calc zeitkalibrier

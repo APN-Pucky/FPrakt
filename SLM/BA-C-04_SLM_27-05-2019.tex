@@ -404,8 +404,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
 		%4.1.4
 		%TODO plotten
-
-			\subsubsection*{Diskussion}
+					\subsubsection*{Diskussion}
 			%TODO Zusammenhang zwischen Grauwert und Drehwinkel erklären. Wie ist die Ausrichtung der Flüssigkristalle im LC-Modulator ohne Angelegte Spannung-> helix obv.
 
 		\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays}
@@ -414,6 +413,51 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		%TODO Intensität bei 1-10 plotten
 		%TODO duty cycle bestimmen: Verhältnis transparenter Teil / lichtundurchlässiger Teil anhand der Intensitätsmodulation
 		%TODO Füllfaktor (Verhältnis transparent / gesamt) abschätzen: pixel quadratisch. -> ??? Dann ergibt sich der Füllfaktor doch instant aus dem duty cycle. Das klingt aber sehr anders gemeint in 4.2.2
+
+
+		Der Tastgrad $c$ ist definiert als das das Verhältnis einer Impulsdauer $\tau$ zur Periodendauer $T$, also $c=\tau/T$.
+		Übertragen auf die Transparenz der Pixel ist $c=t/g$.
+		Wobei $t$ die Ausdehnung des transparenten und $g$ des gesamten Pixels beschreibt.
+
+
+		Für Gitter gilt, dass das Produkt aus Periodizität im Realraum $r$ und reziproken Raum $P$ konstant ist, $rP=\text{const.}$.
+		Im Experiment sind zwei Gitter simultan vorhanden, welche beide eine Fouriertransformation zur Folge haben.
+		Eines welches die Pixelgröße definiert und eines welches der Steuerelektronik entstammt.
+		Somit folgt:
+		\begin{equation}
+			gG =tT = \text{const.}
+		\end{equation}
+		Wobei $G$ und $T$ die respektiven Periodizitäten im reziproken Raum sind und es folgt, dass sich das Transparentsverhältnis $c=t/g=G/T$ im reziproken Raum als Verhältnis der Frequenzen widerspiegelt.
+
+		In \cref{fig_sinc1} sind die Intensitäten der vertikalen Maxima aufgetragen.
+		Maxima sind deutlich bei $m=\{0,4,7,9\}$ und Minima bei $m=\{3,6,8\}$.
+		Der geringe Abstand zwischen den Maxima $\{7,9\}$ und dem Minimum $\{8\}$, lässt darauf folgern, dass im Bereich nahe der 0. Ordnung ein weiteres Minimum nicht aufgelöst werden konnte.
+		Und es lässt sich das Verhältnis der Frequenzen durch das Verhältnis der Maxima beschreiben $c_v=4/9$.
+
+		Analog stellt man in \cref{fig_sinc2} fest, dass $c_h=2/9$ beträgt und ebenfalls das erste Minimum nicht aufgelöst werden konnte.
+
+		Als grobe Schätzung ergibt sich der Füllfaktor aus dem Produkt der Tastgrade:
+		\begin{equation}
+			\text{FF} \approx c_v c_h =\SI{9.9}{\percent}
+		\end{equation}
+
+
+\begin{figure}[H]
+			\includegraphics[width=0.8\linewidth]{img/sinc1}
+			\caption{
+			Messung der Intensität in Maxima der Gitterbeugung in vertikaler Richtung.
+			}
+			\label{fig_sinc1}
+	\end{figure}
+
+\begin{figure}[H]
+			\includegraphics[width=0.8\linewidth]{img/sinc2}
+			\caption{
+			Messung der Intensität in Maxima der Gitterbeugung in horizontaler Richtung.
+			}
+			\label{fig_sinc2}
+	\end{figure}
+
 
 			\subsubsection*{Diskussion}
 			%TODO Warum Untermodulation?
