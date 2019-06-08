@@ -100,7 +100,7 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	Es wird ein Toroid-Spektrometer verwendet, um das Energiespektrum des ausgesandten Elektrons beim $\beta$-Zerfall von $^{137}$Cs zu bestimmen.
 	Mit Hilfe dieses Spektrums wird durch einen Kurzie-Plot die Grenzenergie des Übergangs in den angeregten Zustand des entstehenden $^{137}$Ba bestimmt.
-	Dazu wird das Spektrum zunächst um Elektronen anderer Quellen korrigiert.
+	Dazu wird das Spektrum zunächst um den Hintergrund korrigiert.
 	Die Bestimmung der Übergangsenergie ist insofern erfolgreich, als dass das Ergebnis von \SI{538 \pm 10}{keV} um weniger als \SI{10}{\percent} und um weniger als die dreifache Standardunsicherheit vom Literaturwert abweicht.
 	Die Abweichung wird diskutiert und Methoden zur genaueren Bestimmung nahegelegt.
 	Außerdem wird die Impulsauflösung des Spektrometers bestimmt.
@@ -123,22 +123,32 @@
 			\label{fig_Zerfallsschema}
 	\end{figure}
 
+	Beim $\beta$-Zerfall trennt man in: %TODO "Welche beta-Zerfälle?" fine?
 
-		Beim $\beta^-$-Zerfall findet die folgende Kernreaktion statt:
+	\begin{align}
+		\beta^-: \quad & _{Z}^{A}\text{X} \rightarrow _{Z+1}^{A}\text{Y} + \text{e}^- + \bar{\nu_{\text{e}}}\\
+		\beta^+: \quad & _{Z}^{A}\text{X} \rightarrow _{Z-1}^{A}\text{Y} + \text{e}^+ + \nu_{\text{e}}
+	\end{align}
+
+		Beim $\beta^-$-Zerfall ergibt sich daraus die folgende Kernreaktion:
 		\begin{equation}
 			\label{eq_beta-minus}
 			 _{55}^{137}\text{Cs} \rightarrow _{56}^{137}\text{Ba} + \text{e}^- + \bar{\nu_{\text{e}}}
 		\end{equation}
-		Hierfür wird im Kern ein Neutron in ein Proton, ein Elektron und ein Anitelektronneutrino umgewandelt.
 
 		Da im Impulserhaltungssatz hier die Impulse von drei Teilchen eine Rolle spielen, nimmt das Elektron nach dem Zerfall keine diskrete Energie (wie der Heliumkern beim $\alpha$-Zerfall) an, sondern ergibt ein kontinuierliches Spektrum.
 
 		Um trotzdem die Übergangsenergie des Zerfalls messen zu können, muss das hochenergetiche Ende des Spektrums extrapoliert werden, da hier die gesamte Übergangsenergie in Ruheenergie und kinetische Energie des Elektrons übergeht.
-		Die Ruheenergie des Neutrinos muss hierbei vernachlässigt werden. %TODO confirmen
-		Dies ist aber nach aktuellem Forschungsstand innerhalb der Messunsicherheiten problemlos möglich. %TODO theoretisch bräuchte man hier ne Referenz
+		Die Ruheenergie des Neutrinos muss hierbei vernachlässigt werden.
+		Dies ist aber nach aktuellem Forschungsstand innerhalb der Messunsicherheiten problemlos möglich.
 		Mit der Übergangsenergie $E_0$ ist im Folgenden aber nur die kinetische Energie des Elektrons gemeint, sodass hier seine Ruheenergie nicht miteinbezogen werden muss.
 
+		\subsection*{Tröpfchen-Modell} %TODO wollte sie auch haben. fine?
 
+		Im Tröpfchenmodell werden die Protonen und Neutronen, die einen Kern bilden wie Atome oder Moleküle, die einen Flüssigkeitstropfen bilden, betrachtet.
+		Dabei entspricht die Kernkraft dann den Kräften zwischen den Atomen/Molekülen, die den Tropfen zusammenhalten.
+		Dieses Modell erlaubt es, die Bindungsenergien von Atomkernen vorherzusagen und erklärt, warum schwere Kerne instabil werden.
+		Das Modell reicht aber nicht aus, um für alle Isotope korrekt vorherzusagen, ob sie stabil sind. % laut wiki zumindest.
 
 	\section{Methoden}
 	% Bilder von der Website klauen
