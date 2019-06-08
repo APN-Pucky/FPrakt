@@ -243,7 +243,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		Es wird wieder der kolminierte Laserstrahl mit Fokussierung nach dem Analysator mit der Kamera in der Fokusebene verwendet.
 		Es wird das Bild eines Schriftzugs und einiger geschachtelter Rechtecke am LC-Modulator eingestellt. %TODO Originalbilder hier oder später zum direkten Vergleich?
 		Mit der Kamera wird jeweils ein Bild aufgenommen.
-		Zuletzt wird auf der einen Hälfte des DOEs das Bild von geschachtelten Rechecken und auf der anderen Hälft von geschachtelten Kreisen dargestellt und ein Kamerabild aufgenommen.
+		Zuletzt wird auf der einen Hälfte des DOEs das Bild von geschachtelten Rechtecken und auf der anderen Hälft von geschachtelten Kreisen dargestellt und ein Kamerabild aufgenommen.
 
 
 
@@ -254,12 +254,35 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	% Berechung nach Aufgabenstellung
 	%TODO Unsicherheiten
 
+	Folgende Unsicherheiten werden angenommen:
+	\begin{description}
+		\item[Winkel:] analog, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
+		\item[Intensität:] digital, wobei die letzte Ziffer häufig schwankte, $u(I)=\frac{\SI{0.01}{mW}}{2\sqrt{3}}=\SI{0.003}{mW}=\SI{0.003}{a.u.}$
+	\end{description}
+
 		\subsection{Überprüfung des Gesetzes von Malus}
 		%4.1.1
 		%TODO plotten und cos^2 reinfitten
 		%TODO Kontrast angeben (vmtl halt einfach Differenz der Intensitäten minmax)
+		In \cref{fig_malus} wurde die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
+		Es wurde ein Fit nach dem Gesetzt von Malus durchgeführt mit:
+		\begin{equation}
+			I = I_0\cos^2(\phi\omega-\theta)
+		\end{equation}
+
+	\begin{figure}[H]
+			\includegraphics[width=0.8\linewidth]{img/malus}
+			\caption{
+			Messung der Intensität in Abhängigkeit vom Winkel des Polarisators.
+			Die gelbe Funktion ist eine Fit nach dem Gesetzt von Malus.
+			}
+			\label{fig_malus}
+	\end{figure}
+
+
 
 			\subsubsection*{Diskussion}
+			%TODO Frequenz = 1 passt, Maximum passt+- mit Augenmaß von 142
 			%TODO im Kontext von Malus diskutieren
 
 		\subsection{Einstellung der Eingangspolarisation}
