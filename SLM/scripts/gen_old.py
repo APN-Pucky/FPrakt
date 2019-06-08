@@ -147,7 +147,7 @@ g = 9.81 # m/s^2
 rad = 360 / 2 / math.pi
 grad = 1/rad
 # Unsicherheiten
-unc_w = 0.3
+unc_i = 0.003
 
 
 
@@ -155,7 +155,7 @@ unc_w = 0.3
 
 
 
-# %% Malus
+# %% 4.1.1 Malus
 data = data_malus = np.loadtxt("SLM/data/411.csv",skiprows = 1, delimiter=',')
 ydata = unp.uarray(data[:,0],data[:,1])
 xdata = unp.uarray(data[:,2],data[:,3])
@@ -182,6 +182,12 @@ plt.ylabel('Intensität $I$ in a.u.')
 plt.savefig("SLM/img/malus.pdf")
 plt.show()
 
+# %% 4.1.2 Kontrast
+imax = unc.ufloat(1.735,unc_i)
+imin = unc.ufloat(0.064,unc_i)
+out_si("SLM/res/intens_max", imax,"mW")
+out_si("SLM/res/intens_min", imin, "mW")
+out_si("SLM/res/intens_kontrast", (imax-imin)/(imax+imin))
 # %% Old
 Sys.exit(0)
 #calc zeitkalibrier
