@@ -304,6 +304,23 @@ plt.ylabel('Intensität $I$ in a.u.')
 plt.savefig("SLM/img/sinc2.pdf")
 plt.show()
 
+data = np.loadtxt("SLM/data/422_3_good.csv",skiprows = 1, delimiter=',')
+xdata = unp.uarray(data[:,0],0.0)
+ydata = unp.uarray(data[:,1],data[:,2]) *1e3
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
+
+plt.gca().set_yscale('log')
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Maximum $m$')
+plt.ylabel('Intensität $I$ in a.u.')
+plt.savefig("SLM/img/sinc3.pdf")
+plt.show()
+
 # %% 4.2.3
 int0 = [541,514,394,142,59,37]
 int1 = [16.26,15.9,12,5.4,2.85,1.617]
@@ -333,7 +350,8 @@ dis = [29.5,26.3,23.9,24.0]
 
 
 xdata = unp.uarray(lin,0)
-ydata = unp.uarray(dis,unc_l*100)
+ydata = unp.uarray(dis,unc_l*1000)
+print(ydata)
 
 fig=plt.figure(figsize=fig_size)
 
