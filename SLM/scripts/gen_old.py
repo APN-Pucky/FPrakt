@@ -9,6 +9,7 @@ import sympy as sym
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.axes as axes
+from matplotlib.patches import Ellipse
 from matplotlib import colors as mcolors
 import math
 from scipy import optimize
@@ -238,6 +239,32 @@ print(g2)
 out_si_tab("SLM/res/tb_gitter",[
 [(m1),'{:+.1uS}'.format(d1),g1],
 [(m2),'{:+.1uS}'.format(d2),g2]])
+
+# %% 4.1.4
+# data
+gray = [0,50,100,150,200,250]
+angle = [170,169,161.5,105,98.5,94]
+max = [762,757,719,722,792,795]
+min = [21.83,24.7,56.6,68.9,29.3,22.7]
+color = ['C0','C1','C2','C3','C4','C5']
+#render
+fig = plt.figure(figsize=fig_size)
+for i in range(len(max)):
+    mx = unc.ufloat(max[i],3)
+    mn = unc.ufloat(min[i],3)
+    plt.gca().add_patch(Ellipse((0,0),max[i]*2,min[i]*2,angle[i], facecolor="%s"%(gray[i]/255),edgecolor=color[i],label="Grau: %s, $\\theta$: %s°"%(gray[i],angle[i])))
+    print(unp.sqrt(mx**2-mn**2))
+mm = np.max(np.array([max,min]))
+plt.xlim(-mm, mm)
+plt.ylim(-mm, mm)
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Intensität $I$ in a.u.')
+plt.ylabel('Intensität $I$ in a.u.')
+plt.savefig("SLM/img/ellipse.pdf")
+plt.show()
+
 
 # %% 4.2.2
 print(2/unc.ufloat(9,0.3))

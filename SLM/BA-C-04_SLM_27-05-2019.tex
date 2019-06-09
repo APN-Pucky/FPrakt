@@ -404,6 +404,21 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
 		%4.1.4
 		%TODO plotten
+		In \cref{fig_ellipse} ist die Exzentrizität des Lichts in Polarkoordinaten dargestellt.
+		Die maximal gemessene Intensität $I_\text{max}$ unter Variation des Analysatorwinkels bei einem \textit{Blank Screen} mit einem gewissen Grauwert wird als Länge der großen Halbachse einer Ellipse aufgefasst.
+		Die kleine Halbachse ergibt sich aus der minimalen Intensität $I_\text{min}$, also unter einer Analysatorwinkeländerung von \SI{90}{\degree}.
+		Zusätzlich wird die Hauptachse der Ellipse um den Analysatorwinkel gegenüber der x-Achse rotiert.
+
+
+\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{img/ellipse}
+			\caption{
+			Exzentrizität des Lichts. Die maximale Intensität $I_\text{max}$ entspricht der großen Halbachse, welche um den Analysatorwinkel $\theta$ zur x-Achse rotiert ist. Die kleine Halbachse ist die Intensität $I_\text{min}$.
+			\protect\footnotemark
+			}
+			\label{fig_ellipse}
+	\end{figure}
+			\footnotetext{Die Daten stammen aus \cite{JTZ}}
 					\subsubsection*{Diskussion}
 			%TODO Zusammenhang zwischen Grauwert und Drehwinkel erklären. Wie ist die Ausrichtung der Flüssigkristalle im LC-Modulator ohne Angelegte Spannung-> helix obv.
 
@@ -497,7 +512,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
-	%\printbibliography
+	\printbibliography
 \end{document}
 
 %TODO vlt die Diskussionssections alle mit * machen, weil das im Inhaltsverzeichnis wenig hilfreich ist.
