@@ -99,6 +99,15 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	In diesem Versuch wird ein Modulator aus Flüssigkristallzellen verwendet, um dessen Eigenschaften zu untersuchen und seine Verwendbarkeit als diffraktives optisches Element zu zeigen.
+	Zunächst kann dabei das Gesetz von Malus bestätigt werden und gezeigt und erklärt werden, dass bzw. warum der Kontrast des LC-Modulators von der Eingangspolarisation abhängt.
+	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Varianten der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt.
+	Außerdem wird die Abhängigkeit der Ausgangspolarisation des Modulators von dem eingestellten Grauwert untersucht und diskutiert.
+
+	Es werden Beugungsbilder des LC-Modulator als verschiedene diffraktive optische Elemente aufgenommen, um zu zeigen, dass der LC-Modulator als solche verwendet werden kann.
+	Bei Verwendung des LC-Modulators als Fresnel-Linse wird gezeigt, dass er auch eine Linse variabler Brennweite darstellen kann.
+
+	Zuletzt werden Fouriertransformierte von simplen Bilder auf den LC-Modulator gegeben, um mit seiner Hilfe Hologramme auf dem Kamerasensor zu erzeugen.
 
   \section{Theorie}
 	% wdh. Texte
@@ -241,9 +250,9 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 	\subsection{Verschiedene DOEs als Hologramme}
 		Es wird wieder der kolminierte Laserstrahl mit Fokussierung nach dem Analysator mit der Kamera in der Fokusebene verwendet.
-		Es wird das Bild eines Schriftzugs und einiger geschachtelter Rechtecke am LC-Modulator eingestellt. % Originalbilder hier oder später zum direkten Vergleich? -> später ist gut
+		Es wird das fouriertransformierte Bild eines Schriftzugs und einiger geschachtelter Rechtecke am LC-Modulator eingestellt. % Originalbilder hier oder später zum direkten Vergleich? -> später ist gut
 		Mit der Kamera wird jeweils ein Bild aufgenommen.
-		Zuletzt wird auf der einen Hälfte des DOEs das Bild von geschachtelten Rechtecken und auf der anderen Hälft von geschachtelten Kreisen dargestellt und ein Kamerabild aufgenommen.
+		Zuletzt wird auf der einen Hälfte des DOEs die Fouriertransformation von geschachtelten Rechtecken und auf der anderen Hälft die von geschachtelten Kreisen dargestellt und ein Kamerabild aufgenommen.
 
 
 
@@ -267,7 +276,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		In \cref{fig_malus} wurde die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
 		Es wurde ein Fit nach dem Gesetzt von Malus durchgeführt mit:
 		\begin{equation}
-			\label{eq_malus}
+			\label{eq_malus_fit}
 			I = (I_\text{max}-I_\text{min})\cos^2(\phi\omega-\theta) +I_\text{min}
 		\end{equation}
 		Der Kontrast lässt sich quantitativ mit \cref{eq_kontrast} beschreiben.
@@ -297,7 +306,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 				\label{eq_malus}
 			\end{equation}
 
-			Dass im Gegensatz zu obiger Gleichung eine Phase auftritt, liegt darin, dass das Lich aus dem Laser in einem Winkel von \SI{137,07\pm 0.16}{\degree} zu einem Analysatorwinkel von Null gedreht linear polarisiert austritt.
+			Dass im Gegensatz zu obiger Gleichung eine Phase auftritt, liegt darin, dass das Licht aus dem Laser in einem Winkel von \SI{137,07\pm 0.16}{\degree} zu einem Analysatorwinkel von Null gedreht linear polarisiert austritt.
 
 
 
@@ -448,12 +457,14 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 			\subsubsection*{Diskussion}
 			% Zusammenhang zwischen Grauwert und Drehwinkel erklären. Wie ist die Ausrichtung der Flüssigkristalle im LC-Modulator ohne Angelegte Spannung-> helix obv.
-			Die Polarisation dreht sich mit dem Grauwert und die Exzentrizität wird bei einem mittleren Grauzwert maximal.
+			Die Polarisation dreht sich mit dem Grauwert und die Exzentrizität wird bei einem mittleren Grauzwert minimal.
 			Ersteres liegt daran, dass bei einem \textit{Blanc Screen} der gesamte LC-Modulator näherungsweise als eine LC-Zelle aufgefasst werden kann.
 			Diese dreht ohne angelegte Spannung die Polarisation des Lichtes um \SI{90}{\degree}.
 			Bei maximaler Spannung dreht sie die Polarisation nicht mehr.
 			Da der eingestellte Grauwert invers der angelegten Spannung entspricht (hoher Grauwert bedeutet hohe Durchlässigkeit der Zellen), wird hierdurch die Grauwertabhängigkeit der Ausgangspolarisation erklärt.
-			%TODO irgendwas zu der Exzentrizität?
+			Eine geringe Exzentrizität entspricht einer starken durchschnittlichen Abweichung von der Vorzugspolarisationsrichtung.
+			Hier ist das Licht also weniger einheitlich polarisiert.
+			Dass dies bei einem mittleren Grauwert der Fall ist, zeigt, dass bei mittlerer angelegter Spannung nicht bei allen LC-Zellen die Polarisation gleich weit gedreht wird, während dies bei komplett fehlender oder maximaler Spannung eher der Fall ist.
 
 		\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays}
 		%4.2.2
@@ -510,14 +521,14 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 			\subsubsection*{Diskussion}
 			%TODO Warum Untermodulation?
-			%TODO auf neuen Kram fixen.
 			Horizontale Strukturen sind durch ihre Höhe definiert und vertikale durch ihre Breite.
 			Außerdem verursacht ein Gitter mit vertikalen Spalten ein horizontales Beugungsbild und umgekehrt.
 			Dementsprechend entspricht der vertikale Tastgrad horizontalen Strukturen und umgekehrt.
-			Der oben abgeschätzte Füllfaktor von \SI{9,9\pm 0,7}{\percent} steht im Widerspruch zu \cite{Handbuch}, welches eine Angabe von etwa \SI{55}{\percent} macht.
-			Dies liegt an den ebenfalls unterschiedlichen Tastgraden, die laut Handbuch nämlich in horizontaler Richtung $5/6$ und in vertikaler $2/3$ betragen sollen.
-			Die gemessenen Tastgrade sind deutlich geringer.
-			Dies könnte unter anderem auf die Versuchslimitierung durch die Ordnungen des Pixelgitters zurückgeführt werden:
+
+			Der abgeschätzte Füllfaktor von \SI{43,2\pm 1,2}{\percent} ist um mehr als die Messunsicherheit geringer als der in \cite{Handbuch} angegebene von etwa \SI{55}{\percent}.
+
+			Dies kann einerseits an der unbegründete Annahme, dass die Pixel rechteckig sind, liegen.
+			Andererseits wird die Messung durch die Ordnungen des Pixelgitters eingeschränkt:
 			Wenn man die Untermodulation durch elektrische Ansteuerungselemente als periodisches Signal mit einer räumlichen Frequenz $ f_\text{Signal} $ in vertikaler oder horizontaler Richtung auffasst und die Messabstände durch das Pixelgitter als eine räumliche Abtastrate $f_\text{Abtast}$ interpretiert, muss gemäß der Signaltheorie $f_\text{Abtast} > 2 f_\text{Signal}$ (vgl. Nyquistfrequenz).
 			Ansonsten treten Aliasing-Effekte auf.
 			Dies kann bei dem gegebenen Aufbau allerdings nicht sichergestellt werden.
@@ -637,16 +648,20 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\label{fig_fresnel}
 	\end{figure}
 			\subsubsection*{Diskussion}
-			%TODO die Anleitung klingt so, als würden sich da mehrere Fokuspositionen ergebn, aber das kann ja wohl nicht sein.
-			%TODO auftretende Proportionalität beschreiben
-			%TODO feststellen: Computergesteuerte Hologramme können als Linsen verschiedener Brennweite agieren.
+			% die Anleitung klingt so, als würden sich da mehrere Fokuspositionen ergebn, aber das kann ja wohl nicht sein.
+			% auftretende Proportionalität beschreiben
+			% feststellen: Computergesteuerte Hologramme können als Linsen verschiedener Brennweite agieren.
 %TODO random leereseiten
+
+		Wie in \cref{fig_fresnel} zu erkennen ist, nimmt die Brennweite mit der Linsenphase zu.
+		In den letzten drei Messpunkten sieht der Zusammenhang linear aus, aber um über die Art der Proportionalität eine Aussage treffen zu können, wären zusätzliche Messpunkte nötig.
+		Computergesteuerte Hologramme können also als Linse variabler Brennweite verwendet werden.
 
 		\subsection{Verschiedene DOEs als Hologramme}
 		%4.3.2, 4.3.3
-		%TODO Bilder
+		% Bilder
  		\cref{fig_beug_mix} zeigt einige mit der Kamera aufgenommene Beugungsbilder mit zugehörigen Originalen.
-\begin{figure}[H] %TODO hier kollidiert das unten mit der Seitenzahl
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.300\textwidth}
             \centering
@@ -702,11 +717,25 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
     \end{figure}
 
 			\subsubsection*{Diskussion}
-			%TODO DOEs nebeneinander: qualitativ Beugungsbild beschreiben, zugrundeliegenden physikalischen Effekte beschreiben
+			% DOEs nebeneinander: qualitativ Beugungsbild beschreiben, zugrundeliegenden physikalischen Effekte beschreiben
 			%TODO Glas-Hologrammfrage beantworten
+			In \cref{fig_beug_mix} ist gut zu erkennen, dass durch den LC-Modulator eine Fouriertransformation stattfindet, weshalb auf dem Kamerasensor wieder das ursprüngliche Bild abgebildet wird.
+			Dabei tritt aufgrund des Strahlendurchgangs durch die Modulator eine Spiegelung auf (wie durch eine Fokussierlinse).
+			Das in zwei Teile getrennte Hologramm führt in \cref{fig_square_ring} zu einer Überlagerung der beiden Strukturen.
+			Dies lässt sich auffassen als positive Frequenzen des einen Bildes und negative Frequenzen des anderen.
+			Im Ortsraum entsteht dadurch die Überlagerung der beiden Bilder, da nicht zwischen positiven und negativen Frequenzen unterschieden wird.
+			Anders gesagt schickt die eine Hälfte des LC-Modulators die Lichtstrahlen so auf den Sensor, dass Ringe entstehen und die andere so, dass Rechtecke entstehen.
+
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+
+	Insgesamt gesehen lässt sich sagen, dass der verwendete LC-Modulator charakterisiert werden konnte und gezeigt werden konnte, dass er als variables DOE verwendet werden kann.
+	Das Gesetz von Malus konnte bestätigt werden und die Eingangspolarisation des Modulators eingestellt werden.
+	Die Pixelgröße wurde innerhalb der Messunsicherheiten in Übereinstimmung mit den Herstellerangaben bestimmt.
+	Die Abhängigkeit der Ausgangspolarisation vom eingestellten Grauwert wurde untersucht und erklärt.
+	Es wurden Beugungsbilder verschiedener DOEs aufgenommen und verglichen und der Modulator wurde als variable Fresnel-Linse verwendet sowie deren Brennweite in Abhängigkeit von der Linsenphase gemessen.
+	Zuletzt wurde der LC-Modulator verwendet, um Hologramme zu erzeugen, indem Fouriertransformierte DOEs verwendet wurden.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
