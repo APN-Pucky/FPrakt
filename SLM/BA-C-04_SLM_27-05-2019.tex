@@ -446,8 +446,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 
 		Der Tastgrad $c$ ist definiert als das Verhältnis einer Impulsdauer $\tau$ zur Periodendauer $T$, also $c=\tau/T$.
-		Übertragen auf die Transparenz der Pixel ist $c=t/g$.
-		Wobei $t$ die Ausdehnung des transparenten und $g$ des gesamten Pixels beschreibt.
+		Übertragen auf die Transparenz der Pixel ist $c=t/g=1-i/g$.
+		Wobei $t$ die Ausdehnung des transparenten, $i$ des intransparenten und $g=i+t$ des gesamten Pixels beschreibt.
 
 
 		Für Gitter gilt, dass das Produkt aus Periodizität im Realraum $r$ und reziproken Raum $P$ konstant ist, $rP=\text{const.}$.
@@ -455,21 +455,21 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		Ein Gitter definiert die Pixelgröße und eines entstammt der Steuerelektronik, die als ebenfalls periodisch, also als für jeden Pixel gleichaussehend, angenommen wird.
 		Somit folgt:
 		\begin{equation}
-			gG =tT = \text{const.}
+			gG =iI = \text{const.}
 		\end{equation}
-		Wobei $G$ und $T$ die respektiven Periodizitäten im reziproken Raum sind und es folgt, dass sich das Transparentsverhältnis $c=t/g=G/T$ im reziproken Raum als Verhältnis der Frequenzen widerspiegelt.
+		Wobei $G$ und $I$ die respektiven Periodizitäten im reziproken Raum sind und es folgt, dass sich das Transparentsverhältnis $c=1-i/g=1-I/T$ im reziproken Raum als Verhältnis der Frequenzen widerspiegelt.
 
 		In \cref{fig_sinc1} sind die Intensitäten der vertikalen Maxima aufgetragen.
 		Maxima sind deutlich bei $m=\{0,4,7,9\}$ und Minima bei $m=\{3,6,8\}$.
 		Der geringe Abstand zwischen den Maxima $\{7,9\}$ und dem Minimum $\{8\}$, lässt darauf folgern, dass im Bereich nahe der 0. Ordnung ein weiteres Minimum existiert, aber nicht aufgelöst werden konnte.
-		Und es lässt sich das Verhältnis der Frequenzen durch das Verhältnis der Maxima beschreiben $c_v=4/9$.
-		Analog stellt man in \cref{fig_sinc2} fest, dass $c_h=2/9$ beträgt und ebenfalls das erste Minimum nicht aufgelöst werden konnte.
-		Mit einer Betrachtung der Unsicherheit, welche durch eine Rechteckverteilung der Breite 1 am Punkt $m=9$ abgeschätzt wird, folgt mit $m=\SI{9+-0.3}{}$ Tastgrade von $c_v=\SI{0.444(15)}{}$ und $c_h=\SI{0.222(7)}{}$.
+		Und es lässt sich das Verhältnis der Frequenzen durch das Verhältnis der Maxima beschreiben $c_v=1-4/9$.
+		Analog stellt man in \cref{fig_sinc2} fest, dass $c_h=1-2/9$ beträgt und ebenfalls das erste Minimum nicht aufgelöst werden konnte.
+		Mit einer Betrachtung der Unsicherheit, welche durch eine Rechteckverteilung der Breite 1 am Punkt $m=9$ abgeschätzt wird, folgen mit $m=\SI{9+-0.3}{}$ Tastgrade von $c_v=\SI{0.556(15)}{}$ und $c_h=\SI{0.778(7)}{}$.
 		Die Rechteckverteilung wird angenommen, da wenn das Maximum sich irgendwo zwischen \num{8,5} oder \num{9,5} befindet, es dazu führt, dass man es beim Punkt \num{9} sieht, da zwischen den Maxima des Pixelgitters nicht gemessen werden kann.
 
 		Als grobe Abschätzung ergibt sich der Füllfaktor aus dem Produkt der Tastgrade:
 		\begin{equation}
-			\text{FF} \approx c_v c_h =\SI{9.9+-0.7}{\percent}
+			\text{FF} \approx c_v c_h =\SI{43.2+-1.2}{\percent}
 		\end{equation}
 
 

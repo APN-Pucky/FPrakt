@@ -23,8 +23,8 @@ usd=unp.std_devs
 # Konstanten fuer einheitliche Darstellung
 
 fig_size = (10, 6)
-fig_legendsize = 14
-fig_labelsize = 12
+fig_legendsize = 15
+fig_labelsize = 15
 matplotlib.rcParams.update({'font.size': fig_labelsize})
 
 colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
@@ -267,9 +267,9 @@ plt.show()
 
 
 # %% 4.2.2
-print(2/unc.ufloat(9,0.3))
-print(4/unc.ufloat(9,0.3))
-print(8/unc.ufloat(9,0.3)**2)
+print(1-2/unc.ufloat(9,0.3))
+print(1-4/unc.ufloat(9,0.3))
+print((1-2/unc.ufloat(9,0.3))*(1-4/unc.ufloat(9,0.3)))
 data = np.loadtxt("SLM/data/422_1_good.csv",skiprows = 1, delimiter=',')
 xdata = unp.uarray(data[:,0],0.0)
 ydata = unp.uarray(data[:,1],data[:,2]) *1e3
