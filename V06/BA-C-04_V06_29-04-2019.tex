@@ -149,6 +149,34 @@
 		Dabei entspricht die Kernkraft dann den Kräften zwischen den Atomen/Molekülen, die den Tropfen zusammenhalten.
 		Dieses Modell erlaubt es, die Bindungsenergien von Atomkernen vorherzusagen und erklärt, warum schwere Kerne instabil werden.
 		Das Modell reicht aber nicht aus, um für alle Isotope korrekt vorherzusagen, ob sie stabil sind. % laut wiki zumindest.
+		Die sich aus dem Tröpfchenmodell ergebende Formel wird \enquote{Bethe-Weizsäcker-Formel} genannt:
+		\begin{equation}
+			E_\text{Bindung} = a_\text{V} \cdot A - a_\text{O} \cdot A^{\frac{2}{3}}
+			-a_\text{C} \cdot Z \cdot (Z-1) \cdot A^{- \frac{1}{3}} - a_\text{S} \cdot \frac{(N-Z)^2}{4A} +
+			\begin{cases}
+				a_\text{p} A^{- \frac{1}{2}}, &\text{gg}\\
+				0, &\text{ug/gu}\\
+				-a_\text{P} A^{- \frac{1}{2}}, &\text{uu}\\
+			\end{cases}
+		\end{equation}
+
+		Dabei steht u und g für eine ungerade bzw. gerade Anzahl von Protonen bzw. Neutronen.
+		$a_\text{p}$, $a_\text{O}$, $a_\text{C}$, $a_\text{S}$ und $a_\text{P}$ sind Parameter, die expermentell bestimmt werden müssen und $A$ die Nukleonenzahl und $Z$ die Ladungszahl.
+		Die Formel ergibt sich aus den möglichen bindenden und abstoßenden Kräften im Kern, wie in \cref{bethe} dargestellt ist.
+
+		\begin{figure}[H]
+				\includegraphics[width= 0.8 \linewidth]{img/Tröpfchenmodell}
+				\caption{
+				Die für die Bethe-Weizsäcker-Formel verwendeten bindenden bzw. bindungsschwächenden Effekte.
+				Der Volumenterm meint die Anziehung zwischen Protonen und Neutronen im Innern des Kerns, die die Bindungsenergie erhöht.
+				Manche Protonen/Neutronen liegen jedoch an der Oberfläche und haben weniger Bindungspartner, weshalb der Volumenterm abgezogen wird.
+				Gleichzeitig existiert eine Coulombabstoßung der Protonen, die die Bindungsenergie verringert.
+				Der Symmetrieterm verringert die Bindungsenergie in Abhängigkeit von der Differenz der Protonen- und Neutronenzahl.
+				Der Paarungsterm verringert die Bindungsenergie, wenn Protonen/Neutronen vorliegen, die mit keinem anderen Proton/Neutron ein Paar bilden können, da die jeweilige Zahl ungerade ist oder erhöht die Bindungsenergie, wenn sie gerade ist.
+				\cite{bethewiki}
+				}
+				\label{bethe}
+		\end{figure}
 
 	\section{Methoden}
 	% Bilder von der Website klauen
@@ -156,7 +184,7 @@
 	\subsection{$\beta$-Spektrometer}
 	Das Halbkreisspektrometer nutzt die Tatsache, dass geladene Teilchen im magnetischen Feld eine Kreisflugbahn mit Radius in Abhängigkeit von der kinetischen Energie des Teilchens vollführen.
 	Im verwendeten Spektrometer wird dabei der Radius für verschiedene Energien konstant gehalten, indem das Magnetfeld verändert wird.
-	Um auch die Vaiation des Radius berücksichtigen zu können und vergleichbare Ergebnisse zu erzielen, wird häufig und auch im Folgenden die Auftragung gegen das Produkt aus Magnetfeld $B$ und Radius $\rho$ gewählt.
+	Um auch die Vaiation des Radius berücksichtigen zu können und vergleichbare Ergebnisse zu erzielen, wird häufig und auch im Folgenden die Auftragung gegen das Produkt aus Magnetfeld $B$ und Radius $\rho = \frac{P}{eB}$ gewählt.
 	Wegen der festen Detektorposition kann immer nur ein ausgewähltes Energiefenster gemessen werden.
 	Hierbei tritt der Effekt auf, dass die Teilchen (hier Elektronen) in den Detektor durch den Eintrittsspalt nicht als paralleler Strahl eintreten.
 	Dies führt zu Elektronen gleichem betragsmäßigen Impulses, aber unterschiedlicher Impulsrichtung, die alle das Messfenster (vgl. \cref{fig_Halbkreisspektrometer}) erreichen.
@@ -173,10 +201,10 @@
 
 	Eine zusätzliche Fokussierung kann erreicht werden, indem ein radialsymmetrisches Feld verwendet wird, welches mit $1/r$ abnimmt.
 	Dies sorgt für eine Fokussierung in beide Streurichtungen der eintretenden Elektronen.
-	Der Detektor ist dementsprechend keilförmig geformt. %TODO muss zugeben, das Kapitel in der Anleitung nicht recht verstanden zu haben...
+	Der Detektor ist dementsprechend keilförmig geformt.
 
 	Für die Erzeugung des Magnetfelds wird ein Spule verwendet.
-	Hier ist aufgrund der Restmagnetisierung des Materials eine Hysteresekurve anstelle eines gleichmäßigen linearen Zusammenhangs zwischen Strom und Magnetfeld zu erwarten.
+	Hier ist aufgrund der Restmagnetisierung eines ferromatgnetischen Materials eine Hysteresekurve anstelle eines gleichmäßigen linearen Zusammenhangs zwischen Strom und Magnetfeld zu erwarten. %TODO die hat drangeschrieben "in allen Ferromagneten -> Hysteresekurve" kp, was die meint, ich habe nur das Wort ferromagnetisch ergänzt.
 	Gemäß \cite{Anleitung} kann der Zusammenhang innerhalb des Messbereiches jedoch als linear angenommen werden.
 	Es wird aber immer bei hohen Spannungen angefangen zu messen, da dann immer der gleiche Hysteresepfad gewählt wird.
 
@@ -186,7 +214,7 @@
 	\subsection{Messung des Spektrums}
 
 	Für die Messung wird das Spektrometer mit einer Vakuumpumpe evakuiert.
-	Zunächst wird das Spektrum in Schritten von \SI{1}{V} \SI{60}{\minute} lang gemessen.
+	Zunächst wird das Spektrum in Schritten von $\frac{1 \si{V}}{9}$  \SI{60}{\minute} lang gemessen. %TODO sieht bissl komisch aus, aber ist hoffentlich fine.
 	Mithilfe dieser Messung wird dann das Spektrum in mehrere Teile eingeteilt.
 	Dabei werden den Bereichen, in denen vorallem der Untergrund gemessen wird, lange Messdauern und hohe Schrittweiten zugewiesen, während in Bereichen hoher Messrate kurze Messzeiträume und geringe Schrittweiten verwendet werden.
 	Dies erlaubt, dass nahe der Peaks besonders kleinschrittig gemessen wird, während in den Bereichen geringer Ereignisrate noch immer ausreichend Ereignisse gemessen werden.
