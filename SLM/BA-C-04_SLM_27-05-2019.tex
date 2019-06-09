@@ -203,9 +203,10 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Dann wird der Laser rotiert, bis die gemessene Intensität maximal ist.
 	Sobald diese Position gefunden ist, wird zwischen Laser und Analysator der LC-Modulator eingebaut, der Strahl kollimiert und mit einer Kamera das sich ergebende Bild aufgenommen.
 	Auf dem LC-Modulator wird ein horizontal geteiltes Bild eingestellt (eine Hälfte Weiß, eine Schwarz).
-	Dann wird der Analysator um je \SI{90}{\degree} gedreht und jeweils ein Kamerabild aufgenommen, um zu zeigen, dass bei der gewählten Eingangspolarisation der Konstrast tatsächlich maximal ist. %TODO man sollte hier streng genommen bei einem Winkel von 90deg ein invertiertes Bild verwenden. not sure why, haben wir aber nicht gemacht.
+	Dies wird im Folgenden als \textit{Horizontally Divided Screen} bezeichnet.
+	Dann wird der Analysator um je \SI{90}{\degree} gedreht und jeweils ein Kamerabild aufgenommen, um zu zeigen, dass bei der gewählten Eingangspolarisation der Konstrast tatsächlich maximal ist. %TODO man sollte hier streng genommen bei einem Winkel von 90deg ein invertiertes Bild verwenden. not sure why, haben wir aber nicht gemacht. -> Vermutlich, damit sich die Seiten nicht tauschen, aber schadet ja nicht, wenn sie es tun.
 
-	Zusätzlich wird der Kontrast gemessen, indem ein komplett weißes (schwarzes) Bild verwendet wird und mit einem Intensitätsmessgerät nach Fokussierung durch eine Linse die Intensität in der Fokusebene gemessen wird.
+	Zusätzlich wird der Kontrast gemessen, indem ein komplett weißes bzw. schwarzes Bild (\textit{Blanc Screen}) verwendet wird und mit einem Intensitätsmessgerät nach Fokussierung durch eine Linse die Intensität in der Fokusebene gemessen wird.
 
 	\subsection{Bestimmung der Pixelgröße}
 		\subsubsection*{Variante 1}
@@ -220,12 +221,11 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 	\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
 
-		Es wird auf dem LC-Modulator ein einfarbiges Bild angezeigt. %TODO streng genommen Weiß/Schwarz keine Farben, wenn man pedantisch ist...
-		In der Fokusebene wird die Intensität gemessen und bei sechs verschiedenen Grauwerten des Bildes jeweils das Maximum der Intensität in Abhängigkeit vom Analysatorwinkel gesucht. %TODO ups. hier sollte man sich dann auch maximale und minimale Intensität notieren. Ich sehe aber nicht, wofür man das brauchen sollte.
+		Es wird auf dem LC-Modulator ein einfarbiges Bild angezeigt. % streng genommen Weiß/Schwarz keine Farben, wenn man pedantisch ist...
+		In der Fokusebene wird die Intensität gemessen und bei sechs verschiedenen Grauwerten des Bildes jeweils das Maximum der Intensität in Abhängigkeit vom Analysatorwinkel gesucht.
+		Da für die Bestimmung der Exzentrizität des Lichts auch die Intensität bei einem dazu um \SI{90}{\degree} gedrehten Analysators bekannt sein müsste, dies aber nicht gemessen wurde, werden hierfür im folgenden Daten aus \cite{JTZ} verwendet.
 
-
-
-	\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays} %TODO hier habe ich jetzt komplett den Titel übernommen
+	\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays} % hier habe ich jetzt komplett den Titel übernommen
 	Die Linse wird entfernt und stattdessen der Laser mittels der Linse am Laser auf einen Abstand von etwa \SI{80}{\centi \meter} fokussiert. %TODO haben wir da einen exakten Wert?
 	Es wird in horizontaler und vertikaler Richtung die Intensität der ersten elf Ordnungen gemessen. %TODO hier haben wir halt horziontal weniger. kp, ob man das hier oder unten erwähnen sollten.
 
@@ -256,10 +256,10 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 	Folgende Unsicherheiten werden angenommen:
 	\begin{description}
-		\item[Winkel:] analog, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
+		\item[Analysatorwinkel:] analog an Skala abgelesen, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
 		\item[Intensität:] digital, wobei die letzte Ziffer häufig schwankte, $u(I)=\frac{\SI{0.01}{mW}}{2\sqrt{3}}=\SI{0.003}{mW}=\SI{0.003}{}$ a.u.
 		\item[Brennweite:] Da keine Unsicherheit auf der Linse angegeben ist, wird einen Rechteckverteilung für die letzte Ziffer abgeschätzt $u(f)=\frac{\SI{1}{cm}}{2\sqrt{3}}= \SI{0.3}{cm}$
-		\item[Abstand:] analog, Dreiecksverteilung $u(d)=\frac{\SI{0.1}{cm}}{2\sqrt{6}}= \SI{0.02}{cm}$
+		\item[Abstand:] analog mit Lineal, somit Dreiecksverteilung $u(d)=\frac{\SI{0.1}{cm}}{2\sqrt{6}}= \SI{0.02}{cm}$
 	\end{description}
 		\subsection{Überprüfung des Gesetzes von Malus}\label{ss_malus}
 		%4.1.1
@@ -280,7 +280,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\includegraphics[width=0.8\linewidth]{img/malus}
 			\caption{
 			Messung der Intensität in Abhängigkeit vom Winkel des Polarisators.
-			Die gelbe Funktion ist eine Fit nach dem Gesetzt von Malus.
+			Die gelbe Funktion ist ein Fit nach dem Gesetzt von Malus.
 			}
 			\label{fig_malus}
 	\end{figure}
@@ -395,7 +395,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			 \input{res/tb_gitter}
 		\end{tabular}
 		\caption{
-		Gemessene Abstand $d$, Bildgröße $B$ und berechnete Pixelgröße $p$.
+		Gemessener Abstand $d$, Bildgröße $B$ und berechnete Pixelgröße $p$.
 		}
 		\label{tb_gitter}
 \end{table}
@@ -438,7 +438,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 		Für Gitter gilt, dass das Produkt aus Periodizität im Realraum $r$ und reziproken Raum $P$ konstant ist, $rP=\text{const.}$.
 		Im Experiment sind zwei Gitter simultan vorhanden, welche beide eine Fouriertransformation zur Folge haben.
-		Eines welches die Pixelgröße definiert und eines welches der Steuerelektronik entstammt.
+		Ein Gitter definiert die Pixelgröße und eines entstammt der Steuerelektronik, die als ebenfalls periodisch, also als für jeden Pixel gleichaussehend, angenommen wird.
 		Somit folgt:
 		\begin{equation}
 			gG =tT = \text{const.}
@@ -447,13 +447,13 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 		In \cref{fig_sinc1} sind die Intensitäten der vertikalen Maxima aufgetragen.
 		Maxima sind deutlich bei $m=\{0,4,7,9\}$ und Minima bei $m=\{3,6,8\}$.
-		Der geringe Abstand zwischen den Maxima $\{7,9\}$ und dem Minimum $\{8\}$, lässt darauf folgern, dass im Bereich nahe der 0. Ordnung ein weiteres Minimum nicht aufgelöst werden konnte.
+		Der geringe Abstand zwischen den Maxima $\{7,9\}$ und dem Minimum $\{8\}$, lässt darauf folgern, dass im Bereich nahe der 0. Ordnung ein weiteres Minimum existiert, aber nicht aufgelöst werden konnte.
 		Und es lässt sich das Verhältnis der Frequenzen durch das Verhältnis der Maxima beschreiben $c_v=4/9$.
 		Analog stellt man in \cref{fig_sinc2} fest, dass $c_h=2/9$ beträgt und ebenfalls das erste Minimum nicht aufgelöst werden konnte.
-		Mit einer Betrachtung der Unsicherheit welche durch eine Rechteckverteilung der Breite 1 am Punkt $m=9$ abgeschätzt und es folgt mit $m=\SI{9+-0.3}{}$ Tastgrade von $c_v=\SI{0.444(15)}{}$ und $c_v=\SI{0.222(7)}{}$.
+		Mit einer Betrachtung der Unsicherheit, welche durch eine Rechteckverteilung der Breite 1 am Punkt $m=9$ abgeschätzt wird, folgt mit $m=\SI{9+-0.3}{}$ Tastgrade von $c_v=\SI{0.444(15)}{}$ und $c_v=\SI{0.222(7)}{}$.
+		Die Rechteckverteilung wird angenommen, da wenn das Maximum sich irgendwo zwischen \num{8,5} oder \num{9,5} befindet, es dazu führt, dass man es beim Punkt \num{9} sieht, da zwischen den Maxima des Pixelgitters nicht gemessen werden kann.
 
-
-		Als grobe Schätzung ergibt sich der Füllfaktor aus dem Produkt der Tastgrade:
+		Als grobe Abschätzung ergibt sich der Füllfaktor aus dem Produkt der Tastgrade:
 		\begin{equation}
 			\text{FF} \approx c_v c_h =\SI{9.9+-0.7}{\percent}
 		\end{equation}
@@ -462,15 +462,15 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 \begin{figure}[H]
 			\includegraphics[width=0.8\linewidth]{img/sinc1}
 			\caption{
-			Messung der Intensität in Maxima der Gitterbeugung in vertikaler Richtung.
+			Messung der Intensität in Maxima der Gitterbeugung (durch das Pixelgitter) in vertikaler Richtung.
 			}
 			\label{fig_sinc1}
 	\end{figure}
 
-\begin{figure}[H]
+\begin{figure}[H] %TODO einsam auf der Seite, random leerseite
 			\includegraphics[width=0.8\linewidth]{img/sinc2}
 			\caption{
-			Messung der Intensität in Maxima der Gitterbeugung in horizontaler Richtung.
+			Messung der Intensität in Maxima der Gitterbeugung (durch das Pixelgitter) in horizontaler Richtung.
 			}
 			\label{fig_sinc2}
 	\end{figure}
@@ -523,7 +523,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
             \centering
             \includegraphics[width=\textwidth]{raw/grid_2_groove_2_ridge}
             \caption[]%
-            {Gitter: Rille: \SI{2}{px}, Erhöhung: \SI{2}{px}}
+            {Gitter: Rille: \SI{2}{px}, Erhöhung: \SI{2}{px}} %TODO Gitter: Rille: klingt merkwürdig.
             \label{fig_grid_2_2}
         \end{subfigure}
         \quad
@@ -557,7 +557,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		}
 		\label{tb_beug}
 \end{table}
-\begin{figure}[H]
+\begin{figure}[H] %TODO die Achsenbeschriftungen sind extrem klein.
 			\includegraphics[width=0.8\linewidth]{img/beugungsgrad}
 			\caption{
 			Messung der Intensität in Maxima der Gitterbeugung in horizontaler Richtung.
@@ -572,7 +572,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		%4.3.1
 		%TODO Brennweite gegen Linsenphase auftragen
 
-\begin{figure}[H]
+\begin{figure}[H] %TODO die Achsenbeschriftungen sind extrem klein.
 			\includegraphics[width=0.8\linewidth]{img/fresnel}
 			\caption{
 			Die Brennweite $f$ ist gegen die Linsenphase aufgetragen.
@@ -583,13 +583,13 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			%TODO die Anleitung klingt so, als würden sich da mehrere Fokuspositionen ergebn, aber das kann ja wohl nicht sein.
 			%TODO auftretende Proportionalität beschreiben
 			%TODO feststellen: Computergesteuerte Hologramme können als Linsen verschiedener Brennweite agieren.
-
+%TODO random leereseiten
 
 		\subsection{Verschiedene DOEs als Hologramme}
 		%4.3.2, 4.3.3
 		%TODO Bilder
 
-\begin{figure}[H]
+\begin{figure}[H] %TODO hier kollidiert das unten mit der Seitenzahl
         \centering
         \begin{subfigure}[b]{0.300\textwidth}
             \centering
