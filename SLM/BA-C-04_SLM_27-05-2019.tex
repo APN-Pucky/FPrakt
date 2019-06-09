@@ -267,6 +267,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		In \cref{fig_malus} wurde die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
 		Es wurde ein Fit nach dem Gesetzt von Malus durchgeführt mit:
 		\begin{equation}
+			\label{eq_malus}
 			I = (I_\text{max}-I_\text{min})\cos^2(\phi\omega-\theta) +I_\text{min}
 		\end{equation}
 		Der Kontrast lässt sich quantitativ mit \cref{eq_kontrast} beschreiben.
@@ -498,8 +499,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		%4.2.3
 		%TODO Bilder
 		%TODO Beugungswirkungsgrad bestimmen
-
-\begin{figure}[H]
+ 		\cref{fig_doe_mix} zeigt jeweils 2 Beugungsbilder von einem Einzelspalt, Doppelspalt und Gitter.
+		\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
@@ -537,7 +538,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
             \centering
             \includegraphics[width=\textwidth]{raw/grid_2_groove_2_ridge}
             \caption[]%
-            {Gitter: Rille: \SI{2}{px}, Erhöhung: \SI{2}{px}} %TODO Gitter: Rille: klingt merkwürdig.
+            {Gitter: Lücke: \SI{2}{px}, Steg: \SI{2}{px}}
             \label{fig_grid_2_2}
         \end{subfigure}
         \quad
@@ -545,7 +546,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
             \centering
             \includegraphics[width=\textwidth]{raw/grid_40_groove_40_ridge}
             \caption[]%
-            {Gitter: Rille: \SI{40}{px}, Erhöhung: \SI{40}{px}}
+            {Gitter: Lücke: \SI{40}{px}, Steg: \SI{40}{px}}
             \label{fig_grid_40_40}
         \end{subfigure}
         \caption%
@@ -554,11 +555,13 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
     \end{figure}
 
 		%TODO Beugungsgrad text hier
-
+		Über \cref{eq_beug} ist der Beugungswirkungsgrad $\eta$ definiert.
 		\begin{equation}
 			\label{eq_beug}
 			\eta = \frac{I_\text{1,max}}{I_\text{0,max}}
 		\end{equation}
+		Es wurde ein Gitter mit Lücke und Steg von jeweils \SI{20}{px} verwendet.
+		In \cref{tb_beug} und \cref{fig_beug} sind die Messwerte und resultierende Beugungswirkungsgrade angegeben.
 \begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c | c }
@@ -585,6 +588,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\subsection{Brennweite eines Fesnel-Linsen-DOEs}
 		%4.3.1
 		%TODO Brennweite gegen Linsenphase auftragen
+		Es werden Fresnel-Zonenplatten verschiedener Linsenphasen auf den LC-Modulator gegeben.
+		In \cref{fig_fresnel} sind die Brennweiten, welche sich als Punkt der höchsten Intensität ergeben, gegen die eingestellten Linsenphasen aufgetragen.
 
 \begin{figure}[H] %TODO die Achsenbeschriftungen sind extrem klein.
 			\includegraphics[width=0.8\linewidth]{img/fresnel}
@@ -602,7 +607,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\subsection{Verschiedene DOEs als Hologramme}
 		%4.3.2, 4.3.3
 		%TODO Bilder
-
+ 		\cref{fig_beug_mix} zeigt einige mit der Kamera aufgenommene Beugungsbilder mit zugehörigen Originalen.
 \begin{figure}[H] %TODO hier kollidiert das unten mit der Seitenzahl
         \centering
         \begin{subfigure}[b]{0.300\textwidth}
@@ -654,8 +659,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
         \end{subfigure}
         \vskip\baselineskip
         \caption%
-        {Kameraaufnahmen verschiedener Beugungsbilder}
-        \label{fig_doe_mix}
+        {Kameraaufnahmen verschiedener Beugungsbilder im Vergleich zum Original, dass an den LC-Modulator übermittelt wird.}
+        \label{fig_beug_mix}
     \end{figure}
 
 			\subsubsection*{Diskussion}

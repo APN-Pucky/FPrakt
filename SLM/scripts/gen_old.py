@@ -323,7 +323,7 @@ plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 plt.tick_params(labelsize=fig_labelsize)
 plt.xlabel('Grauwert' )
-plt.ylabel('Beugungsgrad $\\eta= I_{1,max}/i_{0,max}$')
+plt.ylabel('Beugungswirkungsgrad $\\eta= I_{1,max}/i_{0,max}$')
 plt.savefig("SLM/img/beugungsgrad.pdf")
 plt.show()
 
