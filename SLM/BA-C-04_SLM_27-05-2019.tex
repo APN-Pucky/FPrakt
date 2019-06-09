@@ -212,7 +212,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\subsubsection*{Variante 1}
 		Um die Pixelgröße des LC-Modulators zu bestimmen, wird ein weißes Bild mit einem 200x200 Pixel großen schwarzen Quadrat in der Mitte auf den Modulator gegeben.
 		In den Strahlengang wird der LC-Modulator und im Abstand der Brennweite eine Linse dahinter gestellt, hinter der wieder im Abstand der Brennweite ein Schirm aufgestellt wird.
-		Auf dem Schirm wird die Größe des Quadrats mit einem Lineal gemessen. %TODO waren wir hier wirklich nicht mit dem Modulator im Fokus? Hatten wir hier überhaupt einen Polarisator, an dem wir hätten falsch messen können?
+		Auf dem Schirm wird die Größe des Quadrats mit einem Lineal gemessen. % waren wir hier wirklich nicht mit dem Modulator im Fokus? Hatten wir hier überhaupt einen Polarisator, an dem wir hätten falsch messen können? -> kp und ja.
 		\subsubsection*{Variante 2}
 		Da die Pixel des LC-Modulators elektronische Strukturen zur Ansteuerung benötigen, bilden sie ein periodisches Gitter. %TODO sagte sie nicht noch irgendwas, woraus die Pixel bestehen würden?
 		Aufgrund dessen ergibt sich in der Fokusebene das Beugungsbild eines Gitters.
@@ -241,7 +241,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 	\subsection{Verschiedene DOEs als Hologramme}
 		Es wird wieder der kolminierte Laserstrahl mit Fokussierung nach dem Analysator mit der Kamera in der Fokusebene verwendet.
-		Es wird das Bild eines Schriftzugs und einiger geschachtelter Rechtecke am LC-Modulator eingestellt. %TODO Originalbilder hier oder später zum direkten Vergleich?
+		Es wird das Bild eines Schriftzugs und einiger geschachtelter Rechtecke am LC-Modulator eingestellt. % Originalbilder hier oder später zum direkten Vergleich? -> später ist gut
 		Mit der Kamera wird jeweils ein Bild aufgenommen.
 		Zuletzt wird auf der einen Hälfte des DOEs das Bild von geschachtelten Rechtecken und auf der anderen Hälft von geschachtelten Kreisen dargestellt und ein Kamerabild aufgenommen.
 
@@ -252,7 +252,6 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	% Einflüsse von veränderten Parametern auf Messung
 		\subsection*{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
-	%TODO Unsicherheiten
 
 	Folgende Unsicherheiten werden angenommen:
 	\begin{description}
@@ -263,8 +262,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\end{description}
 		\subsection{Überprüfung des Gesetzes von Malus}\label{ss_malus}
 		%4.1.1
-		%TODO plotten und cos^2 reinfitten
-		%TODO Kontrast angeben (vmtl halt einfach Differenz der Intensitäten minmax)
+		% plotten und cos^2 reinfitten
+		% Kontrast angeben (vmtl halt einfach Differenz der Intensitäten minmax)
 		In \cref{fig_malus} wurde die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
 		Es wurde ein Fit nach dem Gesetzt von Malus durchgeführt mit:
 		\begin{equation}
@@ -289,17 +288,21 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 
 			\subsubsection*{Diskussion}
-			%TODO Frequenz = 1 passt, Maximum passt+- mit Augenmaß von 142
-			%TODO im Kontext von Malus diskutieren
 
-			%TODO Kreise sind gefourierte Punkte (1xgefouriert)
-			%TODO Dreck ist auf Kamera (theoretisch auf Laser, aber dann wärs vmtl nicht so scharf)
-			%TODO Wellen sind da, weil das gefourierte halt nicht bis ins unendliche geht
+			Wie in \cref{fig_malus} zu erkennen ist, spiegeln die Messpunkte sehr gut die nach dem Gesetz von Malus erwarte $\cos ^2$-Funktion wieder.
+			In den Fitparametern ist außerdem festzustellen, dass in Frequenz $\omega$ zwar nicht innerhalb der Messunsicherheiten, aber doch sehr nahe an \num{1} liegt, was ebenfalls dem Gesetz von Malus entspricht (\cref{eq_malus}).
+			\begin{equation}
+				I = I_0 \cos^2(\alpha)
+			\end{equation}
+
+			Dass im Gegensatz zu obiger Gleichung eine Phase auftritt, liegt darin, dass das Lich aus dem Laser in einem Winkel von \SI{137,07\pm 0.16}{\degree} zu einem Analysatorwinkel von Null gedreht linear polarisiert austritt.
+
+
 
 		\subsection{Einstellung der Eingangspolarisation}
 		%4.1.2
-		%TODO Kontrast für die vier Analysatorwinkel aus den Bildern (da steht explizit qualitativ. Reicht also wohl die Bilder zu printen und zu sagen: "Sieht man ja, wa?")
-		%TODO Intensitätsmessung 0 und 255 für horizontally divided
+		% Kontrast für die vier Analysatorwinkel aus den Bildern (da steht explizit qualitativ. Reicht also wohl die Bilder zu printen und zu sagen: "Sieht man ja, wa?")
+		% Intensitätsmessung 0 und 255 für horizontally divided
 		In \cref{fig_divscreen} sind für vier Analysatorwinkel im Abstand von \SI{45}{\degree} die Kamerabilder aufgeführt.
 		Hierbei wurde auf den LC-Modulator ein \textit{Horizontally Divided Screen} gegeben.
 		\begin{figure}[H]
@@ -343,8 +346,19 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 		Die Bestimmung des Kontrast erfolgt analog zu \cref{eq_kontrast} in \cref{ss_malus}, jedoch mit  den gemessenen intensitäten $I_\text{max}=\input{res/intens_max}$ und $I_\text{min}=\input{res/intens_min}$, respektiv für einen weißen und schwarzen \textit{Blank Screen}, sodass sich ein Kontrast von $C=\input{res/intens_kontrast}$ ergibt.
 			\subsubsection*{Diskussion}
-			%TODO qualitativ: ist tatsächlich deutlich anders
+			% qualitativ: ist tatsächlich deutlich anders
 			%TODO Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
+			Zunächst lässt sich mittels \cref{fig_divscreen} die qualitativ die Erwartung bestätigen, dass bei der gewählten Eingangspolarisation von \SI{-135}{\degree}.
+			Der Kontrast zwischen den beiden Flächen ist deutlich größer bei einem Analysatorwinkel von \SI{0}{\degree} bzw. \SI{90}{\degree} als für die dazu um \SI{45}{\degree} gekippten Polarisatorstellungen.
+			
+			Dass das Bild auf der Kamera überhaupt wieder auftritt, liegt daran, dass am LC-Modulator eine Fouriertransformation stattfindet, die durch die Linse wieder rückgängig gemacht wird.
+			Zusätzlich ist zu erkennen, dass sicht ein Wellenmuster parallel zur Teilung des Bildschirms ergibt.
+			Dies ist darauf zurückzuführen, dass die Rücktransformation unvollständig ist, da nur der Teil rücktransformiert wird, der auf die Linse trifft.
+			Außerdem treten bei hohen Abständen zu optischen Achse oder großen Strahlenwinkeln zu optischen Achse Linsenfehler (sphärische Aberration und Astigmatismus) auf.
+			Zusätzlich fallen kreisförmige Wellenmuster auf.
+			Diese sind vermutlich Fouriertransformationen von punktförmigem Staub auf der Linse oder dem LC-Modulator.
+			Nicht-fouriertransformierter Dreck auf der Kamera ist ebenfalls zu sehen.
+			Theoretisch könnte er auch hin- und rücktransformiert sein, aber dann wären die gleichen Wellenstrukturen, wie beim \textit{Horizontally Divided Screen} zu erwarten.
 
 		\subsection{Bestimmung der Pixelgröße} %: Achtung, ich habe hier die beiden zusammengechoben und den dazwischen dahinter geschoben
 		%TODO Konsistenz mit Pixelabstand vs Pixelgröße
