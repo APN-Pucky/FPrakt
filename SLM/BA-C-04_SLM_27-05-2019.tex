@@ -293,6 +293,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			In den Fitparametern ist außerdem festzustellen, dass in Frequenz $\omega$ zwar nicht innerhalb der Messunsicherheiten, aber doch sehr nahe an \num{1} liegt, was ebenfalls dem Gesetz von Malus entspricht (\cref{eq_malus}).
 			\begin{equation}
 				I = I_0 \cos^2(\alpha)
+				\label{eq_malus}
 			\end{equation}
 
 			Dass im Gegensatz zu obiger Gleichung eine Phase auftritt, liegt darin, dass das Lich aus dem Laser in einem Winkel von \SI{137,07\pm 0.16}{\degree} zu einem Analysatorwinkel von Null gedreht linear polarisiert austritt.
@@ -350,7 +351,10 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			%TODO Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
 			Zunächst lässt sich mittels \cref{fig_divscreen} die qualitativ die Erwartung bestätigen, dass bei der gewählten Eingangspolarisation von \SI{-135}{\degree}.
 			Der Kontrast zwischen den beiden Flächen ist deutlich größer bei einem Analysatorwinkel von \SI{0}{\degree} bzw. \SI{90}{\degree} als für die dazu um \SI{45}{\degree} gekippten Polarisatorstellungen.
-			
+			Die Tatsache, dass $I_\text{min} = \input{res/intens_min}$ sich deutlich von Null unterscheidet zeigt, dass der LC-Modulator deutlich schlechter linear polarisiertes Lich ausgibt, als der Laser.
+			Der berechnete Kontrast ist geringer als Herstellerangabe für den maximalen Kontrast von \SI{0,99}{} (vgl.\cite{Handbuch}).
+			Dies kann an Verschmutzungen oder nicht vollständig optimierter Eingangspolarisation liegen.
+
 			Dass das Bild auf der Kamera überhaupt wieder auftritt, liegt daran, dass am LC-Modulator eine Fouriertransformation stattfindet, die durch die Linse wieder rückgängig gemacht wird.
 			Zusätzlich ist zu erkennen, dass sicht ein Wellenmuster parallel zur Teilung des Bildschirms ergibt.
 			Dies ist darauf zurückzuführen, dass die Rücktransformation unvollständig ist, da nur der Teil rücktransformiert wird, der auf die Linse trifft.
@@ -358,14 +362,18 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			Zusätzlich fallen kreisförmige Wellenmuster auf.
 			Diese sind vermutlich Fouriertransformationen von punktförmigem Staub auf der Linse oder dem LC-Modulator.
 			Nicht-fouriertransformierter Dreck auf der Kamera ist ebenfalls zu sehen.
-			Theoretisch könnte er auch hin- und rücktransformiert sein, aber dann wären die gleichen Wellenstrukturen, wie beim \textit{Horizontally Divided Screen} zu erwarten.
+			Theoretisch könnte der Dreck auch von der Laserlinse stammen und hin- und rücktransformiert sein, aber dann wären die gleichen Wellenstrukturen, wie beim \textit{Horizontally Divided Screen} zu erwarten.
+
+			Dass ein eingangspolarisationsabhängiger Kontrast auftritt, liegt an der Rotation der Lichtpolarisation durch die Helixstruktur in den LC-Zellen.
+			Wenn das Licht parallel zum Polarisationsfilter am Eingang der LC-Zelle ankommt, wird es zu einem hohen Anteil transmittiert, wenn keine Spannung anliegt und zu einem geringen transmittiert wenn Spannung anliegt.
+			Der Kontrast ist also hoch.
 
 		\subsection{Bestimmung der Pixelgröße} %: Achtung, ich habe hier die beiden zusammengechoben und den dazwischen dahinter geschoben
 		%TODO Konsistenz mit Pixelabstand vs Pixelgröße
 		Die verwendete Linse hat eine Brennweite $f$ von \SI{20+-0.3}{cm} und die Wellenlänge $\lambda$ des HeNe-Lasers beträgt \SI{632.8}{nm}.
 			\subsubsection*{Variante 1}
 			%4.1.3
-			%TODO ausrechnen und Messungenauigkeit abschätzen
+			% ausrechnen und Messungenauigkeit abschätzen
 
 			Die Größe $G$ des \SI{200}{}x\SI{200}{} Pixel Quadrats auf dem LC-Display lässt sich aus Bildgröße $B$, Bildweite $b$ und Brennweite $f$ mit \cref{eq_fokus} berechnen. %TODO x mathmode?
 			Der Pixelabstand $p$ ergibt sich aus dem Quotienten von $G$ und Höhe des Quadrats in Pixeln.
@@ -389,7 +397,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 \end{table}
 			\subsubsection*{Variante 2}
 			%4.2.1
-			%TODO ausrechnen
+			% ausrechnen
 
 			Für Beugung an einem Gitter mit der Gitterkonstanten $g$ gilt für das $m$. Maximum:
 			\begin{equation}
@@ -414,7 +422,9 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\label{tb_gitter}
 \end{table}
 			\subsubsection*{Diskussion}
-			%TODO beide Werte mit Materialbeschreibung vergleichen. aus der Anleitung von dem SLM?
+			% beide Werte mit Materialbeschreibung vergleichen. aus der Anleitung von dem SLM?
+			Wenn man die gemessenen Pixelabstände in \cref{tb_pixel} und \cref{tb_gitter} mit der Herstellerangabe gemäß \cite{Handbuch} von \SI{32}{\micro \meter}, die auf \SI{\pm 3}{mm} genau bestimmt werden können soll, vergleicht, stellt man fest, dass dies innerhalb der Messunsicherheiten der Fall ist. %TODO geiler Satz.
+
 
 		\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
 		%4.1.4
@@ -434,16 +444,23 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\label{fig_ellipse}
 	\end{figure}
 			\footnotetext{Die Daten stammen aus \cite{JTZ}}
-					\subsubsection*{Diskussion}
-			%TODO Zusammenhang zwischen Grauwert und Drehwinkel erklären. Wie ist die Ausrichtung der Flüssigkristalle im LC-Modulator ohne Angelegte Spannung-> helix obv.
+
+			\subsubsection*{Diskussion}
+			% Zusammenhang zwischen Grauwert und Drehwinkel erklären. Wie ist die Ausrichtung der Flüssigkristalle im LC-Modulator ohne Angelegte Spannung-> helix obv.
+			Die Polarisation dreht sich mit dem Grauwert und die Exzentrizität wird bei einem mittleren Grauzwert maximal.
+			Ersteres liegt daran, dass bei einem \textit{Blanc Screen} der gesamte LC-Modulator näherungsweise als eine LC-Zelle aufgefasst werden kann.
+			Diese dreht ohne angelegte Spannung die Polarisation des Lichtes um \SI{90}{\degree}.
+			Bei maximaler Spannung dreht sie die Polarisation nicht mehr.
+			Da der eingestellte Grauwert invers der angelegten Spannung entspricht (hoher Grauwert bedeutet hohe Durchlässigkeit der Zellen), wird hierdurch die Grauwertabhängigkeit der Ausgangspolarisation erklärt.
+			%TODO irgendwas zu der Exzentrizität?
 
 		\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays}
 		%4.2.2
-		%TODO Trennung horzontale und vertikale Strukturen
-		%TODO Intensität bei 1-10 plotten
-		%TODO duty cycle bestimmen: Verhältnis transparenter Teil / lichtundurchlässiger Teil anhand der Intensitätsmodulation
-		%TODO Füllfaktor (Verhältnis transparent / gesamt) abschätzen: pixel quadratisch. -> ??? Dann ergibt sich der Füllfaktor doch instant aus dem duty cycle. Das klingt aber sehr anders gemeint in 4.2.2
-
+		% Trennung horzontale und vertikale Strukturen
+		% Intensität bei 1-10 plotten
+		% duty cycle bestimmen: Verhältnis transparenter Teil / lichtundurchlässiger Teil anhand der Intensitätsmodulation
+		% Füllfaktor (Verhältnis transparent / gesamt) abschätzen: pixel quadratisch. -> ??? Dann ergibt sich der Füllfaktor doch instant aus dem duty cycle. Das klingt aber sehr anders gemeint in 4.2.2
+		%TODO hast du hier jetzt einfach auch die Werte von Jannik genommen? Steht nirgendwo und ist halt bissl meh, weil wir haben ja Werte, nur halt horizontal nicht so viele.
 
 		Der Tastgrad $c$ ist definiert als das Verhältnis einer Impulsdauer $\tau$ zur Periodendauer $T$, also $c=\tau/T$.
 		Übertragen auf die Transparenz der Pixel ist $c=t/g$.
@@ -492,12 +509,22 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 			\subsubsection*{Diskussion}
 			%TODO Warum Untermodulation?
-			%TODO Nyqvist
+			%TODO auf neuen Kram fixen.
+			Horizontale Strukturen sind durch ihre Höhe definiert und vertikale durch ihre Breite.
+			Außerdem verursacht ein Gitter mit vertikalen Spalten ein horizontales Beugungsbild und umgekehrt.
+			Dementsprechend entspricht der vertikale Tastgrad horizontalen Strukturen und umgekehrt.
+			Der oben abgeschätzte Füllfaktor von \SI{9,9\pm 0,7}{\percent} steht im Widerspruch zu \cite{Handbuch}, welches eine Angabe von etwa \SI{55}{\percent} macht.
+			Dies liegt an den ebenfalls unterschiedlichen Tastgraden, die laut Handbuch nämlich in horizontaler Richtung $5/6$ und in vertikaler $2/3$ betragen sollen.
+			Die gemessenen Tastgrade sind deutlich geringer.
+			Dies könnte unter anderem auf die Versuchslimitierung durch die Ordnungen des Pixelgitters zurückgeführt werden:
+			Wenn man die Untermodulation durch elektrische Ansteuerungselemente als periodisches Signal mit einer räumlichen Frequenz $ f_\text{Signal} $ in vertikaler oder horizontaler Richtung auffasst und die Messabstände durch das Pixelgitter als eine räumliche Abtastrate $f_\text{Abtast}$ interpretiert, muss gemäß der Signaltheorie $f_\text{Abtast} > 2 f_\text{Signal}$ (vgl. Nyquistfrequenz).
+			Ansonsten treten Aliasing-Effekte auf.
+			Dies kann bei dem gegebenen Aufbau allerdings nicht sichergestellt werden.
 
 		\subsection{Beugungsbilder verschiedener DOEs}
 		%4.2.3
-		%TODO Bilder
-		%TODO Beugungswirkungsgrad bestimmen
+		% Bilder
+		% Beugungswirkungsgrad bestimmen
 
 \begin{figure}[H]
         \centering
@@ -580,7 +607,18 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	\end{figure}
 			\subsubsection*{Diskussion}
 		%TODO Beobachtung, Änderung mit Strukturgröße
-			%TODO Warum kann ein LC-Modulator Beugungsbilder erzeugen?
+			% Warum kann ein LC-Modulator Beugungsbilder erzeugen?
+			Die Intensität der Maxima nimmt, wie in \cref{tb_beug} zu erkennen ist, mit dem Grauwert ab.
+			Dies entspricht der trivialen Erwartung, da ein höherer Grauwert einer geringeren Durchlässigkeit der LC-Zellen entspricht.
+
+			Bei der Betrachtung von \cref{fig_beug} kann man innerhalb der Messunsicherheiten feststellen, dass der Beugungsgrad mit zunehmendem Grauwert abnimmt.
+			Die ist darauf zurückzuführen, dass bei höherem Grauwert die Stege des Gitters durchlässig werden, bis bei einem Grauwert von \SI{255}{} kein Gitter mehr existiert.
+
+			Ein LC-Modulator kann Beugungsbilder erzeugen, da er kleine periodische Strukturen darstellen kann und somit ein Gitter simulieren kann. %die Frage sehr hölzern beantwortet. idk
+
+			Die qualitative Betrachtung von \cref{fig_doe_mix} zeigt, dass bei größeren Gitterabständen die Beugungsmaxima enger zusammenrücken, was der Erwartung auf Basis der Fouriertransformation entspricht.
+			In \cref{fig_doubleslit_20_50} sieht man, dass beim Doppelspalt im Vergleich zum Einzelspalt Nebenmaxima auftauchen.
+			Im Vergleich der beiden Einzelspalt lässt sich gut sehen, dass eine größere Spaltbreite zu geringeren Abständen der Beugungsordnungen führt, was ebenfalls mit der Fouriertransformation erklärt werden kann.
 
 		\subsection{Brennweite eines Fesnel-Linsen-DOEs}
 		%4.3.1
