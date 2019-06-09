@@ -485,9 +485,87 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		%TODO Bilder
 		%TODO Beugungswirkungsgrad bestimmen
 
+\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/singleslid_20_width}
+            \caption%
+            {Einzelspalt: Breite $\SI{20}{px}$}
+            \label{fig_singleslid_20}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/singleslid_50_width}
+            \caption%
+            {Einzelspalt: Breite $\SI{50}{px}$}
+            \label{fig_singleslid_50}
+        \end{subfigure}
+        \vskip\baselineskip
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/doubleslit_20_width_50_dist}
+            \caption[]%
+            {Doppelspalt: Breite: \SI{20}{px}, Abstand: \SI{50}{px}}
+            \label{fig_doubleslit_20_50}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/doubleslit_20_width_200_dist}
+            \caption[]%
+            {Doppelspalt: Breite \SI{20}{px}, Abstand: \SI{200}{px}}
+            \label{fig_doubleslit_20_200}
+        \end{subfigure}
+        \vskip\baselineskip
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/grid_2_groove_2_ridge}
+            \caption[]%
+            {Gitter: Rille: \SI{2}{px}, Erhöhung: \SI{2}{px}}
+            \label{fig_grid_2_2}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/grid_40_groove_40_ridge}
+            \caption[]%
+            {Gitter: Rille: \SI{40}{px}, Erhöhung: \SI{40}{px}}
+            \label{fig_grid_40_40}
+        \end{subfigure}
+        \caption%
+        {Kameraaufnahmen verschiedener Beugungsbilder}
+        \label{fig_doe_mix}
+    \end{figure}
 
-		%TODO Beobachtung, Änderung mit Strukturgröße
+		%TODO Beugungsgrad text hier
+
+		\begin{equation}
+			\label{eq_beug}
+			\eta = \frac{I_\text{1,max}}{I_\text{0,max}}
+		\end{equation}
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c }
+			 Grauwert & $I_\text{0,max}/$a.u. &$I_\text{1,max}/$a.u.&  Beugungsgrad $\eta$ \\ \hline
+			 \input{res/tb_beug}
+		\end{tabular}
+		\caption{
+		Gemessene Intensitäten der 0. und 1. Hauptmaxima eines Gitters bei verschiedenen Grauwerten.
+		Der Beugungsgrad ergibt sich aus dem Quotienten der Intensitäten nach \cref{eq_beug}.
+		}
+		\label{tb_beug}
+\end{table}
+\begin{figure}[H]
+			\includegraphics[width=0.8\linewidth]{img/beugungsgrad}
+			\caption{
+			Messung der Intensität in Maxima der Gitterbeugung in horizontaler Richtung.
+			}
+			\label{fig_beug}
+	\end{figure}
 			\subsubsection*{Diskussion}
+		%TODO Beobachtung, Änderung mit Strukturgröße
 			%TODO Warum kann ein LC-Modulator Beugungsbilder erzeugen?
 
 		\subsection{Brennweite eines Fesnel-Linsen-DOEs}

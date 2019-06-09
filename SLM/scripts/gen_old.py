@@ -304,145 +304,28 @@ plt.ylabel('Intensität $I$ in a.u.')
 plt.savefig("SLM/img/sinc2.pdf")
 plt.show()
 
-# %% Old
-Sys.exit(0)
-#calc zeitkalibrier
-awkdata = np.loadtxt("V05/data/awk.out", skiprows = 0)
-adata = unp.uarray(np.diff(awkdata),0)
-#print(adata)
-print(unv(np.mean(adata)))
-print ("%s:%s"%("Zeitkalibrier",mean(adata)))
-#XRD
-unc_x = 0.002/math.sqrt(3)*0
-unc_y = 0.005/math.sqrt(3)*0
-unc_t = 0.02
-typ = [ "Zeitdifferenzen","Zeitkalibrierung","Positronium_Zeitdifferenz","Energiespektrum_Start", "Energiespektrum_Stop", ]
-position = 39.76
-kali = 0.64/514.8
-width = 1 # == 1Grad
-for t in typ:
-    print(t)
-    data = np.genfromtxt("V05/data/%s_cut.Spe"%(t))
-    ydata = unp.uarray(data[:],np.sqrt(data[:]))
-    xdata = np.linspace(0,8191,8192)
-    #plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
-    if(t=="Zeitkalibrierung"):
-        plt.bar(unv(xdata), unv(ydata), width=width*10, color='r', yerr=usd(0), label= 'Messpunkte')
-    elif(t=="Positronium_Zeitdifferenz"):
-        xdata = xdata*kali
-        plt.bar(unv(xdata[1400:1700]), unv(ydata[1400:1700]), width=width*kali, color='r', yerr=usd(ydata[1400:1700]), label= 'Messpunkte')
+# %% 4.2.3
+int0 = [541,514,394,142,59,37]
+int1 = [16.26,15.9,12,5.4,2.85,1.617]
+gray = [255,200,150,100,50,0]
 
-        fit = fit_curvefit2(unv(xdata[1400:1700]), unv(ydata[1400:1700]), custom, p0 = [1471*kali, 475,17*kali])
+ydata0 = unp.uarray(int0,3)
+ydata1 = unp.uarray(int1,0.3)
 
-        xfit = np.linspace(1400, 1700, 400)
-        xfit = xfit*kali
-        yfit = custom(xfit, *unv(fit))
-        plt.plot(unv(xfit), unv(yfit), color = 'blue',linewidth=2, label='Gauss Fit\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+ydata = ydata1/ydata0
+xdata = unp.uarray(gray,0)
+out_si_tab("SLM/res/tb_beug",np.transpose([gray,ydata0,ydata1,ydata]))
+fig=plt.figure(figsize=fig_size)
 
-        plt.legend(prop={'size':fig_legendsize})
-        plt.grid()
-        plt.tick_params(labelsize=fig_labelsize)
-        plt.xlabel('Zeitdifferenz in $\mu$s')
-        plt.ylabel('Ereignisse')
-        plt.savefig(("V05/img/%s_zoom"%(t)).replace(".",",") + ".pdf")
-        plt.show()
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
 
-        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', label= 'Messpunkte')
-        #plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
-
-    elif(t=="Energiespektrum_Stop" ):
-        plt.axvline(x=0.31/10*8192,color="y")
-        plt.axvline(x=0.61/10*8192,color="y")
-        plt.axvline(x=2.36/10*8192,color="m")
-        plt.axvline(x=3.03/10*8192,color="m")
-        plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
-    elif(t=="Energiespektrum_Start"):
-        plt.axvline(x=0.19/10*8192,color="y")
-        plt.axvline(x=0.34/10*8192,color="y")
-        plt.axvline(x=1.17/10*8192,color="m")
-        plt.axvline(x=1.59/10*8192,color="m")
-        plt.bar(unv(xdata), unv(ydata), width=width, color='r', yerr=usd(ydata), label= 'Messpunkte')
-    elif(t=="Zeitdifferenzen"):
-
-        xdata = xdata*kali
-        ww = 1200
-        hh = 1600
-        plt.bar(unv(xdata[ww:hh]), unv(ydata[ww:hh]), width=width*kali, color='r', yerr=usd(ydata[ww:hh]), label= 'Messpunkte')
-
-        plt.axhline(y=125,color="green")
-        plt.axhline(y=549,color="y")
-        plt.axvline(x=1.75,color="y")
-        plt.axhline(y=337,color="m")
-        plt.axvline(x=1.89,color="m")
-        plt.axvline(x=1.59,color="m")
-
-        plt.legend(prop={'size':fig_legendsize})
-        plt.grid()
-        plt.tick_params(labelsize=fig_labelsize)
-        plt.xlabel('Zeitdifferenz in $\mu$s')
-        plt.ylabel('Ereignisse')
-        plt.savefig(("V05/img/%s_zoom"%(t)).replace(".",",") + ".pdf")
-        plt.show()
-
-        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
-        m =mean(ydata[2000:])
-        print("%s:%s"%("Untergrund",m))
-
-        fit = fit_curvefit2(unv(xdata), unv(ydata-m),double_exponential,yerr=usd(ydata-m), p0 = [4.5,4.5,447,1.74])
-        print(fit)
-        print(1/fit)
-        print(1/fit*np.log(2))
-        xfit = np.linspace(0,8000,8001)
-        xfit = xfit*kali
-        yfit = double_exponential(xfit, *unv(fit))
-
-        plt.plot(unv(xfit), unv(yfit+m), color = 'm',linewidth=1, label='Exp Fit\n$\\lambda_3$=%s $\\mu s^{-1}$\n$\\lambda_4$=%s $\\mu s^{-1}$\n$N$=%s\n$T_0$=%s $\\mu s$'%tuple(fit))
-
-
-        sumtn = 0
-        sumn = 0
-        for i in range(find_nearest_index(xdata,1.74),find_nearest_index(xdata,3)):
-            sumtn += unc.ufloat(xdata[i]-1.74,unc_t)*(ydata[i]-m)
-            sumn += (ydata[i]-m)
-        print("n %s"%(find_nearest_index(xdata,1.74)-find_nearest_index(xdata,3)))
-        print("tau: %s"%(sumtn/sumn))
-        print("thalf: %s"%(sumtn/sumn*np.log(2)))
-        print("lambda: %s"%(sumn/sumtn))
-
-        print("tau: %s"%(unv(sumtn/sumn)))
-        print("thalf: %s"%(unv(sumtn/sumn*np.log(2))))
-        print("lambda: %s"%(unv(sumn/sumtn)))
-
-        sumtn = 0
-        sumn = 0
-        for i in range(find_nearest_index(xdata,0.4),find_nearest_index(xdata,1.74)):
-            sumtn += -unc.ufloat(xdata[i]-1.74,unc_t)*(ydata[i]-m)
-            sumn += (ydata[i]-m)
-        print("n %s"%(find_nearest_index(xdata,1.74)-find_nearest_index(xdata,0.4)))
-        print("tau: %s"%(sumtn/sumn))
-        print("thalf: %s"%(sumtn/sumn*np.log(2)))
-        print("lambda: %s"%(sumn/sumtn))
-
-        print("tau: %s"%(unv(sumtn/sumn)))
-        print("thalf: %s"%(unv(sumtn/sumn*np.log(2))))
-        print("lambda: %s"%(unv(sumn/sumtn)))
-        plt.axhline(y=unv(mean(ydata[2500:])),color="g")
-    else:
-        xdata = xdata*kali
-        plt.bar(unv(xdata), unv(ydata), width=width*kali, color='r', yerr=usd(ydata), label= 'Messpunkte')
-
-    plt.legend(prop={'size':fig_legendsize})
-    plt.grid()
-    plt.tick_params(labelsize=fig_labelsize)
-    if(t=="Zeitkalibrierung"):
-        plt.xlabel('Kanal')
-    elif(t=="Energiespektrum_Stop" or t=="Energiespektrum_Start"):
-        plt.xlabel('Energie in a.u.')
-    else:
-        plt.xlabel('Zeitdifferenz in $\mu$s')
-    plt.ylabel('Ereignisse')
-    plt.savefig(("V05/img/%s"%(t)).replace(".",",") + ".pdf")
-    plt.show()
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Grauwert' )
+plt.ylabel('Beugungsgrad $\\eta= I_{1,max}/i_{0,max}$')
+plt.savefig("SLM/img/beugungsgrad.pdf")
+plt.show()
 
 
 #end
