@@ -327,5 +327,24 @@ plt.ylabel('Beugungsgrad $\\eta= I_{1,max}/i_{0,max}$')
 plt.savefig("SLM/img/beugungsgrad.pdf")
 plt.show()
 
+# %% 4.3.1
+lin = [100,75,50,25]
+dis = [29.5,26.3,23.9,24.0]
+
+
+xdata = unp.uarray(lin,0)
+ydata = unp.uarray(dis,unc_l*100)
+
+fig=plt.figure(figsize=fig_size)
+
+plt.errorbar(unv(xdata),unv(ydata), usd(ydata), usd(xdata),fmt=' ', capsize=5,linewidth=1, label='Messpunkte')
+
+plt.legend(prop={'size':fig_legendsize})
+plt.grid()
+plt.tick_params(labelsize=fig_labelsize)
+plt.xlabel('Linsenphase' )
+plt.ylabel('Brennweite $f$ in cm')
+plt.savefig("SLM/img/Fresnel.pdf")
+plt.show()
 
 #end
