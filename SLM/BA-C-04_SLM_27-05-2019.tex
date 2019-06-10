@@ -101,8 +101,8 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	In diesem Versuch wird ein Modulator aus Flüssigkristallzellen verwendet, um dessen Eigenschaften zu untersuchen und seine Verwendbarkeit als verschiedene diffraktive optische Elemente zu zeigen.
 	Zunächst kann dabei das Gesetz von Malus bestätigt werden und gezeigt und erklärt werden, dass bzw. warum der Kontrast des LC-Modulators von der Eingangspolarisation abhängt.
-	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Methoden der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt. %TODO hier Werte?
-	Außerdem wird die Abhängigkeit der Ausgangspolarisation des Modulators von dem eingestellten Grauwert untersucht und diskutiert. %TODO eig. des Lichtes, kp eig. klar aber....
+	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Methoden der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt.
+	Außerdem wird die Abhängigkeit der Ausgangspolarisation des Modulators von dem eingestellten Grauwert untersucht und diskutiert.
 
 	Es werden Beugungsbilder des LC-Modulator als verschiedene diffraktive optische Elemente aufgenommen, um zu zeigen, dass der LC-Modulator als solche verwendet werden kann.
 	Bei Verwendung des LC-Modulators als Fresnel-Linse wird gezeigt, dass er auch eine Linse variabler Brennweite darstellen kann.
@@ -175,12 +175,12 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	% Jones-Vektoren, Jones-Formalismus?
 
 	Mithilfe einer Matrix aus Flüssigkristallzellen lässt sich ein räumlicher Lichtmodulator realisieren.
-	%TODO 1.1.7 TN-LC-Zelle + Polarisator ergibt Amplitudenmodulation (und auch Phase)
+	% 1.1.7 TN-LC-Zelle + Polarisator ergibt Amplitudenmodulation (und auch Phase)
 	Polarisator, Mikrodisplay und Analysator sorgen in Kombination dafür, dass ein Phasenunterschied zwischen den Flüssigkristallzellen entsteht, der proportional zum eingestellten Grauwert ist.
 	Dies ergibt sich aus der Betrachtung des Systems mittels des Jones-Formalismus.
-	Durch einzelne Ansteuerung der Flüssigkristallzellen entsteht ein räumliche Lichtmodulation.
+	Durch einzelne Ansteuerung der Flüssigkristallzellen entsteht ein räumliche Lichtmodulation in Amplitude und Phase.
 	\label{chap_phasengrau}
-	%TODO Interferenz?
+	% Interferenz?
 
 	\subsection{Kohärenz}
 	Der signifikante Unterschied zwischen einem Laser und einer Glimmlampe besteht in der Fähigkeit zur Interferenz.
@@ -252,14 +252,14 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		Da für die Bestimmung der Exzentrizität des Lichts auch die Intensität bei einem dazu um \SI{90}{\degree} gedrehten Analysators bekannt sein müsste, dies aber nicht gemessen wurde, werden hierfür im folgenden Daten aus \cite{JTZ} verwendet.
 
 	\subsection{Intensitätsverteilung in den Beugungsordnungen des unadressierten Displays} % hier habe ich jetzt komplett den Titel übernommen
-	Die Linse wird entfernt und stattdessen der Laser mittels der Linse am Laser auf einen Abstand von etwa \SI{80}{\centi \meter} fokussiert. %TODO haben wir da einen exakten Wert?
+	Die Linse wird entfernt und stattdessen der Laser mittels der Linse am Laser auf einen Abstand von etwa \SI{80}{\centi \meter} fokussiert. % haben wir da einen exakten Wert? ->nein
 	Es wird in horizontaler und vertikaler Richtung die Intensität der ersten elf Ordnungen gemessen. % hier haben wir halt horziontal weniger. kp, ob man das hier oder unten erwähnen sollten.
 
 	\subsection{Beugungsbilder verschiedener DOEs}
 		Der Laser wird wieder kollimiert und eine Linse nach dem Analysator zur Fokussierung verwendet.
 		Es wird nacheinander ein Einzelspalt, zwei verschiedene Doppelspalte und ein Gitter als DOE für den LC-Modulator eingestellt.
 		Dann wird mit einer Kamera in der Fokusebene jeweils das Beugungsbild aufgenommen.
-		Für ein Gitter wird der Strahl mit der Linse am Laser (unter Entfernung der anderen Linse) auf einen Abstand von etwa \SI{1,23}{m} fokussiert und die Intensität des nullten und ersten Beugungsmaximums gemessen.
+		Für ein Gitter wird der Strahl mit der Linse am Laser (unter Entfernung der anderen Linse) auf einen Abstand von etwa \SI{1,23}{m} fokussiert und die Intensität des nullten und ersten Beugungsmaximums für verschiedene Grauwerte der Lücken des Gitters gemessen.
 
 	\subsection{Brennweite eines Fresnel-Linsen-DOEs}
 		Es wird als Bild eine Fresnel-Zonenplatte eingestellt.
@@ -378,7 +378,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		Die Bestimmung des Kontrast erfolgt analog zu \cref{eq_kontrast} in \cref{ss_malus}, jedoch mit  den gemessenen Intensitäten $I_\text{max}=\input{res/intens_max}$ und $I_\text{min}=\input{res/intens_min}$, respektive für einen weißen und schwarzen \textit{Blank Screen}, sodass sich ein Kontrast von $C=\input{res/intens_kontrast}$ ergibt.
 			\subsubsection*{Diskussion}
 			% qualitativ: ist tatsächlich deutlich anders
-			%TODO Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
+			% Optimierung des Kontrastes bei LC-Modulator als Amplitudenmodulator beschreiben und erklären
 			Zunächst lässt sich mittels \cref{fig_divscreen} die qualitativ die Erwartung bestätigen, dass bei der gewählten Eingangspolarisation von \SI{-135}{\degree}.
 			Der Kontrast zwischen den beiden Flächen ist deutlich größer bei einem Analysatorwinkel von \SI{0}{\degree} bzw. \SI{90}{\degree} als für die dazu um \SI{45}{\degree} gekippten Polarisatorstellungen.
 			Die Tatsache, dass $I_\text{min} = \input{res/intens_min}$ sich deutlich von Null unterscheidet zeigt, dass der LC-Modulator deutlich schlechter linear polarisiertes Licht ausgibt, als der Laser.
@@ -453,12 +453,12 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 \end{table}
 			\subsubsection*{Diskussion}
 			% beide Werte mit Materialbeschreibung vergleichen. aus der Anleitung von dem SLM?
-			Wenn man die gemessenen Pixelabstände in \cref{tb_pixel} und \cref{tb_gitter} mit der Herstellerangabe gemäß \cite{Handbuch} von \SI{32}{\micro \meter}, die auf \SI{\pm 3}{\micro \meter} genau bestimmt werden können soll, vergleicht, stellt man fest, dass dies innerhalb der Messunsicherheiten der Fall ist. %TODO geiler Satz.
+			Wenn man die gemessenen Pixelabstände in \cref{tb_pixel} und \cref{tb_gitter} mit der Herstellerangabe gemäß \cite{Handbuch} von \SI{32}{\micro \meter}, die auf \SI{\pm 3}{\micro \meter} genau bestimmt werden können soll, vergleicht, stellt man fest, dass dies innerhalb der Messunsicherheiten der Fall ist. % geiler Satz.
 
 
 		\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
 		%4.1.4
-		%TODO plotten
+		% plotten
 		In \cref{fig_ellipse} ist die Exzentrizität des Lichts in Polarkoordinaten dargestellt.
 		Die maximal gemessene Intensität $I_\text{max}$ unter Variation des Analysatorwinkels bei einem \textit{Blank Screen} mit einem gewissen Grauwert wird als Länge der großen Halbachse einer Ellipse aufgefasst.
 		Die kleine Halbachse ergibt sich aus der minimalen Intensität $I_\text{min}$, also unter einer Analysatorwinkeländerung von \SI{90}{\degree}.
@@ -493,7 +493,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		% Intensität bei 1-10 plotten
 		% duty cycle bestimmen: Verhältnis transparenter Teil / lichtundurchlässiger Teil anhand der Intensitätsmodulation
 		% Füllfaktor (Verhältnis transparent / gesamt) abschätzen: pixel quadratisch. -> ??? Dann ergibt sich der Füllfaktor doch instant aus dem duty cycle. Das klingt aber sehr anders gemeint in 4.2.2
-		%TODO hast du hier jetzt einfach auch die Werte von Jannik genommen? Steht nirgendwo und ist halt bissl meh, weil wir haben ja Werte, nur halt horizontal nicht so viele.
+		% hast du hier jetzt einfach auch die Werte von Jannik genommen? Steht nirgendwo und ist halt bissl meh, weil wir haben ja Werte, nur halt horizontal nicht so viele.
 
 		Der Tastgrad $c$ ist definiert als das Verhältnis einer Impulsdauer $\tau$ zur Periodendauer $T$, also $c=\tau/T$.
 		Übertragen auf die Transparenz der Pixel ist $c=t/g=1-i/g$.
@@ -532,7 +532,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\label{fig_sinc1}
 	\end{figure}
 
-\begin{figure}[H] %TODO einsam auf der Seite, random leerseite
+\begin{figure}[H]
 			\includegraphics[width=0.8\linewidth]{img/sinc2}
 			\caption{
 			Messung der Intensität in Maxima der Gitterbeugung (durch das Pixelgitter) in horizontaler Richtung.
@@ -540,7 +540,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\label{fig_sinc2}
 	\end{figure}
 
-\begin{figure}[H] %TODO einsam auf der Seite, random leerseite
+\begin{figure}[H]
 			\includegraphics[width=0.8\linewidth]{img/sinc3}
 			\caption{
 			Messung der Intensität in Maxima der Gitterbeugung (durch das Pixelgitter) in horizontaler Richtung.
@@ -551,7 +551,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 
 			\subsubsection*{Diskussion}
-			%TODO Warum Untermodulation?
+			% Warum Untermodulation?
 			Horizontale Strukturen sind durch ihre Höhe definiert und vertikale durch ihre Breite.
 			Außerdem verursacht ein Gitter mit vertikalen Spalten ein horizontales Beugungsbild und umgekehrt.
 			Dementsprechend entspricht der vertikale Tastgrad horizontalen Strukturen und umgekehrt.
@@ -642,7 +642,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		}
 		\label{tb_beug}
 \end{table}
-\begin{figure}[H] %TODO die Achsenbeschriftungen sind extrem klein.
+\begin{figure}[H]
 			\includegraphics[width=0.8\linewidth]{img/beugungsgrad}
 			\caption{
 			Messung der Intensität in Maxima der Gitterbeugung in horizontaler Richtung.
@@ -656,9 +656,8 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			Die Intensität der Maxima nimmt, wie in \cref{tb_beug} zu erkennen ist, mit dem Grauwert zu.
 			Dies entspricht der trivialen Erwartung, dass ein höherer Grauwert einer hohen Durchlässigkeit der LC-Zellen entspricht.
 
-			Bei der Betrachtung von \cref{fig_beug} kann man innerhalb der Messunsicherheiten feststellen, dass der Beugungswirkungsgrad mit zunehmendem Grauwert abnimmt. %TODO ich bin dagegegen weil großer ERror
-			Dies ist darauf zurückzuführen, dass wie in \cref{chap_phasengrau} beschrieben, der Phasenunterschied bei sinkendem Grauwert steigt, was einen höheren Beugungswirkungsgrad zur Folge hat.
-			%TODO ich bin mir nicht sehr sicher, wie true das ist. Und oben steht halt proportional und nicht antiproportional, aber ich glaube da ist die anleitung einfach unpräzise %TODO IDK,KP,WTF
+			Bei der Betrachtung von \cref{fig_beug} sieht es so aus, als würde der Beugungswirkungsgrad mit zunehmendem Grauwert abnehmen, aber aufgrund der hohen Messunsicherheiten ist diese Festellung nicht signifikant.
+			Das nicht signifikante Ergebnis widerspricht der Erwartung, da der Beugungswirkungsgrad das Verhältnis zwischen gebeugter Intensität und am LC-Modulator eintreffender Intensität darstellt und bei einem vollständig schwarzen Bild, also einem LC-Modulator mit minimaler Durchlässigkeit dieses Verhältnis minimal werden sollte.
 
 			Ein LC-Modulator kann Beugungsbilder erzeugen, da er kleine periodische Strukturen darstellen kann und somit ein Gitter simulieren kann. %die Frage sehr hölzern beantwortet. idk
 
@@ -674,7 +673,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		In \cref{fig_fresnel} sind die Brennweiten, gegen die eingestellten Linsenphasen aufgetragen.
 		Da sowohl Anfang als auch Ende der Abstandsmessung zur Bestimmung der Brennweite nicht genau bekannt sind, wird eine höhere Unsicherheit von $u(f)=\SI{0.2}{cm}$ verwendet.
 
-\begin{figure}[H] %TODO die Achsenbeschriftungen sind extrem klein.
+\begin{figure}[H]
 			\includegraphics[width=0.8\linewidth]{img/fresnel}
 			\caption{
 			Die Brennweite $f$ ist gegen die Linsenphase aufgetragen.
@@ -685,7 +684,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			% die Anleitung klingt so, als würden sich da mehrere Fokuspositionen ergebn, aber das kann ja wohl nicht sein.
 			% auftretende Proportionalität beschreiben
 			% feststellen: Computergesteuerte Hologramme können als Linsen verschiedener Brennweite agieren.
-%TODO random leereseiten
+
 
 		Wie in \cref{fig_fresnel} zu erkennen ist, nimmt die Brennweite mit der Linsenphase zu.
 		In den letzten drei Messpunkten sieht der Zusammenhang linear aus, aber um über die Art der Proportionalität eine Aussage treffen zu können, wären zusätzliche Messpunkte nötig.
@@ -770,7 +769,9 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Die Pixelgröße wurde innerhalb der Messunsicherheiten in Übereinstimmung mit den Herstellerangaben bestimmt.
 	Die Abhängigkeit der Ausgangspolarisation vom eingestellten Grauwert wurde untersucht und erklärt.
 	Es wurden Beugungsbilder verschiedener DOEs aufgenommen und verglichen und der Modulator wurde als variable Fresnel-Linse verwendet sowie deren Brennweite in Abhängigkeit von der Linsenphase gemessen.
-	Zuletzt wurde der LC-Modulator verwendet, um Hologramme zu erzeugen, indem fouriertransformierte DOEs verwendet wurden. %TODO fouriertransform klein?!?
+	Die Bestimmung der Proportionalität des Beugungswirkungsgrades zum Grauwert der Stege konnte nicht erfolgreich durchgeführt werden.
+	Um hier zu einem Ergebnis zu kommen, könnte der Versuchsteil mit verschiedenen Gitterperiodizitäten durchgeführt werden.
+	Zuletzt wurde der LC-Modulator verwendet, um Hologramme zu erzeugen, indem fouriertransformierte DOEs verwendet wurden.
 
 	% Quellen zitieren, Websites mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
