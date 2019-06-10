@@ -101,7 +101,7 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	In diesem Versuch wird ein Modulator aus Flüssigkristallzellen verwendet, um dessen Eigenschaften zu untersuchen und seine Verwendbarkeit als verschiedene diffraktive optische Elemente zu zeigen.
 	Zunächst kann dabei das Gesetz von Malus bestätigt werden und gezeigt und erklärt werden, dass bzw. warum der Kontrast des LC-Modulators von der Eingangspolarisation abhängt.
-	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Varianten der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt.
+	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Methoden der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt.
 	Außerdem wird die Abhängigkeit der Ausgangspolarisation des Modulators von dem eingestellten Grauwert untersucht und diskutiert.
 
 	Es werden Beugungsbilder des LC-Modulator als verschiedene diffraktive optische Elemente aufgenommen, um zu zeigen, dass der LC-Modulator als solche verwendet werden kann.
@@ -171,7 +171,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Polarisator, Mikrodisplay und Analysator sorgen in dafür, dass ein Phasenunterschied zwischen den Flüssigkristallzellen entsteht, der proportional zum eingestellten Grauwert ist.
 	Dies ergibt sich aus der Betrachtung des Systems mittels des Jones-Formalismus.
 	Durch einzelne Ansteuerung der Flüssigkristallzellen entsteht ein räumliche Lichtmodulation.
-
+	\label{chap_phasengrau}
 	%TODO Interferenz?
 
 	\subsection{Kohärenz}
@@ -623,12 +623,12 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 \begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c | c }
-			 Grauwert & $I_\text{0,max}/$a.u. &$I_\text{1,max}/$a.u.&  Beugungsgrad $\eta$ \\ \hline
+			 Grauwert & $I_\text{0,max}/$a.u. &$I_\text{1,max}/$a.u.&  Beugungsgradwirkungsgrad $\eta$ \\ \hline
 			 \input{res/tb_beug}
 		\end{tabular}
 		\caption{
 		Gemessene Intensitäten der 0. und 1. Hauptmaxima eines Gitters bei verschiedenen Grauwerten.
-		Der Beugungsgrad ergibt sich aus dem Quotienten der Intensitäten nach \cref{eq_beug}.
+		Der Beugungsgradwirkungsgrad ergibt sich aus dem Quotienten der Intensitäten nach \cref{eq_beug}.
 		}
 		\label{tb_beug}
 \end{table}
@@ -645,8 +645,9 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			Die Intensität der Maxima nimmt, wie in \cref{tb_beug} zu erkennen ist, mit dem Grauwert ab.
 			Dies entspricht der trivialen Erwartung, da ein höherer Grauwert einer geringeren Durchlässigkeit der LC-Zellen entspricht.
 
-			Bei der Betrachtung von \cref{fig_beug} kann man innerhalb der Messunsicherheiten feststellen, dass der Beugungsgrad mit zunehmendem Grauwert abnimmt.
-			Dies ist darauf zurückzuführen, dass bei höherem Grauwert die Stege des Gitters durchlässig werden, bis bei einem Grauwert von \SI{255}{} kein Gitter mehr existiert.
+			Bei der Betrachtung von \cref{fig_beug} kann man innerhalb der Messunsicherheiten feststellen, dass der Beugungswirkungsgrad mit zunehmendem Grauwert abnimmt.
+			Dies ist darauf zurückzuführen, dass wie in \cref{chap_phasengrau} beschrieben, der Phasenunterschied bei sinkendem Grauwert steigt, was einen höheren Beugungswirkungsgrad zur Folge hat.
+			%TODO ich bin mir nicht sehr sicher, wie true das ist. Und oben steht halt proportional und nicht antiproportional, aber ich glaube da ist die anleitung einfach unpräzise
 
 			Ein LC-Modulator kann Beugungsbilder erzeugen, da er kleine periodische Strukturen darstellen kann und somit ein Gitter simulieren kann. %die Frage sehr hölzern beantwortet. idk
 
