@@ -101,8 +101,8 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	In diesem Versuch wird ein Modulator aus Flüssigkristallzellen verwendet, um dessen Eigenschaften zu untersuchen und seine Verwendbarkeit als verschiedene diffraktive optische Elemente zu zeigen.
 	Zunächst kann dabei das Gesetz von Malus bestätigt werden und gezeigt und erklärt werden, dass bzw. warum der Kontrast des LC-Modulators von der Eingangspolarisation abhängt.
-	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Methoden der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt.
-	Außerdem wird die Abhängigkeit der Ausgangspolarisation des Modulators von dem eingestellten Grauwert untersucht und diskutiert.
+	Für den verwendeten LC-Modulator wird mit zwei verschiedenen Methoden der Pixelabstand bestimmt und der Füllfaktor der Zellen wird abgeschätzt. %TODO hier Werte?
+	Außerdem wird die Abhängigkeit der Ausgangspolarisation des Modulators von dem eingestellten Grauwert untersucht und diskutiert. %TODO eig. des Lichtes, kp eig. klar aber....
 
 	Es werden Beugungsbilder des LC-Modulator als verschiedene diffraktive optische Elemente aufgenommen, um zu zeigen, dass der LC-Modulator als solche verwendet werden kann.
 	Bei Verwendung des LC-Modulators als Fresnel-Linse wird gezeigt, dass er auch eine Linse variabler Brennweite darstellen kann.
@@ -128,7 +128,7 @@
 
 	Für die Herstellung von Flüssigkristallanzeigen wird ein Flüssigkristall in cholesterischer Phase verwendet. % hier stand in der Anleitung immer "twisted nematic". Denke, das ist das gleiche.
 	Dies meint, dass die Molekülachsen ebenenweise in die gleiche Richtung zeigen.
-	Die Orientierung in den Ebenen ist dabei periodisch, da der Direktor (die Vorzugsachse) sich, wenn in Laufrichtung senkrecht zur Ebene betrachtet, mit konstanter Winkelgeschwindigkeit dreht und  eine Helixstruktur bildet, wenn das Ende des Direktorvektors im Raum verfolgt wird.
+	Die Orientierung in den Ebenen ist dabei periodisch, da der Direktor (die Vorzugsachse) sich, wenn in Laufrichtung senkrecht zur Ebene betrachtet, mit konstanter Winkelgeschwindigkeit dreht und eine Helixstruktur bildet, wenn das Ende des Direktorvektors im Raum verfolgt wird.
 
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/displayHelix}
@@ -191,7 +191,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Durch eine Linse kann diese Fouriertransformation rückgängig gemacht werden und das Bild wieder ins Nahfeld geholt werden.
 
 	Räumliche Frequenzen tauchen im Beugungsbild also als Punkte auf.
-	Einzelspalte entsprechen Rechteckfunktionen, die transoformiert Funktionen der Form $\sin{x}/x$ ergeben.
+	Einzelspalte entsprechen Rechteckfunktionen, die transformiert Funktionen der Form $\sin{x}/x$ ergeben.
 	Bei einem Doppelspalt tauchen zusätzlich Nebenmaxima auf und bei Gittern ergeben sich einzelne Hauptmaxima hoher Intensität. %TODO confirmen.
 
 	\section{Methoden}
@@ -271,6 +271,9 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		\subsection*{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
 
+	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
+	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
+	Die Fits verwenden die Methode der kleinsten Quadrate, außer wenn anders angegeben.
 	Folgende Unsicherheiten werden angenommen:
 	\begin{description}
 		\item[Analysatorwinkel:] analog an Skala abgelesen, somit Dreiecksverteilung, $u(\phi)=\frac{\SI{2}{\degree}}{2\sqrt{6}}=\SI{0.4}{\degree}$.
@@ -282,7 +285,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		%4.1.1
 		% plotten und cos^2 reinfitten
 		% Kontrast angeben (vmtl halt einfach Differenz der Intensitäten minmax)
-		In \cref{fig_malus} wurde die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
+		In \cref{fig_malus} wurden die gemessenen Intensitäten gegen den Winkel des Polarisators aufgetragen.
 		Es wurde ein Fit nach dem Gesetzt von Malus durchgeführt mit:
 		\begin{equation}
 			\label{eq_malus_fit}
@@ -442,7 +445,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 \end{table}
 			\subsubsection*{Diskussion}
 			% beide Werte mit Materialbeschreibung vergleichen. aus der Anleitung von dem SLM?
-			Wenn man die gemessenen Pixelabstände in \cref{tb_pixel} und \cref{tb_gitter} mit der Herstellerangabe gemäß \cite{Handbuch} von \SI{32}{\micro \meter}, die auf \SI{\pm 3}{mm} genau bestimmt werden können soll, vergleicht, stellt man fest, dass dies innerhalb der Messunsicherheiten der Fall ist. %TODO geiler Satz.
+			Wenn man die gemessenen Pixelabstände in \cref{tb_pixel} und \cref{tb_gitter} mit der Herstellerangabe gemäß \cite{Handbuch} von \SI{32}{\micro \meter}, die auf \SI{\pm 3}{\micro \meter} genau bestimmt werden können soll, vergleicht, stellt man fest, dass dies innerhalb der Messunsicherheiten der Fall ist. %TODO geiler Satz.
 
 
 		\subsection{Zusammenhang zwischen Grauwert und Polarisationszustand}
@@ -492,17 +495,17 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 		Für Gitter gilt, dass das Produkt aus Periodizität im Realraum $r$ und reziproken Raum $P$ konstant ist, $rP=\text{const.}$.
 		Im Experiment sind zwei Gitter simultan vorhanden, welche beide eine Fouriertransformation zur Folge haben.
 		Ein Gitter definiert die Pixelgröße und eines entstammt der Steuerelektronik, die als ebenfalls periodisch, also als für jeden Pixel gleich aussehend, angenommen wird.
-		Somit folgt:
+		Somit kann angenommen werden, dass:
 		\begin{equation}
-			gG =iI = \text{const.}
+			gG = iI = \text{const.}
 		\end{equation}
-		Wobei $G$ und $I$ die respektiven Periodizitäten im reziproken Raum sind und es folgt, dass sich das Transparenzverhältnis $c=1-i/g=1-I/T$ im reziproken Raum als Verhältnis der Frequenzen widerspiegelt.
+		Wobei $G$ und $I$ die respektiven Periodizitäten im reziproken Raum sind und es folgt, dass sich das Transparenzverhältnis $c=1-i/g=1-G/I$ im reziproken Raum als Verhältnis der Frequenzen widerspiegelt.
 
 		In \cref{fig_sinc1} sind die Intensitäten der vertikalen Maxima aufgetragen.
 		Maxima sind deutlich bei $m=\{0,4,7,9\}$ und Minima bei $m=\{3,6,8\}$.
 		Der geringe Abstand zwischen den Maxima $\{7,9\}$ und dem Minimum $\{8\}$, lässt darauf folgern, dass im Bereich nahe der 0. Ordnung ein weiteres Minimum existiert, aber nicht aufgelöst werden konnte.
 		Und es lässt sich das Verhältnis der Frequenzen durch das Verhältnis der Maxima beschreiben $c_v=1-4/9$.
-		Da in \cref{fig_sinc2} lediglich die ersten 6 Maxima aufgelöst werden konnten ist eine weitere Auswertung damit nicht möglich, jedoch mit \cref{fig_sinc3} welche sich in dem Bereich von 0. bis 6. Maximum sehr ähnlich verhält.
+		Da in \cref{fig_sinc2} lediglich die ersten 6 Maxima aufgelöst werden konnten ist eine weitere Auswertung damit nicht möglich, jedoch mit \cref{fig_sinc3}, welche sich in dem Bereich von 0. bis 6. Maximum sehr ähnlich verhält.
 		Somit stellt man analog in \cref{fig_sinc3} fest, dass $c_h=1-2/9$ beträgt und ebenfalls das erste Minimum nicht aufgelöst werden konnte.
 		Mit einer Betrachtung der Unsicherheit, welche durch eine Rechteckverteilung der Breite 1 am Punkt $m=9$ abgeschätzt wird, folgen mit $m=\SI{9+-0.3}{}$ Tastgrade von $c_v=\SI{0.556(15)}{}$ und $c_h=\SI{0.778(7)}{}$.
 		Die Rechteckverteilung wird angenommen, da wenn das Maximum sich irgendwo zwischen \num{8,5} oder \num{9,5} befindet, es dazu führt, dass man es beim Punkt \num{9} sieht, da zwischen den Maxima des Pixelgitters nicht gemessen werden kann.
@@ -547,8 +550,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 			Der abgeschätzte Füllfaktor von \SI{43,2\pm 1,2}{\percent} ist um mehr als die Messunsicherheit geringer als der in \cite{Handbuch} angegebene von etwa \SI{55}{\percent}.
 
-			Dies kann einerseits an der unbegründete Annahme, dass die Pixel rechteckig sind, liegen.
-			Andererseits wird die Messung durch die Ordnungen des Pixelgitters eingeschränkt:
+			Jedoch ist die Messung durch die Ordnungen des Pixelgitters eingeschränkt:
 			Wenn man die Untermodulation durch elektrische Ansteuerungselemente als periodisches Signal mit einer räumlichen Frequenz $ f_\text{Signal} $ in vertikaler oder horizontaler Richtung auffasst und die Messabstände durch das Pixelgitter als eine räumliche Abtastrate $f_\text{Abtast}$ interpretiert, muss gemäß der Signaltheorie $f_\text{Abtast} > 2 f_\text{Signal}$ (vgl. Nyquistfrequenz).
 			Ansonsten treten Aliasing-Effekte auf.
 			Dies kann bei dem gegebenen Aufbau allerdings nicht sichergestellt werden.
@@ -623,12 +625,12 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 \begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c | c }
-			 Grauwert & $I_\text{0,max}/$a.u. &$I_\text{1,max}/$a.u.&  Beugungsgradwirkungsgrad $\eta$ \\ \hline
+			 Grauwert & $I_\text{0,max}/$a.u. &$I_\text{1,max}/$a.u.&  Beugungswirkungsgrad $\eta$ \\ \hline
 			 \input{res/tb_beug}
 		\end{tabular}
 		\caption{
 		Gemessene Intensitäten der 0. und 1. Hauptmaxima eines Gitters bei verschiedenen Grauwerten.
-		Der Beugungsgradwirkungsgrad ergibt sich aus dem Quotienten der Intensitäten nach \cref{eq_beug}.
+		Der Beugungswirkungsgrad ergibt sich aus dem Quotienten der Intensitäten nach \cref{eq_beug}.
 		}
 		\label{tb_beug}
 \end{table}
@@ -643,24 +645,25 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			\subsubsection*{Diskussion}
 		% Beobachtung, Änderung mit Strukturgröße
 			% Warum kann ein LC-Modulator Beugungsbilder erzeugen?
-			Die Intensität der Maxima nimmt, wie in \cref{tb_beug} zu erkennen ist, mit dem Grauwert ab.
-			Dies entspricht der trivialen Erwartung, da ein höherer Grauwert einer geringeren Durchlässigkeit der LC-Zellen entspricht.
+			Die Intensität der Maxima nimmt, wie in \cref{tb_beug} zu erkennen ist, mit dem Grauwert zu.
+			Dies entspricht der trivialen Erwartung, dass ein höherer Grauwert einer hohen Durchlässigkeit der LC-Zellen entspricht.
 
-			Bei der Betrachtung von \cref{fig_beug} kann man innerhalb der Messunsicherheiten feststellen, dass der Beugungswirkungsgrad mit zunehmendem Grauwert abnimmt.
+			Bei der Betrachtung von \cref{fig_beug} kann man innerhalb der Messunsicherheiten feststellen, dass der Beugungswirkungsgrad mit zunehmendem Grauwert abnimmt. %TODO ich bin dagegegen weil großer ERror
 			Dies ist darauf zurückzuführen, dass wie in \cref{chap_phasengrau} beschrieben, der Phasenunterschied bei sinkendem Grauwert steigt, was einen höheren Beugungswirkungsgrad zur Folge hat.
-			%TODO ich bin mir nicht sehr sicher, wie true das ist. Und oben steht halt proportional und nicht antiproportional, aber ich glaube da ist die anleitung einfach unpräzise
+			%TODO ich bin mir nicht sehr sicher, wie true das ist. Und oben steht halt proportional und nicht antiproportional, aber ich glaube da ist die anleitung einfach unpräzise %TODO IDK,KP,WTF
 
 			Ein LC-Modulator kann Beugungsbilder erzeugen, da er kleine periodische Strukturen darstellen kann und somit ein Gitter simulieren kann. %die Frage sehr hölzern beantwortet. idk
 
 			Die qualitative Betrachtung von \cref{fig_doe_mix} zeigt, dass bei größeren Gitterabständen die Beugungsmaxima enger zusammenrücken, was der Erwartung auf Basis der Fouriertransformation entspricht.
 			In \cref{fig_doubleslit_20_50} sieht man, dass beim Doppelspalt im Vergleich zum Einzelspalt Nebenmaxima auftauchen.
 			Im Vergleich der beiden Einzelspalt lässt sich gut sehen, dass eine größere Spaltbreite zu geringeren Abständen der Beugungsordnungen führt, was ebenfalls mit der Fouriertransformation erklärt werden kann.
+			Außerdem lassen sich für das Gitter in \cref{fig_grid_2_2} erwartungsgemäß viele Nebenmaxima zwischen den deutlichen Hauptmaxima erkennen.
 
 		\subsection{Brennweite eines Fesnel-Linsen-DOEs}
 		%4.3.1
 		%Brennweite gegen Linsenphase auftragen
 		Es werden Fresnel-Zonenplatten verschiedener Linsenphasen auf den LC-Modulator gegeben.
-		In \cref{fig_fresnel} sind die Brennweiten, welche sich als Punkt der höchsten Intensität ergeben, gegen die eingestellten Linsenphasen aufgetragen.
+		In \cref{fig_fresnel} sind die Brennweiten, gegen die eingestellten Linsenphasen aufgetragen.
 		Da sowohl Anfang als auch Ende der Abstandsmessung zur Bestimmung der Brennweite nicht genau bekannt sind, wird eine höhere Unsicherheit von $u(f)=\SI{0.2}{cm}$ verwendet.
 
 \begin{figure}[H] %TODO die Achsenbeschriftungen sind extrem klein.
@@ -678,7 +681,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 
 		Wie in \cref{fig_fresnel} zu erkennen ist, nimmt die Brennweite mit der Linsenphase zu.
 		In den letzten drei Messpunkten sieht der Zusammenhang linear aus, aber um über die Art der Proportionalität eine Aussage treffen zu können, wären zusätzliche Messpunkte nötig.
-		Computergesteuerte Hologramme können also als Linse variabler Brennweite verwendet werden.
+		Computergesteuerte Hologramme können also als Linse variabler Brennweite verwendet werden. %lol generischer Satz
 
 		\subsection{Verschiedene DOEs als Hologramme}
 		%4.3.2, 4.3.3
@@ -747,7 +750,7 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 			Das in zwei Teile getrennte Hologramm führt in \cref{fig_square_ring} zu einer Überlagerung der beiden Strukturen.
 			Dies lässt sich auffassen als positive Frequenzen des einen Bildes und negative Frequenzen des anderen.
 			Im Ortsraum entsteht dadurch die Überlagerung der beiden Bilder, da nicht zwischen positiven und negativen Frequenzen unterschieden wird.
-			Anders gesagt schickt die eine Hälfte des LC-Modulators die Lichtstrahlen so auf den Sensor, dass Ringe entstehen und die andere so, dass Rechtecke entstehen.
+			Anders gesagt beugt die eine Hälfte des LC-Modulators die Lichtstrahlen so auf den Sensor, dass Ringe entstehen und die andere so, dass Rechtecke entstehen.
 
 			Analog dazu würde sich bei einem statisch auf eine dünne Glasplatte aufgeprägten Hologramms bei Verwendung nur einer Hälfte der Glasplatte immer noch das volle Beugungsbild ergeben und nur die Intensität halbiert werden.
 
@@ -759,9 +762,9 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Die Pixelgröße wurde innerhalb der Messunsicherheiten in Übereinstimmung mit den Herstellerangaben bestimmt.
 	Die Abhängigkeit der Ausgangspolarisation vom eingestellten Grauwert wurde untersucht und erklärt.
 	Es wurden Beugungsbilder verschiedener DOEs aufgenommen und verglichen und der Modulator wurde als variable Fresnel-Linse verwendet sowie deren Brennweite in Abhängigkeit von der Linsenphase gemessen.
-	Zuletzt wurde der LC-Modulator verwendet, um Hologramme zu erzeugen, indem Fouriertransformierte DOEs verwendet wurden.
+	Zuletzt wurde der LC-Modulator verwendet, um Hologramme zu erzeugen, indem fouriertransformierte DOEs verwendet wurden. %TODO fouriertransform klein?!?
 
-	% Quellen zitieren, Websiten mit Zugriffsdatum
+	% Quellen zitieren, Websites mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
 	% Tabelle + Bilder mit Beschriftung
 	\printbibliography
