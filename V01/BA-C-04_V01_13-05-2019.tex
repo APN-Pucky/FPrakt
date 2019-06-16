@@ -99,7 +99,7 @@
 	% manche leute wollen Passiv oder "man", manche nicht
 	In diesem Versuch sollen Messungen mit zwei verschiedene Detektoren für Gamma-Strahlung durchgeführt werden.
 	Auf Basis dieser Messungen werden dann qualitative Vergleiche der Detektortypen durchgeführt.
-	Verwendet wird einerseits ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und andererseits ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)).
+	Verwendet wird einerseits ein Thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintallationsdetektor und andererseits ein Lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)).
 	Die gemessenen Spektren werden mit Literaturwerten verglichen und erklärt.
 	Außerdem werden Nichtlinearitäten, Energieauflösung, mittlere Ionisationsenergie und relative Effizienz der Detektoren bestimmt und verglichen.
 	Der Vergleich der beiden Detektoren zeigt, dass in den untersuchten Parametern im Allgemeinen der Halbleiterdetektor besser abschneidet.
@@ -146,7 +146,7 @@
 	\begin{figure}[H]
 			\includegraphics[width= 0.8 \linewidth]{charts/Zerfallsschematarot}
 			\caption{
-				Zerfallsschemata der relevanten Zerfälle und des Zerfalls von $^57$Co.
+				Zerfallsschemata der relevanten Zerfälle.
 				\cite{Anleitung}
 			}
 			\label{fig_zerfallsschemata}
@@ -159,7 +159,7 @@
 	Die Detektion von $\gamma$-Strahlung ist dadurch gegenüber der Detektion von Strahlung aus anderen Zerfällen erschwert, als dass sie keine Ladung besitzt.
 	Wenn man zusätzlich zum reinen Nachweis der Strahlung noch Information über Zeitpunkt des Auftreffens auf den Detektor, Intensität und Energie erhalten möchte, muss man sich mit der Wechselwirkung der Strahlung mit Materie auseinandersetzen und auf Basis dessen einen Detektor konstruieren.
 
-	Da $\gamma$-Strahlung im Allgemeinen geringe Wechselwirkung mit Materie zeigt, muss für eine zielführende Messrate ein Stoff mit hoher Dichte (ein Festkörper) verwendet werden.
+	Da $\gamma$-Strahlung im Allgemeinen geringe Wechselwirkung mit Materie zeigt, muss für eine zielführende Messrate ein Stoff mit hoher Dichte (ein Festkörper) oder ein großes Volumen eines einfach zugänglichen Stoffes (Wasser) verwendet werden. % er hatte hier auch den Xenondetektor erwähnt, weil das seine Arbeitsgruppe ist, aber die detektieren ja keine gamma-strahlung. Außerdem ist das flüssiges xenon also quasi Wasser.
 
 	\begin{figure}[H]
 			\includegraphics[width= 1 \linewidth]{charts/interaktion}
@@ -199,7 +199,7 @@
 	Der Energieübertrag auf das Elektron beträgt:
 	\begin{equation}
 		\label{eq_compton_energie}
-		E_\text{e} = E_\gamma \left[ 1 - \frac{1}{1+(E_\gamma /M_\text{e} c^2)(1-\cos \varphi)} \right]
+		E_\text{e} = E_\gamma \left[ 1 - \frac{1}{1+(E_\gamma /(M_\text{e} c^2))(1-\cos \varphi)} \right]
 	\end{equation}
 
 	Das Spektrum ist kontinuierlich, da in Abhängigkeit von der Geometrie des Stoßes ein beliebiger Anteil der Energie des Photons (bis zu einer Maximalenergie) an das Elektron übertragen werden kann.
@@ -221,8 +221,8 @@
 	Dafür muss es mindestens die Ruheenergie des Teilchenpaares (\SI{1022}{keV}) besitzen.
 	Das Photon wird dabei vernichtet und die überschüssige Energie geht in kinetische Energie der Reaktionsprodukte über.
 
-	Das dabei entstandene Positron wird durch Wechselwirkung mit dem Rest der Probe unter Aussendung von Bremsstrahlung abgebremst.
-	Wenn es ausreichend stark abgebremst ist, kann es mit einem Elektron in der Probe das instabile Positronium bilden.
+	Positron und Elektron werden durch Wechselwirkung mit dem Rest der Probe unter Aussendung von Bremsstrahlung abgebremst.
+	Wenn das Positron ausreichend stark abgebremst ist, kann es mit einem Elektron in der Probe das instabile Positronium bilden.
 	Beim Positronium unterscheidet man je nach Spinausrichtung von Positron und Elektron in Parapositronium ($S=0$) und Orthopositronium ($S=1$).
 	Aufgrund von Spin- und Impulserhaltung zerfällt Orthopositronium in eine ungerade Anzahl Photonen, die mindestens \num{3} beträgt.
 	Aus analogen Gründen zerfällt Parapositronium in eine gerade Anzahl Photonen, aber mindestens \num{2}.
@@ -362,9 +362,9 @@
 	Es wird ein thallium-aktivierter Natrium-Iodid-Kristall (NaI(TI)) als Szintillationsdetektor und  ein lithium-kompensierter Germanium-Halbleiterdetektor (Ge(Li)) verwendet, um $\gamma$-Spektren verschiedener Quellen zu messen.
 	Die verwendeten Proben sind: $^{22}$Na, $^{137}$Cs, $^{60}$Co, eine aus vielen Isotopen gemischte Probe und eine Probe aus einem unbekannten Erz.
 
-	Der Szintillationsdetektor wird mit Stickstoff gekühlt.
 	Der Szintillator ist möglichst verlustfrei mit dem Photomultiplier verbunden (ähnliche Brechungsindizes von Szintillator, Kleber und Eingangsfenster des Photomultipliers).
-	Damit das Signal über Koaxialkabel übertragen werden kann, wird es bei beiden Detektoren vorverstärkt.
+	Der Halbleiterdetektor wird mit Stickstoff gekühlt.
+	Damit das Signal über Koaxialkabel mit BNC-Steckverbindung übertragen werden kann, wird es bei beiden Detektoren vorverstärkt. %TODO er hat da *BNC drangeschrieben. Laut Wikipedia darf man aber scheinbar nicht BNC-Kabel sagen, weil BNC nur der Stecker ist und Kaxial ist sowieso true.
 	Dann wird es im Hauptverstärker verstärkt und über einen Multichannel Analyzer in Energiekanälen gesammelt und digitalisiert.
 	Die Verstärkung wird jeweils so gewählt, dass die zur Verfügung stehenden Kanäle möglichst vollständig ausgenutzt werden und alle relevanten Peaks sichtbar sind.
 	Für die Detektoren wird die Verstärkung aber jeweils gleich gehalten, damit eine Kalibrierung anhand einer Probe möglich ist.
@@ -722,9 +722,10 @@ In \cref{fg_ionisation} ist $I$ für beide Detektoren gegen $E$ aufgetragen.
 
 Die mittlere Ionisationsenergie des Ge-Detektors ist im Allgemeinen deutlich geringer als die des NaI-Detektors.
 Es ist zu erwarten, dass die mittlere Ionisationsenergie nur vom Detektormaterial abhängt und konstant ist.
-Für den NaI-Detektor ist dies zu erkennen und sie würde auf etwa \SI{0,7}{keV} geschätzt werden.
+Für den NaI-Detektor ist dies zu erkennen und sie würde auf etwa \SI{0,7}{keV} geschätzt werden. %TODO hier finde ich keine Bandlücke zum vergleichen
 Beim Ge-Detektor ist ein Sprung in der Energie vorhanden.
-Für höhere Energien als \SI{600}{KeV} kann aber ein Wert von etwa \SI{0,0005}{keV} zugeordnet werden.
+Für höhere Energien als \SI{600}{KeV} kann aber ein Wert von etwa \SI{0,5}{eV} zugeordnet werden.
+Dies liegt nicht unweit der Bandlücke von Germanium bei \SI{0,66}{eV} \cite{bandlueckeGE}. %TODO muss ich hier noch irgendwie mehr zu sagen?
 
 \subsection{Relative Effizienz}
 \subsubsection{Datenanalyse}
@@ -733,7 +734,6 @@ Die relative normierte Effizienz $\varepsilon$ lässt sich nach \cref{eq_rel_eff
 	\label{eq_rel_eff}
 	\varepsilon = \frac{\frac{S}{P}}{\left|\frac{S}{P}\right|}_{\text{ref}}
 \end{equation}
-%TODO in Theorie: Full Energy Peak ETC.
 Wobei $S$ die Fläche eines Full-Energy-Peaks ist und $P$ die Anzahl Photonen, welche im Messzeitraum $t$ durch diesen $\gamma$-Übergang ausgesendet werden.
 Dieses Verhältnis wird auf einen Messpunkt $\left|\frac{S}{P}\right|_{\text{ref}}$ normiert.
 Die Anzahl Photonen ist das Produkt aus Messdauer $t$ und Aktivität $A$ des $\gamma$-Übergangs, $P=A\cdot t$.
@@ -780,8 +780,8 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 
 \subsubsection{Diskussion}
 
-	Besonders gut zu erkennen sind $^{214}$Pb und $^{214}$Bi.
-	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^{238}$U handelte. %TODO kann man das so sagen?
+	Besonders gut zu erkennen sind $^{214}$Pb und $^{214}$Bi. %TODO "Wie erkenne ich das?" Sehe ich ein, dass man das dem Bild nicht so direkt entnimmt. Ideen?
+	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^{238}$U handelte.
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
