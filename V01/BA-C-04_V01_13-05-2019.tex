@@ -325,7 +325,7 @@
 			\label{fig_Photomultiplier}
 	\end{figure}
 
-	\subsection{Energieauflösung und mittlere Ionisationsenergie}
+	\subsection{Energieauflösung und mittlere Ionisationsenergie} \label{ss_ion}
 	Die Energieauflösung ist
 	\begin{equation}
 		\Delta E = \frac{\sigma(E)}{E},
@@ -701,7 +701,7 @@ Außerdem ist die Auflösung des NaI-Detektors immer höher, wie bereits zuvor a
 \subsection{Mittlere Ionisationsenergie}
 \subsubsection{Datenanalyse}
 Die Mittlere Ionisationsenergie $I$ lässt sich ebenso aus der Standardabweichung $\sigma$ und der Position $E$ eines Full-Energy-Peaks berechnen.
-Die Formel hierfür ist:
+Hierfür ist die Formel, welche in \cref{ss_ion} hergeleitet wurde:
 %TODO Theo: explain calc
 \begin{equation}
 	I = \frac{\sigma^2}{E}
@@ -741,6 +741,22 @@ Die derzeitige ($t'$) Aktivitäten wurden aus einer vorherigen ($t_r$) Messung u
 \begin{equation}
 	A(t') = A(t_r)\exp^{-\lambda (t'-t_r)}
 \end{equation}
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c | c }
+
+			 Isotop& $^{60}$Co & $^{137}$Cs& $^{241}$Am & $^{109}$Cd \\ \hline
+$E_\gamma$ in \si{keV} & \SI{1332}{}&\SI{662}{} &\SI{60}{}&\SI{88}{} \\
+			 & \SI{1173}{} && \\
+			 Aktivität $A(t')$ in \si{Bq} & \SI{1.18e3}{}&\SI{2.38e3}{}&\SI{3.35e3}{}&\SI{1.17e4}{}\\
+			 Referenz Aktivität $A(t_r)$ in \si{Bq} & \SI{2.16e3}{}&\SI{2.64e3}&\SI{3.37e3}{} & \SI{1.40e4}{}\\
+		\end{tabular}
+		\caption{
+		 Referenz (14.10.2014) und aktuelle Aktivitäten (13.05.2019).
+		}
+		\label{tb_eff_lit}
+\end{table}
 Die Ergebnisse sind in \cref{fg_eff} gegen die Energie $E$ aufgetragen.
 Als Normierung wurde für beide Detektoren der Full-Energy-Peak bei \SI{662}{keV} verwendet.
 
@@ -780,7 +796,7 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 
 \subsubsection{Diskussion}
 
-	Besonders gut zu erkennen sind $^{214}$Pb und $^{214}$Bi. %TODO "Wie erkenne ich das?" Sehe ich ein, dass man das dem Bild nicht so direkt entnimmt. Ideen?
+	Besonders gut zu erkennen sind $^{214}$Pb und $^{214}$Bi (vgl. \nameref{s_anhang}). %TODO "Wie erkenne ich das?" Sehe ich ein, dass man das dem Bild nicht so direkt entnimmt. Ideen?
 	Anhand der Zerfallsreihen lässt sich damit die Probe der Uran-Radium-Reihe zuordnen, weshalb es sich bei dem Erz wohl ursprünglich um $^{238}$U handelte.
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
@@ -807,7 +823,7 @@ Faktisch hängt hier natürlich die Effizienz vor allem von der Raumgeometrie ab
 	%TODO warum 511 nur bei NA?
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
-	Insgesamt gesehen lässt sich sagen, dass alle Messungen erfolgreich durchgeführt werden konnten und die in den Spektren gemessenen Peaks den Literaturwerten zugeordnet werden konnten.
+	Insgesamt lässt sich sagen, dass alle Messungen erfolgreich durchgeführt werden konnten und die in den Spektren gemessenen Peaks den Literaturwerten zugeordnet werden konnten.
 	Der Vergleich der beiden Detektoren erlaubt auch einige Aussagen bezüglich ihrer Güte zu treffen.
 	Bezüglich der Energieauflösung verhält sich der Ge-Detektor deutlich besser als der NaI-Detektor, sorgt also für deutlich schärfere Peaks.
 	Die Nichtlinearität der beiden Detektoren ist für den größten Teil des Spektrums etwa gleich.
