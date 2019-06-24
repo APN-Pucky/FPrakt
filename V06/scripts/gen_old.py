@@ -329,8 +329,8 @@ n=(Z*a*c/v)
 yyydata = yydata[llb:rb]-gerade(xxdata[llb:rb],*ofit)
 yyydata = yyydata/(p**2*2*np.pi*n/(1-unp.exp(-2*np.pi*n)))
 yyydata = (yyydata)**(0.5)
-xxxdata = unp.sqrt(c**2*xxxdata**2+m**2*c**4)-m*c**2
-plt.errorbar(unv(xxxdata), unv(yyydata), usd(yyydata),fmt=' ',capsize=4,color='r', label= 'Messpunkte')
+xxxdata = (unp.sqrt(c**2*xxxdata**2+m**2*c**4)-m*c**2)
+plt.errorbar(unv(xxxdata)/e/1000, unv(yyydata), usd(yyydata),fmt=' ',capsize=4,color='r', label= 'Messpunkte')
 
 
 
@@ -344,13 +344,13 @@ print(-fit[1]/fit[0]/e/1000+661)
 #ofit = fit
 #Linear f=a+xb\na=%s Hz\nb=%s Hz/Tcm'%(fit[0],fit[1])
 yfit = gerade(xfit, *unv(fit))
-plt.plot(unv(xfit), unv(yfit), color = 'grey',linewidth=2, label='Linear f=ax+b\na=%sJ$^{-1}$\nb=%s\n b/a=$E_{max}$=%skeV'%(fit[0],fit[1],-fit[1]/fit[0]/e/1000))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
+plt.plot(unv(xfit)/e/1000, unv(yfit), color = 'grey',linewidth=2, label='Linear f=ax+b\na=%skeV$^{-1}$\nb=%s\n b/a=$E_{max}$=%skeV'%(fit[0]*e*1000,fit[1],-fit[1]/fit[0]/e/1000))#\n$T_0$=%s $\\mu s$\n$N$=%s\n$\Delta T$=%s $\\mu s$'%tuple(fit))
 
 
 plt.legend(prop={'size':fig_legendsize})
 plt.grid()
 #plt.tick_params(labelsize=fig_labelsize)
-plt.xlabel('Kinetische Energie in J')
+plt.xlabel('Kinetische Energie in keV')
 plt.ylabel('Kurie-Plot $\\sqrt{\\frac{N(p)}{p^2F(Z,E)}}$')
 plt.savefig(("V06/img/kurie.pdf"))
 plt.show()
