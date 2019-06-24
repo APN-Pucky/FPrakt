@@ -1,0 +1,16 @@
+L->()->()->|||->|->K
+
+.TEXT
+1.() f=50mm
+2.() f=100mm
+Abstand Linsen = 17cm
+
+Ein Gitter g2
+Belichtungszeit variert für plot vs bild
+
+.DATA
+fern = 3430-850 mm
+mittel = 3430-1810 mm
+mittel2 = 3430-2370 mm 
+nah = 3430 - 3060 mm
+ultra = 3430 - 3280 mm 

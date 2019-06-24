@@ -1,0 +1,11 @@
+L->()->()->|->K
+
+.TEXT
+links rechts oben unten winkel kalibration
+kamera scharf stellen
+2x Linsen für kollimierung des Strahls und klein machen
+Center auf 6cm
+
+.DATA
+Kalibration Skalierung 934px=10cm
+Centerauf 6cm @ 490px

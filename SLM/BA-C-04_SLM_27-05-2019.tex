@@ -48,6 +48,8 @@
 \MakeOuterQuote{"}
 % Zitieren, Bibliografie
 \usepackage[sorting=none]{biblatex}
+% Differenziale mit \dif x
+\usepackage{commath}
 
 
 % Zur Darstellung von Webadressen
@@ -182,9 +184,26 @@ P1, P2: Polarisatoren; S: Schalter, V: Spannungsquelle. \cite{displayHelix}
 	Die Kohärenzlänge ergibt sich aus der Monochromatizität des Lichts, da sich bei perfekt monochromatischem Licht die Phasenbeziehung über keine Entfernung ändert.
 	Die räumliche Kohärenz kann mittels eines Doppelspaltexperiments (oder des Young-Interferometers) gemessen werden, da sie die Phasenbeziehung innerhalb einer Wellenfront beschreibt und der Doppelspalt Interfernz zwischen unterschiedlichen Teilen der Wellenfront realisiert.
 
-	%TODO Fraunhofer-Beugung?
+	\subsection{Fraunhofer-Beugung}
+	Die Fraunhofer-Beugung entspricht der räumlichen Fouriertransformation.
+	%TODO Das, was das Programm da gemacht hat, sah nicht sehr ähnlich zu Fallnichs FTs aus. Und unsere Bundeskanzlerin sagte ja auch, das sei nur sowas Ähnliches wie eine FT. Aber wenn man nicht weiß was das ist, müssen wir halt trotzdem FT sagen und so tun, als wäre das true, I guess...
+	Die Gleichung für die räumliche Fouriertransformation eines Bildes lautet
+	\begin{equation}
+		F(\nu_x, \nu_y) = \mathcal F \left[ f(x,y) \right] (\nu_x , \nu_y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x,y) \exp (-2 \pi i (\nu_x x + \nu_y y)) \dif x \dif y
+	\end{equation}
+	und die Rücktransformation erfolgt gemäß
+	\begin{equation}
+		f(x,y) = \mathcal F^{-1} \left[ F(\nu_x , \nu_y) \right] (x,y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} F(\nu_x, \nu_y) \exp (2 \pi i (\nu_x x + \nu_y y)) \dif \nu_x \dif \nu_y.
+	\end{equation}
+
+	%TODO Fraunhofer-Näherung: Durchmesser der beugenden Fläche klein gegen z'-z_0 (Abstand Beugungsanordnung zum Schirm)
+	%TODO I.A. gilt die Fraunhofer-Näherung erst für sehr große Abstände. Deshalb wird Linse verwendet, sodass das Beugungsbild nicht mehr im Unendlichen liegt.
+	%TODO das ist weird, ich dachte, die Linse macht die Rücktrafo. Naja vlt. auch nicht weird und ich bin nur dumm.
+	%das ist alles aus dem Optische fouriertrafo-versuch.
+
 	%TODO Was erwarten wir bei Doppelspalt, gitter, einzelspalt, etc.
 	%TODO Was sind DOEs?
+	%TODO Erwähnen, dass wir das Betragsquadrat von dem Transformierten sehen.
 
 	\section{Methoden}
 	% Bilder von der Website klauen

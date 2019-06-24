@@ -1,0 +1,17 @@
+L->()->()->|||->()->|->K
+
+
+1.() f=50mm
+2.() f=100mm
+3.() f=500mm
+
+Abstand 1() zu 2() = 17cm
+
+Abstand Gitter zu 3() = 500 mm 
+Abstand 3() Schirm = 500mm
+
+Belichtungszeit variert für maximale Anzahl Peaks
+
+3_trafo_g1_7 ohne kollilinsen test
+3_trafo_g1_8 mit kollilinsen aufweit Xtreme test
+

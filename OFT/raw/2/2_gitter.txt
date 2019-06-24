@@ -1,0 +1,11 @@
+L->()->()->|||->|->K
+
+.TEXT
+1.() f=50mm
+2.() f=100mm
+Abstand 1() zu 2() = 17cm
+
+Abstand Gitter zu Schirm = 3430 - 715 mm
+
+Belichtungszeit variert für maximale Anzahl Peaks
+
