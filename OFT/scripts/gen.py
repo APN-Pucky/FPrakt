@@ -24,7 +24,7 @@ usd=unp.std_devs
 
 fig_size = (10, 6)
 fig_legendsize = 14
-fig_labelsize = 12
+fig_labelsize = 16
 matplotlib.rcParams.update({'font.size': fig_labelsize})
 
 colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
@@ -137,11 +137,11 @@ for name in names:
     nnname = nname.split('.')[0]
 
     fig=plt.figure(figsize=fig_size)
-    plt.plot(data[:,0]*1000, data[:,1], '-',label='Messung')
+    plt.plot(data[:,0]*1000, data[:,1], '-')
 
     plt.gca().set_yscale('log');
     #plt.gca().set_xscale('log');
-    plt.legend(prop={'size':fig_legendsize})
+    #plt.legend(prop={'size':fig_legendsize})
     plt.grid()
     plt.ylabel('Intensität in a.u.')
     plt.tick_params(labelsize=fig_labelsize)
