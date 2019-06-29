@@ -128,8 +128,33 @@
 	\section{Ergebnisse und Diskussion}
 	%TODO ist das fine, dass ich das alles * gemacht habe?
 
-	\subsection{Unsicherheiten}
+	%\subsection{Unsicherheiten}
 	%TODO Unsicherheiten
+	\subsection{Unsicherheiten und Kalibration}
+	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
+	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
+
+	In \cref{fig_kalibration} ist ein exemplarisches Bild der Kamera mit sichtbarem Lineal abgebildet.
+	Es ergibt sich ein Umrechnungsfaktor $\gamma$ von
+	\begin{equation}
+			\label{eq_kali}
+			\gamma = \frac{\SI{10.0+-0.03}{cm}}{\SI{934+-0.3}{px}}=\SI{0.01071+-0.00003}{cm/px}.
+	\end{equation}
+	Wobei sich die Unsicherheit beim Ablesen des Lineals mit $u(l)=\frac{\SI{1}{mm}}{2\sqrt{6}}$ (analog, Dreiecksverteilung).
+	Analog ergibt sich für die Pixelzahl $u(p)=\frac{\SI{1}{px}}{2\sqrt{6}}$.
+	In \cref{eq_kali} wurden die Unsicherheiten zusätzlich mit $\sqrt{2}$ multipliziert, da um die Abstand zweier Punkte zumessen zweimal gemessen werden muss und sich die Fehler gemäß $\sqrt{u_1^2+u_2^2}$ fortpflanzen.
+
+	Es wird sich im folgenden jedoch zeigen, dass die Unsicherheiten die dadurch entstehen, dass beispielweise Maxima nicht genau auf dem Schirm ablesbar sind, deutlich gegen über den der Kalibration überwiegen. %TODO verständlich?
+
+
+	\begin{figure}[H]
+		\includegraphics[width=0.7\linewidth]{raw/0/0_kalibration.png}
+					\caption{
+						Kalibration zur Umrechnung von Pixeln in Abstände.
+						Der zweite kleinere Laserpunkt entsteht durch eine Fehlstelle im Sicherheitsfilter vor dem Laser. %TODO besseres Wording
+					}
+					\label{fig_kalibration}
+			\end{figure}
 
 
 	\subsection{Übergang von Nah- zu Fernfeld}
