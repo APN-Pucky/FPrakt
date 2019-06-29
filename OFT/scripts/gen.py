@@ -129,7 +129,6 @@ unc_n = 0
 unc_p = 0
 
 # %% histo pyplot
-
 names = glob.glob("OFT/data/1/*.txt")
 for name in names:
     data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
@@ -148,4 +147,53 @@ for name in names:
 
     plt.xlabel('Position in mm')
     plt.savefig("OFT/img/1/%s"%(nnname + ".png"))
+    plt.show()
+
+# %% fit pyplot
+names = glob.glob("OFT/data/2/*.txt")
+for name in names:
+    data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
+    nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
+
+    fig=plt.figure(figsize=fig_size)
+    plt.plot(data[:,0]*1000, data[:,1], '-')
+
+    if nnname=="2_gitter_g5":
+        xs = [2.5,9,16,23,30.5,37.5,45,52,60,67.5,75,82.5,90,98,105]
+        center = 7
+    for x in xs:
+        fig.gca().axvline(x=x,ymin=0,ymax=1, color='r')
+
+    plt.gca().set_yscale('log');
+    #plt.gca().set_xscale('log');
+    #plt.legend(prop={'size':fig_legendsize})
+    plt.grid()
+    plt.ylabel('Intensität in a.u.')
+    plt.tick_params(labelsize=fig_labelsize)
+
+    plt.xlabel('Position in mm')
+    plt.savefig("OFT/img/2/%s"%(nnname + ".png"))
+    plt.show()
+
+    fig=plt.figure(figsize=fig_size)
+    xd = np.linspace(-center,len(xs)-center-1,len(xs))
+    yrr = []
+    for k in range(len(xs)):
+        yrr.append(1)
+    plt.errorbar(xd,xs,yerr=yrr, fmt='x',capsize=5, label="Peaks",color='r')
+
+    fit = fit_curvefit2(xd,xs,gerade,yerr=yrr)
+    xfit = np.linspace(xd[0],xd[-1],4000)
+    yfit = gerade(xfit, *unv(fit))
+    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%s,\nb=%s'%(fit[0],fit[1]))
+
+
+    plt.grid()
+    plt.legend(prop={'size':fig_legendsize})
+    plt.ylabel('Position in mm')
+    plt.tick_params(labelsize=fig_labelsize)
+
+    plt.xlabel('Peaknummer')
+    plt.savefig("OFT/img/2/%s"%(nnname + ".png"))
     plt.show()
