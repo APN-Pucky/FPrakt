@@ -378,7 +378,7 @@
 	Je geringer der Abstand jedoch wird, desto schlechter sind die einzelnen Ordnungen zu unterscheiden, da hier die Fresnel-Beugung bzw. der Übergang zwischen Fresnel- und Fraunhofer-Beugung sichtbar wird.
 	Dies entspricht den Erwartungen, da gemäß der Fraunhofer-Beugung (vgl. \cref{sec_fraunhofer}) erst im Fernfeld das Beugungsbild in der in \cref{sec_gitterbeug} auftritt.
 
-	\subsection{Bestimmung der Gitterkonstanten}
+	\subsection{Bestimmung der Gitterkonstanten} \label{ss_2_beug}
 
 	\subsubsection*{Methode}
 
@@ -536,7 +536,117 @@
 	% Einflüsse von veränderten Parametern auf Messung
 	%TODO Überstrahlung nahe 0. Ordnung verhindert Zählen -> Extrapolation der Ordnung aus Abstand
 	%TODO bei g1 nichts zu erkennen -> Alternativversuche -> immer noch nicht.
+	Das Vorgehen hier ist analog zu \cref{ss_2_beug}.
+	Der einzige Unterschied ist, dass der Abstand $d$ nun durch die Brennweite $f=\SI{500}{mm}=d$ der Linse definiert ist, also:
+ \begin{equation}
+	 \label{eq_3_beug_verschieb}
+	 u(k) = \frac{k\lambda f}{b} + \text{Verschiebung}
+ \end{equation}
+\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g1}
+            \caption%
+            {Profil, Gitter 1}
+            \label{fig_3_profil_g1}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g1_fit}
+            \caption[]%
+            {Fit, Gitter 1}
+            \label{fig_3_fit_g1}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g2}
+            \caption%
+            {Profil, Gitter 2}
+            \label{fig_3_profil_g2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g2_fit}
+            \caption[]%
+            {Fit, Gitter 2}
+            \label{fig_3_fit_g2}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g3}
+            \caption%
+            {Profil, Gitter 3}
+            \label{fig_3_profil_g3}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g3_fit}
+            \caption[]%
+            {Fit, Gitter 3}
+            \label{fig_3_fit_g3}
+        \end{subfigure}
+        \caption%
+        {
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks.
+				}
+        \label{fig_3_mix_1}
+    \end{figure}
+	\begin{figure}[H]\ContinuedFloat
+        \centering
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g4}
+            \caption%
+            {Profil, Gitter 4}
+            \label{fig_3_profil_g4}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g4_fit}
+            \caption[]%
+            {Fit, Gitter 4}
+            \label{fig_3_fit_g4}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g5}
+            \caption%
+            {Profil, Gitter 5}
+            \label{fig_3_profil_g5}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g5_fit}
+            \caption[]%
+            {Fit, Gitter 5}
+            \label{fig_3_fit_g5}
+        \end{subfigure}
+        \caption%
+        {
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks. (Forts.)
+				}
+        \label{fig_3_mix_2}
+    \end{figure}
 
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c }
+			 Gitternummer & Steigung $a$ in \si{mm} & Gitterkonstante $b$ in \si{mm} \\ \hline
+			 \input{res/tb_3_beug}
+		\end{tabular}
+		\caption{
+		Aus der Steigung $a$ mit \cref{eq_3_beug_verschieb} berechnete Gitterkonstanten $b$.
+		}
+		\label{tb_3_beug}
+\end{table}
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
