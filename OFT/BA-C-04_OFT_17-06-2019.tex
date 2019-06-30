@@ -809,6 +809,39 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 			}
 			\label{fig_matrix}
 	\end{figure}
+	Ein Abzählen der Peaks in \cref{fig_4_profil} bestätigt, dass bei einem Winkel von \SI{45}{\degree}, eine Skalierung von $1/\sqrt{2}$ auftritt.
+
+	\cref{fig_4_profil_45}: Von \SI{10.5+-0.3}{mm} bis \SI{19.5+-0.3}{mm} sind ca. \SI{16+-1}{} Peaks.
+	\cref{fig_4_profil_90}: Von \SI{10.5+-0.3}{mm} bis \Si{20.5+-0.3}{mm} sind ca. \SI{12+-1}{} Peaks.
+	Also ein Verhältnis von
+	\begin{equation}
+			k = \frac{\SI{10.5+-0.3}{}-\SI{19.5+-0.3}{}}{\SI{16+-1}{}} \cdot \frac{\SI{12+-1}{}}{\SI{10.5+-0.3}{}-\SI{20.5+-0.3}{}} = \SI{0.68+-0.08}{}
+	\end{equation}
+	wobei das Intervall $1/\sqrt{2}$ beinhlatet.
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/4/4_waag}
+            \caption%
+            {\SI{90}{\degree}}
+            \label{fig_4_profil_90}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/4/4_diag}
+            \caption[]%
+            {\SI{45}{\degree}}
+            \label{fig_4_profil_45}
+        \end{subfigure}
+        \caption%
+        {
+				Profile der Beugungsbild des Quadratgitters.
+				}
+        \label{fig_4_profil}
+    \end{figure}
 	\item{Schraube:}
 	\begin{figure}[H]
         \centering

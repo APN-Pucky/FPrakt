@@ -403,3 +403,34 @@ d2 = 0.5
 print(resa2)
 uresa2 = unp.uarray(unv(resa2),usd(resa2))
 out_si_tab("OFT/res/tb_3_beug", np.transpose([git,resa,d2*l/(uresa2/1000)*1000,d*l/(uresa/1000)*1000]))
+
+# %% fit pyplot
+names = glob.glob("OFT/data/4/*.txt")
+resa2 = []
+git = []
+for name in names:
+    data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
+    nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
+    print(nnname)
+
+    fig=plt.figure(figsize=fig_size)
+    plt.plot(data[:,0]*1000, data[:,1], '-')
+
+    plt.gca().set_yscale('log');
+    #plt.gca().set_xscale('log');
+    #plt.legend(prop={'size':fig_legendsize})
+    plt.grid()
+    plt.tight_layout()
+    plt.ylabel('Intensität in a.u.')
+    plt.tick_params(labelsize=fig_labelsize)
+
+    plt.xlabel('Position in mm')
+    plt.savefig("OFT/img/4/%s"%(nnname + ".png"))
+    plt.show()
+
+# %% calc
+a1 = unc.ufloat(10.5,0.3)
+a2 = unc.ufloat(19.5,0.3)
+b1 = unc.ufloat(10.5,0.3)
+b2 = unc.ufloat(20.5,0.3)
