@@ -501,7 +501,7 @@
 \begin{table}[H]
 		\centering
 		\begin{tabular}{ c | c | c }
-			 Gitternummer & Steigung $a$ in \si{mm} & Gitterkonstante $b$ in \si{mm} \\ \hline
+			 Gitter & Steigung $a$ in \si{mm} & Gitterkonstante $b$ in \si{mm} \\ \hline
 			 \input{res/tb_2_beug}
 		\end{tabular}
 		\caption{
@@ -519,7 +519,7 @@
 	Dies muss auf ein Untergehen der Peaks im Rauschen durch Hintergrundbeleuchtung zurückgeführt werden.
 	Das teilweise Abschneiden der Spitzen der Maxima aufgrund von Überbelichtung macht die exakte Bestimmung der exakten Maximumsposition etwas schwieriger, erlaubt aber das Erkennen höherer Ordnungen, die bei einer geringeren Belichtungszeit nicht zu erkennen wären.
 
-	\subsection{Fouriertransformation mit einer Linse}
+	\subsection{Fouriertransformation mit einer Linse} \label{ss_3_beug}
 
 	\subsubsection*{Methode}
 
@@ -545,6 +545,8 @@
 	 \label{eq_3_beug_verschieb}
 	 u(k) = \frac{k\lambda f}{b} + \text{Verschiebung}
  \end{equation}
+  Um die Randmaxima gut auflösen zu können wurden eine hohe Beleuchtungszeit gewählt.
+	Als Nachteil hiervon folgt, dass man die Menge der Maxima nahe 0. Ordnung basierend auf den Abständen der äußeren approximieren muss.
 \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
@@ -641,12 +643,13 @@
 
 \begin{table}[H]
 		\centering
-		\begin{tabular}{ c | c | c }
-			 Gitternummer & Steigung $a$ in \si{mm} & Gitterkonstante $b$ in \si{mm} \\ \hline
+		\begin{tabular}{ c | c | c | c }
+			 Gitter & Steigung $a$ in \si{mm} & $b$ in \si{mm} & $b$ in \si{mm} (ohne Linse)\\ \hline
 			 \input{res/tb_3_beug}
 		\end{tabular}
 		\caption{
 		Aus der Steigung $a$ mit \cref{eq_3_beug_verschieb} berechnete Gitterkonstanten $b$.
+		Außerdem sind zum Vergleich die in \cref{ss_2_beug} berechneten Gitterkonstanten $b$ ohne Linse angegeben.
 		}
 		\label{tb_3_beug}
 \end{table}
