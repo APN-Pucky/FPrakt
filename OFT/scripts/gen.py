@@ -203,13 +203,13 @@ for name in names:
         xs = [4.5,10,15,20,26,32,38,44,50,56,62.5,68,74,79,85,91,97.5,102]
         before = 0
         after = 0
-        center = 6
+        center = 8
     if nnname=="2_gitter_g4":
         git.append(4)
         xs = [3,9,15,20,25.5,30.5,37,42,48,54.5,60,66,71,77.5,83,90,94.5,100]
         before = 0
         after = 0
-        center = 6
+        center = 9
     if nnname=="2_gitter_g5":
         git.append(5)
         xs = [2.5,9,16,23,30.5,37.5,45,52,60,67.5,75,82.5,90,98,105]
@@ -277,7 +277,7 @@ out_si_tab("OFT/res/tb_2_beug", np.transpose([git,resa,d*l/(uresa/1000)*1000]))
 
 # %% fit pyplot
 names = glob.glob("OFT/data/3/*.txt")
-resa = []
+resa2 = []
 git = []
 for name in names:
     data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
@@ -298,31 +298,31 @@ for name in names:
         xs = [6.36,6.8,7.35,7.99,8.3,8.7,9.25,9.67,10.24,10.77,11.25,12,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,18.7,19.3, 19.79,20.4]
         before = 2
         after = 4
-        center = 4
+        center = 18
     if nnname=="3_trafo_g2":
         git.append(2)
         #xs = [5.75,7,8.75,10.75,12.25]#,14.75,17,19,20,22,23.5,25]
         xs = [5.75,6.6,7.3,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,23.4,24,24.85,25.6,26.33,27,27.9,28.7,29.5,30.3,31.0]
         before = 4
         after = 2
-        center = 6
+        center = 12
     if nnname=="3_trafo_g3":
         git.append(3)
         xs = [9.5,10.5,11.5,12.5,13.75,14.75,16,17,-1,-1,-1,-1,-1,-1,-1,26,27,28.2,29.3]
         before = 3
         after = 3
-        center = 6
+        center = 11
     if nnname=="3_trafo_g4":
         git.append(4)
         xs = [7.75,8.8,10,10.80,12,13.25,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,27.25,28.45,29.35]
         before = 4
         after = 4
-        center = 6
+        center = 11
     if nnname=="3_trafo_g5":
         git.append(5)
         xs = [2.5,4,5.25,6.5,8,9.5,10.75,12.25,13.75,-1,-1,-1,-1,-1,-1,-1,-1,26.25,27.75,29,30.5,31.75,33.25]
         after =4
-        center = 7
+        center = 12
     for x in xs:
         if x!=-1:
             fig.gca().axvline(x=x,ymin=0,ymax=1, color='r')
@@ -343,7 +343,7 @@ for name in names:
     xfit = np.linspace(xd[0]-before,xd[-1]+after,4000)
     yfit = gerade(xfit, *unv(fit))
 
-    resa.append(fit[0])
+    resa2.append(fit[0])
     bx =[]
     by =[]
     for i in range(before):
@@ -399,7 +399,7 @@ for name in names:
     plt.show()
 
 l = 632.8e-9
-d = 0.5
-print(resa)
-uresa = unp.uarray(unv(resa),usd(resa))
-out_si_tab("OFT/res/tb_3_beug", np.transpose([git,resa,d*l/(uresa/1000)*1000]))
+d2 = 0.5
+print(resa2)
+uresa2 = unp.uarray(unv(resa2),usd(resa2))
+out_si_tab("OFT/res/tb_3_beug", np.transpose([git,resa,d2*l/(uresa2/1000)*1000,d*l/(uresa/1000)*1000]))
