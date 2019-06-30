@@ -160,7 +160,7 @@
 	\label{sec_gitterbeug}
 
 	Einzelspalte entsprechen Rechteckfunktionen, die transformiert Funktionen der Form $\sin{x}/x$ ergeben.
-	Bei einem Doppelspalt tauchen zusätzlich Nebenmaxima auf und bei Gittern ergeben sich einzelne Hauptmaxima hoher Intensität.
+	Bei einem Doppelspalt tauchen zusätzlich Nebenmaxima auf und bei Gittern ergeben sich einzelne Hauptmaxima hoher Intensität und Nebenmaxima, die je nach Verhältnis von Gitterkonstante und Spaltbreite nicht zu erkennen sind.
 
 	Die Beugung am Gitter ergibt gemäß \cite{Anleitung} bei Spaltabstand $b$, Spaltzahl $N$ und Abstand $d$ die Intensitätsverteilung:
 	\begin{equation}
@@ -168,7 +168,7 @@
 	\end{equation}
 
 
-	Für das $k$-te Maximum gilt dann:
+	Für das $k$-te Hauptmaximum gilt dann:
 	\begin{equation}
 		b \cdot \sin{\theta} = k \lambda
 	\end{equation}
@@ -664,8 +664,10 @@ Deswegen überrascht nicht, dass hier auch bei einem geringen Abstand vom Schirm
 
 Umhöhere Beugungsordnungen zu erkennen, muss die Belichtungszeit so groß gewählt werden, dass niedrige Ordnungen nicht mehr zu erkennen sind.
 Der Grad der Ordnung musste deshalb extrapoliert werden, aber dies war mit großer Sicherheit möglich, wie die geringen Abweichungen von der Fitfunktion in \cref{fig_3_mix_2} zeigen.
-Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass %TODO
+Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass die beiden zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber immer noch nahe genug beieinander liegen, um die Verfahren als äquivalent zu zeigen.
+Es liegen keine Referenzwerte für die Gitter vor, um einen Vergleich vorzunehmen, welche Methode exaktere Ergebnisse liefert.
 
+Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie zuvor auf Rauschen durch Hintergrundbeleuchtung zurückgeführt werden muss.
 
 	\subsection{Fourierfilterung}
 
@@ -710,8 +712,16 @@ Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass %TODO
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-%TODO fourierschriftzug: Buchstabenfrequenz kleiner als gitter. Je mehr wegefiltert, desto unschärfer der Schriftzug.
+%TODO fourierschriftzug: Buchstabenfrequenz größer als gitter. Je mehr wegefiltert, desto unschärfer der Schriftzug.
 
+\begin{itemize}
+	\item{Fourier-Schriftzug:} Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte. %TODO
+	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
+	\item{Bruch:} Beim Bruch wird ein Hochpassfilter verwendet, was das Gegenteil des gewünschten Effekts zur Folge hat.
+	Um den Zähler unleserlich und den Nenner leserlich zu machen, müsste ein Tiefpass verwendet werden.
+	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also den %TODO macht keinen Sinn
+	%TODO why
+\end{itemize}
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
