@@ -434,3 +434,7 @@ a1 = unc.ufloat(10.5,0.3)
 a2 = unc.ufloat(19.5,0.3)
 b1 = unc.ufloat(10.5,0.3)
 b2 = unc.ufloat(20.5,0.3)
+n1 = unc.ufloat(16,1)
+n2 = unc.ufloat(12,1)
+
+print((a1-a2)/n1 * n2 /(b1-b2))
