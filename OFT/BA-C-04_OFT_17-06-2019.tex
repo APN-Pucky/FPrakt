@@ -100,11 +100,100 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eingenschaften der optischen Fouriertransformation zu zeigen.
+	Zunächst wird gezeigt, dass die Franuhofer-Beugung im Fernfeld zu eienr Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
+	Dann werden für fünf verschiedene Gitter die Gitterabstände aus den Abständen der Beugungsordnungen auf dem Schirm bestimmt.
+
 
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
 
+
+	\subsection{Kohärenz} %TODO hier nötig? Theoretisch genauso sehr wie beim letzten.
+	Der signifikante Unterschied zwischen einem Laser und einer Glimmlampe besteht in der Fähigkeit zur Interferenz.
+	Die Lichtwellen, die den Laser verlassen haben eine feste Phasenbeziehung, weshalb nach Trennung des Strahls Interferenz zwischen beiden Teilstrahlen zu beobachten ist.
+
+	Bei der qualitativen Beschreibung der Interferenzfähigkeit unterscheidet man zwischen räumlicher und zeitlicher Kohärenz.
+	Zeitliche Kohärenz kann über Autokorrelation mittels des Michelson-Interferometers gemessen werden.
+	Die Kohärenzlänge ist definiert durch den Abstand (optische Wegdifferenz), der die Länge eines Arms des Interferometers vom Interferenzmaximum wegbewegt werden kann, bevor die durch die Interferenz erzeugte Autokorrelationsfunktion nicht mehr über $1/\text{e}$ steigt.
+	Die Kohärenzlänge ergibt sich aus der Monochromatizität des Lichts, da sich bei perfekt monochromatischem Licht die Phasenbeziehung über keine Entfernung ändert.
+	Die räumliche Kohärenz kann mittels eines Doppelspaltexperiments (oder des Young-Interferometers) gemessen werden, da sie die Phasenbeziehung innerhalb einer Wellenfront beschreibt und der Doppelspalt Interferenz zwischen unterschiedlichen Teilen der Wellenfront realisiert.
+	%TODO copy paste sinn checken
+
+	\subsection{Fouriertransformation}
+	Die Fouriertransformation erlaubt die Zerlegung eines Signals in seine Teilfrequenzen.
+	Sie basiert auf der Fourierreihe, erlaubt aber auch die Transformation zeitlich begrenzter Signale.
+	Sie kann auf zweidimensionale Bilder übertragen werden, die dann in räumliche Frequenzen in x- und y-Richtung zerlegt werden.
+	Die räumliche Transformation erfolgt dann gemäß
+	\begin{equation}
+		\mathcal{F}[f(x,y)](\nu_x, \nu_y) = \int _{-\infty}^{\infty} \int^{\infty}_{-\infty} f(x,y) \exp (-2\pi i (\nu_x x + \nu_y y)) \mathrm{d} x \mathrm{d} y = F (\nu_x , \nu_y)
+	\end{equation}
+	und die Rücktransformation gemäß
+	\begin{equation}
+		\mathcal{F}^{-1}[F (\nu_x , \nu_y))](x, y) = \int _{-\infty}^{\infty} \int^{\infty}_{-\infty} F(\nu_x , \nu_y) \exp (2\pi i (\nu_x x + \nu_y )) \mathrm{d} \nu_x \mathrm{d} \nu_y = f (x , y)
+	\end{equation}
+	(vgl. \cite{Anleitung}).
+
+	Räumliche Frequenzen tauchen im Beugungsbild als Punkte auf.
+
+	\subsection{Fraunhofer-Beugung}
+	\label{sec_fraunhofer}
+
+	Was die Fraunhofer-Beugung angeht, reicht es, sich hier darauf zu beschränken, dass durch die Beugung an Spalten und Gittern im Fernfeld eine Fouriertransformation des Spalts bzw. Gitters auftritt.
+	Durch eine Linse kann diese Fouriertransformation rückgängig gemacht werden und das Bild ins Nahfeld geholt werden.
+	Dabei findet eine Spiegelung und Skalierung des Bildes statt.
+
+	Im Nahfeld wird die Beugung demhingegen durch die Fresnel-Beugung beschrieben.
+
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{img/fraunfresnel}
+			\caption{
+				Fresnel- und Fraunhoferbereiche relativ zum Abstand der beugenden Struktur. \cite{Anleitung}
+			}
+			\label{fig_fraunfresnel}
+	\end{figure}
+
+	\subsection{Beugung am Gitter}
+	\label{sec_gitterbeug}
+
+	Einzelspalte entsprechen Rechteckfunktionen, die transformiert Funktionen der Form $\sin{x}/x$ ergeben.
+	Bei einem Doppelspalt tauchen zusätzlich Nebenmaxima auf und bei Gittern ergeben sich einzelne Hauptmaxima hoher Intensität.
+
+	Die Beugung am Gitter ergibt gemäß \cite{Anleitung} bei Spaltabstand $b$, Spaltzahl $N$ und Abstand $d$ die Intensitätsverteilung:
+	\begin{equation}
+		I(\theta) = I_0 \cdot \text{sinc}^2\left(\frac{N \pi d \sin \theta}{\lambda} \right) \cdot \text{sinc}^2\left(\frac{\pi b \sin \theta}{\lambda} \right)
+	\end{equation}
+
+
+	Für das $k$-te Maximum gilt dann:
+	\begin{equation}
+		b \cdot \sin{\theta} = k \lambda
+	\end{equation}
+	Für kleines $\theta$ gilt $\theta \approx \sin{\theta} \approx \tan{\theta}=\frac{u}{h}$, wobei $u$ der Abstand eines Maximas der Ordnung $k$ zur nullten Ordnung ist und somit:
+	\begin{equation}
+		b = \frac{k\lambda h}{u}
+	\end{equation}
+	$h$ ist dabei der Abstand zwischen Gitter und Schirm.
+
+	\subsection{4-f-Aufbau}
+	Um eine Filterung einzelner Frequenzen aus einer optischen Fouriertransformation zu erlauben, kann der sog. 4-f-Aufbau verwendet werden.
+	Dazu werden wie in \cref{fig_4f_schema} dargestellt zwei Linsen verwendet, die jeweils im Abstand ihrer Brennweite zwischen Objektebene und Fourierebene bzw. Fourierebene und Bildebene stehen.
+	Nun können mit Spalten eindimensionale Tiefpassfilter, mit Nadeln eindimensionale Hochpässe, mit Klarsichtfolien mit schwarzem Punkt zweidimensionale Hochpassfilter und mit Lochblenden zweidimensionale Tiefpässe realisiert werden.
+	Diese erlauben es periodische Strukturen aus dem Bild zu entfernen.
+
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{img/4f_schema}
+			\caption{
+				Objekt-, Fourier- und Brennebene in einem 4-f-Aufbau aus zwei Linsen mit gleicher Brennweite. \cite{Anleitung}
+			}
+			\label{fig_4f_schema}
+	\end{figure}
+
+	\subsection{Dunkelfeldmethode}
+
+	Durch Verwendung eines 4-f-Aufbaus mit einem Hochpassfilter lassen sich Phasenveränderungen durch das Objekt als Intensität auf dem Schirm sichtbar machen.
+	Solche Phasenveränderungen können zum Beispiel durch heiße Luftströmungen auftreten, die einen leicht anderen Brechungsindex und somit eine andere Lichtgeschwindigkeit im Innern besitzen, als die umgebende Luft.
 
 	\section{Grundaufbau}
 	Es wird ein Helium-Neon-Laser auf einer \SI{4}{m} langen optischen Bank montiert.
@@ -151,7 +240,8 @@
 		\includegraphics[width=0.7\linewidth]{raw/0/0_kalibration.png}
 					\caption{
 						Kalibration zur Umrechnung von Pixeln in Abstände.
-						Der zweite kleinere Laserpunkt entsteht durch eine Fehlstelle im Sicherheitsfilter vor dem Laser. %TODO besseres Wording
+						Der zweite kleinere Laserpunkt entsteht durch eine Ablenkung durch einen Graufilter vor dem Laser.
+						Für die nachfolgenden Messungen wurde der Graufilter entfernt.
 					}
 					\label{fig_kalibration}
 			\end{figure}
@@ -176,7 +266,7 @@
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
 	In \cref{fig_1_mix_1} sind sowohl aufgenommen Kamerabilder als auch logarithmische Intensitätsprofile abgebildet.
-	Die Profile wurden hierbei aus einem anderen Bild mit geringer Belichtungszeit gezogen, da eine Überbelichtung und somit ein Abschneiden der Peaks unerwünscht ist.
+	Die Profile wurden hierbei aus einer anderen Aufnahme mit geringer Belichtungszeit gezogen, da hier eine Überbelichtung und somit ein Abschneiden der Peaks unerwünscht ist, während die Fotografien selbst mit höherer Belichtungszeit besser zu erkennen sind.
 
 	\begin{figure}[H]
         \centering
@@ -276,13 +366,16 @@
 				}
         \label{fig_1_mix_2}
     \end{figure}
+		%TODO wie zählt der die Unterpunkte weiter und wieso ist das beides dieselbe Nummer? Und macht man das so, dass man dann bei beiden die caption hinschreibt und Abbildung 4 stehen hat? Und wie mache ich das mit cref? der geht dann halt auf abb. 4 egal, welches label ich nehme.
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	In \cref{fig_1_mix_1} kann man deutlich erkennen, dass für einen großen Abstand zwischen Gitter und Schirm das erwartete Beugungsbild bis zu hohen Beugungsordnungen zu erkennen ist.
+	Je geringer der Abstand jedoch wird, desto schlechter sind die einzelnen Ordnungen zu unterscheiden, da hier die Fresnel-Beugung bzw. der Übergang zwischen Fresnel- und Fraunhofer-Beugung sichtbar wird.
+	Dies entspricht den Erwartungen, da gemäß der Fraunhofer-Beugung (vgl. \cref{sec_fraunhofer}) erst im Fernfeld das Beugungsbild in der in \cref{sec_gitterbeug} auftritt.
 
-
-	\subsection{Bestimmung von Gitterkonstanten}
+	\subsection{Bestimmung der Gitterkonstanten}
 
 	\subsubsection*{Methode}
 
@@ -392,10 +485,7 @@
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
-
 	\subsection{Fouriertransformation mit einer Linse}
-		%TODO hier ist halt weird, dass das nicht so wirklich Fourier ist, aber es ist wohl das aus der Unendlichkeit holen gemeint (Das Fernfeld ist halt instant da.)
-
 
 	\subsubsection*{Methode}
 
@@ -422,19 +512,24 @@
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 %TODO man verlässt sich halt nicht auf Fernfeld, sondern bringt das Bild in die Endlichkeit.
 
+Durch die Verwendung einer Linse wird die Fouriertransformation im Nahfeld dargestellt. %TODO so hat es Merkel formuliert.
+Deswegen überrascht nicht, dass hier auch bei einem geringen Abstand vom Schirm das Beugungsbild zu erkennen ist.
+Der Schirm muss natürlich im Fokus der Linse stehen, damit das Bild scharf ist.
+
+
 	\subsection{Fourierfilterung}
 
 	\subsubsection*{Methode}
 
 		Der Strahl wird mit einem Linsenpaar auf einen Durchmesser von etwa \SI{50}{mm} aufgeweitet und kollimiert.
-		Es wird ein 4f-Aufbau zur Fourierfilterung verwendet.
+		Es wird ein 4-f-Aufbau zur Fourierfilterung verwendet.
 		Dieser ist in \cref{fig_4f} dargestellt.
 		Dann werden mehrere Messungen mit unterschiedlichen Objekten und Filtern durchgeführt.
 
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/4f}
 			\caption{
-				4f-Aufbau zur Fourierfilterung. $f_1= \SI{5}{mm}$, $f_2 = f_3 = f_4 = \SI{500}{mm}$. Es werden verschiedene Objekte und Filter verwendet.
+				4-f-Aufbau zur Fourierfilterung. $f_1= \SI{5}{mm}$, $f_2 = f_3 = f_4 = \SI{500}{mm}$. Es werden verschiedene Objekte und Filter verwendet.
 			}
 			\label{fig_4f}
 	\end{figure}
