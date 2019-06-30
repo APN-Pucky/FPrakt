@@ -114,7 +114,7 @@
 
 	\subsection{Kohärenz} % hier nötig? Theoretisch genauso sehr wie beim letzten. lassen i guess
 	Der signifikante Unterschied zwischen einem Laser und einer Glimmlampe besteht in der Fähigkeit zur Interferenz.
-	Die Lichtwellen, die den Laser verlassen haben eine feste Phasenbeziehung, weshalb nach Trennung des Strahls Interferenz zwischen beiden Teilstrahlen zu beobachten ist.
+	Die Lichtwellen, die den Laser verlassen, haben eine feste Phasenbeziehung, weshalb nach Trennung des Strahls Interferenz zwischen beiden Teilstrahlen zu beobachten ist.
 
 	Bei der qualitativen Beschreibung der Interferenzfähigkeit unterscheidet man zwischen räumlicher und zeitlicher Kohärenz.
 	Zeitliche Kohärenz kann über Autokorrelation mittels des Michelson-Interferometers gemessen werden.
@@ -217,10 +217,7 @@
 	\end{figure}
 
 	\section{Ergebnisse und Diskussion}
-	%TODO ist das fine, dass ich das alles * gemacht habe?
 
-	%\subsection{Unsicherheiten}
-	%TODO Unsicherheiten
 	\subsection{Unsicherheiten und Kalibration}
 	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
 	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
@@ -235,7 +232,7 @@
 	Analog ergibt sich für die Pixelzahl $u(p)=\frac{\SI{1}{px}}{2\sqrt{6}}$.
 	In \cref{eq_kali} wurden die Unsicherheiten zusätzlich mit $\sqrt{2}$ multipliziert, da um die Abstand zweier Punkte zumessen, zweimal gemessen werden muss und sich die Fehler gemäß $\sqrt{u_1^2+u_2^2}$ fortpflanzen.
 
-	Es wird sich im folgenden jedoch zeigen, dass die Unsicherheiten die dadurch entstehen, dass beispielsweise Maxima nicht genau auf dem Schirm ablesbar sind, deutlich gegen über den der Kalibration überwiegen. %TODO verständlich? nein.
+	Es wird sich im folgenden jedoch zeigen, dass die Unsicherheiten die dadurch entstehen, dass beispielsweise Maxima auf dem Schirm nicht genau ablesbar sind, deutlich gegen über denen der Kalibration überwiegen.
 
 
 	\begin{figure}[H]
@@ -255,7 +252,7 @@
 	In den Strahlengang werden zwei Linsen mit $f_1=\SI{50}{mm}$ und $f_2=\SI{100}{mm}$ in einem Abstand von \SI{170}{mm} gebracht, um den Strahl zu kollimieren.
   Dann wird ein Gitter (später Gitter Nr.2) in den Strahl gebracht und in verschiedenen Abständen das Bild auf dem Schirm aufgenommen.
 
-		\begin{figure}[H] %TODO Abstand d kann ich in alles ändern.
+		\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/nahfern}
 					\caption{
 						Aufbau zum Vergleich von Nah- und Fernfeld. Der Abstand zwischen den Kollimierungslinsen beträgt \SI{170}{mm}
@@ -368,7 +365,7 @@
 				}
         \label{fig_1_mix_2}
     \end{figure}
-		%TODO wie zählt der die Unterpunkte weiter und wieso ist das beides dieselbe Nummer? Und macht man das so, dass man dann bei beiden die caption hinschreibt und Abbildung 4 stehen hat? Und wie mache ich das mit cref? der geht dann halt auf abb. 4 egal, welches label ich nehme.
+
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
