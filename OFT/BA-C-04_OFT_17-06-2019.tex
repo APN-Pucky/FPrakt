@@ -103,7 +103,7 @@
 	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eigenschaften der optischen Fouriertransformation zu zeigen.
 	Zunächst wird gezeigt, dass die Fraunhofer-Beugung im Fernfeld zu einer Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
 	Dann werden für fünf verschiedene Gitter die Gitterabstände aus den Abständen der Beugungsordnungen im Fernfeld auf dem Schirm bestimmt.
-	Dies wird mit wiederholt für einen Aufbau, in dem das Beugungsbild mit einer Linse aus dem Fernfeld in den Fokus geholt wurde. %TODO Vergleichsergebnis
+	Dies wird mit wiederholt für einen Aufbau, in dem das Beugungsbild mit einer Linse aus dem Fernfeld in den Fokus geholt wurde und gezeigt, dass die Ergebnisse zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber sehr ähnlich sind.
 	Es wird ein 4-f-Aufbau verwendet, um mithilfe von verschiedenen Filtern Bildmanipulation zu betreiben.
 	Zuletzt werden mithilfe der Dunkelfeldmethode Luftströmungen oberhalb einer Kerzenflamme sichtbar gemacht.
 
@@ -112,7 +112,7 @@
 	% wdh. Besprechung
 
 
-	\subsection{Kohärenz} %TODO hier nötig? Theoretisch genauso sehr wie beim letzten.
+	\subsection{Kohärenz} % hier nötig? Theoretisch genauso sehr wie beim letzten. lassen i guess
 	Der signifikante Unterschied zwischen einem Laser und einer Glimmlampe besteht in der Fähigkeit zur Interferenz.
 	Die Lichtwellen, die den Laser verlassen haben eine feste Phasenbeziehung, weshalb nach Trennung des Strahls Interferenz zwischen beiden Teilstrahlen zu beobachten ist.
 
@@ -121,7 +121,6 @@
 	Die Kohärenzlänge ist definiert durch den Abstand (optische Wegdifferenz), der die Länge eines Arms des Interferometers vom Interferenzmaximum wegbewegt werden kann, bevor die durch die Interferenz erzeugte Autokorrelationsfunktion nicht mehr über $1/\text{e}$ steigt.
 	Die Kohärenzlänge ergibt sich aus der Monochromatizität des Lichts, da sich bei perfekt monochromatischem Licht die Phasenbeziehung über keine Entfernung ändert.
 	Die räumliche Kohärenz kann mittels eines Doppelspaltexperiments (oder des Young-Interferometers) gemessen werden, da sie die Phasenbeziehung innerhalb einer Wellenfront beschreibt und der Doppelspalt Interferenz zwischen unterschiedlichen Teilen der Wellenfront realisiert.
-	%TODO copy paste sinn checken
 
 	\subsection{Fouriertransformation}
 	Die Fouriertransformation erlaubt die Zerlegung eines Signals in seine Teilfrequenzen.
@@ -194,17 +193,17 @@
 	\end{figure}
 
 	\subsection{Dunkelfeldmethode}
+	\label{sec_dunkel}
 
 	Durch Verwendung eines 4-f-Aufbaus mit einem Hochpassfilter lassen sich Phasenveränderungen durch das Objekt als Intensität auf dem Schirm sichtbar machen.
 	Solche Phasenveränderungen können zum Beispiel durch heiße Luftströmungen auftreten, die einen leicht anderen Brechungsindex und somit eine andere Lichtgeschwindigkeit, aus der die Phasendifferenz folgt, als die umgebende Luft zu eigen haben.
 
 	\section{Grundaufbau}
 	Es wird ein Helium-Neon-Laser auf einer \SI{4}{m} langen optischen Bank montiert.
-	Am anderen Ende der Bank wird ein halbtransparenter Schirm aufgestellt, auf den von Hinten eine Digitalkamera gerichtet und fokussiert wird. %TODO "halbtransparent"?
+	Am anderen Ende der Bank wird ein halbtransparenter Schirm aufgestellt, auf den von Hinten eine Digitalkamera gerichtet und fokussiert wird.
 	Der Laser wird mithilfe einer Lochblende parallel zur optischen Bank ausgerichtet.
 	Wenn im Folgenden Linsen eingesetzt werden, wird mithilfe einer Markierung auf einem Schirm sichergestellt, dass der Laserstrahl nach Durchgang durch die Linse noch immer im Mittel parallel zur optischen Bank verläuft, der Laser also mittig durch die Linse läuft. %TODO im Mittel, weil ja nicht jeder Teilstrahl parallel ist. theoretisch auch im vorigen Satz
 	Es wird die Länge in Pixeln eines Abstandes von \SI{10}{cm} anhand eines Lineals auf dem Schirm anhand der Digitalaufnahme gemessen, um den Umrechnungsfaktor von Pixeln in Abstand auf dem Schirm zu bestimmen.
-	%TODO kp, ob du den Umrechnungsfaktor irgendwo hinpacken willst. und wo.
 	Im Folgenden wird die Belichtungszeit der Kamera für jede Aufnahme individuell eingestellt, um eine optimale Abzählung der Peaks zu ermöglichen.
 	Hierfür wird auch eine Überbelichtung in Kauf genommen.
 	Dies verhindert einen Vergleich der Intensitäten zwischen einzelnen Aufnahmen, aber ein solcher ist auch nicht notwendig.
@@ -236,7 +235,7 @@
 	Analog ergibt sich für die Pixelzahl $u(p)=\frac{\SI{1}{px}}{2\sqrt{6}}$.
 	In \cref{eq_kali} wurden die Unsicherheiten zusätzlich mit $\sqrt{2}$ multipliziert, da um die Abstand zweier Punkte zumessen zweimal gemessen werden muss und sich die Fehler gemäß $\sqrt{u_1^2+u_2^2}$ fortpflanzen.
 
-	Es wird sich im folgenden jedoch zeigen, dass die Unsicherheiten die dadurch entstehen, dass beispielweise Maxima nicht genau auf dem Schirm ablesbar sind, deutlich gegen über den der Kalibration überwiegen. %TODO verständlich?
+	Es wird sich im folgenden jedoch zeigen, dass die Unsicherheiten die dadurch entstehen, dass beispielweise Maxima nicht genau auf dem Schirm ablesbar sind, deutlich gegen über den der Kalibration überwiegen. %TODO verständlich? nein.
 
 
 	\begin{figure}[H]
@@ -535,10 +534,7 @@
 	\end{figure}
 
 	\subsubsection*{Beobachtung und Datenanalyse}
-	% Allgemeine Beobachtungen
-	% Einflüsse von veränderten Parametern auf Messung
-	%TODO Überstrahlung nahe 0. Ordnung verhindert Zählen -> Extrapolation der Ordnung aus Abstand
-	%TODO bei g1 nichts zu erkennen -> Alternativversuche -> immer noch nicht.
+
 	Das Vorgehen hier ist analog zu \cref{ss_2_beug}.
 	Der einzige Unterschied ist, dass der Abstand $d$ nun durch die Brennweite $f=\SI{500}{mm}=d$ der Linse definiert ist, also:
  \begin{equation}
@@ -693,7 +689,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 
 		Dann wird ein Bruch als Objekt verwendet, bei dem der Nenner mit einem Gitter überlagert ist.
 		Um den Zähler aus dem Bruch zu entfernen, wird ein eindimensionaler Hochpassfilter in Form einer Nadel verwendet.
-		%TODO Hier haben wir, denke ich, verkackt. Wir haben den Nenner entfernt.
+		% Hier haben wir, denke ich, verkackt. Wir haben den Nenner entfernt.
 
 		Nun wird ein Quadratgitter und ein Spalt als eindimensionaler Tiefpassfilter verwendet.
 		Der Spalt wird im Winkel von \SI{0}{\degree}, \SI{45}{\degree} und \SI{90}{\degree} eingesetzt.
@@ -705,10 +701,6 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 		Damit diese besser sichtbar werden, werden Luftverwirbelungen per Hand eingebracht.
 
 	\subsubsection*{Beobachtung und Diskussion}
-	% Bezug/Nutzen oder sonst was
-	% auch hier die Hypothese wiederholen
-	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-%TODO fourierschriftzug: Buchstabenfrequenz größer als gitter. Je mehr wegefiltert, desto unschärfer der Schriftzug.
 
 \begin{itemize}
 	\item{Fourier-Schriftzug:}
@@ -735,7 +727,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 					}
 	        \label{fig_4_fourier}
 	    \end{figure}
-	Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte. %TODO
+	Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte.
 	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
 	\item{Bruch:}
 	\begin{figure}[H]
@@ -762,9 +754,11 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
         \label{fig_4_halb}
     \end{figure}
 	Beim Bruch wird ein Hochpassfilter verwendet, was das Gegenteil des gewünschten Effekts zur Folge hat.
-	Um den Zähler unleserlich und den Nenner leserlich zu machen, müsste ein Tiefpass verwendet werden.
-	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also den %TODO macht keinen Sinn
-	%TODO why
+	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also wäre zu erwarten, dass nur der Nenner übrig bleibt.
+	In \cref{fig_4_halb} verschwindet aber der Nenner und der Zähler bleibt bestehen.
+	Der Filter in Form einer Nadel wurde also wohl nicht korrekt positioniert.
+	%TODO besseren Ansatz habe ich nicht.
+
 	\item{Quadratgitter:}
 	\begin{figure}[H]
         \centering
@@ -817,7 +811,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 	\begin{equation}
 			k = \frac{(\SI{10.5+-0.3}{})-(\SI{19.5+-0.3}{})}{\SI{16+-1}{}} \cdot \frac{\SI{12+-1}{}}{(\SI{10.5+-0.3}{})-(\SI{20.5+-0.3}{})} = \SI{0.68+-0.08}{},
 	\end{equation}
-	welches das Intervall $1/\sqrt{2}$ beinhält.
+	welches das Intervall $1/\sqrt{2}\approx \num{0,707}$ beinhält.
 
 	\begin{figure}[H]
         \centering
@@ -871,20 +865,34 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 
 	\item{Dunkelfeldmethode:}
 	\begin{figure}[H]
-			\includegraphics[width=0.75\linewidth]{raw/4/4_k_2}
+			\includegraphics[width=0.6\linewidth]{raw/4/4_k_2}
 			\caption{
 				Luftströmungen über Kerze visualisiert mittels Dunkelfeldmethode.
 			}
 			\label{fig_air}
 	\end{figure}
-
-	%TODO
+	Die Luftströmungen sind auf dem Schirm als Flecken unterschiedlicher Helligkeit zu erkennen.
+	Aufgrund der schnellen Bewegung der Strämungen ist es schwer ein Bild aufzunehmen, auf dem sie gut zu erkennen sind.
+	Aber in \cref{fig_air} ist ein solcher Bereich mit Phasendifferenz zu erkennen.
+	Die Tatsache, dass ein Phasenunterschied auftritt, liegt wie in \cref{sec_dunkel} diskutiert am temperaturabhängigen Brechungsindex der Luft.
 \end{itemize}
 
 
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+	Insgesamt lässt sich sagen, dass die beabsichtigen Eigenschaften der optischen Fouriertransformation erfolgreich sichtbar gemacht werden konnten.
+	Es konnte die Abstandsabhängigkeit des Beugungsbildes eines Gitters deutlich gemacht werden.
+	Konkret wurde gezeigt, dass die Fraunhoferbeugung nur für große Abstände zwischen Schirm und Gitter gültig ist.
+	Dann wurde das Beugungsbild aus dem Fernfeld in die Fokusebene einer Linse gebracht und gezeigt, dass beide Methoden zur Bestimmung der Gitterkonstante zielführend sind.
+	Hier ist anzumerken, dass ein Referenzwert für die tatsächliche Gitterkonstante der Gitter es erlaubt hätte einer Einschätzung zu treffen, welche Methode das präzisere Ergebnis liefert.
+
+	Zuletzt wurde ein 4-f-Aufbau verwendet, um verschiedene Arten der Fourierfilterung deutlich zu machen.
+	So wurde mittels Tiefpassfilterung ein überlagertes Gitter vor einem Schriftzug entfernt.
+	Nicht erfolgreich war das Entfernen des nicht durch ein Gitter überlagerten Teil eines Bildes, da der Falsche Filtertyp verwendet wurde.
+	Anhand eines Quadratgitters wurde gezeigt, dass einzelne Raumrichtungen des Gitters herausgefiltert werden können oder die Gitterkonstante geändert werden kann.
+	Der Effet von Hochpassfilterung wurde deutlich gemacht.
+	Die Dunkelfeldmethode wurde angewandt, um die Luftströmungen über einer Kerzenflamme sichtbar zu machen.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
