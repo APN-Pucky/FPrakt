@@ -107,6 +107,27 @@ def fit_curvefit2(datax, datay, function, p0=None, yerr=None, **kwargs):
     perr_curvefit = np.array(error)
     return unp.uarray(pfit_curvefit, perr_curvefit)
 
+def out_si(fn,s,u=""):
+    file = open(fn,"w")
+    file.write(("\\SI{%s}{%s}"%(("%s"%(s)).replace("/",""),u)))
+    print(fn,": ", "%s"%(s))
+    file.close()
+
+def out(fn,s):
+    file = open(fn,"w")
+    file.write(("%s"%(s)).replace("/",""))
+    print(fn,": ", "%s"%(s))
+    file.close()
+
+def out_si_tab(fn, tab):
+    file = open(fn,"w")
+    for i in range(len(tab)):
+        for j in range(len(tab[i])):
+            if(j!=0):
+                file.write("&")
+            file.write("\\SI{%s}{}"%(("%s"%(tab[i][j])).replace("/","")))
+        file.write("\\\\\n")
+    file.close()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
@@ -151,6 +172,8 @@ for name in names:
 
 # %% fit pyplot
 names = glob.glob("OFT/data/2/*.txt")
+resa = []
+git = []
 for name in names:
     data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
     nname =os.path.basename(name)
@@ -166,24 +189,29 @@ for name in names:
 
 
     if nnname=="2_gitter_g1":
+        git.append(1)
         xs = [3,6.25,9,12,15,17.5,20.5,23.5,26.25]
         center = 4
     if nnname=="2_gitter_g2":
+        git.append(2)
         xs = [21,24.75,29.5,33.5,37.5,42,46,50,54,58,62,65.5,70,74.5,79,83,87,91.5,95,99]
         before = 4
         after = 0
         center = 6
     if nnname=="2_gitter_g3":
+        git.append(3)
         xs = [4.5,10,15,20,26,32,38,44,50,56,62.5,68,74,79,85,91,97.5,102]
         before = 0
         after = 0
         center = 6
     if nnname=="2_gitter_g4":
+        git.append(4)
         xs = [3,9,15,20,25.5,30.5,37,42,48,54.5,60,66,71,77.5,83,90,94.5,100]
         before = 0
         after = 0
         center = 6
     if nnname=="2_gitter_g5":
+        git.append(5)
         xs = [2.5,9,16,23,30.5,37.5,45,52,60,67.5,75,82.5,90,98,105]
         center = 7
     for x in xs:
@@ -198,7 +226,7 @@ for name in names:
     xfit = np.linspace(xd[0]-before,xd[-1]+after,4000)
     yfit = gerade(xfit, *unv(fit))
 
-
+    resa.append(fit[0])
     bx =[]
     by =[]
     for i in range(before):
@@ -223,7 +251,7 @@ for name in names:
     fig=plt.figure(figsize=fig_size)
 
     plt.errorbar(xd,xs,yerr=yrr, fmt='x',capsize=5, label="Fit Peaks",color='r')
-    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%s,\nb=%s'%(fit[0],fit[1]))
+    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%smm,\nb=%s'%(fit[0],fit[1]))
 
 
     if len(bx)>0:
@@ -233,9 +261,16 @@ for name in names:
     plt.grid()
     plt.legend(prop={'size':fig_legendsize})
     plt.tight_layout()
-    plt.ylabel('Position in mm')
+    plt.ylabel('Position u(k) in mm')
     plt.tick_params(labelsize=fig_labelsize)
 
-    plt.xlabel('Peaknummer')
+    plt.xlabel('Peakordnung k')
     plt.savefig("OFT/img/2/%s"%(nnname + "_fit.png"))
     plt.show()
+
+# %% Table
+l = 632.8e-9
+d = 2.715
+print(resa)
+uresa = unp.uarray(unv(resa),usd(resa))
+out_si_tab("OFT/res/tb_2_beug", np.transpose([git,resa,d*l/(uresa/1000)*1000]))

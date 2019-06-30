@@ -170,11 +170,12 @@
 	\begin{equation}
 		b \cdot \sin{\theta} = k \lambda
 	\end{equation}
-	Für kleines $\theta$ gilt $\theta \approx \sin{\theta} \approx \tan{\theta}=\frac{u}{h}$, wobei $u$ der Abstand eines Maximas der Ordnung $k$ zur nullten Ordnung ist und somit:
+	Für kleines $\theta$ gilt $\theta \approx \sin{\theta} \approx \tan{\theta}=\frac{u}{d}$, wobei $u$ der Abstand eines Maximas der Ordnung $k$ zur nullten Ordnung ist und somit:
 	\begin{equation}
-		b = \frac{k\lambda h}{u}
+		\label{eq_beug}
+		b = \frac{k\lambda d}{u}
 	\end{equation}
-	$h$ ist dabei der Abstand zwischen Gitter und Schirm.
+	$d$ ist dabei der Abstand zwischen Gitter und Schirm.
 
 	\subsection{4-f-Aufbau}
 	Um eine Filterung einzelner Frequenzen aus einer optischen Fouriertransformation zu erlauben, kann der sog. 4-f-Aufbau verwendet werden.
@@ -385,6 +386,20 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
+ In \cref{fig_2_mix_1} sind die Intensitätsprofile mit Fits zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
+ Diese wird ermittelt durch Auftragen der Position der Peaks gegen die Peakordnung.
+ In den Grafiken sind in rot die Positionen der Peaks markiert, deren Position ist nicht immer eindeutig, unter anderem wegen der Überbelichtung, welche jedoch nötig ist um höhere Peaks sichtbar zu machen, und die Unsicherheit wird mit \SI{1}{mm} abgeschätzt.
+ In lila sind extrapolierte erwartete Peakpositionen markiert.
+
+ Gemäß \cref{eq_beug} ist für kleine Winkel bzw. $k$:
+ \begin{equation}
+	 \label{eq_beug_verschieb}
+	 u(k) = \frac{k\lambda d}{b} + \text{Verschiebung}
+ \end{equation}
+ Die Verschiebung ist Null wenn man Abstände von dem nullten Maximum misst und kann hier vernachlässigt werden, da die Information über die Gitterkonstante $b$ in der Steigung von der Geraden $u(k)$.
+
+ Nun kann man nach \cref{eq_beug_verschieb} mit Abstand $d=\SI{2.715}{m}$ und Wellenlänge $\lambda=\SI{632.8}{nm}$ die Steigung $a$ in die Gitterkonstante $b=\lambda d/a$ umrechnen.
+ Die Ergebnisse für die jeweiligen Gitter sind in \cref{tb_2_beug} aufgelistet.
 
 \begin{figure}[H]
         \centering
@@ -392,7 +407,7 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g1}
             \caption%
-            {Profil, Gitter g1}
+            {Profil, Gitter 1}
             \label{fig_2_profil_g1}
         \end{subfigure}
         \hfill
@@ -400,14 +415,14 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g1_fit}
             \caption[]%
-            {Fit, Gitter g1}
+            {Fit, Gitter 1}
             \label{fig_2_fit_g1}
         \end{subfigure}
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g2}
             \caption%
-            {Profil, Gitter g2}
+            {Profil, Gitter 2}
             \label{fig_2_profil_g2}
         \end{subfigure}
         \hfill
@@ -415,14 +430,14 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g2_fit}
             \caption[]%
-            {Fit, Gitter g2}
+            {Fit, Gitter 2}
             \label{fig_2_fit_g2}
         \end{subfigure}
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g3}
             \caption%
-            {Profil, Gitter g3}
+            {Profil, Gitter 3}
             \label{fig_2_profil_g3}
         \end{subfigure}
         \hfill
@@ -430,12 +445,12 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g3_fit}
             \caption[]%
-            {Fit, Gitter g3}
+            {Fit, Gitter 3}
             \label{fig_2_fit_g3}
         \end{subfigure}
         \caption%
         {
-				Kameraaufnahmen und Intensitätsprofile für verschiedene Gitter.
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
 				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks.
 				}
         \label{fig_2_mix_1}
@@ -447,7 +462,7 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g4}
             \caption%
-            {Profil, Gitter g4}
+            {Profil, Gitter 4}
             \label{fig_2_profil_g4}
         \end{subfigure}
         \hfill
@@ -455,14 +470,14 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g4_fit}
             \caption[]%
-            {Fit, Gitter g4}
+            {Fit, Gitter 4}
             \label{fig_2_fit_g4}
         \end{subfigure}
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g5}
             \caption%
-            {Profil, Gitter g5}
+            {Profil, Gitter 5}
             \label{fig_2_profil_g5}
         \end{subfigure}
         \hfill
@@ -470,16 +485,28 @@
             \centering
             \includegraphics[width=\textwidth]{img/2/2_gitter_g5_fit}
             \caption[]%
-            {Fit, Gitter g5}
+            {Fit, Gitter 5}
             \label{fig_2_fit_g5}
         \end{subfigure}
         \caption%
         {
-				Kameraaufnahmen und Intensitätsprofile für verschiedene Gitter.
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
 				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks. (Forts.)
 				}
         \label{fig_2_mix_2}
     \end{figure}
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c }
+			 Gitternummer & Steigung $a$ in \si{mm} & Gitterkonstante $b$ in \si{mm} \\ \hline
+			 \input{res/tb_2_beug}
+		\end{tabular}
+		\caption{
+		Aus der Steigung $a$ mit \cref{eq_beug} berechnete Gitterkonstanten $b$.
+		}
+		\label{tb_2_beug}
+\end{table}
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
@@ -533,6 +560,7 @@ Der Schirm muss natürlich im Fokus der Linse stehen, damit das Bild scharf ist.
 			}
 			\label{fig_4f}
 	\end{figure}
+
 
 		Zunächst wird der Schriftzug \enquote{Fourier} überlagert mit einem senkrechten Gitter als Objekt verwendet.
 		Durch einen Tiefpassfilter wird dieser aus dem Bild entfernt.
