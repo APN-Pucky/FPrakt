@@ -274,3 +274,130 @@ d = 2.715
 print(resa)
 uresa = unp.uarray(unv(resa),usd(resa))
 out_si_tab("OFT/res/tb_2_beug", np.transpose([git,resa,d*l/(uresa/1000)*1000]))
+
+# %% fit pyplot
+names = glob.glob("OFT/data/3/*.txt")
+resa = []
+git = []
+for name in names:
+    data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
+    nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
+    print(nnname)
+
+    xs = []
+    before = 0
+    after = 0
+    center = 0
+    fig=plt.figure(figsize=fig_size)
+    plt.plot(data[:,0]*1000, data[:,1], '-')
+
+
+    if nnname=="2_gitter_g1":
+        git.append(1)
+        xs = [3,6.25,9,12,15,17.5,20.5,23.5,26.25]
+        center = 4
+    if nnname=="3_trafo_g2":
+        git.append(2)
+        #xs = [5.75,7,8.75,10.75,12.25]#,14.75,17,19,20,22,23.5,25]
+        xs = [5.75,7,8.75,10.75,12.25,-1,-1,-1,-1,-1,22,23.5]
+        before = 2
+        after = 2
+        center = 6
+    if nnname=="3_trafo_g3":
+        git.append(3)
+        xs = [9.5,10.5,11.5,12.5,13.75,14.75,16,17,-1,-1,-1,-1,-1,-1,26,27,28,29]
+        before = 3
+        after = 3
+        center = 6
+    if nnname=="3_trafo_g4":
+        git.append(4)
+        xs = [7.75,8.8,10,10.80,12,13.25,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,27.25,28.45,29.35]
+        before = 4
+        after = 4
+        center = 6
+    if nnname=="3_trafo_g5":
+        git.append(5)
+        xs = [2.5,4,5.25,6.5,8,9.5,10.75,12.25,13.75,-1,-1,-1,-1,-1,-1,-1,-1,26.25,27.75,29,30.5,31.75,33.25]
+        after =4
+        center = 7
+    for x in xs:
+        if x!=-1:
+            fig.gca().axvline(x=x,ymin=0,ymax=1, color='r')
+
+    xd = np.linspace(-center,len(xs)-center-1,len(xs))
+    yrr = []
+    rmr = []
+    for k in range(len(xs)):
+        if(xs[k]==-1):
+            rmr.append(k)
+        else:
+            yrr.append(1)
+
+    xs = np.delete(xs,rmr)
+    xd = np.delete(xd,rmr)
+
+    fit = fit_curvefit2(xd,xs,gerade,yerr=yrr)
+    xfit = np.linspace(xd[0]-before,xd[-1]+after,4000)
+    yfit = gerade(xfit, *unv(fit))
+
+    resa.append(fit[0])
+    bx =[]
+    by =[]
+    for i in range(before):
+        by.append(gerade(xfit[0]+i,*unv(fit)))
+        bx.append(xfit[0]+i)
+
+    ax =[]
+    ay =[]
+    for i in range(after):
+        ay.append(gerade(xfit[-1]-i,*unv(fit)))
+        ax.append(xfit[-1]-i)
+
+    for ty in ay:
+        fig.gca().axvline(x=ty,ymin=0,ymax=1, color='m')
+
+    for ty in by:
+        fig.gca().axvline(x=ty,ymin=0,ymax=1, color='m')
+
+    plt.gca().set_yscale('log');
+    #plt.gca().set_xscale('log');
+    #plt.legend(prop={'size':fig_legendsize})
+    plt.grid()
+    plt.tight_layout()
+    plt.ylabel('Intensität in a.u.')
+    plt.tick_params(labelsize=fig_labelsize)
+
+    plt.xlabel('Position in mm')
+    plt.savefig("OFT/img/3/%s"%(nnname + ".png"))
+    plt.show()
+
+    fig=plt.figure(figsize=fig_size)
+
+    plt.errorbar(xd,xs,yerr=yrr, fmt='x',capsize=5, label="Fit Peaks",color='r')
+    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%smm,\nb=%s'%(fit[0],fit[1]))
+
+
+    if len(bx)>0:
+        plt.plot(bx,by,'x',
+            label="Interpolation",color='m')
+
+    if len(ax)>0:
+        plt.plot(ax,ay,'x',
+            label="Interpolation",color='m')
+
+    plt.grid()
+    plt.legend(prop={'size':fig_legendsize})
+    plt.tight_layout()
+    plt.ylabel('Position u(k) in mm')
+    plt.tick_params(labelsize=fig_labelsize)
+
+    plt.xlabel('Peakordnung k')
+    plt.savefig("OFT/img/3/%s"%(nnname + "_fit.png"))
+    plt.show()
+
+l = 632.8e-9
+d = 1
+print(resa)
+uresa = unp.uarray(unv(resa),usd(resa))
+out_si_tab("OFT/res/tb_3_beug", np.transpose([git,resa,d*l/(uresa/1000)*1000]))
