@@ -100,8 +100,8 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
-	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eingenschaften der optischen Fouriertransformation zu zeigen.
-	Zunächst wird gezeigt, dass die Franuhofer-Beugung im Fernfeld zu eienr Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
+	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eigenschaften der optischen Fouriertransformation zu zeigen.
+	Zunächst wird gezeigt, dass die Fraunhofer-Beugung im Fernfeld zu einer Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
 	Dann werden für fünf verschiedene Gitter die Gitterabstände aus den Abständen der Beugungsordnungen im Fernfeld auf dem Schirm bestimmt.
 	Dies wird mit wiederholt für einen Aufbau, in dem das Beugungsbild mit einer Linse aus dem Fernfeld in den Fokus geholt wurde. %TODO Vergleichsergebnis
 	Es wird ein 4-f-Aufbau verwendet, um mithilfe von verschiedenen Filtern Bildmanipulation zu betreiben.
@@ -146,7 +146,7 @@
 	Durch eine Linse kann diese Fouriertransformation rückgängig gemacht werden und das Bild ins Nahfeld geholt werden.
 	Dabei findet eine Spiegelung und Skalierung des Bildes statt.
 
-	Im Nahfeld wird die Beugung demhingegen durch die Fresnel-Beugung beschrieben.
+	Im Nahfeld wird die Beugung dem hingegen durch die Fresnel-Beugung beschrieben.
 
 	\begin{figure}[H]
 			\includegraphics[width=0.75\linewidth]{img/fraunfresnel}
@@ -547,7 +547,7 @@
  \end{equation}
   Um die Randmaxima gut auflösen zu können wurden eine hohe Beleuchtungszeit gewählt.
 	Als Nachteil hiervon folgt, dass man die Menge der Maxima nahe 0. Ordnung basierend auf den Abständen der äußeren approximieren muss.
-\begin{figure}[H]
+ \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
@@ -707,6 +707,120 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_fourier_gitter}
+            \caption%
+            {Bild}
+            \label{fig_4_fourier_gitter}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_fourier_tiefpass}
+            \caption[]%
+            {Tiefpass}
+            \label{fig_4_fourier_filter}
+        \end{subfigure}
+        \caption%
+        {
+				Fourierschriftzug.
+				}
+        \label{fig_4_fourier}
+    \end{figure}
+
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_halb_gitter}
+            \caption%
+            {Bild}
+            \label{fig_4_halb_gitter}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_halb_hochpass}
+            \caption[]%
+            {Hochpass}
+            \label{fig_4_halb_filter}
+        \end{subfigure}
+        \caption%
+        {
+				\enquote{$\frac{1}{2}$}-Bruch.
+				}
+        \label{fig_4_halb}
+    \end{figure}
+
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltsenkrecht_crop}
+            \caption%
+            {\SI{0}{\degree}}
+            \label{fig_4_quad_0}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltwaagerecht_crop}
+            \caption[]%
+            {\SI{90}{\degree}}
+            \label{fig_4_quad_90}
+        \end{subfigure}
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltdiagonal_crop}
+            \caption%
+            {\SI{45}{\degree}}
+            \label{fig_4_quad_45}
+        \end{subfigure}
+        \caption%
+        {
+					Quadratgitter und Einzelspalt.
+				}
+        \label{fig_4_quad}
+    \end{figure}
+
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_schraub}
+            \caption%
+            {Bild}
+            \label{fig_4_schraub_bild}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_schraub_hochpass}
+            \caption[]%
+            {Hochpass}
+            \label{fig_4_schraub_hochpass}
+        \end{subfigure}
+        \caption%
+        {
+				Schraube.
+				}
+        \label{fig_4_schraub}
+    \end{figure}
+
+	\begin{figure}[H]
+			\includegraphics[width=0.75\linewidth]{raw/4/4_k_2}
+			\caption{
+				Luftströmungen über Kerze visualisiert mittels Dunkelfeldmethode.
+			}
+			\label{fig_fraunfresnel}
+	\end{figure}
 
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
