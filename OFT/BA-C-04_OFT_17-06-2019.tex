@@ -721,7 +721,24 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 	Um den Zähler unleserlich und den Nenner leserlich zu machen, müsste ein Tiefpass verwendet werden.
 	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also den %TODO macht keinen Sinn
 	%TODO why
+	\item{Quadratgitter:} Die Fouriertransformierte eines Quadratgitters ist eine quadratisches Punktgitter.
+	Der Tiefpass filtert bei einer Einstellung von \SI{0}{\degree} bzw. \SI{90}{\degree} jeweils das Gitter in senkrechter oder in waagerechter Richtung heraus.
+	Eine Einstellung von \SI{45}{\degree} lässt demhingegen nur die Beugungsordnungen entlang einer Diagonale hindurch.
+	Da diese zueinander den Abstand $\sqrt{2}a$ haben, wenn $a$ der Abstand der Beugungsordnungen in horizontaler und vertikaler Richtung ist, ergibt sich nacher der Rücktransformation ein eindimensionales Gitter mit Gitterabständen $b/\sqrt{2}$, wenn $b$ die Gitterkonstante des Quadratgitters ist.
+	Dies ist in \cref{fig_matrix} veranschaulicht.
+	\begin{figure}[H]
+			\includegraphics[width=0.5\linewidth]{img/matrix}
+			\caption{
+				Veranschaulichung der Tiefpassfilterung des Quadratgitters unter einem Winkel von \SI{45}{\degree}. $c=\sqrt{2} \cdot a$. Der dunkelgraue Bereich wird durch die Tiefpassfilterung entfernt.
+			}
+			\label{fig_matrix}
+	\end{figure}
+	\item{Schraube:} Der Hochpass macht die großen Strukturen unsichtbar und es bleiben nur die Bereiche zu erkennen, in denen schnelle räumliche Änderungen im Bild sind.
+	Dies ist der Rand der Schraube, wo das Gewinde gut zu erkennen ist.
+
 \end{itemize}
+
+
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
