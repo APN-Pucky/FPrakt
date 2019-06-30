@@ -155,15 +155,58 @@ for name in names:
     data = np.loadtxt(name, skiprows = 4, usecols=(0,1), delimiter = ";")
     nname =os.path.basename(name)
     nnname = nname.split('.')[0]
+    print(nnname)
 
+    xs = []
+    before = 0
+    after = 0
+    center = 0
     fig=plt.figure(figsize=fig_size)
     plt.plot(data[:,0]*1000, data[:,1], '-')
 
+
+    if nnname=="2_gitter_g1":
+        xs = [3,6.25,9,12,15,17.5,20.5,23.5,26.25]
+        center = 4
+    if nnname=="2_gitter_g2":
+        xs = [21,24.75,29.5,33.5,37.5,42,46,50,54,58,62,65.5,70,74.5,79,83,87,91.5,95,99]
+        before = 4
+        after = 0
+        center = 6
+    if nnname=="2_gitter_g3":
+        xs = [4.5,10,15,20,26,32,38,44,50,56,62.5,68,74,79,85,91,97.5,102]
+        before = 0
+        after = 0
+        center = 6
+    if nnname=="2_gitter_g4":
+        xs = [3,9,15,20,25.5,30.5,37,42,48,54.5,60,66,71,77.5,83,90,94.5,100]
+        before = 0
+        after = 0
+        center = 6
     if nnname=="2_gitter_g5":
         xs = [2.5,9,16,23,30.5,37.5,45,52,60,67.5,75,82.5,90,98,105]
         center = 7
     for x in xs:
         fig.gca().axvline(x=x,ymin=0,ymax=1, color='r')
+
+    xd = np.linspace(-center,len(xs)-center-1,len(xs))
+    yrr = []
+    for k in range(len(xs)):
+        yrr.append(1)
+
+    fit = fit_curvefit2(xd,xs,gerade,yerr=yrr)
+    xfit = np.linspace(xd[0]-before,xd[-1]+after,4000)
+    yfit = gerade(xfit, *unv(fit))
+
+
+    bx =[]
+    by =[]
+    for i in range(before):
+        by.append(gerade(xfit[0]+i,*unv(fit)))
+        bx.append(xfit[0]+i)
+
+    for ky in by:
+        fig.gca().axvline(x=ky,ymin=0,ymax=1, color='m')
 
     plt.gca().set_yscale('log');
     #plt.gca().set_xscale('log');
@@ -177,17 +220,14 @@ for name in names:
     plt.show()
 
     fig=plt.figure(figsize=fig_size)
-    xd = np.linspace(-center,len(xs)-center-1,len(xs))
-    yrr = []
-    for k in range(len(xs)):
-        yrr.append(1)
-    plt.errorbar(xd,xs,yerr=yrr, fmt='x',capsize=5, label="Peaks",color='r')
 
-    fit = fit_curvefit2(xd,xs,gerade,yerr=yrr)
-    xfit = np.linspace(xd[0],xd[-1],4000)
-    yfit = gerade(xfit, *unv(fit))
+    plt.errorbar(xd,xs,yerr=yrr, fmt='x',capsize=5, label="Fit Peaks",color='r')
     plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%s,\nb=%s'%(fit[0],fit[1]))
 
+
+    if len(bx)>0:
+        plt.plot(bx,by,'x',
+            label="Interpolation",color='m')
 
     plt.grid()
     plt.legend(prop={'size':fig_legendsize})
