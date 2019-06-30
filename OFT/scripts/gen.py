@@ -23,7 +23,7 @@ usd=unp.std_devs
 # Konstanten fuer einheitliche Darstellung
 
 fig_size = (10, 6)
-fig_legendsize = 14
+fig_legendsize = 18
 fig_labelsize = 16
 matplotlib.rcParams.update({'font.size': fig_labelsize})
 
@@ -212,6 +212,7 @@ for name in names:
     #plt.gca().set_xscale('log');
     #plt.legend(prop={'size':fig_legendsize})
     plt.grid()
+    plt.tight_layout()
     plt.ylabel('Intensität in a.u.')
     plt.tick_params(labelsize=fig_labelsize)
 
@@ -231,9 +232,10 @@ for name in names:
 
     plt.grid()
     plt.legend(prop={'size':fig_legendsize})
+    plt.tight_layout()
     plt.ylabel('Position in mm')
     plt.tick_params(labelsize=fig_labelsize)
 
     plt.xlabel('Peaknummer')
-    plt.savefig("OFT/img/2/%s"%(nnname + ".png"))
+    plt.savefig("OFT/img/2/%s"%(nnname + "_fit.png"))
     plt.show()
