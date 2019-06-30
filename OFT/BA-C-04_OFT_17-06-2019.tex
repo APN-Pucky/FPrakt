@@ -100,6 +100,10 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eingenschaften der optischen Fouriertransformation zu zeigen.
+	Zunächst wird gezeigt, dass die Franuhofer-Beugung im Fernfeld zu eienr Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
+	Dann werden für fünf verschiedene Gitter die Gitterabstände aus den Abständen der Beugungsordnungen auf dem Schirm bestimmt.
+
 
   \section{Theorie}
 	% wdh. Texte
@@ -142,7 +146,16 @@
 
 	Im Nahfeld wird die Beugung demhingegen durch die Fresnel-Beugung beschrieben.
 
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{img/fraunfresnel}
+			\caption{
+				Fresnel- und Fraunhoferbereiche relativ zum Abstand der beugenden Struktur. \cite{Anleitung}
+			}
+			\label{fig_fraunfresnel}
+	\end{figure}
+
 	\subsection{Beugung am Gitter}
+	\label{sec_gitterbeug}
 
 	Einzelspalte entsprechen Rechteckfunktionen, die transformiert Funktionen der Form $\sin{x}/x$ ergeben.
 	Bei einem Doppelspalt tauchen zusätzlich Nebenmaxima auf und bei Gittern ergeben sich einzelne Hauptmaxima hoher Intensität.
@@ -157,10 +170,11 @@
 	\begin{equation}
 		b \cdot \sin{\theta} = k \lambda
 	\end{equation}
-	Für kleines $\alpha$ gilt $\alpha\approx\sin{\alpha}\approx\tan{\alpha}=\frac{d}{2f}$, wobei $d$ der Abstand zwei Maxima gleicher Ordnung $m$  zueinander ist und somit:
+	Für kleines $\theta$ gilt $\theta \approx \sin{\theta} \approx \tan{\theta}=\frac{u}{h}$, wobei $u$ der Abstand eines Maximas der Ordnung $k$ zur nullten Ordnung ist und somit:
 	\begin{equation}
-		g = \frac{2m\lambda f}{d}
+		b = \frac{k\lambda h}{u}
 	\end{equation}
+	$h$ ist dabei der Abstand zwischen Gitter und Schirm.
 
 	\subsection{4-f-Aufbau}
 	Um eine Filterung einzelner Frequenzen aus einer optischen Fouriertransformation zu erlauben, kann der sog. 4-f-Aufbau verwendet werden.
@@ -359,9 +373,9 @@
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	In \cref{fig_1_mix_1} kann man deutlich erkennen, dass für einen großen Abstand zwischen Gitter und Schirm das erwartete Beugungsbild bis zu hohen Beugungsordnungen zu erkennen ist.
 	Je geringer der Abstand jedoch wird, desto schlechter sind die einzelnen Ordnungen zu unterscheiden, da hier die Fresnel-Beugung bzw. der Übergang zwischen Fresnel- und Fraunhofer-Beugung sichtbar wird.
-	Dies entspricht den Erwartungen, da gemäß der Fraunhofer-Beugung (vgl. \cref{sec_fraunhofer} erst im Fernfeld das Beugungsbild in Form von $\left(\frac{\sin x}{x}\right)^2$ auftritt.
+	Dies entspricht den Erwartungen, da gemäß der Fraunhofer-Beugung (vgl. \cref{sec_fraunhofer}) erst im Fernfeld das Beugungsbild in der in \cref{sec_gitterbeug} auftritt.
 
-	\subsection{Bestimmung von Gitterkonstanten}
+	\subsection{Bestimmung der Gitterkonstanten}
 
 	\subsubsection*{Methode}
 
@@ -378,8 +392,6 @@
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
 	\subsection{Fouriertransformation mit einer Linse}
-		%TODO hier ist halt weird, dass das nicht so wirklich Fourier ist, aber es ist wohl das aus der Unendlichkeit holen gemeint (Das Fernfeld ist halt instant da.)
-
 
 	\subsubsection*{Methode}
 
