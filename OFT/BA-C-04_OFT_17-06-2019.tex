@@ -103,7 +103,7 @@
 	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eigenschaften der optischen Fouriertransformation zu zeigen.
 	Zunächst wird gezeigt, dass die Fraunhofer-Beugung im Fernfeld zu einer Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
 	Dann werden für fünf verschiedene Gitter die Gitterabstände aus den Abständen der Beugungsordnungen im Fernfeld auf dem Schirm bestimmt.
-	Dies wird mit wiederholt für einen Aufbau, in dem das Beugungsbild mit einer Linse aus dem Fernfeld in den Fokus geholt wurde und gezeigt, dass die Ergebnisse zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber sehr ähnlich sind.
+	Dies wird wiederholt für einen Aufbau, in dem das Beugungsbild mit einer Linse aus dem Fernfeld in den Fokus geholt wurde und gezeigt, dass die Ergebnisse zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber sehr ähnlich sind.
 	Es wird ein 4-f-Aufbau verwendet, um mithilfe von verschiedenen Filtern Bildmanipulation zu betreiben.
 	Zuletzt werden mithilfe der Dunkelfeldmethode Luftströmungen oberhalb einer Kerzenflamme sichtbar gemacht.
 
@@ -231,7 +231,7 @@
 			\label{eq_kali}
 			\gamma = \frac{\SI{10.0+-0.03}{cm}}{\SI{934+-0.3}{px}}=\SI{0.01071+-0.00003}{cm/px}.
 	\end{equation}
-	Wobei sich die Unsicherheit beim Ablesen des Lineals mit $u(l)=\frac{\SI{1}{mm}}{2\sqrt{6}}$ (analog, Dreiecksverteilung).
+	Wobei die Unsicherheit beim Ablesen des Lineals mit $u(l)=\frac{\SI{1}{mm}}{2\sqrt{6}}$ (analog, Dreiecksverteilung) bestimmt ist.
 	Analog ergibt sich für die Pixelzahl $u(p)=\frac{\SI{1}{px}}{2\sqrt{6}}$.
 	In \cref{eq_kali} wurden die Unsicherheiten zusätzlich mit $\sqrt{2}$ multipliziert, da um die Abstand zweier Punkte zumessen zweimal gemessen werden muss und sich die Fehler gemäß $\sqrt{u_1^2+u_2^2}$ fortpflanzen.
 
@@ -536,7 +536,7 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 
 	Das Vorgehen hier ist analog zu \cref{ss_2_beug}.
-	Der einzige Unterschied ist, dass der Abstand $d$ nun durch die Brennweite $f=\SI{500}{mm}=d$ der Linse definiert ist, also:
+	Der einzige Unterschied ist, dass der Abstand $d$ nun durch die Brennweite $f=\SI{500}{mm}=d$ der Linse definiert ist (\cite{Anleitung2}), also:
  \begin{equation}
 	 \label{eq_3_beug_verschieb}
 	 u(k) = \frac{k\lambda f}{b} + \text{Verschiebung}
@@ -803,14 +803,15 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 			\label{fig_matrix}
 	\end{figure}
 	Ein Abzählen der Peaks in \cref{fig_4_profil} bestätigt, dass bei einem Winkel von \SI{45}{\degree}, eine Skalierung von $1/\sqrt{2}$ auftritt.
-
-	\cref{fig_4_profil_45}: Von \SI{10.5+-0.3}{mm} bis \SI{19.5+-0.3}{mm} werden ca. \SI{16+-1}{} Peaks gezählt.
-	\cref{fig_4_profil_90}: Von \SI{10.5+-0.3}{mm} bis \SI{20.5+-0.3}{mm} werden ca. \SI{12+-1}{} Peaks gezählt.
+	\begin{description}
+		\item[\cref{fig_4_profil_90}:] Von \SI{10.5+-0.3}{mm} bis \SI{20.5+-0.3}{mm} werden ca. \SI{12+-1}{} Peaks gezählt.
+		\item[\cref{fig_4_profil_45}:] Von \SI{10.5+-0.3}{mm} bis \SI{19.5+-0.3}{mm} werden ca. \SI{16+-1}{} Peaks gezählt.
+	\end{description}
 	Daraus ergibt sich ein Verhältnis von
 	\begin{equation}
-			k = \frac{\SI{10.5+-0.3}{}-\SI{19.5+-0.3}{}}{\SI{16+-1}{}} \cdot \frac{\SI{12+-1}{}}{\SI{10.5+-0.3}{}-\SI{20.5+-0.3}{}} = \SI{0.68+-0.08}{}.
+			k = \frac{(\SI{10.5+-0.3}{})-(\SI{19.5+-0.3}{})}{\SI{16+-1}{}} \cdot \frac{\SI{12+-1}{}}{(\SI{10.5+-0.3}{})-(\SI{20.5+-0.3}{})} = \SI{0.68+-0.08}{}
 	\end{equation}
-	Das Unsicherheitsintervall beinhaltet $1/\sqrt{2} \approx \num{0,707}$ .
+	Das Unsicherheitsintervall beinhaltet $1/\sqrt{2}\approx \num{0,707}$.
 
 	\begin{figure}[H]
         \centering
