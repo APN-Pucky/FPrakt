@@ -389,8 +389,8 @@
 	% Einflüsse von veränderten Parametern auf Messung
  In \cref{fig_2_mix_1} sind die Intensitätsprofile mit Fits zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
  Diese wird ermittelt durch Auftragen der Position der Peaks gegen die Peakordnung.
- In den Grafiken sind in rot die Positionen der Peaks markiert, deren Position ist nicht immer eindeutig, unter anderem wegen der Überbelichtung, welche jedoch nötig ist um höhere Peaks sichtbar zu machen, und die Unsicherheit wird mit \SI{1}{mm} abgeschätzt.
- In lila sind extrapolierte erwartete Peakpositionen markiert.
+ In den Grafiken sind in Rot die Positionen der Peaks markiert, deren Position ist nicht immer eindeutig, unter anderem wegen der Überbelichtung, welche jedoch nötig ist um höhere Peaks sichtbar zu machen, und die Unsicherheit wird mit \SI{1}{mm} abgeschätzt.
+ In Magenta sind extrapolierte erwartete Peakpositionen markiert.
 
  Gemäß \cref{eq_beug} ist für kleine Winkel bzw. $k$:
  \begin{equation}
@@ -663,7 +663,7 @@ Der Grad der Ordnung musste deshalb extrapoliert werden, aber dies war mit groß
 Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass die beiden zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber immer noch nahe genug beieinander liegen, um die Verfahren als äquivalent zu zeigen.
 Es liegen keine Referenzwerte für die Gitter vor, um einen Vergleich vorzunehmen, welche Methode korrektere Ergebnisse liefert.
 
-Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie zuvor auf Rauschen durch Hintergrundbeleuchtung zurückgeführt werden muss.
+Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf Rauschen durch Hintergrundbeleuchtung zurückgeführt werden muss.
 
 	\subsection{Fourierfilterung}
 
@@ -706,7 +706,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 	\item{Fourier-Schriftzug:}
 		\begin{figure}[H]
 	        \centering
-	        \begin{subfigure}[b]{0.475\textwidth}
+	        \begin{subfigure}[b]{0.400\textwidth}
 	            \centering
 	            \includegraphics[width=\textwidth]{raw/4/4_fourier_gitter}
 	            \caption%
@@ -714,7 +714,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 	            \label{fig_4_fourier_gitter}
 	        \end{subfigure}
 	        \hfill
-	        \begin{subfigure}[b]{0.475\textwidth}
+	        \begin{subfigure}[b]{0.400\textwidth}
 	            \centering
 	            \includegraphics[width=\textwidth]{raw/4/4_fourier_tiefpass}
 	            \caption[]%
@@ -729,18 +729,19 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 	    \end{figure}
 	Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte.
 	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
+	Außerdem wurde bestätigt, dass der 4f-Aufbau das Objekt auf den Kopf projiziert.
 	\item{Bruch:}
 	\begin{figure}[H]
         \centering
-        \begin{subfigure}[b]{0.475\textwidth}
+        \begin{subfigure}[b]{0.275\textwidth}
             \centering
             \includegraphics[width=\textwidth]{raw/4/4_halb_gitter}
             \caption%
             {Bild}
             \label{fig_4_halb_gitter}
         \end{subfigure}
-        \hfill
-        \begin{subfigure}[b]{0.475\textwidth}
+				\hfill
+        \begin{subfigure}[b]{0.275\textwidth}
             \centering
             \includegraphics[width=\textwidth]{raw/4/4_halb_hochpass}
             \caption[]%
@@ -753,10 +754,11 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 				}
         \label{fig_4_halb}
     \end{figure}
-	Beim Bruch wird ein Hochpassfilter verwendet, was das Gegenteil des gewünschten Effekts zur Folge hat.
-	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also wäre zu erwarten, dass nur der Nenner übrig bleibt.
-	In \cref{fig_4_halb} verschwindet aber der Nenner und der Zähler bleibt bestehen.
-	Der Filter in Form einer Nadel wurde also wohl nicht korrekt positioniert.
+	Beim Bruch wird ein Hochpassfilter verwendet, um die 2 im Nenner zu entfernen.
+	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also wäre zu erwarten, dass nur der Zähler übrig bleibt, welcher hohe Frequenzen zum Darstellen scharfer Kanten benötigt.
+	Die 2 verschwindet, da die Frequenz des Gitters gefiltert wird und somit auch die Form der 2.
+	In \cref{fig_4_halb} verschwindet der Nenner und der Zähler bleibt bestehen.
+	Analog kann man mittels eines Tiefpassfilters den Zähler eliminieren.
 	%TODO besseren Ansatz habe ich nicht.
 
 	\item{Quadratgitter:}
@@ -802,7 +804,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 			}
 			\label{fig_matrix}
 	\end{figure}
-	Ein Abzählen der Peaks in \cref{fig_4_profil} bestätigt, dass bei einem Winkel von \SI{45}{\degree}, eine Skalierung von $1/\sqrt{2}$ auftritt.
+	Ein Abzählen der Peaks in \cref{fig_4_profil} bestätigt, dass unter einem Winkel von \SI{45}{\degree}, eine Skalierung von $1/\sqrt{2}$ auftritt.
 	\begin{description}
 		\item[\cref{fig_4_profil_90}:] Von \SI{10.5+-0.3}{mm} bis \SI{20.5+-0.3}{mm} werden ca. \SI{12+-1}{} Peaks gezählt.
 		\item[\cref{fig_4_profil_45}:] Von \SI{10.5+-0.3}{mm} bis \SI{19.5+-0.3}{mm} werden ca. \SI{16+-1}{} Peaks gezählt.
@@ -862,7 +864,7 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
     \end{figure}
 	Der Hochpass macht die großen Strukturen unsichtbar und es bleiben nur die Bereiche zu erkennen, in denen schnelle räumliche Änderungen im Bild sind.
 	Dies ist der Rand der Schraube, wo das Gewinde gut zu erkennen ist.
-
+\newpage
 	\item{Dunkelfeldmethode:}
 	\begin{figure}[H]
 			\includegraphics[width=0.6\linewidth]{raw/4/4_k_2}
@@ -889,9 +891,9 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 
 	Zuletzt wurde ein 4-f-Aufbau verwendet, um verschiedene Arten der Fourierfilterung deutlich zu machen.
 	So wurde mittels Tiefpassfilterung ein überlagertes Gitter vor einem Schriftzug entfernt.
-	Nicht erfolgreich war das Entfernen des nicht durch ein Gitter überlagerten Teil eines Bildes, da der Falsche Filtertyp verwendet wurde.
+	Genauso erfolgreich war das Entfernen des durch ein Gitter überlagerten Teil eines Bilds.
 	Anhand eines Quadratgitters wurde gezeigt, dass einzelne Raumrichtungen des Gitters herausgefiltert werden können oder die Gitterkonstante geändert werden kann.
-	Der Effet von Hochpassfilterung wurde deutlich gemacht.
+	Der Effekt von Hochpassfilterung wurde deutlich gemacht.
 	Die Dunkelfeldmethode wurde angewandt, um die Luftströmungen über einer Kerzenflamme sichtbar zu machen.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
