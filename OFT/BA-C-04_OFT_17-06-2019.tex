@@ -704,35 +704,40 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
 		Als Objekt werden die aufsteigenden Luftströme über einer Kerzenflamme verwendet.
 		Damit diese besser sichtbar werden, werden Luftverwirbelungen per Hand eingebracht.
 
-	\subsubsection*{Beobachtung und Datenanalyse}
-	% Allgemeine Beobachtungen
-	% Einflüsse von veränderten Parametern auf Messung
+	\subsubsection*{Beobachtung und Diskussion}
+	% Bezug/Nutzen oder sonst was
+	% auch hier die Hypothese wiederholen
+	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+%TODO fourierschriftzug: Buchstabenfrequenz größer als gitter. Je mehr wegefiltert, desto unschärfer der Schriftzug.
 
-	\begin{figure}[H]
-        \centering
-        \begin{subfigure}[b]{0.475\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{raw/4/4_fourier_gitter}
-            \caption%
-            {Bild}
-            \label{fig_4_fourier_gitter}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[b]{0.475\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{raw/4/4_fourier_tiefpass}
-            \caption[]%
-            {Tiefpass}
-            \label{fig_4_fourier_filter}
-        \end{subfigure}
-        \caption%
-        {
-				Fourierschriftzug.
-				}
-        \label{fig_4_fourier}
-    \end{figure}
-
-
+\begin{itemize}
+	\item{Fourier-Schriftzug:}
+		\begin{figure}[H]
+	        \centering
+	        \begin{subfigure}[b]{0.475\textwidth}
+	            \centering
+	            \includegraphics[width=\textwidth]{raw/4/4_fourier_gitter}
+	            \caption%
+	            {Bild}
+	            \label{fig_4_fourier_gitter}
+	        \end{subfigure}
+	        \hfill
+	        \begin{subfigure}[b]{0.475\textwidth}
+	            \centering
+	            \includegraphics[width=\textwidth]{raw/4/4_fourier_tiefpass}
+	            \caption[]%
+	            {Tiefpass}
+	            \label{fig_4_fourier_filter}
+	        \end{subfigure}
+	        \caption%
+	        {
+					Von einem Gitter überlagerter Fourierschriftzug mit und ohne Tiefpassfilterung.
+					}
+	        \label{fig_4_fourier}
+	    \end{figure}
+	Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte. %TODO
+	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
+	\item{Bruch:}
 	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
@@ -752,12 +757,15 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
         \end{subfigure}
         \caption%
         {
-				\enquote{$\frac{1}{2}$}-Bruch.
+				\enquote{$\frac{1}{2}$}-Bruch, der im unteren Teil mit einem Gitter überlager ist, mit und ohne Hochpassfilterung.
 				}
         \label{fig_4_halb}
     \end{figure}
-
-
+	Beim Bruch wird ein Hochpassfilter verwendet, was das Gegenteil des gewünschten Effekts zur Folge hat.
+	Um den Zähler unleserlich und den Nenner leserlich zu machen, müsste ein Tiefpass verwendet werden.
+	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also den %TODO macht keinen Sinn
+	%TODO why
+	\item{Quadratgitter:}
 	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
@@ -784,12 +792,23 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
         \end{subfigure}
         \caption%
         {
-					Quadratgitter und Einzelspalt.
+					Quadratgitter unter Tiefpassfilterung bei verschiedenen Orientierungen des eindimensionalen Tiefpasses.
 				}
         \label{fig_4_quad}
     \end{figure}
-
-
+	Die Fouriertransformierte eines Quadratgitters ist eine quadratisches Punktgitter.
+	Der Tiefpass filtert bei einer Einstellung von \SI{0}{\degree} bzw. \SI{90}{\degree} jeweils das Gitter in senkrechter oder in waagerechter Richtung heraus.
+	Eine Einstellung von \SI{45}{\degree} lässt demhingegen nur die Beugungsordnungen entlang einer Diagonale hindurch.
+	Da diese zueinander den Abstand $\sqrt{2}a$ haben, wenn $a$ der Abstand der Beugungsordnungen in horizontaler und vertikaler Richtung ist, ergibt sich nacher der Rücktransformation ein eindimensionales Gitter mit Gitterabständen $b/\sqrt{2}$, wenn $b$ die Gitterkonstante des Quadratgitters ist.
+	Dies ist in \cref{fig_matrix} veranschaulicht.
+	\begin{figure}[H]
+			\includegraphics[width=0.5\linewidth]{img/matrix}
+			\caption{
+				Veranschaulichung der Tiefpassfilterung des Quadratgitters unter einem Winkel von \SI{45}{\degree}. $c=\sqrt{2} \cdot a$. Der dunkelgraue Bereich wird durch die Tiefpassfilterung entfernt.
+			}
+			\label{fig_matrix}
+	\end{figure}
+	\item{Schraube:}
 	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
@@ -809,33 +828,26 @@ Auch hier sind sind fehlen einige Ordnungen (in Purpur eingezeichnet), was wie z
         \end{subfigure}
         \caption%
         {
-				Schraube.
+				Schraube mit und ohne Hochpassfilterung.
 				}
         \label{fig_4_schraub}
     \end{figure}
+	Der Hochpass macht die großen Strukturen unsichtbar und es bleiben nur die Bereiche zu erkennen, in denen schnelle räumliche Änderungen im Bild sind.
+	Dies ist der Rand der Schraube, wo das Gewinde gut zu erkennen ist.
 
+	\item{Dunkelfeldmethode:}
 	\begin{figure}[H]
 			\includegraphics[width=0.75\linewidth]{raw/4/4_k_2}
 			\caption{
 				Luftströmungen über Kerze visualisiert mittels Dunkelfeldmethode.
 			}
-			\label{fig_fraunfresnel}
+			\label{fig_air}
 	\end{figure}
 
-	\subsubsection*{Diskussion}
-	% Bezug/Nutzen oder sonst was
-	% auch hier die Hypothese wiederholen
-	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-%TODO fourierschriftzug: Buchstabenfrequenz größer als gitter. Je mehr wegefiltert, desto unschärfer der Schriftzug.
-
-\begin{itemize}
-	\item{Fourier-Schriftzug:} Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte. %TODO
-	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
-	\item{Bruch:} Beim Bruch wird ein Hochpassfilter verwendet, was das Gegenteil des gewünschten Effekts zur Folge hat.
-	Um den Zähler unleserlich und den Nenner leserlich zu machen, müsste ein Tiefpass verwendet werden.
-	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also den %TODO macht keinen Sinn
-	%TODO why
+	%TODO
 \end{itemize}
+
+
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
