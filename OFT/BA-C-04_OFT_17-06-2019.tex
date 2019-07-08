@@ -100,19 +100,110 @@
 	% Ergebnisse, auch Zahlen, mindestens wenn's halbwegs Sinn ergibt
 	% Was wurde gemacht
 	% manche leute wollen Passiv oder "man", manche nicht
+	In diesem Versuch werden verschiedene Aufbauten verwendet, um die Eigenschaften der optischen Fouriertransformation zu zeigen.
+	Zunächst wird gezeigt, dass die Fraunhofer-Beugung im Fernfeld zu einer Fouriertransformation des Objekts führt, während dies im Nahfeld nicht der Fall ist, indem das Beugungsbild eines Gitters bei verschiedenen Schirmabständen aufgenommen wird.
+	Dann werden für fünf verschiedene Gitter die Gitterabstände aus den Abständen der Beugungsordnungen im Fernfeld auf dem Schirm bestimmt.
+	Dies wird wiederholt für einen Aufbau, in dem das Beugungsbild mit einer Linse aus dem Fernfeld in den Fokus geholt wurde und festgestellt, dass die Ergebnisse zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber sehr ähnlich sind.
+	Es wird ein 4-f-Aufbau verwendet, um mithilfe von verschiedenen Filtern Bildmanipulation zu betreiben.
+	Zuletzt werden mithilfe der Dunkelfeldmethode Luftströmungen oberhalb einer Kerzenflamme sichtbar gemacht.
 
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
 
 
+	\subsection{Kohärenz} % hier nötig? Theoretisch genauso sehr wie beim letzten. lassen i guess
+	Der signifikante Unterschied zwischen einem Laser und einer Glimmlampe besteht in der Fähigkeit zur Interferenz.
+	Die Lichtwellen, die den Laser verlassen, haben eine feste Phasenbeziehung, weshalb nach Trennung des Strahls Interferenz zwischen beiden Teilstrahlen zu beobachten ist.
+
+	Bei der qualitativen Beschreibung der Interferenzfähigkeit unterscheidet man zwischen räumlicher und zeitlicher Kohärenz.
+	Zeitliche Kohärenz kann über Autokorrelation mittels des Michelson-Interferometers gemessen werden.
+	Die Kohärenzlänge ist definiert durch den Abstand (optische Wegdifferenz), der die Länge eines Arms des Interferometers vom Interferenzmaximum wegbewegt werden kann, bevor die durch die Interferenz erzeugte Autokorrelationsfunktion nicht mehr über $1/\text{e}$ steigt.
+	Die Kohärenzlänge ergibt sich aus der Monochromatizität des Lichts, da sich bei perfekt monochromatischem Licht die Phasenbeziehung über keine Entfernung ändert.
+	Die räumliche Kohärenz kann mittels eines Doppelspaltexperiments (oder des Young-Interferometers) gemessen werden, da sie die Phasenbeziehung innerhalb einer Wellenfront beschreibt und der Doppelspalt Interferenz zwischen unterschiedlichen Teilen der Wellenfront realisiert.
+
+	\subsection{Fouriertransformation}
+	Die Fouriertransformation erlaubt die Zerlegung eines Signals in seine Teilfrequenzen.
+	Sie basiert auf der Fourierreihe, erlaubt aber auch die Transformation zeitlich begrenzter Signale.
+	Sie kann auf zweidimensionale Bilder übertragen werden, die dann in räumliche Frequenzen in x- und y-Richtung zerlegt werden.
+	Die räumliche Transformation erfolgt dann gemäß
+	\begin{equation}
+		\mathcal{F}[f(x,y)](\nu_x, \nu_y) = \int _{-\infty}^{\infty} \int^{\infty}_{-\infty} f(x,y) \exp (-2\pi i (\nu_x x + \nu_y y)) \mathrm{d} x \mathrm{d} y = F (\nu_x , \nu_y)
+	\end{equation}
+	und die Rücktransformation gemäß
+	\begin{equation}
+		\mathcal{F}^{-1}[F (\nu_x , \nu_y))](x, y) = \int _{-\infty}^{\infty} \int^{\infty}_{-\infty} F(\nu_x , \nu_y) \exp (2\pi i (\nu_x x + \nu_y )) \mathrm{d} \nu_x \mathrm{d} \nu_y = f (x , y)
+	\end{equation}
+	(vgl. \cite{Anleitung}).
+
+	Räumliche Frequenzen tauchen im Beugungsbild als Punkte auf.
+
+	\subsection{Fraunhofer-Beugung}
+	\label{sec_fraunhofer}
+
+	Was die Fraunhofer-Beugung angeht, reicht es, sich hier darauf zu beschränken, dass durch die Beugung an Spalten und Gittern im Fernfeld eine Fouriertransformation des Spalts bzw. Gitters auftritt.
+	Durch eine Linse kann diese Fouriertransformation rückgängig gemacht werden und das Bild ins Nahfeld geholt werden.
+	Dabei findet eine Spiegelung und Skalierung des Bildes statt.
+
+	Im Nahfeld wird die Beugung dem hingegen durch die Fresnel-Beugung beschrieben.
+
+	\begin{figure}[H]
+			\includegraphics[width=0.75\linewidth]{img/fraunfresnel}
+			\caption{
+				Fresnel- und Fraunhoferbereiche relativ zum Abstand der beugenden Struktur. \cite{Anleitung}
+			}
+			\label{fig_fraunfresnel}
+	\end{figure}
+
+	\subsection{Beugung am Gitter}
+	\label{sec_gitterbeug}
+
+	Einzelspalte entsprechen Rechteckfunktionen, die transformiert Funktionen der Form $\sin{x}/x$ ergeben.
+	Bei einem Doppelspalt tauchen zusätzlich Nebenmaxima auf und bei Gittern ergeben sich einzelne Hauptmaxima hoher Intensität und Nebenmaxima, die je nach Verhältnis von Gitterkonstante und Spaltbreite nicht zu erkennen sind.
+
+	Die Beugung am Gitter ergibt gemäß \cite{Anleitung} bei Spaltabstand $b$, Spaltzahl $N$ und Abstand $d$ die Intensitätsverteilung:
+	\begin{equation}
+		I(\theta) = I_0 \cdot \text{sinc}^2\left(\frac{N \pi d \sin \theta}{\lambda} \right) \cdot \text{sinc}^2\left(\frac{\pi b \sin \theta}{\lambda} \right)
+	\end{equation}
+
+
+	Für das $k$-te Hauptmaximum gilt dann:
+	\begin{equation}
+		b \cdot \sin{\theta} = k \lambda
+	\end{equation}
+	Für kleines $\theta$ gilt $\theta \approx \sin{\theta} \approx \tan{\theta}=\frac{u}{d}$, wobei $u$ der Abstand eines Maximas der Ordnung $k$ zur nullten Ordnung ist und somit:
+	\begin{equation}
+		\label{eq_beug}
+		b = \frac{k\lambda d}{u}
+	\end{equation}
+	$d$ ist dabei der Abstand zwischen Gitter und Schirm.
+
+	\subsection{4-f-Aufbau}
+	Um eine Filterung einzelner Frequenzen aus einer optischen Fouriertransformation zu erlauben, kann der sog. 4-f-Aufbau verwendet werden.
+	Dazu werden wie in \cref{fig_4f_schema} dargestellt zwei Linsen verwendet, die jeweils im Abstand ihrer Brennweite zwischen Objektebene und Fourierebene bzw. Fourierebene und Bildebene stehen.
+	Nun können mit Spalten eindimensionale Tiefpassfilter, mit Nadeln eindimensionale Hochpässe, mit Klarsichtfolien mit schwarzem Punkt zweidimensionale Hochpassfilter und mit Lochblenden zweidimensionale Tiefpässe realisiert werden.
+	Diese erlauben es periodische Strukturen aus dem Bild zu entfernen.
+
+	\begin{figure}[H]
+			\includegraphics[width=1\linewidth]{img/4f_schema}
+			\caption{
+				Objekt-, Fourier- und Brennebene in einem 4-f-Aufbau aus zwei Linsen mit gleicher Brennweite. \cite{Anleitung}
+			}
+			\label{fig_4f_schema}
+	\end{figure}
+
+	\subsection{Dunkelfeldmethode}
+	\label{sec_dunkel}
+
+	Durch Verwendung eines 4-f-Aufbaus mit einem Hochpassfilter lassen sich Phasenveränderungen durch das Objekt als Intensität auf dem Schirm sichtbar machen.
+	Solche Phasenveränderungen können zum Beispiel durch heiße Luftströmungen auftreten, die einen leicht anderen Brechungsindex und somit eine andere Lichtgeschwindigkeit, aus der die Phasendifferenz folgt, als die umgebende Luft zu eigen haben.
+
 	\section{Grundaufbau}
 	Es wird ein Helium-Neon-Laser auf einer \SI{4}{m} langen optischen Bank montiert.
-	Am anderen Ende der Bank wird ein halbtransparenter Schirm aufgestellt, auf den von Hinten eine Digitalkamera gerichtet und fokussiert wird. %TODO "halbtransparent"?
+	Am anderen Ende der Bank wird ein halbtransparenter Schirm aufgestellt, auf den von Hinten eine Digitalkamera gerichtet und fokussiert wird.
 	Der Laser wird mithilfe einer Lochblende parallel zur optischen Bank ausgerichtet.
 	Wenn im Folgenden Linsen eingesetzt werden, wird mithilfe einer Markierung auf einem Schirm sichergestellt, dass der Laserstrahl nach Durchgang durch die Linse noch immer im Mittel parallel zur optischen Bank verläuft, der Laser also mittig durch die Linse läuft. %TODO im Mittel, weil ja nicht jeder Teilstrahl parallel ist. theoretisch auch im vorigen Satz
 	Es wird die Länge in Pixeln eines Abstandes von \SI{10}{cm} anhand eines Lineals auf dem Schirm anhand der Digitalaufnahme gemessen, um den Umrechnungsfaktor von Pixeln in Abstand auf dem Schirm zu bestimmen.
-	%TODO kp, ob du den Umrechnungsfaktor irgendwo hinpacken willst. und wo.
 	Im Folgenden wird die Belichtungszeit der Kamera für jede Aufnahme individuell eingestellt, um eine optimale Abzählung der Peaks zu ermöglichen.
 	Hierfür wird auch eine Überbelichtung in Kauf genommen.
 	Dies verhindert einen Vergleich der Intensitäten zwischen einzelnen Aufnahmen, aber ein solcher ist auch nicht notwendig.
@@ -126,10 +217,33 @@
 	\end{figure}
 
 	\section{Ergebnisse und Diskussion}
-	%TODO ist das fine, dass ich das alles * gemacht habe?
 
-	\subsection{Unsicherheiten}
-	%TODO Unsicherheiten
+	\subsection{Unsicherheiten und Kalibration}
+	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
+	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
+
+	In \cref{fig_kalibration} ist ein exemplarisches Bild der Kamera mit sichtbarem Lineal abgebildet.
+	Es ergibt sich ein Umrechnungsfaktor $\gamma$ von
+	\begin{equation}
+			\label{eq_kali}
+			\gamma = \frac{\SI{10.0+-0.03}{cm}}{\SI{934+-0.3}{px}}=\SI{0.01071+-0.00003}{cm/px}.
+	\end{equation}
+	Wobei die Unsicherheit beim Ablesen des Lineals mit $u(l)=\frac{\SI{1}{mm}}{2\sqrt{6}}$ (analog, Dreiecksverteilung) bestimmt ist.
+	Analog ergibt sich für die Pixelzahl $u(p)=\frac{\SI{1}{px}}{2\sqrt{6}}$.
+	In \cref{eq_kali} wurden die Unsicherheiten zusätzlich mit $\sqrt{2}$ multipliziert, da um die Abstand zweier Punkte zumessen, zweimal gemessen werden muss und sich die Fehler gemäß $\sqrt{u_1^2+u_2^2}$ fortpflanzen.
+
+	Es wird sich im folgenden jedoch zeigen, dass die Unsicherheiten die dadurch entstehen, dass beispielsweise Maxima auf dem Schirm nicht genau ablesbar sind, deutlich gegen über denen der Kalibration überwiegen.
+
+
+	\begin{figure}[H]
+		\includegraphics[width=0.7\linewidth]{raw/0/0_kalibration.png}
+					\caption{
+						Kalibration zur Umrechnung von Pixeln in Abstände.
+						Der zweite kleinere Laserpunkt entsteht durch eine Ablenkung durch einen Graufilter vor dem Laser.
+						Für die nachfolgenden Messungen wurde der Graufilter entfernt.
+					}
+					\label{fig_kalibration}
+			\end{figure}
 
 
 	\subsection{Übergang von Nah- zu Fernfeld}
@@ -138,7 +252,7 @@
 	In den Strahlengang werden zwei Linsen mit $f_1=\SI{50}{mm}$ und $f_2=\SI{100}{mm}$ in einem Abstand von \SI{170}{mm} gebracht, um den Strahl zu kollimieren.
   Dann wird ein Gitter (später Gitter Nr.2) in den Strahl gebracht und in verschiedenen Abständen das Bild auf dem Schirm aufgenommen.
 
-		\begin{figure}[H] %TODO Abstand d kann ich in alles ändern.
+		\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/nahfern}
 					\caption{
 						Aufbau zum Vergleich von Nah- und Fernfeld. Der Abstand zwischen den Kollimierungslinsen beträgt \SI{170}{mm}
@@ -150,14 +264,117 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
+	In \cref{fig_1_mix_1} sind sowohl aufgenommen Kamerabilder als auch logarithmische Intensitätsprofile abgebildet.
+	Die Profile wurden hierbei aus einer anderen Aufnahme mit geringer Belichtungszeit gezogen, da hier eine Überbelichtung und somit ein Abschneiden der Peaks unerwünscht ist, während die Fotografien selbst mit höherer Belichtungszeit besser zu erkennen sind.
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/1/1_fern_bild}
+            \caption%
+            {Kamera, $d=\SI{2580}{mm}$}
+            \label{fig_1_fern_bild}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/1/1_fern_plot}
+            \caption[]%
+            {Profil, $d=\SI{2580}{mm}$}
+            \label{fig_1_fern_plot}
+        \end{subfigure}
+        \vskip\baselineskip
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/1/1_mittel_bild}
+            \caption[]%
+            {Kamera, $d=\SI{1620}{mm}$}
+            \label{fig_mittel_bild}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/1/1_mittel_plot}
+            \caption[]%
+            {Profil, $d=\SI{1620}{m}$}
+            \label{fig_mittel_plot}
+        \end{subfigure}
+        \vskip\baselineskip
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/1/1_mittel2_bild}
+            \caption[]%
+            {Kamera, $d=\SI{1060}{mm}$}
+            \label{fig_mittel2_bild}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/1/1_mittel2_plot}
+            \caption[]%
+            {Profil, $d=\SI{1060}{m}$}
+            \label{fig_mittel2_plot}
+        \end{subfigure}
+        \caption%
+        {
+				Kameraaufnahmen und Intensitätsprofile für verschiedene Abstände $d$.
+				Die Profile wurden aus anderen Bildern, mit geringerer Belichtungszeit extrahiert.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks.
+				}
+        \label{fig_1_mix_1}
+    \end{figure}
+	\begin{figure}[H]\ContinuedFloat
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/1/1_nah_bild}
+            \caption%
+            {Kamera, $d=\SI{370}{mm}$}
+            \label{fig_1_nah_bild}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/1/1_nah_plot}
+            \caption[]%
+            {Profil, $d=\SI{370}{mm}$}
+            \label{fig_1_nah_plot}
+        \end{subfigure}
+        \vskip\baselineskip
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/1/1_ultra_bild}
+            \caption[]%
+            {Kamera, $d=\SI{150}{mm}$}
+            \label{fig_ultra_bild}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/1/1_ultra_plot}
+            \caption[]%
+            {Profil, $d=\SI{150}{m}$}
+            \label{fig_ultra_plot}
+        \end{subfigure}
+        \caption%
+        {
+				Kameraaufnahmen und Intensitätsprofile für verschiedene Abstände $d$.
+				Die Profile wurden aus anderen Bildern, mit geringerer Belichtungszeit extrahiert.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks. (Forts.)
+				}
+        \label{fig_1_mix_2}
+    \end{figure}
 
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	In \cref{fig_1_mix_1} kann man deutlich erkennen, dass für einen großen Abstand zwischen Gitter und Schirm das erwartete Beugungsbild bis zu hohen Beugungsordnungen zu erkennen ist.
+	Je geringer der Abstand jedoch wird, desto schlechter sind die einzelnen Ordnungen zu unterscheiden, da hier die Fresnel-Beugung bzw. der Übergang zwischen Fresnel- und Fraunhofer-Beugung sichtbar wird.
+	Dies entspricht den Erwartungen, da gemäß der Fraunhofer-Beugung (vgl. \cref{sec_fraunhofer}) erst im Fernfeld das in \cref{sec_gitterbeug} beschriebene Beugungsbild auftritt.
 
-
-	\subsection{Bestimmung von Gitterkonstanten}
+	\subsection{Bestimmung der Gitterkonstanten} \label{ss_2_beug}
 
 	\subsubsection*{Methode}
 
@@ -167,20 +384,142 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
+ In \cref{fig_2_mix_1} sind die Intensitätsprofile mit Fits zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
+ Diese wird ermittelt durch Auftragen der Position der Peaks gegen die Peakordnung.
+ In den Grafiken sind in Rot die Positionen der Peaks markiert, deren Position ist nicht immer eindeutig, unter anderem wegen der Überbelichtung, welche jedoch nötig ist um höhere Peaks sichtbar zu machen, und die Unsicherheit wird mit \SI{1}{mm} abgeschätzt.
+ In Magenta sind extrapolierte erwartete Peakpositionen markiert.
 
+ Gemäß \cref{eq_beug} ist für kleine Winkel bzw. $k$:
+ \begin{equation}
+	 \label{eq_beug_verschieb}
+	 u(k) = \frac{k\lambda d}{b} + \text{Verschiebung}
+ \end{equation}
+ Die Verschiebung ist Null wenn man Abstände von dem nullten Maximum misst und kann hier vernachlässigt werden, da die Information über die Gitterkonstante $b$ in der Steigung der Geraden $u(k)$.
+
+ Nun kann man nach \cref{eq_beug_verschieb} mit Abstand $d=\SI{2.715}{m}$ und Wellenlänge $\lambda=\SI{632.8}{nm}$ die Steigung $a$ in die Gitterkonstante $b=\lambda d/a$ umrechnen.
+ Die Ergebnisse für die jeweiligen Gitter sind in \cref{tb_2_beug} aufgelistet.
+
+\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g1}
+            \caption%
+            {Profil, Gitter 1}
+            \label{fig_2_profil_g1}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g1_fit}
+            \caption[]%
+            {Fit, Gitter 1}
+            \label{fig_2_fit_g1}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g2}
+            \caption%
+            {Profil, Gitter 2}
+            \label{fig_2_profil_g2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g2_fit}
+            \caption[]%
+            {Fit, Gitter 2}
+            \label{fig_2_fit_g2}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g3}
+            \caption%
+            {Profil, Gitter 3}
+            \label{fig_2_profil_g3}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g3_fit}
+            \caption[]%
+            {Fit, Gitter 3}
+            \label{fig_2_fit_g3}
+        \end{subfigure}
+        \caption%
+        {
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks.
+				}
+        \label{fig_2_mix_1}
+    \end{figure}
+	\begin{figure}[H]\ContinuedFloat
+        \centering
+
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g4}
+            \caption%
+            {Profil, Gitter 4}
+            \label{fig_2_profil_g4}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g4_fit}
+            \caption[]%
+            {Fit, Gitter 4}
+            \label{fig_2_fit_g4}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g5}
+            \caption%
+            {Profil, Gitter 5}
+            \label{fig_2_profil_g5}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/2/2_gitter_g5_fit}
+            \caption[]%
+            {Fit, Gitter 5}
+            \label{fig_2_fit_g5}
+        \end{subfigure}
+        \caption%
+        {
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks. (Forts.)
+				}
+        \label{fig_2_mix_2}
+    \end{figure}
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c }
+			 Gitter & Steigung $a$ in \si{mm} & Gitterkonstante $b$ in \si{mm} \\ \hline
+			 \input{res/tb_2_beug}
+		\end{tabular}
+		\caption{
+		Aus der Steigung $a$ mit \cref{eq_beug} berechnete Gitterkonstanten $b$.
+		}
+		\label{tb_2_beug}
+\end{table}
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+	Insgesamt sehen die Intensitätsprofile wie im Fernfeld zu erwarten aus und die Peaks sind bis zu hohen Ordnungen zu erkennen.
+	Die Betrachtung der Fit-Funktionen zeigt auch, dass die Position der Peaks selten stark vom Fit abweicht.
+	In \cref{fig_2_profil_g2} sind zwei Maxima auf der linken Seite Beugungsprofil nicht zu erkennen.
+	Dies muss auf ein Untergehen der Peaks im Rauschen durch Hintergrundbeleuchtung zurückgeführt werden.
+	Das teilweise Abschneiden der Spitzen der Maxima aufgrund von Überbelichtung macht die exakte Bestimmung der exakten Maximumsposition etwas schwieriger, erlaubt aber das Erkennen höherer Ordnungen, die bei einer geringeren Belichtungszeit nicht zu erkennen wären.
 
-
-	\subsection{Fouriertransformation mit einer Linse}
-		%TODO hier ist halt weird, dass das nicht so wirklich Fourier ist, aber es ist wohl das aus der Unendlichkeit holen gemeint (Das Fernfeld ist halt instant da.)
-
+	\subsection{Fouriertransformation mit einer Linse} \label{ss_3_beug}
 
 	\subsubsection*{Methode}
 
-		Der vorherige Versuchsteil wird mit dem Unterschied, dass sich nun eine Linse zwischen Schirm und Gitter befindet, widerholt.
+		Der vorherige Versuchsteil wird mit dem Unterschied, dass sich nun eine Linse zwischen Schirm und Gitter befindet, wiederholt.
 		Die Linse wird so eingebaut, dass sich Schirm und Gitter in je einer der Fokusebenen befinden.
 
 	\begin{figure}[H]
@@ -192,33 +531,154 @@
 	\end{figure}
 
 	\subsubsection*{Beobachtung und Datenanalyse}
-	% Allgemeine Beobachtungen
-	% Einflüsse von veränderten Parametern auf Messung
-	%TODO Überstrahlung nahe 0. Ordnung verhindert Zählen -> Extrapolation der Ordnung aus Abstand
-	%TODO bei g1 nichts zu erkennen -> Alternativversuche -> immer noch nicht.
 
+	Das Vorgehen hier ist analog zu \cref{ss_2_beug}.
+	Der einzige Unterschied ist, dass der Abstand $d$ nun durch die Brennweite $f=\SI{500}{mm}=d$ der Linse definiert ist (vgl. \cite{Anleitung2}), also:
+ \begin{equation}
+	 \label{eq_3_beug_verschieb}
+	 u(k) = \frac{k\lambda f}{b} + \text{Verschiebung}
+ \end{equation}
+  Um die Randmaxima gut auflösen zu können wurden eine hohe Beleuchtungszeit gewählt.
+	Als Nachteil hiervon folgt, dass man die Menge der Maxima nahe 0. Ordnung basierend auf den Abständen der äußeren approximieren muss.
+ \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g1}
+            \caption%
+            {Profil, Gitter 1}
+            \label{fig_3_profil_g1}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g1_fit}
+            \caption[]%
+            {Fit, Gitter 1}
+            \label{fig_3_fit_g1}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g2}
+            \caption%
+            {Profil, Gitter 2}
+            \label{fig_3_profil_g2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g2_fit}
+            \caption[]%
+            {Fit, Gitter 2}
+            \label{fig_3_fit_g2}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g3}
+            \caption%
+            {Profil, Gitter 3}
+            \label{fig_3_profil_g3}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g3_fit}
+            \caption[]%
+            {Fit, Gitter 3}
+            \label{fig_3_fit_g3}
+        \end{subfigure}
+        \caption%
+        {
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks.
+				}
+        \label{fig_3_mix_1}
+    \end{figure}
+	\begin{figure}[H]\ContinuedFloat
+        \centering
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g4}
+            \caption%
+            {Profil, Gitter 4}
+            \label{fig_3_profil_g4}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g4_fit}
+            \caption[]%
+            {Fit, Gitter 4}
+            \label{fig_3_fit_g4}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g5}
+            \caption%
+            {Profil, Gitter 5}
+            \label{fig_3_profil_g5}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/3/3_trafo_g5_fit}
+            \caption[]%
+            {Fit, Gitter 5}
+            \label{fig_3_fit_g5}
+        \end{subfigure}
+        \caption%
+        {
+				Intensitätsprofile und Peakfits für verschiedene Gitter.
+				Die x-Achse \enquote{Position} sagt nichts über die absolute Position des Maximums aus, sondern dient lediglich dem Bestimmen von Abständen zwischen Peaks. (Forts.)
+				}
+        \label{fig_3_mix_2}
+    \end{figure}
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{ c | c | c | c }
+			 Gitter & Steigung $a$ in \si{mm} & $b$ in \si{mm} & $b$ in \si{mm} (ohne Linse)\\ \hline
+			 \input{res/tb_3_beug}
+		\end{tabular}
+		\caption{
+		Aus der Steigung $a$ mit \cref{eq_3_beug_verschieb} berechnete Gitterkonstanten $b$.
+		Außerdem sind zum Vergleich die in \cref{ss_2_beug} berechneten Gitterkonstanten $b$ ohne Linse angegeben.
+		}
+		\label{tb_3_beug}
+\end{table}
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-%TODO man verlässt sich halt nicht auf Fernfeld, sondern bringt das Bild in die Endlichkeit.
+% man verlässt sich halt nicht auf Fernfeld, sondern bringt das Bild in die Endlichkeit.
+
+Durch die Verwendung einer Linse wird die Fouriertransformation im Nahfeld dargestellt. %TODO so hat es Merkel formuliert.
+Deswegen überrascht nicht, dass hier auch bei einem geringen Abstand vom Schirm (Fokusebene) das Beugungsbild zu erkennen ist.
+
+Um höhere Beugungsordnungen zu erkennen, muss die Belichtungszeit so groß gewählt werden, dass niedrige Ordnungen nicht mehr zu erkennen sind.
+Der Grad der Ordnung musste deshalb extrapoliert werden, aber dies war mit großer Sicherheit möglich, wie die geringen Abweichungen von der Fitfunktion in \cref{fig_3_mix_2} zeigen.
+Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass die beiden zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber immer noch nahe genug beieinander liegen, um die Verfahren als äquivalent zu zeigen.
+Es liegen keine Referenzwerte für die Gitter vor, um einen Vergleich vorzunehmen, welche Methode korrektere Ergebnisse liefert.
+
+Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf Rauschen durch Hintergrundbeleuchtung zurückgeführt werden muss.
 
 	\subsection{Fourierfilterung}
 
 	\subsubsection*{Methode}
 
 		Der Strahl wird mit einem Linsenpaar auf einen Durchmesser von etwa \SI{50}{mm} aufgeweitet und kollimiert.
-		Es wird ein 4f-Aufbau zur Fourierfilterung verwendet.
+		Es wird ein 4-f-Aufbau zur Fourierfilterung verwendet.
 		Dieser ist in \cref{fig_4f} dargestellt.
 		Dann werden mehrere Messungen mit unterschiedlichen Objekten und Filtern durchgeführt.
 
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/4f}
 			\caption{
-				4f-Aufbau zur Fourierfilterung. $f_1= \SI{5}{mm}$, $f_2 = f_3 = f_4 = \SI{500}{mm}$. Es werden verschiedene Objekte und Filter verwendet.
+				4-f-Aufbau zur Fourierfilterung. $f_1= \SI{5}{mm}$, $f_2 = f_3 = f_4 = \SI{500}{mm}$. Es werden verschiedene Objekte und Filter verwendet.
 			}
 			\label{fig_4f}
 	\end{figure}
+
 
 		Zunächst wird der Schriftzug \enquote{Fourier} überlagert mit einem senkrechten Gitter als Objekt verwendet.
 		Durch einen Tiefpassfilter wird dieser aus dem Bild entfernt.
@@ -226,7 +686,7 @@
 
 		Dann wird ein Bruch als Objekt verwendet, bei dem der Nenner mit einem Gitter überlagert ist.
 		Um den Zähler aus dem Bruch zu entfernen, wird ein eindimensionaler Hochpassfilter in Form einer Nadel verwendet.
-		%TODO Hier haben wir, denke ich, verkackt. Wir haben den Nenner entfernt.
+		% Hier haben wir, denke ich, verkackt. Wir haben den Nenner entfernt.
 
 		Nun wird ein Quadratgitter und ein Spalt als eindimensionaler Tiefpassfilter verwendet.
 		Der Spalt wird im Winkel von \SI{0}{\degree}, \SI{45}{\degree} und \SI{90}{\degree} eingesetzt.
@@ -237,18 +697,201 @@
 		Als Objekt werden die aufsteigenden Luftströme über einer Kerzenflamme verwendet.
 		Damit diese besser sichtbar werden, werden Luftverwirbelungen per Hand eingebracht.
 
-	\subsubsection*{Beobachtung und Datenanalyse}
-	% Allgemeine Beobachtungen
-	% Einflüsse von veränderten Parametern auf Messung
+	\subsubsection*{Beobachtung und Diskussion}
 
-	\subsubsection*{Diskussion}
-	% Bezug/Nutzen oder sonst was
-	% auch hier die Hypothese wiederholen
-	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-%TODO fourierschriftzug: Buchstabenfrequenz kleiner als gitter. Je mehr wegefiltert, desto unschärfer der Schriftzug.
+\begin{itemize}
+	\item{Fourier-Schriftzug:}
+		\begin{figure}[H]
+	        \centering
+	        \begin{subfigure}[b]{0.400\textwidth}
+	            \centering
+	            \includegraphics[width=\textwidth]{raw/4/4_fourier_gitter}
+	            \caption%
+	            {Bild}
+	            \label{fig_4_fourier_gitter}
+	        \end{subfigure}
+	        \hfill
+	        \begin{subfigure}[b]{0.400\textwidth}
+	            \centering
+	            \includegraphics[width=\textwidth]{raw/4/4_fourier_tiefpass}
+	            \caption[]%
+	            {Tiefpass}
+	            \label{fig_4_fourier_filter}
+	        \end{subfigure}
+	        \caption%
+	        {
+					Von einem Gitter überlagerter Schriftzug \enquote{Fourier} mit und ohne Tiefpassfilterung.
+					}
+	        \label{fig_4_fourier}
+	    \end{figure}
+	Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte.
+	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
+	Außerdem wurde bestätigt, dass der 4f-Aufbau das Objekt auf den Kopf projiziert.
+	\item{Bruch:}
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.275\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_halb_gitter}
+            \caption%
+            {Bild}
+            \label{fig_4_halb_gitter}
+        \end{subfigure}
+				\hfill
+        \begin{subfigure}[b]{0.275\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_halb_hochpass}
+            \caption[]%
+            {Hochpass}
+            \label{fig_4_halb_filter}
+        \end{subfigure}
+        \caption%
+        {
+				\enquote{$\frac{1}{2}$}-Bruch, der im unteren Teil mit einem Gitter überlager ist, mit und ohne Hochpassfilterung.
+				}
+        \label{fig_4_halb}
+    \end{figure}
+	Beim Bruch wird ein Hochpassfilter verwendet, um die 2 im Nenner zu entfernen.
+	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also wäre zu erwarten, dass nur der Zähler übrig bleibt, welcher hohe Frequenzen zum Darstellen scharfer Kanten benötigt.
+	Die 2 verschwindet, da die Frequenz des Gitters gefiltert wird und somit auch die Form der 2.
+	In \cref{fig_4_halb} verschwindet der Nenner und der Zähler bleibt bestehen.
+	Analog kann man mittels eines Tiefpassfilters den Zähler eliminieren.
+	%TODO besseren Ansatz habe ich nicht.
+
+	\item{Quadratgitter:}
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltsenkrecht_crop}
+            \caption%
+            {\SI{0}{\degree}}
+            \label{fig_4_quad_0}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltwaagerecht_crop}
+            \caption[]%
+            {\SI{90}{\degree}}
+            \label{fig_4_quad_90}
+        \end{subfigure}
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltdiagonal_crop}
+            \caption%
+            {\SI{45}{\degree}}
+            \label{fig_4_quad_45}
+        \end{subfigure}
+        \caption%
+        {
+					Quadratgitter unter Tiefpassfilterung bei verschiedenen Orientierungen des eindimensionalen Tiefpasses.
+				}
+        \label{fig_4_quad}
+    \end{figure}
+	Die Fouriertransformierte eines Quadratgitters ist eine quadratisches Punktgitter.
+	Der Tiefpass filtert bei einer Einstellung von \SI{0}{\degree} bzw. \SI{90}{\degree} jeweils das Gitter in senkrechter oder in waagerechter Richtung heraus.
+	Eine Einstellung von \SI{45}{\degree} lässt dem hingegen nur die Beugungsordnungen entlang einer Diagonale hindurch.
+	Da diese zueinander den Abstand $\sqrt{2}a$ haben, wenn $a$ der Abstand der Beugungsordnungen in horizontaler und vertikaler Richtung ist, ergibt sich nach der Rücktransformation ein eindimensionales Gitter mit Gitterabständen $b/\sqrt{2}$, wenn $b$ die Gitterkonstante des Quadratgitters ist.
+	Dies ist in \cref{fig_matrix} veranschaulicht.
+	\begin{figure}[H]
+			\includegraphics[width=0.5\linewidth]{img/matrix}
+			\caption{
+				Veranschaulichung der Tiefpassfilterung des Quadratgitters unter einem Winkel von \SI{45}{\degree}. $c=\sqrt{2} \cdot a$. Der dunkelgraue Bereich wird durch die Tiefpassfilterung entfernt.
+			}
+			\label{fig_matrix}
+	\end{figure}
+	Ein Abzählen der Peaks in \cref{fig_4_profil} bestätigt, dass unter einem Winkel von \SI{45}{\degree}, eine Skalierung von $1/\sqrt{2}$ auftritt.
+	\begin{description}
+		\item[\cref{fig_4_profil_90}:] Von \SI{10.5+-0.3}{mm} bis \SI{20.5+-0.3}{mm} werden ca. \SI{12+-1}{} Peaks gezählt.
+		\item[\cref{fig_4_profil_45}:] Von \SI{10.5+-0.3}{mm} bis \SI{19.5+-0.3}{mm} werden ca. \SI{16+-1}{} Peaks gezählt.
+	\end{description}
+	Daraus ergibt sich ein Verhältnis von
+	\begin{equation}
+			k = \frac{(\SI{10.5+-0.3}{})-(\SI{19.5+-0.3}{})}{\SI{16+-1}{}} \cdot \frac{\SI{12+-1}{}}{(\SI{10.5+-0.3}{})-(\SI{20.5+-0.3}{})} = \SI{0.68+-0.08}{}
+	\end{equation}
+	Das Unsicherheitsintervall beinhaltet $1/\sqrt{2}\approx \num{0,707}$.
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/4/4_waag}
+            \caption%
+            {\SI{90}{\degree}}
+            \label{fig_4_profil_90}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/4/4_diag}
+            \caption[]%
+            {\SI{45}{\degree}}
+            \label{fig_4_profil_45}
+        \end{subfigure}
+        \caption%
+        {
+				Profile der Beugungsbild des Quadratgitters.
+				}
+        \label{fig_4_profil}
+    \end{figure}
+	\item{Schraube:}
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_schraub}
+            \caption%
+            {Bild}
+            \label{fig_4_schraub_bild}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_schraub_hochpass}
+            \caption[]%
+            {Hochpass}
+            \label{fig_4_schraub_hochpass}
+        \end{subfigure}
+        \caption%
+        {
+				Schraube mit und ohne Hochpassfilterung.
+				}
+        \label{fig_4_schraub}
+    \end{figure}
+	Der Hochpass macht die großen Strukturen unsichtbar und es bleiben nur die Bereiche zu erkennen, in denen schnelle räumliche Änderungen im Bild sind.
+	Dies ist der Rand der Schraube, wo das Gewinde gut zu erkennen ist.
+\newpage
+	\item{Dunkelfeldmethode:}
+	\begin{figure}[H]
+			\includegraphics[width=0.6\linewidth]{raw/4/4_k_2}
+			\caption{
+				Luftströmungen über Kerze visualisiert mittels Dunkelfeldmethode.
+			}
+			\label{fig_air}
+	\end{figure}
+	Die Luftströmungen sind auf dem Schirm als Flecken unterschiedlicher Helligkeit zu erkennen.
+	Aufgrund der schnellen Bewegung der Strömungen ist es schwer ein Bild aufzunehmen, auf dem sie gut zu erkennen sind.
+	Aber in \cref{fig_air} ist ein solcher Bereich mit Phasendifferenz zu erkennen.
+	Die Tatsache, dass ein Phasenunterschied auftritt, liegt wie in \cref{sec_dunkel} diskutiert am temperaturabhängigen Brechungsindex der Luft.
+\end{itemize}
+
+
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
+	Insgesamt lässt sich sagen, dass die beabsichtigen Eigenschaften der optischen Fouriertransformation erfolgreich sichtbar gemacht werden konnten.
+	Es konnte die Abstandsabhängigkeit des Beugungsbildes eines Gitters deutlich gemacht werden.
+	Konkret wurde gezeigt, dass die Fraunhoferbeugung nur für große Abstände zwischen Schirm und Gitter gültig ist.
+	Dann wurde das Beugungsbild aus dem Fernfeld in die Fokusebene einer Linse gebracht und gezeigt, dass beide Methoden zur Bestimmung der Gitterkonstante zielführend sind.
+	Hier ist anzumerken, dass ein Referenzwert für die tatsächliche Gitterkonstante der Gitter es erlaubt hätte einer Einschätzung zu treffen, welche Methode das präzisere Ergebnis liefert.
+
+	Zuletzt wurde ein 4-f-Aufbau verwendet, um verschiedene Arten der Fourierfilterung deutlich zu machen.
+	So wurde mittels Tiefpassfilterung ein überlagertes Gitter vor einem Schriftzug entfernt.
+	Genauso erfolgreich war das Entfernen des durch ein Gitter überlagerten Teil eines Bilds.
+	Anhand eines Quadratgitters wurde gezeigt, dass einzelne Raumrichtungen des Gitters herausgefiltert werden können oder die Gitterkonstante geändert werden kann.
+	Der Effekt von Hochpassfilterung wurde deutlich gemacht.
+	Die Dunkelfeldmethode wurde angewandt, um die Luftströmungen über einer Kerzenflamme sichtbar zu machen.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
