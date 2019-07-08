@@ -48,6 +48,8 @@
 \MakeOuterQuote{"}
 % Zitieren, Bibliografie
 \usepackage[sorting=none]{biblatex}
+% "\vcentcolon" für := und =:
+\usepackage{mathtools}
 
 
 % Zur Darstellung von Webadressen
@@ -74,7 +76,7 @@
 		\centering
 		{\scshape\LARGE Versuchsbericht zu \par}
 		\vspace{1cm}
-		{\scshape\huge Mirkowellen \par}
+		{\scshape\huge Mirkowellen - Bauelemente und stehende Wellen in Koaxialkabeln \par}
 		\vspace{2.5cm}
 		{\LARGE Gruppe BA-C-04 \par}
 		\vspace{0.5cm}
@@ -104,7 +106,127 @@
   \section{Theorie}
 	% wdh. Texte
 	% wdh. Besprechung
-	
+
+	%Dezibel-Gedöns würde ich weglassen. Ist eigentlich basic.
+
+	\subsection{Leitungstheorie} %TODO vlt. ist die Überschrift komisch, weil das alles Leitungstheorie ist.
+
+	Bei transversalelektromagnetischen Leitern (welche im folgenden verwendet werden) lassen sich die Größen der elektromagnetischen Felder auf die einfacher zu handhabenden Größen Strom und Spannung reduzieren.
+	In \cref{fig_ersatzschaltbild} ist das Ersatzschaltbild eines Abschnittes eines TEM-Leiters dargestellt.
+	Ein TEM-Leiter besteht immer aus Hin- und Rückleitung.
+	Die Größen der vier auftretenden Impedanzen sind abhängig von der Länge des betrachteten Leitungsabschnittes.
+
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/ersatzschaltbild}
+		\centering
+		\caption{
+			Ersatzschaltbild eines Leitungsabschnittes eines transversalelektromagnetischen Leiters. \cite{Anleitung}
+		}
+		\label{fig_ersatzschaltbild}
+		\centering
+	\end{figure}
+
+	Aufstellen der Gleichungen für Maschen- und Knotenregel (vgl. \cite{Anleitung} ) führt zur Übertragungsfunktion:
+	\begin{align}
+		U(x) &= U_h \cdot e^{-\gamma x} + U_r \cdot e^{\gamma x}\\
+		I(x) &= I_h \cdot e^{-\gamma x} - I_r \cdot e^{\gamma x}\\
+		\text{mit} \quad \gamma \vcentcolon &= \sqrt{(R'+i \omega L')(G' +i \omega C')} = \alpha + i \beta
+	\end{align}
+	Dabei ist $\alpha $ der Dämpfungskoeffizient.
+
+	\subsection{Leitungsabschluss}
+	Wenn an einem Kabelende keine Reflexionen auftauchen sollen, muss der Reflexionskoeffizient verschwinden.
+	Dieser ist definiert als:
+	\begin{equation}
+		r = \frac{Z_a-Z_L}{Z_a+Z_L} %TODO iirc war die Gleichung falsch (+- getauscht) und ist so richtig. ergibt auch Sinn.
+	\end{equation}
+	Dabei ist der  Leitungswiderstand
+	\begin{equation}
+		Z_L=\sqrt{\frac{L'}{C'}}.
+	\end{equation}
+	Der Abschlusswiderstand $Z_a$ soll also gleich zum Leitungswiderstand sein.
+
+	Beim Reflexionskoeffizient entspricht $r=-1=1 \cdot e^{i\pi}$ einem Phasensprung von $\pi$.
+
+	\subsection{Stehende Wellen}
+
+	Stehende Wellen zeichnen sich dadurch aus, dass sie Knotenpunkte besitzen, an denen der Ausschlag stets Null ist und deren Position zeitlich konstant ist.
+	Sie treten bei vollständiger Reflexion, also $| r | < 1	$, an eienr Barriere auf.
+
+	Bei Betrachtung einer verlustlosen Leitungder Länge $l$, die an beiden Enden vollständig reflektiert, ergibt sich für die transmittierte Leistung die Airy-Funktion:
+
+	\begin{align}
+		P_t = \frac{|U_h|^2}{Z_L} \cdot \left( \frac{T}{1-R} \right) ^2 \cdot \frac{1}{1+F \sin^2 \left( \frac{\phi}{2} \right) } \\
+		\text{mit dem Finesse-Faktor} \quad F= \frac{4R}{(1-R)^2} \\
+		\text{und} \quad R = |r_1 ||r_2 |, \quad T= |t_1||t_2|,
+	\end{align}
+	wobei $t_{1,2}$ und $r_{1,2}$ die Reflexions- bzw. Transmissionskoeffizienten an den Leitungsenden sind.
+
+	Diese wird maximal für
+	\begin{equation}
+	\sin ^2 \left( \frac{\phi}{2} \right) = 0 \Rightarrow 2k_nl -\varphi_1 - \varphi_2 = 2\pi n,
+	\end{equation}
+	wobei $\varphi_1, \varphi_2 $ die Phasensprünge an den beiden Enden der Leitung sind und $n \in \mathbb{Z}$.
+
+	\subsection{Lecherleitung und Koaxialleitung}
+	Bei der Lecherleitung verlaufen Feldlinien des elektromagnetischen Feldes weit außerhalb des Leiters und führen so zu erhöhtem Leitungswiderstand und erlauben ein Einkoppeln von Außen in die Übertragung.
+	In einer Koaxialleitung wird dies dadurch, dass eine Leitung innerhalb der anderen verläuft minimiert.
+	Der Vergleich ist in \cref{fig_lecherkoaxial} dargestellt.
+
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/lecher}
+            \caption{
+							Lecherleitung
+						}
+            \label{fig_lecher}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.40\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/koaxial}
+            \caption{
+						Koaxialleitung
+						}
+            \label{fig_koaxial}
+        \end{subfigure}
+
+        \caption{Vergleich zwischen dem Verlauf der Feldlinien bei Lecher- und Koaxialleitung. \cite{Anleitung}}
+				\label{fig_lecherkoaxial}
+	\end{figure}
+
+
+	\subsection{Mikrostreifenleitung}
+
+	Wenn Mikrowellenleitungen auf Platinen verbaut werden sollen, ist die Koaxialleitung unpraktikabel.
+	Hier kommt die Mikrostreifenleitung zum Einsatz, die, wie in \cref{fig_mikrostreifen} dargestellt, aus einem Leiter, der durch ein Dielektrikum von einer leitenden Fläche getrennt wird, besteht.
+	Dies ist eine Kompromisslösung, da sie außerhalb verlaufende Feldlinien hat.
+
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/mirkostreifen}
+		\centering
+		\caption{
+			Verlauf der Feldlinien bei einer Mikrostreifenleitung. \cite{Anleitung}
+		}
+		\label{fig_mikrostreifen}
+		\centering
+	\end{figure}
+
+
+	\subsection{Richtkoppler}
+
+
+	\subsection{Zirkulator}
+
+
+	\subsection{Isolator (Richtleitung)}
+
+
+	\subsection{Detektordiode}
+
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
