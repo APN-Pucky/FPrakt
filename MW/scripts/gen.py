@@ -170,22 +170,89 @@ plt.xlabel("Leistung in dBm")
 plt.tick_params(labelsize=fig_labelsize)
 plt.savefig("MW/img/diode-kali.pdf")
 plt.show()
-# %% freq plot
 
-names = glob.glob("MW/raw/*.txt")
-for name in names:
+# %% isolator plot
+names = ["MW/raw/isolator-durchlass-frequenz.txt","MW/raw/isolator-antidurchlass-frequenz.txt"]
+fig = plt.figure(figsize=fig_size)
+for i in range(len(names)):
+    name = names[i]
     nname =os.path.basename(name)
     nnname = nname.split('.')[0]
     data = np.loadtxt(name, skiprows = 1)
-    fig = plt.figure(figsize=fig_size)
     xd = data[:,0]
-    yd = inverse_custom_exp(data[:,1],*fit)
+    if i == 0:
+        yd = inverse_custom_exp(data[:,1],*fit)
+        ll = "Durchlass"
+    if i == 1:
+        yd = inverse_custom_exp(data[:,1],*fit)
+        ll = "Sperre"
     #plt.plot(xd,yd,"x",label="Messung")
-    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label="Messung")
-    plt.grid()
-    plt.legend(prop={'size':fig_legendsize})
-    plt.ylabel("Leistung in dBm")
-    plt.xlabel("Frequenz in GHz")
-    plt.tick_params(labelsize=fig_labelsize)
-    plt.savefig("MW/img/" + nnname + ".pdf")
-    plt.show()
+    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+plt.grid()
+plt.legend(prop={'size':fig_legendsize})
+plt.ylabel("Leistung in dBm")
+plt.xlabel("Frequenz in GHz")
+plt.tick_params(labelsize=fig_labelsize)
+plt.savefig("MW/img/" + "isolator" + ".pdf")
+plt.show()
+# %% richtkop plot
+#names = glob.glob("MW/raw/*.txt")
+names = ["MW/raw/richtkop-1zu2-freq.txt","MW/raw/richtkop-1zu4-freq.txt","MW/raw/richtkop-2zu4-freq.txt"]
+fig = plt.figure(figsize=fig_size)
+for i in range(len(names)):
+    name = names[i]
+    nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
+    data = np.loadtxt(name, skiprows = 1)
+    xd = data[:,0]
+
+    if i == 0:
+        yd = 10-inverse_custom_exp(data[:,1],*fit)
+        ll = "Einfügedämpfung"
+    if i == 1:
+        yd = 10-inverse_custom_exp(data[:,1],*fit)
+        ll = "Koppeldämpfung"
+    if i == 2:
+        yd = 10-inverse_custom_exp(data[:,1],*fit)
+        ll = "Isolation"
+
+
+    #plt.plot(xd,yd,"x",label="Messung")
+    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+plt.grid()
+plt.legend(prop={'size':fig_legendsize})
+plt.ylabel("Dämpfung in dB")
+plt.xlabel("Frequenz in GHz")
+plt.tick_params(labelsize=fig_labelsize)
+plt.savefig("MW/img/" + "richtkop" + ".pdf")
+plt.show()
+
+# %% zirkulator
+#names = glob.glob("MW/raw/*.txt")
+names = ["MW/raw/zirk-9594-freq-pfeil.txt","MW/raw/zirk-9594-freq-antipfeil.txt","MW/raw/zirk-12893-pfeil-freq.txt","MW/raw/zirk-12893-antipfeil-freq.txt"]
+fig = plt.figure(figsize=fig_size)
+for i in range(len(names)):
+    name = names[i]
+    nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
+    data = np.loadtxt(name, skiprows = 1)
+    xd = data[:,0]
+
+    yd = 10-inverse_custom_exp(data[:,1],*fit)
+    if i == 0:
+        ll = "Durchlassdämpfung 9594"
+    if i == 1:
+        ll = "Sperrdämpfung 9594"
+    if i == 2:
+        ll = "Durchlassdämpfung 12893"
+    if i == 3:
+        ll = "Sperrdämpfung 12893"
+    #plt.plot(xd,yd,"x",label="Messung")
+    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+plt.grid()
+plt.legend(prop={'size':fig_legendsize})
+plt.ylabel("Dämpfung in dB")
+plt.xlabel("Frequenz in GHz")
+plt.tick_params(labelsize=fig_labelsize)
+plt.savefig("MW/img/" + "zirkulator" + ".pdf")
+plt.show()
