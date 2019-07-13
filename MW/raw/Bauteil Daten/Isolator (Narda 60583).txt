@@ -1,0 +1,8 @@
+Narda 60583
+
+Isolator
+
+Frequenzbereich:  3 bis 8,5 GHz
+Einfügedämpfung:  < 1 dB
+Isolation:        > 20 dB
+Anschlüsse:       2 x SMA (f)
