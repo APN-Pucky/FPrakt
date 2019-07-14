@@ -227,13 +227,15 @@
 	\subsection{Richtkoppler} \label{ss_richt}
 
 	In \cref{fig_richtkoppler} ist das Prinzip eines Richtkopplers dargestellt.
-	Dieser basiert auf konstruktiver oder destruktiver Interferenz.
+	Dieser basiert auf konstruktiver und destruktiver Interferenz.
 	Wird angenommen, dass ein Signal über Leitung 1 einläuft, so ist schnell festzustellen, dass das Signal über die beiden direkten Wege dieselbe Strecke zurücklegt, also keine Laufzeitdifferenz aufweist, sodass an 4 konstruktive Interferenz herrscht, das Signal also übertragen wird.
 	Die übertragene Leistung hängt von der Stärke der Kopplung ab.
 	Wenn andersherum ein Signal von 1 nach 3 läuft, ergibt sich ein Laufzeitunterschied von $\lambda/2$ zwischen den beiden wahrscheinlichsten (und gleichwahrscheinlichen, wenn Kopplung 1 und 2 gleich sind) Wegen.
 	Dementsprechend tritt destruktive Interferenz auf.
 
-	So ergibt sich die Funktionsweise des Richtkopplers, die Wellen, welche von 1 nach 2 laufen auf Ausgang 4 koppelt, während Wellen, die von 2 nach 1 laufen auf Ausgang 3 gekoppelt werden.
+	So ergibt sich die Funktionsweise des Richtkopplers:
+	Die Wellen, welche von 1 nach 2 laufen, werden auf Ausgang 4 gekoppelt, während Wellen, die von 2 nach 1 laufen, auf Ausgang 3 gekoppelt werden.
+	Der Richtkoppler erlaubt also eine Trennung von Wellen je nach Ausbreitungsrichtung.
 
 	\begin{figure}[H]
 		\includegraphics[width=0.8\textwidth]{img/richtkoppler.png}
@@ -256,7 +258,7 @@
 		\label{eq_einfueged}\\
 	\end{align}
 
-	Da die Weglängendifferenz natürlich in dieser simplifizierten Variante nur für exakt eine Frequenz passen kann, ist die Bauweise in der Realität komplexer, um eine weitere Bandbreite zuzulassen.
+	Da die Weglängendifferenz in dieser simplifizierten Variante nur für exakt eine Frequenz passen kann, ist die Bauweise in der Realität komplexer, um eine breitere Bandbreite zuzulassen.
 
 	\subsection{Zirkulator und Richtleitung}
 
@@ -334,7 +336,7 @@
 	Es wird der in \cref{fig_aufbau_bauteile} dargestellte Aufbau mit der zuvor vermessenen Diode verwendet.
 	Dann wird für die im Folgenden genannten Bauteile Messungen auf einem jeweils etwas breiteren Frequenzband, als laut Hersteller empfohlen, durchgeführt.
   Bei den Messungen wird jeweils bei fester Eingangsleistung die Ausgangsspannung der Diode gemessen.
-	Vermessen werden Isolator (Richtleitung), Richtkoppler und zwei verschiedene Zirkulatoren (jeweils nur zwischen zwei Ein- bzw. Ausgängen).
+	Vermessen werden Isolator (Richtleitung), Richtkoppler und zwei verschiedene Zirkulatoren (diese jeweils nur zwischen zwei Ein- bzw. Ausgängen).
 	Als Eingangsleistung werden im Folgenden immer \SI{10}{dBm} gewählt.
 
 	\begin{figure}[H]
@@ -351,10 +353,10 @@
 
 	Um stehende Wellen in einem Koaxialkabel zu erzeugen, wird der Aufbau in \cref{fig_aufbau_resonanzen} verwendet.
 	Der Koppler wird durch eine Mirkowellenleitung realisiert, welche als Spiegel mit einer Transmittivität von \SI{1}{\percent} und einer Reflektivität von \SI{99}{\percent} (näherungsweise) fungiert.
-	Die Teilwellen, welche in der Messleitung laufen, erzeugen dort stehende Wellen, aufgrund der Totalreflexion am Ende des Kabels.
+	Die Teilwellen, welche in der Messleitung laufen, erzeugen dort aufgrund der Totalreflexion am Ende des Kabels stehende Wellen.
 
 	Um die Funktionsweise des Messapparates zu verstehen, bietet sich der Vergleich zum Michelson-Interferometer an.
-	Hierbei entspricht das untersuchte Kabel dem verstellbaren Arm eines Interferometers.
+	Hierbei entspricht das untersuchte Kabel dem in der Länge verstellbaren Arm des Interferometers.
 	Anstatt jedoch die Länge des Arms zu variieren, wird hier die Frequenz geändert.
 	Wenn die Weglänge der Mikrowellen in der Messleitung nun ein Vielfaches der Wellenlänge beträgt, interferiert der Anteil der Mikrowellen, die die Messleitung am Koppler verlassen positiv mit denen, die direkt am Koppler reflektiert wurden.
 	Gleiches gilt für Wellen, die mehrfach die Messleitung durchlaufen, bevor sie sie verlassen.
@@ -371,7 +373,7 @@
 		\includegraphics[width=0.8\textwidth]{img/aufbau_resonanzen.png}
 		\centering
 		\caption{
-		 	Messaufbau zur Messung von stehenden Wellen in einem Koaxialkabel. Die Messleitung wird ohne Widerstand abgeschlossen (Kurzschluss). \cite{Anleitung}
+		 	Messaufbau zur Messung von stehenden Wellen in einem Koaxialkabel. Die Messleitung wird durch direkte Verbindung ohne Widerstand abgeschlossen (Kurzschluss). \cite{Anleitung}
 		}
 		\label{fig_aufbau_resonanzen}
 		\centering
@@ -388,9 +390,9 @@
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
 	% Berechung nach Aufgabenstellung
-	In \cref{fig_diode_kali} sind die aus verschiedenen Eingabeleistungen resultierenden Spannungen mit einer Exponentialfunktion \cref{eq_kali} angepasst worden.
-	Die letzten drei Messpunkte wurden für den Fit ausgeschlossen, da diese nicht mehr der exponentiellen Natur entsprechen.
-	Dementsprechend können Messwerte der Diode in diesem Bereich auch nicht mehr zuverlässig umgerechnet werden.
+	In \cref{fig_diode_kali} sind die aus verschiedenen Eingabeleistungen resultierenden Spannungen mit einer Exponentialfunktion gemäß \cref{eq_kali} angepasst worden.
+	Die höchsten drei Messpunkte wurden für den Fit ausgeschlossen, da diese nicht mehr der exponentiellen Natur entsprechen.
+	Dementsprechend können Messwerte der Diode in diesem Bereich auch nicht mehr zuverlässig umgerechnet werden (wurden aber auch im Folgenden nicht aufgezeichnet).
 
 	\begin{equation}
 		\label{eq_kali}
@@ -407,7 +409,7 @@
 		\label{fig_diode_kali}
 		\centering
 	\end{figure}
-	Mithilfe der Inversen Exponentialfunktion \cref{eq_inv_kali} lassen sich im folgenden gemessen Spannungen in eine Leistung umrechnen.
+	Mithilfe der Inversen Exponentialfunktion \cref{eq_inv_kali} lassen sich im Folgenden gemessen Spannungen in Leistung umrechnen.
 
 	\begin{equation}
 		\label{eq_inv_kali}
@@ -418,13 +420,13 @@
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
-	Wie in \cref{fig_diode_kali} ist zu erkennen, dass sich die Annahme eines exponentiellen Zusammenhangs zwischen Leistung und Spannung an der Diode bestätigen lässt.
+	In \cref{fig_diode_kali} ist zu erkennen, dass sich die Annahme eines exponentiellen Zusammenhangs zwischen Leistung und Spannung an der Diode bestätigen lässt.
 	Warum die drei Punkte am oberen Ende der gemessenen Leistung scheinbar horizontal verlaufen, kann nicht mit Sicherheit geklärt werden.
-	Es liegt jedoch die Vermutung nahe, dass eines der Bauteile oder Messgeräte in einen Sättigungsbereich kommt, sodass die gemessene Spannung konstant wird.
+	Es liegt jedoch die Vermutung nahe, dass eines der Bauteile oder Messgeräte in einen Sättigungsbereich kommt, weshalb die gemessene Spannung konstant wird.
 
 	\subsection{Isolator (Richtleitung)}
-	In \cref{fig_isolator} sind die gemessene frequenzabhängige Dämpfungen des Isolators in beide Richtungen abgebildet.
-	Hierzu wurde die Spannung wie im vorherigen Abschnitt erläutert in eine Leistung umgerechnet.
+	In \cref{fig_isolator} sind die gemessenen frequenzabhängigen Dämpfungen des Isolators in beide Richtungen abgebildet.
+	Hierzu wurde die Spannung, wie im vorherigen Abschnitt erläutert, in eine Leistung umgerechnet.
 	Die Dämpfung $\alpha$ ist
 	\begin{equation}
 		\alpha = 10 \cdot \lg{(P_{\text{in}}/P_{\text{out}})} \cdot \si{dB}
@@ -447,7 +449,6 @@
 		\centering
 	\end{figure}
 	\subsubsection*{Diskussion}
-	%TODO Bandbreite Abschätzen und ggf. vergleichen mit Lit.
 
 	Anhand von \cref{fig_isolator} soll abgeschätzt werden, welcher Frequenzbereich für die Verwendung brauchbar ist.
 	Dies ist im Allgemeinen der Bereich, in dem die Durchlassdämpfung gering und die Sperrdämpfung groß ist.
@@ -458,10 +459,10 @@
 	Dies deckt sich zwar im Wesentlichen mit der Angabe auf Basis der Messung, bei Frequenzen sehr nahe an \SI{3}{\giga \hertz} kann jedoch anhand von \cref{fig_isolator} von einer Verwendung abgeraten werden.
 
 	Die Herstellerin gibt außerdem an, dass im Verwendungsbereich die Einfügedämpfung unter \SI{1}{dB} und die Isolation über \SI{20}{dB} liege.
-	Die erste Angabe kann widerlegt werden und die zweite trifft abgesehen von den oben genannten Frequenzen nahe \SI{3}{\giga \hertz} zu.
+	Die erste Angabe kann widerlegt werden und die zweite trifft zu, wenn man von den oben genannten Frequenzen nahe \SI{3}{\giga \hertz} absieht.
 
 	\subsection{Richtkoppler}
-	In analoger Weise erhält man auch die frequenzabhängigen Dämpfungen des Richtkopplers, wie in \cref{ss_richt} definiert.
+	In analoger Weise zu Zuvor erhält man auch die frequenzabhängigen Dämpfungen des Richtkopplers, wie in \cref{ss_richt} definiert.
 	Wobei $P_\text{in}$ wieder \SI{10}{dBm} ist.
 	\begin{figure}[H]
 		\includegraphics[width=0.8\textwidth]{img/richtkop}
@@ -474,9 +475,8 @@
 	\end{figure}
 	\subsubsection*{Diskussion}
 
-	Anhand der zuvor beschriebenen Kriterien ergibt sich aus \cref{fig_richt} ein Verwendungsbereich für den Richtkoppler (Narda 4226-10) ein Frequenzbereich von \SIrange{2,6}{17,4}{\giga \hertz}.
-	Die Herstellerin gibt einen Bereich von \SIrange{0,5}{18}{\giga \hertz} an, was bei geringen Frequenzen deutliche Abweichungen von der nominellen Einfüge- und Koppeldämpfung ergeben würde.
-	%TODO da sind noch andere Angaben, aber die verstehe ich teilweise nicht und sie sind ultra gelogen.
+	Anhand der zuvor beschriebenen Kriterien ergibt sich aus \cref{fig_richt} ein Verwendungsbereich für den Richtkoppler (Narda 4226-10) von \SIrange{2,6}{17,4}{\giga \hertz}.
+	Die Herstellerin gibt einen Bereich von \SIrange{0,5}{18}{\giga \hertz} an, was bei geringen Frequenzen deutliche Abweichungen von der durchschnittlichen Einfüge- und Koppeldämpfung ergeben würde.
 
 	\subsection{Zirkulator}
 	Ebenfalls analog zum Isolator ist die Bestimmung von Durchlass und Sperrdämpfung von Zirkulatoren.
@@ -491,16 +491,15 @@
 		\centering
 	\end{figure}
 	\subsubsection*{Diskussion}
-	%TODO 9594 pass ca mit lit. Messung png
 	Für den ersten Zirkulator (Modell: F61-1FFF, S/N: 9594) kann ein Verwendungsbereich von \SIrange{2}{4}{\giga \hertz} angegeben werden.
 	Dies entspricht der Herstellerinnenangabe.
-	Die Angabe der Sperrdämpfung mit \SIrange{20,36}{29,14}{dB} (je nach Frequenz und verwendetem Eingang) entspricht ebenfalls der Messung.
-	%TODO soll insertion loss Durchlassdämpfung sein? Das passt halt nicht sehr gut. ja
+	Die Angabe der Sperrdämpfung mit \SIrange{20,36}{29,14}{dB} (je nach Frequenz und verwendetem Eingang) kann mit der Messung ebenfalls nicht widerlegt werden.
+	Die Angabe der Durchlassdämpfung als \SIrange{0,3}{0,41}{dB} widerspricht der Messung jedoch stark.
 
 	Für den zweiten Zirkulator (Modell: H60-1FFF, S/N: 12893) ergibt sich ein Frequenzbereich von \SIrange{4}{8,3}{\giga \hertz}, was die Herstellerinnenangabe von \SIrange{4}{8}{\giga \hertz} beinhaltet.
 	Die Sperrdämpfung wird mit \SIrange{21,5}{36,08}{dB} angegeben.
 	In der Messung fiel diese jedoch bis auf \SI{19,66 \pm 0,17}{dB} ab.
-	%TODO Durchlassdämpfung wie oben. ja
+	Die Durchlassdämpfung wird als \SIrange{0,23}{0,33}{dB} angegeben und auch hier werden experimentell deutlich schlechtere Werte gemessen.
 
 	\subsection{Stehende Wellen}
 	In \cref{fig_steh_well} sind die Leistungsspektren der zwei vermessenen am Ende kurzgeschlossenen Kabel aufgeführt.
@@ -545,7 +544,7 @@
         \label{fig_steh_well}
     \end{figure}
 
-	Aus dem Abstand der Frequenzen bei denen eine Resonanz auftritt lässt sich die Ausbreitungsgeschwindigkeit im Medium bestimmen.
+	Aus dem Abstand der Frequenzen, bei denen eine Resonanz auftritt, lässt sich die Ausbreitungsgeschwindigkeit im Medium bestimmen.
 
 	\cref{eq_inter} lässt sich mittels $k_n = 2\pi f_n/c$ umschreiben zu:
 	\begin{equation}
@@ -556,9 +555,9 @@
 	c = 2l\Delta f
 	\end{equation}
 	Der Frequenzabstand $\Delta f$ wird durch den Fit gemittelt.
-	Die Unsicherheit der Resonanzfrequenzen $f_n$ ergibt sich aus der Abtastfrequenz, also dem Abstand von Frequenzen in welchem die Leistungen gemessen werden.
+	Die Unsicherheit der Resonanzfrequenzen $f_n$ ergibt sich aus der Abtastfrequenz, also dem Abstand von Frequenzen, in welchem die Leistungen gemessen werden.
 	Mit einer Rechteckverteilung resultiert $u(f_n)= \SI{5}{MHz}/\sqrt{3}$.
-	Die Permittivitätszahl des Dielektrikums ist $\epsilon_r=(c_0/c)^2$, wobei $c_0$ die Lichtgeschwindigkeit im Vakuum ist und die Permeabilitätszahl $\mu_r=1$ genährt wird.
+	Die Permittivitätszahl des Dielektrikums ist $\epsilon_r=(c_0/c)^2$, wobei $c_0$ die Lichtgeschwindigkeit im Vakuum ist und die Permeabilitätszahl mit $\mu_r \approx 1$ genähert wird.
 	Die Ergebnisse sind in \cref{tb_res} aufgeführt.
 
 \begin{table}[H]
@@ -589,9 +588,9 @@
 	Insgesamt lässt sich sagen, dass alle Messungen erfolgreich durchgeführt werden konnten.
 	So konnten die Dämpfungen verschiedener Bauteile in Abhängigkeit von der Frequenz bestimmt werden.
 	Für diese Bauteile wurde der Frequenzbereich angegeben, in dem die Dämpfungen näherungsweise konstant sind, in denen die Bauteile also verwendet werden sollten.
-	Der Vergleich dieses Frequenzbereiches mit den Angaben der Herstellerin führte teilweise zu Bestätigung, teilweise zu Diskrepanz.
+	Der Vergleich dieses Frequenzbereiches mit den Angaben der Herstellerin führte teilweise zu Bestätigung, teilweise zu leichter Diskrepanz.
 
-	Außerdem konnten stehende Wellen in zwei verschiedenen Koaxialkabeln nachgewiesen werden und die relative Permittivitäten der Dielektrika der beiden Kabel bestimmt werden.
+	Außerdem konnten stehende Wellen in zwei verschiedenen Koaxialkabeln herbeigeführt werden und die relativen Permittivitäten der Dielektrika der beiden Kabel bestimmt werden.
 	Ein Vergleich mit den Permittivitäten von Stoffen, die in Koaxialkabeln üblicherweise als Dielektrikum verwendet werden, ließ grobe Schlüsse auf das verwendete Material zu.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
