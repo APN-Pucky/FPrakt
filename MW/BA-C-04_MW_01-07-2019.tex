@@ -87,7 +87,7 @@
 
 		durchgeführt am 01.07.2019\par
 		betreut von\par
-		{\large Dr. Johann Jersch} %TODO fine so?
+		{\large Dr. Johann Jersch}
 
 		\vfill
 
@@ -116,7 +116,7 @@
 
 	%Dezibel-Gedöns würde ich weglassen. Ist eigentlich basic.
 
-	\subsection{Leitungstheorie} %TODO vlt. ist die Überschrift komisch, weil das alles Leitungstheorie ist.
+	\subsection{Leitungstheorie}
 
 	Bei transversalelektromagnetischen Leitern (welche im folgenden verwendet werden) lassen sich die Größen der elektromagnetischen Felder auf die einfacher zu handhabenden Größen Strom und Spannung reduzieren.
 	In \cref{fig_ersatzschaltbild} ist das Ersatzschaltbild eines Abschnittes eines TEM-Leiters dargestellt.
@@ -228,7 +228,7 @@
 
 	In \cref{fig_richtkoppler} ist das Prinzip eines Richtkopplers dargestellt.
 	Dieser basiert auf konstruktiver oder destruktiver Interferenz.
-	Wird angenommen, dass ein Signal über Leitung 1 einläuft, so ist schnell festzustellen, dass das Signal über die beiden direkten Wege dieselbe Strecke zurücklegt, also keine Laufzeitdifferenz aufweist, sodass an 4 konstruktive Interferenz herrscht, das Signal also übertragen wird. %TODO erwähnen, dass das auch im Kreis laufen kann und dann destruktiv ist?
+	Wird angenommen, dass ein Signal über Leitung 1 einläuft, so ist schnell festzustellen, dass das Signal über die beiden direkten Wege dieselbe Strecke zurücklegt, also keine Laufzeitdifferenz aufweist, sodass an 4 konstruktive Interferenz herrscht, das Signal also übertragen wird.
 	Die übertragene Leistung hängt von der Stärke der Kopplung ab.
 	Wenn andersherum ein Signal von 1 nach 3 läuft, ergibt sich ein Laufzeitunterschied von $\lambda/2$ zwischen den beiden wahrscheinlichsten (und gleichwahrscheinlichen, wenn Kopplung 1 und 2 gleich sind) Wegen.
 	Dementsprechend tritt destruktive Interferenz auf.
@@ -305,7 +305,7 @@
 	Die Diode wird charakterisiert durch die Diodenkennlinie, die die Abhängigkeit vom Stromfluss zur angelegten Spannung angibt und idealerweise der folgenden Gleichung gehorcht:
 	\begin{equation}
 		\label{eq_diode_ideal}
-		I = I_0 \left[ \exp \left( \frac{eU}{n k_B T} \right) -1 \right] %TODO prüfen, ob das schön ist, weil kann ich nicht
+		I = I_0 \left[ \exp \left( \frac{eU}{n k_B T} \right) -1 \right]
 	\end{equation}
 
 
@@ -351,12 +351,18 @@
 
 	Um stehende Wellen in einem Koaxialkabel zu erzeugen, wird der Aufbau in \cref{fig_aufbau_resonanzen} verwendet.
 	Der Koppler wird durch eine Mirkowellenleitung realisiert, welche als Spiegel mit einer Transmittivität von \SI{1}{\percent} und einer Reflektivität von \SI{99}{\percent} (näherungsweise) fungiert.
-	Die Teilwellen, welche in der Messleitung laufen, können, wenn die Weglänge der Wellen in der Messleitung einem Vielfachen ihrer Wellenlänge entspricht, dort stehende Wellen erzeugen.
-	Hierbei ist anzumerken, dass streng genommen abhängig von der Art des Abschlusses ein unterschiedlicher Phasensprung $\phi$ an diesem Ende des Kabels auftritt, sodass nicht von einem Vielfachen gesprochen werden kann, sondern die Weglänge $s = n\lambda - \phi$ sein muss.
-	Da jedoch in der Auswertung nur die Frequenzdifferenz zwischen den Resonanzen betrachtet wird, spielt das hier keine Rolle.
+	Die Teilwellen, welche in der Messleitung laufen, erzeugen dort stehende Wellen, aufgrund der Totalreflexion am Ende des Kabels.
 
-	Wann immer stehende Wellen auftreten, kommt ausschließlich die am Koppler reflektierte Leistung an der Messdiode an, sodass die gemessene Spannung hier geringer ist, als wenn Wellen die Messleitung wieder über den Koppler verlassen können.
-	%TODO habe ich das richtig verstanden?
+	Um die Funktionsweise des Messapparates zu verstehen, bietet sich der Vergleich zum Michelson-Interferometer an.
+	Hierbei entspricht das untersuchte Kabel dem verstellbaren Arm eines Interferometers.
+	Anstatt jedoch die Länge des Arms zu variieren, wird hier die Frequenz geändert.
+	Wenn die Weglänge der Mikrowellen in der Messleitung nun ein Vielfaches der Wellenlänge beträgt, interferiert der Anteil der Mikrowellen, die die Messleitung am Koppler verlassen positiv mit denen, die direkt am Koppler reflektiert wurden.
+	Gleiches gilt für Wellen, die mehrfach die Messleitung durchlaufen, bevor sie sie verlassen.
+	Ist die Weglänge jedoch ein $(n+0,5)$-faches der Wellenlänge, so kommt es zu destruktiver Interferenz und die gemessene Leistung nimmt ab.
+
+	Hierbei ist anzumerken, dass streng genommen abhängig von der Art des Abschlusses ein unterschiedlicher Phasensprung $\phi$ an diesem Ende des Kabels auftritt, sodass nicht von einem Vielfachen gesprochen werden kann, sondern die Weglänge $s = n\lambda - \phi$ sein muss.
+	Da jedoch in der Auswertung nur die Frequenzdifferenz zwischen den Resonanzen betrachtet wird, spielt weder dieser Phasensprung noch der am Koppler hier keine Rolle.
+
 	Der Zirkulator sorgt dafür, dass näherungsweise keine Wellen vom Generator direkt an der Messdiode ankommen und keine am Koppler reflektierten Wellen wieder im Mikrowellengenerator einlaufen.
 
 	Es wird für zwei verschiedene Kabel in einem Frequenzbereich von \SIrange{2,5}{3,5}{\giga \hertz} die Spannung am Multimeter gemessen.
