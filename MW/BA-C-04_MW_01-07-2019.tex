@@ -140,20 +140,20 @@
 	\begin{equation}
 		r = \frac{Z_a-Z_L}{Z_a+Z_L} %TODO iirc war die Gleichung falsch (+- getauscht) und ist so richtig. ergibt auch Sinn.
 	\end{equation}
-	Dabei ist der  Leitungswiderstand
+	Dabei ist der  Leitungswiderstand für verlustfreie Leiter ($R'=L'=0$) und $x>0$
 	\begin{equation}
-		Z_L=\sqrt{\frac{L'}{C'}}.
+		Z_L:=\frac{U(x)}{I(x)}=\sqrt{\frac{L'}{C'}}.
 	\end{equation}
-	Der Abschlusswiderstand $Z_a$ soll also gleich zum Leitungswiderstand sein.
+	Der Abschlusswiderstand $Z_a:=U(0)/I(0)$ soll also gleich zum Leitungswiderstand sein.
 
 	Beim Reflexionskoeffizient entspricht $r=-1=1 \cdot e^{i\pi}$ einem Phasensprung von $\pi$.
 
 	\subsection{Stehende Wellen}
 
 	Stehende Wellen zeichnen sich dadurch aus, dass sie Knotenpunkte besitzen, an denen der Ausschlag stets Null ist und deren Position zeitlich konstant ist.
-	Sie treten bei vollständiger Reflexion, also $| r | < 1	$, an eienr Barriere auf.
+	Sie treten bei vollständiger Reflexion, also $| r | = 1	$, an einer Barriere auf.
 
-	Bei Betrachtung einer verlustlosen Leitungder Länge $l$, die an beiden Enden vollständig reflektiert, ergibt sich für die transmittierte Leistung die Airy-Funktion:
+	Bei Betrachtung einer verlustlosen Leitung der Länge $l$, die an beiden Enden vollständig reflektiert, ergibt sich für die transmittierte Leistung die Airy-Funktion:
 
 	\begin{align}
 		P_t = \frac{|U_h|^2}{Z_L} \cdot \left( \frac{T}{1-R} \right) ^2 \cdot \frac{1}{1+F \sin^2 \left( \frac{\phi}{2} \right) } \\
@@ -221,7 +221,7 @@
 
 	In \cref{fig_richtkoppler} ist das Prinzip eines Richtkopplers dargestellt.
 	Dieser basiert auf konstruktiver oder destruktiver Interferenz.
-	Wird angenommen, dass ein Signal über Leichtung 1 einläuft, so ist schnell festzustellen, dass das Signal über die beiden direkten Wege dieselbe Strecke zurücklegt, also keine Laufzeitdifferenz aufweist, sodass an 4 konstruktive Interferenz herrscht, das Signal also übertragen wird. %TODO erwähnen, dass das auch im Kreis laufen kann und dann destruktiv ist?
+	Wird angenommen, dass ein Signal über Leitung 1 einläuft, so ist schnell festzustellen, dass das Signal über die beiden direkten Wege dieselbe Strecke zurücklegt, also keine Laufzeitdifferenz aufweist, sodass an 4 konstruktive Interferenz herrscht, das Signal also übertragen wird. %TODO erwähnen, dass das auch im Kreis laufen kann und dann destruktiv ist?
 	Die übertragene Leistung hängt von der Stärke der Kopplung ab.
 	Wenn andersherum ein Signal von 1 nach 3 läuft, ergibt sich ein Laufzeitunterschied von $\lambda/2$ zwischen den beiden wahrscheinlichsten (und gleichwahrscheinlichen, wenn Kopplung 1 und 2 gleich sind) Wegen.
 	Dementsprechend tritt destruktive Interferenz auf.
@@ -556,6 +556,7 @@
 	\label{tb_res}
 \end{table}
 	\subsubsection*{Diskussion}
+	%TODO sieht qualitativ wie Airy fkt aus.
 
 	In \cref{fig_leistung_100} und \cref{fig_leistung_122} sind die Leistungsabfälle bei den Resonanzfrequenzen deutlich zu erkennen und die Auftragung der Abstände der Minima in \cref{fig_fit_100} und \cref{fig_fit_122} zeigen, dass die Abweichungen vom mittleren Abstand sehr gering sind.
 
