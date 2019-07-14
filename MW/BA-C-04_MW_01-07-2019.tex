@@ -107,8 +107,8 @@
 	Die untersuchten Bauteile waren ein Isolator (Richtleitung), ein Richtkoppler und zwei Zirkulatoren.
 	Aus diesen Messungen werden Operationsbandbreiten bestimmt und mit den Herstellerinnenangaben verglichen, was in manchen Fällen zu leichten Diskrepanzen führt.
 
-	Weiterhin werden in einem Koaxialkabel stehende Wellen herbeigefürt und  mithilfe der Frequenzabstände, unter denen Resonanzen auftreten, die relative Permittivität der zwei verwendeten Kabel bestimmt.
-	Mithilfe dieser wird vermutet, dass es sich bei den Materialien der Dielectrica der beiden Kabel und Polyethylenschaum und Teflon handelt.
+	Weiterhin werden in einem Koaxialkabel stehende Wellen herbeigeführt und  mithilfe der Frequenzabstände, unter denen Resonanzen auftreten, die relative Permittivität der zwei verwendeten Kabel bestimmt.
+	Mithilfe dieser wird vermutet, dass es sich bei den Materialien der Dielektrika der beiden Kabel und Polyethylenschaum und Teflon handelt.
 
   \section{Theorie}
 	% wdh. Texte
@@ -261,10 +261,10 @@
 	\subsection{Zirkulator und Richtleitung}
 
 	Ein Zirkulator hat, wie in \cref{fig_zirkulator} schematisch dargestellt drei Ein- bzw. Ausgänge, die jeweils in Richtung eines Ausgangs transmittieren und in Richtung des anderen isolieren.
-	Dies wird herbeigefürt, indem ein dielektrisches Material mit doppelbrechenden Eigenschaften für die Transmission der Wellen verwendet wird.
+	Dies wird herbeigeführt, indem ein dielektrisches Material mit doppelbrechenden Eigenschaften für die Transmission der Wellen verwendet wird.
 	Dann wird Interferenz ausgenutzt, um an je einem Ausgang konstruktive und am anderen destruktive Interferenz zu erzeugen.
 
-	Man definiert für für die drei Eingänge jeweils:
+	Man definiert für die drei Eingänge jeweils:
 	\begin{align}
 		\text{Durchlassdämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_2} \right) } \si{\deci \bel}
 		\label{eq_durchlassd}\\
@@ -334,7 +334,7 @@
 	Es wird der in \cref{fig_aufbau_bauteile} dargestellte Aufbau mit der zuvor vermessenen Diode verwendet.
 	Dann wird für die im Folgenden genannten Bauteile Messungen auf einem jeweils etwas breiteren Frequenzband, als laut Hersteller empfohlen, durchgeführt.
   Bei den Messungen wird jeweils bei fester Eingangsleistung die Ausgangsspannung der Diode gemessen.
-	Vermessen werden Isolator (Richtleitung), Richtkoppler und zwei verschiedene Zirkulatoren (jeweils nur zwischen zwei Ein- bzw- Ausgängen).
+	Vermessen werden Isolator (Richtleitung), Richtkoppler und zwei verschiedene Zirkulatoren (jeweils nur zwischen zwei Ein- bzw. Ausgängen).
 	Als Eingangsleistung werden im Folgenden immer \SI{10}{dBm} gewählt.
 
 	\begin{figure}[H]
@@ -355,9 +355,9 @@
 	Hierbei ist anzumerken, dass streng genommen abhängig von der Art des Abschlusses ein unterschiedlicher Phasensprung $\phi$ an diesem Ende des Kabels auftritt, sodass nicht von einem Vielfachen gesprochen werden kann, sondern die Weglänge $s = n\lambda - \phi$ sein muss.
 	Da jedoch in der Auswertung nur die Frequenzdifferenz zwischen den Resonanzen betrachtet wird, spielt das hier keine Rolle.
 
-	Wann immer stehende Wellen auftreteten, kommt ausschließlich die am Koppler reflektierte Leistung an der Messdiode an, sodass die gemessene Spannung hier geringer ist, als wenn Wellen die Messleitung wieder über den Koppler verlassen können.
+	Wann immer stehende Wellen auftreten, kommt ausschließlich die am Koppler reflektierte Leistung an der Messdiode an, sodass die gemessene Spannung hier geringer ist, als wenn Wellen die Messleitung wieder über den Koppler verlassen können.
 	%TODO habe ich das richtig verstanden?
-	Der Zirkulator sorgt dafür, dass näherungsweise keine Wellen vom Generator direkt an der Messdiode ankommen und keine am Koppler reflektierten Wellen wieder im Mikrowellengenerator enlaufen.
+	Der Zirkulator sorgt dafür, dass näherungsweise keine Wellen vom Generator direkt an der Messdiode ankommen und keine am Koppler reflektierten Wellen wieder im Mikrowellengenerator einlaufen.
 
 	Es wird für zwei verschiedene Kabel in einem Frequenzbereich von \SIrange{2,5}{3,5}{\giga \hertz} die Spannung am Multimeter gemessen.
 
@@ -413,7 +413,7 @@
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
 	Wie in \cref{fig_diode_kali} ist zu erkennen, dass sich die Annahme eines exponentiellen Zusammenhangs zwischen Leistung und Spannung an der Diode bestätigen lässt.
-	Wrum die drei Punkte am oberen Ende der gemessenen Leistung scheinbar horizontal verlaufen, kann nicht mit Sicherheit geklärt werden.
+	Warum die drei Punkte am oberen Ende der gemessenen Leistung scheinbar horizontal verlaufen, kann nicht mit Sicherheit geklärt werden.
 	Es liegt jedoch die Vermutung nahe, dass eines der Bauteile oder Messgeräte in einen Sättigungsbereich kommt, sodass die gemessene Spannung konstant wird.
 
 	\subsection{Isolator (Richtleitung)}
@@ -489,15 +489,16 @@
 	Für den ersten Zirkulator (Modell: F61-1FFF, S/N: 9594) kann ein Verwendungsbereich von \SIrange{2}{4}{\giga \hertz} angegeben werden.
 	Dies entspricht der Herstellerinnenangabe.
 	Die Angabe der Sperrdämpfung mit \SIrange{20,36}{29,14}{dB} (je nach Frequenz und verwendetem Eingang) entspricht ebenfalls der Messung.
-	%TODO soll insertion loss Durchlassdämpfung sein? Das passt halt nicht sehr gut.
+	%TODO soll insertion loss Durchlassdämpfung sein? Das passt halt nicht sehr gut. ja
 
 	Für den zweiten Zirkulator (Modell: H60-1FFF, S/N: 12893) ergibt sich ein Frequenzbereich von \SIrange{4}{8,3}{\giga \hertz}, was die Herstellerinnenangabe von \SIrange{4}{8}{\giga \hertz} beinhaltet.
 	Die Sperrdämpfung wird mit \SIrange{21,5}{36,08}{dB} angegeben.
 	In der Messung fiel diese jedoch bis auf \SI{19,66 \pm 0,17}{dB} ab.
-	%TODO Durchlassdämpfung wie oben.
+	%TODO Durchlassdämpfung wie oben. ja
 
 	\subsection{Stehende Wellen}
 	In \cref{fig_steh_well} sind die Leistungsspektren der zwei vermessenen am Ende kurzgeschlossenen Kabel aufgeführt.
+	Die Resonanzfrequenzen sind in rot markiert.
 
 	\begin{figure}[H]
         \centering
@@ -570,9 +571,9 @@
 
 	In \cref{fig_leistung_100} und \cref{fig_leistung_122} sind die Leistungsabfälle bei den Resonanzfrequenzen deutlich zu erkennen und die Auftragung der Abstände der Minima in \cref{fig_fit_100} und \cref{fig_fit_122} zeigen, dass die Abweichungen vom mittleren Abstand sehr gering sind.
 
-	Die Berechnung der relativen Permittivitätszahlen in \cref{tb_res} zeigen, dass angenommen werden kann, dass für die Dielectrica der beiden Koaxialkabel verschiedene Materialien verwedet wurden.
+	Die Berechnung der relativen Permittivitätszahlen in \cref{tb_res} zeigen, dass angenommen werden kann, dass für die Dielektrika der beiden Koaxialkabel verschiedene Materialien verwendet wurden.
 
-	Übliche Dielectrica sind Polyethylen (fest oder schaumförmig), Teflon und Luft (mit Abstandshaltern).
+	Übliche Dielektrika sind Polyethylen (fest oder schaumförmig), Teflon und Luft (mit Abstandshaltern).
 	Teflon hat eine relative Permittivität von etwa \SI{2}{} \cite{Hippel}, was innerhalb der Unsicherheit der Messung für das kürzere Kabel entspricht.
 	Dem anderen Kabel kann kein Material eindeutig zugeordnet werden.
 	Dies spricht für ein schaumförmiges Plastik, für das sich aus Schaum und eingeschlossenem Gas eine zwischen den Permittivitäten der einzelnen Materialien liegende Permittivität ergibt.
@@ -582,10 +583,10 @@
 	Insgesamt lässt sich sagen, dass alle Messungen erfolgreich durchgeführt werden konnten.
 	So konnten die Dämpfungen verschiedener Bauteile in Abhängigkeit von der Frequenz bestimmt werden.
 	Für diese Bauteile wurde der Frequenzbereich angegeben, in dem die Dämpfungen näherungsweise konstant sind, in denen die Bauteile also verwendet werden sollten.
-	Der Vergleich dieses Frequenzbereiches mit den Angaben der Herstellerin führte teilweise zu BEstätigung, teilweise zu Diskrepanz.
+	Der Vergleich dieses Frequenzbereiches mit den Angaben der Herstellerin führte teilweise zu Bestätigung, teilweise zu Diskrepanz.
 
-	Außerdem konnten stehende Wellen in zwei verschiedenen Koaxialkabeln nachgewiesen werden und die relative Permittivitäten der Dielectrica der beiden Kabel bestimmt werden.
-	Ein Vergleich mit den Permittivitäten von Stoffen, die in Koaxialkabeln üblicherweise als Dielectricum verwendet werden, ließ grobe Schlüsse auf das verwendete Material zu.
+	Außerdem konnten stehende Wellen in zwei verschiedenen Koaxialkabeln nachgewiesen werden und die relative Permittivitäten der Dielektrika der beiden Kabel bestimmt werden.
+	Ein Vergleich mit den Permittivitäten von Stoffen, die in Koaxialkabeln üblicherweise als Dielektrikum verwendet werden, ließ grobe Schlüsse auf das verwendete Material zu.
 
 	% Quellen zitieren, Websiten mit Zugriffsdatum
 	% Verweise auf das Laborbuch (sind erlaubt)
