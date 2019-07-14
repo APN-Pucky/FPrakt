@@ -248,7 +248,7 @@
 
 	\begin{equation}
 		\label{eq_kali}
-		U = A(e^{BP}-C)
+		U = A(e^{P/B}-C)
 	\end{equation}
 
 	\begin{figure}[H]
@@ -265,7 +265,7 @@
 
 	\begin{equation}
 		\label{eq_inv_kali}
-		P = \frac{\log{(U/A+C)}}{B}
+		P = B\log{(U/A+C)}
 	\end{equation}
 	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
@@ -274,9 +274,44 @@
 
 
 	\subsection{Isolator (Richtleitung)}
+	In \cref{fig_isolator} ist die gemessene frequenzabhängige Dämpfung des Isolators in beide Richtungen abgebildet.
+	Hierzu wurde die Spannung wie im vorherigen Abschnitt erläutert in eine Leistung umgerechnet.
+	Die Dämpfung $\alpha$ ist
+	\begin{equation}
+		\alpha = 10 \cdot \log{(P_{\text{in}}/P_{\text{out}})} \cdot \si{dB}
+	\end{equation}
+  mit $P_\text{in}=\SI{10}{dBm}$.
+	Und es folgt mit:
+	\begin{equation}
+		\alpha = 10 \cdot \log{\left(\frac{P_{\text{in}}}{P_{\text{out}}} \cdot \frac{1mW}{1mW}\right)} \cdot\si{dB}
+	\end{equation}
+	\begin{equation}
+		\alpha = (P_\text{in} \text{[dBm]} - P_\text{out} \text{[dBm]} ) \cdot\si{dB}
+	\end{equation}
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/isolator}
+		\centering
+		\caption{
+		Durchlass- und Sperrdämpfung des Isolators in Abhängigkeit der Frequenz des Signals.
+		}
+		\label{fig_isolator}
+		\centering
+	\end{figure}
 	\subsubsection*{Diskussion}
+	%TODO Bandbreite Abschätzen und ggf. vergleichen mit Lit.
 
 	\subsection{Richtkoppler}
+	In analoger Weise erhält man auch die frequenzabhängigen Dämpfungen des Richtkopplers.
+	Wobei $P_\text{in}$ wieder \SI{10}{dBm} ist.
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/richtkop}
+		\centering
+		\caption{
+		Einfüge-, Koppel sowie Isolationsdämpfung des Richtkopplers in Abhängigkeit der Frequenz des Signals.
+		}
+		\label{fig_isolator}
+		\centering
+	\end{figure}
 	\subsubsection*{Diskussion}
 
 	\subsection{Zirkulator}

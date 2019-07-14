@@ -72,10 +72,10 @@ def gauss(x, x0, A, d, y0):
 def exponential(x, c, y0):
     return np.exp(c * x) * y0
 def custom_exp(x,A,B,C):
-    return A*(unp.exp(B*x)-C) # =y
+    return A*(np.exp(x/B)-C) # =y
 
 def inverse_custom_exp(x,A,B,C):
-    return unp.log(x/A+C)/B
+    return unp.log(x/A+C)*B
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
@@ -160,10 +160,10 @@ xd = data[:,0]
 yd = data[:,1]
 plt.plot(xd,yd,"x",label="Messung")
 
-fit = fit_curvefit2(xd[0:-1],yd[0:-1],custom_exp)
+fit = fit_curvefit2(xd[0:-1],yd[0:-1],custom_exp,p0=[0.28,10,0.24])
 xfit = np.linspace(xd[0],xd[-1],4000)
 yfit = custom_exp(xfit, *unv(fit))
-plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s V\nB=%s dBm$^{-1}$\nC=%s"%(fit[0],fit[1],fit[2]))
+plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit U=A*(exp(P/B)-C)\nA=%s V\nB=%s dBm\nC=%s"%(fit[0],fit[1],fit[2]))
 
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
@@ -178,10 +178,10 @@ fig = plt.figure(figsize=fig_size)
 xd = data[:,0]
 yd = data[:,1]
 plt.plot(xd,yd,"x",label="Messung")
-fit = fit_curvefit2(xd[0:-3],yd[0:-3],custom_exp)
+fit = fit_curvefit2(xd[0:-3],yd[0:-3],custom_exp,p0=[0.28,10,0.24])
 xfit = np.linspace(xd[0],xd[-1],4000)
 yfit = custom_exp(xfit, *unv(fit))
-plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s V\nB=%s dBm$^{-1}$\nC=%s"%(fit[0],fit[1],fit[2]))
+plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit U=A*(exp(P/B)-C)\nA=%s V\nB=%s dBm\nC=%s"%(fit[0],fit[1],fit[2]))
 
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
@@ -201,17 +201,17 @@ for i in range(len(names)):
     data = np.loadtxt(name, skiprows = 1)
     xd = data[:,0]
     if i == 0:
-        yd = inverse_custom_exp(data[:,1],*fit)
-        ll = "Durchlass"
+        yd = 10 - inverse_custom_exp(data[:,1],*fit)
+        ll = "Durchlassdämpfung"
     if i == 1:
-        yd = inverse_custom_exp(data[:,1],*fit)
-        ll = "Sperre"
+        yd = 10-inverse_custom_exp(data[:,1],*fit)
+        ll = "Sperrdämpfung"
     #plt.plot(xd,yd,"x",label="Messung")
-    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+    plt.errorbar(xd,unv(yd),usd(yd),fmt=" ",capsize=5,label=ll)
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
-plt.ylabel("Leistung in dBm")
-plt.xlabel("Frequenz in GHz")
+plt.ylabel("Dämpfung α in dB")
+plt.xlabel("Frequenz f in GHz")
 plt.tick_params(labelsize=fig_labelsize)
 plt.savefig("MW/img/" + "isolator" + ".pdf")
 plt.show()
@@ -238,11 +238,11 @@ for i in range(len(names)):
 
 
     #plt.plot(xd,yd,"x",label="Messung")
-    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+    plt.errorbar(xd,unv(yd),usd(yd),fmt=" ",capsize=5,label=ll)
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
-plt.ylabel("Dämpfung in dB")
-plt.xlabel("Frequenz in GHz")
+plt.ylabel("Dämpfung α in dB")
+plt.xlabel("Frequenz f in GHz")
 plt.tick_params(labelsize=fig_labelsize)
 plt.savefig("MW/img/" + "richtkop" + ".pdf")
 plt.show()
