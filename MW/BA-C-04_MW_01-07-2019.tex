@@ -354,16 +354,55 @@
 	%TODO Unsicherheiten
 
 
-	\subsection{Beobachtung und Datenanalyse}
+	\subsection{Unsicherheiten}
+	Alle Unsicherheiten werden nach GUM bestimmt und berechnet.
+	Für diese Berechnungen wurde die Python Bibliothek \enquote{uncertainties} herangezogen, welche den Richtlinien des GUM folgt.
+
+	\subsection{Kalibration der Detektordiode}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-	\subsubsection{Unsicherheiten}
 	% Berechung nach Aufgabenstellung
+	In \cref{fig_diode_kali} sind die aus verschiedenen Eingabeleistungen resultierenden Spannungen mit einer Exponentialfunktion \cref{eq_kali} angepasst worden.
+	Die letzten drei Messpunkte wurden für den Fit ausgeschlossen, da die Diode dort in einen Sättigungsbereich kommt.
 
-	\subsection{Diskussion}
+	\begin{equation}
+		\label{eq_kali}
+		U = A(e^{BP}-C)
+	\end{equation}
+
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/diode-kali}
+		\centering
+		\caption{
+			Am Multimeter gemessene Spannung bei verschiedenen Leistungen.
+			Die Symbole sind größer als die Unsicherheiten.
+		}
+		\label{fig_diode_kali}
+		\centering
+	\end{figure}
+	Mithilfe der Inversen Exponentialfunktion \label{eq_inv_kali} lassen sich im folgenden gemessen Spannungen in eine Leistung umrechnen.
+
+	\begin{equation}
+		\label{eq_inv_kali}
+		P = \frac{\log{(U/A+C)}}{B}
+	\end{equation}
+	\subsubsection*{Diskussion}
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
+
+
+	\subsection{Isolator (Richtleitung)}
+	\subsubsection*{Diskussion}
+
+	\subsection{Richtkoppler}
+	\subsubsection*{Diskussion}
+
+	\subsection{Zirkulator}
+	\subsubsection*{Diskussion}
+
+	\subsection{Stehende Wellen}
+	\subsubsection*{Diskussion}
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser

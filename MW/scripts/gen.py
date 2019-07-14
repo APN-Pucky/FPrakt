@@ -72,7 +72,7 @@ def gauss(x, x0, A, d, y0):
 def exponential(x, c, y0):
     return np.exp(c * x) * y0
 def custom_exp(x,A,B,C):
-    return A*(np.exp(B*x)-C) # =y
+    return A*(unp.exp(B*x)-C) # =y
 
 def inverse_custom_exp(x,A,B,C):
     return unp.log(x/A+C)/B
@@ -160,10 +160,10 @@ xd = data[:,0]
 yd = data[:,1]
 plt.plot(xd,yd,"x",label="Messung")
 
-fit = fit_curvefit2(xd[0:-3],yd[0:-3],custom_exp)
+fit = fit_curvefit2(xd[0:-1],yd[0:-1],custom_exp)
 xfit = np.linspace(xd[0],xd[-1],4000)
 yfit = custom_exp(xfit, *unv(fit))
-plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s\nB=%s\nC=%s"%(fit[0],fit[1],fit[2]))
+plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s V\nB=%s dBm$^{-1}$\nC=%s"%(fit[0],fit[1],fit[2]))
 
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
@@ -181,12 +181,12 @@ plt.plot(xd,yd,"x",label="Messung")
 fit = fit_curvefit2(xd[0:-3],yd[0:-3],custom_exp)
 xfit = np.linspace(xd[0],xd[-1],4000)
 yfit = custom_exp(xfit, *unv(fit))
-plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s\nB=%s\nC=%s"%(fit[0],fit[1],fit[2]))
+plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s V\nB=%s dBm$^{-1}$\nC=%s"%(fit[0],fit[1],fit[2]))
 
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
-plt.ylabel("Spannung in V")
-plt.xlabel("Leistung in dBm")
+plt.ylabel("Spannung  U in V")
+plt.xlabel("Leistung P in dBm")
 plt.tick_params(labelsize=fig_labelsize)
 plt.savefig("MW/img/diode-kali.pdf")
 plt.show()
@@ -292,11 +292,11 @@ for i in range(len(names)):
     yrr = []
 
     yl = 1
-    for i in range(len(yd)):
-        ys = yd[i]
+    for j in range(len(yd)):
+        ys = yd[j]
         if ys < yl:
             yrr.append((xd[1]-xd[0])/(2*np.sqrt(3)))
-            xs.append(xd[i])
+            xs.append(xd[j])
     if i == 0:
         ll = "100"
     if i == 1:
