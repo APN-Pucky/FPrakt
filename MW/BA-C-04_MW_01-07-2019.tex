@@ -217,7 +217,7 @@
 	\end{figure}
 
 
-	\subsection{Richtkoppler}
+	\subsection{Richtkoppler} \label{ss_richt}
 
 	In \cref{fig_richtkoppler} ist das Prinzip eines Richtkopplers dargestellt.
 	Dieser basiert auf konstruktiver oder destruktiver Interferenz.
@@ -243,7 +243,7 @@
 	\begin{align}
 		\text{Koppeldämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_4} \right) } \si{\deci \bel}
 		\label{eq_koppeld}\\
-		\text{Isolation} \quad = 10 \cdot \lg{ \left( \frac{P_2}{P_4} \right) } \si{\deci \bel}
+		\text{Isolationsdämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_2}{P_4} \right) } \si{\deci \bel}
 		\label{eq_isolation}\\
 		\text{Einfügedämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_2} \right) } \si{\deci \bel}
 		\label{eq_einfueged}\\
@@ -391,7 +391,7 @@
 		\label{fig_diode_kali}
 		\centering
 	\end{figure}
-	Mithilfe der Inversen Exponentialfunktion \label{eq_inv_kali} lassen sich im folgenden gemessen Spannungen in eine Leistung umrechnen.
+	Mithilfe der Inversen Exponentialfunktion \cref{eq_inv_kali} lassen sich im folgenden gemessen Spannungen in eine Leistung umrechnen.
 
 	\begin{equation}
 		\label{eq_inv_kali}
@@ -445,7 +445,7 @@
 	Die erste Angabe kann widerlegt werden und die zweite trifft abgesehen von den oben genannten Frequenzen nahe \SI{3}{\giga \hertz} zu.
 
 	\subsection{Richtkoppler}
-	In analoger Weise erhält man auch die frequenzabhängigen Dämpfungen des Richtkopplers.
+	In analoger Weise erhält man auch die frequenzabhängigen Dämpfungen des Richtkopplers, wie in \cref{ss_richt} definiert.
 	Wobei $P_\text{in}$ wieder \SI{10}{dBm} ist.
 	\begin{figure}[H]
 		\includegraphics[width=0.8\textwidth]{img/richtkop}
@@ -463,7 +463,7 @@
 	%TODO da sind noch andere Angaben, aber die verstehe ich teilweise nicht und sie sind ultra gelogen.
 
 	\subsection{Zirkulator}
-	Ebenfalls analog ist die Bestimmung von Durchlass und Sperrdämpfung von Zirkulatoren.
+	Ebenfalls analog zum Isolator ist die Bestimmung von Durchlass und Sperrdämpfung von Zirkulatoren.
 	In \cref{fig_zirk} ist  $P_\text{in}=\SI{10}{dBm}$.
 	\begin{figure}[H]
 		\includegraphics[width=0.8\textwidth]{img/zirkulator}
@@ -487,7 +487,7 @@
 	%TODO Durchlassdämpfung wie oben.
 
 	\subsection{Stehende Wellen}
-	In \cref{fig_steh_well} sind die Leistungsspektren der zwei vermessenen kurzgeschlossenen Kabel aufgeführt.
+	In \cref{fig_steh_well} sind die Leistungsspektren der zwei vermessenen am Ende kurzgeschlossenen Kabel aufgeführt.
 
 	\begin{figure}[H]
         \centering
@@ -539,7 +539,9 @@
 	c = 2l\Delta f
 	\end{equation}
 	Der Frequenzabstand $\Delta f$ wird durch den Fit gemittelt.
-	Die Permittivitätszahl des Dielektrikums ist $\epsilon_r=(c_0/c)^2$, wobei $c_0$ die Lichtgeschwindigkeit im Vakuum ist und $\mu_r=1$ genährt wird.
+	Die Unsicherheit der Resonanzfrequenzen $f_n$ ergibt sich aus der Abtastfrequenz, also dem Abstand von Frequenzen in welchem die Leistungen gemessen werden.
+	Mit einer Rechteckverteilung resultiert $u(f_n)= \SI{5}{MHz}/\sqrt{3}$.
+	Die Permittivitätszahl des Dielektrikums ist $\epsilon_r=(c_0/c)^2$, wobei $c_0$ die Lichtgeschwindigkeit im Vakuum ist und die Permeabilitätszahl $\mu_r=1$ genährt wird.
 	Die Ergebnisse sind in \cref{tb_res} aufgeführt.
 
 \begin{table}[H]

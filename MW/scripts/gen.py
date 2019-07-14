@@ -47,6 +47,18 @@ def mean(n):
     err = stat.variance(unv(n))
     return unc.ufloat(unv(k), math.sqrt(usd(k)**2 + err))
 
+def next_min_index(array,index):
+    mmax = len(array)
+    last = array[index]
+    i = index
+    while i < mmax:
+        i = i+1
+        if array[i] < last:
+            last = array[i]
+        else:
+            return i-1
+    return -1
+
 def fft(y):
     N = len(y)
     fft = scipy.fftpack.fft(y)
@@ -240,7 +252,7 @@ for i in range(len(names)):
     #plt.plot(xd,yd,"x",label="Messung")
     plt.errorbar(xd,unv(yd),usd(yd),fmt=" ",capsize=5,label=ll)
 plt.grid()
-plt.legend(prop={'size':fig_legendsize})
+plt.legend(prop={'size':fig_legendsize},loc=1)
 plt.ylabel("Dämpfung α in dB")
 plt.xlabel("Frequenz f in GHz")
 plt.tick_params(labelsize=fig_labelsize)
@@ -267,6 +279,7 @@ for i in range(len(names)):
         ll = "Durchlassdämpfung 12893"
     if i == 3:
         ll = "Sperrdämpfung 12893"
+        print(yd[next_min_index(yd,find_nearest_index(xd,6.5))])
     #plt.plot(xd,yd,"x",label="Messung")
     plt.errorbar(xd,unv(yd),usd(yd),fmt=" ",capsize=5,label=ll)
 plt.grid()
@@ -300,7 +313,7 @@ for i in range(len(names)):
     for j in range(len(yd)):
         ys = yd[j]
         if ys < yl:
-            yrr.append((xd[1]-xd[0])/(2*np.sqrt(3)))
+            yrr.append((xd[1]-xd[0])/(np.sqrt(3)))
             xs.append(xd[j])
     if i == 0:
         ll = "100"
