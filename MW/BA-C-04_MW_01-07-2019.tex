@@ -257,6 +257,14 @@
 	Dies wird herbeigefürt, indem ein dielektrisches Material mit doppelbrechenden Eigenschaften für die Transmission der Wellen verwendet wird.
 	Dann wird Interferenz ausgenutzt, um an je einem Ausgang konstruktive und am anderen destruktive Interferenz zu erzeugen.
 
+	Man definiert für für die drei Eingänge jeweils:
+	\begin{align}
+		\text{Durchlassdämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_2} \right) } \si{\deci \bel}
+		\label{eq_durchlassd}\\
+		\text{Sperrdämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_3} \right) } \si{\deci \bel}
+		\label{eq_sperrd}\\
+	\end{align}
+
 	\begin{figure}[H]
 		\includegraphics[width=0.3\textwidth]{img/zirkulator.png}
 		\centering
@@ -340,6 +348,7 @@
 	Da jedoch in der Auswertung nur die Frequenzdifferenz zwischen den Resonanzen betrachtet wird, spielt das hier keine Rolle.
 
 	Wann immer stehende Wellen auftreteten, kommt ausschließlich die am Koppler reflektierte Leistung an der Messdiode an, sodass die gemessene Spannung hier geringer ist, als wenn Wellen die Messleitung verlassen können.
+	%TODO habe ich das richtig verstanden?
 
 	\begin{figure}[H]
 		\includegraphics[width=0.8\textwidth]{img/aufbau_resonanzen.png}
@@ -364,7 +373,8 @@
 	% Einflüsse von veränderten Parametern auf Messung
 	% Berechung nach Aufgabenstellung
 	In \cref{fig_diode_kali} sind die aus verschiedenen Eingabeleistungen resultierenden Spannungen mit einer Exponentialfunktion \cref{eq_kali} angepasst worden.
-	Die letzten drei Messpunkte wurden für den Fit ausgeschlossen, da die Diode dort in einen Sättigungsbereich kommt.
+	Die letzten drei Messpunkte wurden für den Fit ausgeschlossen, da diese nicht mehr der exponentiellen Natur entsprechen.
+	Dementsprechend können Messwerte der Diode in diesem Bereich auch nicht mehr zuverlässig umgerechnet werden.
 
 	\begin{equation}
 		\label{eq_kali}
@@ -392,6 +402,9 @@
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 
+	Wie in \cref{fig_diode_kali} ist zu erkennen, dass sich die Annahme eines exponentiellen Zusammenhangs zwischen Leistung und Spannung an der Diode bestätigen lässt.
+	Wrum die drei Punkte am oberen Ende der gemessenen Leistung scheinbar horizontal verlaufen, kann nicht mit Sicherheit geklärt werden.
+	Es liegt jedoch die Vermutung nahe, dass eines der Bauteile oder Messgeräte in einen Sättigungsbereich kommt, sodass die gemessene Spannung konstant wird.
 
 	\subsection{Isolator (Richtleitung)}
 	In \cref{fig_isolator} sind die gemessene frequenzabhängige Dämpfungen des Isolators in beide Richtungen abgebildet.
@@ -420,6 +433,17 @@
 	\subsubsection*{Diskussion}
 	%TODO Bandbreite Abschätzen und ggf. vergleichen mit Lit.
 
+	Anhand von \cref{fig_isolator} soll abgeschätzt werden, welcher Frequenzbereich für die Verwendung brauchbar ist.
+	Dies ist im Allgemeinen der Bereich, in dem die Durchlassdämpfung gering und die Sperrdämpfung groß ist.
+	Weiterhin sollen beide Dämpfungen auch in guter Näherung konstant sein.
+
+	Aus diesen Kriterien ergibt sich für den verwendeten Isolator (Narda 60583) ein Frequenzband von \SIrange{3,5}{8,3}{\giga \hertz}.
+	Die Herstellerin gibt einen Frequenzbereich von \SIrange{3}{8,5}{\giga \hertz} an.
+	Dies deckt sich zwar im Wesentlichen mit der Angabe auf Basis der Messung, bei Frequenzen sehr nahe an \SI{3}{\giga \hertz} kann jedoch anhand von \cref{fig_isolator} von einer Verwendung abgeraten werden.
+
+	Die Herstellerin gibt außerdem an, dass im Verwendungsbereich die Einfügedämpfung unter \SI{1}{dB} und die Isolation über \SI{20}{dB} liege.
+	Die erste Angabe kann widerlegt werden und die zweite trifft abgesehen von den oben genannten Frequenzen nahe \SI{3}{\giga \hertz} zu.
+
 	\subsection{Richtkoppler}
 	In analoger Weise erhält man auch die frequenzabhängigen Dämpfungen des Richtkopplers, wie in \cref{ss_richt} definiert.
 	Wobei $P_\text{in}$ wieder \SI{10}{dBm} ist.
@@ -434,6 +458,10 @@
 	\end{figure}
 	\subsubsection*{Diskussion}
 
+	Anhand der zuvor beschriebenen Kriterien ergibt sich aus \cref{fig_richt} ein Verwendungsbereich für den Richtkoppler (Narda 4226-10) ein Frequenzbereich von \SIrange{2,6}{17,4}{\giga \hertz}.
+	Die Herstellerin gibt einen Bereich von \SIrange{0,5}{18}{\giga \hertz} an, was bei geringen Frequenzen deutliche Abweichungen von der nominellen Einfüge- und Koppeldämpfung ergeben würde.
+	%TODO da sind noch andere Angaben, aber die verstehe ich teilweise nicht und sie sind ultra gelogen.
+
 	\subsection{Zirkulator}
 	Ebenfalls analog zum Isolator ist die Bestimmung von Durchlass und Sperrdämpfung von Zirkulatoren.
 	In \cref{fig_zirk} ist  $P_\text{in}=\SI{10}{dBm}$.
@@ -447,7 +475,16 @@
 		\centering
 	\end{figure}
 	\subsubsection*{Diskussion}
-	%TODO 9594 u. 12893 pass ca mit lit. Messung png
+	%TODO 9594 pass ca mit lit. Messung png
+	Für den ersten Zirkulator (Modell: F61-1FFF, S/N: 9594) kann ein Verwendungsbereich von \SIrange{2}{4}{\giga \hertz} angegeben werden.
+	Dies entspricht der Herstellerinnenangabe.
+	Die Angabe der Sperrdämpfung mit \SIrange{20,36}{29,14}{dB} (je nach Frequenz und verwendetem Eingang) entspricht ebenfalls der Messung.
+	%TODO soll insertion loss Durchlassdämpfung sein? Das passt halt nicht sehr gut.
+
+	Für den zweiten Zirkulator (Modell: H60-1FFF, S/N: 12893) ergibt sich ein Frequenzbereich von \SIrange{4}{8,3}{\giga \hertz}, was die Herstellerinnenangabe von \SIrange{4}{8}{\giga \hertz} beinhaltet.
+	Die Sperrdämpfung wird mit \SIrange{21,5}{36,08}{dB} angegeben.
+	In der Messung fiel diese jedoch bis auf \SI{19,66 \pm 0,17}{dB} ab.
+	%TODO Durchlassdämpfung wie oben.
 
 	\subsection{Stehende Wellen}
 	In \cref{fig_steh_well} sind die Leistungsspektren der zwei vermessenen am Ende kurzgeschlossenen Kabel aufgeführt.
@@ -519,6 +556,11 @@
 	\label{tb_res}
 \end{table}
 	\subsubsection*{Diskussion}
+
+	In \cref{fig_leistung_100} und \cref{fig_leistung_122} sind die Leistungsabfälle bei den Resonanzfrequenzen deutlich zu erkennen und die Auftragung der Abstände der Minima in \cref{fig_fit_100} und \cref{fig_fit_122} zeigen, dass die Abweichungen vom mittleren Abstand sehr gering sind.
+
+	Die Berechnung der Permittivitätszahlen in \cref{tb_res} zeigen, dass angenommen werden kann, dass für die Dielectrica der beiden Koaxialkabel verschiedene Materialien verwedet wurden.
+
 
 	\section{Schlussfolgerung}
 	% Rückgriff auf Hypothese und drittes Nennen dieser
