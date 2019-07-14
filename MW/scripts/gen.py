@@ -234,7 +234,7 @@ for i in range(len(names)):
         ll = "Koppeldämpfung"
     if i == 2:
         yd = 10-inverse_custom_exp(data[:,1],*fit)
-        ll = "Isolation"
+        ll = "Isolationsdämpfung"
 
 
     #plt.plot(xd,yd,"x",label="Messung")
@@ -268,17 +268,22 @@ for i in range(len(names)):
     if i == 3:
         ll = "Sperrdämpfung 12893"
     #plt.plot(xd,yd,"x",label="Messung")
-    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+    plt.errorbar(xd,unv(yd),usd(yd),fmt=" ",capsize=5,label=ll)
 plt.grid()
 plt.legend(prop={'size':fig_legendsize})
-plt.ylabel("Dämpfung in dB")
-plt.xlabel("Frequenz in GHz")
+plt.ylabel("Dämpfung α in dB")
+plt.xlabel("Frequenz f in GHz")
 plt.tick_params(labelsize=fig_labelsize)
 plt.savefig("MW/img/" + "zirkulator" + ".pdf")
 plt.show()
 
 # %% stehende welle
+
+
+fig_legendsize = 18
+fig_labelsize = 18
 names = ["MW/raw/steh-100+-1-short-9594-freq.txt","MW/raw/steh-122+-1-short-9594-freq.txt"]
+df = []
 for i in range(len(names)):
     fig = plt.figure(figsize=fig_size)
     name = names[i]
@@ -303,15 +308,16 @@ for i in range(len(names)):
         ll = "122"
     print(yrr)
     #plt.plot(xd,yd,"x",label="Messung")
-    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+    plt.errorbar(xd,unv(yd),usd(yd),fmt=" ",capsize=5,label=ll)
 
     for x in xs:
         fig.gca().axvline(x=x,ymin=0,ymax=7, color='r')
     plt.grid()
     plt.legend(prop={'size':fig_legendsize})
-    plt.ylabel("Leistung in dBm")
-    plt.xlabel("Frequenz in GHz")
+    plt.ylabel("Leistung P in dBm")
+    plt.xlabel("Frequenz f in GHz")
     plt.tick_params(labelsize=fig_labelsize)
+    plt.tight_layout()
     plt.savefig("MW/img/" + ll +  ".pdf")
     plt.show()
 
@@ -322,14 +328,19 @@ for i in range(len(names)):
     yfit = gerade(xfit, *unv(ifit))
 
     fig=plt.figure(figsize=fig_size)
-    plt.errorbar(xd,xs,yerr=yrr,fmt='x',capsize=5,label="Fit Peaks",color = 'r')
-    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%smm,\nb=%s'%(ifit[0],ifit[1]))
-
+    plt.errorbar(xd,xs,yerr=yrr,fmt=' ',capsize=5,label="Fit Peaks",color = 'r')
+    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=xΔf+b\nΔf=%s GHz,\nb=%s GHz'%(ifit[0],ifit[1]))
+    df.append(ifit[0])
     plt.grid()
     plt.legend(prop={'size':fig_legendsize})
-    plt.ylabel('Frequenz in GHz')
+    plt.ylabel('Frequenz f in GHz')
     plt.tick_params(labelsize=fig_labelsize)
 
-    plt.xlabel('Nummer')
+    plt.xlabel('Peaknummer')
+    plt.tight_layout()
     plt.savefig("MW/img/%s"%(ll + "_fit.png"))
     plt.show()
+l = unp.uarray([100,122],[1,1])
+scale = 1e8
+cc = l*df*2/100*1e9 /scale
+out_si_tab("MW/res/tb_res",np.transpose([l,df,cc,(c/scale/cc)**2]))

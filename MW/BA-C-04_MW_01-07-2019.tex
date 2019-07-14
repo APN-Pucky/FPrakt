@@ -164,6 +164,7 @@
 
 	Diese wird maximal für
 	\begin{equation}
+		\label{eq_inter}
 	\sin ^2 \left( \frac{\phi}{2} \right) = 0 \Rightarrow 2k_nl -\varphi_1 - \varphi_2 = 2\pi n,
 	\end{equation}
 	wobei $\varphi_1, \varphi_2 $ die Phasensprünge an den beiden Enden der Leitung sind und $n \in \mathbb{Z}$.
@@ -428,15 +429,91 @@
 		\caption{
 		Einfüge-, Koppel sowie Isolationsdämpfung des Richtkopplers in Abhängigkeit der Frequenz des Signals.
 		}
-		\label{fig_isolator}
+		\label{fig_richt}
 		\centering
 	\end{figure}
 	\subsubsection*{Diskussion}
 
 	\subsection{Zirkulator}
+	Ebenfalls analog ist die Bestimmung von Durchlass und Sperrdämpfung von Zirkulatoren.
+	In \cref{fig_zirk} ist  $P_\text{in}=\SI{10}{dBm}$.
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/zirkulator}
+		\centering
+		\caption{
+	 	Durchlass- und Sperrdämpfung der vermessenen Zirkulatoren in Abhängigkeit der Frequenz des Signals.
+		}
+		\label{fig_zirk}
+		\centering
+	\end{figure}
 	\subsubsection*{Diskussion}
 
 	\subsection{Stehende Wellen}
+	In \cref{fig_steh_well} sind die Leistungsspektren der zwei vermessenen kurzgeschlossenen Kabel aufgeführt.
+
+	\begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.495\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/100}
+            \caption%
+            {Leistung, Kabel 1}
+            \label{fig_leistung_100}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.495\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/100_fit}
+            \caption[]%
+            {Fit, Kabel 1}
+            \label{fig_fit_100}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.495\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/122}
+            \caption%
+            {Leistung, Kabel 2}
+            \label{fig_leistung_122}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.495\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/122_fit}
+            \caption[]%
+            {Fit, Kabel 2}
+            \label{fig_fit_122}
+        \end{subfigure}
+        \caption%
+        {
+					Leistungsspektrum von zwei Kabeln ($l_1 = \SI{100+-1}{cm}$ und $l_2 = \SI{122+-1}{cm}$), sowie jeweilig ein Fit der Peakpositionen.
+				}
+        \label{fig_steh_well}
+    \end{figure}
+
+	Aus dem Abstand der Frequenzen bei denen eine Resonanz auftritt lässt sich die Ausbreitungsgeschwindigkeit im Medium bestimmen.
+
+	\cref{eq_inter} lässt sich mittels $k_n = 2\pi f_n/c$ umschreiben zu:
+	\begin{equation}
+		2\pi n = l\cdot2\pi f_n /c -\phi_1 - \phi_2
+	\end{equation}
+	Und es folgt mit $\Delta f = f_{n+1}-f_n$:
+	\begin{equation}
+	c = 2l\Delta f
+	\end{equation}
+	Der Frequenzabstand $\Delta f$ wird durch den Fit gemittelt.
+	Die Ergebnisse sind in \cref{tb_res} aufgeführt.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ c | c | c | c }
+		 $l$ in \si{cm} & $\Delta f$ in \si{GHz} &  $c$ in $10^8$ \si{m/s} & $\epsilon_r$ \\ \hline
+		 \input{res/tb_res}
+	\end{tabular}
+	\caption{
+	Gemessene Länge $l$ der Kabel und Resonanzabstände $\Delta f$ sowie daraus ermittelte Ausbreitungsgeschwindigkeit $c$ und Permittivitätszahl $\epsilon_r$.
+	}
+	\label{tb_res}
+\end{table}
 	\subsubsection*{Diskussion}
 
 	\section{Schlussfolgerung}
