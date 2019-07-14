@@ -151,13 +151,33 @@ grad = 1/rad
 # Unsicherheiten
 
 
-# %% diode
-data = np.loadtxt("MW/raw/diode-leistung.txt", skiprows = 1)
+# %% diode al
+
+#data = np.loadtxt("MW/raw/diode-leistung.txt", skiprows = 1)
+data = np.loadtxt("MW/raw/kennlinie-aletal.txt", skiprows = 1)
 fig = plt.figure(figsize=fig_size)
 xd = data[:,0]
 yd = data[:,1]
 plt.plot(xd,yd,"x",label="Messung")
 
+fit = fit_curvefit2(xd[0:-3],yd[0:-3],custom_exp)
+xfit = np.linspace(xd[0],xd[-1],4000)
+yfit = custom_exp(xfit, *unv(fit))
+plt.plot(unv(xfit),unv(yfit),linewidth=2, label="Exp Fit y=A*(exp(B*x)-C)\nA=%s\nB=%s\nC=%s"%(fit[0],fit[1],fit[2]))
+
+plt.grid()
+plt.legend(prop={'size':fig_legendsize})
+plt.ylabel("Spannung in V")
+plt.xlabel("Leistung in dBm")
+plt.tick_params(labelsize=fig_labelsize)
+plt.savefig("MW/img/diode-aletal.pdf")
+plt.show()
+
+data = np.loadtxt("MW/raw/diode-leistung.txt", skiprows = 1)
+fig = plt.figure(figsize=fig_size)
+xd = data[:,0]
+yd = data[:,1]
+plt.plot(xd,yd,"x",label="Messung")
 fit = fit_curvefit2(xd[0:-3],yd[0:-3],custom_exp)
 xfit = np.linspace(xd[0],xd[-1],4000)
 yfit = custom_exp(xfit, *unv(fit))
@@ -256,3 +276,60 @@ plt.xlabel("Frequenz in GHz")
 plt.tick_params(labelsize=fig_labelsize)
 plt.savefig("MW/img/" + "zirkulator" + ".pdf")
 plt.show()
+
+# %% stehende welle
+names = ["MW/raw/steh-100+-1-short-9594-freq.txt","MW/raw/steh-122+-1-short-9594-freq.txt"]
+for i in range(len(names)):
+    fig = plt.figure(figsize=fig_size)
+    name = names[i]
+    nname =os.path.basename(name)
+    nnname = nname.split('.')[0]
+    data = np.loadtxt(name, skiprows = 1)
+    xd = data[:,0]
+
+    yd = inverse_custom_exp(data[:,1],*fit)
+    xs = []
+    yrr = []
+
+    yl = 1
+    for i in range(len(yd)):
+        ys = yd[i]
+        if ys < yl:
+            yrr.append((xd[1]-xd[0])/(2*np.sqrt(3)))
+            xs.append(xd[i])
+    if i == 0:
+        ll = "100"
+    if i == 1:
+        ll = "122"
+    print(yrr)
+    #plt.plot(xd,yd,"x",label="Messung")
+    plt.errorbar(xd,unv(yd),usd(yd),fmt="x",capsize=5,label=ll)
+
+    for x in xs:
+        fig.gca().axvline(x=x,ymin=0,ymax=7, color='r')
+    plt.grid()
+    plt.legend(prop={'size':fig_legendsize})
+    plt.ylabel("Leistung in dBm")
+    plt.xlabel("Frequenz in GHz")
+    plt.tick_params(labelsize=fig_labelsize)
+    plt.savefig("MW/img/" + ll +  ".pdf")
+    plt.show()
+
+    xd= np.linspace(0,len(xs)-1,len(xs))
+
+    ifit = fit_curvefit2(xd,xs,gerade,yerr=yrr)
+    xfit = np.linspace(xd[0],xd[-1],4000)
+    yfit = gerade(xfit, *unv(ifit))
+
+    fig=plt.figure(figsize=fig_size)
+    plt.errorbar(xd,xs,yerr=yrr,fmt='x',capsize=5,label="Fit Peaks",color = 'r')
+    plt.plot(unv(xfit), unv(yfit), color = 'green',linewidth=2, label='Linear Fit f=ax+b\na=%smm,\nb=%s'%(ifit[0],ifit[1]))
+
+    plt.grid()
+    plt.legend(prop={'size':fig_legendsize})
+    plt.ylabel('Frequenz in GHz')
+    plt.tick_params(labelsize=fig_labelsize)
+
+    plt.xlabel('Nummer')
+    plt.savefig("MW/img/%s"%(ll + "_fit.png"))
+    plt.show()
