@@ -203,7 +203,7 @@
 
 	Wenn Mikrowellenleitungen auf Platinen verbaut werden sollen, ist die Koaxialleitung unpraktikabel.
 	Hier kommt die Mikrostreifenleitung zum Einsatz, die, wie in \cref{fig_mikrostreifen} dargestellt, aus einem Leiter, der durch ein Dielektrikum von einer leitenden Fläche getrennt wird, besteht.
-	Dies ist eine Kompromisslösung, da sie außerhalb verlaufende Feldlinien hat.
+	Dies ist eine Kompromisslösung, da sie außerhalb verlaufende Feldlinien besitzt.
 
 	\begin{figure}[H]
 		\includegraphics[width=0.8\textwidth]{img/mirkostreifen}
@@ -218,18 +218,137 @@
 
 	\subsection{Richtkoppler}
 
+	In \cref{fig_richtkoppler} ist das Prinzip eines Richtkopplers dargestellt.
+	Dieser basiert auf konstruktiver oder destruktiver Interferenz.
+	Wird angenommen, dass ein Signal über Leichtung 1 einläuft, so ist schnell festzustellen, dass das Signal über die beiden direkten Wege dieselbe Strecke zurücklegt, also keine Laufzeitdifferenz aufweist, sodass an 4 konstruktive Interferenz herrscht, das Signal also übertragen wird. %TODO erwähnen, dass das auch im Kreis laufen kann und dann destruktiv ist?
+	Die übertragene Leistung hängt von der Stärke der Kopplung ab.
+	Wenn andersherum ein Signal von 1 nach 3 läuft, ergibt sich ein Laufzeitunterschied von $\lambda/2$ zwischen den beiden wahrscheinlichsten (und gleichwahrscheinlichen, wenn Kopplung 1 und 2 gleich sind) Wegen.
+	Dementsprechend tritt destruktive Interferenz auf.
 
-	\subsection{Zirkulator}
+	So ergibt sich die Funktionsweise des Richtkopplers, die Wellen, welche von 1 nach 2 laufen auf Ausgang 4 koppelt, während Wellen, die von 2 nach 1 laufen auf Ausgang 3 gekoppelt werden.
 
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/richtkoppler.png}
+		\centering
+		\caption{
+			Schamtische Darstellung eines Richtkopplers. Der Abstand zwischen den Kopplungen entspricht einer Weglänge von $\lambda/4$. \cite{Anleitung}
+		}
+		\label{fig_richtkoppler}
+		\centering
+	\end{figure}
 
-	\subsection{Isolator (Richtleitung)}
+	Man definiert:
 
+	\begin{align}
+		\text{Koppeldämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_4} \right) } \si{\deci \bel}
+		\label{eq_koppeld}\\
+		\text{Isolation} \quad = 10 \cdot \lg{ \left( \frac{P_2}{P_4} \right) } \si{\deci \bel}
+		\label{eq_isolation}\\
+		\text{Einfügedämpfung} \quad = 10 \cdot \lg{ \left( \frac{P_1}{P_2} \right) } \si{\deci \bel}
+		\label{eq_einfueged}\\
+	\end{align}
+
+	Da die Weglängendifferenz natürlich in dieser simplifizierten Variante nur für exakt eine Frequenz passen kann, ist die Bauweise in der Realität komplexer, um eine weitere Bandbreite zuzulassen.
+
+	\subsection{Zirkulator und Richtleitung}
+
+	Ein Zirkulator hat, wie in \cref{fig_zirkulator} schematisch dargestellt drei Ein- bzw. Ausgänge, die jeweils in Richtung eines Ausgangs transmittieren und in Richtung des anderen isolieren.
+	Dies wird herbeigefürt, indem ein dielektrisches Material mit doppelbrechenden Eigenschaften für die Transmission der Wellen verwendet wird.
+	Dann wird Interferenz ausgenutzt, um an je einem Ausgang konstruktive und am anderen destruktive Interferenz zu erzeugen.
+
+	\begin{figure}[H]
+		\includegraphics[width=0.3\textwidth]{img/zirkulator.png}
+		\centering
+		\caption{
+			Schamtische Darstellung eines Zirkulators. \cite{Anleitung}
+		}
+		\label{fig_zirkulator}
+		\centering
+	\end{figure}
+
+	Ein Isolator stellt zwischen je zwei Ausgängen eine Richtleitung da, da nur in eine Richtung laufende Wellen übertragen werden.
+	Dazu muss der andere Ausgang korrekt abgeschlossen werden.
+	Im Versuch wird ein 4-Tor-Zirkulator verwendet, da dieser eine höhere Rückflussdämpfung besitzt.
 
 	\subsection{Detektordiode}
+
+	Um Mikrowellen gleichzurichten, kann eine Diode verwendet werden.
+	Deren Funktionsweise soll im Folgenden kurz beschrieben werden.
+
+	Wenn man einen p-dotierten Halbleiter in direkten Kontakt mit einem n-dotierten bringt oder einfach einen Halbleiter an zwei Seiten unterschiedlich dotiert, nennt man dies einen pn-Übergang.
+
+	Aus energetischen Gründen wandern dann Elektronen und Löcher aufeinander zu und rekombinieren in der Übergangszone.
+	Da hierbei jedoch im n-dotierten Halbleiter Atome mit einem Elektron weniger zurückgelassen werden, als sie Protonen im Kern haben, beginnt sich auf dieser Seite des Halbleiters eine positive Gesamtladung zu sammeln.
+	Gleichzeitig erhalten die Atome im p-dotierten Halbleiter ein Elektron mehr, als sie Protonen im Kern haben, sodass sich hier eine negative Gesamtladung sammelt.
+
+	Das elektrische Feld, das durch die Ladungsdifferenz entsteht wirkt energetisch der Rekombination entgegen, sodass sich ein Gleichgewicht mit einer Raumladungszone zwischen den Halbleitern einstellt.
+	Diese Raumladungszone sorgt für die vielfältigen Eigenschaften des pn-Übergangs, der als Diode fungiert:
+	Wird eine Spannung so angelegt, dass der Pluspol am p-dotierten Halbleiter liegt, baut diese die Raumladungszone ab und es kommt zu einem exponentiellen Anstieg der Stromstärke.
+	Wird die Spannung andersherum angelegt, wird die Raumladungszone verbreitert und die Diode sperrt, sodass der Stromfluss gering (Null) ist.
+
+	Die Diode wird charakterisiert durch die Diodenkennlinie, die die Abhängigkeit vom Stromfluss zur angelegten Spannung angibt und idealerweise der folgenden Gleichung gehorcht:
+	\begin{equation}
+		\label{eq_diode_ideal}
+		I = I_0 \left[ \exp \left( \frac{eU}{n k_B T} \right) -1 \right] %TODO prüfen, ob das schön ist, weil kann ich nicht
+	\end{equation}
+
 
 	\section{Methoden}
 	% Bilder von der Website klauen
 	% einer will Präsens
+
+	\subsection{Diodenkennlinie}
+	Die Diodenkennlinie der im Folgenden verwendeten Messdiode soll aufgenommen werden, um anhand der gemessenen Spannung auf die am Ausgang der verschiedenen Bauteile ankommende Leistung zurückschließen zu können.
+	Dazu wird der in \cref{fig_aufbau_kennlinie} dargestellte Aufbau verwendet.
+	Am Mikrowellengenerator werden verschiedene Leistungen durchgefahren und jeweils die Spannung am Ausgang der Messdiode gemessen.
+	Zur Automatisierung des Messvorgangs wird ein LabView-Programm verwendet.
+
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/aufbau_kennlinie.png}
+		\centering
+		\caption{
+		 	Messaufbau zur Messung der Diodenkennlinie. \cite{Anleitung}
+		}
+		\label{fig_aufbau_kennlinie}
+		\centering
+	\end{figure}
+
+	\subsection{Eigenschaften von Hochfrequenzbauteilen}
+
+	Es wird der in \cref{fig_aufbau_bauteile} dargestellte Aufbau mit der zuvor vermessenen Diode verwendet.
+	Dann wird für die im Folgenden genannten Bauteile Messungen auf einem jeweils etwas breiteren Frequenzband, als laut Hersteller empfohlen, durchgeführt.
+  Bei den Messungen wird jeweils bei fester Eingangsleistung die Ausgangsspannung der Diode gemessen.
+	Vermessen werden Isolator (Richtleitung), Richtkoppler und zwei verschiedene Zirkulatoren (jeweils nur zwischen zwei Ein- bzw- Ausgängen).
+
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/aufbau_bauteile.png}
+		\centering
+		\caption{
+		 	Messaufbau zur Messung der Eigenschaften verschiedener Bauteile. \cite{Anleitung}
+		}
+		\label{fig_aufbau_bauteile}
+		\centering
+	\end{figure}
+
+	\subsection{Stehende Wellen in einem Koaxialkabel}
+
+	Um stehende Wellen in einem Koaxialkabel zu erzeugen, wird der Aufbau in \cref{fig_aufbau_resonanzen} verwendet.
+	Der Koppler wird durch eine Mirkowellenleitung realisiert, welche als Spiegel mit einer Transmittivität von \SI{1}{\percent} und einer Reflektivität von \SI{99}{\percent} (näherungsweise) fungiert.
+	Die Teilwellen, welche in der Messleitung laufen, können, wenn die Weglänge der Wellen in der Messleitung einem Vielfachen ihrer Wellenlänge entspricht, dort stehende Wellen erzeugen.
+	Hierbei ist anzumerken, dass streng genommen abhängig von der Art des Abschlusses ein unterschiedlicher Phasensprung $\phi$ an diesem Ende des Kabels auftritt, sodass nicht von einem Vielfachen gesprochen werden kann, sondern die Weglänge $s = n\lambda - \phi$ sein muss.
+	Da jedoch in der Auswertung nur die Frequenzdifferenz zwischen den Resonanzen betrachtet wird, spielt das hier keine Rolle.
+
+	Wann immer stehende Wellen auftreteten, kommt ausschließlich die am Koppler reflektierte Leistung an der Messdiode an, sodass die gemessene Spannung hier geringer ist, als wenn Wellen die Messleitung verlassen können.
+
+	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{img/aufbau_resonanzen.png}
+		\centering
+		\caption{
+		 	Messaufbau zur Messung von stehenden Wellen in einem Koaxialkabel. Die Messleitung wird ohne Widerstand abgeschlossen (Kurzschluss). \cite{Anleitung}
+		}
+		\label{fig_aufbau_resonanzen}
+		\centering
+	\end{figure}
 
 	\section{Ergebnisse und Diskussion}
 	%TODO Unsicherheiten
