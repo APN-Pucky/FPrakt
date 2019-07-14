@@ -163,7 +163,7 @@
 	Bei Betrachtung einer verlustlosen Leitung der Länge $l$, die an beiden Enden vollständig reflektiert, ergibt sich für die transmittierte Leistung die Airy-Funktion:
 
 	\begin{align}
-		P_t = \frac{|U_h|^2}{Z_L} \cdot \left( \frac{T}{1-R} \right) ^2 \cdot \frac{1}{1+F \sin^2 \left( \frac{\phi}{2} \right) } \\
+		P_t = \frac{|U_h|^2}{Z_L} \cdot \left( \frac{T}{1-R} \right) ^2 \cdot \frac{1}{1+F \sin^2 \left( \frac{\phi}{2} \right) } \label{eq_airy} \\
 		\text{mit dem Finesse-Faktor} \quad F= \frac{4R}{(1-R)^2} \\
 		\text{und} \quad R = |r_1 ||r_2 |, \quad T= |t_1||t_2|,
 	\end{align}
@@ -572,9 +572,9 @@
 	\label{tb_res}
 \end{table}
 	\subsubsection*{Diskussion}
-	%TODO sieht qualitativ wie Airy fkt aus.
 
 	In \cref{fig_leistung_100} und \cref{fig_leistung_122} sind die Leistungsabfälle bei den Resonanzfrequenzen deutlich zu erkennen und die Auftragung der Abstände der Minima in \cref{fig_fit_100} und \cref{fig_fit_122} zeigen, dass die Abweichungen vom mittleren Abstand sehr gering sind.
+	Eine qualitative Betrachtung erlaubt die Feststellung der Vergleichbarkeit zur Airy-Funktion (vgl. \cref{eq_airy}).
 
 	Die Berechnung der relativen Permittivitätszahlen in \cref{tb_res} zeigen, dass angenommen werden kann, dass für die Dielektrika der beiden Koaxialkabel verschiedene Materialien verwendet wurden.
 
