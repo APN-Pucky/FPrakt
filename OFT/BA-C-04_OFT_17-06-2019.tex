@@ -119,8 +119,9 @@
 	Bei der qualitativen Beschreibung der Interferenzfähigkeit unterscheidet man zwischen räumlicher und zeitlicher Kohärenz.
 	Zeitliche Kohärenz kann über Autokorrelation mittels des Michelson-Interferometers gemessen werden.
 	Die Kohärenzlänge ist definiert durch den Abstand (optische Wegdifferenz), der die Länge eines Arms des Interferometers vom Interferenzmaximum wegbewegt werden kann, bevor die durch die Interferenz erzeugte Autokorrelationsfunktion nicht mehr über $1/\text{e}$ steigt.
-	Die Kohärenzlänge ergibt sich aus der Monochromatizität des Lichts, da sich bei perfekt monochromatischem Licht die Phasenbeziehung über keine Entfernung ändert.
+	Die Kohärenzlänge ergibt sich aus der Monochromatizität des Lichts, da sich bei perfekt monochromatischem Licht die Phasenbeziehung nicht über die Entfernung ändert.
 	Die räumliche Kohärenz kann mittels eines Doppelspaltexperiments (oder des Young-Interferometers) gemessen werden, da sie die Phasenbeziehung innerhalb einer Wellenfront beschreibt und der Doppelspalt Interferenz zwischen unterschiedlichen Teilen der Wellenfront realisiert.
+	\cite{Anleitung}
 
 	\subsection{Fouriertransformation}
 	Die Fouriertransformation erlaubt die Zerlegung eines Signals in seine Teilfrequenzen.
@@ -146,6 +147,8 @@
 	Dabei findet eine Spiegelung und Skalierung des Bildes statt.
 
 	Im Nahfeld wird die Beugung dem hingegen durch die Fresnel-Beugung beschrieben.
+	\cite{Anleitung}
+	Die unterschiedlichen Beugungsbilder sind in \cref{fig_fraunfresnel} dargestellt.
 
 	\begin{figure}[H]
 			\includegraphics[width=0.75\linewidth]{img/fraunfresnel}
@@ -177,12 +180,14 @@
 		b = \frac{k\lambda d}{u}
 	\end{equation}
 	$d$ ist dabei der Abstand zwischen Gitter und Schirm.
+	\cite{Anleitung}
 
 	\subsection{4-f-Aufbau}
 	Um eine Filterung einzelner Frequenzen aus einer optischen Fouriertransformation zu erlauben, kann der sog. 4-f-Aufbau verwendet werden.
 	Dazu werden wie in \cref{fig_4f_schema} dargestellt zwei Linsen verwendet, die jeweils im Abstand ihrer Brennweite zwischen Objektebene und Fourierebene bzw. Fourierebene und Bildebene stehen.
 	Nun können mit Spalten eindimensionale Tiefpassfilter, mit Nadeln eindimensionale Hochpässe, mit Klarsichtfolien mit schwarzem Punkt zweidimensionale Hochpassfilter und mit Lochblenden zweidimensionale Tiefpässe realisiert werden.
 	Diese erlauben es periodische Strukturen aus dem Bild zu entfernen.
+	\cite{Anleitung}
 
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/4f_schema}
@@ -197,9 +202,10 @@
 
 	Durch Verwendung eines 4-f-Aufbaus mit einem Hochpassfilter lassen sich Phasenveränderungen durch das Objekt als Intensität auf dem Schirm sichtbar machen.
 	Solche Phasenveränderungen können zum Beispiel durch heiße Luftströmungen auftreten, die einen leicht anderen Brechungsindex und somit eine andere Lichtgeschwindigkeit, aus der die Phasendifferenz folgt, als die umgebende Luft zu eigen haben.
+	\cite{Anleitung}
 
 	\section{Grundaufbau}
-	Es wird ein Helium-Neon-Laser auf einer \SI{4}{m} langen optischen Bank montiert.
+	Es wird ein Helium-Neon-Laser ($ \lambda = \SI{632,8}{nm} $) auf einer \SI{4}{m} langen optischen Bank montiert.
 	Am anderen Ende der Bank wird ein halbtransparenter Schirm aufgestellt, auf den von Hinten eine Digitalkamera gerichtet und fokussiert wird.
 	Der Laser wird mithilfe einer Lochblende parallel zur optischen Bank ausgerichtet.
 	Wenn im Folgenden Linsen eingesetzt werden, wird mithilfe einer Markierung auf einem Schirm sichergestellt, dass der Laserstrahl nach Durchgang durch die Linse noch immer im Mittel parallel zur optischen Bank verläuft, der Laser also mittig durch die Linse läuft. %TODO im Mittel, weil ja nicht jeder Teilstrahl parallel ist. theoretisch auch im vorigen Satz
@@ -207,6 +213,7 @@
 	Im Folgenden wird die Belichtungszeit der Kamera für jede Aufnahme individuell eingestellt, um eine optimale Abzählung der Peaks zu ermöglichen.
 	Hierfür wird auch eine Überbelichtung in Kauf genommen.
 	Dies verhindert einen Vergleich der Intensitäten zwischen einzelnen Aufnahmen, aber ein solcher ist auch nicht notwendig.
+	Dargestellt ist der Grundaufbau in \cref{fig_grundaufbau}.
 
 	\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/grundaufbau}
@@ -251,6 +258,7 @@
 	\subsubsection*{Methode}
 	In den Strahlengang werden zwei Linsen mit $f_1=\SI{50}{mm}$ und $f_2=\SI{100}{mm}$ in einem Abstand von \SI{170}{mm} gebracht, um den Strahl zu kollimieren.
   Dann wird ein Gitter (später Gitter Nr.2) in den Strahl gebracht und in verschiedenen Abständen das Bild auf dem Schirm aufgenommen.
+	Dieser Aufbau ist in \cref{fig_nahfern} abgebildet.
 
 		\begin{figure}[H]
 			\includegraphics[width=1\linewidth]{img/nahfern}
@@ -370,9 +378,10 @@
 	% Bezug/Nutzen oder sonst was
 	% auch hier die Hypothese wiederholen
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
-	In \cref{fig_1_mix_1} kann man deutlich erkennen, dass für einen großen Abstand zwischen Gitter und Schirm das erwartete Beugungsbild bis zu hohen Beugungsordnungen zu erkennen ist.
+	In \crefrange{fig_1_mix_1}{fig_1_mix_2} kann man deutlich erkennen, dass für einen großen Abstand zwischen Gitter und Schirm das erwartete Beugungsbild bis zu hohen Beugungsordnungen zu erkennen ist.
 	Je geringer der Abstand jedoch wird, desto schlechter sind die einzelnen Ordnungen zu unterscheiden, da hier die Fresnel-Beugung bzw. der Übergang zwischen Fresnel- und Fraunhofer-Beugung sichtbar wird.
 	Dies entspricht den Erwartungen, da gemäß der Fraunhofer-Beugung (vgl. \cref{sec_fraunhofer}) erst im Fernfeld das in \cref{sec_gitterbeug} beschriebene Beugungsbild auftritt.
+	Die Nahzone liegt unter \SI{150}{mm}, da hier die Fresnelbeugung noch nicht gut zu erkennen ist und die Fernzone beginnt etwa zwischen \SI{1060}{mm} und \SI{1620}{mm}.
 
 	\subsection{Bestimmung der Gitterkonstanten} \label{ss_2_beug}
 
@@ -511,6 +520,9 @@
 	% keine Messwerte hier, nach manchen Menschen, zumindest "direkt" erstellte Diagramme net hier, auch wenn Lesbarkeit-bla
 	Insgesamt sehen die Intensitätsprofile wie im Fernfeld zu erwarten aus und die Peaks sind bis zu hohen Ordnungen zu erkennen.
 	Die Betrachtung der Fit-Funktionen zeigt auch, dass die Position der Peaks selten stark vom Fit abweicht.
+	Die gemessenen Gitterkonstanten in \cref{tb_2_beug} liegen auch innerhalb einer realistischen Größenordnung, können aber aus Ermangelung solcher nicht mit Herstellerangaben verglichen werden.
+	Rein optisch lässt sich aber feststellen, dass die Gitter mit höherer Nummer (in der Beschriftung) geringere Gitterkonstanten haben, was sich mit den Ergebnissen deckt.
+
 	In \cref{fig_2_profil_g2} sind zwei Maxima auf der linken Seite Beugungsprofil nicht zu erkennen.
 	Dies muss auf ein Untergehen der Peaks im Rauschen durch Hintergrundbeleuchtung zurückgeführt werden.
 	Das teilweise Abschneiden der Spitzen der Maxima aufgrund von Überbelichtung macht die exakte Bestimmung der exakten Maximumsposition etwas schwieriger, erlaubt aber das Erkennen höherer Ordnungen, die bei einer geringeren Belichtungszeit nicht zu erkennen wären.
@@ -657,7 +669,7 @@ Deswegen überrascht nicht, dass hier auch bei einem geringen Abstand vom Schirm
 
 Um höhere Beugungsordnungen zu erkennen, muss die Belichtungszeit so groß gewählt werden, dass niedrige Ordnungen nicht mehr zu erkennen sind.
 Der Grad der Ordnung musste deshalb extrapoliert werden, aber dies war mit großer Sicherheit möglich, wie die geringen Abweichungen von der Fitfunktion in \cref{fig_3_mix_2} zeigen.
-Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass die beiden zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber immer noch nahe genug beieinander liegen, um die Verfahren als äquivalent zu zeigen.
+Der Vergleich der Gitterkonstanten aus den beiden Methoden zeigt, dass die beiden zwar nicht innerhalb der Unsicherheiten übereinstimmen, aber immer noch so nah beieinander liegen, als dass kein Widerspruch zwischen den Verfahren aufgezeigt werden kann.
 Es liegen keine Referenzwerte für die Gitter vor, um einen Vergleich vorzunehmen, welche Methode korrektere Ergebnisse liefert.
 
 Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf Rauschen durch Hintergrundbeleuchtung zurückgeführt werden muss.
@@ -699,8 +711,7 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 
 	\subsubsection*{Beobachtung und Diskussion}
 
-\begin{itemize}
-	\item{Fourier-Schriftzug:}
+	Fourier-Schriftzug:
 		\begin{figure}[H]
 	        \centering
 	        \begin{subfigure}[b]{0.400\textwidth}
@@ -727,7 +738,7 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 	Es ist in  gut zu erkennen, dass mithilfe des Tiefpasses die überlagernde Frequenz herausgefiltert werden konnte.
 	Die Frequenz der Buchstaben ist also ausreichend geringer als die überlagernde Frequenz, dass diese herausgefiltert werden kann, ohne dass die Buchstaben deutlich unscharf werden.
 	Außerdem wurde bestätigt, dass der 4f-Aufbau das Objekt auf den Kopf projiziert.
-	\item{Bruch:}
+	Bruch:
 	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.275\textwidth}
@@ -758,7 +769,8 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 	Analog kann man mittels eines Tiefpassfilters den Zähler eliminieren.
 	%TODO besseren Ansatz habe ich nicht.
 
-	\item{Quadratgitter:}
+	\vspace{0.5cm}
+	\noindent Quadratgitter:
 	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
@@ -835,7 +847,7 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 				}
         \label{fig_4_profil}
     \end{figure}
-	\item{Schraube:}
+	\noindent Schraube:
 	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
@@ -861,8 +873,9 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
     \end{figure}
 	Der Hochpass macht die großen Strukturen unsichtbar und es bleiben nur die Bereiche zu erkennen, in denen schnelle räumliche Änderungen im Bild sind.
 	Dies ist der Rand der Schraube, wo das Gewinde gut zu erkennen ist.
-\newpage
-	\item{Dunkelfeldmethode:}
+
+\newpage %TODO schauen, ob der noch nötig ist.
+	\noindent Dunkelfeldmethode:
 	\begin{figure}[H]
 			\includegraphics[width=0.6\linewidth]{raw/4/4_k_2}
 			\caption{
@@ -874,7 +887,6 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 	Aufgrund der schnellen Bewegung der Strömungen ist es schwer ein Bild aufzunehmen, auf dem sie gut zu erkennen sind.
 	Aber in \cref{fig_air} ist ein solcher Bereich mit Phasendifferenz zu erkennen.
 	Die Tatsache, dass ein Phasenunterschied auftritt, liegt wie in \cref{sec_dunkel} diskutiert am temperaturabhängigen Brechungsindex der Luft.
-\end{itemize}
 
 
 
@@ -889,6 +901,7 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 	Zuletzt wurde ein 4-f-Aufbau verwendet, um verschiedene Arten der Fourierfilterung deutlich zu machen.
 	So wurde mittels Tiefpassfilterung ein überlagertes Gitter vor einem Schriftzug entfernt.
 	Genauso erfolgreich war das Entfernen des durch ein Gitter überlagerten Teil eines Bilds.
+	%TODO mit dem oben angepassten angleichen
 	Anhand eines Quadratgitters wurde gezeigt, dass einzelne Raumrichtungen des Gitters herausgefiltert werden können oder die Gitterkonstante geändert werden kann.
 	Der Effekt von Hochpassfilterung wurde deutlich gemacht.
 	Die Dunkelfeldmethode wurde angewandt, um die Luftströmungen über einer Kerzenflamme sichtbar zu machen.
