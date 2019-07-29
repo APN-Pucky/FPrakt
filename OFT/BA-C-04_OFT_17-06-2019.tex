@@ -393,8 +393,8 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
- In \crefrange{fig_2_mix_1}{fig_2_mix_2} sind die Intensitätsprofile mit Fits zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
- Diese wird ermittelt durch Auftragen der Position der Peaks gegen die Peakordnung.
+ In \crefrange{fig_2_mix_1}{fig_2_mix_2} sind unter anderem die Intensitätsprofile zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
+ Diese wird durch Auftragen der Position der Peaks gegen die Peakordnung und einen linearen Fit derer ermittelt.
  In den Grafiken sind in Rot die Positionen der Peaks markiert, deren Position ist nicht immer eindeutig, unter anderem wegen der Überbelichtung, welche jedoch nötig ist um höhere Peaks sichtbar zu machen, und die Unsicherheit wird mit \SI{1}{mm} abgeschätzt.
  In Magenta sind extrapolierte erwartete Peakpositionen markiert.
 
@@ -762,12 +762,10 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 				}
         \label{fig_4_halb}
     \end{figure}
-	Beim Bruch wird ein Hochpassfilter verwendet, um die 2 im Nenner zu entfernen.
-	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also wäre zu erwarten, dass nur der Zähler übrig bleibt, welcher hohe Frequenzen zum Darstellen scharfer Kanten benötigt.
-	Die 2 verschwindet, da die Frequenz des Gitters gefiltert wird und somit auch die Form der 2.
-	In \cref{fig_4_halb} verschwindet der Nenner und der Zähler bleibt bestehen.
-	Analog kann man mittels eines Tiefpassfilters den Zähler eliminieren.
-	%TODO besseren Ansatz habe ich nicht.
+	Beim Bruch wird ein Hochpassfilter verwendet, was das Gegenteil des gewünschten Effekts zur Folge hat.
+	Der Hochpassfilter lässt nur den Teil des Bildes bestehen, der schnellen Änderungen unterworfen ist, also wäre zu erwarten, dass nur der Nenner übrig bleibt.
+	In \cref{fig_4_halb} verschwindet aber der Nenner und der Zähler bleibt bestehen.
+	Der Filter in Form einer Nadel wurde also wohl nicht korrekt positioniert.
 
 	\vspace{0.5cm}
 	\noindent Quadratgitter:
@@ -916,6 +914,7 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
         \end{subfigure}
 		  \caption{
 				Luftströmungen über Kerze visualisiert mittels Dunkelfeldmethode.
+				Alle Bilder sind zu verschiedenen Zeitpunkten und somit auch bei anderen Luftströmungen aufgenommen.
 			}
         \label{fig_4_air_mix}
     \end{figure}
