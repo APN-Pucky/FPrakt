@@ -272,7 +272,7 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
-	In \cref{fig_1_mix_1} sind sowohl aufgenommen Kamerabilder als auch logarithmische Intensitätsprofile abgebildet.
+	In \crefrange{fig_1_mix_1}{fig_1_mix_2} sind sowohl aufgenommen Kamerabilder als auch logarithmische Intensitätsprofile abgebildet.
 	Die Profile wurden hierbei aus einer anderen Aufnahme mit geringer Belichtungszeit gezogen, da hier eine Überbelichtung und somit ein Abschneiden der Peaks unerwünscht ist, während die Fotografien selbst mit höherer Belichtungszeit besser zu erkennen sind.
 
 	\begin{figure}[H]
@@ -332,7 +332,7 @@
 				}
         \label{fig_1_mix_1}
     \end{figure}
-	\begin{figure}[H]\ContinuedFloat
+	\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.4\textwidth}
             \centering
@@ -393,7 +393,7 @@
 	\subsubsection*{Beobachtung und Datenanalyse}
 	% Allgemeine Beobachtungen
 	% Einflüsse von veränderten Parametern auf Messung
- In \cref{fig_2_mix_1} sind die Intensitätsprofile mit Fits zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
+ In \crefrange{fig_2_mix_1}{fig_2_mix_2} sind die Intensitätsprofile mit Fits zum Bestimmen der Gitterkonstante von fünf Gittern aufgeführt.
  Diese wird ermittelt durch Auftragen der Position der Peaks gegen die Peakordnung.
  In den Grafiken sind in Rot die Positionen der Peaks markiert, deren Position ist nicht immer eindeutig, unter anderem wegen der Überbelichtung, welche jedoch nötig ist um höhere Peaks sichtbar zu machen, und die Unsicherheit wird mit \SI{1}{mm} abgeschätzt.
  In Magenta sind extrapolierte erwartete Peakpositionen markiert.
@@ -462,7 +462,7 @@
 				}
         \label{fig_2_mix_1}
     \end{figure}
-	\begin{figure}[H]\ContinuedFloat
+	\begin{figure}[H]
         \centering
 
 				\begin{subfigure}[b]{0.475\textwidth}
@@ -773,14 +773,13 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 	\noindent Quadratgitter:
 	\begin{figure}[H]
         \centering
-        \begin{subfigure}[b]{0.475\textwidth}
+				\begin{subfigure}[b]{0.475\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltsenkrecht_crop}
+            \includegraphics[width=\textwidth]{raw/4/4_quad_ohne_filter_crop}
             \caption%
-            {\SI{0}{\degree}}
-            \label{fig_4_quad_0}
+            {ohne Filter}
+            \label{fig_4_quad_ohne}
         \end{subfigure}
-        \hfill
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
             \includegraphics[width=\textwidth]{raw/4/4_quad_spaltwaagerecht_crop}
@@ -788,12 +787,20 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
             {\SI{90}{\degree}}
             \label{fig_4_quad_90}
         \end{subfigure}
+        \hfill
 				\begin{subfigure}[b]{0.475\textwidth}
             \centering
             \includegraphics[width=\textwidth]{raw/4/4_quad_spaltdiagonal_crop}
             \caption%
             {\SI{45}{\degree}}
             \label{fig_4_quad_45}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_quad_spaltsenkrecht_crop}
+            \caption%
+            {\SI{0}{\degree}}
+            \label{fig_4_quad_0}
         \end{subfigure}
         \caption%
         {
@@ -876,13 +883,42 @@ Auch hier fehlen einige Ordnungen (in Magenta eingezeichnet), was wie zuvor auf 
 
 \newpage %TODO schauen, ob der noch nötig ist.
 	\noindent Dunkelfeldmethode:
-	\begin{figure}[H]
-			\includegraphics[width=0.6\linewidth]{raw/4/4_k_2}
-			\caption{
+		\begin{figure}[H]
+        \centering
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_k_ohne_filter_crop}
+            \caption%
+            {ohne Filter}
+            \label{fig_air_ohne}
+        \end{subfigure}
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_k4_crop}
+            \caption%
+            {Hochpass}
+            \label{fig_air_3}
+        \end{subfigure}
+				\hfill
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{raw/4/4_k_spa_crop}
+            \caption[]%
+            {Hochpass}
+            \label{fig_air_2}
+        \end{subfigure}
+				\begin{subfigure}[b]{0.475\textwidth}
+            \centering
+						\includegraphics[width=\textwidth]{raw/4/4_k_2}
+            \caption%
+            {Hochpass}
+						\label{fig_air}
+        \end{subfigure}
+		  \caption{
 				Luftströmungen über Kerze visualisiert mittels Dunkelfeldmethode.
 			}
-			\label{fig_air}
-	\end{figure}
+        \label{fig_4_air_mix}
+    \end{figure}
 	Die Luftströmungen sind auf dem Schirm als Flecken unterschiedlicher Helligkeit zu erkennen.
 	Aufgrund der schnellen Bewegung der Strömungen ist es schwer ein Bild aufzunehmen, auf dem sie gut zu erkennen sind.
 	Aber in \cref{fig_air} ist ein solcher Bereich mit Phasendifferenz zu erkennen.
