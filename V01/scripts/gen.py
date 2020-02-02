@@ -130,7 +130,6 @@ unc_p = 0
 
 # %% Kali plot
 # p = peak
-
 data = np.loadtxt("V01/data/kali.txt", skiprows = 0, delimiter = " ")
 xdat = unp.uarray(data[:,0],0)#data[:,1])
 xdat = unp.uarray(data[:,2],0)#data[:,3])
